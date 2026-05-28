@@ -761,7 +761,22 @@ p:last-child { margin-bottom: 0; }
 .share-btn:hover { opacity: .85; transform: translateY(-1px); }
 
 /* 10. PUBLICITÉS (AdSense)
+   ============================================================
+   Les emplacements sont invisibles jusqu'à l'activation d'AdSense.
+   Pour activer : retirer display:none sur .ad-container et .ad-banner-top
    ============================================================ */
+.ad-container {
+  display: none; /* ← retirer quand AdSense est approuvé */
+}
+.ad-banner-top {
+  display: none; /* ← retirer quand AdSense est approuvé */
+}
+.ad-placeholder {
+  display: none;
+}
+
+/* Styles actifs une fois AdSense activé (décommenter) */
+/*
 .ad-container {
   background: var(--color-surface);
   border: 1px dashed var(--color-border);
@@ -770,7 +785,6 @@ p:last-child { margin-bottom: 0; }
   overflow: hidden;
   position: relative;
 }
-/* Label discret */
 .ad-container::before {
   content: 'Publicité';
   display: block;
@@ -780,28 +794,17 @@ p:last-child { margin-bottom: 0; }
   letter-spacing: .05em;
   text-transform: uppercase;
 }
-/* Tailles standards */
-.ad-container--leaderboard { min-height: 90px; }       /* 728×90  */
-.ad-container--rectangle   { min-height: 250px; }       /* 300×250 */
+.ad-container--leaderboard { min-height: 90px; }
+.ad-container--rectangle   { min-height: 250px; }
 .ad-container--inline      { min-height: 100px; margin: var(--sp-8) 0; }
 .ad-container--sidebar     { min-height: 600px; position: sticky; top: calc(var(--header-height) + 16px); }
-
-/* Placeholder dev (avant approbation AdSense) */
-.ad-placeholder {
-  min-height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-xs);
-  color: var(--color-text-muted);
-  background: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 10px,
-    rgba(0,0,0,.02) 10px,
-    rgba(0,0,0,.02) 20px
-  );
+.ad-banner-top {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--sp-2) 0;
+  text-align: center;
 }
+*/
 
 /* 11. PIED DE PAGE
    ============================================================ */
