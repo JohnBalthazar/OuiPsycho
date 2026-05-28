@@ -14,11 +14,11 @@
    CONFIGURATION
    ============================================================ */
 const CONFIG = {
-  dataUrl:      '/data/articles.json',
-  articlesBase: '/articles/',
+  dataUrl:      'data/articles.json',
+  articlesBase: 'articles/',
   perPage:      9,
   siteName:     'Psycho Clair',
-  siteUrl:      'https://psychoclair.fr', // ← Remplacer par votre URL
+  siteUrl:      'https://johnbalthazar.github.io/Esprit-Clair',
 };
 
 /* ============================================================
@@ -293,7 +293,7 @@ async function initArticle() {
   if (!container) return;
 
   const id = getUrlParam('id');
-  if (!id) { window.location.href = '/404.html'; return; }
+  if (!id) { window.location.href = '404.html'; return; }
 
   container.innerHTML = `<div class="article-loading">${skeletons(1)}</div>`;
 
@@ -326,7 +326,7 @@ async function initArticle() {
     pushAds();
 
   } catch (err) {
-    window.location.href = '/404.html';
+    window.location.href = '404.html';
   }
 }
 
@@ -334,9 +334,9 @@ function buildArticleHTML(article) {
   return `
     <header class="article-header">
       <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <a href="/">Accueil</a>
+        <a href="index.html">Accueil</a>
         <span aria-hidden="true">›</span>
-        <a href="/?cat=${esc(article.category || '')}">${esc(article.category || 'Articles')}</a>
+        <a href="index.html?cat=${esc(article.category || '')}">${esc(article.category || 'Articles')}</a>
         <span aria-hidden="true">›</span>
         <span>${esc(article.title)}</span>
       </nav>
