@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Ces balises sont mises à jour dynamiquement par main.js -->
+  <title>Article — Psycho Clair</title>
+  <meta name="description" content="Article sur la santé mentale — Psycho Clair">
+  <meta name="robots" content="index, follow">
+
+  <!-- Open Graph (mis à jour par JS) -->
+  <meta property="og:type"        content="article">
+  <meta property="og:title"       content="Article — Psycho Clair">
+  <meta property="og:description" content="">
+  <meta property="og:url"         content="">
+  <meta property="og:image"       content="">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Psycho Clair">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="Article — Psycho Clair">
+  <meta name="twitter:description" content="">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css">
+
+  <!-- AdSense (décommenter après approbation) -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+</head>
+<body>
+
+  <!-- ============================================================
+       EN-TÊTE (identique à index.html)
+       ============================================================ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="logo" aria-label="Psycho Clair — Accueil">
+        <span class="logo__icon" aria-hidden="true">🧠</span>
+        <span>Psycho Clair</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="site-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="/index.html">Accueil</a>
+        <a class="nav__link" href="/index.html">Articles</a>
+        <a class="nav__link" href="/a-propos.html">À propos</a>
+        <a class="nav__link" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 📢 PUB : Bannière top -->
+  <div class="ad-banner-top" aria-hidden="true">
+    <div class="container">
+      <div class="ad-placeholder" style="max-width:728px;margin:0 auto;height:90px;">
+        Emplacement publicitaire 728×90
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       CONTENU PRINCIPAL
+       ============================================================ -->
+  <div class="container layout article-page">
+
+    <!-- Corps de l'article (injecté par JS) -->
+    <main>
+      <article id="article-content" aria-live="polite">
+        <!-- Chargement... -->
+        <div class="article-loading">
+          <div style="height:30px;width:200px" class="skeleton-box" style="margin-bottom:1rem"></div>
+          <div class="skeleton-line w-80 h-large mt-8"></div>
+          <div class="skeleton-line w-60 h-large"></div>
+          <div class="skeleton-line w-40 mt-8"></div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Sidebar article -->
+    <aside id="article-sidebar" aria-label="Informations complémentaires">
+
+      <!-- Table des matières (remplie par JS) -->
+      <div class="widget" id="toc" aria-label="Table des matières">
+        <!-- Injecté par JS si >= 3 titres -->
+      </div>
+
+      <!-- 📢 PUB : Rectangle sidebar -->
+      <div class="ad-container ad-container--rectangle" aria-hidden="true">
+        <!-- ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="5555555555"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins -->
+        <div class="ad-placeholder" style="height:250px;">Publicité 300×250</div>
+      </div>
+
+      <!-- Articles connexes (rempli par JS) -->
+      <div class="widget" id="related-articles" aria-label="Articles similaires">
+        <!-- Injecté par JS -->
+      </div>
+
+      <!-- 📢 PUB : Sidebar sticky -->
+      <div class="ad-container ad-container--sidebar" aria-hidden="true">
+        <!-- ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+             data-ad-slot="6666666666"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins -->
+        <div class="ad-placeholder" style="height:600px;">Publicité 300×600</div>
+      </div>
+
+    </aside>
+  </div><!-- /layout -->
+
+  <!-- ============================================================
+       PIED DE PAGE
+       ============================================================ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement médical :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement.
+        Il ne constitue en aucun cas un avis médical ou psychologique. En cas de souffrance psychique, consultez
+        un professionnel de santé qualifié ou appelez le <strong>3114</strong> (numéro national, 24h/24, gratuit).
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Psycho Clair</span>
+          </a>
+          <p style="margin-top:1rem">
+            Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Explorer</h4>
+          <ul class="footer-links">
+            <li><a href="/">Accueil</a></li>
+            <li><a href="/?cat=Anxiété">Anxiété</a></li>
+            <li><a href="/?cat=Dépression">Dépression</a></li>
+            <li><a href="/?cat=Bien-être">Bien-être</a></li>
+            <li><a href="/?cat=Stress">Stress</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="/a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+            <li><a href="/politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="/mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© <script>document.write(new Date().getFullYear())</script> Psycho Clair. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bannière cookies -->
+  <div id="cookie-banner" role="dialog" aria-label="Gestion des cookies" aria-live="polite">
+    <p class="cookie-text">
+      🍪 Nous utilisons des cookies pour personnaliser les publicités et analyser le trafic.
+      <a href="/politique-de-confidentialite.html">En savoir plus</a>.
+    </p>
+    <div class="cookie-buttons">
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
+      <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
+    </div>
+  </div>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

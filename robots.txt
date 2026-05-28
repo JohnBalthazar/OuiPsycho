@@ -1,0 +1,12 @@
+# robots.txt — Psycho Clair
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Ne pas indexer les fichiers de données brutes
+Disallow: /data/
+Disallow: /articles/
+
+# Sitemap
+Sitemap: https://psychoclair.fr/sitemap.xml

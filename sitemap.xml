@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SITEMAP — Psycho Clair
+  ⚠️  Remplacer "https://psychoclair.fr" par votre vraie URL avant publication.
+  📌  Soumettre ce fichier dans Google Search Console :
+      https://search.google.com/search-console
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Page d'accueil -->
+  <url>
+    <loc>https://psychoclair.fr/</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Pages statiques -->
+  <url>
+    <loc>https://psychoclair.fr/a-propos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://psychoclair.fr/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://psychoclair.fr/mentions-legales.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>https://psychoclair.fr/politique-de-confidentialite.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+
+  <!--
+    💡 ARTICLES DYNAMIQUES
+    Ajoutez ici une entrée par article publié :
+
+    <url>
+      <loc>https://psychoclair.fr/article.html?id=votre-slug</loc>
+      <lastmod>AAAA-MM-JJ</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+    </url>
+
+    Ou utilisez un script (Node.js, Python) pour générer ce fichier
+    automatiquement depuis /data/articles.json.
+  -->
+
+</urlset>
