@@ -1,17 +1,11 @@
 /**
- * PSYCHO CLAIR — Script principal
- * Gestion du chargement dynamique des articles, filtres, recherche, partage.
- *
- * ⚠️  Avant mise en production :
- *   1. Remplacer CONFIG.siteUrl par votre vraie URL
- *   2. Remplacer "ca-pub-XXXXXXXXXXXXXXXX" par votre Publisher ID AdSense
- *   3. Remplacer les data-ad-slot="XXXXXXXXXX" par vos vrais IDs de blocs pub
+ * PSYCHO CLAIR — Script principal v2
+ * Chargement articles · filtres · featured · barre lecture · partage · cookies
  */
-
 'use strict';
 
 /* ============================================================
-   CONFIGURATION
+   CONFIG
    ============================================================ */
 const CONFIG = {
   dataUrl:      'data/articles.json',
@@ -21,68 +15,42 @@ const CONFIG = {
   siteUrl:      'https://johnbalthazar.github.io/Esprit-Clair',
 };
 
-/* ============================================================
-   CATÉGORIES (couleur badge)
-   ============================================================ */
 const CATEGORIES = {
   'Anxiété':                  { color: '#7C3AED', bg: '#F5F3FF' },
-  'Dépression':               { color: '#2563EB', bg: '#EFF6FF' },
+  'Dépression':               { color: '#1D4ED8', bg: '#EFF6FF' },
   'Bien-être':                { color: '#059669', bg: '#ECFDF5' },
-  'Relations':                { color: '#DB2777', bg: '#FDF2F8' },
-  'Stress':                   { color: '#D97706', bg: '#FFFBEB' },
-  'Sommeil':                  { color: '#0891B2', bg: '#ECFEFF' },
+  'Relations':                { color: '#BE185D', bg: '#FDF2F8' },
+  'Stress':                   { color: '#B45309', bg: '#FFFBEB' },
+  'Sommeil':                  { color: '#0369A1', bg: '#ECFEFF' },
   'Thérapies':                { color: '#6D28D9', bg: '#EDE9FE' },
-  'Développement personnel':  { color: '#16A34A', bg: '#F0FDF4' },
+  'Développement personnel':  { color: '#15803D', bg: '#F0FDF4' },
 };
 
 /* ============================================================
-   UTILITAIRES
+   UTILS
    ============================================================ */
-
-/** Échappe les caractères HTML dangereux */
-function esc(str) {
-  return String(str)
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;');
+function esc(s) {
+  return String(s ?? '')
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
-
-/** Formate une date ISO en français */
-function formatDate(dateStr) {
-  if (!dateStr) return '';
-  return new Date(dateStr).toLocaleDateString('fr-FR', {
-    year: 'numeric', month: 'long', day: 'numeric'
-  });
+function formatDate(d) {
+  if (!d) return '';
+  return new Date(d).toLocaleDateString('fr-FR', { year:'numeric', month:'long', day:'numeric' });
 }
-
-/** Lit un paramètre de l'URL */
-function getUrlParam(name) {
+function getParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
-
-/** Retourne les attributs de style pour la couleur d'une catégorie */
-function catStyle(category) {
-  const c = CATEGORIES[category];
+function catStyle(cat) {
+  const c = CATEGORIES[cat];
   return c ? `style="color:${c.color};background:${c.bg}"` : '';
 }
-
-/** Debounce simple */
-function debounce(fn, ms) {
-  let t;
-  return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
-}
-
-/** Met à jour ou crée un meta tag */
-function setMeta(attr, attrVal, content) {
-  let el = document.querySelector(`meta[${attr}="${attrVal}"]`);
-  if (!el) {
-    el = document.createElement('meta');
-    el.setAttribute(attr, attrVal);
-    document.head.appendChild(el);
-  }
+function setMeta(attr, val, content) {
+  let el = document.querySelector(`meta[${attr}="${val}"]`);
+  if (!el) { el = document.createElement('meta'); el.setAttribute(attr, val); document.head.appendChild(el); }
   el.setAttribute('content', content);
 }
+function debounce(fn, ms) { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); }; }
 
 /* ============================================================
    SKELETONS
@@ -101,17 +69,15 @@ function skeletons(n) {
 }
 
 /* ============================================================
-   RENDU D'UNE CARTE D'ARTICLE
+   RENDU — CARTE STANDARD
    ============================================================ */
-function renderCard(article, featured = false) {
-  const imgStyle = article.image
-    ? `background-image:url('${esc(article.image)}')`
-    : '';
+function renderCard(article) {
+  const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
   return `
-    <article class="card${featured ? ' card--featured' : ''}" data-category="${esc(article.category || '')}">
-      <a href="article.html?id=${esc(article.id)}" class="card__image-link" aria-label="${esc(article.title)}">
-        <div class="card__image" style="${imgStyle}">
-          ${!article.image ? '<span class="card__image-placeholder" aria-hidden="true">🧠</span>' : ''}
+    <article class="card" data-category="${esc(article.category || '')}">
+      <a href="article.html?id=${esc(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
+        <div class="card__image" style="${imgStyle}" data-cat="${esc(article.category || '')}">
+          ${!article.image ? `<span class="card__image-placeholder" aria-hidden="true">🧠</span>` : ''}
         </div>
       </a>
       <div class="card__body">
@@ -122,7 +88,35 @@ function renderCard(article, featured = false) {
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
           <time datetime="${esc(article.date || '')}">${formatDate(article.date)}</time>
-          <span>·</span>
+          <span class="card__meta-dot">•</span>
+          <span>${article.readTime || 5} min de lecture</span>
+        </footer>
+      </div>
+    </article>`;
+}
+
+/* ============================================================
+   RENDU — CARTE FEATURED (premier article, pleine largeur)
+   ============================================================ */
+function renderFeatured(article) {
+  const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
+  return `
+    <article class="card card--featured" data-category="${esc(article.category || '')}" style="margin-bottom:2rem">
+      <a href="article.html?id=${esc(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
+        <div class="card__image" style="${imgStyle}" data-cat="${esc(article.category || '')}">
+          ${!article.image ? `<span class="card__image-placeholder" aria-hidden="true">🧠</span>` : ''}
+        </div>
+      </a>
+      <div class="card__body">
+        <div class="card--featured-label">À la une</div>
+        <span class="badge" ${catStyle(article.category)}>${esc(article.category || 'Général')}</span>
+        <h2 class="card__title">
+          <a href="article.html?id=${esc(article.id)}">${esc(article.title)}</a>
+        </h2>
+        <p class="card__excerpt">${esc(article.excerpt || '')}</p>
+        <footer class="card__meta">
+          <time datetime="${esc(article.date || '')}">${formatDate(article.date)}</time>
+          <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
         <a href="article.html?id=${esc(article.id)}" class="card__read-more">Lire l'article</a>
@@ -133,155 +127,177 @@ function renderCard(article, featured = false) {
 /* ============================================================
    PAGE D'ACCUEIL
    ============================================================ */
-let allArticles    = [];
+let allArticles      = [];
 let filteredArticles = [];
-let currentPage    = 0;
-let activeCategory = 'all';
-let searchQuery    = '';
+let currentPage      = 0;
+let activeCategory   = 'all';
+let searchQuery      = '';
 
 async function initHome() {
   const grid       = document.getElementById('articles-grid');
+  const featured   = document.getElementById('featured-container');
   const loadMoreBtn = document.getElementById('load-more');
-  const searchInput = document.getElementById('search-input');
+  const sectionHdr = document.getElementById('articles-section-header');
   if (!grid) return;
 
-  // Skeletons pendant le chargement
   grid.innerHTML = skeletons(6);
 
   try {
     const res = await fetch(CONFIG.dataUrl);
-    if (!res.ok) throw new Error('Fichier articles.json introuvable');
+    if (!res.ok) throw new Error('articles.json introuvable');
     allArticles = await res.json();
-
-    // Tri : plus récent en premier
     allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
     filteredArticles = [...allArticles];
-    renderPage(grid, true);
-    buildCategoryFilter();
 
-  } catch (err) {
+    // Afficher la section header si articles présents
+    if (sectionHdr && allArticles.length > 1) sectionHdr.style.display = 'flex';
+
+    renderPage(grid, featured, true);
+    buildCategoryFilter();
+    syncCatNavFromUrl();
+
+  } catch (_) {
     grid.innerHTML = `
       <div class="empty-state">
-        <p>Aucun article disponible pour le moment.<br>
-           Revenez bientôt&nbsp;!</p>
+        <div class="empty-state__icon">🌱</div>
+        <p>Les articles arrivent bientôt&nbsp;!</p>
+        <small>Revenez dans quelques jours.</small>
       </div>`;
     if (loadMoreBtn) loadMoreBtn.style.display = 'none';
   }
 
-  // Bouton « Charger plus »
+  // Charger plus
   if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => renderPage(grid));
+    loadMoreBtn.addEventListener('click', () => renderPage(grid, null));
   }
 
-  // Recherche (debounce 300 ms)
-  if (searchInput) {
-    searchInput.addEventListener('input', debounce(() => {
-      searchQuery = searchInput.value.trim().toLowerCase();
-      applyFilters(grid);
-    }, 300));
-    // Sync avec hero search
-    const heroInput = document.getElementById('hero-search');
-    if (heroInput) {
-      heroInput.addEventListener('input', debounce(() => {
-        searchQuery = heroInput.value.trim().toLowerCase();
-        searchInput.value = heroInput.value;
-        applyFilters(grid);
-        grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }, 300));
-    }
+  // Recherche
+  const searchSidebar = document.getElementById('search-input');
+  const searchHero    = document.getElementById('hero-search');
+  function handleSearch(val) {
+    searchQuery = val.trim().toLowerCase();
+    applyFilters(grid, featured);
+    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  if (searchSidebar) {
+    searchSidebar.addEventListener('input', debounce(() => handleSearch(searchSidebar.value), 300));
+  }
+  if (searchHero) {
+    searchHero.addEventListener('keydown', e => {
+      if (e.key === 'Enter') handleSearch(searchHero.value);
+    });
+    document.querySelector('.hero-search button')?.addEventListener('click', () => handleSearch(searchHero.value));
   }
 
-  // Filtres catégories hero
-  document.querySelectorAll('.cat-pill[data-cat]').forEach(btn => {
+  // Filtres barre catégories (header) & sidebar
+  document.querySelectorAll('[data-cat]').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
       activeCategory = btn.dataset.cat;
-      applyFilters(grid);
+      syncActiveCat();
+      applyFilters(grid, featured);
       grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
   });
+
+  // Catégorie depuis URL param (?cat=Anxiété)
+  const urlCat = getParam('cat');
+  if (urlCat) {
+    activeCategory = urlCat;
+    syncActiveCat();
+    // Attend que les articles soient chargés
+    setTimeout(() => applyFilters(grid, featured), 100);
+  }
 }
 
-function applyFilters(grid) {
+function applyFilters(grid, featured) {
   filteredArticles = allArticles.filter(a => {
-    const matchCat    = activeCategory === 'all' || a.category === activeCategory;
-    const matchSearch = !searchQuery ||
-      (a.title  && a.title.toLowerCase().includes(searchQuery))  ||
+    const matchCat = activeCategory === 'all' || a.category === activeCategory;
+    const matchQ   = !searchQuery ||
+      (a.title   && a.title.toLowerCase().includes(searchQuery)) ||
       (a.excerpt && a.excerpt.toLowerCase().includes(searchQuery)) ||
       (a.category && a.category.toLowerCase().includes(searchQuery));
-    return matchCat && matchSearch;
+    return matchCat && matchQ;
   });
   currentPage = 0;
-  renderPage(grid, true);
+  renderPage(grid, featured, true);
+
+  const sectionHdr = document.getElementById('articles-section-header');
+  if (sectionHdr) {
+    sectionHdr.style.display = filteredArticles.length > 1 ? 'flex' : 'none';
+  }
 }
 
-function renderPage(grid, reset = false) {
+function renderPage(grid, featured, reset = false) {
   const start       = currentPage * CONFIG.perPage;
-  const end         = start + CONFIG.perPage;
-  const slice       = filteredArticles.slice(start, end);
+  const isFeatured  = reset && currentPage === 0 && !searchQuery && activeCategory === 'all';
+  const dataStart   = isFeatured ? 1 : start;
+  const dataEnd     = isFeatured ? 1 + CONFIG.perPage : start + CONFIG.perPage;
+  const slice       = filteredArticles.slice(dataStart, dataEnd);
   const loadMoreBtn = document.getElementById('load-more');
 
-  if (reset) grid.innerHTML = '';
+  if (reset) {
+    grid.innerHTML = '';
+    if (featured) {
+      featured.innerHTML = isFeatured && filteredArticles.length > 0
+        ? renderFeatured(filteredArticles[0])
+        : '';
+    }
+  }
 
-  if (slice.length === 0 && currentPage === 0) {
+  if (slice.length === 0 && currentPage === 0 && (!isFeatured || filteredArticles.length === 0)) {
     grid.innerHTML = `
       <div class="empty-state">
-        <p>Aucun article ne correspond à votre recherche.</p>
+        <div class="empty-state__icon">🔍</div>
+        <p>Aucun article trouvé.</p>
+        <small>Essayez un autre mot-clé ou une autre catégorie.</small>
       </div>`;
     if (loadMoreBtn) loadMoreBtn.style.display = 'none';
     return;
   }
 
-  // Première carte : featured
-  const featured = reset && currentPage === 0 && slice.length > 0;
-  grid.innerHTML += slice.map((a, i) =>
-    renderCard(a, featured && i === 0)
-  ).join('');
-
+  grid.innerHTML += slice.map(renderCard).join('');
   currentPage++;
 
+  const total = isFeatured ? filteredArticles.length - 1 : filteredArticles.length;
   if (loadMoreBtn) {
-    loadMoreBtn.style.display = currentPage * CONFIG.perPage >= filteredArticles.length ? 'none' : 'block';
+    loadMoreBtn.style.display = currentPage * CONFIG.perPage >= total ? 'none' : 'block';
   }
 }
 
 function buildCategoryFilter() {
   const catList = document.getElementById('category-list');
   if (!catList) return;
-
   const counts = {};
-  allArticles.forEach(a => {
-    if (a.category) counts[a.category] = (counts[a.category] || 0) + 1;
-  });
-
-  const total = allArticles.length;
+  allArticles.forEach(a => { if (a.category) counts[a.category] = (counts[a.category] || 0) + 1; });
   catList.innerHTML = `
-    <li>
-      <button class="cat-filter-btn active" data-cat="all">
-        <span>Tous les articles</span>
-        <span class="count">${total}</span>
-      </button>
-    </li>
-    ${Object.entries(counts)
-      .sort(([, a], [, b]) => b - a)
-      .map(([cat, count]) => `
-        <li>
-          <button class="cat-filter-btn" data-cat="${esc(cat)}">
-            <span>${esc(cat)}</span>
-            <span class="count">${count}</span>
-          </button>
-        </li>`).join('')}`;
-
+    <li><button class="cat-filter-btn active" data-cat="all">
+      <span>Tous les articles</span><span class="count">${allArticles.length}</span>
+    </button></li>
+    ${Object.entries(counts).sort(([,a],[,b])=>b-a).map(([cat,n])=>`
+      <li><button class="cat-filter-btn" data-cat="${esc(cat)}">
+        <span>${esc(cat)}</span><span class="count">${n}</span>
+      </button></li>`).join('')}`;
   catList.querySelectorAll('[data-cat]').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('[data-cat]').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
       activeCategory = btn.dataset.cat;
-      applyFilters(document.getElementById('articles-grid'));
+      syncActiveCat();
+      applyFilters(document.getElementById('articles-grid'), document.getElementById('featured-container'));
     });
   });
+}
+
+function syncActiveCat() {
+  document.querySelectorAll('[data-cat]').forEach(b =>
+    b.classList.toggle('active', b.dataset.cat === activeCategory)
+  );
+}
+
+function syncCatNavFromUrl() {
+  const urlCat = getParam('cat');
+  if (urlCat) {
+    activeCategory = urlCat;
+    syncActiveCat();
+  }
 }
 
 /* ============================================================
@@ -289,109 +305,97 @@ function buildCategoryFilter() {
    ============================================================ */
 async function initArticle() {
   const container = document.getElementById('article-content');
-  const sidebar   = document.getElementById('article-sidebar');
   if (!container) return;
 
-  const id = getUrlParam('id');
+  const id = getParam('id');
   if (!id) { window.location.href = '404.html'; return; }
-
-  container.innerHTML = `<div class="article-loading">${skeletons(1)}</div>`;
 
   try {
     const res = await fetch(`${CONFIG.articlesBase}${encodeURIComponent(id)}.json`);
-    if (!res.ok) throw new Error('Article introuvable');
+    if (!res.ok) throw new Error('Article non trouvé');
     const article = await res.json();
 
-    // SEO — meta & title
+    // Meta SEO
     document.title = `${article.title} — ${CONFIG.siteName}`;
-    setMeta('name',       'description',    article.metaDescription || article.excerpt || '');
-    setMeta('property',   'og:title',       article.title);
-    setMeta('property',   'og:description', article.metaDescription || article.excerpt || '');
-    setMeta('property',   'og:url',         window.location.href);
-    setMeta('property',   'og:type',        'article');
+    setMeta('name',     'description',    article.metaDescription || article.excerpt || '');
+    setMeta('property', 'og:title',       article.title);
+    setMeta('property', 'og:description', article.metaDescription || article.excerpt || '');
+    setMeta('property', 'og:url',         window.location.href);
     if (article.image) setMeta('property', 'og:image', article.image);
-    setMeta('name', 'twitter:card',  'summary_large_image');
-    setMeta('name', 'twitter:title', article.title);
+    setMeta('name', 'twitter:title',       article.title);
 
-    // Rendu
+    // Marquer catégorie active dans barre
+    document.querySelectorAll('.cat-nav__btn').forEach(b => {
+      if (b.textContent.trim().includes(article.category)) b.classList.add('active');
+    });
+
     container.innerHTML = buildArticleHTML(article);
 
-    // Fonctionnalités
     initShareButtons(article);
     buildTOC();
-    injectStructuredData(article);
-    loadRelatedArticles(article, sidebar);
+    injectJSONLD(article);
+    loadRelated(article);
 
-    // AdSense : déclencher le remplissage des emplacements
-    pushAds();
-
-  } catch (err) {
+  } catch (_) {
     window.location.href = '404.html';
   }
 }
 
-function buildArticleHTML(article) {
+function buildArticleHTML(a) {
+  const keypoints = a.keypoints?.length ? `
+    <div class="article-keypoints">
+      <div class="article-keypoints__title">💡 Points clés de cet article</div>
+      <ul>${a.keypoints.map(k => `<li>${esc(k)}</li>`).join('')}</ul>
+    </div>` : '';
+
   return `
     <header class="article-header">
       <nav class="breadcrumb" aria-label="Fil d'Ariane">
-        <a href="index.html">Accueil</a>
-        <span aria-hidden="true">›</span>
-        <a href="index.html?cat=${esc(article.category || '')}">${esc(article.category || 'Articles')}</a>
-        <span aria-hidden="true">›</span>
-        <span>${esc(article.title)}</span>
+        <a href="index.html">Accueil</a> <span>›</span>
+        <a href="index.html?cat=${esc(a.category || '')}">${esc(a.category || 'Articles')}</a>
+        <span>›</span> <span>${esc(a.title)}</span>
       </nav>
-      <span class="badge badge--large" ${catStyle(article.category)}>${esc(article.category || 'Général')}</span>
-      <h1>${esc(article.title)}</h1>
+      <span class="badge badge--large" ${catStyle(a.category)}>${esc(a.category || 'Général')}</span>
+      <h1>${esc(a.title)}</h1>
       <div class="article-meta">
-        <span>Par <strong>${esc(article.author || 'La rédaction')}</strong></span>
-        <span aria-hidden="true">·</span>
-        <time datetime="${esc(article.date || '')}">${formatDate(article.date)}</time>
-        <span aria-hidden="true">·</span>
-        <span>${article.readTime || 5} min de lecture</span>
+        <span>Par <strong>${esc(a.author || 'La rédaction')}</strong></span>
+        <span class="article-meta-dot">•</span>
+        <time datetime="${esc(a.date || '')}">${formatDate(a.date)}</time>
+        <span class="article-meta-dot">•</span>
+        <span>⏱ ${a.readTime || 5} min de lecture</span>
       </div>
-      ${article.image ? `
+      ${a.image ? `
         <div class="article-hero-image">
-          <img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy">
+          <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">
         </div>` : ''}
     </header>
 
     <aside class="article-disclaimer" role="note">
       ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
       l'avis d'un professionnel de santé. En cas de détresse, appelez le
-      <strong><a href="tel:3114" style="color:inherit">3114</a></strong>
-      (numéro national de prévention du suicide, disponible 24h/24).</em>
+      <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
     </aside>
 
-    <!-- 📢 PUB : en-tête article — remplacer les valeurs XXXX -->
-    <div class="ad-container ad-container--inline" aria-hidden="true">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="1111111111"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
-    </div>
+    ${keypoints}
 
     <div class="article-body">
-      ${article.content || '<p>Contenu en cours de rédaction…</p>'}
+      ${a.content || '<p>Contenu en cours de rédaction…</p>'}
     </div>
 
-    <!-- 📢 PUB : bas article -->
-    <div class="ad-container ad-container--inline" aria-hidden="true">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="2222222222"
-           data-ad-format="auto"
-           data-full-width-responsive="true"></ins>
+    <div class="article-author">
+      <div class="article-author__avatar" aria-hidden="true">✍️</div>
+      <div>
+        <div class="article-author__name">${esc(a.author || 'La rédaction Psycho Clair')}</div>
+        <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
+      </div>
     </div>
 
     <div class="article-tags" aria-label="Mots-clés">
-      ${(article.tags || []).map(t => `<span class="tag">#${esc(t)}</span>`).join('')}
+      ${(a.tags || []).map(t => `<span class="tag">#${esc(t)}</span>`).join('')}
     </div>
 
     <div class="article-share" id="share-buttons" aria-label="Partager cet article">
-      <span>Partager :</span>
+      <span class="share-label">Partager :</span>
       <button class="share-btn share-btn--fb"   data-platform="facebook">Facebook</button>
       <button class="share-btn share-btn--tw"   data-platform="twitter">Twitter / X</button>
       <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
@@ -399,170 +403,165 @@ function buildArticleHTML(article) {
     </div>`;
 }
 
-/* Injecter le JSON-LD pour le SEO */
-function injectStructuredData(article) {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline:        article.title,
-    description:     article.metaDescription || article.excerpt || '',
-    datePublished:   article.date,
-    dateModified:    article.updatedAt || article.date,
-    inLanguage:      'fr',
-    author: { '@type': 'Person', name: article.author || 'La rédaction Psycho Clair' },
-    publisher: {
-      '@type': 'Organization',
-      name: CONFIG.siteName,
-      url:  CONFIG.siteUrl,
-      logo: { '@type': 'ImageObject', url: `${CONFIG.siteUrl}/img/logo.png` },
-    },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': window.location.href },
-  };
-  if (article.image) schema.image = article.image;
-
+function injectJSONLD(a) {
   const s = document.createElement('script');
   s.type = 'application/ld+json';
-  s.textContent = JSON.stringify(schema);
+  s.textContent = JSON.stringify({
+    '@context': 'https://schema.org', '@type': 'Article',
+    headline: a.title,
+    description: a.metaDescription || a.excerpt || '',
+    datePublished: a.date,
+    inLanguage: 'fr',
+    author: { '@type': 'Person', name: a.author || 'La rédaction Psycho Clair' },
+    publisher: { '@type': 'Organization', name: CONFIG.siteName, url: CONFIG.siteUrl },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': window.location.href },
+    ...(a.image ? { image: a.image } : {}),
+  });
   document.head.appendChild(s);
 }
 
-/* Boutons de partage */
 function initShareButtons(article) {
-  const container = document.getElementById('share-buttons');
-  if (!container) return;
-
+  const c = document.getElementById('share-buttons');
+  if (!c) return;
   const url   = encodeURIComponent(window.location.href);
   const title = encodeURIComponent(article.title);
-
-  container.addEventListener('click', e => {
+  c.addEventListener('click', e => {
     const btn = e.target.closest('[data-platform]');
     if (!btn) return;
-    let shareUrl;
-    switch (btn.dataset.platform) {
-      case 'facebook':
-        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
-        break;
-      case 'twitter':
-        shareUrl = `https://twitter.com/intent/tweet?url=${url}&text=${title}&hashtags=santémentale,psychologie`;
-        break;
-      case 'whatsapp':
-        shareUrl = `https://wa.me/?text=${title}%20%E2%86%92%20${url}`;
-        break;
-      case 'copy':
-        navigator.clipboard.writeText(window.location.href).then(() => {
-          btn.textContent = '✓ Copié !';
-          setTimeout(() => { btn.textContent = 'Copier le lien'; }, 2500);
-        });
-        return;
+    const urls = {
+      facebook:  `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+      twitter:   `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+      whatsapp:  `https://wa.me/?text=${title}%20→%20${url}`,
+    };
+    if (btn.dataset.platform === 'copy') {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        btn.textContent = '✓ Copié !';
+        setTimeout(() => btn.textContent = 'Copier le lien', 2500);
+      });
+    } else if (urls[btn.dataset.platform]) {
+      window.open(urls[btn.dataset.platform], '_blank', 'width=620,height=450,noopener');
     }
-    if (shareUrl) window.open(shareUrl, '_blank', 'width=620,height=450,noopener,noreferrer');
   });
 }
 
-/* Table des matières automatique */
 function buildTOC() {
   const body = document.querySelector('.article-body');
   const toc  = document.getElementById('toc');
   if (!body || !toc) return;
-
   const headings = body.querySelectorAll('h2, h3');
   if (headings.length < 3) { toc.style.display = 'none'; return; }
-
-  let html = '<h3>Table des matières</h3><nav aria-label="Table des matières"><ol>';
+  toc.classList.add('visible');
+  let html = '<h3 class="widget__title">Table des matières</h3><ol>';
   headings.forEach((h, i) => {
-    const id = `section-${i}`;
+    const id = `s${i}`;
     h.id = id;
-    const isSub = h.tagName === 'H3';
-    html += `<li${isSub ? ' class="sub"' : ''}><a href="#${id}">${h.textContent}</a></li>`;
+    html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="#${id}">${h.textContent}</a></li>`;
   });
-  toc.innerHTML = html + '</ol></nav>';
+  toc.innerHTML += html + '</ol>';
 }
 
-/* Articles connexes */
-async function loadRelatedArticles(currentArticle, sidebar) {
-  const container = document.getElementById('related-articles');
-  if (!container) return;
+async function loadRelated(current) {
+  const c = document.getElementById('related-articles');
+  if (!c) return;
   try {
     const res = await fetch(CONFIG.dataUrl);
     if (!res.ok) return;
     const list = await res.json();
-    const related = list
-      .filter(a => a.id !== currentArticle.id && a.category === currentArticle.category)
-      .slice(0, 4);
-
-    if (related.length === 0) { container.style.display = 'none'; return; }
-    container.innerHTML = `
-      <h3 class="widget__title">À lire aussi</h3>
+    const related = list.filter(a => a.id !== current.id && a.category === current.category).slice(0, 4);
+    if (!related.length) { c.style.display = 'none'; return; }
+    c.innerHTML = `<h3 class="widget__title">À lire aussi</h3>
       <div class="related-list">
         ${related.map(a => `
           <a href="article.html?id=${esc(a.id)}" class="related-item">
-            <span class="related-item__title">${esc(a.title)}</span>
-            <span class="related-item__meta">${formatDate(a.date)}</span>
+            <div class="related-item__img" style="${a.image ? `background-image:url('${esc(a.image)}')` : ''}" data-cat="${esc(a.category||'')}">
+              ${!a.image ? '🧠' : ''}
+            </div>
+            <div class="related-item__info">
+              <div class="related-item__title">${esc(a.title)}</div>
+              <div class="related-item__meta">${formatDate(a.date)}</div>
+            </div>
           </a>`).join('')}
       </div>`;
-  } catch (_) { /* silencieux */ }
-}
-
-/* Déclencher AdSense sur les nouvelles balises ins */
-function pushAds() {
-  if (typeof window.adsbygoogle !== 'undefined') {
-    document.querySelectorAll('.adsbygoogle').forEach(() => {
-      try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch (_) {}
-    });
-  }
+  } catch (_) {}
 }
 
 /* ============================================================
-   BANNIÈRE COOKIES (RGPD)
+   BARRE DE LECTURE (article)
    ============================================================ */
-function initCookieBanner() {
-  const banner = document.getElementById('cookie-banner');
-  if (!banner) return;
-
-  if (localStorage.getItem('pc_cookie_consent')) {
-    banner.style.display = 'none';
-    if (localStorage.getItem('pc_cookie_consent') === 'accepted') pushAds();
-    return;
+function initReadingProgress() {
+  const bar = document.getElementById('reading-progress');
+  if (!bar) return;
+  function update() {
+    const body = document.querySelector('.article-body');
+    if (!body) return;
+    const scrolled  = window.scrollY;
+    const docHeight = body.offsetTop + body.offsetHeight - window.innerHeight;
+    const pct = docHeight > 0 ? Math.min(100, Math.max(0, (scrolled / docHeight) * 100)) : 0;
+    bar.style.width = pct + '%';
+    bar.setAttribute('aria-valuenow', Math.round(pct));
   }
-
-  banner.style.display = 'flex';
-
-  document.getElementById('cookie-accept')?.addEventListener('click', () => {
-    localStorage.setItem('pc_cookie_consent', 'accepted');
-    banner.style.display = 'none';
-    pushAds();
-  });
-  document.getElementById('cookie-decline')?.addEventListener('click', () => {
-    localStorage.setItem('pc_cookie_consent', 'declined');
-    banner.style.display = 'none';
-  });
+  window.addEventListener('scroll', update, { passive: true });
 }
 
 /* ============================================================
-   NAVIGATION (hamburger)
+   HEADER SCROLL EFFECT
+   ============================================================ */
+function initHeaderScroll() {
+  const header = document.getElementById('site-header');
+  if (!header) return;
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        header.classList.toggle('scrolled', window.scrollY > 40);
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ============================================================
+   NAVIGATION MOBILE
    ============================================================ */
 function initNav() {
-  const hamburger = document.getElementById('hamburger');
-  const navMenu   = document.getElementById('nav-menu');
-  if (hamburger && navMenu) {
-    hamburger.addEventListener('click', () => {
+  const burger  = document.getElementById('hamburger');
+  const navMenu = document.getElementById('nav-menu');
+  if (burger && navMenu) {
+    burger.addEventListener('click', () => {
       const open = navMenu.classList.toggle('nav--open');
-      hamburger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-expanded', String(open));
     });
-    // Fermer au clic extérieur
     document.addEventListener('click', e => {
-      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+      if (!burger.contains(e.target) && !navMenu.contains(e.target)) {
         navMenu.classList.remove('nav--open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        burger.setAttribute('aria-expanded', 'false');
       }
     });
   }
-
-  // Marquer le lien actif
-  const path = window.location.pathname.replace(/\/$/, '') || '/index.html';
+  // Lien actif
+  const path = window.location.pathname;
   document.querySelectorAll('.nav__link').forEach(a => {
-    const href = a.getAttribute('href').replace(/\/$/, '') || '/index.html';
-    if (path.endsWith(href)) a.classList.add('nav__link--active');
+    const href = a.getAttribute('href') || '';
+    if (path.endsWith(href.split('?')[0])) a.classList.add('nav__link--active');
+  });
+}
+
+/* ============================================================
+   BANNIÈRE COOKIES
+   ============================================================ */
+function initCookies() {
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+  if (localStorage.getItem('pc_consent')) { banner.style.display = 'none'; return; }
+  banner.style.display = 'flex';
+  document.getElementById('cookie-accept')?.addEventListener('click', () => {
+    localStorage.setItem('pc_consent', '1');
+    banner.style.display = 'none';
+  });
+  document.getElementById('cookie-decline')?.addEventListener('click', () => {
+    localStorage.setItem('pc_consent', '0');
+    banner.style.display = 'none';
   });
 }
 
@@ -571,8 +570,9 @@ function initNav() {
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initNav();
-  initCookieBanner();
-
-  if (document.getElementById('articles-grid')) initHome();
-  if (document.getElementById('article-content'))  initArticle();
+  initHeaderScroll();
+  initCookies();
+  initReadingProgress();
+  if (document.getElementById('articles-grid'))  initHome();
+  if (document.getElementById('article-content')) initArticle();
 });

@@ -5,147 +5,106 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psycho Clair — Comprendre la santé mentale, simplement</title>
   <meta name="description" content="Des articles clairs et accessibles sur la psychologie, l'anxiété, la dépression, le bien-être et la santé mentale. Rédigés pour tous, sans jargon.">
-  <meta name="keywords" content="santé mentale, psychologie, anxiété, dépression, bien-être, stress, thérapie, développement personnel">
+  <meta name="keywords" content="santé mentale, psychologie, anxiété, dépression, bien-être, stress, thérapie">
   <meta name="author" content="Psycho Clair">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://psychoclair.fr/">
-
-  <!-- Open Graph -->
+  <link rel="canonical" href="https://johnbalthazar.github.io/Esprit-Clair/">
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Psycho Clair — Comprendre la santé mentale, simplement">
-  <meta property="og:description" content="Des articles clairs et accessibles sur la psychologie, l'anxiété, la dépression et le bien-être.">
-  <meta property="og:url"         content="https://psychoclair.fr/">
-  <meta property="og:image"       content="https://psychoclair.fr/img/og-image.jpg">
+  <meta property="og:description" content="Des articles clairs et bienveillants sur la psychologie et le bien-être.">
+  <meta property="og:url"         content="https://johnbalthazar.github.io/Esprit-Clair/">
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Psycho Clair">
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Psycho Clair — Comprendre la santé mentale, simplement">
-  <meta name="twitter:description" content="Psychologie et bien-être expliqués clairement.">
-
-  <!-- Favicons -->
+  <meta name="twitter:card"       content="summary_large_image">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
-
-  <!-- JSON-LD WebSite -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Psycho Clair",
-    "url": "https://psychoclair.fr",
-    "description": "Blog de vulgarisation sur la santé mentale en français",
-    "inLanguage": "fr",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://psychoclair.fr/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
-  }
+  {"@context":"https://schema.org","@type":"WebSite","name":"Psycho Clair",
+   "url":"https://johnbalthazar.github.io/Esprit-Clair/","inLanguage":"fr"}
   </script>
-
-  <!-- Styles -->
   <link rel="stylesheet" href="css/style.css">
-
-  <!-- ============================================================
-       📢 GOOGLE ADSENSE
-       ① Créez un compte sur https://www.google.com/adsense/
-       ② Remplacez "ca-pub-XXXXXXXXXXXXXXXX" par votre Publisher ID
-       ③ Attendez l'approbation (~1-2 semaines) avant d'activer les blocs
-       ============================================================ -->
-  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <!-- AdSense : décommenter après approbation
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  -->
 </head>
 <body>
 
-  <!-- ============================================================
-       EN-TÊTE
-       ============================================================ -->
-  <header class="site-header">
-    <div class="header-inner">
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-top">
       <a href="index.html" class="logo" aria-label="Psycho Clair — Accueil">
         <span class="logo__icon" aria-hidden="true">🧠</span>
         <span>Psycho Clair</span>
       </a>
 
-      <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-menu">
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="site-nav" id="nav-menu" aria-label="Navigation principale">
-        <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="index.html">Articles</a>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link nav__link--active" href="index.html">Accueil</a>
         <a class="nav__link" href="a-propos.html">À propos</a>
         <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="#newsletter-widget">Newsletter</a>
       </nav>
     </div>
+
+    <!-- Barre catégories sticky -->
+    <nav class="cat-nav" aria-label="Catégories">
+      <div class="cat-nav__inner">
+        <button class="cat-nav__btn active" data-cat="all">Tous les articles</button>
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+        <button class="cat-nav__btn" data-cat="Anxiété">Anxiété</button>
+        <button class="cat-nav__btn" data-cat="Dépression">Dépression</button>
+        <button class="cat-nav__btn" data-cat="Bien-être">Bien-être</button>
+        <button class="cat-nav__btn" data-cat="Stress">Stress</button>
+        <button class="cat-nav__btn" data-cat="Sommeil">Sommeil</button>
+        <button class="cat-nav__btn" data-cat="Thérapies">Thérapies</button>
+        <button class="cat-nav__btn" data-cat="Relations">Relations</button>
+        <button class="cat-nav__btn" data-cat="Développement personnel">Développement</button>
+      </div>
+    </nav>
   </header>
 
-  <!-- 📢 PUB : Bannière horizontale (728×90) — sous header -->
-  <div class="ad-banner-top" aria-hidden="true">
-    <div class="container">
-      <!-- ins class="adsbygoogle"
-           style="display:inline-block;width:728px;height:90px"
-           data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-           data-ad-slot="0000000000"></ins -->
-      <div class="ad-placeholder" style="max-width:728px;margin:0 auto;height:90px;">
-        Emplacement publicitaire 728×90
-      </div>
-    </div>
-  </div>
-
-  <!-- ============================================================
-       HERO
-       ============================================================ -->
+  <!-- ===== HERO ===== -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="hero__content">
       <span class="hero__eyebrow">Vulgarisation psychologique</span>
-      <h1 id="hero-heading">Comprendre votre santé mentale,<br>simplement.</h1>
+      <h1 id="hero-heading">Comprendre votre santé mentale,<br><em>simplement.</em></h1>
       <p>Des articles clairs et bienveillants sur la psychologie, l'anxiété, le bien-être et les thérapies — accessibles à tous, sans jargon.</p>
-
       <div class="hero-search" role="search">
         <label for="hero-search" class="sr-only">Rechercher un article</label>
-        <input type="search" id="hero-search" placeholder="Rechercher un article…" autocomplete="off">
-        <button type="button" aria-label="Lancer la recherche">Rechercher</button>
-      </div>
-
-      <div class="hero-cats" role="group" aria-label="Filtrer par catégorie">
-        <button class="cat-pill active" data-cat="all">Tous</button>
-        <button class="cat-pill" data-cat="Anxiété">Anxiété</button>
-        <button class="cat-pill" data-cat="Dépression">Dépression</button>
-        <button class="cat-pill" data-cat="Bien-être">Bien-être</button>
-        <button class="cat-pill" data-cat="Stress">Stress</button>
-        <button class="cat-pill" data-cat="Sommeil">Sommeil</button>
-        <button class="cat-pill" data-cat="Thérapies">Thérapies</button>
-        <button class="cat-pill" data-cat="Relations">Relations</button>
+        <input type="search" id="hero-search" placeholder="Chercher un sujet : anxiété, sommeil, thérapie…" autocomplete="off">
+        <button type="button">Rechercher</button>
       </div>
     </div>
   </section>
 
-  <!-- ============================================================
-       CONTENU PRINCIPAL
-       ============================================================ -->
+  <!-- ===== CONTENU ===== -->
   <div class="container layout">
+    <main>
 
-    <!-- Grille des articles -->
-    <main aria-label="Articles">
+      <!-- Article à la une (injecté par JS si articles disponibles) -->
+      <div id="featured-container"></div>
 
-      <!-- La grille est remplie dynamiquement par main.js -->
+      <!-- Section "Derniers articles" -->
+      <div class="section-header" id="articles-section-header" style="display:none">
+        <h2>Derniers articles</h2>
+      </div>
+
       <div class="articles-grid" id="articles-grid" aria-live="polite" aria-busy="true">
-        <!-- Skeletons injectés par JS -->
+        <!-- Skeletons puis articles injectés par JS -->
       </div>
 
       <div class="load-more-wrap">
-        <button class="btn-load-more" id="load-more" aria-label="Charger plus d'articles">
-          Charger plus d'articles
-        </button>
+        <button class="btn-load-more" id="load-more">Charger plus d'articles</button>
       </div>
+
     </main>
 
-    <!-- Sidebar -->
+    <!-- SIDEBAR -->
     <aside aria-label="Sidebar">
 
-      <!-- Widget recherche -->
+      <!-- Recherche -->
       <div class="widget">
         <h2 class="widget__title">Rechercher</h2>
         <div class="search-widget" role="search">
@@ -155,98 +114,70 @@
         </div>
       </div>
 
-      <!-- Widget catégories -->
+      <!-- À propos -->
+      <div class="widget widget-about">
+        <h2 class="widget__title">À propos</h2>
+        <p>Psycho Clair est un blog de vulgarisation dédié à la santé mentale. Notre mission : rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+      </div>
+
+      <!-- Catégories -->
       <div class="widget">
         <h2 class="widget__title">Catégories</h2>
         <ul class="cat-filter-list" id="category-list" aria-label="Filtrer par catégorie">
-          <!-- Rempli dynamiquement -->
           <li><button class="cat-filter-btn active" data-cat="all"><span>Tous les articles</span><span class="count">0</span></button></li>
         </ul>
       </div>
 
-      <!-- 📢 PUB : Rectangle sidebar (300×250) -->
-      <div class="ad-container ad-container--rectangle" aria-hidden="true">
-        <!-- ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="3333333333"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins -->
-        <div class="ad-placeholder">Publicité 300×250</div>
-      </div>
-
-      <!-- Widget newsletter -->
-      <div class="widget">
+      <!-- Newsletter -->
+      <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
         <div class="newsletter-form">
-          <p>Recevez nos nouveaux articles directement dans votre boîte mail.</p>
-          <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
+          <p>Recevez nos nouveaux articles chaque semaine.</p>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
           <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner gratuitement</button>
+          <button class="btn-newsletter" type="button">S'abonner gratuitement ✓</button>
         </div>
-      </div>
-
-      <!-- 📢 PUB : Sidebar sticky (300×600) -->
-      <div class="ad-container ad-container--sidebar" aria-hidden="true">
-        <!-- ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
-             data-ad-slot="4444444444"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins -->
-        <div class="ad-placeholder" style="height:100%;min-height:600px;">Publicité 300×600</div>
       </div>
 
     </aside>
-  </div><!-- /layout -->
+  </div>
 
-  <!-- ============================================================
-       PIED DE PAGE
-       ============================================================ -->
+  <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-disclaimer">
-        ⚕️ <strong>Avertissement médical :</strong> Le contenu de ce site est fourni à titre informatif et éducatif uniquement.
-        Il ne constitue en aucun cas un avis médical ou psychologique. En cas de souffrance psychique, consultez
-        un professionnel de santé qualifié ou appelez le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24, 7j/7, gratuit).
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse psychique, appelez le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24, gratuit).
       </div>
-
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo" aria-label="Accueil Psycho Clair">
+          <a href="index.html" class="logo">
             <span class="logo__icon" aria-hidden="true">🧠</span>
             <span>Psycho Clair</span>
           </a>
-          <p style="margin-top:1rem">
-            Psycho Clair est un blog de vulgarisation dédié à la santé mentale.
-            Notre mission : rendre la psychologie accessible à tous, avec bienveillance et rigueur.
-          </p>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
-
         <div class="footer-col">
-          <h4>Explorer</h4>
+          <h4>Thématiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Accueil</a></li>
             <li><a href="index.html?cat=Anxiété">Anxiété</a></li>
             <li><a href="index.html?cat=Dépression">Dépression</a></li>
             <li><a href="index.html?cat=Bien-être">Bien-être</a></li>
             <li><a href="index.html?cat=Stress">Stress</a></li>
             <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Thérapies">Thérapies</a></li>
           </ul>
         </div>
-
         <div class="footer-col">
           <h4>À propos</h4>
           <ul class="footer-links">
             <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="politique-de-confidentialite.html">Politique de confidentialité</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
             <li><a href="sitemap.xml">Plan du site</a></li>
           </ul>
         </div>
       </div>
-
       <div class="footer-bottom">
         <span>© <script>document.write(new Date().getFullYear())</script> Psycho Clair. Tous droits réservés.</span>
         <span>Fait avec ❤️ pour la santé mentale</span>
@@ -254,21 +185,15 @@
     </div>
   </footer>
 
-  <!-- ============================================================
-       BANNIÈRE COOKIES (RGPD)
-       ============================================================ -->
-  <div id="cookie-banner" role="dialog" aria-label="Gestion des cookies" aria-live="polite">
-    <p class="cookie-text">
-      🍪 Nous utilisons des cookies pour personnaliser les publicités et analyser le trafic.
-      <a href="politique-de-confidentialite.html">En savoir plus</a>.
-    </p>
+  <!-- Bannière cookies -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookies">
+    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience et personnaliser les publicités. <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
     <div class="cookie-buttons">
       <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
       <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
     </div>
   </div>
 
-  <!-- Script principal -->
   <script src="js/main.js"></script>
 </body>
 </html>
