@@ -1,0 +1,1228 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin — Oui Psycho!</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1F4E6B;
+      --primary-dark: #133347;
+      --primary-light: #EAF3F8;
+      --accent: #D4715A;
+      --accent-dark: #B55540;
+      --success: #2e7d32;
+      --success-light: #e8f5e9;
+      --warning: #f57f17;
+      --warning-light: #fff9c4;
+      --danger: #c62828;
+      --danger-light: #ffebee;
+      --gray-50: #f8fafc;
+      --gray-100: #f1f5f9;
+      --gray-200: #e2e8f0;
+      --gray-300: #cbd5e1;
+      --gray-400: #94a3b8;
+      --gray-500: #64748b;
+      --gray-600: #475569;
+      --gray-700: #334155;
+      --gray-800: #1e293b;
+      --gray-900: #0f172a;
+      --radius: 8px;
+      --shadow: 0 1px 3px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
+
+    /* ── LOGIN ── */
+    #login-screen {
+      display: flex; align-items: center; justify-content: center; min-height: 100vh;
+      background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+    }
+    .login-card {
+      background: #fff; border-radius: 16px; padding: 40px; width: 100%; max-width: 420px;
+      box-shadow: var(--shadow-lg);
+    }
+    .login-logo { text-align: center; margin-bottom: 32px; }
+    .login-logo h1 { font-size: 1.8rem; color: var(--primary); font-weight: 700; }
+    .login-logo p { color: var(--gray-500); font-size: .9rem; margin-top: 4px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-weight: 600; font-size: .85rem; color: var(--gray-700); margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 14px; border: 2px solid var(--gray-200); border-radius: var(--radius);
+      font-size: .95rem; font-family: inherit; transition: border-color .2s;
+      background: #fff; color: var(--gray-800);
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: var(--primary);
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px;
+      border: none; border-radius: var(--radius); font-size: .9rem; font-weight: 600;
+      cursor: pointer; transition: all .2s; text-decoration: none; font-family: inherit;
+    }
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-success { background: var(--success); color: #fff; }
+    .btn-success:hover { background: #1b5e20; }
+    .btn-danger { background: var(--danger); color: #fff; }
+    .btn-danger:hover { background: #b71c1c; }
+    .btn-warning { background: var(--warning); color: #fff; }
+    .btn-warning:hover { background: #e65100; }
+    .btn-ghost { background: transparent; color: var(--gray-600); border: 2px solid var(--gray-200); }
+    .btn-ghost:hover { background: var(--gray-100); border-color: var(--gray-300); }
+    .btn-accent { background: var(--accent); color: #fff; }
+    .btn-accent:hover { background: var(--accent-dark); }
+    .btn-full { width: 100%; justify-content: center; padding: 12px; }
+    .login-error { color: var(--danger); font-size: .85rem; margin-top: 8px; display: none; }
+
+    /* ── APP LAYOUT ── */
+    #app { display: none; }
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
+      background: var(--primary-dark); color: #fff; display: flex; flex-direction: column;
+      z-index: 100;
+    }
+    .sidebar-header {
+      padding: 20px 24px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .sidebar-header h2 { font-size: 1.1rem; font-weight: 700; }
+    .sidebar-header p { font-size: .75rem; opacity: .6; margin-top: 2px; }
+    .sidebar-nav { flex: 1; padding: 16px 0; overflow-y: auto; }
+    .nav-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 24px;
+      color: rgba(255,255,255,.7); text-decoration: none; font-size: .9rem;
+      cursor: pointer; transition: all .2s; border: none; background: none;
+      width: 100%; text-align: left;
+    }
+    .nav-item:hover { color: #fff; background: rgba(255,255,255,.08); }
+    .nav-item.active { color: #fff; background: rgba(255,255,255,.12); border-right: 3px solid var(--accent); }
+    .nav-item svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .nav-section { padding: 8px 24px 4px; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: rgba(255,255,255,.35); margin-top: 8px; }
+    .sidebar-footer { padding: 16px 24px; border-top: 1px solid rgba(255,255,255,.1); }
+    .sidebar-footer button { display: flex; align-items: center; gap: 8px; background: none; border: none; color: rgba(255,255,255,.5); font-size: .85rem; cursor: pointer; width: 100%; padding: 4px 0; }
+    .sidebar-footer button:hover { color: rgba(255,255,255,.8); }
+
+    .main-content { margin-left: 240px; padding: 24px; min-height: 100vh; }
+
+    /* ── TOPBAR ── */
+    .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+    .topbar h1 { font-size: 1.5rem; font-weight: 700; color: var(--gray-900); }
+    .topbar-actions { display: flex; gap: 10px; }
+
+    /* ── CARDS / STATS ── */
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 28px; }
+    .stat-card {
+      background: #fff; border-radius: var(--radius); padding: 20px;
+      box-shadow: var(--shadow); border-left: 4px solid var(--primary);
+    }
+    .stat-card.green { border-color: var(--success); }
+    .stat-card.orange { border-color: var(--warning); }
+    .stat-card.red { border-color: var(--accent); }
+    .stat-card .stat-val { font-size: 2rem; font-weight: 700; color: var(--gray-900); line-height: 1; }
+    .stat-card .stat-label { font-size: .8rem; color: var(--gray-500); margin-top: 6px; }
+
+    /* ── TABLE ── */
+    .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .card-header { padding: 16px 20px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 10px; }
+    .card-header h3 { font-size: 1rem; font-weight: 600; color: var(--gray-800); }
+    .search-bar { display: flex; align-items: center; gap: 8px; }
+    .search-bar input { padding: 8px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius); font-size: .85rem; width: 220px; }
+    .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 20px; border-bottom: 1px solid var(--gray-100); }
+    .filter-chip {
+      padding: 4px 12px; border-radius: 20px; font-size: .8rem; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--gray-200); background: var(--gray-50);
+      color: var(--gray-600); transition: all .15s;
+    }
+    .filter-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    table { width: 100%; border-collapse: collapse; }
+    th { padding: 10px 16px; text-align: left; font-size: .75rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; background: var(--gray-50); border-bottom: 1px solid var(--gray-200); }
+    td { padding: 12px 16px; font-size: .88rem; color: var(--gray-700); border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--gray-50); }
+    .badge {
+      display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: .75rem; font-weight: 600;
+    }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-green { background: #d1fae5; color: #065f46; }
+    .badge-orange { background: #fed7aa; color: #9a3412; }
+    .badge-purple { background: #ede9fe; color: #5b21b6; }
+    .badge-pink { background: #fce7f3; color: #9d174d; }
+    .badge-teal { background: #ccfbf1; color: #115e59; }
+    .badge-gray { background: #f1f5f9; color: #475569; }
+    .actions { display: flex; gap: 6px; }
+    .btn-sm { padding: 5px 10px; font-size: .8rem; border-radius: 6px; }
+
+    /* ── PANEL / MODAL ── */
+    .panel-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 200;
+      align-items: center; justify-content: center;
+    }
+    .panel-overlay.open { display: flex; }
+    .panel {
+      background: #fff; width: 100%; max-width: 860px; max-height: 92vh;
+      border-radius: 12px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    .panel-header {
+      padding: 20px 24px; border-bottom: 1px solid var(--gray-100);
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .panel-header h2 { font-size: 1.1rem; font-weight: 700; }
+    .panel-close { background: none; border: none; cursor: pointer; color: var(--gray-400); font-size: 1.4rem; line-height: 1; }
+    .panel-close:hover { color: var(--gray-700); }
+    .panel-body { padding: 24px; overflow-y: auto; flex: 1; }
+    .panel-footer { padding: 16px 24px; border-top: 1px solid var(--gray-100); display: flex; justify-content: flex-end; gap: 10px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-row-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .form-group textarea { resize: vertical; min-height: 80px; }
+    .form-group textarea.tall { min-height: 260px; font-family: 'Courier New', monospace; font-size: .82rem; }
+    .char-counter { font-size: .75rem; color: var(--gray-400); text-align: right; margin-top: 4px; }
+    .char-counter.warn { color: var(--warning); }
+    .char-counter.ok { color: var(--success); }
+    .hint { font-size: .75rem; color: var(--gray-400); margin-top: 4px; }
+    .seo-bar { height: 6px; border-radius: 3px; background: var(--gray-200); margin-top: 6px; overflow: hidden; }
+    .seo-bar-fill { height: 100%; border-radius: 3px; background: var(--gray-300); transition: width .3s, background .3s; }
+    .keypoints-editor { display: flex; flex-direction: column; gap: 8px; }
+    .keypoint-row { display: flex; gap: 8px; }
+    .keypoint-row input { flex: 1; }
+    .keypoint-row button { flex-shrink: 0; padding: 8px 10px; border: 1px solid var(--gray-200); border-radius: var(--radius); background: var(--gray-50); cursor: pointer; color: var(--gray-500); }
+    .keypoint-row button:hover { background: var(--danger-light); color: var(--danger); border-color: var(--danger); }
+    .tags-input-container { border: 2px solid var(--gray-200); border-radius: var(--radius); padding: 8px; display: flex; flex-wrap: wrap; gap: 6px; min-height: 44px; cursor: text; }
+    .tags-input-container:focus-within { border-color: var(--primary); }
+    .tag-chip { background: var(--primary-light); color: var(--primary); padding: 2px 10px; border-radius: 20px; font-size: .8rem; display: flex; align-items: center; gap: 6px; }
+    .tag-chip button { background: none; border: none; cursor: pointer; color: inherit; font-size: 1rem; line-height: 1; padding: 0; }
+    .tags-hidden-input { border: none; outline: none; font-size: .9rem; min-width: 80px; flex: 1; font-family: inherit; }
+
+    /* ── CONFIRM DIALOG ── */
+    .confirm-dialog { max-width: 420px; }
+    .confirm-dialog .panel-body { padding: 28px 24px; text-align: center; }
+    .confirm-dialog .icon { font-size: 3rem; margin-bottom: 12px; }
+    .confirm-dialog h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
+    .confirm-dialog p { font-size: .9rem; color: var(--gray-500); }
+
+    /* ── TOAST ── */
+    #toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
+    .toast {
+      padding: 12px 20px; border-radius: var(--radius); color: #fff; font-size: .9rem; font-weight: 500;
+      box-shadow: var(--shadow-lg); animation: slideUp .3s ease; max-width: 360px;
+    }
+    .toast.success { background: var(--success); }
+    .toast.error { background: var(--danger); }
+    .toast.info { background: var(--primary); }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ── LOADING ── */
+    .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .loading-row td { text-align: center; padding: 48px; color: var(--gray-400); }
+
+    /* ── IMPORT/EXPORT ── */
+    .import-zone { border: 2px dashed var(--gray-200); border-radius: var(--radius); padding: 32px; text-align: center; color: var(--gray-400); cursor: pointer; transition: border-color .2s; }
+    .import-zone:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* ── SETTINGS PAGE ── */
+    .settings-section { margin-bottom: 32px; }
+    .settings-section h3 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--gray-200); }
+
+    /* ── PREVIEW PANE ── */
+    .preview-pane { background: var(--gray-50); border-radius: var(--radius); padding: 24px; font-family: Georgia, serif; max-height: 400px; overflow-y: auto; border: 1px solid var(--gray-200); }
+    .preview-pane h1 { font-size: 1.6rem; margin-bottom: 8px; color: var(--gray-900); }
+    .preview-pane .meta { font-size: .8rem; color: var(--gray-400); margin-bottom: 16px; font-family: 'Inter', sans-serif; }
+    .preview-pane p { margin-bottom: 12px; line-height: 1.7; font-size: .95rem; }
+    .preview-pane h2 { font-size: 1.2rem; margin: 20px 0 8px; }
+    .preview-pane blockquote { border-left: 4px solid var(--accent); padding: 8px 16px; margin: 16px 0; color: var(--gray-600); font-style: italic; background: var(--gray-100); border-radius: 0 var(--radius) var(--radius) 0; }
+
+    /* ── CATEGORIES COLORS ── */
+    .cat-Anxiété { background: #dbeafe; color: #1e40af; }
+    .cat-Dépression { background: #ede9fe; color: #5b21b6; }
+    .cat-Bien-être { background: #d1fae5; color: #065f46; }
+    .cat-Stress { background: #fed7aa; color: #9a3412; }
+    .cat-Sommeil { background: #e0e7ff; color: #3730a3; }
+    .cat-Thérapies { background: #fce7f3; color: #9d174d; }
+    .cat-Relations { background: #ccfbf1; color: #115e59; }
+    .cat-Développement\ personnel { background: #fef9c3; color: #854d0e; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .sidebar { transform: translateX(-100%); }
+      .main-content { margin-left: 0; }
+      .form-row, .form-row-3 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════ LOGIN ══════════════════ -->
+<div id="login-screen">
+  <div class="login-card">
+    <div class="login-logo">
+      <h1>Oui Psycho! ✦</h1>
+      <p>Interface d'administration</p>
+    </div>
+    <div class="form-group">
+      <label>Mot de passe admin</label>
+      <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
+    </div>
+    <div class="form-group">
+      <label>GitHub Personal Access Token (PAT) <span style="font-weight:400;color:var(--gray-400)">— optionnel hors ligne</span></label>
+      <input type="password" id="login-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+      <div class="hint">Token avec accès <strong>Contents: Read & Write</strong> sur le dépôt. Stocké localement uniquement.</div>
+    </div>
+    <button class="btn btn-primary btn-full" onclick="doLogin()">Se connecter</button>
+    <p class="login-error" id="login-error">Mot de passe incorrect.</p>
+  </div>
+</div>
+
+<!-- ══════════════════ APP ══════════════════ -->
+<div id="app">
+  <!-- SIDEBAR -->
+  <nav class="sidebar">
+    <div class="sidebar-header">
+      <h2>Oui Psycho! ✦</h2>
+      <p>Administration</p>
+    </div>
+    <div class="sidebar-nav">
+      <div class="nav-section">Navigation</div>
+      <button class="nav-item active" onclick="showPage('dashboard')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+        Tableau de bord
+      </button>
+      <button class="nav-item" onclick="showPage('articles')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        Articles
+      </button>
+      <button class="nav-item" onclick="showPage('new-article')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+        Nouvel article
+      </button>
+      <div class="nav-section">Outils</div>
+      <button class="nav-item" onclick="showPage('import-export')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+        Import / Export
+      </button>
+      <button class="nav-item" onclick="showPage('settings')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><circle cx="12" cy="12" r="3" stroke-width="2"/></svg>
+        Paramètres
+      </button>
+    </div>
+    <div class="sidebar-footer">
+      <a href="index.html" target="_blank" style="display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.5);font-size:.85rem;text-decoration:none;margin-bottom:8px;">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+        Voir le site
+      </a>
+      <button onclick="logout()">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/></svg>
+        Déconnexion
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="main-content">
+
+    <!-- DASHBOARD -->
+    <div id="page-dashboard" class="page">
+      <div class="topbar">
+        <h1>Tableau de bord</h1>
+        <div class="topbar-actions">
+          <button class="btn btn-primary" onclick="showPage('new-article')">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
+            Nouvel article
+          </button>
+        </div>
+      </div>
+      <div class="stats-grid" id="stats-grid"></div>
+      <div class="card">
+        <div class="card-header"><h3>Articles récents</h3></div>
+        <table>
+          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Lecture</th></tr></thead>
+          <tbody id="recent-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ARTICLES LIST -->
+    <div id="page-articles" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Articles <span id="articles-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="refreshArticles()">↻ Rafraîchir</button>
+          <button class="btn btn-primary" onclick="showPage('new-article')">+ Nouvel article</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Rechercher un article…" oninput="filterArticles()">
+          </div>
+        </div>
+        <div class="filter-bar" id="filter-bar"></div>
+        <table>
+          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Lecture</th><th>Actions</th></tr></thead>
+          <tbody id="articles-table"><tr class="loading-row"><td colspan="5">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- NEW / EDIT ARTICLE -->
+    <div id="page-new-article" class="page" style="display:none">
+      <div class="topbar">
+        <h1 id="editor-title">Nouvel article</h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="showPage('articles')">Annuler</button>
+          <button class="btn btn-ghost" onclick="togglePreview()">👁 Aperçu</button>
+          <button class="btn btn-success" onclick="saveArticle()" id="save-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Publier
+          </button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;">
+        <!-- LEFT: form -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card">
+            <div class="card-header"><h3>Contenu</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Titre *</label>
+                <input type="text" id="f-title" placeholder="Titre de l'article" oninput="autoSlug()">
+              </div>
+              <div class="form-group">
+                <label>Excerpt / Chapeau *</label>
+                <textarea id="f-excerpt" rows="3" placeholder="2-3 phrases accrocheuses qui donnent envie de lire…"></textarea>
+              </div>
+              <div class="form-group">
+                <label>Contenu HTML *</label>
+                <textarea id="f-content" class="tall" placeholder="<p>Votre contenu en HTML…</p>"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <!-- PREVIEW -->
+          <div class="card" id="preview-card" style="display:none">
+            <div class="card-header"><h3>Aperçu</h3></div>
+            <div class="panel-body">
+              <div class="preview-pane" id="preview-pane"></div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h3>Points clés (keypoints)</h3></div>
+            <div class="panel-body">
+              <div class="keypoints-editor" id="keypoints-editor"></div>
+              <button class="btn btn-ghost" style="margin-top:8px;font-size:.85rem;" onclick="addKeypoint()">+ Ajouter un point</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: meta -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card">
+            <div class="card-header"><h3>Métadonnées</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Slug (URL) *</label>
+                <input type="text" id="f-id" placeholder="mon-article-slug">
+                <div class="hint">Généré automatiquement depuis le titre</div>
+              </div>
+              <div class="form-group">
+                <label>Catégorie *</label>
+                <select id="f-category">
+                  <option value="">-- Choisir --</option>
+                  <option>Anxiété</option><option>Dépression</option><option>Bien-être</option>
+                  <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
+                  <option>Relations</option><option>Développement personnel</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Date de publication</label>
+                <input type="date" id="f-date">
+              </div>
+              <div class="form-group">
+                <label>Temps de lecture (minutes)</label>
+                <input type="number" id="f-readTime" min="1" max="60" value="7">
+              </div>
+              <div class="form-group">
+                <label>Auteur</label>
+                <input type="text" id="f-author" value="La rédaction Oui Psycho!">
+              </div>
+              <div class="form-group">
+                <label>Image (URL)</label>
+                <input type="text" id="f-image" placeholder="https://...">
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h3>SEO</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Meta description</label>
+                <textarea id="f-metaDescription" rows="3" placeholder="150 caractères idéalement…" oninput="updateSeoCounter()"></textarea>
+                <div class="seo-bar"><div class="seo-bar-fill" id="seo-bar-fill"></div></div>
+                <div class="char-counter" id="seo-counter">0 / 160 caractères</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header"><h3>Tags</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <div class="tags-input-container" id="tags-container" onclick="document.getElementById('tag-input').focus()">
+                  <input class="tags-hidden-input" id="tag-input" placeholder="Ajouter un tag + Entrée" onkeydown="handleTagInput(event)">
+                </div>
+                <div class="hint">Appuyez sur Entrée ou virgule pour valider un tag</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card" id="github-status-card" style="display:none">
+            <div class="card-header"><h3>Publication GitHub</h3></div>
+            <div class="panel-body" id="github-status-body" style="font-size:.85rem;color:var(--gray-500);">
+              Statut : non connecté
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IMPORT / EXPORT -->
+    <div id="page-import-export" class="page" style="display:none">
+      <div class="topbar"><h1>Import / Export</h1></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+        <div class="card">
+          <div class="card-header"><h3>📤 Exporter</h3></div>
+          <div class="panel-body" style="display:flex;flex-direction:column;gap:12px;">
+            <p style="font-size:.9rem;color:var(--gray-500);">Téléchargez tous vos articles sous forme d'un fichier JSON.</p>
+            <button class="btn btn-primary" onclick="exportAllArticles()">Exporter articles.json (index)</button>
+            <button class="btn btn-ghost" onclick="exportAllFull()">Exporter tout (archives complètes)</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header"><h3>📥 Importer</h3></div>
+          <div class="panel-body">
+            <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:12px;">Importez un fichier articles.json ou un article individuel.</p>
+            <div class="import-zone" onclick="document.getElementById('import-file').click()">
+              <p>📂 Cliquez ou déposez un fichier JSON</p>
+            </div>
+            <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
+          </div>
+        </div>
+      </div>
+      <div class="card" style="margin-top:20px;">
+        <div class="card-header"><h3>Commit GitHub (mise en ligne)</h3></div>
+        <div class="panel-body" style="display:flex;flex-direction:column;gap:12px;">
+          <p style="font-size:.9rem;color:var(--gray-500);">Poussez tous les fichiers articles vers votre dépôt GitHub. Requiert un PAT configuré.</p>
+          <div class="form-group" style="margin:0;">
+            <label>Message de commit</label>
+            <input type="text" id="commit-msg" value="feat: update articles content" style="max-width:480px;">
+          </div>
+          <div>
+            <button class="btn btn-success" onclick="pushAllToGitHub()">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+              Pousser vers GitHub
+            </button>
+          </div>
+          <div id="push-log" style="font-size:.8rem;font-family:monospace;background:var(--gray-900);color:#4ade80;padding:12px;border-radius:6px;display:none;max-height:200px;overflow-y:auto;"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div id="page-settings" class="page" style="display:none">
+      <div class="topbar"><h1>Paramètres</h1></div>
+      <div class="card">
+        <div class="panel-body">
+          <div class="settings-section">
+            <h3>🔐 Sécurité</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Nouveau mot de passe admin</label>
+                <input type="password" id="new-password" placeholder="Nouveau mot de passe">
+              </div>
+              <div class="form-group">
+                <label>Confirmer le mot de passe</label>
+                <input type="password" id="confirm-password" placeholder="Confirmer">
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick="changePassword()">Mettre à jour le mot de passe</button>
+          </div>
+
+          <div class="settings-section">
+            <h3>🐙 GitHub</h3>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Propriétaire du dépôt</label>
+                <input type="text" id="gh-owner" placeholder="JohnBalthazar">
+              </div>
+              <div class="form-group">
+                <label>Nom du dépôt</label>
+                <input type="text" id="gh-repo" placeholder="OuiPsycho">
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Branche</label>
+              <input type="text" id="gh-branch" placeholder="main" style="max-width:200px;">
+            </div>
+            <div class="form-group">
+              <label>Personal Access Token (PAT)</label>
+              <input type="password" id="gh-pat" placeholder="ghp_xxxxxxxxxxxxxxxx">
+              <div class="hint">Token avec scope <strong>Contents: Read & Write</strong>. Stocké dans localStorage uniquement.</div>
+            </div>
+            <button class="btn btn-primary" onclick="saveGitHubSettings()">Enregistrer la configuration GitHub</button>
+            <button class="btn btn-ghost" style="margin-left:8px;" onclick="testGitHubConnection()">Tester la connexion</button>
+          </div>
+
+          <div class="settings-section">
+            <h3>🧹 Données</h3>
+            <button class="btn btn-danger" onclick="clearAllData()">Effacer toutes les données locales</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- CONFIRM DIALOG -->
+<div class="panel-overlay" id="confirm-overlay">
+  <div class="panel confirm-dialog">
+    <div class="panel-body">
+      <div class="icon" id="confirm-icon">🗑️</div>
+      <h3 id="confirm-title">Confirmer la suppression</h3>
+      <p id="confirm-msg">Cette action est irréversible.</p>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-ghost" onclick="closeConfirm()">Annuler</button>
+      <button class="btn btn-danger" id="confirm-ok-btn">Supprimer</button>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast-container"></div>
+
+<script>
+/* ══════════════════════════════════════════════
+   CONFIG & STATE
+══════════════════════════════════════════════ */
+const ADMIN_PASS_KEY  = 'ouipsycho_admin_pass';
+const GH_OWNER_KEY    = 'ouipsycho_gh_owner';
+const GH_REPO_KEY     = 'ouipsycho_gh_repo';
+const GH_BRANCH_KEY   = 'ouipsycho_gh_branch';
+const GH_PAT_KEY      = 'ouipsycho_gh_pat';
+const ARTICLES_KEY    = 'ouipsycho_articles';
+const DEFAULT_PASS    = 'admin2026';
+
+let articles = [];
+let editingId = null;
+let tags = [];
+let activeCatFilter = 'all';
+let confirmCallback = null;
+
+/* ══════════════════════════════════════════════
+   BOOT
+══════════════════════════════════════════════ */
+window.addEventListener('DOMContentLoaded', () => {
+  // Auto-login if session active
+  if (sessionStorage.getItem('admin_logged') === '1') {
+    showApp();
+  }
+  // Default date in editor
+  document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+  // Fill GitHub settings from storage
+  document.getElementById('gh-owner').value  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+  document.getElementById('gh-repo').value   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+  document.getElementById('gh-branch').value = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+  document.getElementById('gh-pat').value    = localStorage.getItem(GH_PAT_KEY) || '';
+  // Initialize keypoints
+  for (let i = 0; i < 5; i++) addKeypoint();
+});
+
+/* ══════════════════════════════════════════════
+   AUTH
+══════════════════════════════════════════════ */
+function doLogin() {
+  const pass = document.getElementById('login-password').value;
+  const pat  = document.getElementById('login-pat').value;
+  const stored = localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_PASS;
+  if (pass !== stored) {
+    document.getElementById('login-error').style.display = 'block';
+    return;
+  }
+  if (pat) localStorage.setItem(GH_PAT_KEY, pat);
+  sessionStorage.setItem('admin_logged', '1');
+  showApp();
+}
+document.addEventListener('keydown', e => {
+  if (e.key === 'Enter' && document.getElementById('login-screen').style.display !== 'none') doLogin();
+});
+function logout() {
+  sessionStorage.removeItem('admin_logged');
+  location.reload();
+}
+function showApp() {
+  document.getElementById('login-screen').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  loadArticles();
+}
+
+/* ══════════════════════════════════════════════
+   PAGE ROUTING
+══════════════════════════════════════════════ */
+function showPage(name) {
+  document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + name).style.display = 'block';
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + name + "'"))
+      n.classList.add('active');
+  });
+  if (name === 'dashboard') renderDashboard();
+  if (name === 'articles') renderArticlesTable();
+  if (name === 'new-article') resetEditor();
+  if (name === 'settings') {
+    document.getElementById('gh-pat').value = localStorage.getItem(GH_PAT_KEY) || '';
+  }
+}
+
+/* ══════════════════════════════════════════════
+   DATA LOADING
+══════════════════════════════════════════════ */
+async function loadArticles() {
+  // Load from localStorage cache first
+  const cached = localStorage.getItem(ARTICLES_KEY);
+  if (cached) {
+    try { articles = JSON.parse(cached); } catch(e) { articles = []; }
+  }
+  // Try fetching from server
+  try {
+    const res = await fetch('data/articles.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      articles = data;
+      localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+    }
+  } catch(e) { /* offline — use cache */ }
+  renderDashboard();
+  buildFilterChips();
+}
+
+function refreshArticles() {
+  localStorage.removeItem(ARTICLES_KEY);
+  loadArticles().then(() => { renderArticlesTable(); toast('Articles rechargés', 'success'); });
+}
+
+/* ══════════════════════════════════════════════
+   DASHBOARD
+══════════════════════════════════════════════ */
+function renderDashboard() {
+  const cats = {};
+  articles.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
+  const totalRead = articles.reduce((s, a) => s + (a.readTime || 0), 0);
+
+  document.getElementById('stats-grid').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-val">${articles.length}</div>
+      <div class="stat-label">Articles publiés</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-val">${Object.keys(cats).length}</div>
+      <div class="stat-label">Catégories</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-val">${totalRead}</div>
+      <div class="stat-label">Minutes de lecture totales</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-val">${articles.reduce((s,a) => s + (a.tags||[]).length, 0)}</div>
+      <div class="stat-label">Tags au total</div>
+    </div>
+    ${Object.entries(cats).map(([cat, count]) =>
+      `<div class="stat-card"><div class="stat-val">${count}</div><div class="stat-label">${cat}</div></div>`
+    ).join('')}
+  `;
+
+  const recent = [...articles].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
+  document.getElementById('recent-table').innerHTML = recent.map(a => `
+    <tr>
+      <td><strong>${a.title}</strong></td>
+      <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
+      <td>${formatDate(a.date)}</td>
+      <td>${a.readTime} min</td>
+    </tr>
+  `).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article</td></tr>';
+}
+
+/* ══════════════════════════════════════════════
+   ARTICLES TABLE
+══════════════════════════════════════════════ */
+function buildFilterChips() {
+  const cats = [...new Set(articles.map(a => a.category))].sort();
+  document.getElementById('filter-bar').innerHTML =
+    `<span class="filter-chip active" onclick="setCatFilter('all', this)">Tous (${articles.length})</span>` +
+    cats.map(c => `<span class="filter-chip" onclick="setCatFilter('${c}', this)">${c} (${articles.filter(a=>a.category===c).length})</span>`).join('');
+}
+function setCatFilter(cat, el) {
+  activeCatFilter = cat;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderArticlesTable();
+}
+function filterArticles() { renderArticlesTable(); }
+function renderArticlesTable() {
+  const q = (document.getElementById('search-input')?.value || '').toLowerCase();
+  let list = articles.filter(a =>
+    (activeCatFilter === 'all' || a.category === activeCatFilter) &&
+    (!q || a.title.toLowerCase().includes(q) || (a.tags||[]).some(t=>t.toLowerCase().includes(q)))
+  ).sort((a,b) => b.date.localeCompare(a.date));
+  document.getElementById('articles-count').textContent = `(${list.length})`;
+  document.getElementById('articles-table').innerHTML = list.map(a => `
+    <tr>
+      <td>
+        <div style="font-weight:600;color:var(--gray-900)">${a.title}</div>
+        <div style="font-size:.75rem;color:var(--gray-400);margin-top:2px">${a.id}</div>
+      </td>
+      <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
+      <td>${formatDate(a.date)}</td>
+      <td>${a.readTime} min</td>
+      <td>
+        <div class="actions">
+          <button class="btn btn-ghost btn-sm" onclick="editArticle('${a.id}')">✏️ Éditer</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDelete('${a.id}', '${a.title.replace(/'/g,"\\'")}')">🗑️</button>
+          <a href="article.html?id=${a.id}" target="_blank" class="btn btn-ghost btn-sm">👁</a>
+        </div>
+      </td>
+    </tr>
+  `).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
+}
+
+/* ══════════════════════════════════════════════
+   EDITOR
+══════════════════════════════════════════════ */
+function resetEditor() {
+  editingId = null;
+  document.getElementById('editor-title').textContent = 'Nouvel article';
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-id').value = '';
+  document.getElementById('f-excerpt').value = '';
+  document.getElementById('f-content').value = '';
+  document.getElementById('f-category').value = '';
+  document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
+  document.getElementById('f-readTime').value = 7;
+  document.getElementById('f-author').value = 'La rédaction Oui Psycho!';
+  document.getElementById('f-image').value = '';
+  document.getElementById('f-metaDescription').value = '';
+  tags = [];
+  renderTags();
+  resetKeypoints();
+  updateSeoCounter();
+  document.getElementById('preview-card').style.display = 'none';
+}
+
+function editArticle(id) {
+  const a = articles.find(x => x.id === id);
+  if (!a) return;
+  // Load full article JSON
+  fetch('articles/' + id + '.json?t=' + Date.now())
+    .then(r => r.json())
+    .then(full => {
+      editingId = id;
+      document.getElementById('editor-title').textContent = 'Modifier : ' + a.title;
+      document.getElementById('f-title').value = full.title;
+      document.getElementById('f-id').value = full.id;
+      document.getElementById('f-excerpt').value = full.excerpt;
+      document.getElementById('f-content').value = full.content;
+      document.getElementById('f-category').value = full.category;
+      document.getElementById('f-date').value = full.date;
+      document.getElementById('f-readTime').value = full.readTime || 7;
+      document.getElementById('f-author').value = full.author || 'La rédaction Oui Psycho!';
+      document.getElementById('f-image').value = full.image || '';
+      document.getElementById('f-metaDescription').value = full.metaDescription || '';
+      tags = full.tags || [];
+      renderTags();
+      setKeypoints(full.keypoints || []);
+      updateSeoCounter();
+      showPage('new-article');
+      document.getElementById('editor-title').textContent = 'Modifier : ' + full.title;
+    })
+    .catch(() => toast('Impossible de charger l\'article complet', 'error'));
+}
+
+function autoSlug() {
+  if (editingId) return; // don't overwrite slug when editing
+  const title = document.getElementById('f-title').value;
+  document.getElementById('f-id').value = slugify(title);
+}
+
+function slugify(str) {
+  return str.normalize('NFD').replace(/[̀-ͯ]/g, '')
+    .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+async function saveArticle() {
+  const id       = document.getElementById('f-id').value.trim();
+  const title    = document.getElementById('f-title').value.trim();
+  const excerpt  = document.getElementById('f-excerpt').value.trim();
+  const content  = document.getElementById('f-content').value.trim();
+  const category = document.getElementById('f-category').value;
+  const date     = document.getElementById('f-date').value;
+  const readTime = parseInt(document.getElementById('f-readTime').value) || 7;
+  const author   = document.getElementById('f-author').value.trim() || 'La rédaction Oui Psycho!';
+  const image    = document.getElementById('f-image').value.trim();
+  const metaDesc = document.getElementById('f-metaDescription').value.trim();
+  const keypoints = getKeypoints();
+
+  if (!id || !title || !content || !category) {
+    toast('Remplissez les champs obligatoires (slug, titre, contenu, catégorie)', 'error');
+    return;
+  }
+
+  const articleData = { id, title, excerpt, content, date, category, image, readTime, author, tags, metaDescription: metaDesc, keypoints };
+  const summaryData = { id, title, excerpt, date, category, image, readTime, author, tags, metaDescription: metaDesc };
+
+  const btn = document.getElementById('save-btn');
+  btn.innerHTML = '<div class="spinner"></div> Publication…';
+  btn.disabled = true;
+
+  try {
+    // Update local articles list
+    if (editingId) {
+      const idx = articles.findIndex(a => a.id === editingId);
+      if (idx > -1) articles[idx] = summaryData;
+      else articles.push(summaryData);
+    } else {
+      // Check for duplicate slug
+      if (articles.find(a => a.id === id)) {
+        toast('Un article avec ce slug existe déjà', 'error');
+        btn.innerHTML = '✓ Publier'; btn.disabled = false;
+        return;
+      }
+      articles.unshift(summaryData);
+    }
+    localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+
+    // Try to push to GitHub
+    const pat = localStorage.getItem(GH_PAT_KEY);
+    if (pat) {
+      await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
+      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index');
+      toast('Article publié sur GitHub ! 🎉', 'success');
+    } else {
+      // Download files locally
+      downloadJSON(articleData, id + '.json');
+      downloadJSON(articles, 'articles.json');
+      toast('Fichiers téléchargés — uploadez-les sur GitHub manuellement', 'info');
+    }
+
+    showPage('articles');
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+  }
+  btn.innerHTML = '✓ Publier'; btn.disabled = false;
+}
+
+/* ══════════════════════════════════════════════
+   DELETE
+══════════════════════════════════════════════ */
+function confirmDelete(id, title) {
+  document.getElementById('confirm-title').textContent = 'Supprimer cet article ?';
+  document.getElementById('confirm-msg').textContent = '"' + title + '" sera définitivement supprimé.';
+  document.getElementById('confirm-icon').textContent = '🗑️';
+  confirmCallback = () => deleteArticle(id);
+  document.getElementById('confirm-ok-btn').onclick = () => { confirmCallback(); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+function closeConfirm() { document.getElementById('confirm-overlay').classList.remove('open'); }
+
+async function deleteArticle(id) {
+  articles = articles.filter(a => a.id !== id);
+  localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await githubDeleteFile('articles/' + id + '.json', 'delete: article ' + id);
+      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index after delete');
+      toast('Article supprimé sur GitHub', 'success');
+    } catch(e) {
+      toast('Supprimé localement. GitHub : ' + e.message, 'error');
+    }
+  } else {
+    downloadJSON(articles, 'articles.json');
+    toast('Index mis à jour téléchargé — supprimez le fichier JSON manuellement sur GitHub', 'info');
+  }
+  renderArticlesTable();
+  renderDashboard();
+}
+
+/* ══════════════════════════════════════════════
+   GITHUB API
+══════════════════════════════════════════════ */
+function ghHeaders() {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  return { 'Authorization': 'token ' + pat, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' };
+}
+function ghBase() {
+  const owner  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+  const repo   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+  return 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/';
+}
+async function githubGetSha(path) {
+  try {
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const res = await fetch(ghBase() + path + '?ref=' + branch, { headers: ghHeaders() });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.sha;
+  } catch(e) { return null; }
+}
+async function githubPutFile(path, content, message) {
+  const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+  const sha = await githubGetSha(path);
+  const body = { message, content: btoa(unescape(encodeURIComponent(content))), branch };
+  if (sha) body.sha = sha;
+  const res = await fetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+  if (!res.ok) { const err = await res.json(); throw new Error(err.message || res.status); }
+  return res.json();
+}
+async function githubDeleteFile(path, message) {
+  const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+  const sha = await githubGetSha(path);
+  if (!sha) return; // file doesn't exist, nothing to do
+  const res = await fetch(ghBase() + path, { method: 'DELETE', headers: ghHeaders(), body: JSON.stringify({ message, sha, branch }) });
+  if (!res.ok) { const err = await res.json(); throw new Error(err.message || res.status); }
+}
+async function testGitHubConnection() {
+  const owner = document.getElementById('gh-owner').value;
+  const repo  = document.getElementById('gh-repo').value;
+  const pat   = document.getElementById('gh-pat').value;
+  if (!pat) { toast('Entrez d\'abord un PAT', 'error'); return; }
+  try {
+    const res = await fetch('https://api.github.com/repos/' + owner + '/' + repo, {
+      headers: { 'Authorization': 'token ' + pat }
+    });
+    if (res.ok) { toast('✅ Connexion GitHub réussie !', 'success'); }
+    else { const e = await res.json(); toast('❌ Erreur : ' + e.message, 'error'); }
+  } catch(e) { toast('❌ Impossible de joindre GitHub', 'error'); }
+}
+
+/* ══════════════════════════════════════════════
+   PUSH ALL
+══════════════════════════════════════════════ */
+async function pushAllToGitHub() {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) { toast('Configurez un PAT dans les paramètres', 'error'); return; }
+  const msg = document.getElementById('commit-msg').value || 'feat: update articles';
+  const log = document.getElementById('push-log');
+  log.style.display = 'block';
+  log.textContent = '';
+  const addLog = t => { log.textContent += t + '\n'; log.scrollTop = log.scrollHeight; };
+  addLog('→ Début du push…');
+  let ok = 0, fail = 0;
+  // Push articles index
+  try {
+    await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), msg + ' (index)');
+    addLog('✓ data/articles.json'); ok++;
+  } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
+  toast(ok + ' fichier(s) mis à jour, ' + fail + ' erreur(s)', fail === 0 ? 'success' : 'error');
+}
+
+/* ══════════════════════════════════════════════
+   IMPORT / EXPORT
+══════════════════════════════════════════════ */
+function exportAllArticles() {
+  downloadJSON(articles, 'articles.json');
+  toast('Export articles.json téléchargé', 'success');
+}
+function exportAllFull() {
+  const blob = new Blob([JSON.stringify({ exported: new Date().toISOString(), articles }, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = 'ouipsycho-backup-' + new Date().toISOString().split('T')[0] + '.json';
+  a.click(); URL.revokeObjectURL(url);
+  toast('Backup complet téléchargé', 'success');
+}
+function handleImport(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (Array.isArray(data)) {
+        articles = data;
+      } else if (data.articles && Array.isArray(data.articles)) {
+        articles = data.articles;
+      } else if (data.id) {
+        // Single article
+        const idx = articles.findIndex(a => a.id === data.id);
+        if (idx > -1) articles[idx] = data; else articles.unshift(data);
+        toast('Article "' + data.id + '" importé', 'success');
+        localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+        renderArticlesTable(); return;
+      }
+      localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+      renderArticlesTable(); renderDashboard();
+      toast(articles.length + ' article(s) importé(s)', 'success');
+    } catch(e) { toast('Fichier JSON invalide', 'error'); }
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+/* ══════════════════════════════════════════════
+   SETTINGS
+══════════════════════════════════════════════ */
+function saveGitHubSettings() {
+  localStorage.setItem(GH_OWNER_KEY, document.getElementById('gh-owner').value.trim());
+  localStorage.setItem(GH_REPO_KEY, document.getElementById('gh-repo').value.trim());
+  localStorage.setItem(GH_BRANCH_KEY, document.getElementById('gh-branch').value.trim() || 'main');
+  const pat = document.getElementById('gh-pat').value.trim();
+  if (pat) localStorage.setItem(GH_PAT_KEY, pat);
+  toast('Configuration GitHub enregistrée ✅', 'success');
+}
+function changePassword() {
+  const np = document.getElementById('new-password').value;
+  const cp = document.getElementById('confirm-password').value;
+  if (!np) { toast('Entrez un mot de passe', 'error'); return; }
+  if (np !== cp) { toast('Les mots de passe ne correspondent pas', 'error'); return; }
+  localStorage.setItem(ADMIN_PASS_KEY, np);
+  toast('Mot de passe mis à jour ✅', 'success');
+}
+function clearAllData() {
+  if (!confirm('Effacer toutes les données locales (articles en cache, PAT, paramètres) ?')) return;
+  localStorage.clear(); sessionStorage.clear(); location.reload();
+}
+
+/* ══════════════════════════════════════════════
+   TAGS
+══════════════════════════════════════════════ */
+function handleTagInput(e) {
+  if (e.key === 'Enter' || e.key === ',') {
+    e.preventDefault();
+    const val = e.target.value.trim().replace(/,$/, '');
+    if (val && !tags.includes(val)) { tags.push(val); renderTags(); }
+    e.target.value = '';
+  } else if (e.key === 'Backspace' && !e.target.value) {
+    tags.pop(); renderTags();
+  }
+}
+function removeTag(i) { tags.splice(i, 1); renderTags(); }
+function renderTags() {
+  const container = document.getElementById('tags-container');
+  const input = document.getElementById('tag-input');
+  // Remove old chips
+  container.querySelectorAll('.tag-chip').forEach(c => c.remove());
+  tags.forEach((t, i) => {
+    const chip = document.createElement('span');
+    chip.className = 'tag-chip';
+    chip.innerHTML = t + '<button onclick="removeTag(' + i + ')">×</button>';
+    container.insertBefore(chip, input);
+  });
+}
+
+/* ══════════════════════════════════════════════
+   KEYPOINTS
+══════════════════════════════════════════════ */
+function addKeypoint(value = '') {
+  const editor = document.getElementById('keypoints-editor');
+  const row = document.createElement('div');
+  row.className = 'keypoint-row';
+  row.innerHTML = `<input type="text" placeholder="Point clé ${editor.children.length + 1}…" value="${escapeAttr(value)}">
+    <button onclick="this.parentElement.remove()">✕</button>`;
+  editor.appendChild(row);
+}
+function resetKeypoints() {
+  document.getElementById('keypoints-editor').innerHTML = '';
+  for (let i = 0; i < 5; i++) addKeypoint();
+}
+function setKeypoints(pts) {
+  document.getElementById('keypoints-editor').innerHTML = '';
+  pts.forEach(p => addKeypoint(p));
+  while (document.getElementById('keypoints-editor').children.length < 3) addKeypoint();
+}
+function getKeypoints() {
+  return [...document.querySelectorAll('.keypoint-row input')].map(i => i.value.trim()).filter(Boolean);
+}
+
+/* ══════════════════════════════════════════════
+   SEO COUNTER
+══════════════════════════════════════════════ */
+function updateSeoCounter() {
+  const len = document.getElementById('f-metaDescription').value.length;
+  const counter = document.getElementById('seo-counter');
+  const fill = document.getElementById('seo-bar-fill');
+  counter.textContent = len + ' / 160 caractères';
+  const pct = Math.min(len / 160, 1);
+  fill.style.width = (pct * 100) + '%';
+  if (len === 0) { fill.style.background = 'var(--gray-300)'; counter.className = 'char-counter'; }
+  else if (len < 100) { fill.style.background = 'var(--warning)'; counter.className = 'char-counter warn'; }
+  else if (len <= 160) { fill.style.background = 'var(--success)'; counter.className = 'char-counter ok'; }
+  else { fill.style.background = 'var(--danger)'; counter.className = 'char-counter warn'; }
+}
+
+/* ══════════════════════════════════════════════
+   PREVIEW
+══════════════════════════════════════════════ */
+function togglePreview() {
+  const card = document.getElementById('preview-card');
+  if (card.style.display === 'none') {
+    updatePreview();
+    card.style.display = 'block';
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    card.style.display = 'none';
+  }
+}
+function updatePreview() {
+  const title = document.getElementById('f-title').value || 'Sans titre';
+  const content = document.getElementById('f-content').value;
+  const date = document.getElementById('f-date').value;
+  const readTime = document.getElementById('f-readTime').value;
+  document.getElementById('preview-pane').innerHTML = `
+    <h1>${title}</h1>
+    <div class="meta">${formatDate(date)} · ${readTime} min de lecture</div>
+    ${content}
+  `;
+}
+
+/* ══════════════════════════════════════════════
+   HELPERS
+══════════════════════════════════════════════ */
+function formatDate(d) {
+  if (!d) return '';
+  try {
+    return new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(d));
+  } catch(e) { return d; }
+}
+function downloadJSON(data, filename) {
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a'); a.href = url; a.download = filename;
+  a.click(); URL.revokeObjectURL(url);
+}
+function escapeAttr(str) {
+  return String(str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+function toast(msg, type = 'info') {
+  const t = document.createElement('div');
+  t.className = 'toast ' + type;
+  t.textContent = msg;
+  document.getElementById('toast-container').appendChild(t);
+  setTimeout(() => t.remove(), 4000);
+}
+
+// Close confirm on overlay click
+document.getElementById('confirm-overlay').addEventListener('click', function(e) {
+  if (e.target === this) closeConfirm();
+});
+</script>
+</body>
+</html>
