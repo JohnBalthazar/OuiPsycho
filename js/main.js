@@ -12,7 +12,7 @@ const CONFIG = {
   articlesBase: 'articles/',
   perPage:      9,
   siteName:     'Oui Psycho!',
-  siteUrl:      'https://johnbalthazar.github.io/Esprit-Clair',
+  siteUrl:      'https://johnbalthazar.github.io/OuiPsycho',
 };
 
 const CATEGORIES = {
