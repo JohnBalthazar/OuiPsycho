@@ -11,7 +11,7 @@ const CONFIG = {
   dataUrl:      'data/articles.json',
   articlesBase: 'articles/',
   perPage:      9,
-  siteName:     'Oui Pscho',
+  siteName:     'Oui Psycho!',
   siteUrl:      'https://johnbalthazar.github.io/Esprit-Clair',
 };
 
@@ -385,7 +385,7 @@ function buildArticleHTML(a) {
     <div class="article-author">
       <div class="article-author__avatar" aria-hidden="true">✍️</div>
       <div>
-        <div class="article-author__name">${esc(a.author || 'La rédaction Oui Pscho')}</div>
+        <div class="article-author__name">${esc(a.author || 'La rédaction Oui Psycho!')}</div>
         <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
       </div>
     </div>
@@ -412,7 +412,7 @@ function injectJSONLD(a) {
     description: a.metaDescription || a.excerpt || '',
     datePublished: a.date,
     inLanguage: 'fr',
-    author: { '@type': 'Person', name: a.author || 'La rédaction Oui Pscho' },
+    author: { '@type': 'Person', name: a.author || 'La rédaction Oui Psycho!' },
     publisher: { '@type': 'Organization', name: CONFIG.siteName, url: CONFIG.siteUrl },
     mainEntityOfPage: { '@type': 'WebPage', '@id': window.location.href },
     ...(a.image ? { image: a.image } : {}),

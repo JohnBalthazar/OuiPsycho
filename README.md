@@ -1,4 +1,4 @@
-# 🧠 Oui Pscho
+# 🧠 Oui Psycho!
 
 Blog de vulgarisation sur la santé mentale — 100 % statique, compatible GitHub Pages.
 
@@ -141,7 +141,7 @@ Remplacez chaque `XXXXXXXXXX` par votre vrai **Ad Slot ID** depuis la console Ad
 ```bash
 git init
 git add .
-git commit -m "Initial commit — Oui Pscho"
+git commit -m "Initial commit — Oui Psycho!"
 git branch -M main
 git remote add origin https://github.com/VOTRE_USERNAME/psycho-clair.git
 git push -u origin main

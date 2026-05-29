@@ -1,4 +1,4 @@
-# robots.txt — Oui Pscho
+# robots.txt — Oui Psycho!
 # https://www.robotstxt.org/
 
 User-agent: *
