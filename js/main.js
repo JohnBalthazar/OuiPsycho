@@ -321,6 +321,8 @@ async function initArticle() {
         initShareButtons(article);
         buildTOC();
         loadRelated(article);
+        // Injecter l'image si ajoutée après la génération de la page statique
+        injectArticleImage(article);
       } else {
         buildTOC();
       }
@@ -429,6 +431,19 @@ function buildArticleHTML(a) {
       <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
       <button class="share-btn share-btn--copy" data-platform="copy">Copier le lien</button>
     </div>`;
+}
+
+/* Injecte l'image hero dans une page statique si elle n'y est pas baked-in */
+function injectArticleImage(article) {
+  if (!article.image) return;
+  // Ne pas dupliquer si l'image est déjà dans le HTML statique
+  if (document.querySelector('.article-hero-image img')) return;
+  const header = document.querySelector('.article-header');
+  if (!header) return;
+  const div = document.createElement('div');
+  div.className = 'article-hero-image';
+  div.innerHTML = `<img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy">`;
+  header.appendChild(div);
 }
 
 function injectJSONLD(a) {

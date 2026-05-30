@@ -720,6 +720,7 @@ let tags = [];
 let activeCatFilter = 'all';
 let confirmCallback = null;
 let sessionTimer = null;
+let isUploading = false; // verrou pendant l'upload d'image
 
 /* ══════════════════════════════════════════════
    SÉCURITÉ — Hash simple (SHA-256 via Web Crypto)
@@ -1048,6 +1049,11 @@ function slugify(str) {
 }
 
 async function saveArticle() {
+  // Bloquer si un upload image est en cours
+  if (isUploading) {
+    toast('⏳ Attendez la fin de l\'upload de l\'image avant de publier…', 'info');
+    return;
+  }
   const id       = document.getElementById('f-id').value.trim();
   const title    = document.getElementById('f-title').value.trim();
   const excerpt  = document.getElementById('f-excerpt').value.trim();
@@ -1495,6 +1501,10 @@ async function uploadToCloudinary(file) {
   const folder    = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
   if (!cloudName || !preset) { toast('Configurez Cloudinary dans Paramètres', 'error'); return; }
 
+  isUploading = true;
+  const saveBtn = document.getElementById('save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
   const progress = document.getElementById('img-upload-progress');
   const bar = document.getElementById('img-upload-bar');
   progress.style.display = 'block';
@@ -1529,12 +1539,18 @@ async function uploadToCloudinary(file) {
     setImageStatus('❌ Erreur Cloudinary : ' + e.message, 'error');
     toast('Erreur Cloudinary : ' + e.message, 'error');
   } finally {
+    isUploading = false;
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
     setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
   }
 }
 
 /* ── GITHUB UPLOAD (fallback) ── */
 async function uploadImageToGitHub(file) {
+  isUploading = true;
+  const saveBtn = document.getElementById('save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
   const progress = document.getElementById('img-upload-progress');
   const bar = document.getElementById('img-upload-bar');
   progress.style.display = 'block';
@@ -1561,6 +1577,8 @@ async function uploadImageToGitHub(file) {
     setImageStatus('❌ Erreur GitHub : ' + e.message, 'error');
     toast('Erreur upload : ' + e.message, 'error');
   } finally {
+    isUploading = false;
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
     setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
   }
 }
