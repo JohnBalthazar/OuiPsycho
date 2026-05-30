@@ -12,7 +12,7 @@ const CONFIG = {
   articlesBase: 'articles/',
   perPage:      9,
   siteName:     'Oui Psycho!',
-  siteUrl:      'https://johnbalthazar.github.io/OuiPsycho',
+  siteUrl:      'https://ouipsycho.fr',
 };
 
 const CATEGORIES = {

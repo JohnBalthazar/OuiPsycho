@@ -4,7 +4,7 @@
 
   <!-- Page d'accueil -->
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/</loc>
+    <loc>https://ouipsycho.fr/</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -12,113 +12,113 @@
 
   <!-- Pages statiques -->
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/a-propos.html</loc>
+    <loc>https://ouipsycho.fr/a-propos.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/contact.html</loc>
+    <loc>https://ouipsycho.fr/contact.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/mentions-legales.html</loc>
+    <loc>https://ouipsycho.fr/mentions-legales.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/politique-de-confidentialite.html</loc>
+    <loc>https://ouipsycho.fr/politique-de-confidentialite.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
 
   <!-- Articles — pages statiques SEO -->
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/crise-angoisse.html</loc>
+    <loc>https://ouipsycho.fr/articles/crise-angoisse.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/trouble-anxieux-generalise.html</loc>
+    <loc>https://ouipsycho.fr/articles/trouble-anxieux-generalise.html</loc>
     <lastmod>2026-05-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/reconnaitre-depression.html</loc>
+    <loc>https://ouipsycho.fr/articles/reconnaitre-depression.html</loc>
     <lastmod>2026-05-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/sortir-depression.html</loc>
+    <loc>https://ouipsycho.fr/articles/sortir-depression.html</loc>
     <lastmod>2026-05-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/meditation-pleine-conscience.html</loc>
+    <loc>https://ouipsycho.fr/articles/meditation-pleine-conscience.html</loc>
     <lastmod>2026-04-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/burnout-epuisement-professionnel.html</loc>
+    <loc>https://ouipsycho.fr/articles/burnout-epuisement-professionnel.html</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/techniques-anti-stress.html</loc>
+    <loc>https://ouipsycho.fr/articles/techniques-anti-stress.html</loc>
     <lastmod>2026-04-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/sommeil-sante-mentale.html</loc>
+    <loc>https://ouipsycho.fr/articles/sommeil-sante-mentale.html</loc>
     <lastmod>2026-04-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/vaincre-insomnie.html</loc>
+    <loc>https://ouipsycho.fr/articles/vaincre-insomnie.html</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/quelle-therapie-choisir.html</loc>
+    <loc>https://ouipsycho.fr/articles/quelle-therapie-choisir.html</loc>
     <lastmod>2026-03-25</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/resilience-emotionnelle.html</loc>
+    <loc>https://ouipsycho.fr/articles/resilience-emotionnelle.html</loc>
     <lastmod>2026-03-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/communication-non-violente.html</loc>
+    <loc>https://ouipsycho.fr/articles/communication-non-violente.html</loc>
     <lastmod>2026-03-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/therapie-cognitive-comportementale.html</loc>
+    <loc>https://ouipsycho.fr/articles/therapie-cognitive-comportementale.html</loc>
     <lastmod>2026-03-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/relation-toxique-signes.html</loc>
+    <loc>https://ouipsycho.fr/articles/relation-toxique-signes.html</loc>
     <lastmod>2026-03-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://johnbalthazar.github.io/OuiPsycho/articles/estime-de-soi.html</loc>
+    <loc>https://ouipsycho.fr/articles/estime-de-soi.html</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

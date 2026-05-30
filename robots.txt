@@ -9,4 +9,4 @@ Disallow: /data/
 Disallow: /articles/*.json
 
 # Sitemap
-Sitemap: https://johnbalthazar.github.io/OuiPsycho/sitemap.xml
+Sitemap: https://ouipsycho.fr/sitemap.xml

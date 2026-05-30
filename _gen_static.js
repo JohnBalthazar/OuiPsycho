@@ -2,7 +2,7 @@
 const fs   = require('fs');
 const path = require('path');
 
-const BASE = 'https://johnbalthazar.github.io/OuiPsycho';
+const BASE = 'https://ouipsycho.fr';
 const DIR  = path.join(__dirname, 'articles');
 
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
