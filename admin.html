@@ -644,8 +644,10 @@ async function hashPass(pass) {
    BOOT
 ══════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', async () => {
-  // Initialiser le hash du mot de passe par défaut si absent
-  if (!localStorage.getItem(ADMIN_PASS_KEY)) {
+  // Migration : si la valeur stockée n'est pas un hash SHA-256 (64 hex),
+  // c'est l'ancien format en clair → on réinitialise à admin2026
+  const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
+  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass)) {
     localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
   }
 
