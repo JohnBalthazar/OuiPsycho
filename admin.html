@@ -619,22 +619,45 @@ const GH_REPO_KEY     = 'ouipsycho_gh_repo';
 const GH_BRANCH_KEY   = 'ouipsycho_gh_branch';
 const GH_PAT_KEY      = 'ouipsycho_gh_pat';
 const ARTICLES_KEY    = 'ouipsycho_articles';
-const DEFAULT_PASS    = 'admin2026';
+const SESSION_KEY     = 'ouipsycho_session';
+const SESSION_DURATION = 4 * 60 * 60 * 1000; // 4 heures en ms
+const MAX_ATTEMPTS    = 5;
+const LOCKOUT_TIME    = 15 * 60 * 1000; // 15 minutes en ms
 
 let articles = [];
 let editingId = null;
 let tags = [];
 let activeCatFilter = 'all';
 let confirmCallback = null;
+let sessionTimer = null;
+
+/* ══════════════════════════════════════════════
+   SÉCURITÉ — Hash simple (SHA-256 via Web Crypto)
+══════════════════════════════════════════════ */
+async function hashPass(pass) {
+  const enc = new TextEncoder().encode(pass + 'ouipsycho_salt_2026');
+  const buf = await crypto.subtle.digest('SHA-256', enc);
+  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
 
 /* ══════════════════════════════════════════════
    BOOT
 ══════════════════════════════════════════════ */
-window.addEventListener('DOMContentLoaded', () => {
-  // Auto-login if session active
-  if (sessionStorage.getItem('admin_logged') === '1') {
-    showApp();
+window.addEventListener('DOMContentLoaded', async () => {
+  // Initialiser le hash du mot de passe par défaut si absent
+  if (!localStorage.getItem(ADMIN_PASS_KEY)) {
+    localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
   }
+
+  // Vérifier session existante
+  const session = JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
+  if (session && Date.now() - session.loginTime < SESSION_DURATION) {
+    showApp();
+    startSessionTimer(SESSION_DURATION - (Date.now() - session.loginTime));
+  } else {
+    sessionStorage.removeItem(SESSION_KEY);
+  }
+
   // Default date in editor
   document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
   // Fill GitHub settings from storage
@@ -649,25 +672,77 @@ window.addEventListener('DOMContentLoaded', () => {
 /* ══════════════════════════════════════════════
    AUTH
 ══════════════════════════════════════════════ */
-function doLogin() {
-  const pass = document.getElementById('login-password').value;
-  const pat  = document.getElementById('login-pat').value;
-  const stored = localStorage.getItem(ADMIN_PASS_KEY) || DEFAULT_PASS;
-  if (pass !== stored) {
-    document.getElementById('login-error').style.display = 'block';
+async function doLogin() {
+  const errEl = document.getElementById('login-error');
+
+  // Vérifier le blocage (trop de tentatives)
+  const lockData = JSON.parse(localStorage.getItem('ouipsycho_lockout') || 'null');
+  if (lockData && Date.now() < lockData.until) {
+    const remaining = Math.ceil((lockData.until - Date.now()) / 60000);
+    errEl.textContent = `Trop de tentatives. Réessayez dans ${remaining} min.`;
+    errEl.style.display = 'block';
     return;
   }
+
+  const pass = document.getElementById('login-password').value;
+  const pat  = document.getElementById('login-pat').value;
+
+  if (!pass) { errEl.textContent = 'Entrez un mot de passe.'; errEl.style.display = 'block'; return; }
+
+  const enteredHash = await hashPass(pass);
+  const storedHash  = localStorage.getItem(ADMIN_PASS_KEY);
+
+  if (enteredHash !== storedHash) {
+    // Incrémenter les tentatives
+    const attempts = JSON.parse(localStorage.getItem('ouipsycho_attempts') || '{"count":0}');
+    attempts.count++;
+    if (attempts.count >= MAX_ATTEMPTS) {
+      localStorage.setItem('ouipsycho_lockout', JSON.stringify({ until: Date.now() + LOCKOUT_TIME }));
+      localStorage.removeItem('ouipsycho_attempts');
+      errEl.textContent = 'Compte bloqué 15 min après trop de tentatives.';
+    } else {
+      localStorage.setItem('ouipsycho_attempts', JSON.stringify(attempts));
+      errEl.textContent = `Mot de passe incorrect. (${attempts.count}/${MAX_ATTEMPTS} tentatives)`;
+    }
+    errEl.style.display = 'block';
+    document.getElementById('login-password').value = '';
+    return;
+  }
+
+  // Succès — réinitialiser les tentatives
+  localStorage.removeItem('ouipsycho_attempts');
+  localStorage.removeItem('ouipsycho_lockout');
   if (pat) localStorage.setItem(GH_PAT_KEY, pat);
-  sessionStorage.setItem('admin_logged', '1');
+
+  // Créer la session avec timestamp
+  sessionStorage.setItem(SESSION_KEY, JSON.stringify({ loginTime: Date.now() }));
+  startSessionTimer(SESSION_DURATION);
   showApp();
 }
+
+function startSessionTimer(remaining) {
+  clearTimeout(sessionTimer);
+  // Avertissement 5 min avant expiration
+  if (remaining > 5 * 60 * 1000) {
+    setTimeout(() => toast('⚠️ Session expire dans 5 minutes', 'info'), remaining - 5 * 60 * 1000);
+  }
+  sessionTimer = setTimeout(() => {
+    toast('Session expirée. Reconnectez-vous.', 'error');
+    setTimeout(logout, 2000);
+  }, remaining);
+}
+
 document.addEventListener('keydown', e => {
   if (e.key === 'Enter' && document.getElementById('login-screen').style.display !== 'none') doLogin();
 });
+
 function logout() {
-  sessionStorage.removeItem('admin_logged');
+  clearTimeout(sessionTimer);
+  sessionStorage.removeItem(SESSION_KEY);
+  document.getElementById('login-password').value = '';
   location.reload();
 }
+
 function showApp() {
   document.getElementById('login-screen').style.display = 'none';
   document.getElementById('app').style.display = 'block';
@@ -1093,12 +1168,15 @@ function saveGitHubSettings() {
   if (pat) localStorage.setItem(GH_PAT_KEY, pat);
   toast('Configuration GitHub enregistrée ✅', 'success');
 }
-function changePassword() {
+async function changePassword() {
   const np = document.getElementById('new-password').value;
   const cp = document.getElementById('confirm-password').value;
   if (!np) { toast('Entrez un mot de passe', 'error'); return; }
+  if (np.length < 8) { toast('Minimum 8 caractères', 'error'); return; }
   if (np !== cp) { toast('Les mots de passe ne correspondent pas', 'error'); return; }
-  localStorage.setItem(ADMIN_PASS_KEY, np);
+  localStorage.setItem(ADMIN_PASS_KEY, await hashPass(np));
+  document.getElementById('new-password').value = '';
+  document.getElementById('confirm-password').value = '';
   toast('Mot de passe mis à jour ✅', 'success');
 }
 function clearAllData() {
