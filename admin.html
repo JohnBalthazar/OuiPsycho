@@ -221,6 +221,39 @@
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-row td { text-align: center; padding: 48px; color: var(--gray-400); }
 
+    /* ── IMAGE UPLOAD ── */
+    .img-upload-zone {
+      border: 2px dashed var(--gray-300); border-radius: var(--radius);
+      padding: 20px; text-align: center; cursor: pointer;
+      transition: all .2s; background: var(--gray-50); position: relative;
+    }
+    .img-upload-zone:hover, .img-upload-zone.dragover {
+      border-color: var(--primary); background: var(--primary-light); color: var(--primary);
+    }
+    .img-upload-zone p { font-size: .85rem; color: var(--gray-500); margin: 6px 0 0; }
+    .img-upload-zone .upload-icon { font-size: 2rem; }
+    .img-preview-wrap {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-200); background: var(--gray-100);
+    }
+    .img-preview-wrap img { width: 100%; max-height: 200px; object-fit: cover; display: block; }
+    .img-preview-actions {
+      position: absolute; top: 8px; right: 8px; display: flex; gap: 6px;
+    }
+    .img-preview-actions button {
+      background: rgba(0,0,0,.6); color: #fff; border: none; border-radius: 6px;
+      padding: 4px 10px; font-size: .75rem; cursor: pointer; backdrop-filter: blur(4px);
+    }
+    .img-preview-actions button:hover { background: rgba(0,0,0,.85); }
+    .img-upload-progress {
+      margin-top: 8px; height: 4px; border-radius: 2px;
+      background: var(--gray-200); overflow: hidden; display: none;
+    }
+    .img-upload-progress-bar {
+      height: 100%; background: var(--primary); border-radius: 2px;
+      transition: width .3s; width: 0%;
+    }
+
     /* ── IMPORT/EXPORT ── */
     .import-zone { border: 2px dashed var(--gray-200); border-radius: var(--radius); padding: 32px; text-align: center; color: var(--gray-400); cursor: pointer; transition: border-color .2s; }
     .import-zone:hover { border-color: var(--primary); color: var(--primary); }
@@ -453,8 +486,35 @@
                 <input type="text" id="f-author" value="La rédaction Oui Psycho!">
               </div>
               <div class="form-group">
-                <label>Image (URL)</label>
-                <input type="text" id="f-image" placeholder="https://...">
+                <label>Image de l'article</label>
+                <!-- Prévisualisation -->
+                <div id="img-preview-wrap" class="img-preview-wrap" style="display:none;margin-bottom:8px">
+                  <img id="img-preview" src="" alt="Aperçu">
+                  <div class="img-preview-actions">
+                    <button onclick="removeImage()">✕ Supprimer</button>
+                  </div>
+                </div>
+                <!-- Zone de dépôt -->
+                <div class="img-upload-zone" id="img-drop-zone"
+                  onclick="document.getElementById('img-file-input').click()"
+                  ondragover="handleDragOver(event)"
+                  ondragleave="handleDragLeave(event)"
+                  ondrop="handleDrop(event)">
+                  <div class="upload-icon">🖼️</div>
+                  <strong>Cliquer ou glisser-déposer une image</strong>
+                  <p>JPG, PNG, WebP · Max 5 Mo</p>
+                  <input type="file" id="img-file-input" accept="image/*" style="display:none" onchange="handleImageFile(this.files[0])">
+                </div>
+                <div class="img-upload-progress" id="img-upload-progress">
+                  <div class="img-upload-progress-bar" id="img-upload-bar"></div>
+                </div>
+                <!-- URL manuelle (fallback) -->
+                <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+                  <span style="font-size:.75rem;color:var(--gray-400);white-space:nowrap">ou URL directe :</span>
+                  <input type="text" id="f-image" placeholder="https://..." style="flex:1;font-size:.82rem"
+                    oninput="onImageUrlChange()">
+                </div>
+                <div class="hint" id="img-status"></div>
               </div>
             </div>
           </div>
@@ -925,6 +985,7 @@ function editArticle(id) {
       document.getElementById('f-readTime').value = full.readTime  || 7;
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
       document.getElementById('f-image').value    = full.image     || '';
+      if (full.image) showImagePreview(full.image); else removeImage();
       document.getElementById('f-metaDescription').value = full.metaDescription || '';
       tags = full.tags || [];
       renderTags();
@@ -1308,6 +1369,139 @@ function toast(msg, type = 'info') {
 document.getElementById('confirm-overlay').addEventListener('click', function(e) {
   if (e.target === this) closeConfirm();
 });
+
+/* ══════════════════════════════════════════════
+   IMAGE UPLOAD
+══════════════════════════════════════════════ */
+function handleDragOver(e) {
+  e.preventDefault();
+  document.getElementById('img-drop-zone').classList.add('dragover');
+}
+function handleDragLeave(e) {
+  document.getElementById('img-drop-zone').classList.remove('dragover');
+}
+function handleDrop(e) {
+  e.preventDefault();
+  document.getElementById('img-drop-zone').classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) handleImageFile(file);
+  else toast('Fichier non supporté — utilisez JPG, PNG ou WebP', 'error');
+}
+
+async function handleImageFile(file) {
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) { toast('Image trop lourde (max 5 Mo)', 'error'); return; }
+
+  // Prévisualisation immédiate
+  const reader = new FileReader();
+  reader.onload = e => showImagePreview(e.target.result);
+  reader.readAsDataURL(file);
+
+  // Tenter l'upload GitHub si PAT disponible
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    await uploadImageToGitHub(file);
+  } else {
+    // Pas de PAT : stocker en base64 temporairement et avertir
+    setImageStatus('⚠️ Pas de PAT GitHub configuré — image en aperçu local uniquement. Configurez un PAT dans Paramètres pour héberger l\'image.', 'warning');
+    // On garde quand même le dataURL en attendant
+    const dr = new FileReader();
+    dr.onload = e => { document.getElementById('f-image').value = e.target.result; };
+    dr.readAsDataURL(file);
+  }
+}
+
+async function uploadImageToGitHub(file) {
+  const progress = document.getElementById('img-upload-progress');
+  const bar = document.getElementById('img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '20%';
+  setImageStatus('⏳ Upload en cours…', 'info');
+
+  try {
+    // Lire le fichier en base64
+    const b64 = await fileToBase64(file);
+    bar.style.width = '50%';
+
+    // Construire le nom de fichier (slug + timestamp + ext)
+    const slug = document.getElementById('f-id').value || 'article';
+    const ext  = file.name.split('.').pop().toLowerCase().replace('jpeg','jpg');
+    const ts   = Date.now();
+    const path = `img/articles/${slug}-${ts}.${ext}`;
+
+    // Uploader via GitHub API
+    await githubPutFile(path, b64, `img: upload ${path}`);
+    bar.style.width = '100%';
+
+    // Construire l'URL publique
+    const owner  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+    const repo   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+
+    document.getElementById('f-image').value = url;
+    showImagePreview(url);
+    setImageStatus('✅ Image hébergée sur GitHub !', 'success');
+    toast('Image uploadée avec succès 🎉', 'success');
+  } catch(e) {
+    setImageStatus('❌ Erreur upload : ' + e.message, 'error');
+    toast('Erreur upload image : ' + e.message, 'error');
+  } finally {
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload  = e => resolve(e.target.result.split(',')[1]); // strip data:...;base64,
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function showImagePreview(src) {
+  const wrap = document.getElementById('img-preview-wrap');
+  const img  = document.getElementById('img-preview');
+  img.src = src;
+  wrap.style.display = 'block';
+  document.getElementById('img-drop-zone').style.display = 'none';
+}
+
+function removeImage() {
+  document.getElementById('img-preview-wrap').style.display = 'none';
+  document.getElementById('img-drop-zone').style.display = 'block';
+  document.getElementById('img-preview').src = '';
+  document.getElementById('f-image').value = '';
+  document.getElementById('img-file-input').value = '';
+  setImageStatus('', '');
+}
+
+function onImageUrlChange() {
+  const url = document.getElementById('f-image').value.trim();
+  if (url && (url.startsWith('http') || url.startsWith('/'))) {
+    showImagePreview(url);
+  } else if (!url) {
+    removeImage();
+  }
+}
+
+function setImageStatus(msg, type) {
+  const el = document.getElementById('img-status');
+  el.textContent = msg;
+  el.style.color = type === 'success' ? 'var(--success)'
+                 : type === 'error'   ? 'var(--danger)'
+                 : type === 'warning' ? 'var(--warning)'
+                 : 'var(--gray-400)';
+}
+
+// Réinitialiser le widget image dans resetEditor
+const _origResetEditor = resetEditor;
+resetEditor = function() {
+  _origResetEditor();
+  removeImage();
+  setImageStatus('', '');
+};
 </script>
 </body>
 </html>
