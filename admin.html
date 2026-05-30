@@ -982,21 +982,23 @@ function renderArticlesTable() {
 function resetEditor() {
   editingId = null;
   document.getElementById('editor-title').textContent = 'Nouvel article';
-  document.getElementById('f-title').value = '';
-  document.getElementById('f-id').value = '';
-  document.getElementById('f-excerpt').value = '';
-  document.getElementById('f-content').value = '';
-  document.getElementById('f-category').value = '';
-  document.getElementById('f-date').value = new Date().toISOString().split('T')[0];
-  document.getElementById('f-readTime').value = 7;
-  document.getElementById('f-author').value = 'La rédaction Oui Psycho!';
-  document.getElementById('f-image').value = '';
+  document.getElementById('f-title').value       = '';
+  document.getElementById('f-id').value          = '';
+  document.getElementById('f-excerpt').value     = '';
+  document.getElementById('f-content').value     = '';
+  document.getElementById('f-category').value    = '';
+  document.getElementById('f-date').value        = new Date().toISOString().split('T')[0];
+  document.getElementById('f-readTime').value    = 7;
+  document.getElementById('f-author').value      = 'La rédaction Oui Psycho!';
+  document.getElementById('f-image').value       = '';
   document.getElementById('f-metaDescription').value = '';
   tags = [];
   renderTags();
   resetKeypoints();
   updateSeoCounter();
   document.getElementById('preview-card').style.display = 'none';
+  // Réinitialiser le widget image (null-safe)
+  try { removeImage(); setImageStatus('', ''); } catch(e) {}
 }
 
 function editArticle(id) {
@@ -1020,7 +1022,7 @@ function editArticle(id) {
       document.getElementById('f-readTime').value = full.readTime  || 7;
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
       document.getElementById('f-image').value    = full.image     || '';
-      if (full.image) showImagePreview(full.image); else removeImage();
+      try { if (full.image) showImagePreview(full.image); else removeImage(); } catch(e) {}
       document.getElementById('f-metaDescription').value = full.metaDescription || '';
       tags = full.tags || [];
       renderTags();
@@ -1575,22 +1577,31 @@ function fileToBase64(file) {
 function showImagePreview(src) {
   const wrap = document.getElementById('img-preview-wrap');
   const img  = document.getElementById('img-preview');
+  const zone = document.getElementById('img-drop-zone');
+  if (!wrap || !img) return;
   img.src = src;
   wrap.style.display = 'block';
-  document.getElementById('img-drop-zone').style.display = 'none';
+  if (zone) zone.style.display = 'none';
 }
 
 function removeImage() {
-  document.getElementById('img-preview-wrap').style.display = 'none';
-  document.getElementById('img-drop-zone').style.display = 'block';
-  document.getElementById('img-preview').src = '';
-  document.getElementById('f-image').value = '';
-  document.getElementById('img-file-input').value = '';
+  const wrap  = document.getElementById('img-preview-wrap');
+  const zone  = document.getElementById('img-drop-zone');
+  const img   = document.getElementById('img-preview');
+  const input = document.getElementById('img-file-input');
+  const field = document.getElementById('f-image');
+  if (wrap)  wrap.style.display  = 'none';
+  if (zone)  zone.style.display  = 'block';
+  if (img)   img.src             = '';
+  if (field) field.value         = '';
+  if (input) input.value         = '';
   setImageStatus('', '');
 }
 
 function onImageUrlChange() {
-  const url = document.getElementById('f-image').value.trim();
+  const field = document.getElementById('f-image');
+  if (!field) return;
+  const url = field.value.trim();
   if (url && (url.startsWith('http') || url.startsWith('/'))) {
     showImagePreview(url);
   } else if (!url) {
@@ -1600,6 +1611,7 @@ function onImageUrlChange() {
 
 function setImageStatus(msg, type) {
   const el = document.getElementById('img-status');
+  if (!el) return;
   el.textContent = msg;
   el.style.color = type === 'success' ? 'var(--success)'
                  : type === 'error'   ? 'var(--danger)'
@@ -1607,13 +1619,7 @@ function setImageStatus(msg, type) {
                  : 'var(--gray-400)';
 }
 
-// Réinitialiser le widget image dans resetEditor
-const _origResetEditor = resetEditor;
-resetEditor = function() {
-  _origResetEditor();
-  removeImage();
-  setImageStatus('', '');
-};
+// (image reset intégré directement dans resetEditor ci-dessus)
 </script>
 </body>
 </html>
