@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Oui Psycho!</title>
+  <meta name="description" content="Contactez l'équipe Oui Psycho! pour toute question, suggestion d'article ou signalement d'erreur. Nous lisons tous les messages.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://johnbalthazar.github.io/OuiPsycho/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Oui Psycho!">
+  <meta property="og:url" content="https://johnbalthazar.github.io/OuiPsycho/contact.html">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Oui Psycho!">
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <span class="logo__icon" aria-hidden="true">🧠</span>
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link nav__link--active" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container" style="max-width:640px;margin:3rem auto;padding:0 1.5rem">
+
+    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="margin-bottom:2rem">
+      <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">Contact</span>
+    </nav>
+
+    <h1 style="font-size:2.2rem;margin-bottom:0.5rem">Nous contacter</h1>
+    <p style="color:#6b7280;margin-bottom:2.5rem">Une question, une suggestion, une erreur à signaler ? Nous lisons tous les messages.</p>
+
+    <div style="background:#f9fafb;border:1px solid #e5e7eb;border-radius:12px;padding:1.75rem;margin-bottom:2rem">
+      <form id="contact-form" novalidate>
+        <div style="margin-bottom:1.25rem">
+          <label for="cf-name" style="display:block;font-weight:600;margin-bottom:0.4rem">Votre nom</label>
+          <input type="text" id="cf-name" name="name" required placeholder="Prénom Nom"
+            style="width:100%;padding:0.65rem 0.9rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;box-sizing:border-box">
+        </div>
+        <div style="margin-bottom:1.25rem">
+          <label for="cf-email" style="display:block;font-weight:600;margin-bottom:0.4rem">Votre e-mail</label>
+          <input type="email" id="cf-email" name="email" required placeholder="votre@email.fr"
+            style="width:100%;padding:0.65rem 0.9rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;box-sizing:border-box">
+        </div>
+        <div style="margin-bottom:1.25rem">
+          <label for="cf-subject" style="display:block;font-weight:600;margin-bottom:0.4rem">Sujet</label>
+          <select id="cf-subject" name="subject"
+            style="width:100%;padding:0.65rem 0.9rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;background:#fff;box-sizing:border-box">
+            <option value="">— Choisir —</option>
+            <option value="suggestion">Suggestion d'article</option>
+            <option value="erreur">Signaler une erreur</option>
+            <option value="partenariat">Partenariat / collaboration</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+        <div style="margin-bottom:1.5rem">
+          <label for="cf-message" style="display:block;font-weight:600;margin-bottom:0.4rem">Message</label>
+          <textarea id="cf-message" name="message" required rows="5" placeholder="Votre message…"
+            style="width:100%;padding:0.65rem 0.9rem;border:1px solid #d1d5db;border-radius:8px;font-size:1rem;resize:vertical;box-sizing:border-box"></textarea>
+        </div>
+        <button type="submit" class="btn-newsletter" style="width:100%;padding:0.85rem;font-size:1rem;cursor:pointer">
+          Envoyer le message ✓
+        </button>
+        <p id="cf-feedback" style="margin-top:1rem;text-align:center;display:none"></p>
+      </form>
+    </div>
+
+    <div style="background:#eff6ff;border-radius:10px;padding:1.25rem;font-size:0.9rem;color:#1e40af">
+      <strong>⚕️ Rappel important :</strong> Oui Psycho! n'est pas un service de soutien psychologique.
+      Si vous traversez une crise ou une urgence, appelez le <strong><a href="tel:3114" style="color:#1e40af">3114</a></strong>
+      (prévention suicide, 24h/24, gratuit) ou le <strong><a href="tel:15" style="color:#1e40af">15</a></strong> (SAMU).
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiété</a></li>
+            <li><a href="index.html?cat=D%C3%A9pression">Dépression</a></li>
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Stress">Stress</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const fb = document.getElementById('cf-feedback');
+      fb.style.display = 'block';
+      fb.style.color = '#059669';
+      fb.textContent = '✓ Message envoyé ! Nous vous répondrons dans les plus brefs délais.';
+      this.reset();
+    });
+  </script>
+</body>
+</html>
