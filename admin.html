@@ -734,11 +734,13 @@ async function hashPass(pass) {
    BOOT
 ══════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', async () => {
-  // Migration : si la valeur stockée n'est pas un hash SHA-256 (64 hex),
-  // c'est l'ancien format en clair → on réinitialise à admin2026
+  // Réinitialisation forcée à chaque nouveau numéro de version de déploiement
+  const DEPLOY_VER = 'v5-2026-05-30';
   const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
-  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass)) {
+  const storedVer  = localStorage.getItem('ouipsycho_deploy_ver');
+  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass) || storedVer !== DEPLOY_VER) {
     localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
+    localStorage.setItem('ouipsycho_deploy_ver', DEPLOY_VER);
   }
 
   // Vérifier session existante
