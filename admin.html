@@ -830,30 +830,35 @@ function resetEditor() {
 function editArticle(id) {
   const a = articles.find(x => x.id === id);
   if (!a) return;
-  // Load full article JSON
+  // Afficher la page d'abord (resetEditor est appelé ici, champs vides)
+  showPage('new-article');
+  document.getElementById('editor-title').textContent = '⏳ Chargement…';
+  // Puis charger le JSON complet et remplir les champs
   fetch('articles/' + id + '.json?t=' + Date.now())
-    .then(r => r.json())
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(full => {
       editingId = id;
-      document.getElementById('editor-title').textContent = 'Modifier : ' + a.title;
-      document.getElementById('f-title').value = full.title;
-      document.getElementById('f-id').value = full.id;
-      document.getElementById('f-excerpt').value = full.excerpt;
-      document.getElementById('f-content').value = full.content;
-      document.getElementById('f-category').value = full.category;
-      document.getElementById('f-date').value = full.date;
-      document.getElementById('f-readTime').value = full.readTime || 7;
-      document.getElementById('f-author').value = full.author || 'La rédaction Oui Psycho!';
-      document.getElementById('f-image').value = full.image || '';
+      document.getElementById('editor-title').textContent = 'Modifier : ' + full.title;
+      document.getElementById('f-title').value    = full.title;
+      document.getElementById('f-id').value       = full.id;
+      document.getElementById('f-excerpt').value  = full.excerpt   || '';
+      document.getElementById('f-content').value  = full.content   || '';
+      document.getElementById('f-category').value = full.category  || '';
+      document.getElementById('f-date').value     = full.date      || '';
+      document.getElementById('f-readTime').value = full.readTime  || 7;
+      document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
+      document.getElementById('f-image').value    = full.image     || '';
       document.getElementById('f-metaDescription').value = full.metaDescription || '';
       tags = full.tags || [];
       renderTags();
       setKeypoints(full.keypoints || []);
       updateSeoCounter();
-      showPage('new-article');
-      document.getElementById('editor-title').textContent = 'Modifier : ' + full.title;
+      toast('Article chargé ✓', 'success');
     })
-    .catch(() => toast('Impossible de charger l\'article complet', 'error'));
+    .catch(e => {
+      toast('Impossible de charger l\'article : ' + e.message, 'error');
+      document.getElementById('editor-title').textContent = 'Erreur de chargement';
+    });
 }
 
 function autoSlug() {
