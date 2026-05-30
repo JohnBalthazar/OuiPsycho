@@ -71,11 +71,15 @@ function skeletons(n) {
 /* ============================================================
    RENDU — CARTE STANDARD
    ============================================================ */
+function articleUrl(id) {
+  return `articles/${esc(id)}.html`;
+}
+
 function renderCard(article) {
   const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
   return `
     <article class="card" data-category="${esc(article.category || '')}">
-      <a href="article.html?id=${esc(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="${articleUrl(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="${imgStyle}" data-cat="${esc(article.category || '')}">
           ${!article.image ? `<span class="card__image-placeholder" aria-hidden="true">🧠</span>` : ''}
         </div>
@@ -83,7 +87,7 @@ function renderCard(article) {
       <div class="card__body">
         <span class="badge" ${catStyle(article.category)}>${esc(article.category || 'Général')}</span>
         <h2 class="card__title">
-          <a href="article.html?id=${esc(article.id)}">${esc(article.title)}</a>
+          <a href="${articleUrl(article.id)}">${esc(article.title)}</a>
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
@@ -102,7 +106,7 @@ function renderFeatured(article) {
   const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
   return `
     <article class="card card--featured" data-category="${esc(article.category || '')}" style="margin-bottom:2rem">
-      <a href="article.html?id=${esc(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="${articleUrl(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="${imgStyle}" data-cat="${esc(article.category || '')}">
           ${!article.image ? `<span class="card__image-placeholder" aria-hidden="true">🧠</span>` : ''}
         </div>
@@ -111,7 +115,7 @@ function renderFeatured(article) {
         <div class="card--featured-label">À la une</div>
         <span class="badge" ${catStyle(article.category)}>${esc(article.category || 'Général')}</span>
         <h2 class="card__title">
-          <a href="article.html?id=${esc(article.id)}">${esc(article.title)}</a>
+          <a href="${articleUrl(article.id)}">${esc(article.title)}</a>
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
@@ -119,7 +123,7 @@ function renderFeatured(article) {
           <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
-        <a href="article.html?id=${esc(article.id)}" class="card__read-more">Lire l'article</a>
+        <a href="${articleUrl(article.id)}" class="card__read-more">Lire l'article</a>
       </div>
     </article>`;
 }
@@ -307,8 +311,32 @@ async function initArticle() {
   const container = document.getElementById('article-content');
   if (!container) return;
 
+  // Page statique pré-rendue (articles/xxx.html) : contenu déjà dans le HTML
+  if (container.dataset.static === 'true') {
+    const id = container.dataset.id;
+    try {
+      const res = await fetch(`${CONFIG.articlesBase}${encodeURIComponent(id)}.json`);
+      if (res.ok) {
+        const article = await res.json();
+        initShareButtons(article);
+        buildTOC();
+        loadRelated(article);
+      } else {
+        buildTOC();
+      }
+    } catch (_) { buildTOC(); }
+    return;
+  }
+
   const id = getParam('id');
   if (!id) { window.location.href = '404.html'; return; }
+
+  // Rediriger vers la page statique si elle existe
+  const staticUrl = `articles/${encodeURIComponent(id)}.html`;
+  if (window.location.pathname.indexOf('/articles/') === -1) {
+    window.location.replace(staticUrl);
+    return;
+  }
 
   try {
     const res = await fetch(`${CONFIG.articlesBase}${encodeURIComponent(id)}.json`);
@@ -472,7 +500,7 @@ async function loadRelated(current) {
     c.innerHTML = `<h3 class="widget__title">À lire aussi</h3>
       <div class="related-list">
         ${related.map(a => `
-          <a href="article.html?id=${esc(a.id)}" class="related-item">
+          <a href="${articleUrl(a.id)}" class="related-item">
             <div class="related-item__img" style="${a.image ? `background-image:url('${esc(a.image)}')` : ''}" data-cat="${esc(a.category||'')}">
               ${!a.image ? '🧠' : ''}
             </div>

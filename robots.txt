@@ -4,9 +4,9 @@
 User-agent: *
 Allow: /
 
-# Ne pas indexer les fichiers de données brutes
+# Ne pas indexer les fichiers de données brutes JSON (pas des pages web)
 Disallow: /data/
-Disallow: /articles/
+Disallow: /articles/*.json
 
 # Sitemap
-Sitemap: https://psychoclair.fr/sitemap.xml
+Sitemap: https://johnbalthazar.github.io/OuiPsycho/sitemap.xml
