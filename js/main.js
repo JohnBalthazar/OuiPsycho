@@ -591,20 +591,44 @@ function initNav() {
 }
 
 /* ============================================================
+   CONSENT MODE v2 — met à jour Google Analytics selon le choix
+   ============================================================ */
+function updateGAConsent(accepted) {
+  if (typeof gtag === 'undefined') return;
+  gtag('consent', 'update', {
+    'analytics_storage':  accepted ? 'granted' : 'denied',
+    'ad_storage':         'denied', // toujours refusé (pas de pub pour l'instant)
+    'ad_user_data':       'denied',
+    'ad_personalization': 'denied',
+  });
+}
+
+/* ============================================================
    BANNIÈRE COOKIES
    ============================================================ */
 function initCookies() {
   const banner = document.getElementById('cookie-banner');
   if (!banner) return;
-  if (localStorage.getItem('pc_consent')) { banner.style.display = 'none'; return; }
+
+  const stored = localStorage.getItem('pc_consent');
+  if (stored !== null) {
+    banner.style.display = 'none';
+    updateGAConsent(stored === '1'); // restaure le consentement au chargement
+    return;
+  }
+
+  // Première visite : affiche le bandeau
   banner.style.display = 'flex';
+
   document.getElementById('cookie-accept')?.addEventListener('click', () => {
     localStorage.setItem('pc_consent', '1');
     banner.style.display = 'none';
+    updateGAConsent(true);  // ✅ Active le tracking GA
   });
   document.getElementById('cookie-decline')?.addEventListener('click', () => {
     localStorage.setItem('pc_consent', '0');
     banner.style.display = 'none';
+    updateGAConsent(false); // ❌ GA collecte anonymement (sans cookies)
   });
 }
 
