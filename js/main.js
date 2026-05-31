@@ -76,7 +76,9 @@ function articleUrl(id) {
 }
 
 function renderCard(article) {
-  const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
+  const imgStyle = article.image
+    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')}`
+    : '';
   return `
     <article class="card" data-category="${esc(article.category || '')}">
       <a href="${articleUrl(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
@@ -103,7 +105,9 @@ function renderCard(article) {
    RENDU — CARTE FEATURED (premier article, pleine largeur)
    ============================================================ */
 function renderFeatured(article) {
-  const imgStyle = article.image ? `background-image:url('${esc(article.image)}')` : '';
+  const imgStyle = article.image
+    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')}`
+    : '';
   return `
     <article class="card card--featured" data-category="${esc(article.category || '')}" style="margin-bottom:2rem">
       <a href="${articleUrl(article.id)}" class="card__image-link" tabindex="-1" aria-hidden="true">
@@ -372,6 +376,25 @@ async function initArticle() {
 }
 
 function buildArticleHTML(a) {
+  const layout   = a.imageLayout || 'top';
+  const objPos   = `object-position:${esc(a.imagePosition || 'center center')}`;
+
+  // Image selon layout
+  const imgTop = (a.image && layout === 'top') ? `
+    <div class="article-hero-image">
+      <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy" style="${objPos}">
+    </div>` : '';
+
+  const imgFloat = a.image && (layout === 'left' || layout === 'right') ? `
+    <div style="float:${layout};${layout==='left'?'margin:0 1.6rem 1rem 0':'margin:0 0 1rem 1.6rem'};max-width:42%;border-radius:10px;overflow:hidden;clear:${layout}">
+      <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy" style="width:100%;display:block;${objPos}">
+    </div>` : '';
+
+  const imgBottom = (a.image && layout === 'bottom') ? `
+    <div class="article-hero-image" style="margin-top:2rem">
+      <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy" style="${objPos}">
+    </div>` : '';
+
   const keypoints = a.keypoints?.length ? `
     <div class="article-keypoints">
       <div class="article-keypoints__title">💡 Points clés de cet article</div>
@@ -394,10 +417,7 @@ function buildArticleHTML(a) {
         <span class="article-meta-dot">•</span>
         <span>⏱ ${a.readTime || 5} min de lecture</span>
       </div>
-      ${a.image ? `
-        <div class="article-hero-image">
-          <img src="${esc(a.image)}" alt="${esc(a.title)}" loading="lazy">
-        </div>` : ''}
+      ${imgTop}
     </header>
 
     <aside class="article-disclaimer" role="note">
@@ -408,9 +428,11 @@ function buildArticleHTML(a) {
 
     ${keypoints}
 
-    <div class="article-body">
+    <div class="article-body" ${imgFloat ? 'style="overflow:hidden"' : ''}>
+      ${imgFloat}
       ${a.content || '<p>Contenu en cours de rédaction…</p>'}
     </div>
+    ${imgBottom}
 
     <div class="article-author">
       <div class="article-author__avatar" aria-hidden="true">✍️</div>
@@ -436,14 +458,31 @@ function buildArticleHTML(a) {
 /* Injecte l'image hero dans une page statique si elle n'y est pas baked-in */
 function injectArticleImage(article) {
   if (!article.image) return;
-  // Ne pas dupliquer si l'image est déjà dans le HTML statique
-  if (document.querySelector('.article-hero-image img')) return;
-  const header = document.querySelector('.article-header');
-  if (!header) return;
-  const div = document.createElement('div');
+  if (document.querySelector('.article-hero-image, [data-img-injected]')) return;
+
+  const layout = article.imageLayout || 'top';
+  const objPos = `object-position:${esc(article.imagePosition || 'center center')}`;
+  const div    = document.createElement('div');
+  div.setAttribute('data-img-injected', '1');
   div.className = 'article-hero-image';
-  div.innerHTML = `<img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy">`;
-  header.appendChild(div);
+
+  if (layout === 'left' || layout === 'right') {
+    div.removeAttribute('class');
+    div.style.cssText = `float:${layout};${layout==='left'?'margin:0 1.6rem 1rem 0':'margin:0 0 1rem 1.6rem'};max-width:42%;border-radius:10px;overflow:hidden`;
+    div.innerHTML = `<img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy" style="width:100%;display:block;${objPos}">`;
+    const body = document.querySelector('.article-body');
+    if (body) { body.style.overflow = 'hidden'; body.prepend(div); }
+  } else if (layout === 'bottom') {
+    div.style.marginTop = '2rem';
+    div.innerHTML = `<img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy" style="${objPos}">`;
+    const body = document.querySelector('.article-body');
+    if (body) body.after(div);
+  } else {
+    // top (défaut)
+    div.innerHTML = `<img src="${esc(article.image)}" alt="${esc(article.title)}" loading="lazy" style="${objPos}">`;
+    const header = document.querySelector('.article-header');
+    if (header) header.appendChild(div);
+  }
 }
 
 function injectJSONLD(a) {
