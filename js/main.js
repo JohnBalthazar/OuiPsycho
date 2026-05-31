@@ -76,8 +76,10 @@ function articleUrl(id) {
 }
 
 function renderCard(article) {
+  const zoom     = parseFloat(article.imageZoom) || 1;
+  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
   const imgStyle = article.image
-    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')}`
+    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')};background-size:${bgSize}`
     : '';
   return `
     <article class="card" data-category="${esc(article.category || '')}">
@@ -105,8 +107,10 @@ function renderCard(article) {
    RENDU — CARTE FEATURED (premier article, pleine largeur)
    ============================================================ */
 function renderFeatured(article) {
+  const zoom     = parseFloat(article.imageZoom) || 1;
+  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
   const imgStyle = article.image
-    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')}`
+    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')};background-size:${bgSize}`
     : '';
   return `
     <article class="card card--featured" data-category="${esc(article.category || '')}" style="margin-bottom:2rem">
@@ -377,7 +381,9 @@ async function initArticle() {
 
 function buildArticleHTML(a) {
   const layout   = a.imageLayout || 'top';
-  const objPos   = `object-position:${esc(a.imagePosition || 'center center')}`;
+  const zoom     = parseFloat(a.imageZoom) || 1;
+  const zoomStyle = zoom > 1 ? `;transform:scale(${zoom});transform-origin:${esc(a.imagePosition || 'center center')}` : '';
+  const objPos   = `object-position:${esc(a.imagePosition || 'center center')}${zoomStyle}`;
 
   // Image selon layout
   const imgTop = (a.image && layout === 'top') ? `
@@ -460,8 +466,10 @@ function injectArticleImage(article) {
   if (!article.image) return;
   if (document.querySelector('.article-hero-image, [data-img-injected]')) return;
 
-  const layout = article.imageLayout || 'top';
-  const objPos = `object-position:${esc(article.imagePosition || 'center center')}`;
+  const layout    = article.imageLayout || 'top';
+  const zoom      = parseFloat(article.imageZoom) || 1;
+  const zoomStyle = zoom > 1 ? `;transform:scale(${zoom});transform-origin:${esc(article.imagePosition || 'center center')}` : '';
+  const objPos    = `object-position:${esc(article.imagePosition || 'center center')}${zoomStyle}`;
   const div    = document.createElement('div');
   div.setAttribute('data-img-injected', '1');
   div.className = 'article-hero-image';

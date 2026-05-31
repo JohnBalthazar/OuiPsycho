@@ -593,7 +593,17 @@
                     <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('80%','50%')">→ Droite</button>
                     <span id="focal-coords" style="font-size:.72rem;color:var(--primary);font-weight:600;margin-left:auto">50% 50%</span>
                   </div>
+                  <!-- Zoom -->
+                  <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
+                    <span style="font-size:.72rem;color:var(--gray-500);white-space:nowrap">🔍 Zoom :</span>
+                    <input type="range" id="focal-zoom" min="1" max="2.5" step="0.05" value="1"
+                      style="flex:1;accent-color:var(--primary)" oninput="updateFocalZoom(this.value)">
+                    <span id="focal-zoom-val" style="font-size:.75rem;color:var(--primary);font-weight:700;min-width:36px;text-align:right">×1.0</span>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem"
+                      onclick="updateFocalZoom(1);document.getElementById('focal-zoom').value=1">Reset</button>
+                  </div>
                   <input type="hidden" id="f-imagePosition" value="50% 50%">
+                  <input type="hidden" id="f-imageZoom" value="1">
                 </div>
                 <!-- Layout image -->
                 <div id="img-layout-container" style="display:none;margin-top:10px">
@@ -1131,6 +1141,7 @@ function editArticle(id) {
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
       document.getElementById('f-image').value    = full.image     || '';
       document.getElementById('f-imagePosition').value = full.imagePosition || '50% 50%';
+      document.getElementById('f-imageZoom').value     = full.imageZoom     || 1;
       document.getElementById('f-imageLayout').value   = full.imageLayout   || 'top';
       setImageLayout(full.imageLayout || 'top');
       try { if (full.image) showImagePreview(full.image); else removeImage(); } catch(e) {}
@@ -1174,6 +1185,7 @@ async function saveArticle() {
   const author   = document.getElementById('f-author').value.trim() || 'La rédaction Oui Psycho!';
   const image         = document.getElementById('f-image').value.trim();
   const imagePosition = document.getElementById('f-imagePosition')?.value?.trim() || '50% 50%';
+  const imageZoom     = parseFloat(document.getElementById('f-imageZoom')?.value  || 1);
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
   syncEditorToTextarea(); // s'assurer que le textarea est à jour avant de lire
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
@@ -1184,8 +1196,8 @@ async function saveArticle() {
     return;
   }
 
-  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints };
-  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageLayout, readTime, author, tags, metaDescription: metaDesc };
+  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints };
+  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageLayout, readTime, author, tags, metaDescription: metaDesc };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';
@@ -1783,6 +1795,12 @@ function removeImage() {
   if (focal) focal.style.display = 'none';
   const fpos = document.getElementById('f-imagePosition');
   if (fpos) fpos.value = '50% 50%';
+  const fzoom = document.getElementById('f-imageZoom');
+  if (fzoom) fzoom.value = 1;
+  const slider = document.getElementById('focal-zoom');
+  if (slider) slider.value = 1;
+  const zoomVal = document.getElementById('focal-zoom-val');
+  if (zoomVal) zoomVal.textContent = '×1.0';
   const layoutCont = document.getElementById('img-layout-container');
   if (layoutCont) layoutCont.style.display = 'none';
   const flay = document.getElementById('f-imageLayout');
@@ -1819,7 +1837,7 @@ function setImageStatus(msg, type) {
    pour un recadrage optimal sur les cartes et
    la page article (background-position / object-position)
 ══════════════════════════════════════════════ */
-function initFocalPicker(imageUrl, position) {
+function initFocalPicker(imageUrl, position, zoom) {
   const container = document.getElementById('focal-container');
   const wrapper   = document.getElementById('focal-wrapper');
   const img       = document.getElementById('focal-img');
@@ -1827,8 +1845,15 @@ function initFocalPicker(imageUrl, position) {
   if (!imageUrl) { container.style.display = 'none'; return; }
 
   img.src = imageUrl;
+  img.style.transformOrigin = 'center center';
   container.style.display = 'block';
   updateFocalIndicator(position || '50% 50%');
+
+  // Initialiser le zoom
+  const z = parseFloat(zoom || document.getElementById('f-imageZoom')?.value || 1);
+  const slider = document.getElementById('focal-zoom');
+  if (slider) slider.value = z;
+  updateFocalZoom(z);
 
   // Remplacer le listener précédent
   wrapper.onclick = function(e) {
@@ -1837,6 +1862,17 @@ function initFocalPicker(imageUrl, position) {
     const y = Math.round(((e.clientY - rect.top) / rect.height) * 100);
     updateFocalIndicator(x + '% ' + y + '%');
   };
+}
+
+function updateFocalZoom(val) {
+  const zoom    = parseFloat(val) || 1;
+  const img     = document.getElementById('focal-img');
+  const zoomVal = document.getElementById('focal-zoom-val');
+  const field   = document.getElementById('f-imageZoom');
+  const pos     = document.getElementById('f-imagePosition')?.value || '50% 50%';
+  if (img) { img.style.transform = `scale(${zoom})`; img.style.transformOrigin = pos; }
+  if (zoomVal) zoomVal.textContent = '×' + zoom.toFixed(1);
+  if (field)   field.value = zoom;
 }
 
 function updateFocalIndicator(pos) {
@@ -1850,6 +1886,9 @@ function updateFocalIndicator(pos) {
   if (indicator) { indicator.style.left = x; indicator.style.top = y; }
   if (coords)    coords.textContent = posStr;
   if (field)     field.value = posStr;
+  // Sync transform-origin avec le point focal
+  const img = document.getElementById('focal-img');
+  if (img) img.style.transformOrigin = posStr;
 }
 
 function setFocalPreset(x, y) {
