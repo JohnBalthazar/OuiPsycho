@@ -602,8 +602,21 @@
                     <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem"
                       onclick="updateFocalZoom(1);document.getElementById('focal-zoom').value=1">Reset</button>
                   </div>
+                  <!-- Centrage automatique IA -->
+                  <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-100)">
+                    <div style="font-size:.72rem;font-weight:600;color:var(--gray-600);margin-bottom:6px">🤖 Centrage automatique (Cloudinary IA)</div>
+                    <div style="display:flex;gap:6px">
+                      <button type="button" id="grav-none" class="btn btn-primary btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('none')">✋ Manuel</button>
+                      <button type="button" id="grav-face" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('face')">😀 Visage</button>
+                      <button type="button" id="grav-auto" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('auto')">🎨 Sujet</button>
+                    </div>
+                    <div id="gravity-hint" class="hint" style="margin-top:4px;display:none">
+                      ✅ Cloudinary centrera automatiquement sur le visage/sujet détecté
+                    </div>
+                  </div>
                   <input type="hidden" id="f-imagePosition" value="50% 50%">
                   <input type="hidden" id="f-imageZoom" value="1">
+                  <input type="hidden" id="f-imageGravity" value="none">
                 </div>
                 <!-- Layout image -->
                 <div id="img-layout-container" style="display:none;margin-top:10px">
@@ -1142,8 +1155,10 @@ function editArticle(id) {
       document.getElementById('f-image').value    = full.image     || '';
       document.getElementById('f-imagePosition').value = full.imagePosition || '50% 50%';
       document.getElementById('f-imageZoom').value     = full.imageZoom     || 1;
+      document.getElementById('f-imageGravity').value  = full.imageGravity  || 'none';
       document.getElementById('f-imageLayout').value   = full.imageLayout   || 'top';
       setImageLayout(full.imageLayout || 'top');
+      setGravity(full.imageGravity || 'none');
       try { if (full.image) showImagePreview(full.image); else removeImage(); } catch(e) {}
       document.getElementById('f-metaDescription').value = full.metaDescription || '';
       tags = full.tags || [];
@@ -1185,7 +1200,8 @@ async function saveArticle() {
   const author   = document.getElementById('f-author').value.trim() || 'La rédaction Oui Psycho!';
   const image         = document.getElementById('f-image').value.trim();
   const imagePosition = document.getElementById('f-imagePosition')?.value?.trim() || '50% 50%';
-  const imageZoom     = parseFloat(document.getElementById('f-imageZoom')?.value  || 1);
+  const imageZoom     = parseFloat(document.getElementById('f-imageZoom')?.value    || 1);
+  const imageGravity  = document.getElementById('f-imageGravity')?.value?.trim()  || 'none';
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
   syncEditorToTextarea(); // s'assurer que le textarea est à jour avant de lire
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
@@ -1196,8 +1212,8 @@ async function saveArticle() {
     return;
   }
 
-  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints };
-  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageLayout, readTime, author, tags, metaDescription: metaDesc };
+  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints };
+  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';
@@ -1797,6 +1813,9 @@ function removeImage() {
   if (fpos) fpos.value = '50% 50%';
   const fzoom = document.getElementById('f-imageZoom');
   if (fzoom) fzoom.value = 1;
+  const fgrav = document.getElementById('f-imageGravity');
+  if (fgrav) fgrav.value = 'none';
+  setGravity('none');
   const slider = document.getElementById('focal-zoom');
   if (slider) slider.value = 1;
   const zoomVal = document.getElementById('focal-zoom-val');
@@ -1893,6 +1912,59 @@ function updateFocalIndicator(pos) {
 
 function setFocalPreset(x, y) {
   updateFocalIndicator(x + ' ' + y);
+}
+
+/* ── CENTRAGE AUTOMATIQUE (Cloudinary IA) ── */
+function buildCloudinaryUrl(url, gravity) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const uploadIdx = url.indexOf('/upload/');
+  if (uploadIdx === -1) return url;
+  const parts    = url.slice(uploadIdx + 8).split('/');
+  const publicId = parts.slice(1).join('/');
+  const g = gravity === 'face' ? 'face' : 'auto';
+  return `${url.slice(0, uploadIdx + 8)}c_fill,g_${g},ar_3:2,w_900/f_auto,q_auto/${publicId}`;
+}
+
+function setGravity(grav) {
+  const field = document.getElementById('f-imageGravity');
+  if (field) field.value = grav || 'none';
+
+  // Mettre à jour les boutons
+  document.querySelectorAll('.grav-btn').forEach(b => {
+    b.className = b.className.replace('btn-primary','btn-ghost');
+  });
+  const active = document.getElementById('grav-' + (grav || 'none'));
+  if (active) active.className = active.className.replace('btn-ghost','btn-primary');
+
+  const hint    = document.getElementById('gravity-hint');
+  const wrapper = document.getElementById('focal-wrapper');
+  const slider  = document.getElementById('focal-zoom');
+  const imgEl   = document.getElementById('focal-img');
+  const origUrl = document.getElementById('f-image')?.value;
+
+  if (grav && grav !== 'none') {
+    if (hint)    hint.style.display   = 'block';
+    if (wrapper) wrapper.style.opacity = '0.5';
+    if (slider)  slider.disabled       = true;
+    // Prévisualisation du recadrage Cloudinary
+    if (imgEl && origUrl) {
+      imgEl.src = buildCloudinaryUrl(origUrl, grav);
+      imgEl.style.transform       = 'none';
+      imgEl.style.transformOrigin = 'center center';
+    }
+  } else {
+    if (hint)    hint.style.display   = 'none';
+    if (wrapper) wrapper.style.opacity = '1';
+    if (slider)  slider.disabled       = false;
+    // Restaurer l'image originale
+    if (imgEl && origUrl) {
+      imgEl.src = origUrl;
+      const z = parseFloat(document.getElementById('f-imageZoom')?.value || 1);
+      const p = document.getElementById('f-imagePosition')?.value || '50% 50%';
+      imgEl.style.transform       = z > 1 ? `scale(${z})` : 'none';
+      imgEl.style.transformOrigin = p;
+    }
+  }
 }
 
 /* ══════════════════════════════════════════════

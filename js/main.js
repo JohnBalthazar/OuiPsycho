@@ -27,6 +27,20 @@ const CATEGORIES = {
 };
 
 /* ============================================================
+   CLOUDINARY SMART CROP
+   Reconstruit l'URL avec centrage automatique (g_face / g_auto)
+   ============================================================ */
+function buildCloudinaryUrl(url, gravity) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const uploadIdx = url.indexOf('/upload/');
+  if (uploadIdx === -1) return url;
+  const parts    = url.slice(uploadIdx + 8).split('/');
+  const publicId = parts.slice(1).join('/');
+  const g = gravity === 'face' ? 'face' : 'auto';
+  return `${url.slice(0, uploadIdx + 8)}c_fill,g_${g},ar_3:2,w_900/f_auto,q_auto/${publicId}`;
+}
+
+/* ============================================================
    UTILS
    ============================================================ */
 function esc(s) {
@@ -76,10 +90,13 @@ function articleUrl(id) {
 }
 
 function renderCard(article) {
-  const zoom     = parseFloat(article.imageZoom) || 1;
-  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
-  const imgStyle = article.image
-    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')};background-size:${bgSize}`
+  const useIA  = article.imageGravity && article.imageGravity !== 'none';
+  const imgUrl = useIA ? buildCloudinaryUrl(article.image, article.imageGravity) : article.image;
+  const zoom   = useIA ? 1 : (parseFloat(article.imageZoom) || 1);
+  const bgSize = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
+  const bgPos  = useIA ? 'center center' : esc(article.imagePosition || 'center center');
+  const imgStyle = imgUrl
+    ? `background-image:url('${esc(imgUrl)}');background-position:${bgPos};background-size:${bgSize}`
     : '';
   return `
     <article class="card" data-category="${esc(article.category || '')}">
@@ -107,10 +124,13 @@ function renderCard(article) {
    RENDU — CARTE FEATURED (premier article, pleine largeur)
    ============================================================ */
 function renderFeatured(article) {
-  const zoom     = parseFloat(article.imageZoom) || 1;
-  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
-  const imgStyle = article.image
-    ? `background-image:url('${esc(article.image)}');background-position:${esc(article.imagePosition || 'center center')};background-size:${bgSize}`
+  const useIA  = article.imageGravity && article.imageGravity !== 'none';
+  const imgUrl = useIA ? buildCloudinaryUrl(article.image, article.imageGravity) : article.image;
+  const zoom   = useIA ? 1 : (parseFloat(article.imageZoom) || 1);
+  const bgSize = zoom > 1 ? `${Math.round(zoom * 100)}% ${Math.round(zoom * 100)}%` : 'cover';
+  const bgPos  = useIA ? 'center center' : esc(article.imagePosition || 'center center');
+  const imgStyle = imgUrl
+    ? `background-image:url('${esc(imgUrl)}');background-position:${bgPos};background-size:${bgSize}`
     : '';
   return `
     <article class="card card--featured" data-category="${esc(article.category || '')}" style="margin-bottom:2rem">
