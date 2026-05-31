@@ -1,15 +1,21 @@
 [
   {
     "id": "crise-angoisse",
-    "title": "Crise d'angoisse : que se passe-t-il dans votre corps et comment réagir",
-    "excerpt": "Palpitations, souffle court, sensation de mort imminente... Une crise d'angoisse est une expérience terrifiante. Mais comprendre ce qui se passe dans votre corps change tout. Guide complet pour traverser et prévenir les crises.",
+    "title": "Crise d'angoisse : que faire quand ça arrive ?",
+    "excerpt": "Le cœur qui s'emballe, la respiration qui se coupe, la certitude que quelque chose de grave se passe… La crise d'angoisse est terrifiante. Pourtant, elle est gérable. Voici comment.",
     "date": "2026-05-20",
     "category": "Anxiété",
-    "image": "",
-    "readTime": 7,
+    "image": "https://raw.githubusercontent.com/JohnBalthazar/OuiPsycho/main/img/articles/crise-angoisse-1780252566309.jpg",
+    "readTime": 6,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["anxiété", "crise d'angoisse", "panic attack", "stress", "techniques de gestion"],
-    "metaDescription": "Tout comprendre sur la crise d'angoisse : symptômes, mécanismes physiologiques et techniques pour la stopper ou la prévenir. Guide pratique basé sur les données scientifiques."
+    "tags": [
+      "anxiété",
+      "crise d'angoisse",
+      "attaque de panique",
+      "respiration",
+      "techniques"
+    ],
+    "metaDescription": "Crise d'angoisse : symptômes, causes et 5 techniques concrètes pour la gérer sur le moment. Guide pratique validé par les professionnels de santé."
   },
   {
     "id": "trouble-anxieux-generalise",
@@ -20,7 +26,13 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["TAG", "anxiété chronique", "ruminations", "inquiétude", "traitement"],
+    "tags": [
+      "TAG",
+      "anxiété chronique",
+      "ruminations",
+      "inquiétude",
+      "traitement"
+    ],
     "metaDescription": "Le trouble anxieux généralisé (TAG) : symptômes, causes neurologiques et traitements efficaces. Comment distinguer inquiétude normale et TAG, et comment s'en sortir."
   },
   {
@@ -32,7 +44,13 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["dépression", "santé mentale", "tristesse", "symptômes", "diagnostic"],
+    "tags": [
+      "dépression",
+      "santé mentale",
+      "tristesse",
+      "symptômes",
+      "diagnostic"
+    ],
     "metaDescription": "Comment reconnaître une dépression : les symptômes officiels et ceux qu'on tait. La neurobiologie de la dépression expliquée clairement pour mieux comprendre et agir."
   },
   {
@@ -44,7 +62,13 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["dépression", "traitement", "antidépresseurs", "psychothérapie", "rétablissement"],
+    "tags": [
+      "dépression",
+      "traitement",
+      "antidépresseurs",
+      "psychothérapie",
+      "rétablissement"
+    ],
     "metaDescription": "Comment sortir de la dépression : les traitements efficaces (médicaments, TCC, activation comportementale) et les étapes concrètes pour remonter la pente progressivement."
   },
   {
@@ -56,7 +80,13 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["méditation", "pleine conscience", "mindfulness", "stress", "bien-être"],
+    "tags": [
+      "méditation",
+      "pleine conscience",
+      "mindfulness",
+      "stress",
+      "bien-être"
+    ],
     "metaDescription": "La méditation pleine conscience expliquée par la science : effets sur le cerveau, bénéfices prouvés et guide pratique pour débuter. Pas de spiritualité — que des faits."
   },
   {
@@ -68,7 +98,13 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["burnout", "épuisement professionnel", "stress au travail", "santé mentale", "prévention"],
+    "tags": [
+      "burnout",
+      "épuisement professionnel",
+      "stress au travail",
+      "santé mentale",
+      "prévention"
+    ],
     "metaDescription": "Tout comprendre sur le burnout : les 3 phases, les symptômes précoces, les causes profondes et les étapes concrètes pour récupérer. Guide complet sur l'épuisement professionnel."
   },
   {
@@ -80,7 +116,13 @@
     "image": "",
     "readTime": 9,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["stress", "relaxation", "cohérence cardiaque", "pleine conscience", "gestion du stress"],
+    "tags": [
+      "stress",
+      "relaxation",
+      "cohérence cardiaque",
+      "pleine conscience",
+      "gestion du stress"
+    ],
     "metaDescription": "10 techniques anti-stress validées scientifiquement : cohérence cardiaque, relaxation musculaire progressive, écriture expressive... Mode d'emploi détaillé pour chacune."
   },
   {
@@ -92,7 +134,14 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["sommeil", "insomnie", "anxiété", "dépression", "santé mentale", "rythme circadien"],
+    "tags": [
+      "sommeil",
+      "insomnie",
+      "anxiété",
+      "dépression",
+      "santé mentale",
+      "rythme circadien"
+    ],
     "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir."
   },
   {
@@ -104,7 +153,13 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["insomnie", "sommeil", "TCC-I", "somnifères", "restriction de sommeil"],
+    "tags": [
+      "insomnie",
+      "sommeil",
+      "TCC-I",
+      "somnifères",
+      "restriction de sommeil"
+    ],
     "metaDescription": "Comment vaincre l'insomnie : TCC-I, restriction de sommeil, contrôle du stimulus. Les méthodes validées scientifiquement sans médicaments expliquées étape par étape."
   },
   {
@@ -116,7 +171,15 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["thérapie", "TCC", "EMDR", "psychanalyse", "ACT", "psychologue", "psychiatre"],
+    "tags": [
+      "thérapie",
+      "TCC",
+      "EMDR",
+      "psychanalyse",
+      "ACT",
+      "psychologue",
+      "psychiatre"
+    ],
     "metaDescription": "Quel type de thérapie choisir ? TCC, EMDR, psychanalyse, ACT, Gestalt : leurs différences, indications et efficacité expliquées clairement pour bien choisir."
   },
   {
@@ -128,7 +191,13 @@
     "image": "",
     "readTime": 6,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["résilience", "bien-être", "émotions", "Boris Cyrulnik", "psychologie positive"],
+    "tags": [
+      "résilience",
+      "bien-être",
+      "émotions",
+      "Boris Cyrulnik",
+      "psychologie positive"
+    ],
     "metaDescription": "Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie."
   },
   {
@@ -140,7 +209,14 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["communication", "CNV", "relations", "conflits", "Marshall Rosenberg", "émotions"],
+    "tags": [
+      "communication",
+      "CNV",
+      "relations",
+      "conflits",
+      "Marshall Rosenberg",
+      "émotions"
+    ],
     "metaDescription": "La Communication Non-Violente (CNV) en 4 étapes : observer, ressentir, identifier le besoin, formuler une demande. Guide pratique pour transformer vos relations."
   },
   {
@@ -152,7 +228,14 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["TCC", "thérapie cognitive", "distorsions cognitives", "anxiété", "dépression", "psychothérapie"],
+    "tags": [
+      "TCC",
+      "thérapie cognitive",
+      "distorsions cognitives",
+      "anxiété",
+      "dépression",
+      "psychothérapie"
+    ],
     "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet."
   },
   {
@@ -164,7 +247,14 @@
     "image": "",
     "readTime": 7,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["relation toxique", "gaslighting", "manipulation", "estime de soi", "couple", "relations"],
+    "tags": [
+      "relation toxique",
+      "gaslighting",
+      "manipulation",
+      "estime de soi",
+      "couple",
+      "relations"
+    ],
     "metaDescription": "Les 8 signes d'une relation toxique : comment les reconnaître, pourquoi on reste et quoi faire. Guide psychologique pour identifier et sortir d'une relation qui fait du mal."
   },
   {
@@ -176,7 +266,13 @@
     "image": "",
     "readTime": 8,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["estime de soi", "confiance en soi", "self-compassion", "développement personnel", "psychologie positive"],
+    "tags": [
+      "estime de soi",
+      "confiance en soi",
+      "self-compassion",
+      "développement personnel",
+      "psychologie positive"
+    ],
     "metaDescription": "L'estime de soi : comment elle se construit, se détruit et se répare. Ses 3 dimensions, les signes d'une faible estime et 5 pratiques concrètes pour la reconstruire."
   }
 ]
