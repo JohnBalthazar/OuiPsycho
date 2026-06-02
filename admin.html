@@ -1729,7 +1729,11 @@ function ghBase() {
 async function githubGetSha(path) {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
-    const res = await fetch(ghBase() + path + '?ref=' + branch, { headers: ghHeaders() });
+    // Cache-busting obligatoire : le CDN GitHub peut retourner un SHA périmé
+    const url = ghBase() + path + '?ref=' + branch + '&t=' + Date.now();
+    const res = await fetch(url, {
+      headers: { ...ghHeaders(), 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+    });
     if (!res.ok) return null;
     const data = await res.json();
     return data.sha;
@@ -1737,11 +1741,30 @@ async function githubGetSha(path) {
 }
 async function githubPutFile(path, content, message) {
   const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
-  const sha = await githubGetSha(path);
-  const body = { message, content: btoa(unescape(encodeURIComponent(content))), branch };
-  if (sha) body.sha = sha;
-  const res = await fetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
-  if (!res.ok) { const err = await res.json(); throw new Error(err.message || res.status); }
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+
+  // Fonction d'envoi avec un SHA donné
+  const doput = async (sha) => {
+    const body = { message, content: encoded, branch };
+    if (sha) body.sha = sha;
+    return fetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+  };
+
+  let sha = await githubGetSha(path);
+  let res = await doput(sha);
+
+  // Si SHA mismatch (422), on re-fetch le SHA frais et on retente une fois
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    const msg = err.message || '';
+    if (res.status === 422 && msg.includes('does not match')) {
+      sha = await githubGetSha(path);   // SHA vraiment frais
+      res = await doput(sha);
+      if (!res.ok) { const e2 = await res.json().catch(() => ({})); throw new Error(e2.message || res.status); }
+    } else {
+      throw new Error(msg || res.status);
+    }
+  }
   return res.json();
 }
 async function githubDeleteFile(path, message) {
