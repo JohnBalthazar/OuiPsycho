@@ -1074,9 +1074,6 @@
       </div>
     </div>
 
-  </main>
-</div>
-
     <!-- PAGE NEWSLETTER -->
     <div id="page-newsletter" class="page" style="display:none">
       <div class="topbar">
@@ -1092,7 +1089,6 @@
         <div class="stat-card orange"><div class="stat-val" id="nl-month">—</div><div class="stat-label">Ce mois-ci</div></div>
       </div>
 
-      <!-- Statut Brevo -->
       <div id="nl-brevo-status" class="card" style="margin-bottom:20px;padding:14px 20px;display:none">
         <span id="nl-brevo-msg" style="font-size:.85rem"></span>
         <a href="https://app.brevo.com/contact/list" target="_blank" class="btn btn-ghost btn-sm" style="margin-left:12px">Ouvrir Brevo →</a>
@@ -1106,7 +1102,6 @@
         </table>
       </div>
 
-      <!-- Config Brevo rapide -->
       <div class="card" style="margin-top:20px">
         <div class="card-header"><h3>⚡ Configuration Brevo (envoi de newsletters)</h3></div>
         <div class="panel-body" style="display:flex;flex-direction:column;gap:12px">
@@ -1137,6 +1132,9 @@
         </div>
       </div>
     </div>
+
+  </main>
+</div>
 
 <!-- REPLY MODAL -->
 <div class="panel-overlay" id="reply-overlay">
@@ -2742,11 +2740,10 @@ async function loadNewsletterSubscribers() {
   if (tbody) tbody.innerHTML = '<tr class="loading-row"><td colspan="4">Chargement…</td></tr>';
 
   try {
-    // Lire les abonnés avec le token admin si disponible, sinon clé API
-    const token = await getAdminToken();
-    const headers = token
-      ? { 'Authorization': 'Bearer ' + token }
-      : {};
+    // Lire les abonnés avec le token admin Firebase si disponible
+    let token = null;
+    try { token = await _fbaSignIn(); } catch(_) {}
+    const headers = token ? { 'Authorization': 'Bearer ' + token } : {};
     const url = `${fbBase()}/newsletter?key=${apiKey}&pageSize=300`;
     const res = await fetch(url, { headers });
     if (!res.ok) throw new Error('HTTP ' + res.status);
