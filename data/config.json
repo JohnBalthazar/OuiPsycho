@@ -1,8 +1,10 @@
 {
-  "cloudName": "",
-  "uploadPreset": "",
+  "cloudName": "druutw29p",
+  "uploadPreset": "uys3gxfw",
   "cldFolder": "ouipsycho/articles",
   "ghOwner": "",
   "ghRepo": "",
-  "ghBranch": "main"
+  "ghBranch": "main",
+  "firebaseProjectId": "ouipsycho",
+  "firebaseApiKey": "AIzaSyC6osGQGuZd5aEqo-AMuJCrgjVhbZ_UHpk"
 }
