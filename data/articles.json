@@ -88,29 +88,39 @@
   },
   {
     "id": "sortir-depression",
-    "title": "Sortir de la dépression : les étapes concrètes pour remonter la pente",
-    "excerpt": "Sortir de la dépression n'est pas une question de volonté. C'est un processus qui demande les bons outils, du soutien et du temps. Voici les étapes concrètes validées par la recherche.",
+    "title": "Comment sortir de la dépression ? Les approches qui fonctionnent vraiment",
+    "excerpt": "Sortir de la dépression n'est pas une question de volonté. C'est une question de traitement adapté. Voici ce que la science dit sur les approches les plus efficaces — et comment retrouver le chemin vers le mieux.",
     "date": "2026-05-05",
     "category": "Dépression",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fcjngeexfeedsh0ik4us",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
       "dépression",
       "traitement",
       "antidépresseurs",
-      "psychothérapie",
-      "rétablissement"
+      "TCC",
+      "guérison",
+      "thérapie"
     ],
-    "metaDescription": "Comment sortir de la dépression : les traitements efficaces (médicaments, TCC, activation comportementale) et les étapes concrètes pour remonter la pente progressivement."
+    "metaDescription": "Comment sortir de la dépression : psychothérapies (TCC, TIP, MBCT), antidépresseurs, exercice physique. Les traitements validés scientifiquement expliqués clairement.",
+    "status": "published"
   },
   {
     "id": "meditation-pleine-conscience",
-    "title": "La méditation pleine conscience : pourquoi ça marche (et comment commencer)",
-    "excerpt": "La pleine conscience n'est pas une mode ou un truc de hippie. C'est une pratique soutenue par des centaines d'études scientifiques. Voici ce que la science dit réellement, et comment commencer sans prise de tête.",
+    "title": "Méditation pleine conscience : le guide complet pour débutants",
+    "excerpt": "La méditation de pleine conscience (mindfulness) est l'outil de bien-être mental le mieux documenté de ces 30 dernières années. Pas besoin d'être bouddhiste ni de méditer des heures. Voici comment commencer.",
     "date": "2026-04-28",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/izywwrmitgneg9p1ll5a",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -118,9 +128,11 @@
       "pleine conscience",
       "mindfulness",
       "stress",
-      "bien-être"
+      "bien-être",
+      "MBSR"
     ],
-    "metaDescription": "La méditation pleine conscience expliquée par la science : effets sur le cerveau, bénéfices prouvés et guide pratique pour débuter. Pas de spiritualité — que des faits."
+    "metaDescription": "Guide complet de la méditation pleine conscience pour débutants : bienfaits scientifiques, exercices pratiques et conseils pour créer une habitude durable.",
+    "status": "published"
   },
   {
     "id": "burnout-epuisement-professionnel",
