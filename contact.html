@@ -152,43 +152,42 @@
 
   <script src="js/main.js"></script>
   <script>
-    let _fbProject = '';
-    let _fbApiKey  = '';
+    // Noms distincts pour éviter les conflits avec les vars de main.js
+    var _cfProject = '';
+    var _cfApiKey  = '';
 
-    // Charger config Firebase depuis data/config.json
-    fetch('data/config.json?t=' + Date.now())
-      .then(r => r.ok ? r.json() : {})
-      .then(cfg => {
-        _fbProject = cfg.firebaseProjectId || '';
-        _fbApiKey  = cfg.firebaseApiKey    || '';
-        // Afficher l'email alternatif si configuré
-        const altEl = document.getElementById('contact-email-alt');
-        if (altEl && cfg.contactEmail) {
-          altEl.innerHTML = `Ou écrivez-nous directement à : <a href="mailto:${cfg.contactEmail}" style="color:#1F4E6B;font-weight:600">${cfg.contactEmail}</a>`;
-          altEl.style.display = 'block';
-        }
-        if (!_fbProject || !_fbApiKey) {
-          const btn = document.querySelector('#contact-form button[type="submit"]');
-          if (btn) { btn.disabled = true; btn.title = 'Formulaire temporairement indisponible'; }
-        }
-      })
-      .catch(() => {});
-
-    // Convertir une valeur JS en champ Firestore
-    function fv(v) {
+    // Convertir une valeur JS en champ Firestore (local, pas de conflit)
+    function _cfFV(v) {
       if (v === null || v === undefined) return { nullValue: null };
       if (typeof v === 'boolean') return { booleanValue: v };
       return { stringValue: String(v) };
     }
 
+    // Charger config Firebase + email de contact depuis data/config.json
+    fetch('data/config.json?t=' + Date.now())
+      .then(function(r) { return r.ok ? r.json() : {}; })
+      .then(function(cfg) {
+        _cfProject = cfg.firebaseProjectId || '';
+        _cfApiKey  = cfg.firebaseApiKey    || '';
+        // Email alternatif
+        var altEl = document.getElementById('contact-email-alt');
+        if (altEl && cfg.contactEmail) {
+          altEl.innerHTML = 'Ou écrivez-nous directement à : <a href="mailto:' + cfg.contactEmail + '" style="color:#1F4E6B;font-weight:600">' + cfg.contactEmail + '</a>';
+          altEl.style.display = 'block';
+        }
+      })
+      .catch(function() {});
+
     document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const fb      = document.getElementById('cf-feedback');
-      const btn     = this.querySelector('button[type="submit"]');
-      const name    = document.getElementById('cf-name').value.trim();
-      const email   = document.getElementById('cf-email').value.trim();
-      const subject = document.getElementById('cf-subject').value;
-      const message = document.getElementById('cf-message').value.trim();
+      var fb      = document.getElementById('cf-feedback');
+      var btn     = this.querySelector('button[type="submit"]');
+      var name    = document.getElementById('cf-name').value.trim();
+      var email   = document.getElementById('cf-email').value.trim();
+      var subject = document.getElementById('cf-subject').value;
+      var message = document.getElementById('cf-message').value.trim();
+
+      fb.style.display = 'none';
 
       if (!name || !email || !message) {
         fb.style.display = 'block'; fb.style.color = '#dc2626';
@@ -196,32 +195,40 @@
         return;
       }
 
+      if (!_cfProject || !_cfApiKey) {
+        fb.style.display = 'block'; fb.style.color = '#dc2626';
+        fb.textContent = '❌ Le formulaire n\'est pas encore configuré. Réessayez dans quelques instants.';
+        return;
+      }
+
       btn.disabled = true; btn.textContent = '⏳ Envoi en cours…';
-      fb.style.display = 'none';
 
       try {
-        const base = `https://firestore.googleapis.com/v1/projects/${_fbProject}/databases/(default)/documents`;
-        const res  = await fetch(`${base}/contacts?key=${_fbApiKey}`, {
+        var base = 'https://firestore.googleapis.com/v1/projects/' + _cfProject + '/databases/(default)/documents';
+        var res  = await fetch(base + '/contacts?key=' + _cfApiKey, {
           method:  'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             fields: {
-              name:       fv(name),
-              email:      fv(email),
-              subject:    fv(subject),
-              message:    fv(message),
+              name:       _cfFV(name),
+              email:      _cfFV(email),
+              subject:    _cfFV(subject),
+              message:    _cfFV(message),
               read:       { booleanValue: false },
-              created_at: fv(new Date().toISOString()),
+              created_at: _cfFV(new Date().toISOString()),
             },
           }),
         });
-        if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || res.status); }
+        if (!res.ok) {
+          var err = await res.json().catch(function() { return {}; });
+          throw new Error(err.error ? err.error.message : 'HTTP ' + res.status);
+        }
         fb.style.display = 'block'; fb.style.color = '#059669';
         fb.textContent = '✅ Message envoyé ! Nous vous répondrons dans les plus brefs délais.';
         this.reset();
       } catch(err) {
         fb.style.display = 'block'; fb.style.color = '#dc2626';
-        fb.textContent = '❌ Une erreur est survenue. Réessayez ou contactez-nous par email.';
+        fb.textContent = '❌ Erreur : ' + err.message + '. Réessayez ou contactez-nous par email.';
         console.error('Contact form error:', err);
       } finally {
         btn.disabled = false; btn.textContent = 'Envoyer le message ✓';
