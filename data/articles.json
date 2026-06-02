@@ -46,7 +46,11 @@
     "excerpt": "Se faire du souci, c'est normal. Mais quand l'inquiétude est constante, incontrôlable et envahit tous les aspects de la vie, on parle de trouble anxieux généralisé. Comprendre ce trouble, c'est déjà commencer à s'en libérer.",
     "date": "2026-05-15",
     "category": "Anxiété",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/leybi25rat3l6pamfnkx",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ftg30eblj1l0gdkmzbl2",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -56,7 +60,8 @@
       "inquiétude",
       "TCC"
     ],
-    "metaDescription": "Le trouble anxieux généralisé : symptômes, causes et traitements. Comprendre pourquoi l'inquiétude devient excessive et comment s'en libérer efficacement."
+    "metaDescription": "Le trouble anxieux généralisé : symptômes, causes et traitements. Comprendre pourquoi l'inquiétude devient excessive et comment s'en libérer efficacement.",
+    "status": "published"
   },
   {
     "id": "reconnaitre-depression",
