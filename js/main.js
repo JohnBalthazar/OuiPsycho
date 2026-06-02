@@ -450,12 +450,6 @@ function buildArticleHTML(a) {
       ${imgTop}
     </header>
 
-    <aside class="article-disclaimer" role="note">
-      ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
-      l'avis d'un professionnel de santé. En cas de détresse, appelez le
-      <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
-    </aside>
-
     ${keypoints}
 
     <div class="article-body" ${imgFloat ? 'style="overflow:hidden"' : ''}>
@@ -482,7 +476,13 @@ function buildArticleHTML(a) {
       <button class="share-btn share-btn--tw"   data-platform="twitter">Twitter / X</button>
       <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
       <button class="share-btn share-btn--copy" data-platform="copy">Copier le lien</button>
-    </div>`;
+    </div>
+
+    <aside class="article-disclaimer" role="note">
+      ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+      l'avis d'un professionnel de santé. En cas de détresse, appelez le
+      <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
+    </aside>`;
 }
 
 /* Injecte l'image hero dans une page statique si elle n'y est pas baked-in */

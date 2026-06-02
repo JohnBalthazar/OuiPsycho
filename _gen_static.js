@@ -166,12 +166,6 @@ ${navHtml}
           </div>
         </header>
 
-        <aside class="article-disclaimer" role="note">
-          ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
-          l'avis d'un professionnel de santé. En cas de détresse, appelez le
-          <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
-        </aside>
-
 ${kpHtml}
         <div class="article-body">
           ${j.content}
@@ -194,6 +188,12 @@ ${kpHtml}
           <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
           <button class="share-btn share-btn--copy" data-platform="copy">Copier le lien</button>
         </div>
+
+        <aside class="article-disclaimer" role="note">
+          ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+          l'avis d'un professionnel de santé. En cas de détresse, appelez le
+          <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
+        </aside>
 
       </article>
     </main>
