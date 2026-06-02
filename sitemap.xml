@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-  <!-- Page d'accueil -->
+  <!-- Pages statiques -->
   <url>
     <loc>https://ouipsycho.fr/</loc>
-    <lastmod>2026-05-20</lastmod>
+    <lastmod>2026-06-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
-
-  <!-- Pages statiques -->
   <url>
     <loc>https://ouipsycho.fr/a-propos.html</loc>
     <changefreq>monthly</changefreq>
@@ -32,12 +29,18 @@
     <priority>0.2</priority>
   </url>
 
-  <!-- Articles — pages statiques SEO -->
+  <!-- Articles (16 articles — généré automatiquement) -->
+  <url>
+    <loc>https://ouipsycho.fr/articles/a-partir-de-quel-age-est-on-vieux.html</loc>
+    <lastmod>2026-06-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
   <url>
     <loc>https://ouipsycho.fr/articles/crise-angoisse.html</loc>
     <lastmod>2026-05-20</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/trouble-anxieux-generalise.html</loc>

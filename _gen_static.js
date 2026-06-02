@@ -51,7 +51,8 @@ for (const file of jsonFiles) {
 
   // JSON-LD
   const esc = s => String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"');
-  const aLD = JSON.stringify({
+  const wordCount = j.content.replace(/<[^>]+>/g,'').split(/\s+/).length;
+  const aLDobj = {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": j.title,
@@ -60,12 +61,19 @@ for (const file of jsonFiles) {
     "dateModified": j.date,
     "inLanguage": "fr",
     "author": { "@type": "Person", "name": j.author },
-    "publisher": { "@type": "Organization", "name": "Oui Psycho!", "url": `${BASE}/` },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Oui Psycho!",
+      "url": `${BASE}/`,
+      "logo": { "@type": "ImageObject", "url": `${BASE}/img/favicon.svg` }
+    },
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}.html` },
     "keywords": j.tags.join(', '),
     "articleSection": j.category,
-    "wordCount": j.content.replace(/<[^>]+>/g,'').split(/\s+/).length
-  });
+    "wordCount": wordCount
+  };
+  if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image };
+  const aLD = JSON.stringify(aLDobj);
   const bLD = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -87,13 +95,22 @@ for (const file of jsonFiles) {
   <meta name="robots" content="index, follow">
   <base href="../">
   <link rel="canonical" href="${BASE}/articles/${j.id}.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="${j.title} — Oui Psycho!">
-  <meta property="og:description" content="${j.metaDescription}">
-  <meta property="og:url" content="${BASE}/articles/${j.id}.html">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Oui Psycho!">
-  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:type"                    content="article">
+  <meta property="og:title"                   content="${j.title} — Oui Psycho!">
+  <meta property="og:description"             content="${j.metaDescription}">
+  <meta property="og:url"                     content="${BASE}/articles/${j.id}.html">
+  <meta property="og:locale"                  content="fr_FR">
+  <meta property="og:site_name"               content="Oui Psycho!">
+  <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
+  <meta property="article:modified_time"      content="${j.date}T00:00:00+01:00">
+  <meta property="article:author"             content="${j.author}">
+  <meta property="article:section"            content="${j.category}">${j.image ? `
+  <meta property="og:image"                   content="${j.image}">
+  <meta property="og:image:alt"               content="${j.title}">` : ''}
+  <meta name="twitter:card"                   content="summary_large_image">
+  <meta name="twitter:title"                  content="${j.title} — Oui Psycho!">
+  <meta name="twitter:description"            content="${j.metaDescription}">${j.image ? `
+  <meta name="twitter:image"                  content="${j.image}">` : ''}
   <script type="application/ld+json">${aLD}</script>
   <script type="application/ld+json">${bLD}</script>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">

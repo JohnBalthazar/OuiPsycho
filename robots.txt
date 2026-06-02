@@ -4,7 +4,8 @@
 User-agent: *
 Allow: /
 
-# Ne pas indexer les fichiers de données brutes JSON (pas des pages web)
+# Pas des pages publiques
+Disallow: /admin.html
 Disallow: /data/
 Disallow: /articles/*.json
 
