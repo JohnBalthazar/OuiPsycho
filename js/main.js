@@ -112,7 +112,7 @@ function renderCard(article) {
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${esc(article.date || '')}">${formatDate(article.date)}</time>
+          <time datetime="${esc(article.date || '')}">Mis à jour le ${formatDate(article.date)}</time>
           <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
@@ -147,7 +147,7 @@ function renderFeatured(article) {
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${esc(article.date || '')}">${formatDate(article.date)}</time>
+          <time datetime="${esc(article.date || '')}">Mis à jour le ${formatDate(article.date)}</time>
           <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
@@ -178,6 +178,15 @@ async function initHome() {
     const res = await fetch(CONFIG.dataUrl);
     if (!res.ok) throw new Error('articles.json introuvable');
     allArticles = await res.json();
+
+    // Ne pas afficher les brouillons ni les articles planifiés dont la date n'est pas encore arrivée
+    const todayStr = new Date().toISOString().split('T')[0];
+    allArticles = allArticles.filter(a => {
+      if (a.status === 'draft') return false;                          // brouillon → jamais visible
+      if (a.status === 'scheduled') return a.date <= todayStr;        // planifié → visible seulement à partir de la date
+      return true;                                                     // publié (ou pas de statut) → toujours visible
+    });
+
     allArticles.sort((a, b) => new Date(b.date) - new Date(a.date));
     filteredArticles = [...allArticles];
 
@@ -443,7 +452,7 @@ function buildArticleHTML(a) {
       <div class="article-meta">
         <span>Par <strong>${esc(a.author || 'La rédaction')}</strong></span>
         <span class="article-meta-dot">•</span>
-        <time datetime="${esc(a.date || '')}">${formatDate(a.date)}</time>
+        <time datetime="${esc(a.date || '')}">Mis à jour le ${formatDate(a.date)}</time>
         <span class="article-meta-dot">•</span>
         <span>⏱ ${a.readTime || 5} min de lecture</span>
       </div>
@@ -592,7 +601,7 @@ async function loadRelated(current) {
             </div>
             <div class="related-item__info">
               <div class="related-item__title">${esc(a.title)}</div>
-              <div class="related-item__meta">${formatDate(a.date)}</div>
+              <div class="related-item__meta">Mis à jour le ${formatDate(a.date)}</div>
             </div>
           </a>`).join('')}
       </div>`;

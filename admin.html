@@ -270,6 +270,23 @@
     .preview-pane h2 { font-size: 1.2rem; margin: 20px 0 8px; }
     .preview-pane blockquote { border-left: 4px solid var(--accent); padding: 8px 16px; margin: 16px 0; color: var(--gray-600); font-style: italic; background: var(--gray-100); border-radius: 0 var(--radius) var(--radius) 0; }
 
+    /* ── STATUS BADGES ── */
+    .badge-published { background: #d1fae5; color: #065f46; }
+    .badge-scheduled { background: #fef3c7; color: #92400e; }
+    .badge-draft     { background: #f1f5f9; color: #475569; }
+
+    /* ── STATUS BUTTON GROUP ── */
+    .status-btn-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+    .status-btn-group .btn { transition: all .15s; }
+    .status-btn-group .btn.active-status { box-shadow: 0 0 0 2px currentColor; }
+
+    /* ── SCHEDULED CARD ── */
+    .scheduled-card {
+      background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius);
+      padding: 12px 16px; margin-bottom: 16px; font-size: .88rem; color: #92400e;
+    }
+    .scheduled-card strong { color: #78350f; }
+
     /* ── CATEGORIES COLORS ── */
     .cat-Anxiété { background: #dbeafe; color: #1e40af; }
     .cat-Dépression { background: #ede9fe; color: #5b21b6; }
@@ -428,7 +445,7 @@
       <div class="card">
         <div class="card-header"><h3>Articles récents</h3></div>
         <table>
-          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Lecture</th></tr></thead>
+          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th></tr></thead>
           <tbody id="recent-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
         </table>
       </div>
@@ -451,7 +468,7 @@
         </div>
         <div class="filter-bar" id="filter-bar"></div>
         <table>
-          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Lecture</th><th>Actions</th></tr></thead>
+          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Lecture</th><th>Actions</th></tr></thead>
           <tbody id="articles-table"><tr class="loading-row"><td colspan="5">Chargement…</td></tr></tbody>
         </table>
       </div>
@@ -466,7 +483,7 @@
           <button class="btn btn-ghost" onclick="togglePreview()">👁 Aperçu</button>
           <button class="btn btn-success" onclick="saveArticle()" id="save-btn">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-            Publier
+            <span id="save-btn-label">Publier</span>
           </button>
         </div>
       </div>
@@ -558,8 +575,21 @@
                 </select>
               </div>
               <div class="form-group">
-                <label>Date de publication</label>
-                <input type="date" id="f-date">
+                <label id="f-date-label">Date de publication</label>
+                <input type="date" id="f-date" oninput="onDateChange()">
+              </div>
+              <div class="form-group">
+                <label>Statut</label>
+                <div class="status-btn-group">
+                  <button type="button" id="status-btn-published" class="btn btn-success btn-sm active-status"
+                    onclick="setArticleStatus('published')">✅ Publier</button>
+                  <button type="button" id="status-btn-scheduled" class="btn btn-ghost btn-sm"
+                    onclick="setArticleStatus('scheduled')">⏰ Planifier</button>
+                  <button type="button" id="status-btn-draft" class="btn btn-ghost btn-sm"
+                    onclick="setArticleStatus('draft')">📝 Brouillon</button>
+                </div>
+                <div class="hint" id="status-hint">L'article sera visible immédiatement après publication.</div>
+                <input type="hidden" id="f-status" value="published">
               </div>
               <div class="form-group">
                 <label>Temps de lecture (minutes)</label>
@@ -1116,6 +1146,7 @@ let activeCatFilter = 'all';
 let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
+let articleStatus = 'published'; // 'published' | 'scheduled' | 'draft'
 
 // ── Commentaires ──
 let adminComments     = [];
@@ -1319,41 +1350,75 @@ function refreshArticles() {
    DASHBOARD
 ══════════════════════════════════════════════ */
 function renderDashboard() {
+  const today = new Date().toISOString().split('T')[0];
   const cats = {};
   articles.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
-  const totalRead = articles.reduce((s, a) => s + (a.readTime || 0), 0);
+  const totalRead   = articles.reduce((s, a) => s + (a.readTime || 0), 0);
+  const scheduled   = articles.filter(a => a.status === 'scheduled' || (!a.status && a.date > today));
+  const drafts      = articles.filter(a => a.status === 'draft');
+  const published   = articles.filter(a => !a.status || (a.status === 'published') || (a.status === 'scheduled' && a.date <= today));
 
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat-card">
-      <div class="stat-val">${articles.length}</div>
+      <div class="stat-val">${published.length}</div>
       <div class="stat-label">Articles publiés</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-val">${scheduled.length}</div>
+      <div class="stat-label">⏰ Planifiés</div>
+    </div>
+    <div class="stat-card" style="border-color:var(--gray-300)">
+      <div class="stat-val">${drafts.length}</div>
+      <div class="stat-label">📝 Brouillons</div>
     </div>
     <div class="stat-card green">
       <div class="stat-val">${Object.keys(cats).length}</div>
       <div class="stat-label">Catégories</div>
     </div>
-    <div class="stat-card orange">
-      <div class="stat-val">${totalRead}</div>
-      <div class="stat-label">Minutes de lecture totales</div>
-    </div>
     <div class="stat-card red">
-      <div class="stat-val">${articles.reduce((s,a) => s + (a.tags||[]).length, 0)}</div>
-      <div class="stat-label">Tags au total</div>
+      <div class="stat-val">${totalRead}</div>
+      <div class="stat-label">Min de lecture totales</div>
     </div>
     ${Object.entries(cats).map(([cat, count]) =>
       `<div class="stat-card"><div class="stat-val">${count}</div><div class="stat-label">${cat}</div></div>`
     ).join('')}
   `;
 
+  // ── Prochaines publications planifiées ──
+  const upcomingHtml = scheduled.length
+    ? `<div class="scheduled-card" style="margin-bottom:20px">
+        <strong>⏰ Prochaines publications</strong>
+        <ul style="margin:.6rem 0 0 1.2rem;line-height:2">
+          ${[...scheduled].sort((a,b)=>a.date.localeCompare(b.date)).map(a=>
+            `<li><strong>${formatDate(a.date)}</strong> — ${a.title}
+              <button class="btn btn-ghost btn-sm" style="margin-left:8px;padding:1px 8px;font-size:.75rem"
+                onclick="editArticle('${a.id}')">Éditer</button></li>`
+          ).join('')}
+        </ul>
+      </div>` : '';
+
   const recent = [...articles].sort((a,b) => b.date.localeCompare(a.date)).slice(0, 5);
-  document.getElementById('recent-table').innerHTML = recent.map(a => `
+  document.getElementById('recent-table').innerHTML = recent.map(a => {
+    const si = getArticleStatusInfo(a);
+    return `
     <tr>
       <td><strong>${a.title}</strong></td>
       <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
       <td>${formatDate(a.date)}</td>
-      <td>${a.readTime} min</td>
-    </tr>
-  `).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article</td></tr>';
+      <td><span class="badge ${si.cls}">${si.label}</span></td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="4" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article</td></tr>';
+
+  // Insérer la carte planning avant le tableau
+  const dashCard = document.querySelector('#page-dashboard .card');
+  const existingPlanning = document.getElementById('planning-banner');
+  if (existingPlanning) existingPlanning.remove();
+  if (upcomingHtml && dashCard) {
+    const div = document.createElement('div');
+    div.id = 'planning-banner';
+    div.innerHTML = upcomingHtml;
+    dashCard.parentElement.insertBefore(div, dashCard);
+  }
 }
 
 /* ══════════════════════════════════════════════
@@ -1372,6 +1437,15 @@ function setCatFilter(cat, el) {
   renderArticlesTable();
 }
 function filterArticles() { renderArticlesTable(); }
+
+function getArticleStatusInfo(a) {
+  const today = new Date().toISOString().split('T')[0];
+  if (a.status === 'draft') return { key: 'draft',     label: '📝 Brouillon',  cls: 'badge-draft' };
+  if (a.status === 'scheduled' || (!a.status && a.date > today))
+    return { key: 'scheduled', label: '⏰ Planifié',   cls: 'badge-scheduled' };
+  return { key: 'published',  label: '✅ Publié',     cls: 'badge-published' };
+}
+
 function renderArticlesTable() {
   const q = (document.getElementById('search-input')?.value || '').toLowerCase();
   let list = articles.filter(a =>
@@ -1379,7 +1453,9 @@ function renderArticlesTable() {
     (!q || a.title.toLowerCase().includes(q) || (a.tags||[]).some(t=>t.toLowerCase().includes(q)))
   ).sort((a,b) => b.date.localeCompare(a.date));
   document.getElementById('articles-count').textContent = `(${list.length})`;
-  document.getElementById('articles-table').innerHTML = list.map(a => `
+  document.getElementById('articles-table').innerHTML = list.map(a => {
+    const si = getArticleStatusInfo(a);
+    return `
     <tr>
       <td>
         <div style="font-weight:600;color:var(--gray-900)">${a.title}</div>
@@ -1387,6 +1463,7 @@ function renderArticlesTable() {
       </td>
       <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
       <td>${formatDate(a.date)}</td>
+      <td><span class="badge ${si.cls}">${si.label}</span></td>
       <td>${a.readTime} min</td>
       <td>
         <div class="actions">
@@ -1395,8 +1472,8 @@ function renderArticlesTable() {
           <a href="article.html?id=${a.id}" target="_blank" class="btn btn-ghost btn-sm">👁</a>
         </div>
       </td>
-    </tr>
-  `).join('') || '<tr><td colspan="5" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
+    </tr>`;
+  }).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
 }
 
 /* ══════════════════════════════════════════════
@@ -1412,6 +1489,7 @@ function resetEditor() {
   initWysEditor('');
   document.getElementById('f-category').value    = '';
   document.getElementById('f-date').value        = new Date().toISOString().split('T')[0];
+  setArticleStatus('published');
   document.getElementById('f-readTime').value    = 7;
   document.getElementById('f-author').value      = 'La rédaction Oui Psycho!';
   document.getElementById('f-image').value       = '';
@@ -1459,6 +1537,7 @@ function editArticle(id) {
       renderTags();
       setKeypoints(full.keypoints || []);
       updateSeoCounter();
+      setArticleStatus(full.status || 'published');
       toast('Article chargé ✓', 'success');
     })
     .catch(e => {
@@ -1476,6 +1555,55 @@ function autoSlug() {
 function slugify(str) {
   return str.normalize('NFD').replace(/[̀-ͯ]/g, '')
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+}
+
+/* ══════════════════════════════════════════════
+   STATUT DE PUBLICATION
+══════════════════════════════════════════════ */
+function setArticleStatus(status) {
+  articleStatus = status;
+  document.getElementById('f-status').value = status;
+
+  // Styles des boutons
+  const configs = {
+    published: { cls: 'btn-success', label: '✅ Publier',    hint: 'L\'article sera visible immédiatement après publication.' },
+    scheduled: { cls: 'btn-warning', label: '⏰ Planifier',  hint: 'L\'article apparaîtra automatiquement à la date choisie.' },
+    draft:     { cls: 'btn-ghost',   label: '📝 Brouillon',  hint: 'Non visible sur le site — enregistré comme brouillon.' },
+  };
+  ['published', 'scheduled', 'draft'].forEach(s => {
+    const btn = document.getElementById('status-btn-' + s);
+    if (!btn) return;
+    // Réinitialiser les classes
+    btn.className = 'btn btn-sm ' + (s === status ? configs[s].cls + ' active-status' : 'btn-ghost');
+  });
+  document.getElementById('status-hint').textContent = configs[status].hint;
+
+  // Mettre à jour le bouton "Publier" dans la topbar
+  const lblEl = document.getElementById('save-btn-label');
+  const saveBtn = document.getElementById('save-btn');
+  if (lblEl) {
+    const labels = { published: 'Publier', scheduled: 'Planifier', draft: 'Brouillon' };
+    lblEl.textContent = labels[status];
+  }
+  if (saveBtn) {
+    saveBtn.className = 'btn btn-sm ' + (status === 'draft' ? 'btn-ghost' : status === 'scheduled' ? 'btn-warning' : 'btn-success');
+    saveBtn.style.fontWeight = '600';
+  }
+}
+
+// Auto-détecte le statut selon la date choisie
+function onDateChange() {
+  const date  = document.getElementById('f-date').value;
+  if (!date) return;
+  const today = new Date().toISOString().split('T')[0];
+  // Si date future ET statut = publié → basculer en planifié
+  if (date > today && articleStatus === 'published') {
+    setArticleStatus('scheduled');
+  }
+  // Si date passée/aujourd'hui ET statut = planifié → repasser en publié
+  if (date <= today && articleStatus === 'scheduled') {
+    setArticleStatus('published');
+  }
 }
 
 async function saveArticle() {
@@ -1500,14 +1628,15 @@ async function saveArticle() {
   syncEditorToTextarea(); // s'assurer que le textarea est à jour avant de lire
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints = getKeypoints();
+  const status   = document.getElementById('f-status').value || 'published';
 
   if (!id || !title || !content || !category) {
     toast('Remplissez les champs obligatoires (slug, titre, contenu, catégorie)', 'error');
     return;
   }
 
-  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints };
-  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc };
+  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, status };
+  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, status };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';
@@ -1535,7 +1664,8 @@ async function saveArticle() {
     if (pat) {
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
       await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index');
-      toast('Article publié sur GitHub ! 🎉', 'success');
+      const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
+      toast(statusMsg[status] || 'Article enregistré !', 'success');
     } else {
       // Download files locally
       downloadJSON(articleData, id + '.json');
@@ -1856,7 +1986,7 @@ function updatePreview() {
   const readTime = document.getElementById('f-readTime').value;
   document.getElementById('preview-pane').innerHTML = `
     <h1>${title}</h1>
-    <div class="meta">${formatDate(date)} · ${readTime} min de lecture</div>
+    <div class="meta">Mis à jour le ${formatDate(date)} · ${readTime} min de lecture</div>
     ${content}
   `;
 }
