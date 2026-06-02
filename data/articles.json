@@ -270,7 +270,11 @@
     "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
     "date": "2026-03-10",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tnyn7nleakfuovnurncl",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 4,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -281,7 +285,8 @@
       "dépression",
       "psychothérapie"
     ],
-    "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet."
+    "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
+    "status": "published"
   },
   {
     "id": "relation-toxique-signes",
