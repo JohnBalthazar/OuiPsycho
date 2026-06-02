@@ -328,12 +328,12 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* ============================================================
-   7. HERO
+   7. HERO — bandeau éditorial compact (inspiré psychologies.com)
    ============================================================ */
 .hero {
-  background: linear-gradient(135deg, #1A3A50 0%, #2A6B8A 60%, #3A8EAD 100%);
+  background: linear-gradient(135deg, #1A3A50 0%, #2A6B8A 65%, #3A8EAD 100%);
   color: white;
-  padding: var(--sp-12) var(--sp-5);
+  padding: var(--sp-6) var(--sp-5) var(--sp-8);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -348,15 +348,14 @@ p:last-child { margin-bottom: 0; }
   content: '';
   position: absolute;
   bottom: -1px; left: 0; right: 0;
-  height: 50px;
+  height: 32px;
   background: var(--color-bg);
-  clip-path: ellipse(55% 100% at 50% 100%);
+  clip-path: ellipse(60% 100% at 50% 100%);
 }
 .hero__content {
   position: relative;
-  max-width: 640px;
+  max-width: 600px;
   margin: 0 auto;
-  padding-bottom: var(--sp-4);
 }
 .hero__eyebrow {
   display: inline-flex;
@@ -366,55 +365,50 @@ p:last-child { margin-bottom: 0; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .12em;
-  color: rgba(255,255,255,.65);
-  margin-bottom: var(--sp-4);
+  color: rgba(255,255,255,.55);
+  margin-bottom: var(--sp-2);
 }
 .hero__eyebrow::before, .hero__eyebrow::after {
   content: '';
   display: block;
-  width: 24px;
+  width: 20px;
   height: 1px;
-  background: rgba(255,255,255,.35);
+  background: rgba(255,255,255,.3);
 }
 .hero h1 {
-  font-size: clamp(var(--fs-2xl), 4vw, var(--fs-4xl));
+  font-size: clamp(var(--fs-xl), 3vw, var(--fs-2xl));
   color: white;
-  line-height: 1.2;
+  line-height: 1.25;
   margin-bottom: var(--sp-4);
+  font-weight: 700;
 }
 .hero h1 em {
   font-style: italic;
   color: rgba(255,255,255,.85);
 }
-.hero p {
-  font-size: var(--fs-md);
-  color: rgba(255,255,255,.8);
-  margin-bottom: var(--sp-8);
-  line-height: 1.7;
-}
 
 /* Barre de recherche hero */
 .hero-search {
   display: flex;
-  max-width: 500px;
+  max-width: 480px;
   margin: 0 auto;
   background: white;
   border-radius: var(--radius-full);
   overflow: hidden;
-  box-shadow: 0 8px 32px rgba(0,0,0,.2);
+  box-shadow: 0 4px 20px rgba(0,0,0,.18);
 }
 .hero-search input {
   flex: 1;
-  padding: var(--sp-3) var(--sp-5);
+  padding: .65rem var(--sp-5);
   border: none;
   outline: none;
-  font-size: var(--fs-base);
+  font-size: var(--fs-sm);
   font-family: var(--font-body);
   color: var(--color-text);
   background: transparent;
 }
 .hero-search button {
-  padding: var(--sp-3) var(--sp-5);
+  padding: .65rem var(--sp-4);
   background: var(--color-accent);
   color: white;
   font-weight: 700;
@@ -1340,7 +1334,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 768px) {
   h1 { font-size: var(--fs-2xl); }
   h2 { font-size: var(--fs-xl); }
-  .hero { padding: var(--sp-10) var(--sp-5); }
+  .hero { padding: var(--sp-5) var(--sp-5) var(--sp-6); }
   .article-body { font-size: var(--fs-base); }
   .article-body h2 { font-size: var(--fs-xl); margin-top: var(--sp-8); }
   .article-share { justify-content: center; }
