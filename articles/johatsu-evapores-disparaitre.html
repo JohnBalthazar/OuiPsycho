@@ -332,6 +332,44 @@
   .article-card .tag { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.4rem; }
   .article-card p { font-size: 0.92rem; font-weight: 400; color: var(--ink); line-height: 1.4; }
 
+  /* ── Liens de référence ── */
+  .ref-link {
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-color: rgba(58, 90, 140, 0.35);
+    text-decoration-style: dotted;
+    font-style: normal;
+  }
+  .ref-link:hover { text-decoration-style: solid; }
+
+  /* ── Section sources ── */
+  .sources-section {
+    margin: 3rem 0 2rem;
+    padding: 1.25rem 1.75rem;
+    background: #f5f5f2;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  .sources-section h3 {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-muted);
+    margin-bottom: 0.9rem;
+  }
+  .sources-section ol {
+    padding-left: 1.25rem;
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.75;
+  }
+  .sources-section ol li { margin-bottom: 0.4rem; }
+  .sources-section a { color: var(--accent); text-decoration: underline; text-decoration-color: rgba(58,90,140,.35); }
+  .sources-section a:hover { text-decoration-color: var(--accent); }
+  .sources-section cite { font-style: italic; }
+
   /* ── Disclaimer ── */
   .disclaimer {
     font-size: 13px;
@@ -382,9 +420,9 @@
 
       <h2>Jœhatsu : 80 000 personnes qui n'existent plus</h2>
 
-      <p>Au Japon, le mot <em>jōhatsu</em> (è¸çº) signifie littéralement «&nbsp;évaporation&nbsp;». Ce n'est pas un terme médical. C'est presque un terme météorologique. Une eau qui disparaît, qui change d'état â sans crier, sans laisser de trace.</p>
+      <p>Au Japon, le mot <a href="https://en.wikipedia.org/wiki/Johatsu" target="_blank" rel="noopener noreferrer" class="ref-link" title="Jōhatsu — Wikipedia"><em>jōhatsu</em></a> (<span lang="ja">蒸発</span>) signifie littéralement «&nbsp;évaporation&nbsp;». Ce n'est pas un terme médical. C'est presque un terme météorologique. Une eau qui disparaît, qui change d'état — sans crier, sans laisser de trace.</p>
 
-      <p>Chaque année, environ 80&nbsp;000 personnes s'évaporent ainsi au Japon. Elles ne meurent pas. Elles ne partent pas officiellement. Elles ne laissent ni lettre ni adresse. Un matin, elles ne sont plus lÃ . Un mari rentre tard et ne revient pas. Une femme confie son enfant Ã  sa sœur pour «&nbsp;une course&nbsp;» et disparaît pour des années. Un retraité s'absente une journée et n'est plus jamais retrouvé.</p>
+      <p><a href="https://www.theguardian.com/world/2016/jan/20/mystery-japans-evaporating-people" target="_blank" rel="noopener noreferrer" class="ref-link" title="Source : The Guardian, « Mystery of Japan's evaporating people » (2016)">Chaque année, environ 80&nbsp;000 personnes s'évaporent ainsi au Japon.</a> Elles ne meurent pas. Elles ne partent pas officiellement. Elles ne laissent ni lettre ni adresse. Un matin, elles ne sont plus là. Un mari rentre tard et ne revient pas. Une femme confie son enfant à sa sœur pour «&nbsp;une course&nbsp;» et disparaît pour des années. Un retraité s'absente une journée et n'est plus jamais retrouvé.</p>
 
       <div class="pull-quote">«&nbsp;Ils ne fuient pas leur vie. Ils fuient l'insupportable poids d'être vus en train d'échouer.&nbsp;»</div>
 
@@ -392,22 +430,22 @@
 
       <h2>La société qui rend l'effacement possible</h2>
 
-      <p>Ce qui rend le phénomène japonais fascinant â et inquiétant â c'est que la société elle-même a créé les conditions de cette disparition. Au Japon, on peut légalement louer un appartement sous un pseudonyme. Des entreprises spécialisées proposent ce qu'elles appellent pudiquement des «&nbsp;services de déménagement nocturne&nbsp;» â comprendre : vous aider Ã  s'évaporer en quelques heures, le temps d'une nuit, sans que les voisins s'en aperçoivent. D'autres sociétés offrent des emplois sous une identité de substitution.</p>
+      <p>Ce qui rend le phénomène japonais fascinant — et inquiétant — c'est que la société elle-même a créé les conditions de cette disparition. Au Japon, on peut légalement louer un appartement sous un pseudonyme. <a href="https://www.lemonde.fr/m-le-mag/article/2014/03/14/au-japon-les-evapores_4383013_4500055.html" target="_blank" rel="noopener noreferrer" class="ref-link" title="Source : Le Monde M — « Au Japon, les évaporés » (2014), d'après l'enquête de Léna Mauger &amp; Stéphane Remael">Des entreprises spécialisées proposent ce qu'elles appellent pudiquement des «&nbsp;services de déménagement nocturne&nbsp;»</a> — comprendre : vous aider à s'évaporer en quelques heures, le temps d'une nuit, sans que les voisins s'en aperçoivent. D'autres sociétés offrent des emplois sous une identité de substitution.</p>
 
       <p>Une infrastructure entière existe pour faciliter l'effacement.</p>
 
       <div class="encadre focus">
         <h3>Un peu de contexte culturel</h3>
-        <p>Le Japon est une société profondément influencée par le confucianisme et ses valeurs de hiérarchie, d'harmonie et de face. Dire «&nbsp;j'échoue&nbsp;» ou «&nbsp;je n'y arrive plus&nbsp;» n'est pas simplement un aveu de faiblesse â c'est un affront au groupe, une rupture du contrat social implicite. Dans ce cadre, le conflit verbal est une impolitesse. Les problèmes ne se disent pas, ils se taisent. Et quand on ne peut plus les taire, il reste une option : ne plus être lÃ  pour en être responsable.</p>
+        <p>Le Japon est une société profondément influencée par <a href="https://fr.wikipedia.org/wiki/Confucianisme" target="_blank" rel="noopener noreferrer" class="ref-link" title="Confucianisme — Wikipédia">le confucianisme</a> et ses valeurs de hiérarchie, d'harmonie et de face. Dire «&nbsp;j'échoue&nbsp;» ou «&nbsp;je n'y arrive plus&nbsp;» n'est pas simplement un aveu de faiblesse â c'est un affront au groupe, une rupture du contrat social implicite. Dans ce cadre, le conflit verbal est une impolitesse. Les problèmes ne se disent pas, ils se taisent. Et quand on ne peut plus les taire, il reste une option : ne plus être lÃ  pour en être responsable.</p>
       </div>
 
       <p>Mais attention : réduire ce phénomène au seul Japon serait une erreur commode. Ce que Maryam a vécu Ã  Lyon â la double vie numérique, le silence absolu sur la détresse, la fuite physique â suit exactement la même logique. Pas de confucianisme ici. Juste une pression familiale immense, une honte de «&nbsp;perdre la face et la monnaie&nbsp;» comme elle le dira une fois rétablie, et l'impossibilité absolue de dire Ã  ceux qu'elle aime qu'elle est en train de s'effondrer.</p>
 
       <h2>La honte comme mécanisme d'effacement</h2>
 
-      <p>Pour comprendre pourquoi certaines personnes disparaissent plutôt que de demander de l'aide, il faut regarder la honte en face. Pas la culpabilité â sa cousine plus raisonnable, celle qui dit «&nbsp;j'ai fait quelque chose de mal&nbsp;». La honte, elle, dit quelque chose de plus radical&nbsp;: «&nbsp;je <em>suis</em> quelque chose de mal.&nbsp;»</p>
+      <p>Pour comprendre pourquoi certaines personnes disparaissent plutôt que de demander de l'aide, il faut regarder la honte en face. <a href="https://www.cairn.info/revue-l-annee-psychologique-2018-3-page-371.htm" target="_blank" rel="noopener noreferrer" class="ref-link" title="Source : recherches de June Price Tangney (Georgetown University) sur la distinction honte/culpabilité, synthèse Cairn">Pas la culpabilité — sa cousine plus raisonnable, celle qui dit «&nbsp;j'ai fait quelque chose de mal&nbsp;». La honte, elle, dit quelque chose de plus radical&nbsp;: «&nbsp;je <em>suis</em> quelque chose de mal.&nbsp;»</a></p>
 
-      <p>La honte est une émotion qui vise l'identité entière. Quand on a honte, on ne veut pas corriger un comportement â on veut cesser d'exister en tant que personne visible. La disparition physique n'est que le prolongement logique de ce mouvement intérieur.</p>
+      <p>La honte est une émotion qui vise l'identité entière. Quand on a honte, on ne veut pas corriger un comportement — on veut cesser d'exister en tant que personne visible. La disparition physique n'est que le prolongement logique de ce mouvement intérieur.</p>
 
       <div class="pull-quote">«&nbsp;La honte ne dit pas "j'ai raté". Elle dit "je suis un raté". Et ça, ça ne se confesse pas â ça se cache.&nbsp;»</div>
 
@@ -447,7 +485,7 @@
           <li><strong>Nommer la pression avant qu'elle ne te nomme.</strong> Mettre des mots sur ce que l'on porte â même dans un carnet, même sans lecteur â c'est déjÃ  désamorcer quelque chose. La pression qui n'a pas de nom finit par envahir tout.</li>
           <li><strong>Trouver une personne Ã  qui dire une vraie chose.</strong> Pas tout. Juste une chose vraie. «&nbsp;Je suis épuisé.&nbsp;» «&nbsp;Je n'y arrive pas aussi bien que je le montre.&nbsp;» La double vie numérique de Maryam ne tenait que parce qu'elle n'avait trouvé personne Ã  qui dire l'inverse.</li>
           <li><strong>Distinguer honte et culpabilité.</strong> La culpabilité se travaille (j'ai fait quelque chose que je peux corriger). La honte paralyse. Repérer laquelle vous habite, c'est déjÃ  choisir comment y répondre.</li>
-          <li><strong>Consulter si l'envie de disparaître est plus fréquente que l'envie de rester.</strong> Un médecin généraliste, un psychologue, une ligne d'écoute â la porte d'entrée importe moins que d'en franchir une.</li>
+          <li><strong>Consulter si l'envie de disparaître est plus fréquente que l'envie de rester.</strong> Un médecin généraliste, un psychologue, une ligne d'écoute — la porte d'entrée importe moins que d'en franchir une. <a href="https://www.psycom.net/trouver-un-professionnel/" target="_blank" rel="noopener noreferrer" class="ref-link" title="Psycom — Trouver un professionnel de santé mentale">Trouver un professionnel →</a></li>
           <li><strong>Parler Ã  quelqu'un de proche d'une personne qui semble s'effacer.</strong> Le jōhatsu ne se signale pas. Il se remarque â rétrospectivement. Tendre la main avant que le silence ne devienne définitif.</li>
         </ol>
       </div>
@@ -513,7 +551,32 @@
       <div class="test-result" id="test-result"></div>
     </div>
 
-    <!-- ARTICLES LIÃS -->
+    <!-- SOURCES & RÉFÉRENCES -->
+    <div class="sources-section">
+      <h3>Sources &amp; références</h3>
+      <ol>
+        <li>
+          Léna Mauger &amp; Stéphane Remael, <cite>Les Évaporés du Japon</cite>, Éd. Les Arènes, 2014 — enquête de terrain auprès des <em>jōhatsu</em> et des agences de disparition.
+        </li>
+        <li>
+          <a href="https://www.theguardian.com/world/2016/jan/20/mystery-japans-evaporating-people" target="_blank" rel="noopener noreferrer">« Mystery of Japan's evaporating people »</a>, <cite>The Guardian</cite>, 20 janvier 2016 — données chiffrées sur les disparitions volontaires.
+        </li>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Johatsu" target="_blank" rel="noopener noreferrer">Johatsu</a>, <cite>Wikipedia</cite> (EN) — présentation du phénomène et bibliographie complémentaire.
+        </li>
+        <li>
+          June Price Tangney &amp; Ronda L. Dearing, <cite>Shame and Guilt</cite>, Guilford Press, 2002 — recherche de référence sur la distinction honte/culpabilité et leurs effets comportementaux. <a href="https://www.cairn.info/revue-l-annee-psychologique-2018-3-page-371.htm" target="_blank" rel="noopener noreferrer">Synthèse en français sur Cairn →</a>
+        </li>
+        <li>
+          <a href="https://www.3114.fr/" target="_blank" rel="noopener noreferrer">3114.fr</a> — Numéro national de prévention du suicide, disponible 24h/24, gratuit depuis tout téléphone.
+        </li>
+        <li>
+          <a href="https://www.psycom.net/trouver-un-professionnel/" target="_blank" rel="noopener noreferrer">Psycom.net</a> — annuaire public pour trouver un professionnel de santé mentale en France.
+        </li>
+      </ol>
+    </div>
+
+    <!-- ARTICLES LIÉS -->
     <div class="articles-lies">
       <h3>Lire aussi</h3>
       <div class="articles-grid">
@@ -534,7 +597,7 @@
 
     <p class="disclaimer">
       <strong>Ce contenu est informatif et ne remplace pas un avis médical professionnel.</strong>
-      Si vous traversez une période difficile, si vous ressentez une envie persistante de disparaître ou si vous êtes inquiet·e pour quelqu'un, parlez-en Ã  un médecin, un psychologue, ou contactez le <strong>3114</strong> (numéro national de prévention du suicide, disponible 24h/24).
+      Si vous traversez une période difficile, si vous ressentez une envie persistante de disparaître ou si vous êtes inquiet·e pour quelqu'un, parlez-en à un médecin, un psychologue, ou contactez le <a href="https://www.3114.fr/" target="_blank" rel="noopener noreferrer" style="color:inherit;font-weight:700"><strong>3114</strong></a> (numéro national de prévention du suicide, disponible 24h/24, gratuit).
     </p>
 
   </article>
