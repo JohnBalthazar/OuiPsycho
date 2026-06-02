@@ -373,6 +373,11 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Nouvel article
       </button>
+      <button class="nav-item" id="nav-comments" onclick="showPage('comments')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        Commentaires
+        <span id="comments-pending-badge" style="background:var(--accent);color:#fff;border-radius:9999px;padding:1px 8px;font-size:.7rem;margin-left:auto;display:none;line-height:1.6">0</span>
+      </button>
       <div class="nav-section">Outils</div>
       <button class="nav-item" onclick="showPage('import-export')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
@@ -674,6 +679,58 @@
       </div>
     </div>
 
+    <!-- COMMENTAIRES -->
+    <div id="page-comments" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Commentaires <span id="comments-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="refreshComments()">↻ Rafraîchir</button>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid" id="comments-stats">
+        <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total</div></div>
+        <div class="stat-card orange"><div class="stat-val">—</div><div class="stat-label">En attente</div></div>
+        <div class="stat-card green"><div class="stat-val">—</div><div class="stat-label">Approuvés</div></div>
+        <div class="stat-card red"><div class="stat-val">—</div><div class="stat-label">Signalés</div></div>
+      </div>
+
+      <!-- Tableau de modération -->
+      <div class="card">
+        <div class="card-header">
+          <h3>Modération</h3>
+          <div class="search-bar">
+            <input type="text" id="comments-search" placeholder="Rechercher auteur, contenu…" oninput="renderCommentsTable()">
+          </div>
+        </div>
+        <div class="filter-bar" id="comments-filter-bar">
+          <span class="filter-chip active"  onclick="setCommentFilter('all',this)">Tous</span>
+          <span class="filter-chip"         onclick="setCommentFilter('pending',this)">⏳ En attente</span>
+          <span class="filter-chip"         onclick="setCommentFilter('approved',this)">✅ Approuvés</span>
+          <span class="filter-chip"         onclick="setCommentFilter('rejected',this)">❌ Rejetés</span>
+          <span class="filter-chip"         onclick="setCommentFilter('flagged',this)">⚑ Signalés</span>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Auteur</th>
+                <th>Article</th>
+                <th>Commentaire</th>
+                <th>Date</th>
+                <th>Statut</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody id="comments-table">
+              <tr class="loading-row"><td colspan="6">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- IMPORT / EXPORT -->
     <div id="page-import-export" class="page" style="display:none">
       <div class="topbar"><h1>Import / Export</h1></div>
@@ -789,6 +846,42 @@
           </div>
 
           <div class="settings-section">
+            <h3>💬 Commentaires — Supabase <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(base de données gratuite pour les commentaires publics)</span></h3>
+            <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
+              <strong>Gratuit</strong> · Base PostgreSQL hébergée · 50 000 utilisateurs/mois · RLS intégré ·
+              <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte →</a>
+              <br><br>
+              <strong>Setup (2 min) :</strong>
+              <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
+                <li>Créez un projet sur <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--primary)">supabase.com</a></li>
+                <li>SQL Editor → New query → collez et exécutez le contenu du fichier <code>data/supabase-setup.sql</code></li>
+                <li>Project Settings → API → copiez <strong>Project URL</strong> et <strong>anon public</strong> ci-dessous</li>
+                <li>Copiez aussi <strong>service_role secret</strong> dans le champ dédié (jamais publié sur GitHub)</li>
+              </ol>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Project URL</label>
+                <input type="text" id="sb-url" placeholder="https://xxxxxxxxxxxx.supabase.co">
+                <div class="hint">Project Settings → API → Project URL</div>
+              </div>
+              <div class="form-group">
+                <label>Anon / Public Key</label>
+                <input type="text" id="sb-anon" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…">
+                <div class="hint">Exposée sur le site public — protégée par RLS</div>
+              </div>
+            </div>
+            <div class="form-group" style="max-width:520px">
+              <label>Service Role Key <span style="font-weight:400;color:var(--danger)">— secret, jamais publié sur GitHub</span></label>
+              <input type="password" id="sb-service" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…">
+              <div class="hint">Nécessaire pour approuver / supprimer des commentaires dans l'admin. Stocké localement uniquement.</div>
+            </div>
+            <button class="btn btn-primary" onclick="saveSupabaseSettings()">Enregistrer Supabase</button>
+            <button class="btn btn-ghost" style="margin-left:8px" onclick="testSupabaseConnection()">Tester la connexion</button>
+            <span id="sb-test-result" style="margin-left:12px;font-size:.85rem;"></span>
+          </div>
+
+          <div class="settings-section">
             <h3>🧹 Données</h3>
             <button class="btn btn-danger" onclick="clearAllData()">Effacer toutes les données locales</button>
           </div>
@@ -797,6 +890,32 @@
     </div>
 
   </main>
+</div>
+
+<!-- REPLY MODAL -->
+<div class="panel-overlay" id="reply-overlay">
+  <div class="panel" style="max-width:580px">
+    <div class="panel-header">
+      <h2>💬 Répondre au commentaire</h2>
+      <button class="panel-close" onclick="document.getElementById('reply-overlay').classList.remove('open')" aria-label="Fermer">×</button>
+    </div>
+    <div class="panel-body">
+      <div style="background:var(--gray-50);border-radius:var(--radius);padding:12px 16px;margin-bottom:16px;font-size:.88rem;color:var(--gray-600);border-left:3px solid var(--gray-300);font-style:italic">
+        <div id="reply-comment-author" style="font-weight:700;font-style:normal;margin-bottom:4px;color:var(--gray-700)"></div>
+        <div id="reply-comment-text"></div>
+      </div>
+      <div class="form-group">
+        <label>Votre réponse (de la rédaction)</label>
+        <textarea id="reply-textarea" rows="5" style="resize:vertical;min-height:100px" placeholder="Répondez au commentaire…"></textarea>
+        <div class="hint">La réponse sera affichée sous le commentaire sur le site.</div>
+      </div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-ghost" onclick="document.getElementById('reply-overlay').classList.remove('open')">Annuler</button>
+      <button class="btn btn-ghost" id="reply-delete-btn" style="color:var(--danger);border-color:var(--danger)">✕ Supprimer la réponse</button>
+      <button class="btn btn-primary" onclick="submitAdminReply()">✓ Enregistrer</button>
+    </div>
+  </div>
 </div>
 
 <!-- CONFIRM DIALOG -->
@@ -831,6 +950,9 @@ const SESSION_KEY     = 'ouipsycho_session';
 const CLD_CLOUD_KEY   = 'ouipsycho_cld_cloud';
 const CLD_PRESET_KEY  = 'ouipsycho_cld_preset';
 const CLD_FOLDER_KEY  = 'ouipsycho_cld_folder';
+const SB_URL_KEY      = 'ouipsycho_sb_url';
+const SB_ANON_KEY     = 'ouipsycho_sb_anon';
+const SB_SERVICE_KEY  = 'ouipsycho_sb_service';
 const SESSION_DURATION = 4 * 60 * 60 * 1000;
 const MAX_ATTEMPTS    = 5;
 const LOCKOUT_TIME    = 15 * 60 * 1000;
@@ -842,6 +964,11 @@ let activeCatFilter = 'all';
 let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
+
+// ── Commentaires ──
+let adminComments    = [];
+let commentFilter    = 'all';
+let replyingCommentId = null;
 
 /* ══════════════════════════════════════════════
    SÉCURITÉ — Hash simple (SHA-256 via Web Crypto)
@@ -884,6 +1011,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('cld-cloud-name').value = localStorage.getItem(CLD_CLOUD_KEY) || '';
   document.getElementById('cld-preset').value     = localStorage.getItem(CLD_PRESET_KEY) || '';
   document.getElementById('cld-folder').value     = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
+  document.getElementById('sb-url').value         = localStorage.getItem(SB_URL_KEY)     || '';
+  document.getElementById('sb-anon').value        = localStorage.getItem(SB_ANON_KEY)    || '';
+  document.getElementById('sb-service').value     = localStorage.getItem(SB_SERVICE_KEY) || '';
   // Initialize keypoints
   for (let i = 0; i < 5; i++) addKeypoint();
 });
@@ -980,9 +1110,10 @@ function showPage(name) {
     if (n.getAttribute('onclick') && n.getAttribute('onclick').includes("'" + name + "'"))
       n.classList.add('active');
   });
-  if (name === 'dashboard') renderDashboard();
-  if (name === 'articles') renderArticlesTable();
+  if (name === 'dashboard')   renderDashboard();
+  if (name === 'articles')    renderArticlesTable();
   if (name === 'new-article') resetEditor();
+  if (name === 'comments')    loadAdminComments();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
     document.getElementById('gh-owner').value      = localStorage.getItem(GH_OWNER_KEY)  || '';
@@ -991,6 +1122,9 @@ function showPage(name) {
     document.getElementById('cld-cloud-name').value = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value     = localStorage.getItem(CLD_PRESET_KEY) || '';
     document.getElementById('cld-folder').value     = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
+    document.getElementById('sb-url').value         = localStorage.getItem(SB_URL_KEY)     || '';
+    document.getElementById('sb-anon').value        = localStorage.getItem(SB_ANON_KEY)    || '';
+    document.getElementById('sb-service').value     = localStorage.getItem(SB_SERVICE_KEY) || '';
   }
 }
 
@@ -1608,12 +1742,14 @@ async function loadRemoteConfig() {
     const res = await fetch('data/config.json?t=' + Date.now());
     if (!res.ok) return;
     const cfg = await res.json();
-    if (cfg.cloudName)    localStorage.setItem(CLD_CLOUD_KEY,   cfg.cloudName);
-    if (cfg.uploadPreset) localStorage.setItem(CLD_PRESET_KEY,  cfg.uploadPreset);
-    if (cfg.cldFolder)    localStorage.setItem(CLD_FOLDER_KEY,  cfg.cldFolder);
-    if (cfg.ghOwner)      localStorage.setItem(GH_OWNER_KEY,    cfg.ghOwner);
-    if (cfg.ghRepo)       localStorage.setItem(GH_REPO_KEY,     cfg.ghRepo);
-    if (cfg.ghBranch)     localStorage.setItem(GH_BRANCH_KEY,   cfg.ghBranch);
+    if (cfg.cloudName)       localStorage.setItem(CLD_CLOUD_KEY,   cfg.cloudName);
+    if (cfg.uploadPreset)    localStorage.setItem(CLD_PRESET_KEY,  cfg.uploadPreset);
+    if (cfg.cldFolder)       localStorage.setItem(CLD_FOLDER_KEY,  cfg.cldFolder);
+    if (cfg.ghOwner)         localStorage.setItem(GH_OWNER_KEY,    cfg.ghOwner);
+    if (cfg.ghRepo)          localStorage.setItem(GH_REPO_KEY,     cfg.ghRepo);
+    if (cfg.ghBranch)        localStorage.setItem(GH_BRANCH_KEY,   cfg.ghBranch);
+    if (cfg.supabaseUrl)     localStorage.setItem(SB_URL_KEY,      cfg.supabaseUrl);
+    if (cfg.supabaseAnonKey) localStorage.setItem(SB_ANON_KEY,     cfg.supabaseAnonKey);
     // Rafraîchir les champs si la page Paramètres est visible
     document.getElementById('cld-cloud-name').value  = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value      = localStorage.getItem(CLD_PRESET_KEY) || '';
@@ -1621,6 +1757,8 @@ async function loadRemoteConfig() {
     document.getElementById('gh-owner').value        = localStorage.getItem(GH_OWNER_KEY)   || '';
     document.getElementById('gh-repo').value         = localStorage.getItem(GH_REPO_KEY)    || '';
     document.getElementById('gh-branch').value       = localStorage.getItem(GH_BRANCH_KEY)  || 'main';
+    document.getElementById('sb-url').value          = localStorage.getItem(SB_URL_KEY)     || '';
+    document.getElementById('sb-anon').value         = localStorage.getItem(SB_ANON_KEY)    || '';
   } catch(e) { /* hors ligne ou fichier absent */ }
 }
 
@@ -1628,12 +1766,16 @@ async function pushConfigToGitHub() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (!pat) return; // Pas de PAT → pas de push (silencieux)
   const cfg = {
-    cloudName:    localStorage.getItem(CLD_CLOUD_KEY)   || '',
-    uploadPreset: localStorage.getItem(CLD_PRESET_KEY)  || '',
-    cldFolder:    localStorage.getItem(CLD_FOLDER_KEY)  || 'ouipsycho/articles',
-    ghOwner:      localStorage.getItem(GH_OWNER_KEY)    || '',
-    ghRepo:       localStorage.getItem(GH_REPO_KEY)     || '',
-    ghBranch:     localStorage.getItem(GH_BRANCH_KEY)   || 'main'
+    cloudName:      localStorage.getItem(CLD_CLOUD_KEY)   || '',
+    uploadPreset:   localStorage.getItem(CLD_PRESET_KEY)  || '',
+    cldFolder:      localStorage.getItem(CLD_FOLDER_KEY)  || 'ouipsycho/articles',
+    ghOwner:        localStorage.getItem(GH_OWNER_KEY)    || '',
+    ghRepo:         localStorage.getItem(GH_REPO_KEY)     || '',
+    ghBranch:       localStorage.getItem(GH_BRANCH_KEY)   || 'main',
+    // Supabase : URL + clé anon uniquement (safe à publier — RLS protège)
+    supabaseUrl:     localStorage.getItem(SB_URL_KEY)     || '',
+    supabaseAnonKey: localStorage.getItem(SB_ANON_KEY)    || '',
+    // NOTE: SB_SERVICE_KEY n'est JAMAIS publié sur GitHub
   };
   try {
     await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: mise à jour paramètres admin');
@@ -2070,6 +2212,317 @@ function handleWysKeydown(e) {
   // Sync après chaque frappe
   setTimeout(syncEditorToTextarea, 0);
 }
+
+/* ══════════════════════════════════════════════
+   COMMENTAIRES — SUPABASE (admin)
+══════════════════════════════════════════════ */
+
+function sbAdminUrl()     { return (localStorage.getItem(SB_URL_KEY) || '').replace(/\/$/, ''); }
+function sbAdminHeaders() {
+  const key = localStorage.getItem(SB_SERVICE_KEY) || localStorage.getItem(SB_ANON_KEY);
+  if (!key) return null;
+  return {
+    'apikey':        key,
+    'Authorization': 'Bearer ' + key,
+    'Content-Type':  'application/json',
+  };
+}
+
+async function loadAdminComments() {
+  const url     = sbAdminUrl();
+  const headers = sbAdminHeaders();
+
+  if (!url || !headers) {
+    document.getElementById('comments-table').innerHTML =
+      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Supabase dans les <strong>Paramètres</strong> pour activer les commentaires.</td></tr>';
+    document.getElementById('comments-stats').innerHTML =
+      '<div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Non configuré</div></div>';
+    return;
+  }
+
+  document.getElementById('comments-table').innerHTML =
+    '<tr class="loading-row"><td colspan="6">Chargement…</td></tr>';
+
+  try {
+    const res = await fetch(`${url}/rest/v1/comments?order=created_at.desc&limit=500`,
+      { headers });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    adminComments = await res.json();
+    renderCommentsStats();
+    renderCommentsTable();
+    updatePendingBadge();
+  } catch(e) {
+    document.getElementById('comments-table').innerHTML =
+      `<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--danger)">Erreur : ${e.message}</td></tr>`;
+    toast('Erreur chargement commentaires : ' + e.message, 'error');
+  }
+}
+
+function refreshComments() {
+  loadAdminComments().then(() => toast('Commentaires rechargés', 'success'));
+}
+
+function updatePendingBadge() {
+  const pending = adminComments.filter(c => c.status === 'pending').length;
+  const badge = document.getElementById('comments-pending-badge');
+  if (!badge) return;
+  if (pending > 0) { badge.textContent = pending; badge.style.display = 'inline'; }
+  else badge.style.display = 'none';
+}
+
+function renderCommentsStats() {
+  const total    = adminComments.length;
+  const pending  = adminComments.filter(c => c.status === 'pending').length;
+  const approved = adminComments.filter(c => c.status === 'approved').length;
+  const flagged  = adminComments.filter(c => c.flagged).length;
+
+  document.getElementById('comments-stats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-val">${total}</div>
+      <div class="stat-label">Total commentaires</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-val">${pending}</div>
+      <div class="stat-label">En attente</div>
+    </div>
+    <div class="stat-card green">
+      <div class="stat-val">${approved}</div>
+      <div class="stat-label">Approuvés</div>
+    </div>
+    <div class="stat-card red">
+      <div class="stat-val">${flagged}</div>
+      <div class="stat-label">Signalés</div>
+    </div>`;
+}
+
+function setCommentFilter(f, el) {
+  commentFilter = f;
+  document.querySelectorAll('#comments-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderCommentsTable();
+}
+
+function renderCommentsTable() {
+  const q = (document.getElementById('comments-search')?.value || '').toLowerCase();
+
+  let list = adminComments.filter(c => {
+    if (commentFilter === 'pending')  return c.status === 'pending';
+    if (commentFilter === 'approved') return c.status === 'approved';
+    if (commentFilter === 'rejected') return c.status === 'rejected';
+    if (commentFilter === 'flagged')  return c.flagged;
+    return true; // 'all'
+  }).filter(c =>
+    !q ||
+    (c.author_name  || '').toLowerCase().includes(q) ||
+    (c.content      || '').toLowerCase().includes(q) ||
+    (c.article_id   || '').toLowerCase().includes(q) ||
+    (c.author_email || '').toLowerCase().includes(q)
+  );
+
+  const countEl = document.getElementById('comments-admin-count');
+  if (countEl) countEl.textContent = `(${list.length})`;
+
+  if (!list.length) {
+    document.getElementById('comments-table').innerHTML =
+      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun commentaire trouvé</td></tr>';
+    return;
+  }
+
+  document.getElementById('comments-table').innerHTML = list.map(c => {
+    const dateStr = new Date(c.created_at).toLocaleDateString('fr-FR',
+      { day: 'numeric', month: 'short', year: 'numeric' });
+    const statusBadge =
+      c.status === 'approved' ? '<span class="badge badge-green">✅ Approuvé</span>' :
+      c.status === 'rejected' ? '<span class="badge badge-gray">❌ Rejeté</span>'   :
+      '<span class="badge badge-orange">⏳ En attente</span>';
+    const flagBadge = c.flagged
+      ? `<span class="badge" style="background:#fee2e2;color:#991b1b;margin-left:4px">⚑ ${c.flag_count}</span>`
+      : '';
+    const excerpt  = (c.content || '').length > 90 ? c.content.slice(0, 90) + '…' : c.content;
+    const hasReply = c.admin_reply ? '💬 ' : '';
+
+    return `<tr>
+      <td>
+        <strong>${escapeAttr(c.author_name)}</strong>
+        ${c.author_email ? `<div style="font-size:.72rem;color:var(--gray-400)">${escapeAttr(c.author_email)}</div>` : ''}
+      </td>
+      <td>
+        <a href="articles/${escapeAttr(c.article_id)}.html" target="_blank"
+           style="font-size:.8rem;color:var(--primary);word-break:break-all">${escapeAttr(c.article_id)}</a>
+      </td>
+      <td style="max-width:260px">
+        <div style="font-size:.85rem">${hasReply}${escapeAttr(excerpt)}</div>
+      </td>
+      <td style="white-space:nowrap;font-size:.8rem">${dateStr}</td>
+      <td style="white-space:nowrap">${statusBadge}${flagBadge}</td>
+      <td>
+        <div class="actions" style="flex-wrap:wrap;gap:4px">
+          ${c.status !== 'approved' ? `<button class="btn btn-success btn-sm" title="Approuver" onclick="moderateComment('${c.id}','approved')">✅</button>` : ''}
+          ${c.status !== 'rejected' ? `<button class="btn btn-warning btn-sm" title="Rejeter"   onclick="moderateComment('${c.id}','rejected')">❌</button>` : ''}
+          <button class="btn btn-ghost btn-sm" onclick="openReplyModal('${c.id}')">💬 Répondre</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteComment('${c.id}')">🗑️</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function moderateComment(id, status) {
+  const url     = sbAdminUrl();
+  const headers = sbAdminHeaders();
+  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
+
+  try {
+    const res = await fetch(`${url}/rest/v1/comments?id=eq.${id}`, {
+      method:  'PATCH',
+      headers: { ...headers, 'Prefer': 'return=minimal' },
+      body:    JSON.stringify({ status }),
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const idx = adminComments.findIndex(c => c.id === id);
+    if (idx > -1) adminComments[idx].status = status;
+    renderCommentsStats();
+    renderCommentsTable();
+    updatePendingBadge();
+    toast(status === 'approved' ? '✅ Commentaire approuvé' : '❌ Commentaire rejeté', 'success');
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+  }
+}
+
+function openReplyModal(id) {
+  const c = adminComments.find(x => x.id === id);
+  if (!c) return;
+  replyingCommentId = id;
+  document.getElementById('reply-comment-author').textContent = c.author_name;
+  document.getElementById('reply-comment-text').textContent   = c.content;
+  document.getElementById('reply-textarea').value             = c.admin_reply || '';
+
+  // Bouton supprimer la réponse
+  const delBtn = document.getElementById('reply-delete-btn');
+  if (delBtn) {
+    delBtn.style.display = c.admin_reply ? 'inline-flex' : 'none';
+    delBtn.onclick = () => { document.getElementById('reply-textarea').value = ''; };
+  }
+
+  document.getElementById('reply-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('reply-textarea')?.focus(), 50);
+}
+
+async function submitAdminReply() {
+  if (!replyingCommentId) return;
+  const reply   = (document.getElementById('reply-textarea')?.value || '').trim();
+  const url     = sbAdminUrl();
+  const headers = sbAdminHeaders();
+  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
+
+  const payload = reply
+    ? { admin_reply: reply, admin_reply_date: new Date().toISOString() }
+    : { admin_reply: null,  admin_reply_date: null };
+
+  try {
+    const res = await fetch(`${url}/rest/v1/comments?id=eq.${replyingCommentId}`, {
+      method:  'PATCH',
+      headers: { ...headers, 'Prefer': 'return=minimal' },
+      body:    JSON.stringify(payload),
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const idx = adminComments.findIndex(c => c.id === replyingCommentId);
+    if (idx > -1) {
+      adminComments[idx].admin_reply      = reply || null;
+      adminComments[idx].admin_reply_date = reply ? new Date().toISOString() : null;
+    }
+    document.getElementById('reply-overlay').classList.remove('open');
+    renderCommentsTable();
+    toast(reply ? '💬 Réponse enregistrée ✅' : 'Réponse supprimée', 'success');
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+  }
+}
+
+function confirmDeleteComment(id) {
+  const c = adminComments.find(x => x.id === id);
+  const excerpt = (c?.content || '').slice(0, 60);
+  document.getElementById('confirm-title').textContent = 'Supprimer ce commentaire ?';
+  document.getElementById('confirm-msg').textContent   = `"${excerpt}…" — Action irréversible.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
+  document.getElementById('confirm-ok-btn').onclick    = async () => {
+    await deleteComment(id); closeConfirm();
+  };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+
+async function deleteComment(id) {
+  const url     = sbAdminUrl();
+  const headers = sbAdminHeaders();
+  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
+
+  try {
+    const res = await fetch(`${url}/rest/v1/comments?id=eq.${id}`, {
+      method:  'DELETE',
+      headers: { ...headers, 'Prefer': 'return=minimal' },
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    adminComments = adminComments.filter(c => c.id !== id);
+    renderCommentsStats();
+    renderCommentsTable();
+    updatePendingBadge();
+    toast('Commentaire supprimé', 'success');
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+  }
+}
+
+/* ── Supabase settings ── */
+async function saveSupabaseSettings() {
+  const url     = document.getElementById('sb-url').value.trim().replace(/\/$/, '');
+  const anon    = document.getElementById('sb-anon').value.trim();
+  const service = document.getElementById('sb-service').value.trim();
+
+  if (!url || !anon) { toast('URL et Anon Key requis', 'error'); return; }
+
+  localStorage.setItem(SB_URL_KEY,  url);
+  localStorage.setItem(SB_ANON_KEY, anon);
+  if (service) localStorage.setItem(SB_SERVICE_KEY, service);
+
+  toast('Configuration Supabase enregistrée ✅', 'success');
+  // Pousser URL + anon key (public) dans data/config.json
+  await pushConfigToGitHub();
+}
+
+async function testSupabaseConnection() {
+  const url     = document.getElementById('sb-url').value.trim().replace(/\/$/, '');
+  const service = document.getElementById('sb-service').value.trim();
+  const anon    = document.getElementById('sb-anon').value.trim();
+  const key     = service || anon;
+  const resultEl = document.getElementById('sb-test-result');
+
+  if (!url || !key) { toast('Remplissez URL + clé', 'error'); return; }
+  resultEl.textContent = '⏳ Test…'; resultEl.style.color = 'var(--gray-500)';
+
+  try {
+    const res = await fetch(`${url}/rest/v1/comments?limit=1`, {
+      headers: { 'apikey': key, 'Authorization': 'Bearer ' + key },
+    });
+    if (res.ok || res.status === 406) { // 406 = empty OK
+      resultEl.textContent = '✅ Connexion Supabase réussie !';
+      resultEl.style.color = 'var(--success)';
+      toast('Supabase opérationnel ✅', 'success');
+    } else {
+      const e = await res.json();
+      resultEl.textContent = '❌ ' + (e.message || e.hint || res.status);
+      resultEl.style.color = 'var(--danger)';
+    }
+  } catch(e) {
+    resultEl.textContent = '❌ ' + e.message;
+    resultEl.style.color = 'var(--danger)';
+  }
+}
+
+// Fermer le modal reply en cliquant hors du panel
+document.getElementById('reply-overlay').addEventListener('click', function(e) {
+  if (e.target === this) this.classList.remove('open');
+});
 </script>
 </body>
 </html>

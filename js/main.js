@@ -1,6 +1,6 @@
 /**
  * PSYCHO CLAIR — Script principal v2
- * Chargement articles · filtres · featured · barre lecture · partage · cookies
+ * Chargement articles · filtres · featured · barre lecture · partage · cookies · commentaires
  */
 'use strict';
 
@@ -351,6 +351,8 @@ async function initArticle() {
         loadRelated(article);
         // Injecter l'image si ajoutée après la génération de la page statique
         injectArticleImage(article);
+        // Section commentaires
+        initComments(id);
       } else {
         buildTOC();
       }
@@ -393,6 +395,8 @@ async function initArticle() {
     buildTOC();
     injectJSONLD(article);
     loadRelated(article);
+    // Section commentaires
+    initComments(id);
 
   } catch (_) {
     window.location.href = '404.html';
@@ -697,6 +701,227 @@ function initCookies() {
     banner.style.display = 'none';
     updateGAConsent(false); // ❌ GA collecte anonymement (sans cookies)
   });
+}
+
+/* ============================================================
+   COMMENTAIRES (Supabase REST)
+   ============================================================ */
+let _sbUrl  = '';
+let _sbAnon = '';
+
+/** Charge URL + clé anon depuis data/config.json (publié sur GitHub) */
+async function loadSupabaseConfig() {
+  if (_sbUrl) return; // déjà chargé
+  try {
+    const res = await fetch('data/config.json?t=' + Date.now());
+    if (!res.ok) return;
+    const cfg = await res.json();
+    if (cfg.supabaseUrl)     _sbUrl  = cfg.supabaseUrl.replace(/\/$/, '');
+    if (cfg.supabaseAnonKey) _sbAnon = cfg.supabaseAnonKey;
+  } catch (_) {}
+}
+
+function _sbHeaders() {
+  return {
+    'apikey':        _sbAnon,
+    'Authorization': 'Bearer ' + _sbAnon,
+    'Content-Type':  'application/json',
+  };
+}
+
+async function _sbFetchComments(articleId) {
+  const url = `${_sbUrl}/rest/v1/comments`
+    + `?article_id=eq.${encodeURIComponent(articleId)}`
+    + `&status=eq.approved`
+    + `&order=created_at.asc`;
+  const res = await fetch(url, { headers: _sbHeaders() });
+  if (!res.ok) return [];
+  return res.json();
+}
+
+async function _sbSubmitComment(articleId, name, email, content) {
+  const res = await fetch(`${_sbUrl}/rest/v1/comments`, {
+    method:  'POST',
+    headers: { ..._sbHeaders(), 'Prefer': 'return=minimal' },
+    body:    JSON.stringify({ article_id: articleId, author_name: name, author_email: email || '', content }),
+  });
+  if (!res.ok) {
+    const msg = await res.text();
+    throw new Error(msg || 'Erreur ' + res.status);
+  }
+}
+
+async function _sbReportComment(commentId) {
+  await fetch(`${_sbUrl}/rest/v1/rpc/report_comment`, {
+    method:  'POST',
+    headers: _sbHeaders(),
+    body:    JSON.stringify({ comment_id: commentId }),
+  });
+}
+
+/** Injecte la section commentaires après les boutons de partage */
+async function initComments(articleId) {
+  await loadSupabaseConfig();
+  if (!_sbUrl || !_sbAnon) return; // Supabase non configuré → pas de section
+
+  const shareSection = document.getElementById('share-buttons');
+  if (!shareSection || document.getElementById('comments-section')) return;
+
+  const section = document.createElement('section');
+  section.id        = 'comments-section';
+  section.className = 'comments-section';
+  section.innerHTML = `
+    <h2 class="comments-section__title">
+      Commentaires
+      <span class="comments-count" id="comments-count"></span>
+    </h2>
+    <div id="comments-list">
+      <div class="comment-empty">Chargement des commentaires…</div>
+    </div>
+    <div class="comment-form">
+      <div class="comment-form__title">💬 Laisser un commentaire</div>
+      <div class="comment-form__row">
+        <div class="comment-form__group">
+          <label for="cf-name">Votre prénom *</label>
+          <input type="text" id="cf-name" placeholder="Marie" required maxlength="80" autocomplete="given-name">
+        </div>
+        <div class="comment-form__group">
+          <label for="cf-email">E-mail <small style="font-weight:400">(non publié)</small></label>
+          <input type="email" id="cf-email" placeholder="marie@exemple.fr" autocomplete="email">
+        </div>
+      </div>
+      <div class="comment-form__group">
+        <label for="cf-content">Votre commentaire *</label>
+        <textarea id="cf-content" placeholder="Partagez votre ressenti ou votre expérience…" maxlength="2000" required></textarea>
+      </div>
+      <p class="comment-form__hint">⏳ Votre commentaire sera affiché après modération.</p>
+      <button class="comment-form__submit" id="cf-submit">Envoyer ✓</button>
+      <div class="comment-form__msg" id="cf-msg" aria-live="polite"></div>
+    </div>`;
+
+  shareSection.after(section);
+
+  // Soumettre le formulaire
+  document.getElementById('cf-submit').addEventListener('click', () => handleCommentSubmit(articleId));
+  document.getElementById('cf-content')?.addEventListener('keydown', e => {
+    if (e.key === 'Enter' && e.ctrlKey) handleCommentSubmit(articleId);
+  });
+
+  // Charger les commentaires
+  try {
+    const comments = await _sbFetchComments(articleId);
+    _renderComments(comments);
+  } catch (_) {
+    document.getElementById('comments-list').innerHTML =
+      '<div class="comment-empty">Impossible de charger les commentaires pour l\'instant.</div>';
+  }
+}
+
+function _renderComments(comments) {
+  const list    = document.getElementById('comments-list');
+  const countEl = document.getElementById('comments-count');
+  if (!list) return;
+  if (countEl) countEl.textContent = comments.length ? `(${comments.length})` : '';
+
+  if (!comments.length) {
+    list.innerHTML = '<div class="comment-empty">Soyez le premier à commenter cet article&nbsp;💬</div>';
+    return;
+  }
+
+  const reported = JSON.parse(localStorage.getItem('pc_reported_comments') || '[]');
+
+  list.innerHTML = comments.map(c => {
+    const initials = (c.author_name || '?')
+      .trim().split(/\s+/).map(w => w[0] || '').join('').toUpperCase().slice(0, 2) || '?';
+    const dateStr = new Date(c.created_at).toLocaleDateString('fr-FR',
+      { day: 'numeric', month: 'long', year: 'numeric' });
+    const alreadyReported = reported.includes(c.id);
+
+    return `
+    <div class="comment-item" id="comment-${esc(c.id)}">
+      <div class="comment-header">
+        <div class="comment-avatar" aria-hidden="true">${initials}</div>
+        <div class="comment-author">${esc(c.author_name)}</div>
+        <time class="comment-date" datetime="${esc(c.created_at)}">${dateStr}</time>
+      </div>
+      <div class="comment-body">${esc(c.content)}</div>
+      ${c.admin_reply ? `
+      <div class="comment-reply">
+        <div class="comment-reply__label">✦ Réponse de la rédaction</div>
+        <div class="comment-reply__text">${esc(c.admin_reply)}</div>
+      </div>` : ''}
+      <div class="comment-actions">
+        ${alreadyReported
+          ? `<span class="comment-report-btn comment-report-btn--done" aria-label="Déjà signalé">⚑ Signalé</span>`
+          : `<button class="comment-report-btn" aria-label="Signaler ce commentaire" onclick="handleReport('${esc(c.id)}')">⚑ Signaler</button>`}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+async function handleCommentSubmit(articleId) {
+  const btn     = document.getElementById('cf-submit');
+  const msgEl   = document.getElementById('cf-msg');
+  const nameEl  = document.getElementById('cf-name');
+  const emailEl = document.getElementById('cf-email');
+  const bodyEl  = document.getElementById('cf-content');
+
+  const name    = nameEl?.value.trim() || '';
+  const email   = emailEl?.value.trim() || '';
+  const content = bodyEl?.value.trim() || '';
+
+  msgEl.className    = 'comment-form__msg';
+  msgEl.style.display = 'none';
+
+  if (!name) {
+    msgEl.textContent = '⚠️ Veuillez indiquer votre prénom.';
+    msgEl.className   = 'comment-form__msg comment-form__msg--error';
+    nameEl?.focus();
+    return;
+  }
+  if (!content || content.length < 5) {
+    msgEl.textContent = '⚠️ Le commentaire est trop court (5 caractères minimum).';
+    msgEl.className   = 'comment-form__msg comment-form__msg--error';
+    bodyEl?.focus();
+    return;
+  }
+
+  btn.disabled     = true;
+  btn.textContent  = '⏳ Envoi en cours…';
+
+  try {
+    await _sbSubmitComment(articleId, name, email, content);
+    msgEl.textContent = '✅ Merci ! Votre commentaire est en attente de modération et sera visible prochainement.';
+    msgEl.className   = 'comment-form__msg comment-form__msg--success';
+    if (nameEl)  nameEl.value  = '';
+    if (emailEl) emailEl.value = '';
+    if (bodyEl)  bodyEl.value  = '';
+  } catch (e) {
+    msgEl.textContent = '❌ Une erreur est survenue. Veuillez réessayer.';
+    msgEl.className   = 'comment-form__msg comment-form__msg--error';
+    console.error('Comment submit error:', e);
+  }
+
+  btn.disabled    = false;
+  btn.textContent = 'Envoyer ✓';
+}
+
+async function handleReport(commentId) {
+  if (!confirm('Signaler ce commentaire comme inapproprié ?')) return;
+  try {
+    await _sbReportComment(commentId);
+    // Mémoriser pour éviter les doubles signalements
+    const reported = JSON.parse(localStorage.getItem('pc_reported_comments') || '[]');
+    if (!reported.includes(commentId)) {
+      reported.push(commentId);
+      localStorage.setItem('pc_reported_comments', JSON.stringify(reported));
+    }
+    // Mettre à jour le bouton dans la page
+    const btn = document.querySelector(`#comment-${commentId} .comment-report-btn`);
+    if (btn) {
+      btn.outerHTML = `<span class="comment-report-btn comment-report-btn--done" aria-label="Déjà signalé">⚑ Signalé</span>`;
+    }
+  } catch (_) {}
 }
 
 /* ============================================================
