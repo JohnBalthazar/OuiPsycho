@@ -846,39 +846,48 @@
           </div>
 
           <div class="settings-section">
-            <h3>💬 Commentaires — Supabase <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(base de données gratuite pour les commentaires publics)</span></h3>
+            <h3>💬 Commentaires — Firebase <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(Firestore, gratuit)</span></h3>
             <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
-              <strong>Gratuit</strong> · Base PostgreSQL hébergée · 50 000 utilisateurs/mois · RLS intégré ·
-              <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte →</a>
+              <strong>Gratuit</strong> · Firestore en mode Spark · Règles de sécurité intégrées ·
+              <a href="https://console.firebase.google.com" target="_blank" rel="noopener" style="color:var(--primary)">Ouvrir Firebase Console →</a>
               <br><br>
-              <strong>Setup (2 min) :</strong>
+              <strong>Setup (3 min) :</strong>
               <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
-                <li>Créez un projet sur <a href="https://supabase.com" target="_blank" rel="noopener" style="color:var(--primary)">supabase.com</a></li>
-                <li>SQL Editor → New query → collez et exécutez le contenu du fichier <code>data/supabase-setup.sql</code></li>
-                <li>Project Settings → API → copiez <strong>Project URL</strong> et <strong>anon public</strong> ci-dessous</li>
-                <li>Copiez aussi <strong>service_role secret</strong> dans le champ dédié (jamais publié sur GitHub)</li>
+                <li>Firebase Console → votre projet → <strong>Firestore Database</strong> → créer la base (mode production)</li>
+                <li>Onglet <strong>Règles</strong> → copiez le contenu de <code>data/firebase-rules.txt</code> et publiez</li>
+                <li>Paramètres du projet (⚙) → <strong>Project ID</strong> et <strong>Web API Key</strong> ci-dessous</li>
+                <li>Authentication → Sign-in method → <strong>Email/Mot de passe</strong> → activer<br>
+                  Puis Authentication → Users → <strong>Ajouter un utilisateur</strong> (votre email admin)</li>
+                <li>Renseignez email + mot de passe admin ci-dessous (stockés localement uniquement)</li>
               </ol>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Project URL</label>
-                <input type="text" id="sb-url" placeholder="https://xxxxxxxxxxxx.supabase.co">
-                <div class="hint">Project Settings → API → Project URL</div>
+                <label>Project ID</label>
+                <input type="text" id="fb-project" placeholder="ouipsycho-abc12">
+                <div class="hint">Paramètres du projet → Project ID</div>
               </div>
               <div class="form-group">
-                <label>Anon / Public Key</label>
-                <input type="text" id="sb-anon" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…">
-                <div class="hint">Exposée sur le site public — protégée par RLS</div>
+                <label>Web API Key</label>
+                <input type="text" id="fb-apikey" placeholder="AIzaSy…">
+                <div class="hint">Paramètres du projet → Web API Key — safe à publier</div>
               </div>
             </div>
-            <div class="form-group" style="max-width:520px">
-              <label>Service Role Key <span style="font-weight:400;color:var(--danger)">— secret, jamais publié sur GitHub</span></label>
-              <input type="password" id="sb-service" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9…">
-              <div class="hint">Nécessaire pour approuver / supprimer des commentaires dans l'admin. Stocké localement uniquement.</div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email admin Firebase <span style="font-weight:400;color:var(--danger)">— jamais publié sur GitHub</span></label>
+                <input type="email" id="fb-email" placeholder="admin@ouipsycho.fr" autocomplete="off">
+                <div class="hint">L'utilisateur créé dans Firebase Authentication</div>
+              </div>
+              <div class="form-group">
+                <label>Mot de passe Firebase <span style="font-weight:400;color:var(--danger)">— jamais publié sur GitHub</span></label>
+                <input type="password" id="fb-pass" placeholder="••••••••" autocomplete="new-password">
+                <div class="hint">Permet à l'admin de lire/modérer tous les commentaires</div>
+              </div>
             </div>
-            <button class="btn btn-primary" onclick="saveSupabaseSettings()">Enregistrer Supabase</button>
-            <button class="btn btn-ghost" style="margin-left:8px" onclick="testSupabaseConnection()">Tester la connexion</button>
-            <span id="sb-test-result" style="margin-left:12px;font-size:.85rem;"></span>
+            <button class="btn btn-primary" onclick="saveFirebaseSettings()">Enregistrer Firebase</button>
+            <button class="btn btn-ghost" style="margin-left:8px" onclick="testFirebaseConnection()">Tester la connexion</button>
+            <span id="fb-test-result" style="margin-left:12px;font-size:.85rem;"></span>
           </div>
 
           <div class="settings-section">
@@ -950,9 +959,10 @@ const SESSION_KEY     = 'ouipsycho_session';
 const CLD_CLOUD_KEY   = 'ouipsycho_cld_cloud';
 const CLD_PRESET_KEY  = 'ouipsycho_cld_preset';
 const CLD_FOLDER_KEY  = 'ouipsycho_cld_folder';
-const SB_URL_KEY      = 'ouipsycho_sb_url';
-const SB_ANON_KEY     = 'ouipsycho_sb_anon';
-const SB_SERVICE_KEY  = 'ouipsycho_sb_service';
+const FB_PROJECT_KEY  = 'ouipsycho_fb_project';
+const FB_APIKEY_KEY   = 'ouipsycho_fb_apikey';
+const FB_EMAIL_KEY    = 'ouipsycho_fb_email';
+const FB_PASS_KEY     = 'ouipsycho_fb_pass';
 const SESSION_DURATION = 4 * 60 * 60 * 1000;
 const MAX_ATTEMPTS    = 5;
 const LOCKOUT_TIME    = 15 * 60 * 1000;
@@ -966,9 +976,13 @@ let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
 
 // ── Commentaires ──
-let adminComments    = [];
-let commentFilter    = 'all';
+let adminComments     = [];
+let commentFilter     = 'all';
 let replyingCommentId = null;
+
+// ── Firebase admin auth (token en mémoire, jamais stocké) ──
+let _fbAdminIdToken     = null;
+let _fbAdminTokenExpiry = 0;
 
 /* ══════════════════════════════════════════════
    SÉCURITÉ — Hash simple (SHA-256 via Web Crypto)
@@ -1011,9 +1025,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('cld-cloud-name').value = localStorage.getItem(CLD_CLOUD_KEY) || '';
   document.getElementById('cld-preset').value     = localStorage.getItem(CLD_PRESET_KEY) || '';
   document.getElementById('cld-folder').value     = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
-  document.getElementById('sb-url').value         = localStorage.getItem(SB_URL_KEY)     || '';
-  document.getElementById('sb-anon').value        = localStorage.getItem(SB_ANON_KEY)    || '';
-  document.getElementById('sb-service').value     = localStorage.getItem(SB_SERVICE_KEY) || '';
+  document.getElementById('fb-project').value = localStorage.getItem(FB_PROJECT_KEY) || '';
+  document.getElementById('fb-apikey').value  = localStorage.getItem(FB_APIKEY_KEY)  || '';
+  document.getElementById('fb-email').value   = localStorage.getItem(FB_EMAIL_KEY)   || '';
   // Initialize keypoints
   for (let i = 0; i < 5; i++) addKeypoint();
 });
@@ -1122,9 +1136,9 @@ function showPage(name) {
     document.getElementById('cld-cloud-name').value = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value     = localStorage.getItem(CLD_PRESET_KEY) || '';
     document.getElementById('cld-folder').value     = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
-    document.getElementById('sb-url').value         = localStorage.getItem(SB_URL_KEY)     || '';
-    document.getElementById('sb-anon').value        = localStorage.getItem(SB_ANON_KEY)    || '';
-    document.getElementById('sb-service').value     = localStorage.getItem(SB_SERVICE_KEY) || '';
+    document.getElementById('fb-project').value = localStorage.getItem(FB_PROJECT_KEY) || '';
+    document.getElementById('fb-apikey').value  = localStorage.getItem(FB_APIKEY_KEY)  || '';
+    document.getElementById('fb-email').value   = localStorage.getItem(FB_EMAIL_KEY)   || '';
   }
 }
 
@@ -1748,8 +1762,8 @@ async function loadRemoteConfig() {
     if (cfg.ghOwner)         localStorage.setItem(GH_OWNER_KEY,    cfg.ghOwner);
     if (cfg.ghRepo)          localStorage.setItem(GH_REPO_KEY,     cfg.ghRepo);
     if (cfg.ghBranch)        localStorage.setItem(GH_BRANCH_KEY,   cfg.ghBranch);
-    if (cfg.supabaseUrl)     localStorage.setItem(SB_URL_KEY,      cfg.supabaseUrl);
-    if (cfg.supabaseAnonKey) localStorage.setItem(SB_ANON_KEY,     cfg.supabaseAnonKey);
+    if (cfg.firebaseProjectId) localStorage.setItem(FB_PROJECT_KEY, cfg.firebaseProjectId);
+    if (cfg.firebaseApiKey)    localStorage.setItem(FB_APIKEY_KEY,  cfg.firebaseApiKey);
     // Rafraîchir les champs si la page Paramètres est visible
     document.getElementById('cld-cloud-name').value  = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value      = localStorage.getItem(CLD_PRESET_KEY) || '';
@@ -1757,8 +1771,9 @@ async function loadRemoteConfig() {
     document.getElementById('gh-owner').value        = localStorage.getItem(GH_OWNER_KEY)   || '';
     document.getElementById('gh-repo').value         = localStorage.getItem(GH_REPO_KEY)    || '';
     document.getElementById('gh-branch').value       = localStorage.getItem(GH_BRANCH_KEY)  || 'main';
-    document.getElementById('sb-url').value          = localStorage.getItem(SB_URL_KEY)     || '';
-    document.getElementById('sb-anon').value         = localStorage.getItem(SB_ANON_KEY)    || '';
+    document.getElementById('fb-project').value = localStorage.getItem(FB_PROJECT_KEY) || '';
+    document.getElementById('fb-apikey').value  = localStorage.getItem(FB_APIKEY_KEY)  || '';
+    document.getElementById('fb-email').value   = localStorage.getItem(FB_EMAIL_KEY)   || '';
   } catch(e) { /* hors ligne ou fichier absent */ }
 }
 
@@ -1772,10 +1787,10 @@ async function pushConfigToGitHub() {
     ghOwner:        localStorage.getItem(GH_OWNER_KEY)    || '',
     ghRepo:         localStorage.getItem(GH_REPO_KEY)     || '',
     ghBranch:       localStorage.getItem(GH_BRANCH_KEY)   || 'main',
-    // Supabase : URL + clé anon uniquement (safe à publier — RLS protège)
-    supabaseUrl:     localStorage.getItem(SB_URL_KEY)     || '',
-    supabaseAnonKey: localStorage.getItem(SB_ANON_KEY)    || '',
-    // NOTE: SB_SERVICE_KEY n'est JAMAIS publié sur GitHub
+    // Firebase : projectId + apiKey uniquement (safe à publier — Firestore rules protègent)
+    firebaseProjectId: localStorage.getItem(FB_PROJECT_KEY) || '',
+    firebaseApiKey:    localStorage.getItem(FB_APIKEY_KEY)  || '',
+    // NOTE: FB_EMAIL_KEY + FB_PASS_KEY ne sont JAMAIS publiés sur GitHub
   };
   try {
     await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: mise à jour paramètres admin');
@@ -2214,57 +2229,141 @@ function handleWysKeydown(e) {
 }
 
 /* ══════════════════════════════════════════════
-   COMMENTAIRES — SUPABASE (admin)
+   COMMENTAIRES — FIREBASE FIRESTORE (admin)
 ══════════════════════════════════════════════ */
 
-function sbAdminUrl()     { return (localStorage.getItem(SB_URL_KEY) || '').replace(/\/$/, ''); }
-function sbAdminHeaders() {
-  const key = localStorage.getItem(SB_SERVICE_KEY) || localStorage.getItem(SB_ANON_KEY);
-  if (!key) return null;
-  return {
-    'apikey':        key,
-    'Authorization': 'Bearer ' + key,
-    'Content-Type':  'application/json',
-  };
+/* ── Helpers conversion Firestore ↔ JS ── */
+function _fbaVal(v) {
+  if (!v) return null;
+  if ('stringValue'    in v) return v.stringValue;
+  if ('integerValue'   in v) return parseInt(v.integerValue, 10);
+  if ('doubleValue'    in v) return v.doubleValue;
+  if ('booleanValue'   in v) return v.booleanValue;
+  if ('nullValue'      in v) return null;
+  if ('timestampValue' in v) return v.timestampValue;
+  return null;
+}
+function _fbaParse(doc) {
+  const id = (doc.name || '').split('/').pop();
+  const o  = { id };
+  for (const [k, v] of Object.entries(doc.fields || {})) o[k] = _fbaVal(v);
+  return o;
+}
+function _fbaFV(v) {
+  if (v === null || v === undefined) return { nullValue: null };
+  if (typeof v === 'boolean')        return { booleanValue: v };
+  if (typeof v === 'number' && Number.isInteger(v)) return { integerValue: String(v) };
+  if (typeof v === 'number')         return { doubleValue: v };
+  return { stringValue: String(v) };
+}
+function _fbaFields(obj) {
+  const f = {};
+  for (const [k, v] of Object.entries(obj)) f[k] = _fbaFV(v);
+  return f;
 }
 
-async function loadAdminComments() {
-  const url     = sbAdminUrl();
-  const headers = sbAdminHeaders();
+function _fbaBase() {
+  const pid = localStorage.getItem(FB_PROJECT_KEY) || '';
+  return `https://firestore.googleapis.com/v1/projects/${pid}/databases/(default)/documents`;
+}
+function _fbaApiKey() { return localStorage.getItem(FB_APIKEY_KEY) || ''; }
 
-  if (!url || !headers) {
+/** Se connecte à Firebase Auth et retourne un idToken valide (auto-refresh) */
+async function _fbaSignIn() {
+  // Réutiliser le token si encore valide (avec 5 min de marge)
+  if (_fbAdminIdToken && Date.now() < _fbAdminTokenExpiry - 5 * 60 * 1000) {
+    return _fbAdminIdToken;
+  }
+  const apiKey = _fbaApiKey();
+  const email  = localStorage.getItem(FB_EMAIL_KEY) || '';
+  const pass   = localStorage.getItem(FB_PASS_KEY)  || '';
+  if (!apiKey || !email || !pass) return null;
+
+  const res = await fetch(
+    `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
+    {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({ email, password: pass, returnSecureToken: true }),
+    }
+  );
+  if (!res.ok) {
+    const e = await res.json().catch(() => ({}));
+    throw new Error(e.error?.message || 'Firebase Auth failed');
+  }
+  const data = await res.json();
+  _fbAdminIdToken     = data.idToken;
+  _fbAdminTokenExpiry = Date.now() + parseInt(data.expiresIn, 10) * 1000;
+  return _fbAdminIdToken;
+}
+
+async function _fbaHeaders() {
+  const token = await _fbaSignIn();
+  if (!token) return null;
+  return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+}
+
+/* ── Chargement + affichage ── */
+async function loadAdminComments() {
+  const project = localStorage.getItem(FB_PROJECT_KEY) || '';
+  const apiKey  = _fbaApiKey();
+
+  if (!project || !apiKey) {
     document.getElementById('comments-table').innerHTML =
-      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Supabase dans les <strong>Paramètres</strong> pour activer les commentaires.</td></tr>';
+      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Firebase dans les <strong>Paramètres</strong> pour activer les commentaires.</td></tr>';
     document.getElementById('comments-stats').innerHTML =
       '<div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Non configuré</div></div>';
     return;
   }
 
   document.getElementById('comments-table').innerHTML =
-    '<tr class="loading-row"><td colspan="6">Chargement…</td></tr>';
+    '<tr class="loading-row"><td colspan="6">Connexion Firebase…</td></tr>';
 
   try {
-    const res = await fetch(`${url}/rest/v1/comments?order=created_at.desc&limit=500`,
-      { headers });
+    const headers = await _fbaHeaders();
+    if (!headers) {
+      document.getElementById('comments-table').innerHTML =
+        '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--danger)">⚠️ Email/mot de passe Firebase manquants dans les Paramètres.</td></tr>';
+      return;
+    }
+
+    const query = {
+      structuredQuery: {
+        from: [{ collectionId: 'comments' }],
+        orderBy: [{ field: { fieldPath: 'created_at' }, direction: 'DESCENDING' }],
+        limit: 500,
+      },
+    };
+    const res = await fetch(`${_fbaBase()}:runQuery?key=${apiKey}`, {
+      method: 'POST', headers, body: JSON.stringify(query),
+    });
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    adminComments = await res.json();
+    const rows = await res.json();
+    adminComments = rows.filter(r => r.document).map(r => _fbaParse(r.document));
     renderCommentsStats();
     renderCommentsTable();
     updatePendingBadge();
   } catch(e) {
+    // Token expiré ou accès refusé → réinitialiser
+    if (/401|403|UNAUTHENTICATED/i.test(e.message)) {
+      _fbAdminIdToken = null;
+      toast('⚠️ Session Firebase expirée — rechargez la page.', 'error');
+    } else {
+      toast('Erreur chargement commentaires : ' + e.message, 'error');
+    }
     document.getElementById('comments-table').innerHTML =
       `<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--danger)">Erreur : ${e.message}</td></tr>`;
-    toast('Erreur chargement commentaires : ' + e.message, 'error');
   }
 }
 
 function refreshComments() {
+  _fbAdminIdToken = null; // force re-auth
   loadAdminComments().then(() => toast('Commentaires rechargés', 'success'));
 }
 
 function updatePendingBadge() {
   const pending = adminComments.filter(c => c.status === 'pending').length;
-  const badge = document.getElementById('comments-pending-badge');
+  const badge   = document.getElementById('comments-pending-badge');
   if (!badge) return;
   if (pending > 0) { badge.textContent = pending; badge.style.display = 'inline'; }
   else badge.style.display = 'none';
@@ -2275,23 +2374,18 @@ function renderCommentsStats() {
   const pending  = adminComments.filter(c => c.status === 'pending').length;
   const approved = adminComments.filter(c => c.status === 'approved').length;
   const flagged  = adminComments.filter(c => c.flagged).length;
-
   document.getElementById('comments-stats').innerHTML = `
     <div class="stat-card">
-      <div class="stat-val">${total}</div>
-      <div class="stat-label">Total commentaires</div>
+      <div class="stat-val">${total}</div><div class="stat-label">Total commentaires</div>
     </div>
     <div class="stat-card orange">
-      <div class="stat-val">${pending}</div>
-      <div class="stat-label">En attente</div>
+      <div class="stat-val">${pending}</div><div class="stat-label">En attente</div>
     </div>
     <div class="stat-card green">
-      <div class="stat-val">${approved}</div>
-      <div class="stat-label">Approuvés</div>
+      <div class="stat-val">${approved}</div><div class="stat-label">Approuvés</div>
     </div>
     <div class="stat-card red">
-      <div class="stat-val">${flagged}</div>
-      <div class="stat-label">Signalés</div>
+      <div class="stat-val">${flagged}</div><div class="stat-label">Signalés</div>
     </div>`;
 }
 
@@ -2304,13 +2398,12 @@ function setCommentFilter(f, el) {
 
 function renderCommentsTable() {
   const q = (document.getElementById('comments-search')?.value || '').toLowerCase();
-
   let list = adminComments.filter(c => {
     if (commentFilter === 'pending')  return c.status === 'pending';
     if (commentFilter === 'approved') return c.status === 'approved';
     if (commentFilter === 'rejected') return c.status === 'rejected';
     if (commentFilter === 'flagged')  return c.flagged;
-    return true; // 'all'
+    return true;
   }).filter(c =>
     !q ||
     (c.author_name  || '').toLowerCase().includes(q) ||
@@ -2336,8 +2429,7 @@ function renderCommentsTable() {
       c.status === 'rejected' ? '<span class="badge badge-gray">❌ Rejeté</span>'   :
       '<span class="badge badge-orange">⏳ En attente</span>';
     const flagBadge = c.flagged
-      ? `<span class="badge" style="background:#fee2e2;color:#991b1b;margin-left:4px">⚑ ${c.flag_count}</span>`
-      : '';
+      ? `<span class="badge" style="background:#fee2e2;color:#991b1b;margin-left:4px">⚑ ${c.flag_count}</span>` : '';
     const excerpt  = (c.content || '').length > 90 ? c.content.slice(0, 90) + '…' : c.content;
     const hasReply = c.admin_reply ? '💬 ' : '';
 
@@ -2367,27 +2459,22 @@ function renderCommentsTable() {
   }).join('');
 }
 
+/* ── Actions de modération ── */
 async function moderateComment(id, status) {
-  const url     = sbAdminUrl();
-  const headers = sbAdminHeaders();
-  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
-
+  const headers = await _fbaHeaders().catch(() => null);
+  if (!headers) { toast('Firebase non configuré', 'error'); return; }
+  const mask = 'updateMask.fieldPaths=status';
   try {
-    const res = await fetch(`${url}/rest/v1/comments?id=eq.${id}`, {
-      method:  'PATCH',
-      headers: { ...headers, 'Prefer': 'return=minimal' },
-      body:    JSON.stringify({ status }),
+    const res = await fetch(`${_fbaBase()}/comments/${id}?key=${_fbaApiKey()}&${mask}`, {
+      method: 'PATCH', headers,
+      body:   JSON.stringify({ fields: _fbaFields({ status }) }),
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const idx = adminComments.findIndex(c => c.id === id);
     if (idx > -1) adminComments[idx].status = status;
-    renderCommentsStats();
-    renderCommentsTable();
-    updatePendingBadge();
+    renderCommentsStats(); renderCommentsTable(); updatePendingBadge();
     toast(status === 'approved' ? '✅ Commentaire approuvé' : '❌ Commentaire rejeté', 'success');
-  } catch(e) {
-    toast('Erreur : ' + e.message, 'error');
-  }
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
 function openReplyModal(id) {
@@ -2397,14 +2484,11 @@ function openReplyModal(id) {
   document.getElementById('reply-comment-author').textContent = c.author_name;
   document.getElementById('reply-comment-text').textContent   = c.content;
   document.getElementById('reply-textarea').value             = c.admin_reply || '';
-
-  // Bouton supprimer la réponse
   const delBtn = document.getElementById('reply-delete-btn');
   if (delBtn) {
     delBtn.style.display = c.admin_reply ? 'inline-flex' : 'none';
     delBtn.onclick = () => { document.getElementById('reply-textarea').value = ''; };
   }
-
   document.getElementById('reply-overlay').classList.add('open');
   setTimeout(() => document.getElementById('reply-textarea')?.focus(), 50);
 }
@@ -2412,107 +2496,117 @@ function openReplyModal(id) {
 async function submitAdminReply() {
   if (!replyingCommentId) return;
   const reply   = (document.getElementById('reply-textarea')?.value || '').trim();
-  const url     = sbAdminUrl();
-  const headers = sbAdminHeaders();
-  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
-
+  const headers = await _fbaHeaders().catch(() => null);
+  if (!headers) { toast('Firebase non configuré', 'error'); return; }
+  const mask    = reply
+    ? 'updateMask.fieldPaths=admin_reply&updateMask.fieldPaths=admin_reply_date'
+    : 'updateMask.fieldPaths=admin_reply&updateMask.fieldPaths=admin_reply_date';
   const payload = reply
     ? { admin_reply: reply, admin_reply_date: new Date().toISOString() }
-    : { admin_reply: null,  admin_reply_date: null };
-
+    : { admin_reply: '',    admin_reply_date: '' };
   try {
-    const res = await fetch(`${url}/rest/v1/comments?id=eq.${replyingCommentId}`, {
-      method:  'PATCH',
-      headers: { ...headers, 'Prefer': 'return=minimal' },
-      body:    JSON.stringify(payload),
+    const res = await fetch(`${_fbaBase()}/comments/${replyingCommentId}?key=${_fbaApiKey()}&${mask}`, {
+      method: 'PATCH', headers,
+      body:   JSON.stringify({ fields: _fbaFields(payload) }),
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const idx = adminComments.findIndex(c => c.id === replyingCommentId);
     if (idx > -1) {
-      adminComments[idx].admin_reply      = reply || null;
-      adminComments[idx].admin_reply_date = reply ? new Date().toISOString() : null;
+      adminComments[idx].admin_reply      = reply || '';
+      adminComments[idx].admin_reply_date = reply ? new Date().toISOString() : '';
     }
     document.getElementById('reply-overlay').classList.remove('open');
     renderCommentsTable();
     toast(reply ? '💬 Réponse enregistrée ✅' : 'Réponse supprimée', 'success');
-  } catch(e) {
-    toast('Erreur : ' + e.message, 'error');
-  }
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
 function confirmDeleteComment(id) {
-  const c = adminComments.find(x => x.id === id);
+  const c       = adminComments.find(x => x.id === id);
   const excerpt = (c?.content || '').slice(0, 60);
   document.getElementById('confirm-title').textContent = 'Supprimer ce commentaire ?';
   document.getElementById('confirm-msg').textContent   = `"${excerpt}…" — Action irréversible.`;
   document.getElementById('confirm-icon').textContent  = '🗑️';
-  document.getElementById('confirm-ok-btn').onclick    = async () => {
-    await deleteComment(id); closeConfirm();
-  };
+  document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteComment(id); closeConfirm(); };
   document.getElementById('confirm-overlay').classList.add('open');
 }
 
 async function deleteComment(id) {
-  const url     = sbAdminUrl();
-  const headers = sbAdminHeaders();
-  if (!url || !headers) { toast('Supabase non configuré', 'error'); return; }
-
+  const headers = await _fbaHeaders().catch(() => null);
+  if (!headers) { toast('Firebase non configuré', 'error'); return; }
   try {
-    const res = await fetch(`${url}/rest/v1/comments?id=eq.${id}`, {
-      method:  'DELETE',
-      headers: { ...headers, 'Prefer': 'return=minimal' },
+    const res = await fetch(`${_fbaBase()}/comments/${id}?key=${_fbaApiKey()}`, {
+      method: 'DELETE', headers,
     });
     if (!res.ok) throw new Error('HTTP ' + res.status);
     adminComments = adminComments.filter(c => c.id !== id);
-    renderCommentsStats();
-    renderCommentsTable();
-    updatePendingBadge();
+    renderCommentsStats(); renderCommentsTable(); updatePendingBadge();
     toast('Commentaire supprimé', 'success');
-  } catch(e) {
-    toast('Erreur : ' + e.message, 'error');
-  }
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
-/* ── Supabase settings ── */
-async function saveSupabaseSettings() {
-  const url     = document.getElementById('sb-url').value.trim().replace(/\/$/, '');
-  const anon    = document.getElementById('sb-anon').value.trim();
-  const service = document.getElementById('sb-service').value.trim();
+/* ── Firebase settings ── */
+async function saveFirebaseSettings() {
+  const project = document.getElementById('fb-project').value.trim();
+  const apiKey  = document.getElementById('fb-apikey').value.trim();
+  const email   = document.getElementById('fb-email').value.trim();
+  const pass    = document.getElementById('fb-pass').value.trim();
 
-  if (!url || !anon) { toast('URL et Anon Key requis', 'error'); return; }
+  if (!project || !apiKey) { toast('Project ID et Web API Key requis', 'error'); return; }
 
-  localStorage.setItem(SB_URL_KEY,  url);
-  localStorage.setItem(SB_ANON_KEY, anon);
-  if (service) localStorage.setItem(SB_SERVICE_KEY, service);
+  localStorage.setItem(FB_PROJECT_KEY, project);
+  localStorage.setItem(FB_APIKEY_KEY,  apiKey);
+  if (email) localStorage.setItem(FB_EMAIL_KEY, email);
+  if (pass)  localStorage.setItem(FB_PASS_KEY,  pass);
 
-  toast('Configuration Supabase enregistrée ✅', 'success');
-  // Pousser URL + anon key (public) dans data/config.json
-  await pushConfigToGitHub();
+  toast('Configuration Firebase enregistrée ✅', 'success');
+  await pushConfigToGitHub(); // pousse projectId + apiKey dans data/config.json
 }
 
-async function testSupabaseConnection() {
-  const url     = document.getElementById('sb-url').value.trim().replace(/\/$/, '');
-  const service = document.getElementById('sb-service').value.trim();
-  const anon    = document.getElementById('sb-anon').value.trim();
-  const key     = service || anon;
-  const resultEl = document.getElementById('sb-test-result');
+async function testFirebaseConnection() {
+  const project  = document.getElementById('fb-project').value.trim();
+  const apiKey   = document.getElementById('fb-apikey').value.trim();
+  const email    = document.getElementById('fb-email').value.trim();
+  const pass     = document.getElementById('fb-pass').value.trim();
+  const resultEl = document.getElementById('fb-test-result');
 
-  if (!url || !key) { toast('Remplissez URL + clé', 'error'); return; }
+  if (!project || !apiKey) { toast('Remplissez Project ID + API Key', 'error'); return; }
   resultEl.textContent = '⏳ Test…'; resultEl.style.color = 'var(--gray-500)';
 
   try {
-    const res = await fetch(`${url}/rest/v1/comments?limit=1`, {
-      headers: { 'apikey': key, 'Authorization': 'Bearer ' + key },
-    });
-    if (res.ok || res.status === 406) { // 406 = empty OK
-      resultEl.textContent = '✅ Connexion Supabase réussie !';
-      resultEl.style.color = 'var(--success)';
-      toast('Supabase opérationnel ✅', 'success');
-    } else {
-      const e = await res.json();
-      resultEl.textContent = '❌ ' + (e.message || e.hint || res.status);
-      resultEl.style.color = 'var(--danger)';
+    // 1. Tester l'accès Firestore (lecture publique)
+    const testUrl = `https://firestore.googleapis.com/v1/projects/${project}/databases/(default)/documents/comments?pageSize=1&key=${apiKey}`;
+    const r1 = await fetch(testUrl);
+    if (!r1.ok) {
+      const e = await r1.json();
+      throw new Error(e.error?.message || 'Firestore HTTP ' + r1.status);
     }
+    let msg = '✅ Firestore OK';
+
+    // 2. Tester Firebase Auth si email/pass fournis
+    if (email && pass) {
+      const r2 = await fetch(
+        `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
+        {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body:    JSON.stringify({ email, password: pass, returnSecureToken: true }),
+        }
+      );
+      if (r2.ok) {
+        const d = await r2.json();
+        _fbAdminIdToken     = d.idToken;
+        _fbAdminTokenExpiry = Date.now() + parseInt(d.expiresIn, 10) * 1000;
+        msg += ' · Auth admin OK ✅';
+      } else {
+        const e = await r2.json();
+        msg += ' · Auth : ❌ ' + (e.error?.message || r2.status);
+      }
+    }
+
+    resultEl.textContent = msg;
+    resultEl.style.color = msg.includes('❌') ? 'var(--warning)' : 'var(--success)';
+    toast('Test Firebase terminé', 'success');
   } catch(e) {
     resultEl.textContent = '❌ ' + e.message;
     resultEl.style.color = 'var(--danger)';

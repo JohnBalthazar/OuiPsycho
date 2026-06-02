@@ -1,0 +1,58 @@
+// ============================================================
+//  Oui Psycho! — Règles de sécurité Firestore
+//  Firebase Console → Firestore → Onglet "Règles" → Coller + Publier
+// ============================================================
+
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /comments/{commentId} {
+
+      // ── Lecture publique : uniquement les commentaires approuvés ──
+      allow read: if resource.data.status == 'approved';
+
+      // ── Soumission publique ──
+      // N'importe qui peut envoyer un commentaire PENDING
+      allow create: if
+        request.resource.data.status    == 'pending'  &&
+        request.resource.data.flagged   == false       &&
+        request.resource.data.flag_count == 0          &&
+        request.resource.data.author_name is string    &&
+        request.resource.data.author_name.size() > 0  &&
+        request.resource.data.content is string        &&
+        request.resource.data.content.size() >= 5     &&
+        request.resource.data.content.size() <= 2000  &&
+        request.resource.data.article_id is string;
+
+      // ── Signalement public ──
+      // Seuls flag_count et flagged peuvent être modifiés sans auth,
+      // uniquement sur des commentaires déjà approuvés
+      allow update: if
+        !('status'           in request.resource.data.diff(resource.data).affectedKeys()) &&
+        !('admin_reply'      in request.resource.data.diff(resource.data).affectedKeys()) &&
+        !('author_name'      in request.resource.data.diff(resource.data).affectedKeys()) &&
+        !('content'          in request.resource.data.diff(resource.data).affectedKeys()) &&
+        request.resource.data.diff(resource.data).affectedKeys()
+          .hasOnly(['flag_count', 'flagged']) &&
+        resource.data.status == 'approved';
+
+      // ── Admin authentifié : accès complet ──
+      // L'utilisateur Firebase Auth (créé dans Authentication → Users)
+      // peut tout lire, modifier et supprimer
+      allow read, write: if request.auth != null;
+
+    }
+
+  }
+}
+
+// ============================================================
+//  SETUP RAPIDE (3 min)
+//  1. Firebase Console → Firestore → créer la base (mode production)
+//  2. Onglet "Règles" → coller ce fichier → Publier
+//  3. Paramètres du projet (⚙) → copier Project ID + Web API Key
+//  4. Authentication → Sign-in method → Email/Mot de passe → Activer
+//  5. Authentication → Users → Ajouter un utilisateur (votre email admin)
+//  6. Admin Oui Psycho! → Paramètres → Firebase → renseigner les 4 champs
+// ============================================================

@@ -704,65 +704,129 @@ function initCookies() {
 }
 
 /* ============================================================
-   COMMENTAIRES (Supabase REST)
+   COMMENTAIRES (Firebase Firestore REST — sans SDK)
    ============================================================ */
-let _sbUrl  = '';
-let _sbAnon = '';
+let _fbProjectId = '';
+let _fbApiKey    = '';
 
-/** Charge URL + clé anon depuis data/config.json (publié sur GitHub) */
-async function loadSupabaseConfig() {
-  if (_sbUrl) return; // déjà chargé
+/** Base URL de l'API Firestore REST */
+const _FBBASE = () =>
+  `https://firestore.googleapis.com/v1/projects/${_fbProjectId}/databases/(default)/documents`;
+
+/* ── Helpers de conversion Firestore ↔ JS ── */
+function _fbVal(v) {
+  if (!v) return null;
+  if ('stringValue'    in v) return v.stringValue;
+  if ('integerValue'   in v) return parseInt(v.integerValue, 10);
+  if ('doubleValue'    in v) return v.doubleValue;
+  if ('booleanValue'   in v) return v.booleanValue;
+  if ('nullValue'      in v) return null;
+  if ('timestampValue' in v) return v.timestampValue;
+  return null;
+}
+function _fbDoc(doc) {
+  const id  = (doc.name || '').split('/').pop();
+  const obj = { id };
+  for (const [k, v] of Object.entries(doc.fields || {})) obj[k] = _fbVal(v);
+  return obj;
+}
+function _fbFV(v) {
+  if (v === null || v === undefined) return { nullValue: null };
+  if (typeof v === 'boolean')        return { booleanValue: v };
+  if (typeof v === 'number' && Number.isInteger(v)) return { integerValue: String(v) };
+  if (typeof v === 'number')         return { doubleValue: v };
+  return { stringValue: String(v) };
+}
+function _fbFields(obj) {
+  const f = {};
+  for (const [k, v] of Object.entries(obj)) f[k] = _fbFV(v);
+  return f;
+}
+
+/** Charge projectId + apiKey depuis data/config.json */
+async function loadFirebaseConfig() {
+  if (_fbProjectId) return;
   try {
     const res = await fetch('data/config.json?t=' + Date.now());
     if (!res.ok) return;
     const cfg = await res.json();
-    if (cfg.supabaseUrl)     _sbUrl  = cfg.supabaseUrl.replace(/\/$/, '');
-    if (cfg.supabaseAnonKey) _sbAnon = cfg.supabaseAnonKey;
+    if (cfg.firebaseProjectId) _fbProjectId = cfg.firebaseProjectId;
+    if (cfg.firebaseApiKey)    _fbApiKey    = cfg.firebaseApiKey;
   } catch (_) {}
 }
 
-function _sbHeaders() {
-  return {
-    'apikey':        _sbAnon,
-    'Authorization': 'Bearer ' + _sbAnon,
-    'Content-Type':  'application/json',
+async function _fbFetchComments(articleId) {
+  const query = {
+    structuredQuery: {
+      from: [{ collectionId: 'comments' }],
+      where: {
+        compositeFilter: {
+          op: 'AND',
+          filters: [
+            { fieldFilter: { field: { fieldPath: 'article_id' }, op: 'EQUAL', value: { stringValue: articleId } } },
+            { fieldFilter: { field: { fieldPath: 'status' },     op: 'EQUAL', value: { stringValue: 'approved' } } },
+          ],
+        },
+      },
+      orderBy: [{ field: { fieldPath: 'created_at' }, direction: 'ASCENDING' }],
+    },
   };
-}
-
-async function _sbFetchComments(articleId) {
-  const url = `${_sbUrl}/rest/v1/comments`
-    + `?article_id=eq.${encodeURIComponent(articleId)}`
-    + `&status=eq.approved`
-    + `&order=created_at.asc`;
-  const res = await fetch(url, { headers: _sbHeaders() });
-  if (!res.ok) return [];
-  return res.json();
-}
-
-async function _sbSubmitComment(articleId, name, email, content) {
-  const res = await fetch(`${_sbUrl}/rest/v1/comments`, {
+  const res = await fetch(`${_FBBASE()}:runQuery?key=${_fbApiKey}`, {
     method:  'POST',
-    headers: { ..._sbHeaders(), 'Prefer': 'return=minimal' },
-    body:    JSON.stringify({ article_id: articleId, author_name: name, author_email: email || '', content }),
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify(query),
+  });
+  if (!res.ok) return [];
+  const rows = await res.json();
+  return rows.filter(r => r.document).map(r => _fbDoc(r.document));
+}
+
+async function _fbSubmitComment(articleId, name, email, content) {
+  const res = await fetch(`${_FBBASE()}/comments?key=${_fbApiKey}`, {
+    method:  'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({
+      fields: _fbFields({
+        article_id:       articleId,
+        author_name:      name,
+        author_email:     email || '',
+        content,
+        status:           'pending',
+        flagged:          false,
+        flag_count:       0,
+        admin_reply:      '',
+        admin_reply_date: '',
+        created_at:       new Date().toISOString(),
+      }),
+    }),
   });
   if (!res.ok) {
-    const msg = await res.text();
-    throw new Error(msg || 'Erreur ' + res.status);
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.error?.message || 'Erreur ' + res.status);
   }
 }
 
-async function _sbReportComment(commentId) {
-  await fetch(`${_sbUrl}/rest/v1/rpc/report_comment`, {
-    method:  'POST',
-    headers: _sbHeaders(),
-    body:    JSON.stringify({ comment_id: commentId }),
+async function _fbReportComment(commentId) {
+  // Lecture du document (autorisée si status === 'approved' par les règles Firestore)
+  const getRes = await fetch(`${_FBBASE()}/comments/${commentId}?key=${_fbApiKey}`);
+  if (!getRes.ok) return;
+  const doc     = await getRes.json();
+  const current = _fbDoc(doc);
+  if (current.status !== 'approved') return;
+
+  const newCount = (current.flag_count || 0) + 1;
+  const mask     = 'updateMask.fieldPaths=flag_count&updateMask.fieldPaths=flagged';
+  await fetch(`${_FBBASE()}/comments/${commentId}?key=${_fbApiKey}&${mask}`, {
+    method:  'PATCH',
+    headers: { 'Content-Type': 'application/json' },
+    body:    JSON.stringify({ fields: _fbFields({ flag_count: newCount, flagged: true }) }),
   });
 }
 
 /** Injecte la section commentaires après les boutons de partage */
 async function initComments(articleId) {
-  await loadSupabaseConfig();
-  if (!_sbUrl || !_sbAnon) return; // Supabase non configuré → pas de section
+  await loadFirebaseConfig();
+  if (!_fbProjectId || !_fbApiKey) return; // Firebase non configuré → pas de section
 
   const shareSection = document.getElementById('share-buttons');
   if (!shareSection || document.getElementById('comments-section')) return;
@@ -809,7 +873,7 @@ async function initComments(articleId) {
 
   // Charger les commentaires
   try {
-    const comments = await _sbFetchComments(articleId);
+    const comments = await _fbFetchComments(articleId);
     _renderComments(comments);
   } catch (_) {
     document.getElementById('comments-list').innerHTML =
@@ -890,7 +954,7 @@ async function handleCommentSubmit(articleId) {
   btn.textContent  = '⏳ Envoi en cours…';
 
   try {
-    await _sbSubmitComment(articleId, name, email, content);
+    await _fbSubmitComment(articleId, name, email, content);
     msgEl.textContent = '✅ Merci ! Votre commentaire est en attente de modération et sera visible prochainement.';
     msgEl.className   = 'comment-form__msg comment-form__msg--success';
     if (nameEl)  nameEl.value  = '';
@@ -909,7 +973,7 @@ async function handleCommentSubmit(articleId) {
 async function handleReport(commentId) {
   if (!confirm('Signaler ce commentaire comme inapproprié ?')) return;
   try {
-    await _sbReportComment(commentId);
+    await _fbReportComment(commentId);
     // Mémoriser pour éviter les doubles signalements
     const reported = JSON.parse(localStorage.getItem('pc_reported_comments') || '[]');
     if (!reported.includes(commentId)) {
