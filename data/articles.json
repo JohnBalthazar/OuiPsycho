@@ -5,14 +5,21 @@
     "excerpt": "La réponse intuitive, c'est 65 ans — l'âge de la retraite, les cheveux blancs, le regard des autres. Mais quand on pose la question à 14 000 personnes sur vingt-cinq ans d'étude, la vieillesse commence à 75. Et quand on mesure ce que l'âge qu'on se donne fait réellement à notre cerveau et à notre santé, tout devient plus compliqué — et franchement plus encourageant.",
     "date": "2026-06-02",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wzu6y3om2lcleuip9za6",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
-    "imageGravity": "face",
+    "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["vieillissement", "âge subjectif", "cerveau", "bonheur", "bien-être", "psychologie positive"],
+    "tags": [
+      "vieillissement",
+      "âge subjectif",
+      "cerveau",
+      "bonheur",
+      "bien-être",
+      "psychologie positive"
+    ],
     "metaDescription": "La vieillesse commence à 75 ans selon les études les plus récentes — et ça dépend surtout de l'âge qu'on se donne. La science du vieillissement révèle des surprises sur le bonheur, le cerveau et l'âge subjectif."
   },
   {
