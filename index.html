@@ -175,11 +175,15 @@
       <!-- Newsletter -->
       <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
-        <div class="newsletter-form">
+        <div class="newsletter-form" id="nl-form">
           <p>Recevez nos nouveaux articles chaque semaine.</p>
           <label for="newsletter-email" class="sr-only">Votre e-mail</label>
-          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner gratuitement ✓</button>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement ✓
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
 

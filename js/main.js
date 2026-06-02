@@ -1008,3 +1008,85 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('articles-grid'))  initHome();
   if (document.getElementById('article-content')) initArticle();
 });
+
+/* ============================================================
+   NEWSLETTER — inscription (Firebase + Brevo)
+   ============================================================ */
+async function subscribeNewsletter() {
+  const input  = document.getElementById('newsletter-email');
+  const btn    = document.getElementById('nl-btn');
+  const msgEl  = document.getElementById('nl-msg');
+  if (!input || !btn || !msgEl) return;
+
+  const email = input.value.trim().toLowerCase();
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    _nlMsg('Adresse e-mail invalide.', 'error'); return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = '⏳ Inscription…';
+
+  await loadFirebaseConfig();
+
+  let ok = false;
+
+  // ── 1. Brevo (si API key configurée dans config.json) ──
+  try {
+    const cfg = await fetch('data/config.json?t=' + Date.now()).then(r => r.ok ? r.json() : {});
+    if (cfg.brevoApiKey && cfg.brevoListId) {
+      const r = await fetch('https://api.brevo.com/v3/contacts', {
+        method: 'POST',
+        headers: { 'api-key': cfg.brevoApiKey, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          listIds: [parseInt(cfg.brevoListId)],
+          updateEnabled: true,
+          attributes: { SOURCE: 'ouipsycho.fr' }
+        })
+      });
+      // 201 = créé, 204 = déjà abonné mis à jour
+      if (r.status === 201 || r.status === 204) ok = true;
+      else if (r.status === 400) {
+        const e = await r.json().catch(() => ({}));
+        // "Contact already exist" = déjà abonné, c'est ok
+        if ((e.message || '').toLowerCase().includes('already exist')) ok = true;
+      }
+    }
+  } catch (_) {}
+
+  // ── 2. Firebase (backup — toujours enregistré si Firebase configuré) ──
+  if (_fbProjectId && _fbApiKey) {
+    try {
+      const id  = email.replace(/[^a-z0-9]/g, '_');
+      const url = `${_FBBASE()}/newsletter/${id}?key=${_fbApiKey}`;
+      await fetch(url, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fields: {
+          email:      { stringValue: email },
+          created_at: { timestampValue: new Date().toISOString() },
+          source:     { stringValue: 'ouipsycho.fr' },
+          active:     { booleanValue: true }
+        }})
+      });
+      ok = true;
+    } catch (_) {}
+  }
+
+  if (ok) {
+    document.getElementById('nl-form').innerHTML =
+      '<p style="font-weight:700;font-size:.95rem">🎉 Vous êtes abonné(e) ! À très vite dans votre boîte.</p>';
+  } else {
+    btn.disabled = false;
+    btn.textContent = "S'abonner gratuitement ✓";
+    _nlMsg('Une erreur est survenue. Réessayez dans quelques instants.', 'error');
+  }
+}
+
+function _nlMsg(text, type) {
+  const el = document.getElementById('nl-msg');
+  if (!el) return;
+  el.textContent = text;
+  el.style.color = type === 'error' ? '#c62828' : '#2e7d32';
+  el.style.display = 'block';
+}

@@ -390,6 +390,11 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Nouvel article
       </button>
+      <button class="nav-item" onclick="showPage('newsletter')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Newsletter
+        <span id="nl-badge" style="background:var(--success);color:#fff;border-radius:9999px;padding:1px 8px;font-size:.7rem;margin-left:auto;display:none;line-height:1.6">0</span>
+      </button>
       <button class="nav-item" id="nav-comments" onclick="showPage('comments')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
         Commentaires
@@ -1072,6 +1077,67 @@
   </main>
 </div>
 
+    <!-- PAGE NEWSLETTER -->
+    <div id="page-newsletter" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Newsletter <span id="nl-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="loadNewsletterSubscribers()">↻ Rafraîchir</button>
+          <button class="btn btn-ghost" onclick="exportNewsletterCSV()">⬇ Export CSV</button>
+        </div>
+      </div>
+
+      <div class="stats-grid" id="nl-stats">
+        <div class="stat-card green"><div class="stat-val" id="nl-total">—</div><div class="stat-label">Abonnés actifs</div></div>
+        <div class="stat-card orange"><div class="stat-val" id="nl-month">—</div><div class="stat-label">Ce mois-ci</div></div>
+      </div>
+
+      <!-- Statut Brevo -->
+      <div id="nl-brevo-status" class="card" style="margin-bottom:20px;padding:14px 20px;display:none">
+        <span id="nl-brevo-msg" style="font-size:.85rem"></span>
+        <a href="https://app.brevo.com/contact/list" target="_blank" class="btn btn-ghost btn-sm" style="margin-left:12px">Ouvrir Brevo →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-header"><h3>Abonnés</h3></div>
+        <table>
+          <thead><tr><th>Email</th><th>Date d'inscription</th><th>Source</th><th>Actions</th></tr></thead>
+          <tbody id="nl-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+
+      <!-- Config Brevo rapide -->
+      <div class="card" style="margin-top:20px">
+        <div class="card-header"><h3>⚡ Configuration Brevo (envoi de newsletters)</h3></div>
+        <div class="panel-body" style="display:flex;flex-direction:column;gap:12px">
+          <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;font-size:.85rem;color:var(--primary)">
+            <strong>Brevo gratuit</strong> · 300 emails/jour · illimité en contacts ·
+            <a href="https://www.brevo.com/fr/pricing/" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte →</a><br><br>
+            <strong>Setup (2 min) :</strong>
+            <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
+              <li>Brevo → Mon compte → <strong>SMTP &amp; API</strong> → onglet <strong>API keys</strong> → créer une clé</li>
+              <li>Brevo → Contacts → <strong>Listes</strong> → créer une liste "Oui Psycho" → noter l'ID (numéro dans l'URL)</li>
+            </ol>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Clé API Brevo</label>
+              <input type="password" id="brevo-apikey" placeholder="xkeysib-…">
+            </div>
+            <div class="form-group">
+              <label>ID de la liste Brevo</label>
+              <input type="number" id="brevo-listid" placeholder="ex : 3">
+            </div>
+          </div>
+          <div>
+            <button class="btn btn-primary" onclick="saveBrevoSettings()">Enregistrer Brevo</button>
+            <button class="btn btn-ghost" style="margin-left:8px" onclick="testBrevoConnection()">Tester</button>
+            <span id="brevo-test-result" style="margin-left:12px;font-size:.85rem"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
 <!-- REPLY MODAL -->
 <div class="panel-overlay" id="reply-overlay">
   <div class="panel" style="max-width:580px">
@@ -1147,6 +1213,11 @@ let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
 let articleStatus = 'published'; // 'published' | 'scheduled' | 'draft'
+
+// ── Newsletter ──
+let nlSubscribers = [];
+const BREVO_KEY_KEY  = 'ouipsycho_brevo_key';
+const BREVO_LIST_KEY = 'ouipsycho_brevo_list';
 
 // ── Commentaires ──
 let adminComments     = [];
@@ -1301,6 +1372,7 @@ function showPage(name) {
   if (name === 'dashboard')   renderDashboard();
   if (name === 'articles')    renderArticlesTable();
   if (name === 'new-article') resetEditor();
+  if (name === 'newsletter')  loadNewsletterSubscribers();
   if (name === 'comments')    loadAdminComments();
   if (name === 'messages')    loadAdminMessages();
   if (name === 'about')       loadAboutPage();
@@ -2648,6 +2720,175 @@ async function _fbaHeaders() {
   const token = await _fbaSignIn();
   if (!token) return null;
   return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
+}
+
+/* ══════════════════════════════════════════════
+   NEWSLETTER
+══════════════════════════════════════════════ */
+function fbBase() {
+  const p = localStorage.getItem(FB_PROJECT_KEY) || '';
+  return `https://firestore.googleapis.com/v1/projects/${p}/databases/(default)/documents`;
+}
+
+async function loadNewsletterSubscribers() {
+  const project = localStorage.getItem(FB_PROJECT_KEY) || '';
+  const apiKey  = localStorage.getItem(FB_APIKEY_KEY)  || '';
+  const tbody   = document.getElementById('nl-table');
+  if (!project || !apiKey) {
+    if (tbody) tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Firebase non configuré → Paramètres</td></tr>';
+    return;
+  }
+
+  if (tbody) tbody.innerHTML = '<tr class="loading-row"><td colspan="4">Chargement…</td></tr>';
+
+  try {
+    // Lire les abonnés avec le token admin si disponible, sinon clé API
+    const token = await getAdminToken();
+    const headers = token
+      ? { 'Authorization': 'Bearer ' + token }
+      : {};
+    const url = `${fbBase()}/newsletter?key=${apiKey}&pageSize=300`;
+    const res = await fetch(url, { headers });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const data = await res.json();
+
+    const docs = (data.documents || []).map(doc => {
+      const f = doc.fields || {};
+      return {
+        id: (doc.name || '').split('/').pop(),
+        email:      (f.email?.stringValue    || '').replace(/_/g, m => m === '_' ? '@' : '.'),
+        created_at:  f.created_at?.timestampValue || '',
+        source:      f.source?.stringValue   || 'direct',
+        active:      f.active?.booleanValue  !== false,
+      };
+    }).filter(d => d.active);
+
+    nlSubscribers = docs;
+
+    // Stats
+    const now    = new Date();
+    const month  = docs.filter(d => {
+      const dt = new Date(d.created_at);
+      return dt.getFullYear() === now.getFullYear() && dt.getMonth() === now.getMonth();
+    }).length;
+
+    document.getElementById('nl-total').textContent  = docs.length;
+    document.getElementById('nl-month').textContent  = month;
+    document.getElementById('nl-admin-count').textContent = `(${docs.length})`;
+    const badge = document.getElementById('nl-badge');
+    if (badge) { badge.textContent = docs.length; badge.style.display = docs.length ? '' : 'none'; }
+
+    // Table
+    if (tbody) {
+      if (!docs.length) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun abonné pour l\'instant</td></tr>';
+      } else {
+        tbody.innerHTML = [...docs].sort((a,b) => b.created_at.localeCompare(a.created_at)).map(d => `
+          <tr>
+            <td><strong>${d.email}</strong></td>
+            <td>${d.created_at ? formatDate(d.created_at.split('T')[0]) : '—'}</td>
+            <td><span class="badge badge-gray">${d.source}</span></td>
+            <td><button class="btn btn-danger btn-sm" onclick="unsubscribeNewsletter('${d.id}','${d.email}')">✕ Désabonner</button></td>
+          </tr>`).join('');
+      }
+    }
+
+    // Badge Brevo
+    const brevoKey = localStorage.getItem(BREVO_KEY_KEY);
+    const brevoEl  = document.getElementById('nl-brevo-status');
+    if (brevoEl) {
+      brevoEl.style.display = brevoKey ? 'flex' : 'none';
+      const msgEl = document.getElementById('nl-brevo-msg');
+      if (msgEl) msgEl.innerHTML = brevoKey
+        ? '✅ Brevo connecté — les nouvelles inscriptions sont synchronisées automatiquement.'
+        : '';
+    }
+    // Pré-remplir les champs Brevo
+    document.getElementById('brevo-apikey').value  = localStorage.getItem(BREVO_KEY_KEY)  || '';
+    document.getElementById('brevo-listid').value  = localStorage.getItem(BREVO_LIST_KEY) || '';
+
+  } catch(e) {
+    if (tbody) tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--danger)">Erreur : ${e.message}</td></tr>`;
+    toast('Erreur newsletter : ' + e.message, 'error');
+  }
+}
+
+async function unsubscribeNewsletter(id, email) {
+  if (!confirm(`Désabonner ${email} ?`)) return;
+  const apiKey = localStorage.getItem(FB_APIKEY_KEY) || '';
+  const project = localStorage.getItem(FB_PROJECT_KEY) || '';
+  if (!project || !apiKey) return;
+  try {
+    // Marquer active=false plutôt que de supprimer (RGPD : conserver la preuve de désinscription)
+    await fetch(`${fbBase()}/newsletter/${id}?key=${apiKey}&updateMask.fieldPaths=active`, {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fields: { active: { booleanValue: false } } })
+    });
+    toast(`${email} désabonné(e)`, 'success');
+    loadNewsletterSubscribers();
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
+}
+
+function exportNewsletterCSV() {
+  if (!nlSubscribers.length) { toast('Aucun abonné à exporter', 'error'); return; }
+  const rows = [['Email', 'Date inscription', 'Source']];
+  nlSubscribers.forEach(d => rows.push([
+    d.email,
+    d.created_at ? d.created_at.split('T')[0] : '',
+    d.source
+  ]));
+  const csv  = rows.map(r => r.map(c => `"${c}"`).join(',')).join('\n');
+  const blob = new Blob(['﻿' + csv], { type: 'text/csv;charset=utf-8' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'newsletter-ouipsycho-' + new Date().toISOString().split('T')[0] + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast('Export CSV téléchargé ✓', 'success');
+}
+
+function saveBrevoSettings() {
+  const key  = document.getElementById('brevo-apikey').value.trim();
+  const list = document.getElementById('brevo-listid').value.trim();
+  if (!key || !list) { toast('Remplissez la clé API et l\'ID de liste', 'error'); return; }
+  localStorage.setItem(BREVO_KEY_KEY,  key);
+  localStorage.setItem(BREVO_LIST_KEY, list);
+  toast('Configuration Brevo enregistrée ✅', 'success');
+  // Sauvegarder dans config.json sur GitHub
+  pushBrevoConfigToGitHub(key, list);
+}
+
+async function pushBrevoConfigToGitHub(brevoApiKey, brevoListId) {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) return;
+  let remote = {};
+  try { const r = await fetch('data/config.json?t=' + Date.now()); if (r.ok) remote = await r.json(); } catch(_) {}
+  const cfg = { ...remote, brevoListId };
+  // Note : brevoApiKey n'est PAS stocké dans config.json (clé sensible, stockage local uniquement)
+  try {
+    await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: brevo list id');
+    toast('⚙️ ID liste Brevo sauvegardé sur GitHub', 'success');
+  } catch(e) { console.warn('pushBrevoConfig:', e.message); }
+}
+
+async function testBrevoConnection() {
+  const key    = document.getElementById('brevo-apikey').value.trim();
+  const result = document.getElementById('brevo-test-result');
+  if (!key) { result.textContent = '❌ Entrez une clé API'; result.style.color = 'var(--danger)'; return; }
+  result.textContent = '⏳ Test…'; result.style.color = 'var(--gray-500)';
+  try {
+    const res = await fetch('https://api.brevo.com/v3/account', { headers: { 'api-key': key } });
+    if (res.ok) {
+      const d = await res.json();
+      result.textContent = `✅ Connecté : ${d.email || 'compte Brevo'}`;
+      result.style.color = 'var(--success)';
+    } else {
+      result.textContent = '❌ Clé invalide';
+      result.style.color = 'var(--danger)';
+    }
+  } catch(e) { result.textContent = '❌ ' + e.message; result.style.color = 'var(--danger)'; }
 }
 
 /* ── Chargement + affichage ── */
