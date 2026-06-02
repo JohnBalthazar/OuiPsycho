@@ -1778,12 +1778,27 @@ async function pushAllToGitHub() {
   const addLog = t => { log.textContent += t + '\n'; log.scrollTop = log.scrollHeight; };
   addLog('→ Début du push…');
   let ok = 0, fail = 0;
-  // Push articles index
+
+  // 1. Push les fichiers individuels des articles qui ont leur contenu en mémoire
+  const withContent = articles.filter(a => a.content);
+  if (withContent.length) {
+    addLog(`→ ${withContent.length} article(s) complet(s) à pousser…`);
+    for (const a of withContent) {
+      try {
+        await githubPutFile('articles/' + a.id + '.json', JSON.stringify(a, null, 2), msg);
+        addLog('✓ articles/' + a.id + '.json'); ok++;
+      } catch(e) { addLog('✗ articles/' + a.id + '.json : ' + e.message); fail++; }
+    }
+  }
+
+  // 2. Push l'index (sans le contenu pour ne pas alourdir)
+  const indexData = articles.map(({ content: _c, keypoints: _k, ...summary }) => summary);
   try {
-    await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), msg + ' (index)');
+    await githubPutFile('data/articles.json', JSON.stringify(indexData, null, 2), msg + ' (index)');
     addLog('✓ data/articles.json'); ok++;
   } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
-  toast(ok + ' fichier(s) mis à jour, ' + fail + ' erreur(s)', fail === 0 ? 'success' : 'error');
+
+  toast(ok + ' fichier(s) mis à jour' + (fail ? `, ${fail} erreur(s)` : ' ✓'), fail === 0 ? 'success' : 'error');
 }
 
 /* ══════════════════════════════════════════════
@@ -1804,7 +1819,7 @@ function handleImport(event) {
   const file = event.target.files[0];
   if (!file) return;
   const reader = new FileReader();
-  reader.onload = e => {
+  reader.onload = async e => {
     try {
       const data = JSON.parse(e.target.result);
       if (Array.isArray(data)) {
@@ -1812,12 +1827,28 @@ function handleImport(event) {
       } else if (data.articles && Array.isArray(data.articles)) {
         articles = data.articles;
       } else if (data.id) {
-        // Single article
+        // Article individuel — stocker le résumé dans l'index (sans content)
+        const { content, keypoints, ...summary } = data;
         const idx = articles.findIndex(a => a.id === data.id);
-        if (idx > -1) articles[idx] = data; else articles.unshift(data);
-        toast('Article "' + data.id + '" importé', 'success');
+        if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
         localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-        renderArticlesTable(); return;
+        renderArticlesTable();
+
+        // Push automatique vers GitHub si PAT configuré
+        const pat = localStorage.getItem(GH_PAT_KEY);
+        if (pat && content) {
+          toast('⏳ Publication sur GitHub…', 'info');
+          try {
+            await githubPutFile('articles/' + data.id + '.json', JSON.stringify(data, null, 2), 'import: article ' + data.id);
+            await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+            toast('🎉 Article "' + data.id + '" importé et publié sur GitHub !', 'success');
+          } catch(err) {
+            toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
+          }
+        } else {
+          toast('Article "' + data.id + '" importé — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
+        }
+        return;
       }
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       renderArticlesTable(); renderDashboard();
