@@ -378,6 +378,11 @@
         Commentaires
         <span id="comments-pending-badge" style="background:var(--accent);color:#fff;border-radius:9999px;padding:1px 8px;font-size:.7rem;margin-left:auto;display:none;line-height:1.6">0</span>
       </button>
+      <button class="nav-item" onclick="showPage('messages')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        Messages
+        <span id="messages-badge" style="background:var(--accent);color:#fff;border-radius:9999px;padding:1px 8px;font-size:.7rem;margin-left:auto;display:none;line-height:1.6">0</span>
+      </button>
       <div class="nav-section">Outils</div>
       <button class="nav-item" onclick="showPage('import-export')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
@@ -731,6 +736,42 @@
       </div>
     </div>
 
+    <!-- MESSAGES DE CONTACT -->
+    <div id="page-messages" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Messages <span id="messages-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="loadAdminMessages()">↻ Rafraîchir</button>
+        </div>
+      </div>
+      <div class="stats-grid" id="messages-stats">
+        <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total</div></div>
+        <div class="stat-card orange"><div class="stat-val">—</div><div class="stat-label">Non lus</div></div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h3>Formulaire de contact</h3>
+          <div class="search-bar">
+            <input type="text" id="messages-search" placeholder="Rechercher nom, email, message…" oninput="renderMessagesTable()">
+          </div>
+        </div>
+        <div class="filter-bar" id="messages-filter-bar">
+          <span class="filter-chip active" onclick="setMessageFilter('all',this)">Tous</span>
+          <span class="filter-chip"        onclick="setMessageFilter('unread',this)">📩 Non lus</span>
+        </div>
+        <div style="overflow-x:auto">
+          <table>
+            <thead>
+              <tr><th>Expéditeur</th><th>Message</th><th>Date</th><th>Statut</th><th>Actions</th></tr>
+            </thead>
+            <tbody id="messages-table">
+              <tr class="loading-row"><td colspan="5">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
     <!-- IMPORT / EXPORT -->
     <div id="page-import-export" class="page" style="display:none">
       <div class="topbar"><h1>Import / Export</h1></div>
@@ -891,32 +932,17 @@
           </div>
 
           <div class="settings-section">
-            <h3>📬 Formulaire de contact <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(Web3Forms — gratuit, sans compte)</span></h3>
+            <h3>📬 Formulaire de contact <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(messages stockés dans Firebase — aucun service tiers)</span></h3>
             <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
-              <strong>Gratuit · Sans compte · Illimité</strong> — Les messages du formulaire de contact arrivent directement dans votre boîte mail.<br><br>
-              <strong>Setup (1 min) :</strong>
-              <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
-                <li>Allez sur <a href="https://web3forms.com" target="_blank" rel="noopener" style="color:var(--primary)">web3forms.com</a></li>
-                <li>Entrez votre email → cliquez <strong>Create Access Key</strong></li>
-                <li>Vérifiez votre boîte mail → confirmez</li>
-                <li>Copiez la clé ci-dessous</li>
-              </ol>
+              Les messages du formulaire de contact sont stockés dans votre Firestore (collection <code>contacts</code>) et accessibles dans <strong>Admin → Messages</strong>. Aucun service tiers requis — Firebase suffit.<br><br>
+              <strong>Prérequis :</strong> Firebase configuré ci-dessus + règles Firestore mises à jour (ajouter la collection <code>contacts</code> depuis <code>data/firebase-rules.txt</code>).
             </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label>Email de contact affiché sur le site</label>
-                <input type="email" id="contact-email" placeholder="contact@ouipsycho.fr">
-                <div class="hint">Affiché aux visiteurs comme alternative au formulaire</div>
-              </div>
-              <div class="form-group">
-                <label>Web3Forms Access Key</label>
-                <input type="text" id="w3f-key" placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx">
-                <div class="hint">Reçue par email après inscription sur web3forms.com</div>
-              </div>
+            <div class="form-group" style="max-width:360px">
+              <label>Email de contact affiché sur le site <span style="font-weight:400">(optionnel)</span></label>
+              <input type="email" id="contact-email" placeholder="contact@ouipsycho.fr">
+              <div class="hint">Affiché en dessous du formulaire comme alternative directe</div>
             </div>
             <button class="btn btn-primary" onclick="saveContactSettings()">Enregistrer</button>
-            <button class="btn btn-ghost" style="margin-left:8px" onclick="testContactForm()">Envoyer un message test</button>
-            <span id="contact-test-result" style="margin-left:12px;font-size:.85rem;"></span>
           </div>
 
           <div class="settings-section">
@@ -989,7 +1015,6 @@ const CLD_CLOUD_KEY   = 'ouipsycho_cld_cloud';
 const CLD_PRESET_KEY  = 'ouipsycho_cld_preset';
 const CLD_FOLDER_KEY  = 'ouipsycho_cld_folder';
 const CONTACT_EMAIL_KEY = 'ouipsycho_contact_email';
-const W3F_KEY_KEY       = 'ouipsycho_w3f_key';
 const FB_PROJECT_KEY  = 'ouipsycho_fb_project';
 const FB_APIKEY_KEY   = 'ouipsycho_fb_apikey';
 const FB_EMAIL_KEY    = 'ouipsycho_fb_email';
@@ -1060,7 +1085,6 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('fb-apikey').value     = localStorage.getItem(FB_APIKEY_KEY)     || '';
   document.getElementById('fb-email').value      = localStorage.getItem(FB_EMAIL_KEY)      || '';
   document.getElementById('contact-email').value = localStorage.getItem(CONTACT_EMAIL_KEY) || '';
-  document.getElementById('w3f-key').value       = localStorage.getItem(W3F_KEY_KEY)       || '';
   // Initialize keypoints
   for (let i = 0; i < 5; i++) addKeypoint();
 });
@@ -1161,6 +1185,7 @@ function showPage(name) {
   if (name === 'articles')    renderArticlesTable();
   if (name === 'new-article') resetEditor();
   if (name === 'comments')    loadAdminComments();
+  if (name === 'messages')    loadAdminMessages();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
     document.getElementById('gh-owner').value      = localStorage.getItem(GH_OWNER_KEY)  || '';
@@ -1173,7 +1198,6 @@ function showPage(name) {
     document.getElementById('fb-apikey').value     = localStorage.getItem(FB_APIKEY_KEY)     || '';
     document.getElementById('fb-email').value      = localStorage.getItem(FB_EMAIL_KEY)      || '';
     document.getElementById('contact-email').value = localStorage.getItem(CONTACT_EMAIL_KEY) || '';
-    document.getElementById('w3f-key').value       = localStorage.getItem(W3F_KEY_KEY)       || '';
   }
 }
 
@@ -1800,7 +1824,6 @@ async function loadRemoteConfig() {
     if (cfg.firebaseProjectId) localStorage.setItem(FB_PROJECT_KEY,    cfg.firebaseProjectId);
     if (cfg.firebaseApiKey)    localStorage.setItem(FB_APIKEY_KEY,     cfg.firebaseApiKey);
     if (cfg.contactEmail)      localStorage.setItem(CONTACT_EMAIL_KEY, cfg.contactEmail);
-    if (cfg.web3formsKey)      localStorage.setItem(W3F_KEY_KEY,       cfg.web3formsKey);
     // Rafraîchir les champs si la page Paramètres est visible
     document.getElementById('cld-cloud-name').value  = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value      = localStorage.getItem(CLD_PRESET_KEY) || '';
@@ -1841,9 +1864,8 @@ async function pushConfigToGitHub() {
     // FB_EMAIL_KEY + FB_PASS_KEY ne sont JAMAIS publiés sur GitHub
     firebaseProjectId: pick(FB_PROJECT_KEY,    'firebaseProjectId'),
     firebaseApiKey:    pick(FB_APIKEY_KEY,      'firebaseApiKey'),
-    // Contact — email + clé Web3Forms (safe à publier)
-    contactEmail:      pick(CONTACT_EMAIL_KEY,  'contactEmail'),
-    web3formsKey:      pick(W3F_KEY_KEY,        'web3formsKey'),
+    // Contact — email affiché sur le site (safe à publier)
+    contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
   };
 
   try {
@@ -2682,48 +2704,175 @@ document.getElementById('reply-overlay').addEventListener('click', function(e) {
 });
 
 /* ══════════════════════════════════════════════
-   CONTACT — Web3Forms
+   CONTACT — email de contact (Paramètres)
 ══════════════════════════════════════════════ */
 async function saveContactSettings() {
   const email = document.getElementById('contact-email').value.trim();
-  const key   = document.getElementById('w3f-key').value.trim();
-  if (!email && !key) { toast('Remplissez au moins un champ', 'error'); return; }
   if (email) localStorage.setItem(CONTACT_EMAIL_KEY, email);
-  if (key)   localStorage.setItem(W3F_KEY_KEY, key);
-  toast('Configuration contact enregistrée ✅', 'success');
+  toast('Email de contact enregistré ✅', 'success');
   await pushConfigToGitHub();
 }
 
-async function testContactForm() {
-  const key      = document.getElementById('w3f-key').value.trim();
-  const resultEl = document.getElementById('contact-test-result');
-  if (!key) { toast('Entrez d\'abord la Web3Forms Access Key', 'error'); return; }
-  resultEl.textContent = '⏳ Envoi…'; resultEl.style.color = 'var(--gray-500)';
-  try {
-    const res = await fetch('https://api.web3forms.com/submit', {
-      method:  'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-      body: JSON.stringify({
-        access_key: key,
-        name:        'Test Admin Oui Psycho!',
-        email:       'test@ouipsycho.fr',
-        subject:     '✅ Test formulaire de contact — Oui Psycho!',
-        message:     'Ceci est un message de test envoyé depuis l\'admin. Si vous le recevez, le formulaire de contact est correctement configuré.',
-      }),
-    });
-    const data = await res.json();
-    if (data.success) {
-      resultEl.textContent = '✅ Message test envoyé ! Vérifiez votre boîte mail.';
-      resultEl.style.color = 'var(--success)';
-      toast('Test réussi — vérifiez votre boîte mail ✅', 'success');
-    } else {
-      resultEl.textContent = '❌ ' + (data.message || 'Clé invalide');
-      resultEl.style.color = 'var(--danger)';
-    }
-  } catch(e) {
-    resultEl.textContent = '❌ ' + e.message;
-    resultEl.style.color = 'var(--danger)';
+/* ══════════════════════════════════════════════
+   MESSAGES DE CONTACT — Firebase Firestore
+══════════════════════════════════════════════ */
+let adminMessages    = [];
+let messageFilter    = 'all';
+let _msgUnreadCount  = 0;
+
+async function loadAdminMessages() {
+  const project = localStorage.getItem(FB_PROJECT_KEY) || '';
+  const apiKey  = _fbaApiKey();
+  if (!project || !apiKey) {
+    document.getElementById('messages-table').innerHTML =
+      '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Firebase dans les <strong>Paramètres</strong>.</td></tr>';
+    return;
   }
+  document.getElementById('messages-table').innerHTML =
+    '<tr class="loading-row"><td colspan="5">Chargement…</td></tr>';
+  try {
+    const headers = await _fbaHeaders();
+    if (!headers) {
+      document.getElementById('messages-table').innerHTML =
+        '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--danger)">⚠️ Email/mot de passe Firebase manquants dans Paramètres.</td></tr>';
+      return;
+    }
+    const query = {
+      structuredQuery: {
+        from: [{ collectionId: 'contacts' }],
+        orderBy: [{ field: { fieldPath: 'created_at' }, direction: 'DESCENDING' }],
+        limit: 200,
+      },
+    };
+    const res = await fetch(`${_fbaBase()}:runQuery?key=${apiKey}`, {
+      method: 'POST', headers, body: JSON.stringify(query),
+    });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const rows = await res.json();
+    adminMessages  = rows.filter(r => r.document).map(r => _fbaParse(r.document));
+    _msgUnreadCount = adminMessages.filter(m => !m.read).length;
+    renderMessagesStats();
+    renderMessagesTable();
+    updateMessagesBadge();
+  } catch(e) {
+    document.getElementById('messages-table').innerHTML =
+      `<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--danger)">Erreur : ${e.message}</td></tr>`;
+    toast('Erreur messages : ' + e.message, 'error');
+  }
+}
+
+function updateMessagesBadge() {
+  const badge = document.getElementById('messages-badge');
+  if (!badge) return;
+  if (_msgUnreadCount > 0) { badge.textContent = _msgUnreadCount; badge.style.display = 'inline'; }
+  else badge.style.display = 'none';
+}
+
+function renderMessagesStats() {
+  const total  = adminMessages.length;
+  const unread = adminMessages.filter(m => !m.read).length;
+  document.getElementById('messages-stats').innerHTML = `
+    <div class="stat-card">
+      <div class="stat-val">${total}</div><div class="stat-label">Total messages</div>
+    </div>
+    <div class="stat-card orange">
+      <div class="stat-val">${unread}</div><div class="stat-label">Non lus</div>
+    </div>`;
+}
+
+function setMessageFilter(f, el) {
+  messageFilter = f;
+  document.querySelectorAll('#messages-filter-bar .filter-chip').forEach(c => c.classList.remove('active'));
+  el.classList.add('active');
+  renderMessagesTable();
+}
+
+function renderMessagesTable() {
+  const q = (document.getElementById('messages-search')?.value || '').toLowerCase();
+  let list = adminMessages.filter(m => {
+    if (messageFilter === 'unread') return !m.read;
+    return true;
+  }).filter(m =>
+    !q ||
+    (m.name    || '').toLowerCase().includes(q) ||
+    (m.email   || '').toLowerCase().includes(q) ||
+    (m.message || '').toLowerCase().includes(q) ||
+    (m.subject || '').toLowerCase().includes(q)
+  );
+  const countEl = document.getElementById('messages-admin-count');
+  if (countEl) countEl.textContent = `(${list.length})`;
+  if (!list.length) {
+    document.getElementById('messages-table').innerHTML =
+      '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun message</td></tr>';
+    return;
+  }
+  document.getElementById('messages-table').innerHTML = list.map(m => {
+    const dateStr = new Date(m.created_at).toLocaleDateString('fr-FR',
+      { day: 'numeric', month: 'short', year: 'numeric' });
+    const readBadge = m.read
+      ? '<span class="badge badge-gray" style="font-size:.7rem">Lu</span>'
+      : '<span class="badge badge-orange" style="font-size:.7rem">Nouveau</span>';
+    const excerpt = (m.message || '').length > 80 ? m.message.slice(0, 80) + '…' : m.message;
+    const subject = m.subject ? `<div style="font-size:.75rem;color:var(--gray-400)">${escapeAttr(m.subject)}</div>` : '';
+    return `<tr style="${m.read ? '' : 'font-weight:600'}">
+      <td>
+        <div>${escapeAttr(m.name || '—')}</div>
+        <div style="font-size:.75rem;color:var(--primary)">
+          <a href="mailto:${escapeAttr(m.email || '')}" style="color:var(--primary)">${escapeAttr(m.email || '')}</a>
+        </div>
+      </td>
+      <td style="max-width:320px">
+        ${subject}
+        <div style="font-size:.85rem;font-weight:normal">${escapeAttr(excerpt)}</div>
+      </td>
+      <td style="white-space:nowrap;font-size:.8rem">${dateStr}</td>
+      <td>${readBadge}</td>
+      <td>
+        <div class="actions" style="gap:4px">
+          ${!m.read ? `<button class="btn btn-ghost btn-sm" onclick="markMessageRead('${m.id}')">✓ Lu</button>` : ''}
+          <a href="mailto:${escapeAttr(m.email || '')}?subject=Re: ${encodeURIComponent(m.subject || 'Votre message')}" class="btn btn-primary btn-sm">✉️ Répondre</a>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteMessage('${m.id}')">🗑️</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+async function markMessageRead(id) {
+  const headers = await _fbaHeaders().catch(() => null);
+  if (!headers) return;
+  const mask = 'updateMask.fieldPaths=read';
+  try {
+    await fetch(`${_fbaBase()}/contacts/${id}?key=${_fbaApiKey()}&${mask}`, {
+      method: 'PATCH', headers,
+      body:   JSON.stringify({ fields: _fbaFields({ read: true }) }),
+    });
+    const idx = adminMessages.findIndex(m => m.id === id);
+    if (idx > -1) adminMessages[idx].read = true;
+    _msgUnreadCount = adminMessages.filter(m => !m.read).length;
+    renderMessagesStats(); renderMessagesTable(); updateMessagesBadge();
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
+}
+
+function confirmDeleteMessage(id) {
+  const m = adminMessages.find(x => x.id === id);
+  document.getElementById('confirm-title').textContent = 'Supprimer ce message ?';
+  document.getElementById('confirm-msg').textContent   = `De ${m?.name || '?'} — irréversible.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
+  document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteMessage(id); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+
+async function deleteMessage(id) {
+  const headers = await _fbaHeaders().catch(() => null);
+  if (!headers) return;
+  try {
+    await fetch(`${_fbaBase()}/contacts/${id}?key=${_fbaApiKey()}`, { method: 'DELETE', headers });
+    adminMessages = adminMessages.filter(m => m.id !== id);
+    _msgUnreadCount = adminMessages.filter(m => !m.read).length;
+    renderMessagesStats(); renderMessagesTable(); updateMessagesBadge();
+    toast('Message supprimé', 'success');
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 </script>
 </body>
