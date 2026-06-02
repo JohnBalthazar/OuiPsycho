@@ -1780,18 +1780,32 @@ async function loadRemoteConfig() {
 async function pushConfigToGitHub() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (!pat) return; // Pas de PAT → pas de push (silencieux)
+
+  // Charger d'abord la config distante pour ne jamais écraser une valeur
+  // existante avec une chaîne vide (race condition au chargement)
+  let remote = {};
+  try {
+    const r = await fetch('data/config.json?t=' + Date.now());
+    if (r.ok) remote = await r.json();
+  } catch(_) {}
+
+  // Valeur locale si non vide, sinon valeur GitHub existante, sinon défaut
+  const pick = (lsKey, remoteKey, def = '') =>
+    localStorage.getItem(lsKey) || remote[remoteKey] || def;
+
   const cfg = {
-    cloudName:      localStorage.getItem(CLD_CLOUD_KEY)   || '',
-    uploadPreset:   localStorage.getItem(CLD_PRESET_KEY)  || '',
-    cldFolder:      localStorage.getItem(CLD_FOLDER_KEY)  || 'ouipsycho/articles',
-    ghOwner:        localStorage.getItem(GH_OWNER_KEY)    || '',
-    ghRepo:         localStorage.getItem(GH_REPO_KEY)     || '',
-    ghBranch:       localStorage.getItem(GH_BRANCH_KEY)   || 'main',
-    // Firebase : projectId + apiKey uniquement (safe à publier — Firestore rules protègent)
-    firebaseProjectId: localStorage.getItem(FB_PROJECT_KEY) || '',
-    firebaseApiKey:    localStorage.getItem(FB_APIKEY_KEY)  || '',
-    // NOTE: FB_EMAIL_KEY + FB_PASS_KEY ne sont JAMAIS publiés sur GitHub
+    cloudName:         pick(CLD_CLOUD_KEY,  'cloudName'),
+    uploadPreset:      pick(CLD_PRESET_KEY, 'uploadPreset'),
+    cldFolder:         pick(CLD_FOLDER_KEY, 'cldFolder', 'ouipsycho/articles'),
+    ghOwner:           pick(GH_OWNER_KEY,   'ghOwner'),
+    ghRepo:            pick(GH_REPO_KEY,    'ghRepo'),
+    ghBranch:          pick(GH_BRANCH_KEY,  'ghBranch', 'main'),
+    // Firebase — projectId + apiKey uniquement (safe à publier)
+    // FB_EMAIL_KEY + FB_PASS_KEY ne sont JAMAIS publiés sur GitHub
+    firebaseProjectId: pick(FB_PROJECT_KEY, 'firebaseProjectId'),
+    firebaseApiKey:    pick(FB_APIKEY_KEY,  'firebaseApiKey'),
   };
+
   try {
     await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: mise à jour paramètres admin');
     toast('⚙️ Config sauvegardée sur GitHub — accessible depuis tous vos appareils', 'success');
