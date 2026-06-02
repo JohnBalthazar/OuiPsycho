@@ -99,6 +99,8 @@
       </form>
     </div>
 
+    <p id="contact-email-alt" style="display:none;text-align:center;margin-bottom:1.25rem;font-size:.9rem;color:#6b7280"></p>
+
     <div style="background:#eff6ff;border-radius:10px;padding:1.25rem;font-size:0.9rem;color:#1e40af">
       <strong>⚕️ Rappel important :</strong> Oui Psycho! n'est pas un service de soutien psychologique.
       Si vous traversez une crise ou une urgence, appelez le <strong><a href="tel:3114" style="color:#1e40af">3114</a></strong>
@@ -150,13 +152,80 @@
 
   <script src="js/main.js"></script>
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function(e) {
+    let _w3fKey      = '';
+    let _contactEmail = '';
+
+    // Charger la config (clé Web3Forms + email) depuis data/config.json
+    fetch('data/config.json?t=' + Date.now())
+      .then(r => r.ok ? r.json() : {})
+      .then(cfg => {
+        _w3fKey       = cfg.web3formsKey  || '';
+        _contactEmail = cfg.contactEmail  || '';
+        // Afficher l'email alternatif si configuré
+        if (_contactEmail) {
+          const altEl = document.getElementById('contact-email-alt');
+          if (altEl) {
+            altEl.innerHTML = `Ou écrivez-nous directement à : <a href="mailto:${_contactEmail}" style="color:#1F4E6B;font-weight:600">${_contactEmail}</a>`;
+            altEl.style.display = 'block';
+          }
+        }
+        // Si pas de clé Web3Forms, désactiver le bouton avec un message
+        if (!_w3fKey) {
+          const btn = document.querySelector('#contact-form button[type="submit"]');
+          if (btn) { btn.disabled = true; btn.title = 'Formulaire non configuré'; }
+        }
+      })
+      .catch(() => {});
+
+    document.getElementById('contact-form').addEventListener('submit', async function(e) {
       e.preventDefault();
-      const fb = document.getElementById('cf-feedback');
-      fb.style.display = 'block';
-      fb.style.color = '#059669';
-      fb.textContent = '✓ Message envoyé ! Nous vous répondrons dans les plus brefs délais.';
-      this.reset();
+      const fb      = document.getElementById('cf-feedback');
+      const btn     = this.querySelector('button[type="submit"]');
+      const name    = document.getElementById('cf-name').value.trim();
+      const email   = document.getElementById('cf-email').value.trim();
+      const subject = document.getElementById('cf-subject').value;
+      const message = document.getElementById('cf-message').value.trim();
+
+      if (!name || !email || !message) {
+        fb.style.display = 'block';
+        fb.style.color   = '#dc2626';
+        fb.textContent   = '⚠️ Merci de remplir tous les champs obligatoires.';
+        return;
+      }
+
+      btn.disabled    = true;
+      btn.textContent = '⏳ Envoi en cours…';
+      fb.style.display = 'none';
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method:  'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({
+            access_key: _w3fKey,
+            name, email, subject, message,
+            // Champs utiles dans l'email reçu
+            'h-captcha-response': 'exempt',
+          }),
+        });
+        const data = await res.json();
+        if (data.success) {
+          fb.style.display = 'block';
+          fb.style.color   = '#059669';
+          fb.textContent   = '✅ Message envoyé ! Nous vous répondrons dans les plus brefs délais.';
+          this.reset();
+        } else {
+          throw new Error(data.message || 'Erreur inconnue');
+        }
+      } catch(err) {
+        fb.style.display = 'block';
+        fb.style.color   = '#dc2626';
+        fb.textContent   = '❌ Une erreur est survenue. Réessayez ou écrivez-nous directement par email.';
+        console.error('Contact form error:', err);
+      } finally {
+        btn.disabled    = false;
+        btn.textContent = 'Envoyer le message ✓';
+      }
     });
   </script>
 </body>
