@@ -383,6 +383,11 @@
         Messages
         <span id="messages-badge" style="background:var(--accent);color:#fff;border-radius:9999px;padding:1px 8px;font-size:.7rem;margin-left:auto;display:none;line-height:1.6">0</span>
       </button>
+      <div class="nav-section">Pages</div>
+      <button class="nav-item" onclick="showPage('about')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        À propos
+      </button>
       <div class="nav-section">Outils</div>
       <button class="nav-item" onclick="showPage('import-export')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
@@ -732,6 +737,87 @@
               <tr class="loading-row"><td colspan="6">Chargement…</td></tr>
             </tbody>
           </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- PAGE À PROPOS -->
+    <div id="page-about" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Page À propos</h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="showPage('articles')">Annuler</button>
+          <a href="a-propos.html" target="_blank" class="btn btn-ghost">👁 Voir la page</a>
+          <button class="btn btn-success" onclick="saveAbout()" id="about-save-btn">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Enregistrer
+          </button>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:20px;">
+        <!-- Contenu -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card">
+            <div class="card-header"><h3>Contenu</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Titre de la page</label>
+                <input type="text" id="about-title-field" placeholder="À propos de Oui Psycho!">
+              </div>
+              <div class="form-group">
+                <label>Sous-titre</label>
+                <input type="text" id="about-subtitle-field" placeholder="Notre mission, notre approche, nos engagements.">
+              </div>
+              <div class="form-group">
+                <label>Contenu</label>
+                <div class="wysiwyg-wrap">
+                  <div class="wysiwyg-toolbar">
+                    <button type="button" onclick="wys('bold')" title="Gras"><strong>G</strong></button>
+                    <button type="button" onclick="wys('italic')" title="Italique"><em>I</em></button>
+                    <button type="button" onclick="wys('underline')" title="Souligné"><u>S</u></button>
+                    <div class="wysep"></div>
+                    <button type="button" onclick="wysBlock('h2')" title="Titre 2">H2</button>
+                    <button type="button" onclick="wysBlock('h3')" title="Titre 3">H3</button>
+                    <button type="button" onclick="wysBlock('p')" title="Paragraphe">¶</button>
+                    <div class="wysep"></div>
+                    <button type="button" onclick="wys('insertUnorderedList')" title="Liste">• Liste</button>
+                    <button type="button" onclick="wysBlock('blockquote')" title="Citation">❝</button>
+                    <button type="button" onclick="wysLink()" title="Lien">🔗 Lien</button>
+                    <div class="wysep"></div>
+                    <button type="button" onclick="wys('removeFormat')" title="Supprimer format">✕ Format</button>
+                    <button type="button" onclick="document.execCommand('undo')">↩</button>
+                    <button type="button" onclick="document.execCommand('redo')">↪</button>
+                  </div>
+                  <div id="about-wysiwyg" class="wysiwyg-editor" contenteditable="true"
+                    oninput="syncAboutEditor()"
+                    onkeydown="handleWysKeydown(event)"></div>
+                </div>
+                <textarea id="about-content-field" style="display:none"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div class="card">
+            <div class="card-header"><h3>SEO</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <label>Meta description</label>
+                <textarea id="about-meta-field" rows="4" placeholder="Description pour les moteurs de recherche…" oninput="updateAboutSeoCounter()"></textarea>
+                <div class="seo-bar"><div class="seo-bar-fill" id="about-seo-fill"></div></div>
+                <div class="char-counter" id="about-seo-counter">0 / 160</div>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header"><h3>Infos</h3></div>
+            <div class="panel-body" style="font-size:.85rem;color:var(--gray-500);line-height:1.7">
+              <p>Les modifications sont sauvegardées dans <code>data/about.json</code> sur GitHub et se reflètent immédiatement sur <a href="a-propos.html" target="_blank" style="color:var(--primary)">a-propos.html</a>.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1186,6 +1272,7 @@ function showPage(name) {
   if (name === 'new-article') resetEditor();
   if (name === 'comments')    loadAdminComments();
   if (name === 'messages')    loadAdminMessages();
+  if (name === 'about')       loadAboutPage();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
     document.getElementById('gh-owner').value      = localStorage.getItem(GH_OWNER_KEY)  || '';
@@ -2696,6 +2783,76 @@ async function testFirebaseConnection() {
     resultEl.textContent = '❌ ' + e.message;
     resultEl.style.color = 'var(--danger)';
   }
+}
+
+/* ══════════════════════════════════════════════
+   PAGE À PROPOS
+══════════════════════════════════════════════ */
+async function loadAboutPage() {
+  try {
+    const res = await fetch('data/about.json?t=' + Date.now());
+    const d   = res.ok ? await res.json() : {};
+    document.getElementById('about-title-field').value    = d.title    || '';
+    document.getElementById('about-subtitle-field').value = d.subtitle || '';
+    document.getElementById('about-meta-field').value     = d.metaDescription || '';
+    const content = d.content || '';
+    document.getElementById('about-content-field').value  = content;
+    document.getElementById('about-wysiwyg').innerHTML    = content;
+    updateAboutSeoCounter();
+  } catch(e) {
+    toast('Impossible de charger data/about.json : ' + e.message, 'error');
+  }
+}
+
+function syncAboutEditor() {
+  const editor = document.getElementById('about-wysiwyg');
+  const field  = document.getElementById('about-content-field');
+  if (editor && field) field.value = editor.innerHTML;
+}
+
+function updateAboutSeoCounter() {
+  const len   = document.getElementById('about-meta-field').value.length;
+  const fill  = document.getElementById('about-seo-fill');
+  const count = document.getElementById('about-seo-counter');
+  count.textContent = len + ' / 160';
+  const pct = Math.min(len / 160, 1);
+  fill.style.width = (pct * 100) + '%';
+  if (len === 0)       { fill.style.background = 'var(--gray-300)'; count.className = 'char-counter'; }
+  else if (len < 100)  { fill.style.background = 'var(--warning)';  count.className = 'char-counter warn'; }
+  else if (len <= 160) { fill.style.background = 'var(--success)';  count.className = 'char-counter ok'; }
+  else                 { fill.style.background = 'var(--danger)';   count.className = 'char-counter warn'; }
+}
+
+async function saveAbout() {
+  syncAboutEditor();
+  const title    = document.getElementById('about-title-field').value.trim();
+  const subtitle = document.getElementById('about-subtitle-field').value.trim();
+  const content  = document.getElementById('about-content-field').value.trim();
+  const meta     = document.getElementById('about-meta-field').value.trim();
+
+  if (!content) { toast('Le contenu ne peut pas être vide', 'error'); return; }
+
+  const btn = document.getElementById('about-save-btn');
+  btn.innerHTML = '<div class="spinner"></div> Enregistrement…';
+  btn.disabled  = true;
+
+  const data = { title, subtitle, metaDescription: meta, content };
+
+  try {
+    const pat = localStorage.getItem(GH_PAT_KEY);
+    if (pat) {
+      await githubPutFile('data/about.json', JSON.stringify(data, null, 2), 'content: mise à jour page À propos');
+      toast('Page À propos mise à jour sur GitHub ✅', 'success');
+    } else {
+      downloadJSON(data, 'about.json');
+      toast('Fichier about.json téléchargé — uploadez-le dans data/ sur GitHub', 'info');
+    }
+  } catch(e) {
+    toast('Erreur : ' + e.message, 'error');
+  }
+
+  btn.innerHTML = '✓ Enregistrer';
+  btn.disabled  = false;
 }
 
 // Fermer le modal reply en cliquant hors du panel

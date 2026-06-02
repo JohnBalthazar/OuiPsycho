@@ -56,52 +56,50 @@
     </div>
   </header>
 
-  <div class="container" style="max-width:760px;margin:3rem auto;padding:0 1.5rem">
+  <div class="container" style="max-width:760px;margin:3rem auto;padding:0 1.5rem" id="about-wrapper">
 
     <nav class="breadcrumb" aria-label="Fil d'Ariane" style="margin-bottom:2rem">
       <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">À propos</span>
     </nav>
 
-    <h1 style="font-size:2.2rem;margin-bottom:0.5rem">À propos de Oui Psycho!</h1>
-    <p style="color:#6b7280;margin-bottom:2.5rem">Notre mission, notre approche, nos engagements.</p>
+    <h1 id="about-title" style="font-size:2.2rem;margin-bottom:0.5rem">À propos de Oui Psycho!</h1>
+    <p id="about-subtitle" style="color:#6b7280;margin-bottom:2.5rem">Notre mission, notre approche, nos engagements.</p>
 
-    <section style="margin-bottom:2.5rem">
-      <h2>🧠 Qui sommes-nous ?</h2>
-      <p><strong>Oui Psycho!</strong> est un blog de vulgarisation psychologique indépendant, fondé avec une conviction simple : <em>comprendre comment fonctionne son esprit est l'un des actes les plus utiles qu'on puisse faire pour soi-même.</em></p>
-      <p>Nous publions des articles clairs, rigoureux et accessibles sur la santé mentale — l'anxiété, la dépression, le stress, le sommeil, les thérapies, les relations et le développement personnel. Pas de jargon inutile. Pas de promesses miraculeuses. Des explications honnêtes, ancrées dans la recherche scientifique.</p>
-    </section>
-
-    <section style="margin-bottom:2.5rem">
-      <h2>📖 Notre approche éditoriale</h2>
-      <p>Chaque article de Oui Psycho! est rédigé en s'appuyant sur des sources sérieuses : études cliniques, recommandations de la Haute Autorité de Santé (HAS), de l'OMS, et travaux de chercheurs reconnus en psychologie et neurosciences.</p>
-      <p>Nous distinguons systématiquement ce qui est <strong>validé scientifiquement</strong> de ce qui relève du témoignage ou de l'hypothèse. Nous mettons régulièrement à jour nos articles pour refléter l'état actuel des connaissances.</p>
-      <ul>
-        <li>✅ Sources citées et vérifiables</li>
-        <li>✅ Langage clair, sans condescendance</li>
-        <li>✅ Avertissements systématiques sur les limites informationnelles</li>
-        <li>✅ Renvoi vers des professionnels qualifiés quand nécessaire</li>
-      </ul>
-    </section>
-
-    <section style="margin-bottom:2.5rem">
-      <h2>⚕️ Ce que nous ne sommes pas</h2>
-      <p>Oui Psycho! est un site d'information et de vulgarisation. Nos articles <strong>ne constituent pas un avis médical ou psychologique</strong> et ne remplacent en aucun cas une consultation professionnelle.</p>
-      <p>Si vous traversez une période difficile, si vous ressentez une souffrance psychologique significative, ou si vous avez des pensées de vous faire du mal, nous vous encourageons vivement à consulter un médecin, un psychologue ou un psychiatre.</p>
-      <p><strong>En cas d'urgence :</strong> appelez le <a href="tel:15">15</a> (SAMU), le <a href="tel:3114">3114</a> (numéro national de prévention du suicide, gratuit, 24h/24) ou le <a href="tel:3919">3919</a> (violences).</p>
-    </section>
-
-    <section style="margin-bottom:2.5rem">
-      <h2>💌 Nous contacter</h2>
-      <p>Une question, une suggestion d'article, une erreur à signaler ? Nous lisons tous les messages avec attention.</p>
-      <p><a href="contact.html" class="btn-newsletter" style="display:inline-block;padding:0.75rem 1.5rem;border-radius:8px;text-decoration:none">Nous écrire →</a></p>
-    </section>
-
-    <section style="background:#f0fdf4;border-radius:12px;padding:1.5rem;margin-bottom:2.5rem">
-      <h2 style="margin-top:0">🌱 Notre engagement</h2>
-      <p style="margin-bottom:0">La santé mentale reste trop souvent taboue, mal comprise, ou inaccessible faute d'information claire. Oui Psycho! existe pour réduire ce fossé — avec sérieux, humilité et la conviction que chaque personne mérite de comprendre ce qui se passe en elle.</p>
-    </section>
+    <div id="about-content">
+      <!-- Contenu chargé dynamiquement depuis data/about.json -->
+      <!-- Fallback statique ci-dessous (visible si JS désactivé) -->
+      <section style="margin-bottom:2.5rem">
+        <h2>🧠 Qui sommes-nous ?</h2>
+        <p><strong>Oui Psycho!</strong> est un blog de vulgarisation psychologique indépendant, fondé avec une conviction simple : <em>comprendre comment fonctionne son esprit est l'un des actes les plus utiles qu'on puisse faire pour soi-même.</em></p>
+        <p>Nous publions des articles clairs, rigoureux et accessibles sur la santé mentale — l'anxiété, la dépression, le stress, le sommeil, les thérapies, les relations et le développement personnel.</p>
+      </section>
+      <section style="margin-bottom:2.5rem">
+        <h2>⚕️ Ce que nous ne sommes pas</h2>
+        <p>Oui Psycho! est un site d'information. Nos articles <strong>ne constituent pas un avis médical</strong> et ne remplacent pas une consultation professionnelle.</p>
+        <p><strong>En cas d'urgence :</strong> <a href="tel:3114">3114</a> (prévention suicide, 24h/24, gratuit).</p>
+      </section>
+    </div>
 
   </div>
+
+  <script>
+    fetch('data/about.json?t=' + Date.now())
+      .then(r => r.ok ? r.json() : null)
+      .then(d => {
+        if (!d) return;
+        const t = document.getElementById('about-title');
+        const s = document.getElementById('about-subtitle');
+        const c = document.getElementById('about-content');
+        if (t && d.title)    t.textContent = d.title;
+        if (s && d.subtitle) s.textContent = d.subtitle;
+        if (c && d.content)  c.innerHTML   = d.content;
+        if (d.metaDescription) {
+          const m = document.querySelector('meta[name="description"]');
+          if (m) m.setAttribute('content', d.metaDescription);
+        }
+      })
+      .catch(() => {});
+  </script>
 
   <footer class="site-footer">
     <div class="container">
