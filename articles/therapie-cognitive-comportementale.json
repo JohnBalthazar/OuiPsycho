@@ -6,9 +6,16 @@
   "date": "2026-03-10",
   "category": "Thérapies",
   "image": "",
-  "readTime": 8,
+  "readTime": 4,
   "author": "La rédaction Oui Psycho!",
-  "tags": ["TCC", "thérapie cognitive", "distorsions cognitives", "anxiété", "dépression", "psychothérapie"],
+  "tags": [
+    "TCC",
+    "thérapie cognitive",
+    "distorsions cognitives",
+    "anxiété",
+    "dépression",
+    "psychothérapie"
+  ],
   "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
   "keypoints": [
     "La TCC repose sur un principe clé : ce sont nos pensées, pas les événements, qui créent nos émotions",

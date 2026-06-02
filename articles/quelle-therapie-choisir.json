@@ -6,9 +6,17 @@
   "date": "2026-03-25",
   "category": "Thérapies",
   "image": "",
-  "readTime": 8,
+  "readTime": 3,
   "author": "La rédaction Oui Psycho!",
-  "tags": ["thérapie", "TCC", "EMDR", "psychanalyse", "ACT", "psychologue", "psychiatre"],
+  "tags": [
+    "thérapie",
+    "TCC",
+    "EMDR",
+    "psychanalyse",
+    "ACT",
+    "psychologue",
+    "psychiatre"
+  ],
   "metaDescription": "Quel type de thérapie choisir ? TCC, EMDR, psychanalyse, ACT, Gestalt : leurs différences, indications et efficacité expliquées clairement pour bien choisir.",
   "keypoints": [
     "Psychiatre = médecin qui prescrit, Psychologue = bac+5 qui pratique la psychothérapie",

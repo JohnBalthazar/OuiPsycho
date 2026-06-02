@@ -6,9 +6,16 @@
   "date": "2026-04-10",
   "category": "Sommeil",
   "image": "",
-  "readTime": 7,
+  "readTime": 3,
   "author": "La rédaction Oui Psycho!",
-  "tags": ["sommeil", "insomnie", "anxiété", "dépression", "santé mentale", "rythme circadien"],
+  "tags": [
+    "sommeil",
+    "insomnie",
+    "anxiété",
+    "dépression",
+    "santé mentale",
+    "rythme circadien"
+  ],
   "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir.",
   "keypoints": [
     "Une nuit courte augmente la réactivité émotionnelle de 60% dès le lendemain",

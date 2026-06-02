@@ -6,9 +6,16 @@
   "date": "2026-04-28",
   "category": "Bien-être",
   "image": "",
-  "readTime": 7,
+  "readTime": 3,
   "author": "La rédaction Oui Psycho!",
-  "tags": ["méditation", "pleine conscience", "mindfulness", "stress", "bien-être", "MBSR"],
+  "tags": [
+    "méditation",
+    "pleine conscience",
+    "mindfulness",
+    "stress",
+    "bien-être",
+    "MBSR"
+  ],
   "metaDescription": "Guide complet de la méditation pleine conscience pour débutants : bienfaits scientifiques, exercices pratiques et conseils pour créer une habitude durable.",
   "keypoints": [
     "10 minutes de méditation par jour suffisent pour des effets mesurables sur le cerveau",
