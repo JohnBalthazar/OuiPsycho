@@ -2259,10 +2259,9 @@ async function saveArticle() {
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
     } else {
-      // Download files locally
-      downloadJSON(articleData, id + '.json');
-      downloadJSON(articles, 'articles.json');
-      toast('Fichiers téléchargés — uploadez-les sur GitHub manuellement', 'info');
+      // Pas de PAT : afficher une erreur claire avec lien vers les paramètres
+      const goSettings = () => showPage('settings');
+      toast('⚠️ Token GitHub manquant — les modifications ne sont PAS en ligne. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000);
     }
 
     showPage('articles');
@@ -2302,7 +2301,7 @@ async function deleteArticle(id) {
     }
   } else {
     downloadJSON(articles, 'articles.json');
-    toast('Index mis à jour téléchargé — supprimez le fichier JSON manuellement sur GitHub', 'info');
+    toast('⚠️ Token GitHub manquant — suppression non synchronisée. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000);
   }
   renderArticlesTable();
   renderDashboard();
@@ -2425,7 +2424,7 @@ async function testGitHubConnection() {
 ══════════════════════════════════════════════ */
 async function pushAllToGitHub() {
   const pat = localStorage.getItem(GH_PAT_KEY);
-  if (!pat) { toast('Configurez un PAT dans les paramètres', 'error'); return; }
+  if (!pat) { toast('⚠️ Token GitHub manquant — rien ne sera mis en ligne. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000); return; }
   const msg = document.getElementById('commit-msg').value || 'feat: update articles';
   const log = document.getElementById('push-log');
   log.style.display = 'block';
@@ -2737,12 +2736,14 @@ function downloadJSON(data, filename) {
 function escapeAttr(str) {
   return String(str || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 }
-function toast(msg, type = 'info') {
+function toast(msg, type = 'info', duration = 4000) {
   const t = document.createElement('div');
   t.className = 'toast ' + type;
-  t.textContent = msg;
+  t.innerHTML = msg;          // supporte le HTML pour les liens d'action
+  t.style.cursor = 'pointer';
+  t.addEventListener('click', () => t.remove());
   document.getElementById('toast-container').appendChild(t);
-  setTimeout(() => t.remove(), 4000);
+  setTimeout(() => t.remove(), duration);
 }
 
 // Close confirm on overlay click
