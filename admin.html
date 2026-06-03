@@ -1482,31 +1482,36 @@ async function doLogin() {
   startSessionTimer(SESSION_DURATION);
 
   // Déchiffrer PAT + credentials Firebase depuis config.json si absents du localStorage
-  const needPat = !localStorage.getItem(GH_PAT_KEY);
-  const needFb  = !localStorage.getItem(FB_EMAIL_KEY) || !localStorage.getItem(FB_PASS_KEY);
-  if (needPat || needFb) {
+  const needPat   = !localStorage.getItem(GH_PAT_KEY);
+  const needFb    = !localStorage.getItem(FB_EMAIL_KEY) || !localStorage.getItem(FB_PASS_KEY);
+  const needBrevo = !localStorage.getItem(BREVO_KEY_KEY);
+  if (needPat || needFb || needBrevo) {
     try {
       const r = await fetch('data/config.json?t=' + Date.now());
       if (r.ok) {
         const cfg = await r.json();
+        const restored = [];
         // Restaurer le PAT GitHub
         if (needPat && cfg.pat_enc) {
           const pat = await decryptPAT(cfg.pat_enc, pass);
-          if (pat) {
-            localStorage.setItem(GH_PAT_KEY, pat);
-            toast('🔓 Token GitHub restauré', 'success');
-          }
+          if (pat) { localStorage.setItem(GH_PAT_KEY, pat); restored.push('GitHub'); }
         }
         // Restaurer les credentials Firebase (email + mot de passe chiffrés)
         if (needFb && cfg.fb_enc) {
-          const fb = await decryptPAT(cfg.fb_enc, pass); // même algo AES-256-GCM
+          const fb = await decryptPAT(cfg.fb_enc, pass);
           if (fb) {
-            const [fbEmail, fbPass] = fb.split('\x00'); // séparateur null-byte
+            const [fbEmail, fbPass] = fb.split('\x00');
             if (fbEmail) localStorage.setItem(FB_EMAIL_KEY, fbEmail);
             if (fbPass)  localStorage.setItem(FB_PASS_KEY,  fbPass);
-            toast('🔓 Connexion Firebase restaurée', 'success');
+            restored.push('Firebase');
           }
         }
+        // Restaurer la clé API Brevo
+        if (needBrevo && cfg.brevo_enc) {
+          const brevoKey = await decryptPAT(cfg.brevo_enc, pass);
+          if (brevoKey) { localStorage.setItem(BREVO_KEY_KEY, brevoKey); restored.push('Brevo'); }
+        }
+        if (restored.length) toast('🔓 Connexions restaurées : ' + restored.join(', '), 'success');
       }
     } catch(_) {}
   }
@@ -2785,6 +2790,7 @@ async function loadRemoteConfig() {
     if (cfg.ghBranch)        localStorage.setItem(GH_BRANCH_KEY,   cfg.ghBranch);
     if (cfg.firebaseProjectId) localStorage.setItem(FB_PROJECT_KEY,    cfg.firebaseProjectId);
     if (cfg.firebaseApiKey)    localStorage.setItem(FB_APIKEY_KEY,     cfg.firebaseApiKey);
+    if (cfg.brevoListId)       localStorage.setItem(BREVO_LIST_KEY,    String(cfg.brevoListId));
     if (cfg.contactEmail)      localStorage.setItem(CONTACT_EMAIL_KEY, cfg.contactEmail);
     // Rafraîchir les champs si la page Paramètres est visible
     document.getElementById('cld-cloud-name').value  = localStorage.getItem(CLD_CLOUD_KEY)  || '';
@@ -2825,6 +2831,12 @@ async function pushConfigToGitHub() {
   const fbEncRemote = remote.fb_enc || null;
   const fbEnc       = fbEncLocal ? JSON.parse(fbEncLocal) : fbEncRemote;
 
+  // Clé API Brevo chiffrée — même logique
+  const brevoEncLocal  = localStorage.getItem('ouipsycho_brevo_enc');
+  const brevoEncRemote = remote.brevo_enc || null;
+  const brevoEnc       = brevoEncLocal ? JSON.parse(brevoEncLocal) : brevoEncRemote;
+  const brevoListId    = localStorage.getItem(BREVO_LIST_KEY) || remote.brevoListId || '';
+
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
 
@@ -2843,7 +2855,11 @@ async function pushConfigToGitHub() {
     // PAT GitHub chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
     ...(patEnc ? { pat_enc: patEnc } : {}),
     // Credentials Firebase chiffrés AES-256-GCM (inutilisables sans le mot de passe admin)
-    ...(fbEnc  ? { fb_enc:  fbEnc  } : {}),
+    ...(fbEnc      ? { fb_enc:    fbEnc    } : {}),
+    // Clé API Brevo chiffrée AES-256-GCM (inutilisable sans le mot de passe admin)
+    ...(brevoEnc   ? { brevo_enc: brevoEnc } : {}),
+    // ID liste Brevo (non sensible — juste un numéro)
+    ...(brevoListId ? { brevoListId } : {}),
   };
 
   try {
@@ -3483,28 +3499,21 @@ function exportNewsletterCSV() {
   toast('Export CSV téléchargé ✓', 'success');
 }
 
-function saveBrevoSettings() {
+async function saveBrevoSettings() {
   const key  = document.getElementById('brevo-apikey').value.trim();
   const list = document.getElementById('brevo-listid').value.trim();
   if (!key || !list) { toast('Remplissez la clé API et l\'ID de liste', 'error'); return; }
   localStorage.setItem(BREVO_KEY_KEY,  key);
   localStorage.setItem(BREVO_LIST_KEY, list);
+  // Chiffrer la clé API Brevo avec le mot de passe admin (AES-256-GCM)
+  if (_sessionPassword) {
+    try {
+      const brevoEnc = await encryptPAT(key, _sessionPassword);
+      localStorage.setItem('ouipsycho_brevo_enc', JSON.stringify(brevoEnc));
+    } catch(e) { console.warn('Chiffrement Brevo:', e.message); }
+  }
   toast('Configuration Brevo enregistrée ✅', 'success');
-  // Sauvegarder dans config.json sur GitHub
-  pushBrevoConfigToGitHub(key, list);
-}
-
-async function pushBrevoConfigToGitHub(brevoApiKey, brevoListId) {
-  const pat = localStorage.getItem(GH_PAT_KEY);
-  if (!pat) return;
-  let remote = {};
-  try { const r = await fetch('data/config.json?t=' + Date.now()); if (r.ok) remote = await r.json(); } catch(_) {}
-  const cfg = { ...remote, brevoListId };
-  // Note : brevoApiKey n'est PAS stocké dans config.json (clé sensible, stockage local uniquement)
-  try {
-    await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: brevo list id');
-    toast('⚙️ ID liste Brevo sauvegardé sur GitHub', 'success');
-  } catch(e) { console.warn('pushBrevoConfig:', e.message); }
+  await pushConfigToGitHub(); // centralise tout dans config.json
 }
 
 async function testBrevoConnection() {
