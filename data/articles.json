@@ -70,21 +70,26 @@
   },
   {
     "id": "reconnaitre-depression",
-    "title": "Reconnaître la dépression : bien plus qu'une simple tristesse",
-    "excerpt": "La dépression est souvent invisibilisée ou minimisée. Pourtant, c'est une maladie sérieuse avec des mécanismes cérébraux précis. Apprenez à reconnaître ses symptômes — y compris ceux qu'on ne vous dit jamais.",
+    "title": "Dépression : 10 signes qui ne trompent pas",
+    "excerpt": "La dépression ne ressemble pas toujours à ce qu'on imagine. Ce n'est pas juste « avoir le blues » ou « être fatigué ». C'est une maladie sérieuse avec des signes précis — et les reconnaître est la première étape vers la guérison.",
     "date": "2026-05-10",
     "category": "Dépression",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yzlhe2lntglw137u7mru",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
       "dépression",
-      "santé mentale",
-      "tristesse",
+      "signes",
       "symptômes",
-      "diagnostic"
+      "anhédonie",
+      "santé mentale"
     ],
-    "metaDescription": "Comment reconnaître une dépression : les symptômes officiels et ceux qu'on tait. La neurobiologie de la dépression expliquée clairement pour mieux comprendre et agir."
+    "metaDescription": "Les 10 signes de la dépression à ne pas ignorer : tristesse persistante, anhédonie, fatigue, troubles du sommeil. Comment distinguer dépression et tristesse passagère.",
+    "status": "published"
   },
   {
     "id": "sortir-depression",
