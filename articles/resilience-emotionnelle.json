@@ -4,8 +4,13 @@
   "excerpt": "La résilience n'est pas une qualité innée réservée aux forts. C'est une compétence qui s'apprend et se cultive. Voici comment développer votre capacité à traverser les tempêtes sans vous briser.",
   "content": "<p>Certaines personnes semblent se relever de tout. Deuil, rupture, licenciement, maladie — elles traversent les tempêtes et en ressortent, parfois même plus solides. Ont-elles un gène spécial ? Non. Elles ont développé ce que les psychologues appellent la <strong>résilience</strong>.</p>\n\n<h2>La résilience : ce que c'est vraiment</h2>\n<p>La résilience n'est pas l'absence de douleur ni l'imperméabilité aux difficultés. Les personnes résilientes souffrent. Elles pleurent. Elles doutent. Mais elles possèdent des ressources intérieures et relationnelles qui leur permettent de s'adapter et de rebondir.</p>\n<p>Boris Cyrulnik, neuropsychiatre français et pionnier de la résilience, la définit comme « la capacité à vivre, à réussir, à se développer en dépit de l'adversité ». Il insiste sur un point essentiel : on ne guérit pas <em>seul</em>. La résilience se construit toujours dans la relation à l'autre.</p>\n\n<h2>Les piliers de la résilience</h2>\n\n<h3>1. La conscience émotionnelle</h3>\n<p>Pouvoir nommer ce qu'on ressent est le premier pas. Des études montrent que <strong>labelliser ses émotions</strong> (« je ressens de la colère », « j'ai peur ») réduit leur intensité en activant le cortex préfrontal. Ce n'est pas refouler — c'est reconnaître pour mieux traverser.</p>\n\n<h3>2. La régulation émotionnelle</h3>\n<p>Les personnes résilientes ne suppriment pas leurs émotions — elles les régulent. Elles savent s'auto-apaiser (respiration, mouvement, rituels de confort) et moduler leur réponse émotionnelle sans la nier.</p>\n\n<h3>3. Le sentiment de contrôle</h3>\n<p>La résilience ne dépend pas de ce qu'on peut contrôler dans le monde, mais de sa conviction qu'on peut influencer sa propre réponse. Le psychologue Martin Seligman parle de « locus de contrôle interne » : croire qu'on a du pouvoir sur soi, même quand on n'en a pas sur les événements.</p>\n\n<h3>4. Le réseau de soutien</h3>\n<p>Les liens sociaux solides sont le facteur prédicteur de résilience le plus robuste dans la littérature scientifique. Pas nécessairement un grand réseau — mais quelques relations de qualité où on se sent compris et accepté.</p>\n\n<h3>5. La quête de sens</h3>\n<p>Viktor Frankl, survivant des camps de concentration, l'avait formulé : « Celui qui a un <em>pourquoi</em> peut supporter presque tous les <em>comment</em>. » Trouver du sens à l'épreuve — pas la justifier, mais lui donner une place dans son histoire — est un moteur puissant de résilience.</p>\n\n<blockquote>« Ce n'est pas ce qui nous arrive qui nous définit, mais ce que nous en faisons. » — Boris Cyrulnik</blockquote>\n\n<h2>Exercices pratiques pour renforcer sa résilience</h2>\n<ul>\n<li><strong>Journal de résilience :</strong> chaque soir, notez une difficulté du jour et comment vous l'avez traversée. Cela renforce la conscience de vos ressources.</li>\n<li><strong>Les 3 bonnes choses :</strong> notez chaque jour trois choses positives, aussi petites soient-elles. Cette pratique issue de la psychologie positive recalibre le biais de négativité du cerveau.</li>\n<li><strong>Revisiter ses victoires passées :</strong> quelles épreuves avez-vous déjà traversées ? Quelles ressources avez-vous mobilisées ? Ce rappel active la confiance en votre propre capacité.</li>\n<li><strong>Cultiver les relations :</strong> investissez dans vos liens. Un appel, un café, une aide proposée — les connexions humaines sont votre filet de sécurité.</li>\n</ul>\n\n<h2>La résilience n'est pas de l'invulnérabilité</h2>\n<p>Attention au mythe du « warrior » stoïque qui ne flanche jamais. La vraie résilience inclut la capacité à demander de l'aide, à pleurer, à reconnaître sa vulnérabilité. Ce n'est pas une armure — c'est une danse entre force et fragilité.</p>",
   "date": "2026-03-20",
+  "date_modified": "2026-06-03",
   "category": "Bien-être",
-  "image": "",
+  "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
   "readTime": 3,
   "author": "La rédaction Oui Psycho!",
   "tags": [
@@ -22,5 +27,7 @@
     "Les liens sociaux de qualité sont le facteur prédicteur de résilience le plus robuste",
     "La pratique des 3 bonnes choses quotidiennes recalibre le biais de négativité du cerveau",
     "La vraie résilience inclut la capacité à demander de l'aide et à reconnaître sa vulnérabilité"
-  ]
+  ],
+  "articles_lies": [],
+  "status": "published"
 }
