@@ -15,6 +15,8 @@
   <meta property="og:url"                     content="https://ouipsycho.fr/articles/techniques-anti-stress.html">
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
+  <meta property="og:image"    content="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve">
+  <meta property="og:image:alt" content="7 techniques anti-stress validées par la science">
   <meta property="article:published_time"     content="2026-04-15T00:00:00+01:00">
   <meta property="article:modified_time"      content="2026-04-15T00:00:00+01:00">
   <meta property="article:author"             content="La rédaction Oui Psycho!">
@@ -22,7 +24,8 @@
   <meta name="twitter:card"                   content="summary_large_image">
   <meta name="twitter:title"                  content="7 techniques anti-stress validées par la science — Oui Psycho!">
   <meta name="twitter:description"            content="7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"7 techniques anti-stress validées par la science","description":"7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.","datePublished":"2026-04-15","dateModified":"2026-04-15","inLanguage":"fr","author":{"@type":"Person","name":"La rédaction Oui Psycho!"},"publisher":{"@type":"Organization","name":"Oui Psycho!","url":"https://ouipsycho.fr/","logo":{"@type":"ImageObject","url":"https://ouipsycho.fr/img/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ouipsycho.fr/articles/techniques-anti-stress.html"},"keywords":"stress, relaxation, cohérence cardiaque, respiration, mindfulness, EFT","articleSection":"Stress","wordCount":566}</script>
+  <meta name="twitter:image"   content="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"7 techniques anti-stress validées par la science","description":"7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.","datePublished":"2026-04-15","dateModified":"2026-04-15","inLanguage":"fr","author":{"@type":"Person","name":"La rédaction Oui Psycho!"},"publisher":{"@type":"Organization","name":"Oui Psycho!","url":"https://ouipsycho.fr/","logo":{"@type":"ImageObject","url":"https://ouipsycho.fr/img/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ouipsycho.fr/articles/techniques-anti-stress.html"},"keywords":"stress, relaxation, cohérence cardiaque, respiration, mindfulness, EFT","articleSection":"Stress","wordCount":566,"image":{"@type":"ImageObject","url":"https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://ouipsycho.fr/"},{"@type":"ListItem","position":2,"name":"Stress","item":"https://ouipsycho.fr/index.html?cat=Stress"},{"@type":"ListItem","position":3,"name":"7 techniques anti-stress validées par la science","item":"https://ouipsycho.fr/articles/techniques-anti-stress.html"}]}</script>
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
@@ -77,7 +80,7 @@
           <div class="article-meta">
             <span>Par <strong>La rédaction Oui Psycho!</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="2026-04-15">15 avril 2026</time>
+            <time datetime="2026-04-15">Mis à jour le 15 avril 2026</time>
             <span class="article-meta-dot">•</span>
             <span>⏱ 3 min de lecture</span>
           </div>
@@ -158,13 +161,15 @@
       <div class="widget" id="related-articles">
         <h2 class="widget__title">À lire aussi</h2>
       </div>
-      <div class="widget widget--accent">
+      <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
-        <div class="newsletter-form">
+        <div class="newsletter-form" id="nl-form">
           <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
           <label for="nl-techniques-anti-stress" class="sr-only">Votre e-mail</label>
-          <input type="email" id="nl-techniques-anti-stress" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner ✓</button>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">S'abonner ✓</button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
     </aside>
@@ -179,10 +184,7 @@
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
-            <span class="logo__icon" aria-hidden="true">🧠</span>
-            <span>Oui Psycho!</span>
-          </a>
+          <a href="index.html" class="logo"><span class="logo__icon" aria-hidden="true">🧠</span><span>Oui Psycho!</span></a>
           <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
         <div class="footer-col">
