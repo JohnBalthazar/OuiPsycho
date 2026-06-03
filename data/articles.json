@@ -8,21 +8,17 @@
     "image": "",
     "readTime": 10,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["cerveau", "genre", "neurosciences", "mosaïque cérébrale", "Joel", "Eliot", "Rippon", "stéréotypes"],
+    "tags": [
+      "cerveau",
+      "genre",
+      "neurosciences",
+      "mosaïque cérébrale",
+      "Joel",
+      "Eliot",
+      "Rippon",
+      "stéréotypes"
+    ],
     "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
-    "status": "scheduled"
-  },
-  {
-    "id": "monde-dirige-par-femmes",
-    "title": "Et si le monde était dirigé par des femmes ?",
-    "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
-    "date": "2026-06-04",
-    "category": "Société & psychologie politique",
-    "image": "",
-    "readTime": 10,
-    "author": "La rédaction Oui Psycho!",
-    "tags": ["femmes", "pouvoir", "leadership féminin", "parité", "politique", "genre", "paix", "pandémie", "économie", "essentialisme", "Rwanda", "Ardern", "Merkel"],
-    "metaDescription": "Que disent les données sur les femmes au pouvoir ? Guerres, pandémies, climat, économie : une analyse entre science et nuances nécessaires.",
     "status": "scheduled"
   },
   {
@@ -34,8 +30,69 @@
     "image": "",
     "readTime": 10,
     "author": "La rédaction Oui Psycho!",
-    "tags": ["honte", "culpabilité", "émotions", "Tangney", "Brené Brown", "boussole de la honte", "trauma", "dépression", "psychologie clinique"],
+    "tags": [
+      "honte",
+      "culpabilité",
+      "émotions",
+      "Tangney",
+      "Brené Brown",
+      "boussole de la honte",
+      "trauma",
+      "dépression",
+      "psychologie clinique"
+    ],
     "metaDescription": "Honte vs culpabilité, boussole de Nathanson, rôle évolutif, shame-rage spiral : ce que la psychologie dit de notre émotion la plus redoutée.",
+    "status": "scheduled"
+  },
+  {
+    "id": "therapie-cognitive-comportementale",
+    "title": "La TCC expliquée : comment elle reprogramme les pensées négatives",
+    "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
+    "date": "2026-06-06",
+    "category": "Thérapies",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tnyn7nleakfuovnurncl",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "TCC",
+      "thérapie cognitive",
+      "distorsions cognitives",
+      "anxiété",
+      "dépression",
+      "psychothérapie"
+    ],
+    "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
+    "status": "scheduled"
+  },
+  {
+    "id": "monde-dirige-par-femmes",
+    "title": "Et si le monde était dirigé par des femmes ?",
+    "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
+    "date": "2026-06-04",
+    "category": "Société & psychologie politique",
+    "image": "",
+    "readTime": 10,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "femmes",
+      "pouvoir",
+      "leadership féminin",
+      "parité",
+      "politique",
+      "genre",
+      "paix",
+      "pandémie",
+      "économie",
+      "essentialisme",
+      "Rwanda",
+      "Ardern",
+      "Merkel"
+    ],
+    "metaDescription": "Que disent les données sur les femmes au pouvoir ? Guerres, pandémies, climat, économie : une analyse entre science et nuances nécessaires.",
     "status": "scheduled"
   },
   {
@@ -227,11 +284,15 @@
   },
   {
     "id": "sommeil-sante-mentale",
-    "title": "Sommeil et santé mentale : le lien que personne ne vous a expliqué",
+    "title": "Sommeil et santé mentale : ce que l'on ne vous a jamais dit !",
     "excerpt": "Mal dormir rend anxieux. L'anxiété empêche de dormir. Ce cercle vicieux entre sommeil et santé mentale est l'un des plus importants à comprendre — et à briser. Voici comment.",
     "date": "2026-04-10",
     "category": "Sommeil",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vuy1pfu1pmap03rgjwsh",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -242,7 +303,13 @@
       "santé mentale",
       "rythme circadien"
     ],
-    "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir."
+    "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir.",
+    "articles_lies": [
+      "trouble-anxieux-generalise",
+      "meditation-pleine-conscience",
+      "sortir-depression"
+    ],
+    "status": "published"
   },
   {
     "id": "vaincre-insomnie",
@@ -250,7 +317,11 @@
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
     "category": "Sommeil",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yevadredrrv5ahqjbu3o",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -260,7 +331,9 @@
       "somnifères",
       "restriction de sommeil"
     ],
-    "metaDescription": "Comment vaincre l'insomnie : TCC-I, restriction de sommeil, contrôle du stimulus. Les méthodes validées scientifiquement sans médicaments expliquées étape par étape."
+    "metaDescription": "Comment vaincre l'insomnie : TCC-I, restriction de sommeil, contrôle du stimulus. Les méthodes validées scientifiquement sans médicaments expliquées étape par étape.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "quelle-therapie-choisir",
@@ -293,7 +366,11 @@
     "excerpt": "La résilience n'est pas une qualité innée réservée aux forts. C'est une compétence qui s'apprend et se cultive. Voici comment développer votre capacité à traverser les tempêtes sans vous briser.",
     "date": "2026-03-20",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ahwrj2oad4vdm2sswpyp",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -303,7 +380,9 @@
       "Boris Cyrulnik",
       "psychologie positive"
     ],
-    "metaDescription": "Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie."
+    "metaDescription": "Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "communication-non-violente",
@@ -323,30 +402,6 @@
       "émotions"
     ],
     "metaDescription": "La Communication Non-Violente (CNV) en 4 étapes : observer, ressentir, identifier le besoin, formuler une demande. Guide pratique pour transformer vos relations."
-  },
-  {
-    "id": "therapie-cognitive-comportementale",
-    "title": "La TCC expliquée : comment elle reprogramme les pensées négatives",
-    "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
-    "date": "2026-06-06",
-    "category": "Thérapies",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tnyn7nleakfuovnurncl",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "TCC",
-      "thérapie cognitive",
-      "distorsions cognitives",
-      "anxiété",
-      "dépression",
-      "psychothérapie"
-    ],
-    "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
-    "status": "scheduled"
   },
   {
     "id": "relation-toxique-signes",
