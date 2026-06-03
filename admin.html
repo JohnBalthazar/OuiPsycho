@@ -1222,6 +1222,9 @@ let adminComments     = [];
 let commentFilter     = 'all';
 let replyingCommentId = null;
 
+// ── Mot de passe session (mémoire uniquement, jamais stocké) ──
+let _sessionPassword = null; // utilisé pour chiffrer/déchiffrer le PAT
+
 // ── Firebase admin auth (token en mémoire, jamais stocké) ──
 let _fbAdminIdToken     = null;
 let _fbAdminTokenExpiry = 0;
@@ -1233,6 +1236,43 @@ async function hashPass(pass) {
   const enc = new TextEncoder().encode(pass + 'ouipsycho_salt_2026');
   const buf = await crypto.subtle.digest('SHA-256', enc);
   return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+}
+
+/* ══════════════════════════════════════════════
+   CHIFFREMENT DU PAT — AES-256-GCM + PBKDF2
+   Le PAT est chiffré avec le mot de passe admin
+   et stocké dans config.json sur GitHub.
+   Sans le mot de passe, il est inutilisable.
+══════════════════════════════════════════════ */
+const _b64enc = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
+const _b64dec = s   => new Uint8Array(atob(s).split('').map(c => c.charCodeAt(0)));
+
+async function _deriveKey(password, salt) {
+  const raw = await crypto.subtle.importKey(
+    'raw', new TextEncoder().encode(password), 'PBKDF2', false, ['deriveKey']
+  );
+  return crypto.subtle.deriveKey(
+    { name: 'PBKDF2', salt, iterations: 200000, hash: 'SHA-256' },
+    raw,
+    { name: 'AES-GCM', length: 256 },
+    false, ['encrypt', 'decrypt']
+  );
+}
+
+async function encryptPAT(pat, password) {
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const iv   = crypto.getRandomValues(new Uint8Array(12));
+  const key  = await _deriveKey(password, salt);
+  const ct   = await crypto.subtle.encrypt({ name: 'AES-GCM', iv }, key, new TextEncoder().encode(pat));
+  return { salt: _b64enc(salt), iv: _b64enc(iv), ct: _b64enc(ct) };
+}
+
+async function decryptPAT(enc, password) {
+  try {
+    const key   = await _deriveKey(password, _b64dec(enc.salt));
+    const plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: _b64dec(enc.iv) }, key, _b64dec(enc.ct));
+    return new TextDecoder().decode(plain);
+  } catch { return null; }
 }
 
 /* ══════════════════════════════════════════════
@@ -1318,11 +1358,34 @@ async function doLogin() {
   // Succès — réinitialiser les tentatives
   localStorage.removeItem('ouipsycho_attempts');
   localStorage.removeItem('ouipsycho_lockout');
+
+  // Mémoriser le mot de passe en mémoire (jamais stocké, effacé au logout)
+  _sessionPassword = pass;
+
+  // PAT saisi manuellement à la connexion → priorité absolue
   if (pat) localStorage.setItem(GH_PAT_KEY, pat);
 
   // Créer la session avec timestamp
   sessionStorage.setItem(SESSION_KEY, JSON.stringify({ loginTime: Date.now() }));
   startSessionTimer(SESSION_DURATION);
+
+  // Tenter de déchiffrer le PAT depuis config.json si pas encore en localStorage
+  if (!localStorage.getItem(GH_PAT_KEY)) {
+    try {
+      const r = await fetch('data/config.json?t=' + Date.now());
+      if (r.ok) {
+        const cfg = await r.json();
+        if (cfg.pat_enc) {
+          const decrypted = await decryptPAT(cfg.pat_enc, pass);
+          if (decrypted) {
+            localStorage.setItem(GH_PAT_KEY, decrypted);
+            toast('🔓 Token GitHub restauré automatiquement', 'success');
+          }
+        }
+      }
+    } catch(_) {}
+  }
+
   showApp();
 }
 
@@ -1345,6 +1408,7 @@ document.addEventListener('keydown', e => {
 function logout() {
   clearTimeout(sessionTimer);
   sessionStorage.removeItem(SESSION_KEY);
+  _sessionPassword = null; // effacer le mot de passe de la mémoire
   document.getElementById('login-password').value = '';
   location.reload();
 }
@@ -2214,8 +2278,23 @@ async function saveGitHubSettings() {
   localStorage.setItem(GH_REPO_KEY, document.getElementById('gh-repo').value.trim());
   localStorage.setItem(GH_BRANCH_KEY, document.getElementById('gh-branch').value.trim() || 'main');
   const pat = document.getElementById('gh-pat').value.trim();
-  if (pat) localStorage.setItem(GH_PAT_KEY, pat);
-  toast('Configuration GitHub enregistrée ✅', 'success');
+  if (pat) {
+    localStorage.setItem(GH_PAT_KEY, pat);
+    // Chiffrer le PAT et le stocker dans config.json pour auto-restauration
+    if (_sessionPassword) {
+      try {
+        const encrypted = await encryptPAT(pat, _sessionPassword);
+        localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(encrypted));
+        toast('Configuration GitHub enregistrée ✅ (PAT chiffré et sauvegardé)', 'success');
+      } catch(_) {
+        toast('Configuration GitHub enregistrée ✅', 'success');
+      }
+    } else {
+      toast('Configuration GitHub enregistrée ✅', 'success');
+    }
+  } else {
+    toast('Configuration GitHub enregistrée ✅', 'success');
+  }
   await pushConfigToGitHub();
 }
 async function changePassword() {
@@ -2225,9 +2304,21 @@ async function changePassword() {
   if (np.length < 8) { toast('Minimum 8 caractères', 'error'); return; }
   if (np !== cp) { toast('Les mots de passe ne correspondent pas', 'error'); return; }
   localStorage.setItem(ADMIN_PASS_KEY, await hashPass(np));
+
+  // Re-chiffrer le PAT avec le nouveau mot de passe
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      const enc = await encryptPAT(pat, np);
+      localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(enc));
+      _sessionPassword = np; // mettre à jour le mot de passe session
+      await pushConfigToGitHub(); // sauvegarder le nouveau PAT chiffré
+    } catch(_) {}
+  }
+
   document.getElementById('new-password').value = '';
   document.getElementById('confirm-password').value = '';
-  toast('Mot de passe mis à jour ✅', 'success');
+  toast('Mot de passe mis à jour ✅ (PAT re-chiffré)', 'success');
 }
 function clearAllData() {
   if (!confirm('Effacer toutes les données locales (articles en cache, PAT, paramètres) ?')) return;
@@ -2448,6 +2539,11 @@ async function pushConfigToGitHub() {
   const pick = (lsKey, remoteKey, def = '') =>
     localStorage.getItem(lsKey) || remote[remoteKey] || def;
 
+  // PAT chiffré — priorité locale, sinon garder la version distante
+  const patEncLocal  = localStorage.getItem('ouipsycho_pat_enc');
+  const patEncRemote = remote.pat_enc || null;
+  const patEnc       = patEncLocal ? JSON.parse(patEncLocal) : patEncRemote;
+
   const cfg = {
     cloudName:         pick(CLD_CLOUD_KEY,  'cloudName'),
     uploadPreset:      pick(CLD_PRESET_KEY, 'uploadPreset'),
@@ -2461,6 +2557,8 @@ async function pushConfigToGitHub() {
     firebaseApiKey:    pick(FB_APIKEY_KEY,      'firebaseApiKey'),
     // Contact — email affiché sur le site (safe à publier)
     contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
+    // PAT chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
+    ...(patEnc ? { pat_enc: patEnc } : {}),
   };
 
   try {
