@@ -171,11 +171,12 @@ let filteredArticles = [];
 let currentPage      = 0;
 let activeCategory   = 'all';
 let searchQuery      = '';
+let _scrollObserver  = null;   // IntersectionObserver instance
+let _rendering       = false;  // garde anti-double-déclenchement
 
 async function initHome() {
   const grid       = document.getElementById('articles-grid');
   const featured   = document.getElementById('featured-container');
-  const loadMoreBtn = document.getElementById('load-more');
   const sectionHdr = document.getElementById('articles-section-header');
   if (!grid) return;
 
@@ -211,12 +212,36 @@ async function initHome() {
         <p>Les articles arrivent bientôt&nbsp;!</p>
         <small>Revenez dans quelques jours.</small>
       </div>`;
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    const s = document.getElementById('scroll-sentinel');
+    if (s) s.style.display = 'none';
   }
 
-  // Charger plus
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener('click', () => renderPage(grid, null));
+  // ── Scroll infini ──────────────────────────────────────────
+  const sentinel = document.getElementById('scroll-sentinel');
+  const fallback = document.getElementById('load-more-fallback');
+
+  function loadNext() {
+    if (_rendering) return;
+    _rendering = true;
+    renderPage(grid, null);
+    _rendering = false;
+  }
+
+  if (sentinel) {
+    if ('IntersectionObserver' in window) {
+      // IntersectionObserver : déclenche 250px avant d'atteindre le sentinel
+      _scrollObserver = new IntersectionObserver(
+        (entries) => { if (entries[0].isIntersecting) loadNext(); },
+        { rootMargin: '250px 0px', threshold: 0 }
+      );
+      _scrollObserver.observe(sentinel);
+    } else {
+      // Fallback : bouton visible si IntersectionObserver indisponible
+      if (fallback) {
+        fallback.style.display = 'inline-block';
+        fallback.addEventListener('click', loadNext);
+      }
+    }
   }
 
   // Recherche
@@ -276,12 +301,23 @@ function applyFilters(grid, featured) {
 }
 
 function renderPage(grid, featured, reset = false) {
-  const start       = currentPage * CONFIG.perPage;
-  const isFeatured  = reset && currentPage === 0 && !searchQuery && activeCategory === 'all';
-  const dataStart   = isFeatured ? 1 : start;
-  const dataEnd     = isFeatured ? 1 + CONFIG.perPage : start + CONFIG.perPage;
-  const slice       = filteredArticles.slice(dataStart, dataEnd);
-  const loadMoreBtn = document.getElementById('load-more');
+  const start      = currentPage * CONFIG.perPage;
+  const isFeatured = reset && currentPage === 0 && !searchQuery && activeCategory === 'all';
+  const dataStart  = isFeatured ? 1 : start;
+  const dataEnd    = isFeatured ? 1 + CONFIG.perPage : start + CONFIG.perPage;
+  const slice      = filteredArticles.slice(dataStart, dataEnd);
+
+  // Sentinel + loader
+  const sentinel = document.getElementById('scroll-sentinel');
+  const loader   = document.getElementById('scroll-loader');
+  const fallback = document.getElementById('load-more-fallback');
+
+  function setSentinelVisible(visible) {
+    if (!sentinel) return;
+    sentinel.style.display = visible ? 'flex' : 'none';
+    if (loader)   loader.style.display   = visible && 'IntersectionObserver' in window ? 'flex' : 'none';
+    if (fallback) fallback.style.display = visible && !('IntersectionObserver' in window) ? 'inline-block' : 'none';
+  }
 
   if (reset) {
     grid.innerHTML = '';
@@ -292,6 +328,7 @@ function renderPage(grid, featured, reset = false) {
     }
   }
 
+  // État vide
   if (slice.length === 0 && currentPage === 0 && (!isFeatured || filteredArticles.length === 0)) {
     grid.innerHTML = `
       <div class="empty-state">
@@ -299,17 +336,24 @@ function renderPage(grid, featured, reset = false) {
         <p>Aucun article trouvé.</p>
         <small>Essayez un autre mot-clé ou une autre catégorie.</small>
       </div>`;
-    if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    setSentinelVisible(false);
     return;
   }
 
-  grid.innerHTML += slice.map(renderCard).join('');
-  currentPage++;
-
-  const total = isFeatured ? filteredArticles.length - 1 : filteredArticles.length;
-  if (loadMoreBtn) {
-    loadMoreBtn.style.display = currentPage * CONFIG.perPage >= total ? 'none' : 'block';
+  // Ajouter le fragment DOM en une seule opération (perf)
+  if (slice.length > 0) {
+    const frag = document.createDocumentFragment();
+    const tmp  = document.createElement('div');
+    tmp.innerHTML = slice.map(renderCard).join('');
+    while (tmp.firstChild) frag.appendChild(tmp.firstChild);
+    grid.appendChild(frag);
+    currentPage++;
   }
+
+  // Montrer/cacher le sentinel selon s'il reste des articles
+  const total    = isFeatured ? filteredArticles.length - 1 : filteredArticles.length;
+  const allDone  = currentPage * CONFIG.perPage >= total;
+  setSentinelVisible(!allDone);
 }
 
 function buildCategoryFilter() {

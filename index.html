@@ -139,8 +139,14 @@
         <!-- Skeletons puis articles injectés par JS -->
       </div>
 
-      <div class="load-more-wrap">
-        <button class="btn-load-more" id="load-more">Charger plus d'articles</button>
+      <!-- Scroll infini : sentinel observé + fallback bouton -->
+      <div id="scroll-sentinel" aria-hidden="true">
+        <div class="scroll-loader" id="scroll-loader" role="status" aria-label="Chargement…">
+          <span class="scroll-loader__dot"></span>
+          <span class="scroll-loader__dot"></span>
+          <span class="scroll-loader__dot"></span>
+        </div>
+        <button id="load-more-fallback" type="button">Charger plus d'articles</button>
       </div>
 
     </main>
