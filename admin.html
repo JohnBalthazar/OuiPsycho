@@ -1866,7 +1866,7 @@ function generateArticleHTML(j) {
   const aLDobj = {
     '@context':'https://schema.org','@type':'Article',
     headline: j.title, description: j.metaDescription,
-    datePublished: j.date, dateModified: j.date, inLanguage:'fr',
+    datePublished: j.date, dateModified: j.date_modified || j.date, inLanguage:'fr',
     author: { '@type':'Person', name: j.author },
     publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/favicon.svg` } },
     mainEntityOfPage: { '@type':'WebPage', '@id':`${BASE}/articles/${j.id}.html` },
@@ -1960,7 +1960,7 @@ ${navHtml}
           <div class="article-meta">
             <span>Par <strong>${esc(j.author)}</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="${j.date}">Mis à jour le ${fd}</time>
+            <time datetime="${j.date_modified || j.date}">${(() => { const mod = j.date_modified; const [my,mm,md] = (mod||'').split('-'); const fmod = mod ? `${parseInt(md)} ${MONTHS[parseInt(mm)]} ${my}` : ''; return (!mod || mod === j.date) ? `Publié le ${fd}` : `Mis à jour le ${fmod}`; })()}</time>
             <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
           </div>
@@ -2216,14 +2216,17 @@ async function saveArticle() {
   const keypoints    = getKeypoints();
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
+  // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf)
+  const today         = new Date().toISOString().split('T')[0];
+  const date_modified = editingId ? today : date;
 
   if (!id || !title || !content || !category) {
     toast('Remplissez les champs obligatoires (slug, titre, contenu, catégorie)', 'error');
     return;
   }
 
-  const articleData = { id, title, excerpt, content, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, articles_lies: articlesLies, status };
-  const summaryData = { id, title, excerpt, date, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
+  const articleData = { id, title, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, articles_lies: articlesLies, status };
+  const summaryData = { id, title, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';

@@ -52,6 +52,13 @@ function formatDate(d) {
   if (!d) return '';
   return new Date(d).toLocaleDateString('fr-FR', { year:'numeric', month:'long', day:'numeric' });
 }
+// "Publié le X" ou "Mis à jour le Y" selon date_modified
+function dateLabel(a) {
+  const pub = a.date;
+  const mod = a.date_modified;
+  if (!mod || mod === pub) return 'Publié le ' + formatDate(pub);
+  return 'Mis à jour le ' + formatDate(mod);
+}
 function getParam(name) {
   return new URLSearchParams(window.location.search).get(name);
 }
@@ -112,7 +119,7 @@ function renderCard(article) {
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${esc(article.date || '')}">Mis à jour le ${formatDate(article.date)}</time>
+          <time datetime="${esc(article.date_modified || article.date || '')}">${dateLabel(article)}</time>
           <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
@@ -147,7 +154,7 @@ function renderFeatured(article) {
         </h2>
         <p class="card__excerpt">${esc(article.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${esc(article.date || '')}">Mis à jour le ${formatDate(article.date)}</time>
+          <time datetime="${esc(article.date_modified || article.date || '')}">${dateLabel(article)}</time>
           <span class="card__meta-dot">•</span>
           <span>${article.readTime || 5} min de lecture</span>
         </footer>
@@ -452,7 +459,7 @@ function buildArticleHTML(a) {
       <div class="article-meta">
         <span>Par <strong>${esc(a.author || 'La rédaction')}</strong></span>
         <span class="article-meta-dot">•</span>
-        <time datetime="${esc(a.date || '')}">Mis à jour le ${formatDate(a.date)}</time>
+        <time datetime="${esc(a.date_modified || a.date || '')}">${dateLabel(a)}</time>
         <span class="article-meta-dot">•</span>
         <span>⏱ ${a.readTime || 5} min de lecture</span>
       </div>
@@ -615,7 +622,7 @@ async function loadRelated(current) {
             </div>
             <div class="related-item__info">
               <div class="related-item__title">${esc(a.title)}</div>
-              <div class="related-item__meta">Mis à jour le ${formatDate(a.date)}</div>
+              <div class="related-item__meta">${dateLabel(a)}</div>
             </div>
           </a>`).join('')}
       </div>`;
