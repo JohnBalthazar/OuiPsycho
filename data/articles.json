@@ -1,31 +1,9 @@
 [
   {
-    "id": "cerveau-a-t-il-un-genre",
-    "title": "Le cerveau a-t-il un genre ?",
-    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence.",
-    "date": "2026-06-07",
-    "category": "Neurosciences & genre",
-    "image": "",
-    "readTime": 10,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "cerveau",
-      "genre",
-      "neurosciences",
-      "mosaïque cérébrale",
-      "Joel",
-      "Eliot",
-      "Rippon",
-      "stéréotypes"
-    ],
-    "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
-    "status": "scheduled"
-  },
-  {
     "id": "a-quoi-sert-la-honte",
     "title": "À quoi sert la honte ?",
     "excerpt": "On la fuit, on s'en défend, on l'intériorise jusqu'à la confondre avec soi-même. La psychologie lui reconnaît une utilité — à condition de comprendre la différence entre la honte qui protège et celle qui dévore.",
-    "date": "2026-06-07",
+    "date": "2026-06-08",
     "category": "Émotions & identité",
     "image": "",
     "imagePosition": "50% 50%",
@@ -54,6 +32,28 @@
       "savoir-dire-stop-seuils-fawn-response",
       "etes-vous-normal"
     ],
+    "status": "scheduled"
+  },
+  {
+    "id": "cerveau-a-t-il-un-genre",
+    "title": "Le cerveau a-t-il un genre ?",
+    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence.",
+    "date": "2026-06-07",
+    "category": "Neurosciences & genre",
+    "image": "",
+    "readTime": 10,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "cerveau",
+      "genre",
+      "neurosciences",
+      "mosaïque cérébrale",
+      "Joel",
+      "Eliot",
+      "Rippon",
+      "stéréotypes"
+    ],
+    "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
     "status": "scheduled"
   },
   {
