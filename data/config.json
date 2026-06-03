@@ -7,5 +7,11 @@
   "ghBranch": "main",
   "firebaseProjectId": "ouipsycho",
   "firebaseApiKey": "AIzaSyC6osGQGuZd5aEqo-AMuJCrgjVhbZ_UHpk",
-  "contactEmail": "contact@ouipsycho.fr"
+  "contactEmail": "contact@ouipsycho.fr",
+  "adminPassHash": "pbkdf2:apcZHnm74z2GPpLonXgmPw==:7uxHc7ADofXmVE5BeZ25CVEgfkUbbQmL1GPJx6GUhKU=",
+  "pat_enc": {
+    "salt": "/EqfBVXal+lnJCwtSEs/pw==",
+    "iv": "myiWHaDhSFDvpAzT",
+    "ct": "9cwVfdzGxwNleOwXpifo0wSqz0+UST/mnw4PMj9dwZbDT+Jokc6UBJ75bipxym8gnuzI3F5Wma8="
+  }
 }
