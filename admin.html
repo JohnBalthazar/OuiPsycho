@@ -1230,12 +1230,41 @@ let _fbAdminIdToken     = null;
 let _fbAdminTokenExpiry = 0;
 
 /* ══════════════════════════════════════════════
-   SÉCURITÉ — Hash simple (SHA-256 via Web Crypto)
+   SÉCURITÉ — PBKDF2 (200 000 itérations, sel aléatoire)
+   Format stocké : "pbkdf2:<sel_b64>:<hash_b64>"
+   Rétrocompatible avec l'ancien SHA-256 (hex 64 chars)
 ══════════════════════════════════════════════ */
+
+// Hash interne PBKDF2 avec sel fourni
+async function _pbkdf2Hash(pass, salt) {
+  const km = await crypto.subtle.importKey(
+    'raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveBits']
+  );
+  const bits = await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', salt, iterations: 200000, hash: 'SHA-256' }, km, 256
+  );
+  return 'pbkdf2:' + btoa(String.fromCharCode(...new Uint8Array(salt)))
+       + ':' + btoa(String.fromCharCode(...new Uint8Array(bits)));
+}
+
+// Crée un nouveau hash PBKDF2 (sel aléatoire)
 async function hashPass(pass) {
-  const enc = new TextEncoder().encode(pass + 'ouipsycho_salt_2026');
+  return _pbkdf2Hash(pass, crypto.getRandomValues(new Uint8Array(16)));
+}
+
+// Vérifie un mot de passe contre le hash stocké (PBKDF2 ou legacy SHA-256)
+async function verifyPass(input, stored) {
+  if (!stored) return false;
+  if (stored.startsWith('pbkdf2:')) {
+    const [, saltB64] = stored.split(':');
+    const salt = new Uint8Array(atob(saltB64).split('').map(c => c.charCodeAt(0)));
+    return (await _pbkdf2Hash(input, salt)) === stored;
+  }
+  // Format legacy SHA-256 (rétrocompatibilité)
+  const enc = new TextEncoder().encode(input + 'ouipsycho_salt_2026');
   const buf = await crypto.subtle.digest('SHA-256', enc);
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  const hex = Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  return hex === stored;
 }
 
 /* ══════════════════════════════════════════════
@@ -1292,9 +1321,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   } catch(_) {}
 
   // 2. Si toujours aucun hash valide (premier démarrage absolu), mot de passe par défaut
-  //    → À changer immédiatement dans Paramètres après la 1ère connexion
   const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
-  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass)) {
+  const isValidHash = h => h && (h.startsWith('pbkdf2:') || /^[0-9a-f]{64}$/.test(h));
+  if (!isValidHash(storedPass)) {
     localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
   }
 
@@ -1345,10 +1374,10 @@ async function doLogin() {
 
   if (!pass) { errEl.textContent = 'Entrez un mot de passe.'; errEl.style.display = 'block'; return; }
 
-  const enteredHash = await hashPass(pass);
-  const storedHash  = localStorage.getItem(ADMIN_PASS_KEY);
+  const storedHash = localStorage.getItem(ADMIN_PASS_KEY);
+  const isValid    = await verifyPass(pass, storedHash);
 
-  if (enteredHash !== storedHash) {
+  if (!isValid) {
     // Incrémenter les tentatives
     const attempts = JSON.parse(localStorage.getItem('ouipsycho_attempts') || '{"count":0}');
     attempts.count++;
@@ -1371,6 +1400,16 @@ async function doLogin() {
 
   // Mémoriser le mot de passe en mémoire (jamais stocké, effacé au logout)
   _sessionPassword = pass;
+
+  // Auto-upgrade : si l'ancien format SHA-256 était stocké, migrer vers PBKDF2
+  if (storedHash && !storedHash.startsWith('pbkdf2:')) {
+    const newHash = await hashPass(pass);
+    localStorage.setItem(ADMIN_PASS_KEY, newHash);
+    // Pousser vers config.json en arrière-plan après connexion
+    setTimeout(async () => {
+      try { await pushConfigToGitHub(); } catch(_) {}
+    }, 4000);
+  }
 
   // PAT saisi manuellement à la connexion → priorité absolue
   if (pat) localStorage.setItem(GH_PAT_KEY, pat);
