@@ -463,6 +463,29 @@ function buildArticleHTML(a) {
         <span class="article-meta-dot">•</span>
         <span>⏱ ${a.readTime || 5} min de lecture</span>
       </div>
+
+      <!-- Partage haut — icônes circulaires -->
+      <div class="share-top" id="share-top" aria-label="Partager cet article">
+        <button class="share-icon-btn share-icon-btn--fb" data-platform="facebook" title="Partager sur Facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </button>
+        <button class="share-icon-btn share-icon-btn--tw" data-platform="twitter" title="Partager sur X" aria-label="X / Twitter">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </button>
+        <button class="share-icon-btn share-icon-btn--pi" data-platform="pinterest" title="Épingler sur Pinterest" aria-label="Pinterest">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 0 1 .083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        </button>
+        <button class="share-icon-btn share-icon-btn--tg" data-platform="telegram" title="Partager sur Telegram" aria-label="Telegram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </button>
+        <button class="share-icon-btn share-icon-btn--li" data-platform="linkedin" title="Partager sur LinkedIn" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </button>
+        <button class="share-icon-btn share-icon-btn--copy" data-platform="copy" title="Copier le lien" aria-label="Copier le lien" id="share-copy-top">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+        </button>
+      </div>
+
       ${imgTop}
     </header>
 
@@ -551,26 +574,60 @@ function injectJSONLD(a) {
 }
 
 function initShareButtons(article) {
-  const c = document.getElementById('share-buttons');
-  if (!c) return;
   const url   = encodeURIComponent(window.location.href);
   const title = encodeURIComponent(article.title);
-  c.addEventListener('click', e => {
+  const imgUrl = encodeURIComponent(article.image || '');
+
+  const shareUrls = {
+    facebook:  `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+    twitter:   `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
+    pinterest: `https://pinterest.com/pin/create/button/?url=${url}&media=${imgUrl}&description=${title}`,
+    telegram:  `https://t.me/share/url?url=${url}&text=${title}`,
+    linkedin:  `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
+    whatsapp:  `https://wa.me/?text=${title}%20→%20${url}`,
+  };
+
+  function handleShareClick(e) {
     const btn = e.target.closest('[data-platform]');
     if (!btn) return;
-    const urls = {
-      facebook:  `https://www.facebook.com/sharer/sharer.php?u=${url}`,
-      twitter:   `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
-      whatsapp:  `https://wa.me/?text=${title}%20→%20${url}`,
-    };
-    if (btn.dataset.platform === 'copy') {
+    const platform = btn.dataset.platform;
+    if (platform === 'copy') {
       navigator.clipboard.writeText(window.location.href).then(() => {
-        btn.textContent = '✓ Copié !';
-        setTimeout(() => btn.textContent = 'Copier le lien', 2500);
+        // Feedback visuel sur le bouton cliqué
+        btn.classList.add('copied');
+        const svg = btn.querySelector('svg');
+        const originalSvg = svg ? svg.outerHTML : '';
+        if (svg) btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="white"><polyline points="20 6 9 17 4 12" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>';
+        setTimeout(() => {
+          btn.classList.remove('copied');
+          if (svg) btn.innerHTML = originalSvg;
+        }, 2500);
+        // Feedback bouton bas aussi
+        const copyBtns = document.querySelectorAll('[data-platform="copy"]');
+        copyBtns.forEach(b => {
+          if (b !== btn) {
+            const orig = b.textContent;
+            b.textContent = '✓ Copié !';
+            setTimeout(() => b.textContent = orig, 2500);
+          }
+        });
+      }).catch(() => {
+        // Fallback si clipboard API non disponible
+        const ta = document.createElement('textarea');
+        ta.value = window.location.href;
+        document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy');
+        document.body.removeChild(ta);
       });
-    } else if (urls[btn.dataset.platform]) {
-      window.open(urls[btn.dataset.platform], '_blank', 'width=620,height=450,noopener');
+    } else if (shareUrls[platform]) {
+      window.open(shareUrls[platform], '_blank', 'width=620,height=480,noopener,noreferrer');
     }
+  }
+
+  // Écouter sur les deux barres de partage
+  ['share-top', 'share-buttons'].forEach(id => {
+    const container = document.getElementById(id);
+    if (container) container.addEventListener('click', handleShareClick);
   });
 }
 
