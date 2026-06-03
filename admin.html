@@ -1279,13 +1279,23 @@ async function decryptPAT(enc, password) {
    BOOT
 ══════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', async () => {
-  // Réinitialisation forcée à chaque nouveau numéro de version de déploiement
-  const DEPLOY_VER = 'v5-2026-05-30';
+  // 1. Récupérer le hash du mot de passe depuis config.json (GitHub) — source de vérité
+  //    Persiste même si localStorage est vidé ou depuis un autre appareil/navigateur
+  try {
+    const r = await fetch('data/config.json?t=' + Date.now());
+    if (r.ok) {
+      const cfg = await r.json();
+      if (cfg.adminPassHash && /^[0-9a-f]{64}$/.test(cfg.adminPassHash)) {
+        localStorage.setItem(ADMIN_PASS_KEY, cfg.adminPassHash);
+      }
+    }
+  } catch(_) {}
+
+  // 2. Si toujours aucun hash valide (premier démarrage absolu), mot de passe par défaut
+  //    → À changer immédiatement dans Paramètres après la 1ère connexion
   const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
-  const storedVer  = localStorage.getItem('ouipsycho_deploy_ver');
-  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass) || storedVer !== DEPLOY_VER) {
+  if (!storedPass || !/^[0-9a-f]{64}$/.test(storedPass)) {
     localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
-    localStorage.setItem('ouipsycho_deploy_ver', DEPLOY_VER);
   }
 
   // Vérifier session existante
@@ -2303,7 +2313,9 @@ async function changePassword() {
   if (!np) { toast('Entrez un mot de passe', 'error'); return; }
   if (np.length < 8) { toast('Minimum 8 caractères', 'error'); return; }
   if (np !== cp) { toast('Les mots de passe ne correspondent pas', 'error'); return; }
-  localStorage.setItem(ADMIN_PASS_KEY, await hashPass(np));
+  const newHash = await hashPass(np);
+  localStorage.setItem(ADMIN_PASS_KEY, newHash);
+  _sessionPassword = np; // mettre à jour le mot de passe session
 
   // Re-chiffrer le PAT avec le nouveau mot de passe
   const pat = localStorage.getItem(GH_PAT_KEY);
@@ -2311,14 +2323,20 @@ async function changePassword() {
     try {
       const enc = await encryptPAT(pat, np);
       localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(enc));
-      _sessionPassword = np; // mettre à jour le mot de passe session
-      await pushConfigToGitHub(); // sauvegarder le nouveau PAT chiffré
     } catch(_) {}
+  }
+
+  // Pousser le nouveau hash + PAT rechiffré dans config.json → source de vérité
+  // Le hash SHA-256 est safe à stocker publiquement (sens unique + sel)
+  try {
+    await pushConfigToGitHub(); // inclut adminPassHash et pat_enc
+    toast('Mot de passe mis à jour ✅ — sauvegardé sur GitHub', 'success');
+  } catch(_) {
+    toast('Mot de passe mis à jour localement ✅', 'success');
   }
 
   document.getElementById('new-password').value = '';
   document.getElementById('confirm-password').value = '';
-  toast('Mot de passe mis à jour ✅ (PAT re-chiffré)', 'success');
 }
 function clearAllData() {
   if (!confirm('Effacer toutes les données locales (articles en cache, PAT, paramètres) ?')) return;
@@ -2544,6 +2562,9 @@ async function pushConfigToGitHub() {
   const patEncRemote = remote.pat_enc || null;
   const patEnc       = patEncLocal ? JSON.parse(patEncLocal) : patEncRemote;
 
+  // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
+  const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
+
   const cfg = {
     cloudName:         pick(CLD_CLOUD_KEY,  'cloudName'),
     uploadPreset:      pick(CLD_PRESET_KEY, 'uploadPreset'),
@@ -2551,12 +2572,11 @@ async function pushConfigToGitHub() {
     ghOwner:           pick(GH_OWNER_KEY,   'ghOwner'),
     ghRepo:            pick(GH_REPO_KEY,    'ghRepo'),
     ghBranch:          pick(GH_BRANCH_KEY,  'ghBranch', 'main'),
-    // Firebase — projectId + apiKey uniquement (safe à publier)
-    // FB_EMAIL_KEY + FB_PASS_KEY ne sont JAMAIS publiés sur GitHub
     firebaseProjectId: pick(FB_PROJECT_KEY,    'firebaseProjectId'),
     firebaseApiKey:    pick(FB_APIKEY_KEY,      'firebaseApiKey'),
-    // Contact — email affiché sur le site (safe à publier)
     contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
+    // Hash du mot de passe admin (SHA-256 + sel, sens unique, safe à publier)
+    ...(adminPassHash ? { adminPassHash } : {}),
     // PAT chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
     ...(patEnc ? { pat_enc: patEnc } : {}),
   };
