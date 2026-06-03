@@ -141,21 +141,26 @@
   },
   {
     "id": "burnout-epuisement-professionnel",
-    "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il vous détruise",
-    "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, en silence. Reconnaître ses phases, comprendre ses mécanismes et savoir quoi faire peut vous éviter l'effondrement.",
+    "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il ne vous brise",
+    "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, silencieusement, jusqu'au point de rupture. Apprendre à le reconnaître tôt — et agir — peut vous épargner des mois de reconstruction.",
     "date": "2026-04-20",
     "category": "Stress",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wp0xyx3kidvcywi5p0lq",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
       "burnout",
       "épuisement professionnel",
-      "stress au travail",
-      "santé mentale",
-      "prévention"
+      "stress",
+      "travail",
+      "limites"
     ],
-    "metaDescription": "Tout comprendre sur le burnout : les 3 phases, les symptômes précoces, les causes profondes et les étapes concrètes pour récupérer. Guide complet sur l'épuisement professionnel."
+    "metaDescription": "Burnout : signes, causes et marche à suivre. Comment reconnaître l'épuisement professionnel avant la rupture et reconstruire durablement.",
+    "status": "published"
   },
   {
     "id": "techniques-anti-stress",
