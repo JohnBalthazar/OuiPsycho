@@ -620,6 +620,7 @@
                   <option>Anxiété</option><option>Dépression</option><option>Bien-être</option>
                   <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
                   <option>Relations</option><option>Développement personnel</option>
+                  <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option><option>Société &amp; psychologie politique</option>
                 </select>
               </div>
               <div class="form-group">
@@ -1835,7 +1836,10 @@ function generateArticleHTML(j) {
     'Stress':                  { color:'#B45309', bg:'#FFFBEB', enc:'Stress' },
     'Sommeil':                 { color:'#0369A1', bg:'#ECFEFF', enc:'Sommeil' },
     'Thérapies':               { color:'#6D28D9', bg:'#EDE9FE', enc:'Th%C3%A9rapies' },
-    'Développement personnel': { color:'#15803D', bg:'#F0FDF4', enc:'D%C3%A9veloppement%20personnel' },
+    'Développement personnel':          { color:'#15803D', bg:'#F0FDF4', enc:'D%C3%A9veloppement%20personnel' },
+    'Émotions & identité':              { color:'#6a2a4a', bg:'#f5edf2', enc:'%C3%89motions%20%26%20identit%C3%A9' },
+    'Neurosciences & genre':            { color:'#8a3a6a', bg:'#f8eef4', enc:'Neurosciences%20%26%20genre' },
+    'Société & psychologie politique':  { color:'#2a6a4a', bg:'#e8f5ef', enc:'Soci%C3%A9t%C3%A9%20%26%20psychologie%20politique' },
   };
   const NAV_CATS = ['Anxiété','Dépression','Bien-être','Stress','Sommeil','Thérapies','Relations'];
   const ci  = CAT[j.category] || { color:'#555', bg:'#f5f5f5', enc: encodeURIComponent(j.category || '') };
