@@ -85,8 +85,13 @@
     "title": "Et si le monde était dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
     "date": "2026-06-04",
+    "date_modified": "2026-06-03",
     "category": "Société & psychologie politique",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kkznyo4nz7ikpogeghur",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 10,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -105,6 +110,11 @@
       "Merkel"
     ],
     "metaDescription": "Que disent les données sur les femmes au pouvoir ? Guerres, pandémies, climat, économie : une analyse entre science et nuances nécessaires.",
+    "articles_lies": [
+      "cerveau-a-t-il-un-genre",
+      "normalite-sexualite-chiffres-destigmatisation",
+      "pessimistes-avaient-raison"
+    ],
     "status": "scheduled"
   },
   {
