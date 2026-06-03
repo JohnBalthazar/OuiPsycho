@@ -1628,6 +1628,254 @@ function slugify(str) {
 }
 
 /* ══════════════════════════════════════════════
+   GÉNÉRATION HTML STATIQUE (réplique _gen_static.js)
+══════════════════════════════════════════════ */
+function generateArticleHTML(j) {
+  const BASE = 'https://ouipsycho.fr';
+  const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
+  const CAT = {
+    'Anxiété':                 { color:'#7C3AED', bg:'#F5F3FF', enc:'Anxi%C3%A9t%C3%A9' },
+    'Dépression':              { color:'#1D4ED8', bg:'#EFF6FF', enc:'D%C3%A9pression' },
+    'Bien-être':               { color:'#059669', bg:'#ECFDF5', enc:'Bien-%C3%AAtre' },
+    'Relations':               { color:'#BE185D', bg:'#FDF2F8', enc:'Relations' },
+    'Stress':                  { color:'#B45309', bg:'#FFFBEB', enc:'Stress' },
+    'Sommeil':                 { color:'#0369A1', bg:'#ECFEFF', enc:'Sommeil' },
+    'Thérapies':               { color:'#6D28D9', bg:'#EDE9FE', enc:'Th%C3%A9rapies' },
+    'Développement personnel': { color:'#15803D', bg:'#F0FDF4', enc:'D%C3%A9veloppement%20personnel' },
+  };
+  const NAV_CATS = ['Anxiété','Dépression','Bien-être','Stress','Sommeil','Thérapies','Relations'];
+  const ci  = CAT[j.category] || { color:'#555', bg:'#f5f5f5', enc: encodeURIComponent(j.category || '') };
+  const [y, m, day] = (j.date || '2026-01-01').split('-');
+  const fd  = `${parseInt(day)} ${MONTHS[parseInt(m)]} ${y}`;
+
+  // Keypoints
+  let kpHtml = '';
+  if (j.keypoints && j.keypoints.length) {
+    const li = j.keypoints.map(k => `        <li>${k}</li>`).join('\n');
+    kpHtml = `    <div class="article-keypoints">\n      <div class="article-keypoints__title">💡 Points clés de cet article</div>\n      <ul>\n${li}\n      </ul>\n    </div>\n`;
+  }
+
+  const tagsHtml = (j.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
+  const navHtml  = NAV_CATS.map(nc => {
+    const enc = (CAT[nc] || {}).enc || encodeURIComponent(nc);
+    const cls = nc === j.category ? 'cat-nav__btn active' : 'cat-nav__btn';
+    return `        <a class="${cls}" href="index.html?cat=${enc}">${nc}</a>`;
+  }).join('\n');
+
+  // JSON-LD
+  const esc = s => String(s || '').replace(/\\/g,'\\\\').replace(/"/g,'\\"');
+  const wordCount = (j.content || '').replace(/<[^>]+>/g,'').split(/\s+/).length;
+  const aLDobj = {
+    '@context':'https://schema.org','@type':'Article',
+    headline: j.title, description: j.metaDescription,
+    datePublished: j.date, dateModified: j.date, inLanguage:'fr',
+    author: { '@type':'Person', name: j.author },
+    publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/favicon.svg` } },
+    mainEntityOfPage: { '@type':'WebPage', '@id':`${BASE}/articles/${j.id}.html` },
+    keywords: (j.tags||[]).join(', '), articleSection: j.category, wordCount
+  };
+  if (j.image) aLDobj.image = { '@type':'ImageObject', url: j.image };
+  const aLD = JSON.stringify(aLDobj);
+  const bLD = JSON.stringify({
+    '@context':'https://schema.org','@type':'BreadcrumbList',
+    itemListElement:[
+      { '@type':'ListItem', position:1, name:'Accueil', item:`${BASE}/` },
+      { '@type':'ListItem', position:2, name: j.category, item:`${BASE}/index.html?cat=${ci.enc}` },
+      { '@type':'ListItem', position:3, name: j.title, item:`${BASE}/articles/${j.id}.html` }
+    ]
+  });
+
+  // Image og/twitter optionnelles
+  const ogImg  = j.image ? `\n  <meta property="og:image"    content="${j.image}">\n  <meta property="og:image:alt" content="${esc(j.title)}">` : '';
+  const twImg  = j.image ? `\n  <meta name="twitter:image"   content="${j.image}">` : '';
+
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${j.title} — Oui Psycho!</title>
+  <meta name="description" content="${esc(j.metaDescription)}">
+  <meta name="author" content="${esc(j.author)}">
+  <meta name="robots" content="index, follow">
+  <base href="../">
+  <link rel="canonical" href="${BASE}/articles/${j.id}.html">
+  <meta property="og:type"                    content="article">
+  <meta property="og:title"                   content="${esc(j.title)} — Oui Psycho!">
+  <meta property="og:description"             content="${esc(j.metaDescription)}">
+  <meta property="og:url"                     content="${BASE}/articles/${j.id}.html">
+  <meta property="og:locale"                  content="fr_FR">
+  <meta property="og:site_name"               content="Oui Psycho!">${ogImg}
+  <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
+  <meta property="article:modified_time"      content="${j.date}T00:00:00+01:00">
+  <meta property="article:author"             content="${esc(j.author)}">
+  <meta property="article:section"            content="${esc(j.category)}">
+  <meta name="twitter:card"                   content="summary_large_image">
+  <meta name="twitter:title"                  content="${esc(j.title)} — Oui Psycho!">
+  <meta name="twitter:description"            content="${esc(j.metaDescription)}">${twImg}
+  <script type="application/ld+json">${aLD}</script>
+  <script type="application/ld+json">${bLD}</script>
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <span class="logo__icon" aria-hidden="true">🧠</span>
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+    <nav class="cat-nav" aria-label="Catégories">
+      <div class="cat-nav__inner">
+        <a class="cat-nav__btn" href="index.html">← Tous les articles</a>
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+${navHtml}
+      </div>
+    </nav>
+  </header>
+
+  <div class="container layout article-page">
+    <main>
+      <article id="article-content" data-static="true" data-id="${j.id}">
+
+        <header class="article-header">
+          <nav class="breadcrumb" aria-label="Fil d'Ariane">
+            <a href="index.html">Accueil</a> <span>›</span>
+            <a href="index.html?cat=${ci.enc}">${j.category}</a>
+            <span>›</span> <span aria-current="page">${j.title}</span>
+          </nav>
+          <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
+          <h1>${j.title}</h1>
+          <div class="article-meta">
+            <span>Par <strong>${esc(j.author)}</strong></span>
+            <span class="article-meta-dot">•</span>
+            <time datetime="${j.date}">Mis à jour le ${fd}</time>
+            <span class="article-meta-dot">•</span>
+            <span>⏱ ${j.readTime} min de lecture</span>
+          </div>
+        </header>
+
+${kpHtml}
+        <div class="article-body">
+          ${j.content}
+        </div>
+
+        <div class="article-author">
+          <div class="article-author__avatar" aria-hidden="true">✍️</div>
+          <div>
+            <div class="article-author__name">${esc(j.author)}</div>
+            <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
+          </div>
+        </div>
+
+        <div class="article-tags" aria-label="Mots-clés">${tagsHtml}</div>
+
+        <div class="article-share" id="share-buttons" aria-label="Partager cet article">
+          <span class="share-label">Partager :</span>
+          <button class="share-btn share-btn--fb"   data-platform="facebook">Facebook</button>
+          <button class="share-btn share-btn--tw"   data-platform="twitter">Twitter / X</button>
+          <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
+          <button class="share-btn share-btn--copy" data-platform="copy">Copier le lien</button>
+        </div>
+
+        <aside class="article-disclaimer" role="note">
+          ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+          l'avis d'un professionnel de santé. En cas de détresse, appelez le
+          <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
+        </aside>
+
+      </article>
+    </main>
+
+    <aside id="article-sidebar" aria-label="Informations complémentaires">
+      <div class="widget" id="toc">
+        <h2 class="widget__title">Table des matières</h2>
+      </div>
+      <div class="widget" id="related-articles">
+        <h2 class="widget__title">À lire aussi</h2>
+      </div>
+      <div class="widget widget--accent" id="newsletter-widget">
+        <h2 class="widget__title">Newsletter</h2>
+        <div class="newsletter-form" id="nl-form">
+          <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
+          <label for="nl-${j.id}" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">S'abonner ✓</button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo"><span class="logo__icon" aria-hidden="true">🧠</span><span>Oui Psycho!</span></a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiété</a></li>
+            <li><a href="index.html?cat=D%C3%A9pression">Dépression</a></li>
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Stress">Stress</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${y} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-label="Cookies">
+    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience.
+      <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
+    <div class="cookie-buttons">
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
+      <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>`;
+}
+
+/* ══════════════════════════════════════════════
    STATUT DE PUBLICATION
 ══════════════════════════════════════════════ */
 function setArticleStatus(status) {
@@ -1734,6 +1982,9 @@ async function saveArticle() {
     if (pat) {
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
       await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index');
+      // Régénérer et pousser le HTML statique
+      const htmlPage = generateArticleHTML(articleData);
+      await githubPutFile('articles/' + id + '.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
     } else {
@@ -1799,21 +2050,21 @@ function ghBase() {
 async function githubGetSha(path) {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
-    // Cache-busting obligatoire : le CDN GitHub peut retourner un SHA périmé
+    const pat    = localStorage.getItem(GH_PAT_KEY) || '';
+    // Headers minimaux pour le GET (évite les CORS preflight liés à Content-Type)
     const url = ghBase() + path + '?ref=' + branch + '&t=' + Date.now();
     const res = await fetch(url, {
-      headers: { ...ghHeaders(), 'Cache-Control': 'no-cache', 'Pragma': 'no-cache' }
+      headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github.v3+json' }
     });
     if (!res.ok) return null;
     const data = await res.json();
-    return data.sha;
+    return data.sha || null;
   } catch(e) { return null; }
 }
 async function githubPutFile(path, content, message) {
   const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
   const encoded = btoa(unescape(encodeURIComponent(content)));
 
-  // Fonction d'envoi avec un SHA donné
   const doput = async (sha) => {
     const body = { message, content: encoded, branch };
     if (sha) body.sha = sha;
@@ -1823,12 +2074,15 @@ async function githubPutFile(path, content, message) {
   let sha = await githubGetSha(path);
   let res = await doput(sha);
 
-  // Si SHA mismatch (422), on re-fetch le SHA frais et on retente une fois
+  // Retry sur toute erreur 422 SHA (mismatch ou absent)
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     const msg = err.message || '';
-    if (res.status === 422 && msg.includes('does not match')) {
-      sha = await githubGetSha(path);   // SHA vraiment frais
+    const isShaError = res.status === 422 &&
+      (msg.includes('does not match') || msg.includes("sha") || msg.includes("wasn't supplied"));
+    if (isShaError) {
+      // Re-fetcher le SHA frais et réessayer
+      sha = await githubGetSha(path);
       res = await doput(sha);
       if (!res.ok) { const e2 = await res.json().catch(() => ({})); throw new Error(e2.message || res.status); }
     } else {
