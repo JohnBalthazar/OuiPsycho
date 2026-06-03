@@ -343,6 +343,15 @@
       .main-content { margin-left: 0; }
       .form-row, .form-row-3 { grid-template-columns: 1fr; }
     }
+    /* ── Bannière article HTML personnalisé ── */
+    .custom-html-banner { display:none; background:#fff8e1; border:2px solid #f59e0b; border-radius:var(--radius); padding:14px 16px; margin-bottom:16px; }
+    .custom-html-banner.visible { display:flex; align-items:flex-start; gap:12px; }
+    .custom-html-banner__icon { font-size:1.4rem; flex-shrink:0; }
+    .custom-html-banner__body { flex:1; }
+    .custom-html-banner__title { font-weight:700; color:#92400e; font-size:.9rem; margin-bottom:4px; }
+    .custom-html-banner__text { font-size:.82rem; color:#78350f; line-height:1.6; }
+    .custom-html-banner__link { display:inline-block; margin-top:8px; font-size:.8rem; font-weight:600; color:#f59e0b; text-decoration:none; }
+    .custom-html-banner__link:hover { text-decoration:underline; }
     /* ── Articles liés picker ── */
     .related-picker-wrap { max-height: 220px; overflow-y: auto; border: 1.5px solid var(--gray-200); border-radius: var(--radius); }
     .related-picker-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; transition: background .15s; border-bottom: 1px solid var(--gray-100); }
@@ -514,6 +523,22 @@
       <div style="display:grid;grid-template-columns:1fr 340px;gap:20px;">
         <!-- LEFT: form -->
         <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <!-- Bannière article HTML personnalisé -->
+          <div class="custom-html-banner" id="custom-html-banner">
+            <div class="custom-html-banner__icon">⚠️</div>
+            <div class="custom-html-banner__body">
+              <div class="custom-html-banner__title">Article HTML personnalisé — modification limitée</div>
+              <div class="custom-html-banner__text">
+                Cet article a été créé avec une mise en page sur-mesure (visualisations, tableaux, infographies…)
+                non éditable dans cet éditeur standard.<br>
+                <strong>Sauvegarder ici remplacerait la mise en page riche par un template générique.</strong><br>
+                Pour modifier le contenu, demande une mise à jour dans Claude Code.
+              </div>
+              <a class="custom-html-banner__link" id="custom-html-view-link" href="#" target="_blank">👁 Voir l'article sur le site →</a>
+            </div>
+          </div>
+
           <div class="card">
             <div class="card-header"><h3>Contenu</h3></div>
             <div class="panel-body">
@@ -1719,6 +1744,10 @@ function resetEditor() {
   resetKeypoints();
   initRelatedPicker([]);
   updateSeoCounter();
+  const _b = document.getElementById('custom-html-banner');
+  if (_b) _b.classList.remove('visible');
+  const _sb = document.getElementById('save-btn');
+  if (_sb) { _sb.style.opacity = ''; _sb.title = ''; }
   document.getElementById('preview-card').style.display = 'none';
   // Réinitialiser le widget image (null-safe)
   try { removeImage(); setImageStatus('', ''); } catch(e) {}
@@ -1760,6 +1789,19 @@ function editArticle(id) {
       initRelatedPicker(full.articles_lies || []);
       updateSeoCounter();
       setArticleStatus(full.status || 'published');
+      // Bannière article HTML personnalisé
+      const banner = document.getElementById('custom-html-banner');
+      const viewLink = document.getElementById('custom-html-view-link');
+      if (!full.content) {
+        banner.classList.add('visible');
+        if (viewLink) viewLink.href = 'https://ouipsycho.fr/articles/' + full.id + '.html';
+        document.getElementById('save-btn').style.opacity = '0.5';
+        document.getElementById('save-btn').title = 'Cet article utilise un HTML personnalisé — sauvegarde déconseillée';
+      } else {
+        banner.classList.remove('visible');
+        document.getElementById('save-btn').style.opacity = '';
+        document.getElementById('save-btn').title = '';
+      }
       toast('Article chargé ✓', 'success');
     })
     .catch(e => {
