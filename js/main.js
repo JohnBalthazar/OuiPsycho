@@ -590,7 +590,21 @@ async function loadRelated(current) {
     const res = await fetch(CONFIG.dataUrl);
     if (!res.ok) return;
     const list = await res.json();
-    const related = list.filter(a => a.id !== current.id && a.category === current.category).slice(0, 4);
+
+    // Priorité 1 : articles_lies définis manuellement dans l'admin
+    let related = [];
+    if (current.articles_lies && current.articles_lies.length) {
+      related = current.articles_lies
+        .map(id => list.find(a => a.id === id))
+        .filter(Boolean)
+        .slice(0, 3);
+    }
+
+    // Priorité 2 : même catégorie (fallback)
+    if (!related.length) {
+      related = list.filter(a => a.id !== current.id && a.category === current.category).slice(0, 4);
+    }
+
     if (!related.length) { c.style.display = 'none'; return; }
     c.innerHTML = `<h3 class="widget__title">À lire aussi</h3>
       <div class="related-list">
