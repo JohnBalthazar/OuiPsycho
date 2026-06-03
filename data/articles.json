@@ -225,11 +225,15 @@
   },
   {
     "id": "quelle-therapie-choisir",
-    "title": "Quelle thérapie choisir ? Le guide honnête pour ne pas se perdre",
+    "title": "Quelle thérapie choisir ? Le guide honnête pour ne pas se perdre et se (re)trouver",
     "excerpt": "TCC, psychanalyse, EMDR, ACT, Gestalt… Il existe des dizaines d'approches thérapeutiques. Comment s'y retrouver ? Quelles sont les plus efficaces pour quels problèmes ? Le guide clair que vous cherchiez.",
     "date": "2026-03-25",
     "category": "Thérapies",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -241,7 +245,8 @@
       "psychologue",
       "psychiatre"
     ],
-    "metaDescription": "Quel type de thérapie choisir ? TCC, EMDR, psychanalyse, ACT, Gestalt : leurs différences, indications et efficacité expliquées clairement pour bien choisir."
+    "metaDescription": "Quel type de thérapie choisir ? TCC, EMDR, psychanalyse, ACT, Gestalt : leurs différences, indications et efficacité expliquées clairement pour bien choisir.",
+    "status": "published"
   },
   {
     "id": "resilience-emotionnelle",
