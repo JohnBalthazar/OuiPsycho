@@ -1481,17 +1481,30 @@ async function doLogin() {
   sessionStorage.setItem(SESSION_KEY, JSON.stringify({ loginTime: Date.now() }));
   startSessionTimer(SESSION_DURATION);
 
-  // Tenter de déchiffrer le PAT depuis config.json si pas encore en localStorage
-  if (!localStorage.getItem(GH_PAT_KEY)) {
+  // Déchiffrer PAT + credentials Firebase depuis config.json si absents du localStorage
+  const needPat = !localStorage.getItem(GH_PAT_KEY);
+  const needFb  = !localStorage.getItem(FB_EMAIL_KEY) || !localStorage.getItem(FB_PASS_KEY);
+  if (needPat || needFb) {
     try {
       const r = await fetch('data/config.json?t=' + Date.now());
       if (r.ok) {
         const cfg = await r.json();
-        if (cfg.pat_enc) {
-          const decrypted = await decryptPAT(cfg.pat_enc, pass);
-          if (decrypted) {
-            localStorage.setItem(GH_PAT_KEY, decrypted);
-            toast('🔓 Token GitHub restauré automatiquement', 'success');
+        // Restaurer le PAT GitHub
+        if (needPat && cfg.pat_enc) {
+          const pat = await decryptPAT(cfg.pat_enc, pass);
+          if (pat) {
+            localStorage.setItem(GH_PAT_KEY, pat);
+            toast('🔓 Token GitHub restauré', 'success');
+          }
+        }
+        // Restaurer les credentials Firebase (email + mot de passe chiffrés)
+        if (needFb && cfg.fb_enc) {
+          const fb = await decryptPAT(cfg.fb_enc, pass); // même algo AES-256-GCM
+          if (fb) {
+            const [fbEmail, fbPass] = fb.split('\x00'); // séparateur null-byte
+            if (fbEmail) localStorage.setItem(FB_EMAIL_KEY, fbEmail);
+            if (fbPass)  localStorage.setItem(FB_PASS_KEY,  fbPass);
+            toast('🔓 Connexion Firebase restaurée', 'success');
           }
         }
       }
@@ -2802,10 +2815,15 @@ async function pushConfigToGitHub() {
   const pick = (lsKey, remoteKey, def = '') =>
     localStorage.getItem(lsKey) || remote[remoteKey] || def;
 
-  // PAT chiffré — priorité locale, sinon garder la version distante
+  // PAT GitHub chiffré — priorité locale, sinon garder la version distante
   const patEncLocal  = localStorage.getItem('ouipsycho_pat_enc');
   const patEncRemote = remote.pat_enc || null;
   const patEnc       = patEncLocal ? JSON.parse(patEncLocal) : patEncRemote;
+
+  // Credentials Firebase chiffrés — même logique
+  const fbEncLocal  = localStorage.getItem('ouipsycho_fb_enc');
+  const fbEncRemote = remote.fb_enc || null;
+  const fbEnc       = fbEncLocal ? JSON.parse(fbEncLocal) : fbEncRemote;
 
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
@@ -2822,8 +2840,10 @@ async function pushConfigToGitHub() {
     contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
     // Hash du mot de passe admin (SHA-256 + sel, sens unique, safe à publier)
     ...(adminPassHash ? { adminPassHash } : {}),
-    // PAT chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
+    // PAT GitHub chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
     ...(patEnc ? { pat_enc: patEnc } : {}),
+    // Credentials Firebase chiffrés AES-256-GCM (inutilisables sans le mot de passe admin)
+    ...(fbEnc  ? { fb_enc:  fbEnc  } : {}),
   };
 
   try {
@@ -3761,8 +3781,21 @@ async function saveFirebaseSettings() {
   if (email) localStorage.setItem(FB_EMAIL_KEY, email);
   if (pass)  localStorage.setItem(FB_PASS_KEY,  pass);
 
-  toast('Configuration Firebase enregistrée ✅', 'success');
-  await pushConfigToGitHub(); // pousse projectId + apiKey dans data/config.json
+  // Chiffrer email + mot de passe Firebase avec le mot de passe admin (AES-256-GCM)
+  // Stocké dans config.json — inutilisable sans le mot de passe admin
+  if (email && pass && _sessionPassword) {
+    try {
+      const fbEnc = await encryptPAT(email + '\x00' + pass, _sessionPassword);
+      localStorage.setItem('ouipsycho_fb_enc', JSON.stringify(fbEnc));
+      toast('Configuration Firebase chiffrée et sauvegardée ✅', 'success');
+    } catch(e) {
+      toast('Configuration Firebase enregistrée ✅ (chiffrement échoué : ' + e.message + ')', 'success');
+    }
+  } else {
+    toast('Configuration Firebase enregistrée ✅', 'success');
+  }
+
+  await pushConfigToGitHub(); // pousse tout dans data/config.json
 }
 
 async function testFirebaseConnection() {
