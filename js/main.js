@@ -168,7 +168,7 @@ function renderFeatured(article) {
    ============================================================ */
 let allArticles      = [];
 let filteredArticles = [];
-let currentPage      = 0;
+let _nextDataStart   = 0;      // pointeur exact vers le prochain article à rendre dans la grille
 let activeCategory   = 'all';
 let searchQuery      = '';
 let _scrollObserver  = null;   // IntersectionObserver instance
@@ -291,8 +291,7 @@ function applyFilters(grid, featured) {
       (a.category && a.category.toLowerCase().includes(searchQuery));
     return matchCat && matchQ;
   });
-  currentPage = 0;
-  renderPage(grid, featured, true);
+  renderPage(grid, featured, true); // reset=true remet _nextDataStart à 0
 
   const sectionHdr = document.getElementById('articles-section-header');
   if (sectionHdr) {
@@ -301,11 +300,17 @@ function applyFilters(grid, featured) {
 }
 
 function renderPage(grid, featured, reset = false) {
-  const start      = currentPage * CONFIG.perPage;
-  const isFeatured = reset && currentPage === 0 && !searchQuery && activeCategory === 'all';
-  const dataStart  = isFeatured ? 1 : start;
-  const dataEnd    = isFeatured ? 1 + CONFIG.perPage : start + CONFIG.perPage;
-  const slice      = filteredArticles.slice(dataStart, dataEnd);
+  // Remise à zéro du pointeur sur reset
+  if (reset) _nextDataStart = 0;
+
+  // Mode "à la une" : seulement sur la toute première passe, sans filtre actif
+  const isFeatured = (_nextDataStart === 0) && !searchQuery && activeCategory === 'all'
+                     && filteredArticles.length > 0;
+
+  // Calcul des indices à rendre — isFeatured saute l'index 0 (déjà dans featured)
+  const dataStart = isFeatured ? 1 : _nextDataStart;
+  const dataEnd   = dataStart + CONFIG.perPage;
+  const slice     = filteredArticles.slice(dataStart, dataEnd);
 
   // Sentinel + loader
   const sentinel = document.getElementById('scroll-sentinel');
@@ -322,14 +327,14 @@ function renderPage(grid, featured, reset = false) {
   if (reset) {
     grid.innerHTML = '';
     if (featured) {
-      featured.innerHTML = isFeatured && filteredArticles.length > 0
+      featured.innerHTML = isFeatured
         ? renderFeatured(filteredArticles[0])
         : '';
     }
   }
 
   // État vide
-  if (slice.length === 0 && currentPage === 0 && (!isFeatured || filteredArticles.length === 0)) {
+  if (filteredArticles.length === 0 || (slice.length === 0 && _nextDataStart === 0)) {
     grid.innerHTML = `
       <div class="empty-state">
         <div class="empty-state__icon">🔍</div>
@@ -347,13 +352,12 @@ function renderPage(grid, featured, reset = false) {
     tmp.innerHTML = slice.map(renderCard).join('');
     while (tmp.firstChild) frag.appendChild(tmp.firstChild);
     grid.appendChild(frag);
-    currentPage++;
+    // Avancer le pointeur du nombre exact d'articles rendus
+    _nextDataStart = dataStart + slice.length;
   }
 
-  // Montrer/cacher le sentinel selon s'il reste des articles
-  const total    = isFeatured ? filteredArticles.length - 1 : filteredArticles.length;
-  const allDone  = currentPage * CONFIG.perPage >= total;
-  setSentinelVisible(!allDone);
+  // Afficher le sentinel s'il reste des articles
+  setSentinelVisible(_nextDataStart < filteredArticles.length);
 }
 
 function buildCategoryFilter() {
