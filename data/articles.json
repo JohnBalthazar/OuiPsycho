@@ -25,9 +25,13 @@
     "id": "a-quoi-sert-la-honte",
     "title": "À quoi sert la honte ?",
     "excerpt": "On la fuit, on s'en défend, on l'intériorise jusqu'à la confondre avec soi-même. La psychologie lui reconnaît une utilité — à condition de comprendre la différence entre la honte qui protège et celle qui dévore.",
-    "date": "2026-06-06",
+    "date": "2026-06-07",
     "category": "Émotions & identité",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 10,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -37,11 +41,19 @@
       "Tangney",
       "Brené Brown",
       "boussole de la honte",
+      "Nathanson",
       "trauma",
       "dépression",
+      "évolution",
+      "identité",
       "psychologie clinique"
     ],
     "metaDescription": "Honte vs culpabilité, boussole de Nathanson, rôle évolutif, shame-rage spiral : ce que la psychologie dit de notre émotion la plus redoutée.",
+    "articles_lies": [
+      "choisir-son-therapeute",
+      "savoir-dire-stop-seuils-fawn-response",
+      "etes-vous-normal"
+    ],
     "status": "scheduled"
   },
   {
