@@ -1168,30 +1168,34 @@
       <div class="card" style="margin-top:20px">
         <div class="card-header"><h3>⚡ Configuration Brevo (envoi de newsletters)</h3></div>
         <div class="panel-body" style="display:flex;flex-direction:column;gap:12px">
-          <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;font-size:.85rem;color:var(--primary)">
-            <strong>Brevo gratuit</strong> · 300 emails/jour · illimité en contacts ·
-            <a href="https://www.brevo.com/fr/pricing/" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte →</a><br><br>
-            <strong>Setup (2 min) :</strong>
-            <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
-              <li>Brevo → Mon compte → <strong>SMTP &amp; API</strong> → onglet <strong>API keys</strong> → créer une clé</li>
-              <li>Brevo → Contacts → <strong>Listes</strong> → créer une liste "Oui Psycho" → noter l'ID (numéro dans l'URL)</li>
+
+          <div style="background:var(--primary-light);border-radius:8px;padding:14px 16px;font-size:.85rem;color:var(--primary);line-height:1.8">
+            <strong>🔒 Méthode sécurisée — formulaire public Brevo</strong><br>
+            Aucune clé API stockée sur le site. Le formulaire utilise un endpoint public Brevo (sibforms.com).<br><br>
+            <strong>Setup (5 min) :</strong>
+            <ol style="margin:.4rem 0 0 1.2rem;line-height:2">
+              <li>Brevo → <strong>Marketing → Formulaires → Inscription</strong> → "Créer un formulaire"</li>
+              <li>Nommer : <code>Newsletter Oui Psycho</code> · Liste : <strong>Newsletter #2</strong> · activer le <strong>double opt-in</strong></li>
+              <li>Sauvegarder → <strong>Partager / Intégrer</strong> → copier la valeur de <code>action="…"</code> dans le code HTML</li>
+              <li>Coller l'URL ci-dessous (format : <code>https://sibforms.com/serve/MUIFAB…</code>)</li>
             </ol>
           </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Clé API Brevo</label>
-              <input type="password" id="brevo-apikey" placeholder="xkeysib-…">
-            </div>
-            <div class="form-group">
-              <label>ID de la liste Brevo</label>
-              <input type="number" id="brevo-listid" placeholder="ex : 3">
-            </div>
+
+          <div class="form-group">
+            <label>URL du formulaire Brevo <small style="font-weight:400;opacity:.7">(sibforms.com/serve/…)</small></label>
+            <input type="url" id="brevo-form-url" placeholder="https://sibforms.com/serve/MUIFAB…" style="font-size:.85rem">
+            <small id="brevo-form-status" style="margin-top:4px;display:block;font-size:.78rem"></small>
           </div>
-          <div>
-            <button class="btn btn-primary" onclick="saveBrevoSettings()">Enregistrer Brevo</button>
-            <button class="btn btn-ghost" style="margin-left:8px" onclick="testBrevoConnection()">Tester</button>
+
+          <div style="border-top:1px solid var(--gray-200);padding-top:12px;margin-top:4px">
+            <button class="btn btn-primary" onclick="saveBrevoSettings()">Enregistrer</button>
+            <button class="btn btn-ghost" style="margin-left:8px" onclick="testBrevoForm()">Tester l'URL</button>
             <span id="brevo-test-result" style="margin-left:12px;font-size:.85rem"></span>
           </div>
+
+          <!-- Champs legacy cachés (conservés pour compatibilité) -->
+          <input type="hidden" id="brevo-apikey">
+          <input type="hidden" id="brevo-listid">
         </div>
       </div>
     </div>
@@ -2836,12 +2840,8 @@ async function pushConfigToGitHub() {
   const brevoEncRemote = remote.brevo_enc || null;
   const brevoEnc       = brevoEncLocal ? JSON.parse(brevoEncLocal) : brevoEncRemote;
   const brevoListId    = localStorage.getItem(BREVO_LIST_KEY) || remote.brevoListId || '';
-  // Clé API Brevo encodée en tableau de codes ASCII (non détectable par GitHub secret-scanning)
-  // Le JS public la reconstruit avec String.fromCharCode()
-  const _brevoRaw   = localStorage.getItem(BREVO_KEY_KEY) || '';
-  const brevoApiKey = _brevoRaw
-    ? JSON.stringify(Array.from(_brevoRaw).map(c => c.charCodeAt(0)))
-    : (remote.brevoApiKeyB64 || '');
+  // URL publique du formulaire Brevo (pas un secret — safe à stocker dans config.json)
+  const brevoFormUrl = localStorage.getItem('ouipsycho_brevo_form_url') || remote.brevoFormUrl || '';
 
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
@@ -2864,10 +2864,10 @@ async function pushConfigToGitHub() {
     ...(fbEnc      ? { fb_enc:    fbEnc    } : {}),
     // Clé API Brevo chiffrée AES-256-GCM (inutilisable sans le mot de passe admin)
     ...(brevoEnc    ? { brevo_enc:   brevoEnc   } : {}),
-    // Clé API Brevo encodée Base64 (pas détectée par GitHub secret-scanning)
-    ...(brevoApiKey ? { brevoApiKeyB64: brevoApiKey } : {}),
-    // ID liste Brevo (non sensible — juste un numéro)
-    ...(brevoListId ? { brevoListId             } : {}),
+    // URL publique du formulaire Brevo (sibforms.com — aucun secret)
+    ...(brevoFormUrl ? { brevoFormUrl } : {}),
+    // ID liste Brevo conservé pour référence
+    ...(brevoListId  ? { brevoListId  } : {}),
   };
 
   try {
@@ -3462,8 +3462,14 @@ async function loadNewsletterSubscribers() {
         : '';
     }
     // Pré-remplir les champs Brevo
-    document.getElementById('brevo-apikey').value  = localStorage.getItem(BREVO_KEY_KEY)  || '';
-    document.getElementById('brevo-listid').value  = localStorage.getItem(BREVO_LIST_KEY) || '';
+    // Charger l'URL du formulaire Brevo (depuis localStorage ou config distant)
+    const savedFormUrl = localStorage.getItem('ouipsycho_brevo_form_url') || cfg.brevoFormUrl || '';
+    document.getElementById('brevo-form-url').value = savedFormUrl;
+    const statusEl = document.getElementById('brevo-form-status');
+    if (statusEl && savedFormUrl) {
+      statusEl.textContent = '✅ URL configurée';
+      statusEl.style.color = 'var(--success)';
+    }
 
   } catch(e) {
     if (tbody) tbody.innerHTML = `<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--danger)">Erreur : ${e.message}</td></tr>`;
@@ -3508,39 +3514,32 @@ function exportNewsletterCSV() {
 }
 
 async function saveBrevoSettings() {
-  const key  = document.getElementById('brevo-apikey').value.trim();
-  const list = document.getElementById('brevo-listid').value.trim();
-  if (!key || !list) { toast('Remplissez la clé API et l\'ID de liste', 'error'); return; }
-  localStorage.setItem(BREVO_KEY_KEY,  key);
-  localStorage.setItem(BREVO_LIST_KEY, list);
-  // Chiffrer la clé API Brevo avec le mot de passe admin (AES-256-GCM)
-  if (_sessionPassword) {
-    try {
-      const brevoEnc = await encryptPAT(key, _sessionPassword);
-      localStorage.setItem('ouipsycho_brevo_enc', JSON.stringify(brevoEnc));
-    } catch(e) { console.warn('Chiffrement Brevo:', e.message); }
+  const formUrl = document.getElementById('brevo-form-url').value.trim();
+  if (!formUrl) { toast('Collez l\'URL du formulaire Brevo (sibforms.com/serve/…)', 'error'); return; }
+  if (!formUrl.startsWith('https://sibforms.com/')) {
+    toast('L\'URL doit commencer par https://sibforms.com/', 'error'); return;
   }
+  localStorage.setItem('ouipsycho_brevo_form_url', formUrl);
+  const statusEl = document.getElementById('brevo-form-status');
+  if (statusEl) { statusEl.textContent = '✅ URL enregistrée localement'; statusEl.style.color = 'var(--success)'; }
   toast('Configuration Brevo enregistrée ✅', 'success');
-  await pushConfigToGitHub(); // centralise tout dans config.json
+  await pushConfigToGitHub();
 }
 
-async function testBrevoConnection() {
-  const key    = document.getElementById('brevo-apikey').value.trim();
+async function testBrevoForm() {
+  const url    = document.getElementById('brevo-form-url').value.trim();
   const result = document.getElementById('brevo-test-result');
-  if (!key) { result.textContent = '❌ Entrez une clé API'; result.style.color = 'var(--danger)'; return; }
-  result.textContent = '⏳ Test…'; result.style.color = 'var(--gray-500)';
-  try {
-    const res = await fetch('https://api.brevo.com/v3/account', { headers: { 'api-key': key } });
-    if (res.ok) {
-      const d = await res.json();
-      result.textContent = `✅ Connecté : ${d.email || 'compte Brevo'}`;
-      result.style.color = 'var(--success)';
-    } else {
-      result.textContent = '❌ Clé invalide';
-      result.style.color = 'var(--danger)';
-    }
-  } catch(e) { result.textContent = '❌ ' + e.message; result.style.color = 'var(--danger)'; }
+  if (!url) { result.textContent = '❌ Entrez l\'URL du formulaire'; result.style.color = 'var(--danger)'; return; }
+  if (!url.startsWith('https://sibforms.com/')) {
+    result.textContent = '❌ URL invalide (doit commencer par https://sibforms.com/)';
+    result.style.color = 'var(--danger)'; return;
+  }
+  result.textContent = '✅ Format URL valide — copiez depuis Brevo → Formulaires → Partager';
+  result.style.color = 'var(--success)';
 }
+
+// Legacy — conservé pour ne pas casser d'éventuels appels existants
+async function testBrevoConnection() { await testBrevoForm(); }
 
 /* ── Chargement + affichage ── */
 async function loadAdminComments() {

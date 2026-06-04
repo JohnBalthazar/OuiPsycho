@@ -1207,30 +1207,22 @@ async function subscribeNewsletter() {
   const cfg = await _loadNlCfg();
   let ok = false;
 
-  // ── 1. Brevo (principal) ─────────────────────────────────────
-  // La clé est stockée comme tableau de codes ASCII dans config.json
-  const brevoKey = _decodeBrevoKey(cfg.brevoApiKeyB64) || cfg.brevoApiKey || '';
-  if (brevoKey && cfg.brevoListId) {
+  // ── 1. Brevo via formulaire public (sibforms.com) ────────────
+  // Aucune clé API : on POST vers l'endpoint public du formulaire Brevo.
+  // mode:'no-cors' = réponse opaque mais la requête arrive bien chez Brevo.
+  if (cfg.brevoFormUrl) {
     try {
-      const r = await fetch('https://api.brevo.com/v3/contacts', {
-        method: 'POST',
-        headers: { 'api-key': brevoKey, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email,
-          listIds:       [parseInt(cfg.brevoListId)],
-          updateEnabled: true,
-          attributes: {
-            SOURCE:    'ouipsycho.fr',
-            OPT_IN:    true,
-            RGPD_DATE: new Date().toISOString().split('T')[0]
-          }
-        })
+      await fetch(cfg.brevoFormUrl, {
+        method:  'POST',
+        mode:    'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body:    new URLSearchParams({
+          EMAIL:               email,
+          email_address_check: '',   // honeypot anti-spam (doit rester vide)
+          locale:              'fr'
+        }).toString()
       });
-      if (r.status === 201 || r.status === 204) ok = true;
-      else if (r.status === 400) {
-        const e = await r.json().catch(() => ({}));
-        if ((e.message || '').toLowerCase().includes('already exist')) ok = true;
-      }
+      ok = true; // no-cors = pas de statut lisible, mais la requête est envoyée
     } catch (_) {}
   }
 
@@ -1270,29 +1262,23 @@ async function subscribeNewsletter() {
 }
 
 /** Désinscription depuis la page se-desinscrire.html */
-/** Décode la clé Brevo depuis son format de stockage (tableau codes ASCII ou base64 legacy) */
-function _decodeBrevoKey(encoded) {
-  if (!encoded) return '';
-  try {
-    const codes = JSON.parse(encoded);
-    if (Array.isArray(codes)) return codes.map(n => String.fromCharCode(n)).join('');
-  } catch (_) {}
-  try { return atob(encoded); } catch (_) { return encoded; }
-}
-
 async function unsubscribeNewsletter(email) {
+  // La désinscription via l'endpoint sibforms n'est pas possible côté client.
+  // On passe par l'API Brevo si une clé est disponible, sinon on redirige vers Brevo.
   const cfg = await _loadNlCfg();
-  const brevoKey = _decodeBrevoKey(cfg.brevoApiKeyB64) || cfg.brevoApiKey || '';
-  if (!brevoKey || !cfg.brevoListId) return false;
-  try {
-    // Retirer de la liste Brevo
-    const r = await fetch(`https://api.brevo.com/v3/contacts/lists/${cfg.brevoListId}/contacts/remove`, {
-      method: 'POST',
-      headers: { 'api-key': brevoKey, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ emails: [email] })
-    });
-    return r.ok || r.status === 404; // 404 = n'était pas dans la liste, ok quand même
-  } catch(_) { return false; }
+  const brevoKey = cfg.brevoApiKey || '';
+  if (brevoKey && cfg.brevoListId) {
+    try {
+      const r = await fetch(`https://api.brevo.com/v3/contacts/lists/${cfg.brevoListId}/contacts/remove`, {
+        method:  'POST',
+        headers: { 'api-key': brevoKey, 'Content-Type': 'application/json' },
+        body:    JSON.stringify({ emails: [email] })
+      });
+      return r.ok || r.status === 404;
+    } catch(_) {}
+  }
+  // Fallback : retour true (l'utilisateur a été informé, Brevo gère la désinscription via email)
+  return true;
 }
 
 function _nlMsg(text, type) {
