@@ -154,13 +154,16 @@
     "id": "age-ideal-avoir-enfants",
     "title": "Quel est le meilleur âge pour avoir des enfants ?",
     "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
-    "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-04",
     "date_modified": "2026-06-04",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dbtqlchtkhcg2r5lqb7j",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "parentalité",
       "fertilité",
@@ -168,34 +171,8 @@
       "horloge biologique",
       "projet parental"
     ],
-    "sources": [
-      {
-        "authors": "Leridon H.",
-        "year": "2004",
-        "title": "Can assisted reproduction technology compensate for the natural decline in fertility with age? A model assessment",
-        "journal": "Human Reproduction",
-        "url": "https://doi.org/10.1093/humrep/deh304"
-      },
-      {
-        "authors": "Bessin M. & Levilain H.",
-        "year": "2012",
-        "title": "Parents après 40 ans",
-        "publisher": "Autrement"
-      },
-      {
-        "authors": "INSEE",
-        "year": "2023",
-        "title": "Bilan démographique 2022",
-        "url": "https://www.insee.fr/fr/statistiques/6689330"
-      },
-      {
-        "authors": "Gratten J. & Visscher P.M.",
-        "year": "2016",
-        "title": "Genetic architecture of psychiatric disorders",
-        "journal": "Nature Neuroscience",
-        "url": "https://doi.org/10.1038/nn.4334"
-      }
-    ],
+    "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
+    "articles_lies": [],
     "status": "published"
   },
   {
