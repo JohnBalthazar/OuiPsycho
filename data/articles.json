@@ -201,6 +201,70 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-sommes-nous-fascines-par-les-chats",
+    "title": "Pourquoi sommes-nous fascinés par les chats ?",
+    "excerpt": "600 millions de chats domestiques dans le monde. Des milliards de vidéos visionnées chaque année. Une vénération qui remonte à 11 000 ans. La fascination humaine pour le chat n'est pas anecdotique — elle est profonde, multidimensionnelle, et la science commence à en comprendre les mécanismes.",
+    "metaDescription": "Psychologie, neurosciences, histoire : pourquoi les humains sont-ils si fascinés par les chats ? La science répond avec sérieux — et un peu d'humour.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-04",
+    "date_modified": "2026-06-04",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 11,
+    "tags": [
+      "chats",
+      "psychologie",
+      "attachement",
+      "bien-être",
+      "neurosciences",
+      "animaux"
+    ],
+    "sources": [
+      {
+        "authors": "Vitale K.R., Behnke A.C. & Udell M.A.R.",
+        "year": "2019",
+        "title": "Attachment bonds between domestic cats and humans",
+        "journal": "Current Biology",
+        "url": "https://doi.org/10.1016/j.cub.2019.08.036"
+      },
+      {
+        "authors": "Myrick J.G.",
+        "year": "2015",
+        "title": "Emotion regulation, procrastination, and watching cat videos online: Who watches Internet cats, why, and to what effect?",
+        "journal": "Computers in Human Behavior",
+        "url": "https://doi.org/10.1016/j.chb.2015.06.001"
+      },
+      {
+        "authors": "Glocker M.L., Langleben D.D., Ruparel K., Loughead J.W., Gur R.C. & Sachser N.",
+        "year": "2009",
+        "title": "Baby schema in infant faces induces cuteness perception and motivation for caretaking in adults",
+        "journal": "Ethology",
+        "url": "https://doi.org/10.1111/j.1439-0310.2009.01603.x"
+      },
+      {
+        "authors": "Beetz A., Uvnäs-Moberg K., Julius H. & Kotrschal K.",
+        "year": "2012",
+        "title": "Psychosocial and psychophysiological effects of human-animal interactions: the possible role of oxytocin",
+        "journal": "Frontiers in Psychology",
+        "url": "https://doi.org/10.3389/fpsyg.2012.00234"
+      },
+      {
+        "authors": "Driscoll C.A., Macdonald D.W. & O'Brien S.J.",
+        "year": "2009",
+        "title": "From wild animals to domestic pets, an evolutionary view of domestication",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.0901586106"
+      },
+      {
+        "authors": "de Mouzon C.",
+        "year": "2022",
+        "title": "La relation humain-chat : étude des mécanismes d'une communication interspécifique",
+        "publisher": "Thèse de doctorat, Université Paris Nanterre"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "monde-dirige-par-femmes",
     "title": "Et si le monde était (mieux) dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
