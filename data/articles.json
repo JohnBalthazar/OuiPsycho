@@ -31,6 +31,37 @@
     "status": "scheduled"
   },
   {
+    "id": "dunning-kruger",
+    "title": "Le syndrome du génie raté : pourquoi on se croit meilleur qu'on n'est",
+    "excerpt": "M. Choupoune arrive avec ses plans de fusée thermonucléaire. Il ne doute de rien — et c'est précisément ça, le problème. L'effet Dunning-Kruger explique pourquoi les moins compétents sont souvent les plus sûrs d'eux, et pourquoi on est tous un peu M. Choupoune.",
+    "date": "2026-06-11",
+    "date_modified": "2026-06-04",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "Dunning-Kruger",
+      "biais cognitifs",
+      "connaissance de soi",
+      "confiance en soi",
+      "ultracrépidarianisme",
+      "métacognition",
+      "pensée critique"
+    ],
+    "metaDescription": "L'effet Dunning-Kruger : pourquoi les moins compétents sont souvent les plus confiants, les 4 phases de la courbe, et comment en sortir.",
+    "articles_lies": [
+      "brandolini",
+      "cerveau-a-t-il-un-genre",
+      "resilience-emotionnelle"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "animaux-sante-mentale",
     "title": "Nos animaux sont-ils nos meilleurs psys ?",
     "excerpt": "Un chien qui pose sa tête sur vos genoux. Un chat qui ronronne dans votre cou. Un cheval qui avance au même rythme que vous. Ce n'est pas que du réconfort — c'est de la biochimie. La science s'intéresse sérieusement aux bienfaits des animaux sur notre santé mentale, et les résultats sont étonnamment solides.",
@@ -426,37 +457,6 @@
     ],
     "metaDescription": "Comment sortir de la dépression : psychothérapies (TCC, TIP, MBCT), antidépresseurs, exercice physique. Les traitements validés scientifiquement expliqués clairement.",
     "articles_lies": [],
-    "status": "published"
-  },
-  {
-    "id": "dunning-kruger",
-    "title": "Le syndrome du génie raté : pourquoi on se croit meilleur qu'on n'est",
-    "excerpt": "M. Choupoune arrive avec ses plans de fusée thermonucléaire. Il ne doute de rien — et c'est précisément ça, le problème. L'effet Dunning-Kruger explique pourquoi les moins compétents sont souvent les plus sûrs d'eux, et pourquoi on est tous un peu M. Choupoune.",
-    "date": "2026-05-01",
-    "date_modified": "2026-06-04",
-    "category": "Développement personnel",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "Dunning-Kruger",
-      "biais cognitifs",
-      "connaissance de soi",
-      "confiance en soi",
-      "ultracrépidarianisme",
-      "métacognition",
-      "pensée critique"
-    ],
-    "metaDescription": "L'effet Dunning-Kruger : pourquoi les moins compétents sont souvent les plus confiants, les 4 phases de la courbe, et comment en sortir.",
-    "articles_lies": [
-      "brandolini",
-      "cerveau-a-t-il-un-genre",
-      "resilience-emotionnelle"
-    ],
     "status": "published"
   },
   {
