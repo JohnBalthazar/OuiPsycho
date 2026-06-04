@@ -27,5 +27,21 @@
     "Le bonheur suit une courbe en U : son point bas est vers 45–50 ans, puis il remonte pour culminer autour de 65–70 ans.",
     "L'intelligence cristallisée (sagesse, vocabulaire, maturité émotionnelle) continue de progresser jusqu'à la soixante-dixième année.",
     "C'est l'âge psychologique — celui qu'on se donne — qui prédit le mieux la santé et la qualité de vie futures."
+  ],
+  "sources": [
+    {
+      "authors": "Wettstein M. et al.",
+      "year": "2024",
+      "title": "Subjective age and the transition from work to retirement",
+      "journal": "Psychology and Aging",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/38647449/"
+    },
+    {
+      "authors": "Salthouse T.A.",
+      "year": "2004",
+      "title": "What and when of cognitive aging",
+      "journal": "Current Directions in Psychological Science",
+      "url": "https://doi.org/10.3758/BF03193996"
+    }
   ]
 }

@@ -28,5 +28,21 @@
     "20 minutes de marche en forêt réduisent le cortisol et améliorent l'humeur",
     "3 séances d'écriture expressive de 20 minutes réduisent l'anxiété de façon mesurable"
   ],
-  "status": "published"
+  "status": "published",
+  "sources": [
+    {
+      "authors": "Park B.J. et al.",
+      "year": "2010",
+      "title": "The physiological effects of Shinrin-yoku (forest bathing): evidence from field experiments in 24 forests across Japan",
+      "journal": "Environmental Health and Preventive Medicine",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/19568839/"
+    },
+    {
+      "authors": "Pennebaker J.W. & Chung C.K.",
+      "year": "2007",
+      "title": "Expressive writing, emotional upheavals, and health",
+      "journal": "Handbook of Health Psychology",
+      "url": "https://psycnet.apa.org/record/2006-12208-011"
+    }
+  ]
 }

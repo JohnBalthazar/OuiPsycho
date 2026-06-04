@@ -24,13 +24,51 @@
   ],
   "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
   "sources": [
-    "Joel D. et al., Sex beyond the genitalia: The human brain mosaic, PNAS, 2015",
-    "Rippon G., Eliot L., Genon S. & Joel D., How hype and hyperbole distort the neuroscience of sex differences, PLOS Biology, 2021",
-    "Eliot L., Pink Brain, Blue Brain, Houghton Mifflin Harcourt, 2009",
-    "Fine C., Delusions of Gender, W.W. Norton & Company, 2010",
-    "Rippon G., The Gendered Brain, Bodley Head, 2019",
-    "Swaab D.F. & Garcia-Falgueras A., Sexual differentiation of the human brain in relation to gender identity and sexual orientation, Functional Neurology, 2009",
-    "Ritchie S.J. et al., Sex Differences in the Adult Human Brain: Evidence from 5216 UK Biobank Participants, Cerebral Cortex, 2018"
+    {
+      "authors": "Joel D. et al.",
+      "year": "2015",
+      "title": "Sex beyond the genitalia: The human brain mosaic",
+      "journal": "PNAS",
+      "url": "https://doi.org/10.1073/pnas.1509654112"
+    },
+    {
+      "authors": "Rippon G., Eliot L., Genon S. & Joel D.",
+      "year": "2021",
+      "title": "How hype and hyperbole distort the neuroscience of sex differences",
+      "journal": "PLOS Biology",
+      "url": "https://doi.org/10.1371/journal.pbio.3001301"
+    },
+    {
+      "authors": "Ritchie S.J. et al.",
+      "year": "2018",
+      "title": "Sex Differences in the Adult Human Brain: Evidence from 5216 UK Biobank Participants",
+      "journal": "Cerebral Cortex",
+      "url": "https://doi.org/10.1093/cercor/bhy109"
+    },
+    {
+      "authors": "Eliot L.",
+      "year": "2009",
+      "title": "Pink Brain, Blue Brain",
+      "publisher": "Houghton Mifflin Harcourt"
+    },
+    {
+      "authors": "Fine C.",
+      "year": "2010",
+      "title": "Delusions of Gender",
+      "publisher": "W.W. Norton & Company"
+    },
+    {
+      "authors": "Rippon G.",
+      "year": "2019",
+      "title": "The Gendered Brain",
+      "publisher": "Bodley Head"
+    },
+    {
+      "authors": "Swaab D.F. & Garcia-Falgueras A.",
+      "year": "2009",
+      "title": "Sexual differentiation of the human brain in relation to gender identity and sexual orientation",
+      "journal": "Functional Neurology"
+    }
   ],
   "articles_lies": [
     "monde-dirige-par-femmes",

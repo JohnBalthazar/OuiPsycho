@@ -126,6 +126,46 @@ Balises autorisées dans `content` (pas de `<div>`, pas de `<style>`, pas de `<s
 
 ---
 
+## Champ `sources` — bibliographie en bas d'article
+
+**Toujours inclure ce champ** si l'article cite des études, livres ou rapports.  
+Il génère automatiquement la section "📚 Sources & références" en bas de page + le schema.org `citation` pour Google.
+
+```json
+"sources": [
+  {
+    "authors": "Nom A. & Nom B.",
+    "year":    "2023",
+    "title":   "Titre exact de l'article",
+    "journal": "Nom de la revue",
+    "url":     "https://doi.org/10.XXXX/XXXXX"
+  },
+  {
+    "authors":   "Nom C.",
+    "year":      "2020",
+    "title":     "Titre du livre",
+    "publisher": "Éditeur"
+  }
+]
+```
+
+| Champ | Obligatoire | Notes |
+|---|---|---|
+| `authors` | oui | "Nom P. & Nom Q." ou "Organisation" |
+| `year` | oui | "2023" |
+| `title` | oui | Titre exact, sans guillemets |
+| `journal` | si article | Pour les revues scientifiques |
+| `publisher` | si livre | Pour les ouvrages |
+| `url` | recommandé | DOI (`https://doi.org/...`), PubMed, ou URL directe |
+
+**Règles URL** :
+- DOI de préférence : `https://doi.org/10.XXXX/XXXXX` (format complet, pas tronqué)
+- PubMed : `https://pubmed.ncbi.nlm.nih.gov/XXXXXXXX/`
+- Si le DOI n'est pas certain → **omettre le champ `url`** (mieux vaut pas de lien qu'un lien cassé)
+- Ne jamais mettre de texte dans l'URL (ex: `url: "https://doi.org/10.1234/abcd, Auteur 2023"` est INTERDIT)
+
+---
+
 ## Longueur recommandée
 
 | Élément | Cible |

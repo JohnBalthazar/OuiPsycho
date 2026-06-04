@@ -40,6 +40,33 @@ for (const file of jsonFiles) {
     kpHtml = `    <div class="article-keypoints">\n      <div class="article-keypoints__title">💡 Points clés de cet article</div>\n      <ul>\n${li}\n      </ul>\n    </div>\n`;
   }
 
+  // Sources & références
+  let sourcesHtml = '';
+  if (j.sources && j.sources.length) {
+    const srcItems = j.sources.map(s => {
+      if (typeof s === 'string') {
+        // Format legacy : chaîne brute
+        return `        <li>${s}</li>`;
+      }
+      // Format structuré : { authors, year, title, journal|publisher, url }
+      const authYear = [s.authors, s.year ? `(${s.year})` : ''].filter(Boolean).join(' ');
+      const anchor   = s.url
+        ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${authYear}</a>`
+        : authYear;
+      const venue    = s.journal   ? ` <cite>${s.journal}</cite>`
+                     : s.publisher ? ` <cite>${s.publisher}</cite>` : '';
+      return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.</li>`;
+    }).join('\n');
+    sourcesHtml = `
+        <section class="article-sources" aria-label="Sources et références">
+          <h2 class="article-sources__title">📚 Sources &amp; références</h2>
+          <ol class="article-sources__list">
+${srcItems}
+          </ol>
+        </section>
+`;
+  }
+
   // Tags
   const tagsHtml = j.tags.map(t => `<span class="tag">#${t}</span>`).join(' ');
 
@@ -74,6 +101,17 @@ for (const file of jsonFiles) {
     "wordCount": wordCount
   };
   if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image };
+  // Schema.org citation (sources structurées avec URL uniquement)
+  const srcWithUrl = (j.sources || []).filter(s => typeof s === 'object' && s.url);
+  if (srcWithUrl.length) {
+    aLDobj.citation = srcWithUrl.map(s => {
+      const c = { "@type": "CreativeWork", "name": s.title || '', "url": s.url };
+      if (s.authors) c.author = s.authors;
+      if (s.year)    c.datePublished = s.year;
+      if (s.journal) c.isPartOf = { "@type": "Periodical", "name": s.journal };
+      return c;
+    });
+  }
   const aLD = JSON.stringify(aLDobj);
   const bLD = JSON.stringify({
     "@context": "https://schema.org",
@@ -195,7 +233,7 @@ ${kpHtml}
         <div class="article-body">
           ${j.content}
         </div>
-
+${sourcesHtml}
         <div class="article-author">
           <div class="article-author__avatar" aria-hidden="true">✍️</div>
           <div>
