@@ -1271,7 +1271,8 @@ const MAX_ATTEMPTS    = 5;
 const LOCKOUT_TIME    = 15 * 60 * 1000;
 
 let articles = [];
-let editingId = null;
+let editingId      = null;
+let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
 let activeCatFilter = 'all';
 let confirmCallback = null;
@@ -1748,7 +1749,8 @@ function renderArticlesTable() {
    EDITOR
 ══════════════════════════════════════════════ */
 function resetEditor() {
-  editingId = null;
+  editingId      = null;
+  editingSources = [];
   document.getElementById('editor-title').textContent = 'Nouvel article';
   document.getElementById('f-title').value       = '';
   document.getElementById('f-id').value          = '';
@@ -1786,7 +1788,8 @@ function editArticle(id) {
   fetch('articles/' + id + '.json?t=' + Date.now())
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
     .then(full => {
-      editingId = id;
+      editingId      = id;
+      editingSources = full.sources || [];
       document.getElementById('editor-title').textContent = 'Modifier : ' + full.title;
       document.getElementById('f-title').value    = full.title;
       document.getElementById('f-id').value       = full.id;
@@ -2279,6 +2282,9 @@ async function saveArticle() {
     toast('⏳ Attendez la fin de l\'upload de l\'image avant de publier…', 'info');
     return;
   }
+  // ⚠️ Synchroniser l'éditeur visuel → textarea EN PREMIER, avant toute lecture
+  syncEditorToTextarea();
+
   const id       = document.getElementById('f-id').value.trim();
   const title    = document.getElementById('f-title').value.trim();
   const excerpt  = document.getElementById('f-excerpt').value.trim();
@@ -2292,7 +2298,6 @@ async function saveArticle() {
   const imageZoom     = parseFloat(document.getElementById('f-imageZoom')?.value    || 1);
   const imageGravity  = document.getElementById('f-imageGravity')?.value?.trim()  || 'none';
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
-  syncEditorToTextarea(); // s'assurer que le textarea est à jour avant de lire
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints    = getKeypoints();
   const articlesLies = getRelatedArticles();
@@ -2306,7 +2311,9 @@ async function saveArticle() {
     return;
   }
 
-  const articleData = { id, title, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, articles_lies: articlesLies, status };
+  // Préserver les sources de l'article original (non éditables via le formulaire)
+  const sources     = editingSources.length ? editingSources : undefined;
+  const articleData = { id, title, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), articles_lies: articlesLies, status };
   const summaryData = { id, title, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
@@ -2342,13 +2349,12 @@ async function saveArticle() {
       await githubPutFile('articles/' + id + '.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
+      showPage('articles'); // ← redirection uniquement si succès
     } else {
-      // Pas de PAT : afficher une erreur claire avec lien vers les paramètres
-      const goSettings = () => showPage('settings');
-      toast('⚠️ Token GitHub manquant — les modifications ne sont PAS en ligne. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000);
+      // Pas de PAT : rester sur l'éditeur et afficher un message d'erreur persistant
+      toast('⚠️ Modifications NON enregistrées en ligne — Token GitHub manquant. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 12000);
+      // Ne pas rediriger : l'utilisateur reste sur l'éditeur pour ne pas perdre son travail
     }
-
-    showPage('articles');
   } catch(e) {
     toast('Erreur : ' + e.message, 'error');
   }
