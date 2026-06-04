@@ -1894,7 +1894,7 @@ function generateArticleHTML(j) {
     headline: j.title, description: j.metaDescription,
     datePublished: j.date, dateModified: j.date_modified || j.date, inLanguage:'fr',
     author: { '@type':'Person', name: j.author },
-    publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/logo-brain.svg` } },
+    publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/logo-brain.png` } },
     mainEntityOfPage: { '@type':'WebPage', '@id':`${BASE}/articles/${j.id}.html` },
     keywords: (j.tags||[]).join(', '), articleSection: j.category, wordCount
   };
@@ -1950,7 +1950,7 @@ function generateArticleHTML(j) {
   <meta name="twitter:description"            content="${esc(j.metaDescription)}">${twImg}
   <script type="application/ld+json">${aLD}<\/script>
   <script type="application/ld+json">${bLD}<\/script>
-  <link rel="icon" type="image/png" href="img/logo-brain.svg">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
@@ -1984,7 +1984,7 @@ function generateArticleHTML(j) {
   <header class="site-header" id="site-header">
     <div class="header-top">
       <a href="index.html" class="logo" aria-label="Oui Psycho! �€” Accueil">
-        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
@@ -2113,7 +2113,7 @@ ${(() => {
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo"><img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40"><span>Oui Psycho!</span></a>
+          <a href="index.html" class="logo"><img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40"><span>Oui Psycho!</span></a>
           <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
         <div class="footer-col">
