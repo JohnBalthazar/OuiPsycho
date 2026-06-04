@@ -129,7 +129,7 @@
     "title": "Et si le monde était dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
     "date": "2026-06-04",
-    "date_modified": "2026-06-03",
+    "date_modified": "2026-06-04",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kkznyo4nz7ikpogeghur",
     "imagePosition": "50% 50%",
@@ -159,7 +159,7 @@
       "normalite-sexualite-chiffres-destigmatisation",
       "pessimistes-avaient-raison"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "a-partir-de-quel-age-est-on-vieux",
@@ -242,7 +242,7 @@
     "title": "Dépression : 10 signes qui ne trompent pas",
     "excerpt": "La dépression ne ressemble pas toujours à ce qu'on imagine. Ce n'est pas juste « avoir le blues » ou « être fatigué ». C'est une maladie sérieuse avec des signes précis — et les reconnaître est la première étape vers la guérison.",
     "date": "2026-05-10",
-    "date_modified": "2026-05-10",
+    "date_modified": "2026-06-04",
     "category": "Dépression",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yzlhe2lntglw137u7mru",
     "imagePosition": "50% 50%",
@@ -400,9 +400,9 @@
     "title": "Vaincre l'insomnie : les méthodes qui marchent vraiment",
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
-    "date_modified": "2026-04-05",
+    "date_modified": "2026-06-04",
     "category": "Sommeil",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/nspxfah2y7rth9sztasb",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
