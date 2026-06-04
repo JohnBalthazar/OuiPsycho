@@ -57,6 +57,27 @@ service cloud.firestore {
 
     }
 
+    match /pageviews/{articleId} {
+
+      // ── Lecture publique : tout le monde peut lire les compteurs ──
+      allow read: if true;
+
+      // ── Incrément public : seul le champ "count" peut évoluer,
+      //    uniquement d'une unité à la fois (increment +1) ──
+      allow create: if
+        request.resource.data.keys().hasOnly(['count']) &&
+        request.resource.data.count is int &&
+        request.resource.data.count == 1;
+
+      allow update: if
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['count']) &&
+        request.resource.data.count == resource.data.count + 1;
+
+      // ── Admin : accès complet ──
+      allow read, write: if request.auth != null;
+
+    }
+
     match /newsletter/{subscriberId} {
 
       // ── Inscription publique ──

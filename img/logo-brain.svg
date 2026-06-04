@@ -1,9 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
 
-  <!-- Fond crème arrondi -->
-  <rect width="200" height="200" rx="38" fill="#F2E9D4"/>
-
-  <!-- ═══ RAYONS DU HAUT (arc-en-ciel gauche→droite) ═══ -->
+<!-- ═══ RAYONS DU HAUT (arc-en-ciel gauche→droite) ═══ -->
   <g stroke-linecap="round" stroke-width="6.5">
     <line x1="64"  y1="75"  x2="49"  y2="52"  stroke="#3BC9A8"/>
     <line x1="77"  y1="65"  x2="68"  y2="43"  stroke="#68C956"/>

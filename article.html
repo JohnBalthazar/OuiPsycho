@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Article — Oui Psycho!</title>
-  <meta name="description" content="Article sur la santé mentale — Oui Psycho!">
+  <title>Article â€” Oui Psycho!</title>
+  <meta name="description" content="Article sur la santÃ© mentale â€” Oui Psycho!">
   <meta name="robots" content="index, follow">
   <meta property="og:type"    content="article">
-  <meta property="og:title"   content="Article — Oui Psycho!">
+  <meta property="og:title"   content="Article â€” Oui Psycho!">
   <meta property="og:locale"  content="fr_FR">
   <meta property="og:site_name" content="Oui Psycho!">
   <meta name="twitter:card"   content="summary_large_image">
-  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="icon" type="image/png" href="img/logo-brain.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <!-- AdSense : décommenter après approbation
+  <!-- AdSense : dÃ©commenter aprÃ¨s approbation
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
-  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <!-- Google Consent Mode v2 (RGPD/Europe) â€” dÃ©faut : refusÃ© -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -43,14 +43,14 @@
 </head>
 <body>
 
-  <!-- Barre de lecture (0 → 100% au scroll) -->
+  <!-- Barre de lecture (0 â†’ 100% au scroll) -->
   <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
   <!-- ===== HEADER ===== -->
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
-        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! â€” Accueil">
+        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
 
@@ -60,23 +60,23 @@
 
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link" href="a-propos.html">Ã€ propos</a>
         <a class="nav__link" href="contact.html">Contact</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
 
-    <!-- Barre catégories -->
-    <nav class="cat-nav" aria-label="Catégories">
+    <!-- Barre catÃ©gories -->
+    <nav class="cat-nav" aria-label="CatÃ©gories">
       <div class="cat-nav__inner">
-        <a class="cat-nav__btn" href="index.html">← Tous les articles</a>
+        <a class="cat-nav__btn" href="index.html">â† Tous les articles</a>
         <div class="cat-nav__divider" aria-hidden="true"></div>
-        <a class="cat-nav__btn" href="index.html?cat=Anxiété">Anxiété</a>
-        <a class="cat-nav__btn" href="index.html?cat=Dépression">Dépression</a>
-        <a class="cat-nav__btn" href="index.html?cat=Bien-être">Bien-être</a>
+        <a class="cat-nav__btn" href="index.html?cat=AnxiÃ©tÃ©">AnxiÃ©tÃ©</a>
+        <a class="cat-nav__btn" href="index.html?cat=DÃ©pression">DÃ©pression</a>
+        <a class="cat-nav__btn" href="index.html?cat=Bien-Ãªtre">Bien-Ãªtre</a>
         <a class="cat-nav__btn" href="index.html?cat=Stress">Stress</a>
         <a class="cat-nav__btn" href="index.html?cat=Sommeil">Sommeil</a>
-        <a class="cat-nav__btn" href="index.html?cat=Thérapies">Thérapies</a>
+        <a class="cat-nav__btn" href="index.html?cat=ThÃ©rapies">ThÃ©rapies</a>
         <a class="cat-nav__btn" href="index.html?cat=Relations">Relations</a>
       </div>
     </nav>
@@ -105,23 +105,29 @@
     </main>
 
     <!-- SIDEBAR article -->
-    <aside id="article-sidebar" aria-label="Informations complémentaires">
+    <aside id="article-sidebar" aria-label="Informations complÃ©mentaires">
 
-      <!-- Table des matières (JS) -->
+      <!-- Table des matiÃ¨res (JS) -->
       <div class="widget" id="toc">
-        <h2 class="widget__title">Table des matières</h2>
+        <h2 class="widget__title">Table des matiÃ¨res</h2>
       </div>
 
       <!-- Articles connexes (JS) -->
       <div class="widget" id="related-articles">
-        <h2 class="widget__title">À lire aussi</h2>
+        <h2 class="widget__title">Ã€ lire aussi</h2>
+      </div>
+
+      <!-- Articles les plus lus (Firebase) -->
+      <div class="widget" id="popular-widget" style="display:none">
+        <h2 class="widget__title">ðŸ”¥ Les plus lus</h2>
+        <div class="popular-list" id="popular-list"></div>
       </div>
 
       <!-- Newsletter -->
       <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
         <div class="newsletter-form" id="nl-form">
-          <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
+          <p>Un article par semaine pour prendre soin de votre santÃ© mentale.</p>
           <label for="newsletter-email" class="sr-only">Votre e-mail</label>
           <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
             onkeydown="if(event.key==='Enter')subscribeNewsletter()">
@@ -139,46 +145,46 @@
   <footer class="site-footer">
     <div class="container">
       <div class="footer-disclaimer">
-        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le <strong>3114</strong> (24h/24, gratuit).
+        âš•ï¸ <strong>Avertissement :</strong> Le contenu de ce site est fourni Ã  titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santÃ©. En cas de dÃ©tresse, appelez le <strong>3114</strong> (24h/24, gratuit).
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+            <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
             <span>Oui Psycho!</span>
           </a>
-          <p>Blog de vulgarisation dédié à la santé mentale.</p>
+          <p>Blog de vulgarisation dÃ©diÃ© Ã  la santÃ© mentale.</p>
         </div>
         <div class="footer-col">
-          <h4>Thématiques</h4>
+          <h4>ThÃ©matiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Anxiété">Anxiété</a></li>
-            <li><a href="index.html?cat=Dépression">Dépression</a></li>
-            <li><a href="index.html?cat=Bien-être">Bien-être</a></li>
+            <li><a href="index.html?cat=AnxiÃ©tÃ©">AnxiÃ©tÃ©</a></li>
+            <li><a href="index.html?cat=DÃ©pression">DÃ©pression</a></li>
+            <li><a href="index.html?cat=Bien-Ãªtre">Bien-Ãªtre</a></li>
             <li><a href="index.html?cat=Stress">Stress</a></li>
             <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>À propos</h4>
+          <h4>Ã€ propos</h4>
           <ul class="footer-links">
             <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
             <li><a href="contact.html">Contact</a></li>
-            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="politique-de-confidentialite.html">ConfidentialitÃ©</a></li>
+            <li><a href="mentions-legales.html">Mentions lÃ©gales</a></li>
           </ul>
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© <script>document.write(new Date().getFullYear())</script> Oui Psycho!.</span>
-        <span>Fait avec ❤️ pour la santé mentale</span>
+        <span>Â© <script>document.write(new Date().getFullYear())</script> Oui Psycho!.</span>
+        <span>Fait avec â¤ï¸ pour la santÃ© mentale</span>
       </div>
     </div>
   </footer>
 
-  <!-- Bannière cookies -->
+  <!-- BanniÃ¨re cookies -->
   <div id="cookie-banner" role="dialog" aria-label="Cookies">
-    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience. <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
+    <p class="cookie-text">ðŸª Nous utilisons des cookies pour amÃ©liorer votre expÃ©rience. <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
     <div class="cookie-buttons">
       <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
       <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>

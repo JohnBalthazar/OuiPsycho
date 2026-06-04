@@ -204,6 +204,7 @@ async function initHome() {
     renderPage(grid, featured, true);
     buildCategoryFilter();
     syncCatNavFromUrl();
+    loadPopularArticles();
 
   } catch (_) {
     grid.innerHTML = `
@@ -417,6 +418,9 @@ async function initArticle() {
         injectArticleImage(article);
         // Section commentaires
         initComments(id);
+        // Tracking vues + widget "Les plus lus"
+        trackPageView(id);
+        loadPopularArticles();
       } else {
         buildTOC();
       }
@@ -693,6 +697,131 @@ function buildTOC() {
     html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="#${id}">${h.textContent}</a></li>`;
   });
   toc.innerHTML = html + '</ol>';
+}
+
+/* ============================================================
+   ARTICLES LES PLUS LUS — Firebase Firestore
+   ============================================================ */
+
+/**
+ * Incrémente atomiquement le compteur de vues d'un article.
+ * Utilise l'API Firestore commit (field transform "increment") pour
+ * éviter les races conditions. Une seule vue comptabilisée par session.
+ */
+async function trackPageView(articleId) {
+  await loadFirebaseConfig();
+  if (!_fbProjectId || !_fbApiKey) return;
+
+  // Anti-spam : une seule vue comptée par session de navigation
+  const sessionKey = `pv_${articleId}`;
+  if (sessionStorage.getItem(sessionKey)) return;
+  sessionStorage.setItem(sessionKey, '1');
+
+  const docName = `projects/${_fbProjectId}/databases/(default)/documents/pageviews/${articleId}`;
+  const url = `https://firestore.googleapis.com/v1/projects/${_fbProjectId}/databases/(default)/documents:commit?key=${_fbApiKey}`;
+  try {
+    await fetch(url, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify({
+        writes: [{
+          transform: {
+            document: docName,
+            fieldTransforms: [{
+              fieldPath: 'count',
+              increment: { integerValue: '1' }
+            }]
+          }
+        }]
+      })
+    });
+  } catch (_) {}
+}
+
+/**
+ * Charge les articles les plus vus depuis Firestore et les affiche
+ * dans le widget #popular-widget / #popular-list.
+ * Requiert que allArticles soit déjà chargé ou le charge lui-même.
+ */
+async function loadPopularArticles() {
+  const widget = document.getElementById('popular-widget');
+  const list   = document.getElementById('popular-list');
+  if (!widget || !list) return;
+
+  await loadFirebaseConfig();
+  if (!_fbProjectId || !_fbApiKey) return;
+
+  try {
+    // Récupérer les compteurs de vues triés par count décroissant
+    const query = {
+      structuredQuery: {
+        from: [{ collectionId: 'pageviews' }],
+        orderBy: [{ field: { fieldPath: 'count' }, direction: 'DESCENDING' }],
+        limit: 10
+      }
+    };
+    const res = await fetch(`${_FBBASE()}:runQuery?key=${_fbApiKey}`, {
+      method:  'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(query)
+    });
+    if (!res.ok) return;
+    const rows = await res.json();
+    const views = rows
+      .filter(r => r.document)
+      .map(r => ({
+        id:    (r.document.name || '').split('/').pop(),
+        count: _fbVal(r.document.fields?.count) || 0
+      }))
+      .filter(v => v.count > 0);
+
+    if (views.length < 2) return; // Pas encore assez de données
+
+    // Croiser avec le catalogue d'articles
+    let articles = allArticles; // déjà chargé sur la home
+    if (!articles || !articles.length) {
+      // Sur la page article, allArticles peut être vide — on fetch
+      const r2 = await fetch(CONFIG.dataUrl);
+      if (!r2.ok) return;
+      articles = await r2.json();
+    }
+
+    const today = new Date().toISOString().split('T')[0];
+    const popular = views
+      .map(v => articles.find(a => a.id === v.id))
+      .filter(Boolean)
+      .filter(a => {
+        if (a.status === 'draft') return false;
+        if (a.status === 'scheduled') return a.date <= today;
+        return true;
+      })
+      .slice(0, 5);
+
+    if (popular.length < 2) return;
+
+    list.innerHTML = popular.map((a, i) => {
+      const cat   = CATEGORIES[a.category] || {};
+      const catHtml = a.category
+        ? `<span class="popular-item__cat" style="color:${cat.color||'var(--color-primary)'};background:${cat.bg||'var(--color-primary-light)'}">${esc(a.category)}</span>`
+        : '';
+      const imgStyle = a.image
+        ? `background-image:url('${esc(a.image)}');background-size:cover;background-position:center`
+        : '';
+      return `
+        <a href="${articleUrl(a.id)}" class="popular-item">
+          <span class="popular-item__rank" aria-label="Rang ${i + 1}">${i + 1}</span>
+          <div class="popular-item__img" style="${imgStyle}" aria-hidden="true">
+            ${!a.image ? '🧠' : ''}
+          </div>
+          <div>
+            <div class="popular-item__title">${esc(a.title)}</div>
+            ${catHtml}
+          </div>
+        </a>`;
+    }).join('');
+
+    widget.style.display = 'block';
+  } catch (_) {}
 }
 
 async function loadRelated(current) {
