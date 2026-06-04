@@ -1378,11 +1378,13 @@ async function decryptPAT(enc, password) {
 window.addEventListener('DOMContentLoaded', async () => {
   // 1. Récupérer le hash du mot de passe depuis config.json (GitHub) — source de vérité
   //    Persiste même si localStorage est vidé ou depuis un autre appareil/navigateur
+  const isValidHash = h => h && (h.startsWith('pbkdf2:') || /^[0-9a-f]{64}$/.test(h));
   try {
     const r = await fetch('data/config.json?t=' + Date.now());
     if (r.ok) {
       const cfg = await r.json();
-      if (cfg.adminPassHash && /^[0-9a-f]{64}$/.test(cfg.adminPassHash)) {
+      // Accepte PBKDF2 (pbkdf2:sel:hash) ET SHA-256 (64 hex) — les deux formats valides
+      if (isValidHash(cfg.adminPassHash)) {
         localStorage.setItem(ADMIN_PASS_KEY, cfg.adminPassHash);
       }
     }
@@ -1390,7 +1392,6 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   // 2. Si toujours aucun hash valide (premier démarrage absolu), mot de passe par défaut
   const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
-  const isValidHash = h => h && (h.startsWith('pbkdf2:') || /^[0-9a-f]{64}$/.test(h));
   if (!isValidHash(storedPass)) {
     localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
   }
