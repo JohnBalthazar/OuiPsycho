@@ -1208,11 +1208,13 @@ async function subscribeNewsletter() {
   let ok = false;
 
   // ── 1. Brevo (principal) ─────────────────────────────────────
-  if (cfg.brevoApiKey && cfg.brevoListId) {
+  // La clé est stockée en Base64 dans config.json (contournement GitHub secret-scanning)
+  const brevoKey = cfg.brevoApiKeyB64 ? atob(cfg.brevoApiKeyB64) : (cfg.brevoApiKey || '');
+  if (brevoKey && cfg.brevoListId) {
     try {
       const r = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
-        headers: { 'api-key': cfg.brevoApiKey, 'Content-Type': 'application/json' },
+        headers: { 'api-key': brevoKey, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
           listIds:       [parseInt(cfg.brevoListId)],
@@ -1270,12 +1272,13 @@ async function subscribeNewsletter() {
 /** Désinscription depuis la page se-desinscrire.html */
 async function unsubscribeNewsletter(email) {
   const cfg = await _loadNlCfg();
-  if (!cfg.brevoApiKey || !cfg.brevoListId) return false;
+  const brevoKey = cfg.brevoApiKeyB64 ? atob(cfg.brevoApiKeyB64) : (cfg.brevoApiKey || '');
+  if (!brevoKey || !cfg.brevoListId) return false;
   try {
     // Retirer de la liste Brevo
     const r = await fetch(`https://api.brevo.com/v3/contacts/lists/${cfg.brevoListId}/contacts/remove`, {
       method: 'POST',
-      headers: { 'api-key': cfg.brevoApiKey, 'Content-Type': 'application/json' },
+      headers: { 'api-key': brevoKey, 'Content-Type': 'application/json' },
       body: JSON.stringify({ emails: [email] })
     });
     return r.ok || r.status === 404; // 404 = n'était pas dans la liste, ok quand même
