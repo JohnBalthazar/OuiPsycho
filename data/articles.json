@@ -334,37 +334,6 @@
     "status": "published"
   },
   {
-    "id": "brandolini",
-    "title": "Le principe de Brandolini : pourquoi réfuter une connerie prend dix fois plus de temps que de la dire",
-    "excerpt": "Une affirmation fausse se lance en cinq secondes. La démonter prend une heure — si tout va bien. Ce n'est pas de la mauvaise foi, ce n'est pas de l'ignorance. C'est de la physique cognitive. Et une fois qu'on l'a compris, on ne regarde plus jamais pareil une réunion de travail ou un fil d'actualité.",
-    "date": "2026-05-01",
-    "date_modified": "2026-06-04",
-    "category": "Développement personnel",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "Brandolini",
-      "pensée critique",
-      "biais cognitifs",
-      "désinformation",
-      "Gish Gallop",
-      "système 1 système 2",
-      "Kahneman"
-    ],
-    "metaDescription": "Le principe de Brandolini : une sottise se dit en 5 secondes, la réfuter prend une heure. Pourquoi, et comment naviguer dans cette asymétrie cognitive.",
-    "articles_lies": [
-      "cerveau-a-t-il-un-genre",
-      "resilience-emotionnelle",
-      "a-quoi-sert-la-honte"
-    ],
-    "status": "published"
-  },
-  {
     "id": "johatsu",
     "title": "Les évaporés : quand disparaître semble la seule issue",
     "excerpt": "Au Japon, ils ont un nom : les jōhatsu, « ceux qui s'évaporent ». Chaque année, 80 000 personnes s'effacent volontairement de leur propre existence — sans lettre, sans cri. Et si cette tentation de ne plus exister, sans mourir, était bien plus universelle qu'on ne le croit ?",
@@ -392,6 +361,37 @@
       "a-quoi-sert-la-honte",
       "resilience-emotionnelle",
       "burnout-epuisement-professionnel"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "brandolini",
+    "title": "Le principe de Brandolini : pourquoi rÃ©futer une connerie prend dix fois plus de temps que de la dire",
+    "excerpt": "Une affirmation fausse se lance en cinq secondes. La dÃ©monter prend une heure â si tout va bien. Ce n'est pas de la mauvaise foi, ce n'est pas de l'ignorance. C'est de la physique cognitive. Et une fois qu'on l'a compris, on ne regarde plus jamais pareil une rÃ©union de travail ou un fil d'actualitÃ©.",
+    "date": "2026-05-01",
+    "date_modified": "2026-06-04",
+    "category": "DÃ©veloppement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rÃ©daction Oui Psycho!",
+    "tags": [
+      "Brandolini",
+      "pensÃ©e critique",
+      "biais cognitifs",
+      "dÃ©sinformation",
+      "Gish Gallop",
+      "systÃ¨me 1 systÃ¨me 2",
+      "Kahneman"
+    ],
+    "metaDescription": "Le principe de Brandolini : une sottise se dit en 5 secondes, la rÃ©futer prend une heure. Pourquoi, et comment naviguer dans cette asymÃ©trie cognitive.",
+    "articles_lies": [
+      "cerveau-a-t-il-un-genre",
+      "resilience-emotionnelle",
+      "a-quoi-sert-la-honte"
     ],
     "status": "published"
   },
@@ -584,9 +584,9 @@
     "title": "Communication non-violente : transformer vos relations en 4 étapes",
     "excerpt": "La CNV de Marshall Rosenberg est l'une des approches relationnelles les plus puissantes et les plus pratiques. Quatre étapes simples pour exprimer vos besoins sans blesser, et entendre ceux des autres sans vous défendre.",
     "date": "2026-03-15",
-    "date_modified": "2026-03-15",
+    "date_modified": "2026-06-04",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ncnxdnamjrzjof0jboeb",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
