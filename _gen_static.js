@@ -4,6 +4,7 @@ const path = require('path');
 
 const BASE = 'https://ouipsycho.fr';
 const DIR  = path.join(__dirname, 'articles');
+const YEAR = new Date().getFullYear();
 
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
@@ -58,7 +59,7 @@ for (const file of jsonFiles) {
     "headline": j.title,
     "description": j.metaDescription,
     "datePublished": j.date,
-    "dateModified": j.date,
+    "dateModified": j.date_modified || j.date,
     "inLanguage": "fr",
     "author": { "@type": "Person", "name": j.author },
     "publisher": {
@@ -102,7 +103,7 @@ for (const file of jsonFiles) {
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
-  <meta property="article:modified_time"      content="${j.date}T00:00:00+01:00">
+  <meta property="article:modified_time"      content="${j.date_modified || j.date}T00:00:00+01:00">
   <meta property="article:author"             content="${j.author}">
   <meta property="article:section"            content="${j.category}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
@@ -113,8 +114,32 @@ for (const file of jsonFiles) {
   <meta name="twitter:image"                  content="${j.image}">` : ''}
   <script type="application/ld+json">${aLD}</script>
   <script type="application/ld+json">${bLD}</script>
-  <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage':    'denied',
+      'ad_storage':           'denied',
+      'ad_user_data':         'denied',
+      'ad_personalization':   'denied',
+      'wait_for_update':      2000
+    });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
 </head>
 <body>
 
@@ -123,7 +148,7 @@ for (const file of jsonFiles) {
   <header class="site-header" id="site-header">
     <div class="header-top">
       <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
-        <span class="logo__icon" aria-hidden="true">🧠</span>
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
@@ -205,13 +230,17 @@ ${kpHtml}
       <div class="widget" id="related-articles">
         <h2 class="widget__title">À lire aussi</h2>
       </div>
-      <div class="widget widget--accent">
+      <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
-        <div class="newsletter-form">
+        <div class="newsletter-form" id="nl-form">
           <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
-          <label for="nl-${j.id}" class="sr-only">Votre e-mail</label>
-          <input type="email" id="nl-${j.id}" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner ✓</button>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
     </aside>
@@ -254,7 +283,7 @@ ${kpHtml}
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
         <span>Fait avec ❤️ pour la santé mentale</span>
       </div>
     </div>

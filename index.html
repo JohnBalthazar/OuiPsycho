@@ -46,6 +46,8 @@
     "sameAs": []
   }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <!-- AdSense : décommenter après approbation
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
@@ -59,8 +61,10 @@
       'ad_storage':           'denied',
       'ad_user_data':         'denied',
       'ad_personalization':   'denied',
-      'wait_for_update':      500
+      'wait_for_update':      2000
     });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
   </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>

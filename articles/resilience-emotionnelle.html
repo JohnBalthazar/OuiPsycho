@@ -16,16 +16,43 @@
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="2026-03-20T00:00:00+01:00">
-  <meta property="article:modified_time"      content="2026-03-20T00:00:00+01:00">
+  <meta property="article:modified_time"      content="2026-06-03T00:00:00+01:00">
   <meta property="article:author"             content="La rédaction Oui Psycho!">
   <meta property="article:section"            content="Bien-être">
+  <meta property="og:image"                   content="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs">
+  <meta property="og:image:alt"               content="Développer sa résilience : l'art de rebondir après les épreuves">
   <meta name="twitter:card"                   content="summary_large_image">
   <meta name="twitter:title"                  content="Développer sa résilience : l'art de rebondir après les épreuves — Oui Psycho!">
   <meta name="twitter:description"            content="Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Développer sa résilience : l'art de rebondir après les épreuves","description":"Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.","datePublished":"2026-03-20","dateModified":"2026-03-20","inLanguage":"fr","author":{"@type":"Person","name":"La rédaction Oui Psycho!"},"publisher":{"@type":"Organization","name":"Oui Psycho!","url":"https://ouipsycho.fr/","logo":{"@type":"ImageObject","url":"https://ouipsycho.fr/img/logo-brain.png"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ouipsycho.fr/articles/resilience-emotionnelle.html"},"keywords":"résilience, bien-être, émotions, Boris Cyrulnik, psychologie positive","articleSection":"Bien-être","wordCount":539}</script>
+  <meta name="twitter:image"                  content="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Développer sa résilience : l'art de rebondir après les épreuves","description":"Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.","datePublished":"2026-03-20","dateModified":"2026-06-03","inLanguage":"fr","author":{"@type":"Person","name":"La rédaction Oui Psycho!"},"publisher":{"@type":"Organization","name":"Oui Psycho!","url":"https://ouipsycho.fr/","logo":{"@type":"ImageObject","url":"https://ouipsycho.fr/img/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://ouipsycho.fr/articles/resilience-emotionnelle.html"},"keywords":"résilience, bien-être, émotions, Boris Cyrulnik, psychologie positive","articleSection":"Bien-être","wordCount":539,"image":{"@type":"ImageObject","url":"https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs"}}</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://ouipsycho.fr/"},{"@type":"ListItem","position":2,"name":"Bien-être","item":"https://ouipsycho.fr/index.html?cat=Bien-%C3%AAtre"},{"@type":"ListItem","position":3,"name":"Développer sa résilience : l'art de rebondir après les épreuves","item":"https://ouipsycho.fr/articles/resilience-emotionnelle.html"}]}</script>
   <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage':    'denied',
+      'ad_storage':           'denied',
+      'ad_user_data':         'denied',
+      'ad_personalization':   'denied',
+      'wait_for_update':      2000
+    });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
 </head>
 <body>
 
@@ -166,13 +193,17 @@
       <div class="widget" id="related-articles">
         <h2 class="widget__title">À lire aussi</h2>
       </div>
-      <div class="widget widget--accent">
+      <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
-        <div class="newsletter-form">
+        <div class="newsletter-form" id="nl-form">
           <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
-          <label for="nl-resilience-emotionnelle" class="sr-only">Votre e-mail</label>
-          <input type="email" id="nl-resilience-emotionnelle" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner ✓</button>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
     </aside>
@@ -188,7 +219,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="index.html" class="logo">
-            <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
             <span>Oui Psycho!</span>
           </a>
           <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>

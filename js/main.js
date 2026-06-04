@@ -692,7 +692,7 @@ function buildTOC() {
     h.id = id;
     html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="#${id}">${h.textContent}</a></li>`;
   });
-  toc.innerHTML += html + '</ol>';
+  toc.innerHTML = html + '</ol>';
 }
 
 async function loadRelated(current) {

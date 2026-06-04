@@ -540,7 +540,7 @@ p:last-child { margin-bottom: 0; }
 .card__image[data-cat="Bien-être"]               { background: linear-gradient(135deg, #05966922, #05966944); }
 .card__image[data-cat="Relations"]               { background: linear-gradient(135deg, #BE185D22, #BE185D44); }
 .card__image[data-cat="Stress"]                  { background: linear-gradient(135deg, #B4530922, #B4530944); }
-.card__image[data-cat="Sommeil"]                 { background: linear-gradient(135deg, #036986 22, #0369A144); }
+.card__image[data-cat="Sommeil"]                 { background: linear-gradient(135deg, #03698622, #0369A144); }
 .card__image[data-cat="Thérapies"]               { background: linear-gradient(135deg, #6D28D922, #6D28D944); }
 .card__image[data-cat="Développement personnel"] { background: linear-gradient(135deg, #15803D22, #15803D44); }
 
@@ -1675,5 +1675,4 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 600px) {
   .comment-form__row { grid-template-columns: 1fr; }
   .comment-date { margin-left: 0; width: 100%; }
-}
 }

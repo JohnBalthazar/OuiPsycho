@@ -12,6 +12,8 @@
   <meta property="og:site_name" content="Oui Psycho!">
   <meta name="twitter:card"   content="summary_large_image">
   <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
   <!-- AdSense : décommenter après approbation
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
@@ -25,8 +27,10 @@
       'ad_storage':           'denied',
       'ad_user_data':         'denied',
       'ad_personalization':   'denied',
-      'wait_for_update':      500
+      'wait_for_update':      2000
     });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
   </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
@@ -114,12 +118,17 @@
       </div>
 
       <!-- Newsletter -->
-      <div class="widget widget--accent">
+      <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
-        <div class="newsletter-form">
+        <div class="newsletter-form" id="nl-form">
           <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
-          <input type="email" class="newsletter-input" placeholder="votre@email.fr">
-          <button class="btn-newsletter" type="button">S'abonner ✓</button>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
 
