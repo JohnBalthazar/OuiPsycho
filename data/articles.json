@@ -90,11 +90,11 @@
   {
     "id": "cerveau-a-t-il-un-genre",
     "title": "Le cerveau a-t-il un genre ?",
-    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence.",
+    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence. Plus de 90 % des cerveaux humains sont des mosaïques inclassifiables : voici ce que ça veut dire vraiment.",
     "date": "2026-06-07",
-    "date_modified": "2026-06-07",
-    "category": "Neurosciences & genre",
-    "image": "",
+    "date_modified": "2026-06-04",
+    "category": "Développement personnel",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/u48o4kjqyw0zj2pn7kfa",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -105,24 +105,18 @@
       "cerveau",
       "genre",
       "neurosciences",
-      "sexe",
-      "différences cognitives",
       "mosaïque cérébrale",
-      "testostérone",
-      "Joel",
-      "Eliot",
-      "Rippon",
-      "plasticité",
-      "empathie",
-      "stéréotypes"
+      "stéréotypes",
+      "plasticité cérébrale",
+      "différences cognitives"
     ],
     "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
     "articles_lies": [
       "monde-dirige-par-femmes",
       "a-quoi-sert-la-honte",
-      "normalite-sexualite-chiffres-destigmatisation"
+      "estime-de-soi"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
