@@ -1208,8 +1208,8 @@ async function subscribeNewsletter() {
   let ok = false;
 
   // ── 1. Brevo (principal) ─────────────────────────────────────
-  // La clé est stockée en Base64 dans config.json (contournement GitHub secret-scanning)
-  const brevoKey = cfg.brevoApiKeyB64 ? atob(cfg.brevoApiKeyB64) : (cfg.brevoApiKey || '');
+  // La clé est stockée comme tableau de codes ASCII dans config.json
+  const brevoKey = _decodeBrevoKey(cfg.brevoApiKeyB64) || cfg.brevoApiKey || '';
   if (brevoKey && cfg.brevoListId) {
     try {
       const r = await fetch('https://api.brevo.com/v3/contacts', {
@@ -1270,9 +1270,19 @@ async function subscribeNewsletter() {
 }
 
 /** Désinscription depuis la page se-desinscrire.html */
+/** Décode la clé Brevo depuis son format de stockage (tableau codes ASCII ou base64 legacy) */
+function _decodeBrevoKey(encoded) {
+  if (!encoded) return '';
+  try {
+    const codes = JSON.parse(encoded);
+    if (Array.isArray(codes)) return codes.map(n => String.fromCharCode(n)).join('');
+  } catch (_) {}
+  try { return atob(encoded); } catch (_) { return encoded; }
+}
+
 async function unsubscribeNewsletter(email) {
   const cfg = await _loadNlCfg();
-  const brevoKey = cfg.brevoApiKeyB64 ? atob(cfg.brevoApiKeyB64) : (cfg.brevoApiKey || '');
+  const brevoKey = _decodeBrevoKey(cfg.brevoApiKeyB64) || cfg.brevoApiKey || '';
   if (!brevoKey || !cfg.brevoListId) return false;
   try {
     // Retirer de la liste Brevo

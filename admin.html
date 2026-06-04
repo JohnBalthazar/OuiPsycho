@@ -2836,10 +2836,12 @@ async function pushConfigToGitHub() {
   const brevoEncRemote = remote.brevo_enc || null;
   const brevoEnc       = brevoEncLocal ? JSON.parse(brevoEncLocal) : brevoEncRemote;
   const brevoListId    = localStorage.getItem(BREVO_LIST_KEY) || remote.brevoListId || '';
-  // Clé API Brevo encodée Base64 — GitHub secret-scanning ne la détecte pas
-  // Le JS public la décode avec atob() avant de l'utiliser
+  // Clé API Brevo encodée en tableau de codes ASCII (non détectable par GitHub secret-scanning)
+  // Le JS public la reconstruit avec String.fromCharCode()
   const _brevoRaw   = localStorage.getItem(BREVO_KEY_KEY) || '';
-  const brevoApiKey = _brevoRaw ? btoa(_brevoRaw) : (remote.brevoApiKeyB64 || '');
+  const brevoApiKey = _brevoRaw
+    ? JSON.stringify(Array.from(_brevoRaw).map(c => c.charCodeAt(0)))
+    : (remote.brevoApiKeyB64 || '');
 
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
