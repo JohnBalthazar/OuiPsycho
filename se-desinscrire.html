@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Se désinscrire de la newsletter — Oui Psycho!</title>
+  <meta name="description" content="Désinscrivez-vous de la newsletter hebdomadaire d'Oui Psycho! en quelques secondes.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/se-desinscrire.html">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage':    'denied',
+      'ad_storage':           'denied',
+      'ad_user_data':         'denied',
+      'ad_personalization':   'denied',
+      'wait_for_update':      500
+    });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+  <style>
+    .unsub-card {
+      max-width: 520px;
+      margin: var(--sp-12) auto;
+      padding: var(--sp-8) var(--sp-8);
+      background: var(--color-surface);
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--color-border-light);
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .unsub-card h1 {
+      font-family: var(--font-heading);
+      font-size: var(--fs-2xl);
+      margin-bottom: var(--sp-3);
+      color: var(--color-text);
+    }
+    .unsub-card .subtitle {
+      color: var(--color-text-muted);
+      margin-bottom: var(--sp-6);
+      font-size: var(--fs-sm);
+      line-height: 1.6;
+    }
+    .unsub-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      text-align: left;
+    }
+    .unsub-form label {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .unsub-form input[type="email"] {
+      width: 100%;
+      padding: var(--sp-3) var(--sp-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius);
+      font-size: var(--fs-base);
+      font-family: var(--font-body);
+      background: var(--color-bg);
+      color: var(--color-text);
+      transition: border-color .2s;
+    }
+    .unsub-form input[type="email"]:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+    .btn-unsub {
+      width: 100%;
+      padding: var(--sp-3) var(--sp-4);
+      background: var(--color-text-muted);
+      color: white;
+      border-radius: var(--radius);
+      font-weight: 700;
+      font-size: var(--fs-sm);
+      font-family: var(--font-body);
+      cursor: pointer;
+      transition: background .2s;
+      border: none;
+    }
+    .btn-unsub:hover:not(:disabled) { background: var(--color-text); }
+    .btn-unsub:disabled { opacity: .6; cursor: not-allowed; }
+    #unsub-msg {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      text-align: center;
+      padding: var(--sp-3) var(--sp-4);
+      border-radius: var(--radius);
+      display: none;
+    }
+    #unsub-msg.success {
+      background: #e8f5e9;
+      color: #2e7d32;
+      display: block;
+    }
+    #unsub-msg.error {
+      background: #ffebee;
+      color: #c62828;
+      display: block;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: var(--sp-6);
+      font-size: var(--fs-sm);
+      color: var(--color-text-muted);
+      text-decoration: none;
+    }
+    .back-link:hover { color: var(--color-primary); }
+    .legal-note {
+      margin-top: var(--sp-6);
+      font-size: .72rem;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      border-top: 1px solid var(--color-border-light);
+      padding-top: var(--sp-4);
+    }
+    .legal-note a { color: var(--color-primary); }
+  </style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container" style="padding-top:var(--sp-6);padding-bottom:var(--sp-12)">
+    <div class="unsub-card">
+      <div style="font-size:2.5rem;margin-bottom:var(--sp-4)">📭</div>
+      <h1>Se désinscrire</h1>
+      <p class="subtitle">
+        Vous souhaitez ne plus recevoir la newsletter hebdomadaire d'Oui Psycho!&nbsp;?<br>
+        Entrez votre adresse e-mail ci-dessous. La désinscription est immédiate.
+      </p>
+
+      <div id="unsub-msg" role="alert"></div>
+
+      <form class="unsub-form" id="unsub-form" onsubmit="handleUnsub(event)">
+        <label for="unsub-email">Votre adresse e-mail</label>
+        <input type="email" id="unsub-email" placeholder="votre@email.fr" required autocomplete="email">
+        <button type="submit" class="btn-unsub" id="unsub-btn">Se désinscrire</button>
+      </form>
+
+      <div class="legal-note">
+        <strong>Conformité RGPD</strong> — Conformément au Règlement Général sur la Protection des Données
+        (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification,
+        d'effacement et de portabilité de vos données. Pour toute demande relative à vos données personnelles,
+        contactez-nous à <a href="mailto:contact@ouipsycho.fr">contact@ouipsycho.fr</a>.
+        Voir notre <a href="politique-de-confidentialite.html">politique de confidentialité</a>.
+      </div>
+
+      <a href="index.html" class="back-link">← Retour à l'accueil</a>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Pré-remplir l'email depuis l'URL (?email=xxx)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const emailParam = params.get('email');
+      if (emailParam) {
+        const inp = document.getElementById('unsub-email');
+        if (inp) inp.value = decodeURIComponent(emailParam);
+      }
+    });
+
+    async function handleUnsub(e) {
+      e.preventDefault();
+      const email  = document.getElementById('unsub-email').value.trim().toLowerCase();
+      const btn    = document.getElementById('unsub-btn');
+      const msgEl  = document.getElementById('unsub-msg');
+      const form   = document.getElementById('unsub-form');
+
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        msgEl.textContent = 'Adresse e-mail invalide.';
+        msgEl.className = 'error';
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = '⏳ Traitement…';
+      msgEl.className = '';
+      msgEl.style.display = 'none';
+
+      const ok = await unsubscribeNewsletter(email);
+
+      if (ok) {
+        form.style.display = 'none';
+        msgEl.innerHTML = `
+          ✅ <strong>${email}</strong> a bien été désinscrit(e).<br>
+          <span style="font-weight:400">Vous ne recevrez plus nos newsletters. Merci d'avoir suivi Oui Psycho!</span>`;
+        msgEl.className = 'success';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Se désinscrire';
+        msgEl.textContent = 'Une erreur est survenue. Réessayez ou contactez contact@ouipsycho.fr';
+        msgEl.className = 'error';
+      }
+    }
+  </script>
+</body>
+</html>

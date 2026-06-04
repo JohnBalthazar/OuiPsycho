@@ -2836,6 +2836,9 @@ async function pushConfigToGitHub() {
   const brevoEncRemote = remote.brevo_enc || null;
   const brevoEnc       = brevoEncLocal ? JSON.parse(brevoEncLocal) : brevoEncRemote;
   const brevoListId    = localStorage.getItem(BREVO_LIST_KEY) || remote.brevoListId || '';
+  // Clé API Brevo en clair — nécessaire pour le formulaire public (inscription + désinscription)
+  // Utiliser une clé à portée limitée "Contacts uniquement" dans Brevo
+  const brevoApiKey    = localStorage.getItem(BREVO_KEY_KEY)  || remote.brevoApiKey  || '';
 
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
@@ -2857,9 +2860,11 @@ async function pushConfigToGitHub() {
     // Credentials Firebase chiffrés AES-256-GCM (inutilisables sans le mot de passe admin)
     ...(fbEnc      ? { fb_enc:    fbEnc    } : {}),
     // Clé API Brevo chiffrée AES-256-GCM (inutilisable sans le mot de passe admin)
-    ...(brevoEnc   ? { brevo_enc: brevoEnc } : {}),
+    ...(brevoEnc    ? { brevo_enc:   brevoEnc   } : {}),
+    // Clé API Brevo en clair (portée limitée contacts:write) — utilisée par le formulaire public
+    ...(brevoApiKey ? { brevoApiKey             } : {}),
     // ID liste Brevo (non sensible — juste un numéro)
-    ...(brevoListId ? { brevoListId } : {}),
+    ...(brevoListId ? { brevoListId             } : {}),
   };
 
   try {

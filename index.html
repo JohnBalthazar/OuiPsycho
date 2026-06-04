@@ -186,8 +186,12 @@
           <label for="newsletter-email" class="sr-only">Votre e-mail</label>
           <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
             onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <div class="nl-consent">
+            <input type="checkbox" id="nl-consent">
+            <label for="nl-consent">J'accepte de recevoir la newsletter hebdomadaire d'Oui Psycho! et confirme avoir lu la <a href="politique-de-confidentialite.html">politique de confidentialité</a>. Désinscription possible à tout moment.</label>
+          </div>
           <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
-            S'abonner gratuitement ✓
+            S'abonner gratuitement
           </button>
           <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
@@ -228,6 +232,7 @@
             <li><a href="contact.html">Contact</a></li>
             <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="se-desinscrire.html">Se désinscrire</a></li>
             <li><a href="sitemap.xml">Plan du site</a></li>
           </ul>
         </div>

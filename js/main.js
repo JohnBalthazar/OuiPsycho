@@ -1131,19 +1131,70 @@ document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initCookies();
   initReadingProgress();
+  injectNewsletterConsent(); // RGPD : injecte la case sur toutes les pages
   if (document.getElementById('articles-grid'))  initHome();
   if (document.getElementById('article-content')) initArticle();
 });
 
 /* ============================================================
-   NEWSLETTER — inscription (Firebase + Brevo)
+   NEWSLETTER — consentement RGPD + inscription (Brevo + Firebase)
    ============================================================ */
+
+/** Injecte la case de consentement RGPD dans les widgets newsletter des articles */
+function injectNewsletterConsent() {
+  const form = document.getElementById('nl-form');
+  if (!form || form.querySelector('#nl-consent')) return; // déjà présent
+  const btn = form.querySelector('#nl-btn');
+  if (!btn) return;
+
+  // Détecter le préfixe de chemin (articles/ → remonter d'un niveau)
+  const prefix = window.location.pathname.includes('/articles/') ? '../' : '';
+
+  const wrapper = document.createElement('div');
+  wrapper.className = 'nl-consent';
+  wrapper.innerHTML = `
+    <input type="checkbox" id="nl-consent">
+    <label for="nl-consent">J'accepte de recevoir la newsletter hebdomadaire d'Oui Psycho! et confirme avoir lu la
+      <a href="${prefix}politique-de-confidentialite.html">politique de confidentialité</a>.
+      Désinscription possible à tout moment.</label>`;
+  btn.parentNode.insertBefore(wrapper, btn);
+}
+
+/** Charge config.json une fois et met en cache */
+let _nlCfg = null;
+async function _loadNlCfg() {
+  if (_nlCfg) return _nlCfg;
+  const prefix = window.location.pathname.includes('/articles/') ? '../' : '';
+  try {
+    _nlCfg = await fetch(`${prefix}data/config.json?t=${Date.now()}`).then(r => r.ok ? r.json() : {});
+  } catch(_) { _nlCfg = {}; }
+  return _nlCfg;
+}
+
 async function subscribeNewsletter() {
   const input  = document.getElementById('newsletter-email');
   const btn    = document.getElementById('nl-btn');
   const msgEl  = document.getElementById('nl-msg');
-  if (!input || !btn || !msgEl) return;
+  if (!input || !btn) return;
 
+  // ── Vérification consentement RGPD ──────────────────────────
+  const consent = document.getElementById('nl-consent');
+  if (consent && !consent.checked) {
+    // Afficher message d'erreur sous la case
+    let errEl = document.getElementById('nl-consent-err');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.id = 'nl-consent-err';
+      errEl.className = 'nl-consent-error';
+      consent.closest('.nl-consent').insertAdjacentElement('afterend', errEl);
+    }
+    errEl.textContent = 'Veuillez cocher la case pour continuer.';
+    return;
+  }
+  const errEl = document.getElementById('nl-consent-err');
+  if (errEl) errEl.remove();
+
+  // ── Validation email ─────────────────────────────────────────
   const email = input.value.trim().toLowerCase();
   if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     _nlMsg('Adresse e-mail invalide.', 'error'); return;
@@ -1153,34 +1204,35 @@ async function subscribeNewsletter() {
   btn.textContent = '⏳ Inscription…';
 
   await loadFirebaseConfig();
-
+  const cfg = await _loadNlCfg();
   let ok = false;
 
-  // ── 1. Brevo (si API key configurée dans config.json) ──
-  try {
-    const cfg = await fetch('data/config.json?t=' + Date.now()).then(r => r.ok ? r.json() : {});
-    if (cfg.brevoApiKey && cfg.brevoListId) {
+  // ── 1. Brevo (principal) ─────────────────────────────────────
+  if (cfg.brevoApiKey && cfg.brevoListId) {
+    try {
       const r = await fetch('https://api.brevo.com/v3/contacts', {
         method: 'POST',
         headers: { 'api-key': cfg.brevoApiKey, 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
-          listIds: [parseInt(cfg.brevoListId)],
+          listIds:       [parseInt(cfg.brevoListId)],
           updateEnabled: true,
-          attributes: { SOURCE: 'ouipsycho.fr' }
+          attributes: {
+            SOURCE:    'ouipsycho.fr',
+            OPT_IN:    true,
+            RGPD_DATE: new Date().toISOString().split('T')[0]
+          }
         })
       });
-      // 201 = créé, 204 = déjà abonné mis à jour
       if (r.status === 201 || r.status === 204) ok = true;
       else if (r.status === 400) {
         const e = await r.json().catch(() => ({}));
-        // "Contact already exist" = déjà abonné, c'est ok
         if ((e.message || '').toLowerCase().includes('already exist')) ok = true;
       }
-    }
-  } catch (_) {}
+    } catch (_) {}
+  }
 
-  // ── 2. Firebase (backup — toujours enregistré si Firebase configuré) ──
+  // ── 2. Firebase (sauvegarde) ─────────────────────────────────
   if (_fbProjectId && _fbApiKey) {
     try {
       const id  = email.replace(/[^a-z0-9]/g, '_');
@@ -1192,6 +1244,7 @@ async function subscribeNewsletter() {
           email:      { stringValue: email },
           created_at: { timestampValue: new Date().toISOString() },
           source:     { stringValue: 'ouipsycho.fr' },
+          consent:    { booleanValue: true },
           active:     { booleanValue: true }
         }})
       });
@@ -1200,19 +1253,39 @@ async function subscribeNewsletter() {
   }
 
   if (ok) {
-    document.getElementById('nl-form').innerHTML =
-      '<p style="font-weight:700;font-size:.95rem">🎉 Vous êtes abonné(e) ! À très vite dans votre boîte.</p>';
+    document.getElementById('nl-form').innerHTML = `
+      <p style="font-weight:700;font-size:.95rem;line-height:1.5">
+        ✅ Inscription enregistrée !<br>
+        <span style="font-weight:400;font-size:.85rem;opacity:.9">
+          Vérifiez votre boîte mail pour confirmer votre abonnement.
+        </span>
+      </p>`;
   } else {
     btn.disabled = false;
-    btn.textContent = "S'abonner gratuitement ✓";
+    btn.textContent = "S'abonner gratuitement";
     _nlMsg('Une erreur est survenue. Réessayez dans quelques instants.', 'error');
   }
+}
+
+/** Désinscription depuis la page se-desinscrire.html */
+async function unsubscribeNewsletter(email) {
+  const cfg = await _loadNlCfg();
+  if (!cfg.brevoApiKey || !cfg.brevoListId) return false;
+  try {
+    // Retirer de la liste Brevo
+    const r = await fetch(`https://api.brevo.com/v3/contacts/lists/${cfg.brevoListId}/contacts/remove`, {
+      method: 'POST',
+      headers: { 'api-key': cfg.brevoApiKey, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ emails: [email] })
+    });
+    return r.ok || r.status === 404; // 404 = n'était pas dans la liste, ok quand même
+  } catch(_) { return false; }
 }
 
 function _nlMsg(text, type) {
   const el = document.getElementById('nl-msg');
   if (!el) return;
   el.textContent = text;
-  el.style.color = type === 'error' ? '#c62828' : '#2e7d32';
+  el.style.color = type === 'error' ? '#ffb3a7' : '#a8e6cf';
   el.style.display = 'block';
 }
