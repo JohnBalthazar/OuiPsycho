@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Se dÃ©sinscrire de la newsletter â€” Oui Psycho!</title>
-  <meta name="description" content="DÃ©sinscrivez-vous de la newsletter hebdomadaire d'Oui Psycho! en quelques secondes.">
+  <title>Se désinscrire de la newsletter �€” Oui Psycho!</title>
+  <meta name="description" content="Désinscrivez-vous de la newsletter hebdomadaire d'Oui Psycho! en quelques secondes.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://ouipsycho.fr/se-desinscrire.html">
   <link rel="icon" type="image/png" href="img/logo-brain.svg">
@@ -134,7 +134,7 @@
 
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! â€” Accueil">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! �€” Accueil">
         <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
@@ -143,7 +143,7 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="a-propos.html">Ã€ propos</a>
+        <a class="nav__link" href="a-propos.html">�€ propos</a>
         <a class="nav__link" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -151,11 +151,11 @@
 
   <div class="container" style="padding-top:var(--sp-6);padding-bottom:var(--sp-12)">
     <div class="unsub-card">
-      <div style="font-size:2.5rem;margin-bottom:var(--sp-4)">ðŸ“­</div>
-      <h1>Se dÃ©sinscrire</h1>
+      <div style="font-size:2.5rem;margin-bottom:var(--sp-4)">�Ÿ“�</div>
+      <h1>Se désinscrire</h1>
       <p class="subtitle">
         Vous souhaitez ne plus recevoir la newsletter hebdomadaire d'Oui Psycho!&nbsp;?<br>
-        Entrez votre adresse e-mail ci-dessous. La dÃ©sinscription est immÃ©diate.
+        Entrez votre adresse e-mail ci-dessous. La désinscription est immédiate.
       </p>
 
       <div id="unsub-msg" role="alert"></div>
@@ -163,33 +163,33 @@
       <form class="unsub-form" id="unsub-form" onsubmit="handleUnsub(event)">
         <label for="unsub-email">Votre adresse e-mail</label>
         <input type="email" id="unsub-email" placeholder="votre@email.fr" required autocomplete="email">
-        <button type="submit" class="btn-unsub" id="unsub-btn">Se dÃ©sinscrire</button>
+        <button type="submit" class="btn-unsub" id="unsub-btn">Se désinscrire</button>
       </form>
 
       <div class="legal-note">
-        <strong>ConformitÃ© RGPD</strong> â€” ConformÃ©ment au RÃ¨glement GÃ©nÃ©ral sur la Protection des DonnÃ©es
-        (RGPD) et Ã  la loi Informatique et LibertÃ©s, vous disposez d'un droit d'accÃ¨s, de rectification,
-        d'effacement et de portabilitÃ© de vos donnÃ©es. Pour toute demande relative Ã  vos donnÃ©es personnelles,
-        contactez-nous Ã  <a href="mailto:contact@ouipsycho.fr">contact@ouipsycho.fr</a>.
-        Voir notre <a href="politique-de-confidentialite.html">politique de confidentialitÃ©</a>.
+        <strong>Conformité RGPD</strong> �€” Conformément au Règlement Général sur la Protection des Données
+        (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification,
+        d'effacement et de portabilité de vos données. Pour toute demande relative à vos données personnelles,
+        contactez-nous à <a href="mailto:contact@ouipsycho.fr">contact@ouipsycho.fr</a>.
+        Voir notre <a href="politique-de-confidentialite.html">politique de confidentialité</a>.
       </div>
 
-      <a href="index.html" class="back-link">â† Retour Ã  l'accueil</a>
+      <a href="index.html" class="back-link">�†� Retour à l'accueil</a>
     </div>
   </div>
 
   <footer class="site-footer">
     <div class="container">
       <div class="footer-bottom">
-        <span>Â© 2026 Oui Psycho!. Tous droits rÃ©servÃ©s.</span>
-        <span>Fait avec â¤ï¸ pour la santÃ© mentale</span>
+        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
       </div>
     </div>
   </footer>
 
   <script src="js/main.js"></script>
   <script>
-    // PrÃ©-remplir l'email depuis l'URL (?email=xxx)
+    // Pré-remplir l'email depuis l'URL (?email=xxx)
     window.addEventListener('DOMContentLoaded', () => {
       const params = new URLSearchParams(window.location.search);
       const emailParam = params.get('email');
@@ -213,7 +213,7 @@
       }
 
       btn.disabled = true;
-      btn.textContent = 'â³ Traitementâ€¦';
+      btn.textContent = '⏳ Traitement�€�';
       msgEl.className = '';
       msgEl.style.display = 'none';
 
@@ -222,13 +222,13 @@
       if (ok) {
         form.style.display = 'none';
         msgEl.innerHTML = `
-          âœ… <strong>${email}</strong> a bien Ã©tÃ© dÃ©sinscrit(e).<br>
+          �œ… <strong>${email}</strong> a bien été désinscrit(e).<br>
           <span style="font-weight:400">Vous ne recevrez plus nos newsletters. Merci d'avoir suivi Oui Psycho!</span>`;
         msgEl.className = 'success';
       } else {
         btn.disabled = false;
-        btn.textContent = 'Se dÃ©sinscrire';
-        msgEl.textContent = 'Une erreur est survenue. RÃ©essayez ou contactez contact@ouipsycho.fr';
+        btn.textContent = 'Se désinscrire';
+        msgEl.textContent = 'Une erreur est survenue. Réessayez ou contactez contact@ouipsycho.fr';
         msgEl.className = 'error';
       }
     }
