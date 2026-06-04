@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Se désinscrire de la newsletter �€” Oui Psycho!</title>
+  <title>Se désinscrire de la newsletter — Oui Psycho!</title>
   <meta name="description" content="Désinscrivez-vous de la newsletter hebdomadaire d'Oui Psycho! en quelques secondes.">
   <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="https://ouipsycho.fr/se-desinscrire.html">
-  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="icon" type="image/png" href="img/logo-brain.svg">
   <link rel="stylesheet" href="css/style.css">
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -134,8 +134,8 @@
 
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! �€” Accueil">
-        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
@@ -143,7 +143,7 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="a-propos.html">�€ propos</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
         <a class="nav__link" href="contact.html">Contact</a>
       </nav>
     </div>
@@ -151,7 +151,7 @@
 
   <div class="container" style="padding-top:var(--sp-6);padding-bottom:var(--sp-12)">
     <div class="unsub-card">
-      <div style="font-size:2.5rem;margin-bottom:var(--sp-4)">�Ÿ“�</div>
+      <div style="font-size:2.5rem;margin-bottom:var(--sp-4)">📭</div>
       <h1>Se désinscrire</h1>
       <p class="subtitle">
         Vous souhaitez ne plus recevoir la newsletter hebdomadaire d'Oui Psycho!&nbsp;?<br>
@@ -167,14 +167,14 @@
       </form>
 
       <div class="legal-note">
-        <strong>Conformité RGPD</strong> �€” Conformément au Règlement Général sur la Protection des Données
+        <strong>Conformité RGPD</strong> — Conformément au Règlement Général sur la Protection des Données
         (RGPD) et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification,
         d'effacement et de portabilité de vos données. Pour toute demande relative à vos données personnelles,
         contactez-nous à <a href="mailto:contact@ouipsycho.fr">contact@ouipsycho.fr</a>.
         Voir notre <a href="politique-de-confidentialite.html">politique de confidentialité</a>.
       </div>
 
-      <a href="index.html" class="back-link">�†� Retour à l'accueil</a>
+      <a href="index.html" class="back-link">← Retour à l'accueil</a>
     </div>
   </div>
 
@@ -213,7 +213,7 @@
       }
 
       btn.disabled = true;
-      btn.textContent = '⏳ Traitement�€�';
+      btn.textContent = '⏳ Traitement…';
       msgEl.className = '';
       msgEl.style.display = 'none';
 
@@ -222,7 +222,7 @@
       if (ok) {
         form.style.display = 'none';
         msgEl.innerHTML = `
-          �œ… <strong>${email}</strong> a bien été désinscrit(e).<br>
+          ✅ <strong>${email}</strong> a bien été désinscrit(e).<br>
           <span style="font-weight:400">Vous ne recevrez plus nos newsletters. Merci d'avoir suivi Oui Psycho!</span>`;
         msgEl.className = 'success';
       } else {

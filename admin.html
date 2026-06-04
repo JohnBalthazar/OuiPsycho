@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin �€” Oui Psycho!</title>
+  <title>Admin — Oui Psycho!</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -38,7 +38,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Inter', system-ui, sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
 
-    /* �”€�”€ LOGIN �”€�”€ */
+    /* ── LOGIN ── */
     #login-screen {
       display: flex; align-items: center; justify-content: center; min-height: 100vh;
       background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
@@ -80,7 +80,7 @@
     .btn-full { width: 100%; justify-content: center; padding: 12px; }
     .login-error { color: var(--danger); font-size: .85rem; margin-top: 8px; display: none; }
 
-    /* �”€�”€ APP LAYOUT �”€�”€ */
+    /* ── APP LAYOUT ── */
     #app { display: none; }
     .sidebar {
       position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
@@ -109,12 +109,12 @@
 
     .main-content { margin-left: 240px; padding: 24px; min-height: 100vh; }
 
-    /* �”€�”€ TOPBAR �”€�”€ */
+    /* ── TOPBAR ── */
     .topbar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
     .topbar h1 { font-size: 1.5rem; font-weight: 700; color: var(--gray-900); }
     .topbar-actions { display: flex; gap: 10px; }
 
-    /* �”€�”€ CARDS / STATS �”€�”€ */
+    /* ── CARDS / STATS ── */
     .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-bottom: 28px; }
     .stat-card {
       background: #fff; border-radius: var(--radius); padding: 20px;
@@ -126,7 +126,7 @@
     .stat-card .stat-val { font-size: 2rem; font-weight: 700; color: var(--gray-900); line-height: 1; }
     .stat-card .stat-label { font-size: .8rem; color: var(--gray-500); margin-top: 6px; }
 
-    /* �”€�”€ TABLE �”€�”€ */
+    /* ── TABLE ── */
     .card { background: #fff; border-radius: var(--radius); box-shadow: var(--shadow); }
     .card-header { padding: 16px 20px; border-bottom: 1px solid var(--gray-100); display: flex; align-items: center; justify-content: space-between; flex-wrap: gap; gap: 10px; }
     .card-header h3 { font-size: 1rem; font-weight: 600; color: var(--gray-800); }
@@ -157,7 +157,7 @@
     .actions { display: flex; gap: 6px; }
     .btn-sm { padding: 5px 10px; font-size: .8rem; border-radius: 6px; }
 
-    /* �”€�”€ PANEL / MODAL �”€�”€ */
+    /* ── PANEL / MODAL ── */
     .panel-overlay {
       display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 200;
       align-items: center; justify-content: center;
@@ -198,14 +198,14 @@
     .tag-chip button { background: none; border: none; cursor: pointer; color: inherit; font-size: 1rem; line-height: 1; padding: 0; }
     .tags-hidden-input { border: none; outline: none; font-size: .9rem; min-width: 80px; flex: 1; font-family: inherit; }
 
-    /* �”€�”€ CONFIRM DIALOG �”€�”€ */
+    /* ── CONFIRM DIALOG ── */
     .confirm-dialog { max-width: 420px; }
     .confirm-dialog .panel-body { padding: 28px 24px; text-align: center; }
     .confirm-dialog .icon { font-size: 3rem; margin-bottom: 12px; }
     .confirm-dialog h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 8px; }
     .confirm-dialog p { font-size: .9rem; color: var(--gray-500); }
 
-    /* �”€�”€ TOAST �”€�”€ */
+    /* ── TOAST ── */
     #toast-container { position: fixed; bottom: 24px; right: 24px; z-index: 9999; display: flex; flex-direction: column; gap: 8px; }
     .toast {
       padding: 12px 20px; border-radius: var(--radius); color: #fff; font-size: .9rem; font-weight: 500;
@@ -216,12 +216,12 @@
     .toast.info { background: var(--primary); }
     @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* �”€�”€ LOADING �”€�”€ */
+    /* ── LOADING ── */
     .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
     .loading-row td { text-align: center; padding: 48px; color: var(--gray-400); }
 
-    /* �”€�”€ IMAGE UPLOAD �”€�”€ */
+    /* ── IMAGE UPLOAD ── */
     .img-upload-zone {
       border: 2px dashed var(--gray-300); border-radius: var(--radius);
       padding: 20px; text-align: center; cursor: pointer;
@@ -254,15 +254,15 @@
       transition: width .3s; width: 0%;
     }
 
-    /* �”€�”€ IMPORT/EXPORT �”€�”€ */
+    /* ── IMPORT/EXPORT ── */
     .import-zone { border: 2px dashed var(--gray-200); border-radius: var(--radius); padding: 32px; text-align: center; color: var(--gray-400); cursor: pointer; transition: border-color .2s; }
     .import-zone:hover { border-color: var(--primary); color: var(--primary); }
 
-    /* �”€�”€ SETTINGS PAGE �”€�”€ */
+    /* ── SETTINGS PAGE ── */
     .settings-section { margin-bottom: 32px; }
     .settings-section h3 { font-size: 1rem; font-weight: 700; color: var(--gray-800); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--gray-200); }
 
-    /* �”€�”€ PREVIEW PANE �”€�”€ */
+    /* ── PREVIEW PANE ── */
     .preview-pane { background: var(--gray-50); border-radius: var(--radius); padding: 24px; font-family: Georgia, serif; max-height: 400px; overflow-y: auto; border: 1px solid var(--gray-200); }
     .preview-pane h1 { font-size: 1.6rem; margin-bottom: 8px; color: var(--gray-900); }
     .preview-pane .meta { font-size: .8rem; color: var(--gray-400); margin-bottom: 16px; font-family: 'Inter', sans-serif; }
@@ -270,24 +270,24 @@
     .preview-pane h2 { font-size: 1.2rem; margin: 20px 0 8px; }
     .preview-pane blockquote { border-left: 4px solid var(--accent); padding: 8px 16px; margin: 16px 0; color: var(--gray-600); font-style: italic; background: var(--gray-100); border-radius: 0 var(--radius) var(--radius) 0; }
 
-    /* �”€�”€ STATUS BADGES �”€�”€ */
+    /* ── STATUS BADGES ── */
     .badge-published { background: #d1fae5; color: #065f46; }
     .badge-scheduled { background: #fef3c7; color: #92400e; }
     .badge-draft     { background: #f1f5f9; color: #475569; }
 
-    /* �”€�”€ STATUS BUTTON GROUP �”€�”€ */
+    /* ── STATUS BUTTON GROUP ── */
     .status-btn-group { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
     .status-btn-group .btn { transition: all .15s; }
     .status-btn-group .btn.active-status { box-shadow: 0 0 0 2px currentColor; }
 
-    /* �”€�”€ SCHEDULED CARD �”€�”€ */
+    /* ── SCHEDULED CARD ── */
     .scheduled-card {
       background: #fffbeb; border: 1px solid #fde68a; border-radius: var(--radius);
       padding: 12px 16px; margin-bottom: 16px; font-size: .88rem; color: #92400e;
     }
     .scheduled-card strong { color: #78350f; }
 
-    /* �”€�”€ CATEGORIES COLORS �”€�”€ */
+    /* ── CATEGORIES COLORS ── */
     .cat-Anxiété { background: #dbeafe; color: #1e40af; }
     .cat-Dépression { background: #ede9fe; color: #5b21b6; }
     .cat-Bien-être { background: #d1fae5; color: #065f46; }
@@ -297,7 +297,7 @@
     .cat-Relations { background: #ccfbf1; color: #115e59; }
     .cat-Développement\ personnel { background: #fef9c3; color: #854d0e; }
 
-    /* �”€�”€ WYSIWYG EDITOR �”€�”€ */
+    /* ── WYSIWYG EDITOR ── */
     .wysiwyg-wrap { border: 2px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; }
     .wysiwyg-wrap:focus-within { border-color: var(--primary); }
     .wysiwyg-toolbar {
@@ -325,7 +325,7 @@
     .wysiwyg-editor a { color: var(--primary); text-decoration: underline; }
     .wysiwyg-editor strong, .wysiwyg-editor b { font-weight: 700; }
 
-    /* �”€�”€ IMAGE LAYOUT �”€�”€ */
+    /* ── IMAGE LAYOUT ── */
     .img-layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
     .img-layout-btn {
       display: flex; align-items: center; gap: 8px; padding: 8px 10px;
@@ -337,13 +337,13 @@
     .img-layout-btn.active { border-color: var(--primary); background: var(--primary); color: #fff; }
     .img-layout-btn .layout-icon { font-size: 1.1rem; flex-shrink: 0; }
 
-    /* �”€�”€ RESPONSIVE �”€�”€ */
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .sidebar { transform: translateX(-100%); }
       .main-content { margin-left: 0; }
       .form-row, .form-row-3 { grid-template-columns: 1fr; }
     }
-    /* �”€�”€ Bannière article HTML personnalisé �”€�”€ */
+    /* ── Bannière article HTML personnalisé ── */
     .custom-html-banner { display:none; background:#fff8e1; border:2px solid #f59e0b; border-radius:var(--radius); padding:14px 16px; margin-bottom:16px; }
     .custom-html-banner.visible { display:flex; align-items:flex-start; gap:12px; }
     .custom-html-banner__icon { font-size:1.4rem; flex-shrink:0; }
@@ -352,7 +352,7 @@
     .custom-html-banner__text { font-size:.82rem; color:#78350f; line-height:1.6; }
     .custom-html-banner__link { display:inline-block; margin-top:8px; font-size:.8rem; font-weight:600; color:#f59e0b; text-decoration:none; }
     .custom-html-banner__link:hover { text-decoration:underline; }
-    /* �”€�”€ Articles liés picker �”€�”€ */
+    /* ── Articles liés picker ── */
     .related-picker-wrap { max-height: 220px; overflow-y: auto; border: 1.5px solid var(--gray-200); border-radius: var(--radius); }
     .related-picker-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; transition: background .15s; border-bottom: 1px solid var(--gray-100); }
     .related-picker-item:last-child { border-bottom: none; }
@@ -374,19 +374,19 @@
 </head>
 <body>
 
-<!-- �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� LOGIN �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� -->
+<!-- ══════════════════ LOGIN ══════════════════ -->
 <div id="login-screen">
   <div class="login-card">
     <div class="login-logo">
-      <h1>Oui Psycho! �œ�</h1>
+      <h1>Oui Psycho! ✦</h1>
       <p>Interface d'administration</p>
     </div>
     <div class="form-group">
       <label>Mot de passe admin</label>
-      <input type="password" id="login-password" placeholder="�€��€��€��€��€��€��€��€�" autocomplete="current-password">
+      <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password">
     </div>
     <div class="form-group">
-      <label>GitHub Personal Access Token (PAT) <span style="font-weight:400;color:var(--gray-400)">�€” optionnel hors ligne</span></label>
+      <label>GitHub Personal Access Token (PAT) <span style="font-weight:400;color:var(--gray-400)">— optionnel hors ligne</span></label>
       <input type="password" id="login-pat" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
       <div class="hint">Token avec accès <strong>Contents: Read & Write</strong> sur le dépôt. Stocké localement uniquement.</div>
     </div>
@@ -395,12 +395,12 @@
   </div>
 </div>
 
-<!-- �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� APP �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� -->
+<!-- ══════════════════ APP ══════════════════ -->
 <div id="app">
   <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sidebar-header">
-      <h2>Oui Psycho! �œ�</h2>
+      <h2>Oui Psycho! ✦</h2>
       <p>Administration</p>
     </div>
     <div class="sidebar-nav">
@@ -435,7 +435,7 @@
       <div class="nav-section">Pages</div>
       <button class="nav-item" onclick="showPage('about')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        �€ propos
+        À propos
       </button>
       <div class="nav-section">Outils</div>
       <button class="nav-item" onclick="showPage('import-export')">
@@ -478,7 +478,7 @@
         <div class="card-header"><h3>Articles récents</h3></div>
         <table>
           <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th></tr></thead>
-          <tbody id="recent-table"><tr class="loading-row"><td colspan="4">Chargement�€�</td></tr></tbody>
+          <tbody id="recent-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -488,20 +488,20 @@
       <div class="topbar">
         <h1>Articles <span id="articles-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
         <div class="topbar-actions">
-          <button class="btn btn-ghost" onclick="refreshArticles()">�†� Rafraîchir</button>
+          <button class="btn btn-ghost" onclick="refreshArticles()">↻ Rafraîchir</button>
           <button class="btn btn-primary" onclick="showPage('new-article')">+ Nouvel article</button>
         </div>
       </div>
       <div class="card">
         <div class="card-header">
           <div class="search-bar">
-            <input type="text" id="search-input" placeholder="Rechercher un article�€�" oninput="filterArticles()">
+            <input type="text" id="search-input" placeholder="Rechercher un article…" oninput="filterArticles()">
           </div>
         </div>
         <div class="filter-bar" id="filter-bar"></div>
         <table>
           <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Lecture</th><th>Actions</th></tr></thead>
-          <tbody id="articles-table"><tr class="loading-row"><td colspan="5">Chargement�€�</td></tr></tbody>
+          <tbody id="articles-table"><tr class="loading-row"><td colspan="5">Chargement…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -512,7 +512,7 @@
         <h1 id="editor-title">Nouvel article</h1>
         <div class="topbar-actions">
           <button class="btn btn-ghost" onclick="showPage('articles')">Annuler</button>
-          <button class="btn btn-ghost" onclick="togglePreview()">�Ÿ‘� Aperçu</button>
+          <button class="btn btn-ghost" onclick="togglePreview()">👁 Aperçu</button>
           <button class="btn btn-success" onclick="saveArticle()" id="save-btn">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span id="save-btn-label">Publier</span>
@@ -526,16 +526,16 @@
 
           <!-- Bannière article HTML personnalisé -->
           <div class="custom-html-banner" id="custom-html-banner">
-            <div class="custom-html-banner__icon">�š�️</div>
+            <div class="custom-html-banner__icon">⚠️</div>
             <div class="custom-html-banner__body">
-              <div class="custom-html-banner__title">Article HTML personnalisé �€” modification limitée</div>
+              <div class="custom-html-banner__title">Article HTML personnalisé — modification limitée</div>
               <div class="custom-html-banner__text">
-                Cet article a été créé avec une mise en page sur-mesure (visualisations, tableaux, infographies�€�)
+                Cet article a été créé avec une mise en page sur-mesure (visualisations, tableaux, infographies…)
                 non éditable dans cet éditeur standard.<br>
                 <strong>Sauvegarder ici remplacerait la mise en page riche par un template générique.</strong><br>
                 Pour modifier le contenu, demande une mise à jour dans Claude Code.
               </div>
-              <a class="custom-html-banner__link" id="custom-html-view-link" href="#" target="_blank">�Ÿ‘� Voir l'article sur le site �†’</a>
+              <a class="custom-html-banner__link" id="custom-html-view-link" href="#" target="_blank">👁 Voir l'article sur le site →</a>
             </div>
           </div>
 
@@ -548,7 +548,7 @@
               </div>
               <div class="form-group">
                 <label>Excerpt / Chapeau *</label>
-                <textarea id="f-excerpt" rows="3" placeholder="2-3 phrases accrocheuses qui donnent envie de lire�€�"></textarea>
+                <textarea id="f-excerpt" rows="3" placeholder="2-3 phrases accrocheuses qui donnent envie de lire…"></textarea>
               </div>
               <div class="form-group">
                 <label>Contenu *</label>
@@ -564,16 +564,16 @@
                     <button type="button" onclick="wysBlock('h3')" title="Titre 3">H3</button>
                     <button type="button" onclick="wysBlock('p')" title="Paragraphe normal">¶</button>
                     <div class="wysep"></div>
-                    <button type="button" onclick="wys('insertUnorderedList')" title="Liste à puces">�€� Liste</button>
+                    <button type="button" onclick="wys('insertUnorderedList')" title="Liste à puces">• Liste</button>
                     <button type="button" onclick="wys('insertOrderedList')" title="Liste numérotée">1. Liste</button>
                     <div class="wysep"></div>
                     <button type="button" onclick="wysBlock('blockquote')" title="Citation">❝ Citation</button>
-                    <button type="button" onclick="wysLink()" title="Insérer un lien">�Ÿ”— Lien</button>
-                    <button type="button" onclick="wys('insertHorizontalRule')" title="Ligne de séparation">�€• Ligne</button>
+                    <button type="button" onclick="wysLink()" title="Insérer un lien">🔗 Lien</button>
+                    <button type="button" onclick="wys('insertHorizontalRule')" title="Ligne de séparation">― Ligne</button>
                     <div class="wysep"></div>
-                    <button type="button" onclick="wys('removeFormat')" title="Supprimer mise en forme">�œ• Format</button>
-                    <button type="button" onclick="document.execCommand('undo')" title="Annuler (Ctrl+Z)">�†�</button>
-                    <button type="button" onclick="document.execCommand('redo')" title="Rétablir (Ctrl+Y)">�†�</button>
+                    <button type="button" onclick="wys('removeFormat')" title="Supprimer mise en forme">✕ Format</button>
+                    <button type="button" onclick="document.execCommand('undo')" title="Annuler (Ctrl+Z)">↩</button>
+                    <button type="button" onclick="document.execCommand('redo')" title="Rétablir (Ctrl+Y)">↪</button>
                   </div>
                   <!-- Zone d'édition -->
                   <div id="wysiwyg-editor" class="wysiwyg-editor" contenteditable="true"
@@ -620,7 +620,7 @@
                   <option>Anxiété</option><option>Dépression</option><option>Bien-être</option>
                   <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
                   <option>Relations</option><option>Développement personnel</option>
-                  <option>�‰motions &amp; identité</option><option>Neurosciences &amp; genre</option><option>Société &amp; psychologie politique</option>
+                  <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option><option>Société &amp; psychologie politique</option>
                 </select>
               </div>
               <div class="form-group">
@@ -631,11 +631,11 @@
                 <label>Statut</label>
                 <div class="status-btn-group">
                   <button type="button" id="status-btn-published" class="btn btn-success btn-sm active-status"
-                    onclick="setArticleStatus('published')">�œ… Publier</button>
+                    onclick="setArticleStatus('published')">✅ Publier</button>
                   <button type="button" id="status-btn-scheduled" class="btn btn-ghost btn-sm"
                     onclick="setArticleStatus('scheduled')">⏰ Planifier</button>
                   <button type="button" id="status-btn-draft" class="btn btn-ghost btn-sm"
-                    onclick="setArticleStatus('draft')">�Ÿ“� Brouillon</button>
+                    onclick="setArticleStatus('draft')">📝 Brouillon</button>
                 </div>
                 <div class="hint" id="status-hint">L'article sera visible immédiatement après publication.</div>
                 <input type="hidden" id="f-status" value="published">
@@ -654,7 +654,7 @@
                 <div id="img-preview-wrap" class="img-preview-wrap" style="display:none;margin-bottom:8px">
                   <img id="img-preview" src="" alt="Aperçu">
                   <div class="img-preview-actions">
-                    <button onclick="removeImage()">�œ• Supprimer</button>
+                    <button onclick="removeImage()">✕ Supprimer</button>
                   </div>
                 </div>
                 <!-- Zone de dépôt -->
@@ -663,7 +663,7 @@
                   ondragover="handleDragOver(event)"
                   ondragleave="handleDragLeave(event)"
                   ondrop="handleDrop(event)">
-                  <div class="upload-icon">�Ÿ–�️</div>
+                  <div class="upload-icon">🖼️</div>
                   <strong>Cliquer ou glisser-déposer une image</strong>
                   <p>JPG, PNG, WebP · Max 5 Mo</p>
                   <input type="file" id="img-file-input" accept="image/*" style="display:none" onchange="handleImageFile(this.files[0])">
@@ -673,39 +673,39 @@
                 </div>
                 <!-- Recadrage / point focal -->
                 <div id="focal-container" style="display:none;margin-top:10px">
-                  <div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:6px">�ŸŽ� Recadrage �€” cliquez pour définir le point focal</div>
+                  <div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:6px">🎯 Recadrage — cliquez pour définir le point focal</div>
                   <div id="focal-wrapper" style="position:relative;cursor:crosshair;border-radius:var(--radius);overflow:hidden;border:2px solid var(--gray-200);user-select:none;background:var(--gray-100)">
                     <img id="focal-img" src="" alt="" style="width:100%;max-height:180px;object-fit:cover;display:block;pointer-events:none">
                     <div id="focal-indicator" style="position:absolute;width:22px;height:22px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 2px var(--primary),0 2px 10px rgba(0,0,0,.6);transform:translate(-50%,-50%);pointer-events:none;top:50%;left:50%;transition:top .12s,left .12s"></div>
                   </div>
                   <div style="display:flex;align-items:center;gap:6px;margin-top:6px;flex-wrap:wrap">
                     <span style="font-size:.72rem;color:var(--gray-400)">Raccourcis :</span>
-                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','15%')">�† Haut</button>
-                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','50%')">�Š™ Centre</button>
-                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','80%')">�‡ Bas</button>
-                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('20%','50%')">�†� Gauche</button>
-                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('80%','50%')">�†’ Droite</button>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','15%')">⬆ Haut</button>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','50%')">⊙ Centre</button>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('50%','80%')">⬇ Bas</button>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('20%','50%')">← Gauche</button>
+                    <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem" onclick="setFocalPreset('80%','50%')">→ Droite</button>
                     <span id="focal-coords" style="font-size:.72rem;color:var(--primary);font-weight:600;margin-left:auto">50% 50%</span>
                   </div>
                   <!-- Zoom -->
                   <div style="display:flex;align-items:center;gap:10px;margin-top:8px">
-                    <span style="font-size:.72rem;color:var(--gray-500);white-space:nowrap">�Ÿ”� Zoom :</span>
+                    <span style="font-size:.72rem;color:var(--gray-500);white-space:nowrap">🔍 Zoom :</span>
                     <input type="range" id="focal-zoom" min="1" max="2.5" step="0.05" value="1"
                       style="flex:1;accent-color:var(--primary)" oninput="updateFocalZoom(this.value)">
-                    <span id="focal-zoom-val" style="font-size:.75rem;color:var(--primary);font-weight:700;min-width:36px;text-align:right">�—1.0</span>
+                    <span id="focal-zoom-val" style="font-size:.75rem;color:var(--primary);font-weight:700;min-width:36px;text-align:right">×1.0</span>
                     <button type="button" class="btn btn-ghost btn-sm" style="padding:2px 8px;font-size:.72rem"
                       onclick="updateFocalZoom(1);document.getElementById('focal-zoom').value=1">Reset</button>
                   </div>
                   <!-- Centrage automatique IA -->
                   <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--gray-100)">
-                    <div style="font-size:.72rem;font-weight:600;color:var(--gray-600);margin-bottom:6px">�Ÿ�– Centrage automatique (Cloudinary IA)</div>
+                    <div style="font-size:.72rem;font-weight:600;color:var(--gray-600);margin-bottom:6px">🤖 Centrage automatique (Cloudinary IA)</div>
                     <div style="display:flex;gap:6px">
-                      <button type="button" id="grav-none" class="btn btn-primary btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('none')">�œ‹ Manuel</button>
-                      <button type="button" id="grav-face" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('face')">�Ÿ˜€ Visage</button>
-                      <button type="button" id="grav-auto" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('auto')">�ŸŽ� Sujet</button>
+                      <button type="button" id="grav-none" class="btn btn-primary btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('none')">✋ Manuel</button>
+                      <button type="button" id="grav-face" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('face')">😀 Visage</button>
+                      <button type="button" id="grav-auto" class="btn btn-ghost btn-sm grav-btn" style="font-size:.72rem;flex:1" onclick="setGravity('auto')">🎨 Sujet</button>
                     </div>
                     <div id="gravity-hint" class="hint" style="margin-top:4px;display:none">
-                      �œ… Cloudinary centrera automatiquement sur le visage/sujet détecté
+                      ✅ Cloudinary centrera automatiquement sur le visage/sujet détecté
                     </div>
                   </div>
                   <input type="hidden" id="f-imagePosition" value="50% 50%">
@@ -714,12 +714,12 @@
                 </div>
                 <!-- Layout image -->
                 <div id="img-layout-container" style="display:none;margin-top:10px">
-                  <div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:8px">�Ÿ“� Position de l'image dans l'article</div>
+                  <div style="font-size:.75rem;font-weight:600;color:var(--gray-600);margin-bottom:8px">📐 Position de l'image dans l'article</div>
                   <div class="img-layout-grid">
-                    <button type="button" class="img-layout-btn active" id="layout-top"    onclick="setImageLayout('top')">   <span class="layout-icon">�†</span> Au-dessus du texte</button>
-                    <button type="button" class="img-layout-btn"        id="layout-bottom" onclick="setImageLayout('bottom')"><span class="layout-icon">�‡</span> En-dessous du texte</button>
-                    <button type="button" class="img-layout-btn"        id="layout-left"   onclick="setImageLayout('left')">  <span class="layout-icon">�—€</span> �€ gauche (texte à droite)</button>
-                    <button type="button" class="img-layout-btn"        id="layout-right"  onclick="setImageLayout('right')">&nbsp;<span class="layout-icon">�–�</span> �€ droite (texte à gauche)</button>
+                    <button type="button" class="img-layout-btn active" id="layout-top"    onclick="setImageLayout('top')">   <span class="layout-icon">⬆</span> Au-dessus du texte</button>
+                    <button type="button" class="img-layout-btn"        id="layout-bottom" onclick="setImageLayout('bottom')"><span class="layout-icon">⬇</span> En-dessous du texte</button>
+                    <button type="button" class="img-layout-btn"        id="layout-left"   onclick="setImageLayout('left')">  <span class="layout-icon">◀</span> À gauche (texte à droite)</button>
+                    <button type="button" class="img-layout-btn"        id="layout-right"  onclick="setImageLayout('right')">&nbsp;<span class="layout-icon">▶</span> À droite (texte à gauche)</button>
                   </div>
                   <input type="hidden" id="f-imageLayout" value="top">
                 </div>
@@ -739,7 +739,7 @@
             <div class="panel-body">
               <div class="form-group">
                 <label>Meta description</label>
-                <textarea id="f-metaDescription" rows="3" placeholder="150 caractères idéalement�€�" oninput="updateSeoCounter()"></textarea>
+                <textarea id="f-metaDescription" rows="3" placeholder="150 caractères idéalement…" oninput="updateSeoCounter()"></textarea>
                 <div class="seo-bar"><div class="seo-bar-fill" id="seo-bar-fill"></div></div>
                 <div class="char-counter" id="seo-counter">0 / 160 caractères</div>
               </div>
@@ -758,16 +758,16 @@
             </div>
           </div>
 
-          <!-- �”€�”€ Articles liés �”€�”€ -->
+          <!-- ── Articles liés ── -->
           <div class="card">
             <div class="card-header">
               <h3>Articles liés
-                <span style="font-size:.72rem;font-weight:400;color:var(--gray-400);margin-left:4px">max 3 · section « �€ lire aussi »</span>
+                <span style="font-size:.72rem;font-weight:400;color:var(--gray-400);margin-left:4px">max 3 · section « À lire aussi »</span>
               </h3>
             </div>
             <div class="panel-body">
               <input class="related-search" id="related-search"
-                placeholder="�Ÿ”� Filtrer par titre ou catégorie�€�"
+                placeholder="🔍 Filtrer par titre ou catégorie…"
                 oninput="filterRelatedPicker()" onfocus="filterRelatedPicker()">
               <div class="related-picker-wrap" id="related-picker">
                 <div style="padding:10px;color:var(--gray-400);font-size:.82rem">Aucun article disponible</div>
@@ -792,16 +792,16 @@
       <div class="topbar">
         <h1>Commentaires <span id="comments-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
         <div class="topbar-actions">
-          <button class="btn btn-ghost" onclick="refreshComments()">�†� Rafraîchir</button>
+          <button class="btn btn-ghost" onclick="refreshComments()">↻ Rafraîchir</button>
         </div>
       </div>
 
       <!-- Stats -->
       <div class="stats-grid" id="comments-stats">
-        <div class="stat-card"><div class="stat-val">�€”</div><div class="stat-label">Total</div></div>
-        <div class="stat-card orange"><div class="stat-val">�€”</div><div class="stat-label">En attente</div></div>
-        <div class="stat-card green"><div class="stat-val">�€”</div><div class="stat-label">Approuvés</div></div>
-        <div class="stat-card red"><div class="stat-val">�€”</div><div class="stat-label">Signalés</div></div>
+        <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total</div></div>
+        <div class="stat-card orange"><div class="stat-val">—</div><div class="stat-label">En attente</div></div>
+        <div class="stat-card green"><div class="stat-val">—</div><div class="stat-label">Approuvés</div></div>
+        <div class="stat-card red"><div class="stat-val">—</div><div class="stat-label">Signalés</div></div>
       </div>
 
       <!-- Tableau de modération -->
@@ -809,15 +809,15 @@
         <div class="card-header">
           <h3>Modération</h3>
           <div class="search-bar">
-            <input type="text" id="comments-search" placeholder="Rechercher auteur, contenu�€�" oninput="renderCommentsTable()">
+            <input type="text" id="comments-search" placeholder="Rechercher auteur, contenu…" oninput="renderCommentsTable()">
           </div>
         </div>
         <div class="filter-bar" id="comments-filter-bar">
           <span class="filter-chip active"  onclick="setCommentFilter('all',this)">Tous</span>
           <span class="filter-chip"         onclick="setCommentFilter('pending',this)">⏳ En attente</span>
-          <span class="filter-chip"         onclick="setCommentFilter('approved',this)">�œ… Approuvés</span>
-          <span class="filter-chip"         onclick="setCommentFilter('rejected',this)">�Œ Rejetés</span>
-          <span class="filter-chip"         onclick="setCommentFilter('flagged',this)">�š‘ Signalés</span>
+          <span class="filter-chip"         onclick="setCommentFilter('approved',this)">✅ Approuvés</span>
+          <span class="filter-chip"         onclick="setCommentFilter('rejected',this)">❌ Rejetés</span>
+          <span class="filter-chip"         onclick="setCommentFilter('flagged',this)">⚑ Signalés</span>
         </div>
         <div style="overflow-x:auto">
           <table>
@@ -832,20 +832,20 @@
               </tr>
             </thead>
             <tbody id="comments-table">
-              <tr class="loading-row"><td colspan="6">Chargement�€�</td></tr>
+              <tr class="loading-row"><td colspan="6">Chargement…</td></tr>
             </tbody>
           </table>
         </div>
       </div>
     </div>
 
-    <!-- PAGE �€ PROPOS -->
+    <!-- PAGE À PROPOS -->
     <div id="page-about" class="page" style="display:none">
       <div class="topbar">
-        <h1>Page �€ propos</h1>
+        <h1>Page À propos</h1>
         <div class="topbar-actions">
           <button class="btn btn-ghost" onclick="showPage('articles')">Annuler</button>
-          <a href="a-propos.html" target="_blank" class="btn btn-ghost">�Ÿ‘� Voir la page</a>
+          <a href="a-propos.html" target="_blank" class="btn btn-ghost">👁 Voir la page</a>
           <button class="btn btn-success" onclick="saveAbout()" id="about-save-btn">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             Enregistrer
@@ -861,7 +861,7 @@
             <div class="panel-body">
               <div class="form-group">
                 <label>Titre de la page</label>
-                <input type="text" id="about-title-field" placeholder="�€ propos de Oui Psycho!">
+                <input type="text" id="about-title-field" placeholder="À propos de Oui Psycho!">
               </div>
               <div class="form-group">
                 <label>Sous-titre</label>
@@ -879,13 +879,13 @@
                     <button type="button" onclick="wysBlock('h3')" title="Titre 3">H3</button>
                     <button type="button" onclick="wysBlock('p')" title="Paragraphe">¶</button>
                     <div class="wysep"></div>
-                    <button type="button" onclick="wys('insertUnorderedList')" title="Liste">�€� Liste</button>
+                    <button type="button" onclick="wys('insertUnorderedList')" title="Liste">• Liste</button>
                     <button type="button" onclick="wysBlock('blockquote')" title="Citation">❝</button>
-                    <button type="button" onclick="wysLink()" title="Lien">�Ÿ”— Lien</button>
+                    <button type="button" onclick="wysLink()" title="Lien">🔗 Lien</button>
                     <div class="wysep"></div>
-                    <button type="button" onclick="wys('removeFormat')" title="Supprimer format">�œ• Format</button>
-                    <button type="button" onclick="document.execCommand('undo')">�†�</button>
-                    <button type="button" onclick="document.execCommand('redo')">�†�</button>
+                    <button type="button" onclick="wys('removeFormat')" title="Supprimer format">✕ Format</button>
+                    <button type="button" onclick="document.execCommand('undo')">↩</button>
+                    <button type="button" onclick="document.execCommand('redo')">↪</button>
                   </div>
                   <div id="about-wysiwyg" class="wysiwyg-editor" contenteditable="true"
                     oninput="syncAboutEditor()"
@@ -904,7 +904,7 @@
             <div class="panel-body">
               <div class="form-group">
                 <label>Meta description</label>
-                <textarea id="about-meta-field" rows="4" placeholder="Description pour les moteurs de recherche�€�" oninput="updateAboutSeoCounter()"></textarea>
+                <textarea id="about-meta-field" rows="4" placeholder="Description pour les moteurs de recherche…" oninput="updateAboutSeoCounter()"></textarea>
                 <div class="seo-bar"><div class="seo-bar-fill" id="about-seo-fill"></div></div>
                 <div class="char-counter" id="about-seo-counter">0 / 160</div>
               </div>
@@ -925,23 +925,23 @@
       <div class="topbar">
         <h1>Messages <span id="messages-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
         <div class="topbar-actions">
-          <button class="btn btn-ghost" onclick="loadAdminMessages()">�†� Rafraîchir</button>
+          <button class="btn btn-ghost" onclick="loadAdminMessages()">↻ Rafraîchir</button>
         </div>
       </div>
       <div class="stats-grid" id="messages-stats">
-        <div class="stat-card"><div class="stat-val">�€”</div><div class="stat-label">Total</div></div>
-        <div class="stat-card orange"><div class="stat-val">�€”</div><div class="stat-label">Non lus</div></div>
+        <div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Total</div></div>
+        <div class="stat-card orange"><div class="stat-val">—</div><div class="stat-label">Non lus</div></div>
       </div>
       <div class="card">
         <div class="card-header">
           <h3>Formulaire de contact</h3>
           <div class="search-bar">
-            <input type="text" id="messages-search" placeholder="Rechercher nom, email, message�€�" oninput="renderMessagesTable()">
+            <input type="text" id="messages-search" placeholder="Rechercher nom, email, message…" oninput="renderMessagesTable()">
           </div>
         </div>
         <div class="filter-bar" id="messages-filter-bar">
           <span class="filter-chip active" onclick="setMessageFilter('all',this)">Tous</span>
-          <span class="filter-chip"        onclick="setMessageFilter('unread',this)">�Ÿ“� Non lus</span>
+          <span class="filter-chip"        onclick="setMessageFilter('unread',this)">📩 Non lus</span>
         </div>
         <div style="overflow-x:auto">
           <table>
@@ -949,7 +949,7 @@
               <tr><th>Expéditeur</th><th>Message</th><th>Date</th><th>Statut</th><th>Actions</th></tr>
             </thead>
             <tbody id="messages-table">
-              <tr class="loading-row"><td colspan="5">Chargement�€�</td></tr>
+              <tr class="loading-row"><td colspan="5">Chargement…</td></tr>
             </tbody>
           </table>
         </div>
@@ -961,7 +961,7 @@
       <div class="topbar"><h1>Import / Export</h1></div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div class="card">
-          <div class="card-header"><h3>�Ÿ“� Exporter</h3></div>
+          <div class="card-header"><h3>📤 Exporter</h3></div>
           <div class="panel-body" style="display:flex;flex-direction:column;gap:12px;">
             <p style="font-size:.9rem;color:var(--gray-500);">Téléchargez tous vos articles sous forme d'un fichier JSON.</p>
             <button class="btn btn-primary" onclick="exportAllArticles()">Exporter articles.json (index)</button>
@@ -969,11 +969,11 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-header"><h3>�Ÿ“� Importer</h3></div>
+          <div class="card-header"><h3>📥 Importer</h3></div>
           <div class="panel-body">
             <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:12px;">Importez un fichier articles.json ou un article individuel.</p>
             <div class="import-zone" onclick="document.getElementById('import-file').click()">
-              <p>�Ÿ“‚ Cliquez ou déposez un fichier JSON</p>
+              <p>📂 Cliquez ou déposez un fichier JSON</p>
             </div>
             <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
           </div>
@@ -1004,7 +1004,7 @@
       <div class="card">
         <div class="panel-body">
           <div class="settings-section">
-            <h3>�Ÿ”� Sécurité</h3>
+            <h3>🔐 Sécurité</h3>
             <div class="form-row">
               <div class="form-group">
                 <label>Nouveau mot de passe admin</label>
@@ -1019,7 +1019,7 @@
           </div>
 
           <div class="settings-section">
-            <h3>�Ÿ�™ GitHub</h3>
+            <h3>🐙 GitHub</h3>
             <div class="form-row">
               <div class="form-group">
                 <label>Propriétaire du dépôt</label>
@@ -1044,21 +1044,21 @@
           </div>
 
           <div class="settings-section">
-            <h3>�˜�️ Cloudinary <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(hébergement images CDN �€” recommandé)</span></h3>
+            <h3>☁️ Cloudinary <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(hébergement images CDN — recommandé)</span></h3>
             <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
               <strong>Gratuit</strong> · CDN mondial · Optimisation automatique (WebP, compression) ·
-              <a href="https://cloudinary.com/users/register_free" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte �†’</a>
+              <a href="https://cloudinary.com/users/register_free" target="_blank" rel="noopener" style="color:var(--primary)">Créer un compte →</a>
             </div>
             <div class="form-row">
               <div class="form-group">
                 <label>Cloud Name</label>
                 <input type="text" id="cld-cloud-name" placeholder="ex: mon-cloud-123">
-                <div class="hint">Dashboard Cloudinary �†’ en haut à gauche</div>
+                <div class="hint">Dashboard Cloudinary → en haut à gauche</div>
               </div>
               <div class="form-group">
                 <label>Upload Preset <span style="font-weight:400">(non signé)</span></label>
                 <input type="text" id="cld-preset" placeholder="ex: ouipsycho_preset">
-                <div class="hint">Settings �†’ Upload �†’ Upload presets �†’ Add (Unsigned)</div>
+                <div class="hint">Settings → Upload → Upload presets → Add (Unsigned)</div>
               </div>
             </div>
             <div class="form-group">
@@ -1071,18 +1071,18 @@
           </div>
 
           <div class="settings-section">
-            <h3>�Ÿ’� Commentaires �€” Firebase <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(Firestore, gratuit)</span></h3>
+            <h3>💬 Commentaires — Firebase <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(Firestore, gratuit)</span></h3>
             <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
               <strong>Gratuit</strong> · Firestore en mode Spark · Règles de sécurité intégrées ·
-              <a href="https://console.firebase.google.com" target="_blank" rel="noopener" style="color:var(--primary)">Ouvrir Firebase Console �†’</a>
+              <a href="https://console.firebase.google.com" target="_blank" rel="noopener" style="color:var(--primary)">Ouvrir Firebase Console →</a>
               <br><br>
               <strong>Setup (3 min) :</strong>
               <ol style="margin:.4rem 0 0 1.2rem;line-height:1.9">
-                <li>Firebase Console �†’ votre projet �†’ <strong>Firestore Database</strong> �†’ créer la base (mode production)</li>
-                <li>Onglet <strong>Règles</strong> �†’ copiez le contenu de <code>data/firebase-rules.txt</code> et publiez</li>
-                <li>Paramètres du projet (�š™) �†’ <strong>Project ID</strong> et <strong>Web API Key</strong> ci-dessous</li>
-                <li>Authentication �†’ Sign-in method �†’ <strong>Email/Mot de passe</strong> �†’ activer<br>
-                  Puis Authentication �†’ Users �†’ <strong>Ajouter un utilisateur</strong> (votre email admin)</li>
+                <li>Firebase Console → votre projet → <strong>Firestore Database</strong> → créer la base (mode production)</li>
+                <li>Onglet <strong>Règles</strong> → copiez le contenu de <code>data/firebase-rules.txt</code> et publiez</li>
+                <li>Paramètres du projet (⚙) → <strong>Project ID</strong> et <strong>Web API Key</strong> ci-dessous</li>
+                <li>Authentication → Sign-in method → <strong>Email/Mot de passe</strong> → activer<br>
+                  Puis Authentication → Users → <strong>Ajouter un utilisateur</strong> (votre email admin)</li>
                 <li>Renseignez email + mot de passe admin ci-dessous (stockés localement uniquement)</li>
               </ol>
             </div>
@@ -1090,23 +1090,23 @@
               <div class="form-group">
                 <label>Project ID</label>
                 <input type="text" id="fb-project" placeholder="ouipsycho-abc12">
-                <div class="hint">Paramètres du projet �†’ Project ID</div>
+                <div class="hint">Paramètres du projet → Project ID</div>
               </div>
               <div class="form-group">
                 <label>Web API Key</label>
-                <input type="text" id="fb-apikey" placeholder="AIzaSy�€�">
-                <div class="hint">Paramètres du projet �†’ Web API Key �€” safe à publier</div>
+                <input type="text" id="fb-apikey" placeholder="AIzaSy…">
+                <div class="hint">Paramètres du projet → Web API Key — safe à publier</div>
               </div>
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>Email admin Firebase <span style="font-weight:400;color:var(--danger)">�€” jamais publié sur GitHub</span></label>
+                <label>Email admin Firebase <span style="font-weight:400;color:var(--danger)">— jamais publié sur GitHub</span></label>
                 <input type="email" id="fb-email" placeholder="admin@ouipsycho.fr" autocomplete="off">
                 <div class="hint">L'utilisateur créé dans Firebase Authentication</div>
               </div>
               <div class="form-group">
-                <label>Mot de passe Firebase <span style="font-weight:400;color:var(--danger)">�€” jamais publié sur GitHub</span></label>
-                <input type="password" id="fb-pass" placeholder="�€��€��€��€��€��€��€��€�" autocomplete="new-password">
+                <label>Mot de passe Firebase <span style="font-weight:400;color:var(--danger)">— jamais publié sur GitHub</span></label>
+                <input type="password" id="fb-pass" placeholder="••••••••" autocomplete="new-password">
                 <div class="hint">Permet à l'admin de lire/modérer tous les commentaires</div>
               </div>
             </div>
@@ -1116,9 +1116,9 @@
           </div>
 
           <div class="settings-section">
-            <h3>�Ÿ“� Formulaire de contact <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(messages stockés dans Firebase �€” aucun service tiers)</span></h3>
+            <h3>📬 Formulaire de contact <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(messages stockés dans Firebase — aucun service tiers)</span></h3>
             <div style="background:var(--primary-light);border-radius:8px;padding:12px 16px;margin-bottom:16px;font-size:.85rem;color:var(--primary)">
-              Les messages du formulaire de contact sont stockés dans votre Firestore (collection <code>contacts</code>) et accessibles dans <strong>Admin �†’ Messages</strong>. Aucun service tiers requis �€” Firebase suffit.<br><br>
+              Les messages du formulaire de contact sont stockés dans votre Firestore (collection <code>contacts</code>) et accessibles dans <strong>Admin → Messages</strong>. Aucun service tiers requis — Firebase suffit.<br><br>
               <strong>Prérequis :</strong> Firebase configuré ci-dessus + règles Firestore mises à jour (ajouter la collection <code>contacts</code> depuis <code>data/firebase-rules.txt</code>).
             </div>
             <div class="form-group" style="max-width:360px">
@@ -1130,7 +1130,7 @@
           </div>
 
           <div class="settings-section">
-            <h3>�Ÿ�� Données</h3>
+            <h3>🧹 Données</h3>
             <button class="btn btn-danger" onclick="clearAllData()">Effacer toutes les données locales</button>
           </div>
         </div>
@@ -1142,48 +1142,48 @@
       <div class="topbar">
         <h1>Newsletter <span id="nl-admin-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
         <div class="topbar-actions">
-          <button class="btn btn-ghost" onclick="loadNewsletterSubscribers()">�†� Rafraîchir</button>
-          <button class="btn btn-ghost" onclick="exportNewsletterCSV()">�‡ Export CSV</button>
+          <button class="btn btn-ghost" onclick="loadNewsletterSubscribers()">↻ Rafraîchir</button>
+          <button class="btn btn-ghost" onclick="exportNewsletterCSV()">⬇ Export CSV</button>
         </div>
       </div>
 
       <div class="stats-grid" id="nl-stats">
-        <div class="stat-card green"><div class="stat-val" id="nl-total">�€”</div><div class="stat-label">Abonnés actifs</div></div>
-        <div class="stat-card orange"><div class="stat-val" id="nl-month">�€”</div><div class="stat-label">Ce mois-ci</div></div>
+        <div class="stat-card green"><div class="stat-val" id="nl-total">—</div><div class="stat-label">Abonnés actifs</div></div>
+        <div class="stat-card orange"><div class="stat-val" id="nl-month">—</div><div class="stat-label">Ce mois-ci</div></div>
       </div>
 
       <div id="nl-brevo-status" class="card" style="margin-bottom:20px;padding:14px 20px;display:none">
         <span id="nl-brevo-msg" style="font-size:.85rem"></span>
-        <a href="https://app.brevo.com/contact/list" target="_blank" class="btn btn-ghost btn-sm" style="margin-left:12px">Ouvrir Brevo �†’</a>
+        <a href="https://app.brevo.com/contact/list" target="_blank" class="btn btn-ghost btn-sm" style="margin-left:12px">Ouvrir Brevo →</a>
       </div>
 
       <div class="card">
         <div class="card-header"><h3>Abonnés</h3></div>
         <table>
           <thead><tr><th>Email</th><th>Date d'inscription</th><th>Source</th><th>Actions</th></tr></thead>
-          <tbody id="nl-table"><tr class="loading-row"><td colspan="4">Chargement�€�</td></tr></tbody>
+          <tbody id="nl-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
         </table>
       </div>
 
       <div class="card" style="margin-top:20px">
-        <div class="card-header"><h3>�š� Configuration Brevo (envoi de newsletters)</h3></div>
+        <div class="card-header"><h3>⚡ Configuration Brevo (envoi de newsletters)</h3></div>
         <div class="panel-body" style="display:flex;flex-direction:column;gap:12px">
 
           <div style="background:var(--primary-light);border-radius:8px;padding:14px 16px;font-size:.85rem;color:var(--primary);line-height:1.8">
-            <strong>�Ÿ”’ Méthode sécurisée �€” formulaire public Brevo</strong><br>
+            <strong>🔒 Méthode sécurisée — formulaire public Brevo</strong><br>
             Aucune clé API stockée sur le site. Le formulaire utilise un endpoint public Brevo (sibforms.com).<br><br>
             <strong>Setup (5 min) :</strong>
             <ol style="margin:.4rem 0 0 1.2rem;line-height:2">
-              <li>Brevo �†’ <strong>Marketing �†’ Formulaires �†’ Inscription</strong> �†’ "Créer un formulaire"</li>
+              <li>Brevo → <strong>Marketing → Formulaires → Inscription</strong> → "Créer un formulaire"</li>
               <li>Nommer : <code>Newsletter Oui Psycho</code> · Liste : <strong>Newsletter #2</strong> · activer le <strong>double opt-in</strong></li>
-              <li>Sauvegarder �†’ <strong>Partager / Intégrer</strong> �†’ copier la valeur de <code>action="�€�"</code> dans le code HTML</li>
-              <li>Coller l'URL ci-dessous (format : <code>https://sibforms.com/serve/MUIFAB�€�</code>)</li>
+              <li>Sauvegarder → <strong>Partager / Intégrer</strong> → copier la valeur de <code>action="…"</code> dans le code HTML</li>
+              <li>Coller l'URL ci-dessous (format : <code>https://sibforms.com/serve/MUIFAB…</code>)</li>
             </ol>
           </div>
 
           <div class="form-group">
-            <label>URL du formulaire Brevo <small style="font-weight:400;opacity:.7">(sibforms.com/serve/�€�)</small></label>
-            <input type="url" id="brevo-form-url" placeholder="https://sibforms.com/serve/MUIFAB�€�" style="font-size:.85rem">
+            <label>URL du formulaire Brevo <small style="font-weight:400;opacity:.7">(sibforms.com/serve/…)</small></label>
+            <input type="url" id="brevo-form-url" placeholder="https://sibforms.com/serve/MUIFAB…" style="font-size:.85rem">
             <small id="brevo-form-status" style="margin-top:4px;display:block;font-size:.78rem"></small>
           </div>
 
@@ -1207,8 +1207,8 @@
 <div class="panel-overlay" id="reply-overlay">
   <div class="panel" style="max-width:580px">
     <div class="panel-header">
-      <h2>�Ÿ’� Répondre au commentaire</h2>
-      <button class="panel-close" onclick="document.getElementById('reply-overlay').classList.remove('open')" aria-label="Fermer">�—</button>
+      <h2>💬 Répondre au commentaire</h2>
+      <button class="panel-close" onclick="document.getElementById('reply-overlay').classList.remove('open')" aria-label="Fermer">×</button>
     </div>
     <div class="panel-body">
       <div style="background:var(--gray-50);border-radius:var(--radius);padding:12px 16px;margin-bottom:16px;font-size:.88rem;color:var(--gray-600);border-left:3px solid var(--gray-300);font-style:italic">
@@ -1217,14 +1217,14 @@
       </div>
       <div class="form-group">
         <label>Votre réponse (de la rédaction)</label>
-        <textarea id="reply-textarea" rows="5" style="resize:vertical;min-height:100px" placeholder="Répondez au commentaire�€�"></textarea>
+        <textarea id="reply-textarea" rows="5" style="resize:vertical;min-height:100px" placeholder="Répondez au commentaire…"></textarea>
         <div class="hint">La réponse sera affichée sous le commentaire sur le site.</div>
       </div>
     </div>
     <div class="panel-footer">
       <button class="btn btn-ghost" onclick="document.getElementById('reply-overlay').classList.remove('open')">Annuler</button>
-      <button class="btn btn-ghost" id="reply-delete-btn" style="color:var(--danger);border-color:var(--danger)">�œ• Supprimer la réponse</button>
-      <button class="btn btn-primary" onclick="submitAdminReply()">�œ“ Enregistrer</button>
+      <button class="btn btn-ghost" id="reply-delete-btn" style="color:var(--danger);border-color:var(--danger)">✕ Supprimer la réponse</button>
+      <button class="btn btn-primary" onclick="submitAdminReply()">✓ Enregistrer</button>
     </div>
   </div>
 </div>
@@ -1233,7 +1233,7 @@
 <div class="panel-overlay" id="confirm-overlay">
   <div class="panel confirm-dialog">
     <div class="panel-body">
-      <div class="icon" id="confirm-icon">�Ÿ—‘️</div>
+      <div class="icon" id="confirm-icon">🗑️</div>
       <h3 id="confirm-title">Confirmer la suppression</h3>
       <p id="confirm-msg">Cette action est irréversible.</p>
     </div>
@@ -1248,9 +1248,9 @@
 <div id="toast-container"></div>
 
 <script>
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    CONFIG & STATE
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 const ADMIN_PASS_KEY  = 'ouipsycho_admin_pass';
 const GH_OWNER_KEY    = 'ouipsycho_gh_owner';
 const GH_REPO_KEY     = 'ouipsycho_gh_repo';
@@ -1280,28 +1280,28 @@ let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
 let articleStatus = 'published'; // 'published' | 'scheduled' | 'draft'
 
-// �”€�”€ Newsletter �”€�”€
+// ── Newsletter ──
 let nlSubscribers = [];
 const BREVO_KEY_KEY  = 'ouipsycho_brevo_key';
 const BREVO_LIST_KEY = 'ouipsycho_brevo_list';
 
-// �”€�”€ Commentaires �”€�”€
+// ── Commentaires ──
 let adminComments     = [];
 let commentFilter     = 'all';
 let replyingCommentId = null;
 
-// �”€�”€ Mot de passe session (mémoire uniquement, jamais stocké) �”€�”€
+// ── Mot de passe session (mémoire uniquement, jamais stocké) ──
 let _sessionPassword = null; // utilisé pour chiffrer/déchiffrer le PAT
 
-// �”€�”€ Firebase admin auth (token en mémoire, jamais stocké) �”€�”€
+// ── Firebase admin auth (token en mémoire, jamais stocké) ──
 let _fbAdminIdToken     = null;
 let _fbAdminTokenExpiry = 0;
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   S�‰CURIT�‰ �€” PBKDF2 (200 000 itérations, sel aléatoire)
+/* ══════════════════════════════════════════════
+   SÉCURITÉ — PBKDF2 (200 000 itérations, sel aléatoire)
    Format stocké : "pbkdf2:<sel_b64>:<hash_b64>"
    Rétrocompatible avec l'ancien SHA-256 (hex 64 chars)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 
 // Hash interne PBKDF2 avec sel fourni
 async function _pbkdf2Hash(pass, salt) {
@@ -1335,12 +1335,12 @@ async function verifyPass(input, stored) {
   return hex === stored;
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   CHIFFREMENT DU PAT �€” AES-256-GCM + PBKDF2
+/* ══════════════════════════════════════════════
+   CHIFFREMENT DU PAT — AES-256-GCM + PBKDF2
    Le PAT est chiffré avec le mot de passe admin
    et stocké dans config.json sur GitHub.
    Sans le mot de passe, il est inutilisable.
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 const _b64enc = buf => btoa(String.fromCharCode(...new Uint8Array(buf)));
 const _b64dec = s   => new Uint8Array(atob(s).split('').map(c => c.charCodeAt(0)));
 
@@ -1372,18 +1372,18 @@ async function decryptPAT(enc, password) {
   } catch { return null; }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    BOOT
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 window.addEventListener('DOMContentLoaded', async () => {
-  // 1. Récupérer le hash du mot de passe depuis config.json (GitHub) �€” source de vérité
+  // 1. Récupérer le hash du mot de passe depuis config.json (GitHub) — source de vérité
   //    Persiste même si localStorage est vidé ou depuis un autre appareil/navigateur
   const isValidHash = h => h && (h.startsWith('pbkdf2:') || /^[0-9a-f]{64}$/.test(h));
   try {
     const r = await fetch('data/config.json?t=' + Date.now());
     if (r.ok) {
       const cfg = await r.json();
-      // Accepte PBKDF2 (pbkdf2:sel:hash) ET SHA-256 (64 hex) �€” les deux formats valides
+      // Accepte PBKDF2 (pbkdf2:sel:hash) ET SHA-256 (64 hex) — les deux formats valides
       if (isValidHash(cfg.adminPassHash)) {
         localStorage.setItem(ADMIN_PASS_KEY, cfg.adminPassHash);
       }
@@ -1423,9 +1423,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   for (let i = 0; i < 5; i++) addKeypoint();
 });
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    AUTH
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 async function doLogin() {
   const errEl = document.getElementById('login-error');
 
@@ -1463,7 +1463,7 @@ async function doLogin() {
     return;
   }
 
-  // Succès �€” réinitialiser les tentatives
+  // Succès — réinitialiser les tentatives
   localStorage.removeItem('ouipsycho_attempts');
   localStorage.removeItem('ouipsycho_lockout');
 
@@ -1480,7 +1480,7 @@ async function doLogin() {
     }, 4000);
   }
 
-  // PAT saisi manuellement à la connexion �†’ priorité absolue
+  // PAT saisi manuellement à la connexion → priorité absolue
   if (pat) localStorage.setItem(GH_PAT_KEY, pat);
 
   // Créer la session avec timestamp
@@ -1517,7 +1517,7 @@ async function doLogin() {
           const brevoKey = await decryptPAT(cfg.brevo_enc, pass);
           if (brevoKey) { localStorage.setItem(BREVO_KEY_KEY, brevoKey); restored.push('Brevo'); }
         }
-        if (restored.length) toast('�Ÿ”“ Connexions restaurées : ' + restored.join(', '), 'success');
+        if (restored.length) toast('🔓 Connexions restaurées : ' + restored.join(', '), 'success');
       }
     } catch(_) {}
   }
@@ -1529,7 +1529,7 @@ function startSessionTimer(remaining) {
   clearTimeout(sessionTimer);
   // Avertissement 5 min avant expiration
   if (remaining > 5 * 60 * 1000) {
-    setTimeout(() => toast('�š�️ Session expire dans 5 minutes', 'info'), remaining - 5 * 60 * 1000);
+    setTimeout(() => toast('⚠️ Session expire dans 5 minutes', 'info'), remaining - 5 * 60 * 1000);
   }
   sessionTimer = setTimeout(() => {
     toast('Session expirée. Reconnectez-vous.', 'error');
@@ -1556,9 +1556,9 @@ function showApp() {
   loadRemoteConfig();
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    PAGE ROUTING
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function showPage(name) {
   document.querySelectorAll('.page').forEach(p => p.style.display = 'none');
   document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
@@ -1589,9 +1589,9 @@ function showPage(name) {
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    DATA LOADING
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 async function loadArticles() {
   // Load from localStorage cache first
   const cached = localStorage.getItem(ARTICLES_KEY);
@@ -1606,7 +1606,7 @@ async function loadArticles() {
       articles = data;
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
     }
-  } catch(e) { /* offline �€” use cache */ }
+  } catch(e) { /* offline — use cache */ }
   renderDashboard();
   buildFilterChips();
 }
@@ -1616,9 +1616,9 @@ function refreshArticles() {
   loadArticles().then(() => { renderArticlesTable(); toast('Articles rechargés', 'success'); });
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    DASHBOARD
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function renderDashboard() {
   const today = new Date().toISOString().split('T')[0];
   const cats = {};
@@ -1639,7 +1639,7 @@ function renderDashboard() {
     </div>
     <div class="stat-card" style="border-color:var(--gray-300)">
       <div class="stat-val">${drafts.length}</div>
-      <div class="stat-label">�Ÿ“� Brouillons</div>
+      <div class="stat-label">📝 Brouillons</div>
     </div>
     <div class="stat-card green">
       <div class="stat-val">${Object.keys(cats).length}</div>
@@ -1654,15 +1654,15 @@ function renderDashboard() {
     ).join('')}
   `;
 
-  // �”€�”€ Prochaines publications planifiées �”€�”€
+  // ── Prochaines publications planifiées ──
   const upcomingHtml = scheduled.length
     ? `<div class="scheduled-card" style="margin-bottom:20px">
         <strong>⏰ Prochaines publications</strong>
         <ul style="margin:.6rem 0 0 1.2rem;line-height:2">
           ${[...scheduled].sort((a,b)=>a.date.localeCompare(b.date)).map(a=>
-            `<li><strong>${formatDate(a.date)}</strong> �€” ${a.title}
+            `<li><strong>${formatDate(a.date)}</strong> — ${a.title}
               <button class="btn btn-ghost btn-sm" style="margin-left:8px;padding:1px 8px;font-size:.75rem"
-                onclick="editArticle('${a.id}')">�‰diter</button></li>`
+                onclick="editArticle('${a.id}')">Éditer</button></li>`
           ).join('')}
         </ul>
       </div>` : '';
@@ -1691,9 +1691,9 @@ function renderDashboard() {
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    ARTICLES TABLE
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function buildFilterChips() {
   const cats = [...new Set(articles.map(a => a.category))].sort();
   document.getElementById('filter-bar').innerHTML =
@@ -1710,10 +1710,10 @@ function filterArticles() { renderArticlesTable(); }
 
 function getArticleStatusInfo(a) {
   const today = new Date().toISOString().split('T')[0];
-  if (a.status === 'draft') return { key: 'draft',     label: '�Ÿ“� Brouillon',  cls: 'badge-draft' };
+  if (a.status === 'draft') return { key: 'draft',     label: '📝 Brouillon',  cls: 'badge-draft' };
   if (a.status === 'scheduled' || (!a.status && a.date > today))
     return { key: 'scheduled', label: '⏰ Planifié',   cls: 'badge-scheduled' };
-  return { key: 'published',  label: '�œ… Publié',     cls: 'badge-published' };
+  return { key: 'published',  label: '✅ Publié',     cls: 'badge-published' };
 }
 
 function renderArticlesTable() {
@@ -1737,18 +1737,18 @@ function renderArticlesTable() {
       <td>${a.readTime} min</td>
       <td>
         <div class="actions">
-          <button class="btn btn-ghost btn-sm" onclick="editArticle('${a.id}')">�œ�️ �‰diter</button>
-          <button class="btn btn-danger btn-sm" onclick="confirmDelete('${a.id}', '${a.title.replace(/'/g,"\\'")}')">�Ÿ—‘️</button>
-          <a href="article.html?id=${a.id}" target="_blank" class="btn btn-ghost btn-sm">�Ÿ‘�</a>
+          <button class="btn btn-ghost btn-sm" onclick="editArticle('${a.id}')">✏️ Éditer</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDelete('${a.id}', '${a.title.replace(/'/g,"\\'")}')">🗑️</button>
+          <a href="article.html?id=${a.id}" target="_blank" class="btn btn-ghost btn-sm">👁</a>
         </div>
       </td>
     </tr>`;
   }).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    EDITOR
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function resetEditor() {
   editingId      = null;
   editingSources = [];
@@ -1784,7 +1784,7 @@ function editArticle(id) {
   if (!a) return;
   // Afficher la page d'abord (resetEditor est appelé ici, champs vides)
   showPage('new-article');
-  document.getElementById('editor-title').textContent = '⏳ Chargement�€�';
+  document.getElementById('editor-title').textContent = '⏳ Chargement…';
   // Puis charger le JSON complet et remplir les champs
   fetch('articles/' + id + '.json?t=' + Date.now())
     .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
@@ -1823,13 +1823,13 @@ function editArticle(id) {
         banner.classList.add('visible');
         if (viewLink) viewLink.href = 'https://ouipsycho.fr/articles/' + full.id + '.html';
         document.getElementById('save-btn').style.opacity = '0.5';
-        document.getElementById('save-btn').title = 'Cet article utilise un HTML personnalisé �€” sauvegarde déconseillée';
+        document.getElementById('save-btn').title = 'Cet article utilise un HTML personnalisé — sauvegarde déconseillée';
       } else {
         banner.classList.remove('visible');
         document.getElementById('save-btn').style.opacity = '';
         document.getElementById('save-btn').title = '';
       }
-      toast('Article chargé �œ“', 'success');
+      toast('Article chargé ✓', 'success');
     })
     .catch(e => {
       toast('Impossible de charger l\'article : ' + e.message, 'error');
@@ -1844,13 +1844,13 @@ function autoSlug() {
 }
 
 function slugify(str) {
-  return str.normalize('NFD').replace(/[�€-ͯ]/g, '')
+  return str.normalize('NFD').replace(/[̀-ͯ]/g, '')
     .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   G�‰N�‰RATION HTML STATIQUE (réplique _gen_static.js)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   GÉNÉRATION HTML STATIQUE (réplique _gen_static.js)
+══════════════════════════════════════════════ */
 function generateArticleHTML(j) {
   const BASE = 'https://ouipsycho.fr';
   const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
@@ -1863,7 +1863,7 @@ function generateArticleHTML(j) {
     'Sommeil':                 { color:'#0369A1', bg:'#ECFEFF', enc:'Sommeil' },
     'Thérapies':               { color:'#6D28D9', bg:'#EDE9FE', enc:'Th%C3%A9rapies' },
     'Développement personnel':          { color:'#15803D', bg:'#F0FDF4', enc:'D%C3%A9veloppement%20personnel' },
-    '�‰motions & identité':              { color:'#6a2a4a', bg:'#f5edf2', enc:'%C3%89motions%20%26%20identit%C3%A9' },
+    'Émotions & identité':              { color:'#6a2a4a', bg:'#f5edf2', enc:'%C3%89motions%20%26%20identit%C3%A9' },
     'Neurosciences & genre':            { color:'#8a3a6a', bg:'#f8eef4', enc:'Neurosciences%20%26%20genre' },
     'Société & psychologie politique':  { color:'#2a6a4a', bg:'#e8f5ef', enc:'Soci%C3%A9t%C3%A9%20%26%20psychologie%20politique' },
   };
@@ -1876,7 +1876,7 @@ function generateArticleHTML(j) {
   let kpHtml = '';
   if (j.keypoints && j.keypoints.length) {
     const li = j.keypoints.map(k => `        <li>${k}</li>`).join('\n');
-    kpHtml = `    <div class="article-keypoints">\n      <div class="article-keypoints__title">�Ÿ’� Points clés de cet article</div>\n      <ul>\n${li}\n      </ul>\n    </div>\n`;
+    kpHtml = `    <div class="article-keypoints">\n      <div class="article-keypoints__title">💡 Points clés de cet article</div>\n      <ul>\n${li}\n      </ul>\n    </div>\n`;
   }
 
   const tagsHtml = (j.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
@@ -1894,7 +1894,7 @@ function generateArticleHTML(j) {
     headline: j.title, description: j.metaDescription,
     datePublished: j.date, dateModified: j.date_modified || j.date, inLanguage:'fr',
     author: { '@type':'Person', name: j.author },
-    publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/logo-brain.png` } },
+    publisher: { '@type':'Organization', name:'Oui Psycho!', url:`${BASE}/`, logo:{ '@type':'ImageObject', url:`${BASE}/img/logo-brain.svg` } },
     mainEntityOfPage: { '@type':'WebPage', '@id':`${BASE}/articles/${j.id}.html` },
     keywords: (j.tags||[]).join(', '), articleSection: j.category, wordCount
   };
@@ -1929,14 +1929,14 @@ function generateArticleHTML(j) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${j.title} �€” Oui Psycho!</title>
+  <title>${j.title} — Oui Psycho!</title>
   <meta name="description" content="${esc(j.metaDescription)}">
   <meta name="author" content="${esc(j.author)}">
   <meta name="robots" content="index, follow">
   <base href="../">
   <link rel="canonical" href="${BASE}/articles/${j.id}.html">
   <meta property="og:type"                    content="article">
-  <meta property="og:title"                   content="${esc(j.title)} �€” Oui Psycho!">
+  <meta property="og:title"                   content="${esc(j.title)} — Oui Psycho!">
   <meta property="og:description"             content="${esc(j.metaDescription)}">
   <meta property="og:url"                     content="${BASE}/articles/${j.id}.html">
   <meta property="og:locale"                  content="fr_FR">
@@ -1946,15 +1946,15 @@ function generateArticleHTML(j) {
   <meta property="article:author"             content="${esc(j.author)}">
   <meta property="article:section"            content="${esc(j.category)}">
   <meta name="twitter:card"                   content="summary_large_image">
-  <meta name="twitter:title"                  content="${esc(j.title)} �€” Oui Psycho!">
+  <meta name="twitter:title"                  content="${esc(j.title)} — Oui Psycho!">
   <meta name="twitter:description"            content="${esc(j.metaDescription)}">${twImg}
   <script type="application/ld+json">${aLD}<\/script>
   <script type="application/ld+json">${bLD}<\/script>
-  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="icon" type="image/png" href="img/logo-brain.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Consent Mode v2 (RGPD/Europe) �€” défaut : refusé -->
+  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -1983,8 +1983,8 @@ function generateArticleHTML(j) {
 
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! �€” Accueil">
-        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
@@ -1992,14 +1992,14 @@ function generateArticleHTML(j) {
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="a-propos.html">�€ propos</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
         <a class="nav__link" href="contact.html">Contact</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
     <nav class="cat-nav" aria-label="Catégories">
       <div class="cat-nav__inner">
-        <a class="cat-nav__btn" href="index.html">�†� Tous les articles</a>
+        <a class="cat-nav__btn" href="index.html">← Tous les articles</a>
         <div class="cat-nav__divider" aria-hidden="true"></div>
 ${navHtml}
       </div>
@@ -2012,17 +2012,17 @@ ${navHtml}
 
         <header class="article-header">
           <nav class="breadcrumb" aria-label="Fil d'Ariane">
-            <a href="index.html">Accueil</a> <span>�€�</span>
+            <a href="index.html">Accueil</a> <span>›</span>
             <a href="index.html?cat=${ci.enc}">${j.category}</a>
-            <span>�€�</span> <span aria-current="page">${j.title}</span>
+            <span>›</span> <span aria-current="page">${j.title}</span>
           </nav>
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
           <h1>${j.title}</h1>
           <div class="article-meta">
             <span>Par <strong>${esc(j.author)}</strong></span>
-            <span class="article-meta-dot">�€�</span>
+            <span class="article-meta-dot">•</span>
             <time datetime="${j.date_modified || j.date}">${(() => { const mod = j.date_modified; const [my,mm,md] = (mod||'').split('-'); const fmod = mod ? `${parseInt(md)} ${MONTHS[parseInt(mm)]} ${my}` : ''; return (!mod || mod === j.date) ? `Publié le ${fd}` : `Mis à jour le ${fmod}`; })()}</time>
-            <span class="article-meta-dot">�€�</span>
+            <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
               <button class="share-icon-btn share-icon-btn--wa" data-platform="whatsapp" title="Partager sur WhatsApp" aria-label="WhatsApp">
@@ -2052,12 +2052,12 @@ ${(() => {
     const authYear = [s.authors, s.year ? `(${s.year})` : ''].filter(Boolean).join(' ');
     const anchor   = s.url ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${authYear}</a>` : authYear;
     const venue    = s.journal ? ` <cite>${s.journal}</cite>` : (s.publisher ? ` <cite>${s.publisher}</cite>` : '');
-    return `        <li>${anchor}${s.title ? ' �€” ' + s.title : ''}${venue}.</li>`;
+    return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.</li>`;
   }).join('\n');
-  return `\n        <section class="article-sources" aria-label="Sources et références">\n          <h2 class="article-sources__title">�Ÿ“š Sources &amp; références</h2>\n          <ol class="article-sources__list">\n${items}\n          </ol>\n        </section>\n`;
+  return `\n        <section class="article-sources" aria-label="Sources et références">\n          <h2 class="article-sources__title">📚 Sources &amp; références</h2>\n          <ol class="article-sources__list">\n${items}\n          </ol>\n        </section>\n`;
 })()}
         <div class="article-author">
-          <div class="article-author__avatar" aria-hidden="true">�œ�️</div>
+          <div class="article-author__avatar" aria-hidden="true">✍️</div>
           <div>
             <div class="article-author__name">${esc(j.author)}</div>
             <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
@@ -2075,7 +2075,7 @@ ${(() => {
         </div>
 
         <aside class="article-disclaimer" role="note">
-          �š•️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+          ⚕️ <em>Cet article est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
           l'avis d'un professionnel de santé. En cas de détresse, appelez le
           <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
         </aside>
@@ -2088,7 +2088,7 @@ ${(() => {
         <h2 class="widget__title">Table des matières</h2>
       </div>
       <div class="widget" id="related-articles">
-        <h2 class="widget__title">�€ lire aussi</h2>
+        <h2 class="widget__title">À lire aussi</h2>
       </div>
       <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
@@ -2097,7 +2097,7 @@ ${(() => {
           <label for="nl-${j.id}" class="sr-only">Votre e-mail</label>
           <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
             onkeydown="if(event.key==='Enter')subscribeNewsletter()">
-          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">S'abonner �œ“</button>
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">S'abonner ✓</button>
           <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
         </div>
       </div>
@@ -2107,13 +2107,13 @@ ${(() => {
   <footer class="site-footer">
     <div class="container">
       <div class="footer-disclaimer">
-        �š•️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
         et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
         <strong>3114</strong> (24h/24, gratuit).
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo"><img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40"><span>Oui Psycho!</span></a>
+          <a href="index.html" class="logo"><img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40"><span>Oui Psycho!</span></a>
           <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
         <div class="footer-col">
@@ -2128,7 +2128,7 @@ ${(() => {
           </ul>
         </div>
         <div class="footer-col">
-          <h4>�€ propos</h4>
+          <h4>À propos</h4>
           <ul class="footer-links">
             <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -2145,7 +2145,7 @@ ${(() => {
   </footer>
 
   <div id="cookie-banner" role="dialog" aria-label="Cookies">
-    <p class="cookie-text">�Ÿ�� Nous utilisons des cookies pour améliorer votre expérience.
+    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience.
       <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
     <div class="cookie-buttons">
       <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
@@ -2158,18 +2158,18 @@ ${(() => {
 </html>`;
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    STATUT DE PUBLICATION
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function setArticleStatus(status) {
   articleStatus = status;
   document.getElementById('f-status').value = status;
 
   // Styles des boutons
   const configs = {
-    published: { cls: 'btn-success', label: '�œ… Publier',    hint: 'L\'article sera visible immédiatement après publication.' },
+    published: { cls: 'btn-success', label: '✅ Publier',    hint: 'L\'article sera visible immédiatement après publication.' },
     scheduled: { cls: 'btn-warning', label: '⏰ Planifier',  hint: 'L\'article apparaîtra automatiquement à la date choisie.' },
-    draft:     { cls: 'btn-ghost',   label: '�Ÿ“� Brouillon',  hint: 'Non visible sur le site �€” enregistré comme brouillon.' },
+    draft:     { cls: 'btn-ghost',   label: '📝 Brouillon',  hint: 'Non visible sur le site — enregistré comme brouillon.' },
   };
   ['published', 'scheduled', 'draft'].forEach(s => {
     const btn = document.getElementById('status-btn-' + s);
@@ -2197,19 +2197,19 @@ function onDateChange() {
   const date  = document.getElementById('f-date').value;
   if (!date) return;
   const today = new Date().toISOString().split('T')[0];
-  // Si date future ET statut = publié �†’ basculer en planifié
+  // Si date future ET statut = publié → basculer en planifié
   if (date > today && articleStatus === 'published') {
     setArticleStatus('scheduled');
   }
-  // Si date passée/aujourd'hui ET statut = planifié �†’ repasser en publié
+  // Si date passée/aujourd'hui ET statut = planifié → repasser en publié
   if (date <= today && articleStatus === 'scheduled') {
     setArticleStatus('published');
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   ARTICLES LI�‰S �€” PICKER
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   ARTICLES LIÉS — PICKER
+══════════════════════════════════════════════ */
 let selectedRelated = [];
 
 function initRelatedPicker(preselected = []) {
@@ -2265,10 +2265,10 @@ function updateRelatedBadges() {
   if (badgesEl) {
     badgesEl.innerHTML = selectedRelated.map(id => {
       const a = articles.find(x => x.id === id);
-      const label = a ? (a.title.length > 38 ? a.title.substring(0, 38) + '�€�' : a.title) : id;
+      const label = a ? (a.title.length > 38 ? a.title.substring(0, 38) + '…' : a.title) : id;
       return `<span class="related-badge">
         <span title="${a ? a.title : id}">${label}</span>
-        <button onclick="toggleRelated('${id}', false)" title="Retirer">�œ•</button>
+        <button onclick="toggleRelated('${id}', false)" title="Retirer">✕</button>
       </span>`;
     }).join('');
   }
@@ -2280,10 +2280,10 @@ function getRelatedArticles() { return [...selectedRelated]; }
 async function saveArticle() {
   // Bloquer si un upload image est en cours
   if (isUploading) {
-    toast('⏳ Attendez la fin de l\'upload de l\'image avant de publier�€�', 'info');
+    toast('⏳ Attendez la fin de l\'upload de l\'image avant de publier…', 'info');
     return;
   }
-  // �š�️ Synchroniser l'éditeur visuel �†’ textarea EN PREMIER, avant toute lecture
+  // ⚠️ Synchroniser l'éditeur visuel → textarea EN PREMIER, avant toute lecture
   syncEditorToTextarea();
 
   const id       = document.getElementById('f-id').value.trim();
@@ -2318,7 +2318,7 @@ async function saveArticle() {
   const summaryData = { id, title, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
-  btn.innerHTML = '<div class="spinner"></div> Publication�€�';
+  btn.innerHTML = '<div class="spinner"></div> Publication…';
   btn.disabled = true;
 
   try {
@@ -2331,7 +2331,7 @@ async function saveArticle() {
       // Check for duplicate slug
       if (articles.find(a => a.id === id)) {
         toast('Un article avec ce slug existe déjà', 'error');
-        btn.innerHTML = '�œ“ Publier'; btn.disabled = false;
+        btn.innerHTML = '✓ Publier'; btn.disabled = false;
         return;
       }
       articles.unshift(summaryData);
@@ -2348,27 +2348,27 @@ async function saveArticle() {
       // Régénérer et pousser le HTML statique
       const htmlPage = generateArticleHTML(articleData);
       await githubPutFile('articles/' + id + '.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
-      const statusMsg = { published: '�ŸŽ‰ Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '�Ÿ“� Brouillon enregistré' };
+      const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
-      showPage('articles'); // �†� redirection uniquement si succès
+      showPage('articles'); // ← redirection uniquement si succès
     } else {
       // Pas de PAT : rester sur l'éditeur et afficher un message d'erreur persistant
-      toast('�š�️ Modifications NON enregistrées en ligne �€” Token GitHub manquant. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT �†’</a>', 'error', 12000);
+      toast('⚠️ Modifications NON enregistrées en ligne — Token GitHub manquant. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 12000);
       // Ne pas rediriger : l'utilisateur reste sur l'éditeur pour ne pas perdre son travail
     }
   } catch(e) {
     toast('Erreur : ' + e.message, 'error');
   }
-  btn.innerHTML = '�œ“ Publier'; btn.disabled = false;
+  btn.innerHTML = '✓ Publier'; btn.disabled = false;
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    DELETE
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function confirmDelete(id, title) {
   document.getElementById('confirm-title').textContent = 'Supprimer cet article ?';
   document.getElementById('confirm-msg').textContent = '"' + title + '" sera définitivement supprimé.';
-  document.getElementById('confirm-icon').textContent = '�Ÿ—‘️';
+  document.getElementById('confirm-icon').textContent = '🗑️';
   confirmCallback = () => deleteArticle(id);
   document.getElementById('confirm-ok-btn').onclick = () => { confirmCallback(); closeConfirm(); };
   document.getElementById('confirm-overlay').classList.add('open');
@@ -2392,15 +2392,15 @@ async function deleteArticle(id) {
     }
   } else {
     downloadJSON(articles, 'articles.json');
-    toast('�š�️ Token GitHub manquant �€” suppression non synchronisée. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT �†’</a>', 'error', 8000);
+    toast('⚠️ Token GitHub manquant — suppression non synchronisée. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000);
   }
   renderArticlesTable();
   renderDashboard();
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    GITHUB API
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function ghHeaders() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   return { 'Authorization': 'token ' + pat, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' };
@@ -2411,7 +2411,7 @@ function ghBase() {
   return 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/';
 }
 
-/* �”€�”€ Récupère data/articles.json depuis l'API GitHub (jamais en cache) �”€�”€ */
+/* ── Récupère data/articles.json depuis l'API GitHub (jamais en cache) ── */
 async function fetchRemoteIndex() {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
@@ -2428,12 +2428,12 @@ async function fetchRemoteIndex() {
   }
 }
 
-/* �”€�”€ Fusionne l'index local avec le remote :
+/* ── Fusionne l'index local avec le remote :
      - Les articles locaux écrasent leur équivalent remote (même id)
      - Les articles présents uniquement en remote sont conservés
        (ils ont été ajoutés par git push sans passer par l'admin)
      - deletedId : id à exclure même s'il est en remote (suppression explicite)
-�”€�”€ */
+── */
 async function mergeIndexWithRemote(localArticles, deletedId = null) {
   const remote = await fetchRemoteIndex();
   if (!remote) return localArticles;  // fallback si le réseau échoue
@@ -2505,52 +2505,52 @@ async function testGitHubConnection() {
     const res = await fetch('https://api.github.com/repos/' + owner + '/' + repo, {
       headers: { 'Authorization': 'token ' + pat }
     });
-    if (res.ok) { toast('�œ… Connexion GitHub réussie !', 'success'); }
-    else { const e = await res.json(); toast('�Œ Erreur : ' + e.message, 'error'); }
-  } catch(e) { toast('�Œ Impossible de joindre GitHub', 'error'); }
+    if (res.ok) { toast('✅ Connexion GitHub réussie !', 'success'); }
+    else { const e = await res.json(); toast('❌ Erreur : ' + e.message, 'error'); }
+  } catch(e) { toast('❌ Impossible de joindre GitHub', 'error'); }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    PUSH ALL
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 async function pushAllToGitHub() {
   const pat = localStorage.getItem(GH_PAT_KEY);
-  if (!pat) { toast('�š�️ Token GitHub manquant �€” rien ne sera mis en ligne. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT �†’</a>', 'error', 8000); return; }
+  if (!pat) { toast('⚠️ Token GitHub manquant — rien ne sera mis en ligne. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer le PAT →</a>', 'error', 8000); return; }
   const msg = document.getElementById('commit-msg').value || 'feat: update articles';
   const log = document.getElementById('push-log');
   log.style.display = 'block';
   log.textContent = '';
   const addLog = t => { log.textContent += t + '\n'; log.scrollTop = log.scrollHeight; };
-  addLog('�†’ Début du push�€�');
+  addLog('→ Début du push…');
   let ok = 0, fail = 0;
 
   // 1. Push les fichiers individuels des articles qui ont leur contenu en mémoire
   const withContent = articles.filter(a => a.content);
   if (withContent.length) {
-    addLog(`�†’ ${withContent.length} article(s) complet(s) à pousser�€�`);
+    addLog(`→ ${withContent.length} article(s) complet(s) à pousser…`);
     for (const a of withContent) {
       try {
         await githubPutFile('articles/' + a.id + '.json', JSON.stringify(a, null, 2), msg);
-        addLog('�œ“ articles/' + a.id + '.json'); ok++;
-      } catch(e) { addLog('�œ— articles/' + a.id + '.json : ' + e.message); fail++; }
+        addLog('✓ articles/' + a.id + '.json'); ok++;
+      } catch(e) { addLog('✗ articles/' + a.id + '.json : ' + e.message); fail++; }
     }
   }
 
   // 2. Push l'index fusionné avec le remote (jamais d'écrasement)
   const indexData = articles.map(({ content: _c, keypoints: _k, ...summary }) => summary);
   try {
-    addLog('�†’ Fusion avec le remote�€�');
+    addLog('→ Fusion avec le remote…');
     const mergedIndex = await mergeIndexWithRemote(indexData);
     await githubPutFile('data/articles.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
-    addLog('�œ“ data/articles.json (' + mergedIndex.length + ' articles)'); ok++;
-  } catch(e) { addLog('�œ— data/articles.json : ' + e.message); fail++; }
+    addLog('✓ data/articles.json (' + mergedIndex.length + ' articles)'); ok++;
+  } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
 
-  toast(ok + ' fichier(s) mis à jour' + (fail ? `, ${fail} erreur(s)` : ' �œ“'), fail === 0 ? 'success' : 'error');
+  toast(ok + ' fichier(s) mis à jour' + (fail ? `, ${fail} erreur(s)` : ' ✓'), fail === 0 ? 'success' : 'error');
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    IMPORT / EXPORT
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function exportAllArticles() {
   downloadJSON(articles, 'articles.json');
   toast('Export articles.json téléchargé', 'success');
@@ -2574,7 +2574,7 @@ function handleImport(event) {
       } else if (data.articles && Array.isArray(data.articles)) {
         articles = data.articles;
       } else if (data.id) {
-        // Article individuel �€” stocker le résumé dans l'index (sans content)
+        // Article individuel — stocker le résumé dans l'index (sans content)
         const { content, keypoints, ...summary } = data;
         const idx = articles.findIndex(a => a.id === data.id);
         if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
@@ -2584,7 +2584,7 @@ function handleImport(event) {
         // Push automatique vers GitHub si PAT configuré
         const pat = localStorage.getItem(GH_PAT_KEY);
         if (pat && content) {
-          toast('⏳ Publication sur GitHub�€�', 'info');
+          toast('⏳ Publication sur GitHub…', 'info');
           try {
             await githubPutFile('articles/' + data.id + '.json', JSON.stringify(data, null, 2), 'import: article ' + data.id);
             articles = await mergeIndexWithRemote(articles);
@@ -2593,12 +2593,12 @@ function handleImport(event) {
             // Générer et pousser la page HTML statique
             const htmlPage = generateArticleHTML(data);
             await githubPutFile('articles/' + data.id + '.html', htmlPage, 'import: page statique ' + data.id);
-            toast('�ŸŽ‰ Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
+            toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
           } catch(err) {
             toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
           }
         } else {
-          toast('Article "' + data.id + '" importé �€” cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
+          toast('Article "' + data.id + '" importé — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
         }
         return;
       }
@@ -2611,9 +2611,9 @@ function handleImport(event) {
   event.target.value = '';
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    SETTINGS
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 async function saveGitHubSettings() {
   localStorage.setItem(GH_OWNER_KEY, document.getElementById('gh-owner').value.trim());
   localStorage.setItem(GH_REPO_KEY, document.getElementById('gh-repo').value.trim());
@@ -2626,15 +2626,15 @@ async function saveGitHubSettings() {
       try {
         const encrypted = await encryptPAT(pat, _sessionPassword);
         localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(encrypted));
-        toast('Configuration GitHub enregistrée �œ… (PAT chiffré et sauvegardé)', 'success');
+        toast('Configuration GitHub enregistrée ✅ (PAT chiffré et sauvegardé)', 'success');
       } catch(_) {
-        toast('Configuration GitHub enregistrée �œ…', 'success');
+        toast('Configuration GitHub enregistrée ✅', 'success');
       }
     } else {
-      toast('Configuration GitHub enregistrée �œ…', 'success');
+      toast('Configuration GitHub enregistrée ✅', 'success');
     }
   } else {
-    toast('Configuration GitHub enregistrée �œ…', 'success');
+    toast('Configuration GitHub enregistrée ✅', 'success');
   }
   await pushConfigToGitHub();
 }
@@ -2657,13 +2657,13 @@ async function changePassword() {
     } catch(_) {}
   }
 
-  // Pousser le nouveau hash + PAT rechiffré dans config.json �†’ source de vérité
+  // Pousser le nouveau hash + PAT rechiffré dans config.json → source de vérité
   // Le hash SHA-256 est safe à stocker publiquement (sens unique + sel)
   try {
     await pushConfigToGitHub(); // inclut adminPassHash et pat_enc
-    toast('Mot de passe mis à jour �œ… �€” sauvegardé sur GitHub', 'success');
+    toast('Mot de passe mis à jour ✅ — sauvegardé sur GitHub', 'success');
   } catch(_) {
-    toast('Mot de passe mis à jour localement �œ…', 'success');
+    toast('Mot de passe mis à jour localement ✅', 'success');
   }
 
   document.getElementById('new-password').value = '';
@@ -2674,7 +2674,7 @@ function clearAllData() {
   localStorage.clear(); sessionStorage.clear(); location.reload();
 }
 
-/* �”€�”€ CLOUDINARY SETTINGS �”€�”€ */
+/* ── CLOUDINARY SETTINGS ── */
 async function saveCloudinarySettings() {
   const cloud  = document.getElementById('cld-cloud-name').value.trim();
   const preset = document.getElementById('cld-preset').value.trim();
@@ -2683,7 +2683,7 @@ async function saveCloudinarySettings() {
   localStorage.setItem(CLD_CLOUD_KEY,   cloud);
   localStorage.setItem(CLD_PRESET_KEY,  preset);
   localStorage.setItem(CLD_FOLDER_KEY,  folder);
-  toast('Configuration Cloudinary enregistrée �œ…', 'success');
+  toast('Configuration Cloudinary enregistrée ✅', 'success');
   await pushConfigToGitHub();
 }
 
@@ -2691,8 +2691,8 @@ async function testCloudinaryConnection() {
   const cloud  = document.getElementById('cld-cloud-name').value.trim();
   const preset = document.getElementById('cld-preset').value.trim();
   const res    = document.getElementById('cld-test-result');
-  if (!cloud || !preset) { res.textContent = '�Œ Remplissez les champs'; res.style.color = 'var(--danger)'; return; }
-  res.textContent = '⏳ Test�€�'; res.style.color = 'var(--gray-500)';
+  if (!cloud || !preset) { res.textContent = '❌ Remplissez les champs'; res.style.color = 'var(--danger)'; return; }
+  res.textContent = '⏳ Test…'; res.style.color = 'var(--gray-500)';
 
   // Test avec une image 1x1 pixel en base64
   const pixel = 'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==';
@@ -2702,23 +2702,23 @@ async function testCloudinaryConnection() {
   try {
     const response = await fetch(`https://api.cloudinary.com/v1_1/${cloud}/image/upload`, { method: 'POST', body: formData });
     if (response.ok) {
-      res.textContent = '�œ… Connexion Cloudinary réussie !';
+      res.textContent = '✅ Connexion Cloudinary réussie !';
       res.style.color = 'var(--success)';
-      toast('Cloudinary opérationnel �œ…', 'success');
+      toast('Cloudinary opérationnel ✅', 'success');
     } else {
       const err = await response.json();
-      res.textContent = '�Œ ' + (err.error?.message || 'Erreur inconnue');
+      res.textContent = '❌ ' + (err.error?.message || 'Erreur inconnue');
       res.style.color = 'var(--danger)';
     }
   } catch(e) {
-    res.textContent = '�Œ ' + e.message;
+    res.textContent = '❌ ' + e.message;
     res.style.color = 'var(--danger)';
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    TAGS
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function handleTagInput(e) {
   if (e.key === 'Enter' || e.key === ',') {
     e.preventDefault();
@@ -2738,20 +2738,20 @@ function renderTags() {
   tags.forEach((t, i) => {
     const chip = document.createElement('span');
     chip.className = 'tag-chip';
-    chip.innerHTML = t + '<button onclick="removeTag(' + i + ')">�—</button>';
+    chip.innerHTML = t + '<button onclick="removeTag(' + i + ')">×</button>';
     container.insertBefore(chip, input);
   });
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    KEYPOINTS
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function addKeypoint(value = '') {
   const editor = document.getElementById('keypoints-editor');
   const row = document.createElement('div');
   row.className = 'keypoint-row';
-  row.innerHTML = `<input type="text" placeholder="Point clé ${editor.children.length + 1}�€�" value="${escapeAttr(value)}">
-    <button onclick="this.parentElement.remove()">�œ•</button>`;
+  row.innerHTML = `<input type="text" placeholder="Point clé ${editor.children.length + 1}…" value="${escapeAttr(value)}">
+    <button onclick="this.parentElement.remove()">✕</button>`;
   editor.appendChild(row);
 }
 function resetKeypoints() {
@@ -2767,9 +2767,9 @@ function getKeypoints() {
   return [...document.querySelectorAll('.keypoint-row input')].map(i => i.value.trim()).filter(Boolean);
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    SEO COUNTER
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function updateSeoCounter() {
   const len = document.getElementById('f-metaDescription').value.length;
   const counter = document.getElementById('seo-counter');
@@ -2783,9 +2783,9 @@ function updateSeoCounter() {
   else { fill.style.background = 'var(--danger)'; counter.className = 'char-counter warn'; }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    PREVIEW
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function togglePreview() {
   const card = document.getElementById('preview-card');
   if (card.style.display === 'none') {
@@ -2809,9 +2809,9 @@ function updatePreview() {
   `;
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    HELPERS
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function formatDate(d) {
   if (!d) return '';
   try {
@@ -2842,11 +2842,11 @@ document.getElementById('confirm-overlay').addEventListener('click', function(e)
   if (e.target === this) closeConfirm();
 });
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    CONFIG DISTANTE (data/config.json sur GitHub)
    Charge automatiquement Cloudinary + GitHub owner/repo/branch
-   sur n'importe quel ordi �€” seul le PAT reste local (sécurité)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+   sur n'importe quel ordi — seul le PAT reste local (sécurité)
+══════════════════════════════════════════════ */
 async function loadRemoteConfig() {
   try {
     const res = await fetch('data/config.json?t=' + Date.now());
@@ -2877,7 +2877,7 @@ async function loadRemoteConfig() {
 
 async function pushConfigToGitHub() {
   const pat = localStorage.getItem(GH_PAT_KEY);
-  if (!pat) return; // Pas de PAT �†’ pas de push (silencieux)
+  if (!pat) return; // Pas de PAT → pas de push (silencieux)
 
   // Charger d'abord la config distante pour ne jamais écraser une valeur
   // existante avec une chaîne vide (race condition au chargement)
@@ -2891,25 +2891,25 @@ async function pushConfigToGitHub() {
   const pick = (lsKey, remoteKey, def = '') =>
     localStorage.getItem(lsKey) || remote[remoteKey] || def;
 
-  // PAT GitHub chiffré �€” priorité locale, sinon garder la version distante
+  // PAT GitHub chiffré — priorité locale, sinon garder la version distante
   const patEncLocal  = localStorage.getItem('ouipsycho_pat_enc');
   const patEncRemote = remote.pat_enc || null;
   const patEnc       = patEncLocal ? JSON.parse(patEncLocal) : patEncRemote;
 
-  // Credentials Firebase chiffrés �€” même logique
+  // Credentials Firebase chiffrés — même logique
   const fbEncLocal  = localStorage.getItem('ouipsycho_fb_enc');
   const fbEncRemote = remote.fb_enc || null;
   const fbEnc       = fbEncLocal ? JSON.parse(fbEncLocal) : fbEncRemote;
 
-  // Clé API Brevo chiffrée �€” même logique
+  // Clé API Brevo chiffrée — même logique
   const brevoEncLocal  = localStorage.getItem('ouipsycho_brevo_enc');
   const brevoEncRemote = remote.brevo_enc || null;
   const brevoEnc       = brevoEncLocal ? JSON.parse(brevoEncLocal) : brevoEncRemote;
   const brevoListId    = localStorage.getItem(BREVO_LIST_KEY) || remote.brevoListId || '';
-  // URL publique du formulaire Brevo (pas un secret �€” safe à stocker dans config.json)
+  // URL publique du formulaire Brevo (pas un secret — safe à stocker dans config.json)
   const brevoFormUrl = localStorage.getItem('ouipsycho_brevo_form_url') || remote.brevoFormUrl || '';
 
-  // Hash du mot de passe (SHA-256 + sel �€” safe à stocker publiquement)
+  // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
 
   const cfg = {
@@ -2930,7 +2930,7 @@ async function pushConfigToGitHub() {
     ...(fbEnc      ? { fb_enc:    fbEnc    } : {}),
     // Clé API Brevo chiffrée AES-256-GCM (inutilisable sans le mot de passe admin)
     ...(brevoEnc    ? { brevo_enc:   brevoEnc   } : {}),
-    // URL publique du formulaire Brevo (sibforms.com �€” aucun secret)
+    // URL publique du formulaire Brevo (sibforms.com — aucun secret)
     ...(brevoFormUrl ? { brevoFormUrl } : {}),
     // ID liste Brevo conservé pour référence
     ...(brevoListId  ? { brevoListId  } : {}),
@@ -2938,15 +2938,15 @@ async function pushConfigToGitHub() {
 
   try {
     await githubPutFile('data/config.json', JSON.stringify(cfg, null, 2), 'config: mise à jour paramètres admin');
-    toast('�š™️ Config sauvegardée sur GitHub �€” accessible depuis tous vos appareils', 'success');
+    toast('⚙️ Config sauvegardée sur GitHub — accessible depuis tous vos appareils', 'success');
   } catch(e) {
     console.warn('pushConfigToGitHub:', e.message);
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    IMAGE UPLOAD
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function handleDragOver(e) {
   e.preventDefault();
   document.getElementById('img-drop-zone').classList.add('dragover');
@@ -2959,7 +2959,7 @@ function handleDrop(e) {
   document.getElementById('img-drop-zone').classList.remove('dragover');
   const file = e.dataTransfer.files[0];
   if (file && file.type.startsWith('image/')) handleImageFile(file);
-  else toast('Fichier non supporté �€” utilisez JPG, PNG ou WebP', 'error');
+  else toast('Fichier non supporté — utilisez JPG, PNG ou WebP', 'error');
 }
 
 async function handleImageFile(file) {
@@ -2980,11 +2980,11 @@ async function handleImageFile(file) {
   } else if (ghPat) {
     await uploadImageToGitHub(file);
   } else {
-    setImageStatus('�š�️ Configurez Cloudinary (recommandé) ou un PAT GitHub dans Paramètres pour héberger l\'image.', 'warning');
+    setImageStatus('⚠️ Configurez Cloudinary (recommandé) ou un PAT GitHub dans Paramètres pour héberger l\'image.', 'warning');
   }
 }
 
-/* �”€�”€ CLOUDINARY UPLOAD �”€�”€ */
+/* ── CLOUDINARY UPLOAD ── */
 async function uploadToCloudinary(file) {
   const cloudName = localStorage.getItem(CLD_CLOUD_KEY);
   const preset    = localStorage.getItem(CLD_PRESET_KEY);
@@ -2993,13 +2993,13 @@ async function uploadToCloudinary(file) {
 
   isUploading = true;
   const saveBtn = document.getElementById('save-btn');
-  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours�€�'; }
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
 
   const progress = document.getElementById('img-upload-progress');
   const bar = document.getElementById('img-upload-bar');
   progress.style.display = 'block';
   bar.style.width = '10%';
-  setImageStatus('⏳ Upload Cloudinary�€�', 'info');
+  setImageStatus('⏳ Upload Cloudinary…', 'info');
 
   try {
     const formData = new FormData();
@@ -3023,10 +3023,10 @@ async function uploadToCloudinary(file) {
 
     document.getElementById('f-image').value = url;
     showImagePreview(url);
-    setImageStatus(`�œ… Hébergée sur Cloudinary (${Math.round(data.bytes / 1024)} Ko �†’ optimisée automatiquement)`, 'success');
-    toast('Image uploadée sur Cloudinary �ŸŽ‰', 'success');
+    setImageStatus(`✅ Hébergée sur Cloudinary (${Math.round(data.bytes / 1024)} Ko → optimisée automatiquement)`, 'success');
+    toast('Image uploadée sur Cloudinary 🎉', 'success');
   } catch(e) {
-    setImageStatus('�Œ Erreur Cloudinary : ' + e.message, 'error');
+    setImageStatus('❌ Erreur Cloudinary : ' + e.message, 'error');
     toast('Erreur Cloudinary : ' + e.message, 'error');
   } finally {
     isUploading = false;
@@ -3035,17 +3035,17 @@ async function uploadToCloudinary(file) {
   }
 }
 
-/* �”€�”€ GITHUB UPLOAD (fallback) �”€�”€ */
+/* ── GITHUB UPLOAD (fallback) ── */
 async function uploadImageToGitHub(file) {
   isUploading = true;
   const saveBtn = document.getElementById('save-btn');
-  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours�€�'; }
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
 
   const progress = document.getElementById('img-upload-progress');
   const bar = document.getElementById('img-upload-bar');
   progress.style.display = 'block';
   bar.style.width = '20%';
-  setImageStatus('⏳ Upload GitHub�€�', 'info');
+  setImageStatus('⏳ Upload GitHub…', 'info');
 
   try {
     const b64  = await fileToBase64(file);
@@ -3061,10 +3061,10 @@ async function uploadImageToGitHub(file) {
     const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
     document.getElementById('f-image').value = url;
     showImagePreview(url);
-    setImageStatus('�œ… Image hébergée sur GitHub (conseil : configurez Cloudinary pour de meilleures performances)', 'success');
-    toast('Image uploadée sur GitHub �œ“', 'success');
+    setImageStatus('✅ Image hébergée sur GitHub (conseil : configurez Cloudinary pour de meilleures performances)', 'success');
+    toast('Image uploadée sur GitHub ✓', 'success');
   } catch(e) {
-    setImageStatus('�Œ Erreur GitHub : ' + e.message, 'error');
+    setImageStatus('❌ Erreur GitHub : ' + e.message, 'error');
     toast('Erreur upload : ' + e.message, 'error');
   } finally {
     isUploading = false;
@@ -3120,7 +3120,7 @@ function removeImage() {
   const slider = document.getElementById('focal-zoom');
   if (slider) slider.value = 1;
   const zoomVal = document.getElementById('focal-zoom-val');
-  if (zoomVal) zoomVal.textContent = '�—1.0';
+  if (zoomVal) zoomVal.textContent = '×1.0';
   const layoutCont = document.getElementById('img-layout-container');
   if (layoutCont) layoutCont.style.display = 'none';
   const flay = document.getElementById('f-imageLayout');
@@ -3151,12 +3151,12 @@ function setImageStatus(msg, type) {
 
 // (image reset intégré directement dans resetEditor ci-dessus)
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    FOCAL POINT PICKER
    Permet de choisir le point focal de l'image
    pour un recadrage optimal sur les cartes et
    la page article (background-position / object-position)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function initFocalPicker(imageUrl, position, zoom) {
   const container = document.getElementById('focal-container');
   const wrapper   = document.getElementById('focal-wrapper');
@@ -3191,7 +3191,7 @@ function updateFocalZoom(val) {
   const field   = document.getElementById('f-imageZoom');
   const pos     = document.getElementById('f-imagePosition')?.value || '50% 50%';
   if (img) { img.style.transform = `scale(${zoom})`; img.style.transformOrigin = pos; }
-  if (zoomVal) zoomVal.textContent = '�—' + zoom.toFixed(1);
+  if (zoomVal) zoomVal.textContent = '×' + zoom.toFixed(1);
   if (field)   field.value = zoom;
 }
 
@@ -3215,7 +3215,7 @@ function setFocalPreset(x, y) {
   updateFocalIndicator(x + ' ' + y);
 }
 
-/* �”€�”€ CENTRAGE AUTOMATIQUE (Cloudinary IA) �”€�”€ */
+/* ── CENTRAGE AUTOMATIQUE (Cloudinary IA) ── */
 function buildCloudinaryUrl(url, gravity) {
   if (!url || !url.includes('res.cloudinary.com')) return url;
   const uploadIdx = url.indexOf('/upload/');
@@ -3268,9 +3268,9 @@ function setGravity(grav) {
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    IMAGE LAYOUT
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function setImageLayout(layout) {
   const field = document.getElementById('f-imageLayout');
   if (field) field.value = layout;
@@ -3280,10 +3280,10 @@ function setImageLayout(layout) {
   });
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    WYSIWYG EDITOR
    Mini traitement de texte sans dépendance externe
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function initWysEditor(html) {
   const editor = document.getElementById('wysiwyg-editor');
   if (!editor) return;
@@ -3309,7 +3309,7 @@ function initWysEditor(html) {
       document.execCommand('insertText', false, plain);
     }
     syncEditorToTextarea();
-    // �‰viter les doublons si appelé plusieurs fois
+    // Éviter les doublons si appelé plusieurs fois
     editor.removeEventListener('paste', handler);
     editor.addEventListener('paste', handler);
   }, { once: false });
@@ -3330,7 +3330,7 @@ function wys(cmd, val) {
 function wysBlock(tag) {
   const editor = document.getElementById('wysiwyg-editor');
   editor.focus();
-  // Vérifier si on est déjà dans ce tag �†’ retour au paragraphe
+  // Vérifier si on est déjà dans ce tag → retour au paragraphe
   const sel = window.getSelection();
   if (sel.rangeCount) {
     let node = sel.getRangeAt(0).commonAncestorContainer;
@@ -3363,7 +3363,7 @@ function wysLink() {
 
 function handleWysKeydown(e) {
   // Ctrl+B / Ctrl+I / Ctrl+U déjà gérés nativement par contenteditable
-  // Tab �†’ insérer une indentation dans les listes
+  // Tab → insérer une indentation dans les listes
   if (e.key === 'Tab') {
     e.preventDefault();
     document.execCommand(e.shiftKey ? 'outdent' : 'indent');
@@ -3372,11 +3372,11 @@ function handleWysKeydown(e) {
   setTimeout(syncEditorToTextarea, 0);
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   COMMENTAIRES �€” FIREBASE FIRESTORE (admin)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   COMMENTAIRES — FIREBASE FIRESTORE (admin)
+══════════════════════════════════════════════ */
 
-/* �”€�”€ Helpers conversion Firestore �†” JS �”€�”€ */
+/* ── Helpers conversion Firestore ↔ JS ── */
 function _fbaVal(v) {
   if (!v) return null;
   if ('stringValue'    in v) return v.stringValue;
@@ -3447,9 +3447,9 @@ async function _fbaHeaders() {
   return { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` };
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
+/* ══════════════════════════════════════════════
    NEWSLETTER
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+══════════════════════════════════════════════ */
 function fbBase() {
   const p = localStorage.getItem(FB_PROJECT_KEY) || '';
   return `https://firestore.googleapis.com/v1/projects/${p}/databases/(default)/documents`;
@@ -3460,11 +3460,11 @@ async function loadNewsletterSubscribers() {
   const apiKey  = localStorage.getItem(FB_APIKEY_KEY)  || '';
   const tbody   = document.getElementById('nl-table');
   if (!project || !apiKey) {
-    if (tbody) tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Firebase non configuré �†’ Paramètres</td></tr>';
+    if (tbody) tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Firebase non configuré → Paramètres</td></tr>';
     return;
   }
 
-  if (tbody) tbody.innerHTML = '<tr class="loading-row"><td colspan="4">Chargement�€�</td></tr>';
+  if (tbody) tbody.innerHTML = '<tr class="loading-row"><td colspan="4">Chargement…</td></tr>';
 
   try {
     // Lire les abonnés avec le token admin Firebase si disponible
@@ -3510,9 +3510,9 @@ async function loadNewsletterSubscribers() {
         tbody.innerHTML = [...docs].sort((a,b) => b.created_at.localeCompare(a.created_at)).map(d => `
           <tr>
             <td><strong>${d.email}</strong></td>
-            <td>${d.created_at ? formatDate(d.created_at.split('T')[0]) : '�€”'}</td>
+            <td>${d.created_at ? formatDate(d.created_at.split('T')[0]) : '—'}</td>
             <td><span class="badge badge-gray">${d.source}</span></td>
-            <td><button class="btn btn-danger btn-sm" onclick="unsubscribeNewsletter('${d.id}','${d.email}')">�œ• Désabonner</button></td>
+            <td><button class="btn btn-danger btn-sm" onclick="unsubscribeNewsletter('${d.id}','${d.email}')">✕ Désabonner</button></td>
           </tr>`).join('');
       }
     }
@@ -3524,7 +3524,7 @@ async function loadNewsletterSubscribers() {
       brevoEl.style.display = brevoKey ? 'flex' : 'none';
       const msgEl = document.getElementById('nl-brevo-msg');
       if (msgEl) msgEl.innerHTML = brevoKey
-        ? '�œ… Brevo connecté �€” les nouvelles inscriptions sont synchronisées automatiquement.'
+        ? '✅ Brevo connecté — les nouvelles inscriptions sont synchronisées automatiquement.'
         : '';
     }
     // Pré-remplir les champs Brevo
@@ -3533,7 +3533,7 @@ async function loadNewsletterSubscribers() {
     document.getElementById('brevo-form-url').value = savedFormUrl;
     const statusEl = document.getElementById('brevo-form-status');
     if (statusEl && savedFormUrl) {
-      statusEl.textContent = '�œ… URL configurée';
+      statusEl.textContent = '✅ URL configurée';
       statusEl.style.color = 'var(--success)';
     }
 
@@ -3576,58 +3576,58 @@ function exportNewsletterCSV() {
   a.download = 'newsletter-ouipsycho-' + new Date().toISOString().split('T')[0] + '.csv';
   a.click();
   URL.revokeObjectURL(url);
-  toast('Export CSV téléchargé �œ“', 'success');
+  toast('Export CSV téléchargé ✓', 'success');
 }
 
 async function saveBrevoSettings() {
   const formUrl = document.getElementById('brevo-form-url').value.trim();
-  if (!formUrl) { toast('Collez l\'URL du formulaire Brevo (sibforms.com/serve/�€�)', 'error'); return; }
+  if (!formUrl) { toast('Collez l\'URL du formulaire Brevo (sibforms.com/serve/…)', 'error'); return; }
   if (!formUrl.startsWith('https://sibforms.com/')) {
     toast('L\'URL doit commencer par https://sibforms.com/', 'error'); return;
   }
   localStorage.setItem('ouipsycho_brevo_form_url', formUrl);
   const statusEl = document.getElementById('brevo-form-status');
-  if (statusEl) { statusEl.textContent = '�œ… URL enregistrée localement'; statusEl.style.color = 'var(--success)'; }
-  toast('Configuration Brevo enregistrée �œ…', 'success');
+  if (statusEl) { statusEl.textContent = '✅ URL enregistrée localement'; statusEl.style.color = 'var(--success)'; }
+  toast('Configuration Brevo enregistrée ✅', 'success');
   await pushConfigToGitHub();
 }
 
 async function testBrevoForm() {
   const url    = document.getElementById('brevo-form-url').value.trim();
   const result = document.getElementById('brevo-test-result');
-  if (!url) { result.textContent = '�Œ Entrez l\'URL du formulaire'; result.style.color = 'var(--danger)'; return; }
+  if (!url) { result.textContent = '❌ Entrez l\'URL du formulaire'; result.style.color = 'var(--danger)'; return; }
   if (!url.startsWith('https://sibforms.com/')) {
-    result.textContent = '�Œ URL invalide (doit commencer par https://sibforms.com/)';
+    result.textContent = '❌ URL invalide (doit commencer par https://sibforms.com/)';
     result.style.color = 'var(--danger)'; return;
   }
-  result.textContent = '�œ… Format URL valide �€” copiez depuis Brevo �†’ Formulaires �†’ Partager';
+  result.textContent = '✅ Format URL valide — copiez depuis Brevo → Formulaires → Partager';
   result.style.color = 'var(--success)';
 }
 
-// Legacy �€” conservé pour ne pas casser d'éventuels appels existants
+// Legacy — conservé pour ne pas casser d'éventuels appels existants
 async function testBrevoConnection() { await testBrevoForm(); }
 
-/* �”€�”€ Chargement + affichage �”€�”€ */
+/* ── Chargement + affichage ── */
 async function loadAdminComments() {
   const project = localStorage.getItem(FB_PROJECT_KEY) || '';
   const apiKey  = _fbaApiKey();
 
   if (!project || !apiKey) {
     document.getElementById('comments-table').innerHTML =
-      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">�š™️ Configurez Firebase dans les <strong>Paramètres</strong> pour activer les commentaires.</td></tr>';
+      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Firebase dans les <strong>Paramètres</strong> pour activer les commentaires.</td></tr>';
     document.getElementById('comments-stats').innerHTML =
-      '<div class="stat-card"><div class="stat-val">�€”</div><div class="stat-label">Non configuré</div></div>';
+      '<div class="stat-card"><div class="stat-val">—</div><div class="stat-label">Non configuré</div></div>';
     return;
   }
 
   document.getElementById('comments-table').innerHTML =
-    '<tr class="loading-row"><td colspan="6">Connexion Firebase�€�</td></tr>';
+    '<tr class="loading-row"><td colspan="6">Connexion Firebase…</td></tr>';
 
   try {
     const headers = await _fbaHeaders();
     if (!headers) {
       document.getElementById('comments-table').innerHTML =
-        '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--danger)">�š�️ Email/mot de passe Firebase manquants dans les Paramètres.</td></tr>';
+        '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--danger)">⚠️ Email/mot de passe Firebase manquants dans les Paramètres.</td></tr>';
       return;
     }
 
@@ -3648,10 +3648,10 @@ async function loadAdminComments() {
     renderCommentsTable();
     updatePendingBadge();
   } catch(e) {
-    // Token expiré ou accès refusé �†’ réinitialiser
+    // Token expiré ou accès refusé → réinitialiser
     if (/401|403|UNAUTHENTICATED/i.test(e.message)) {
       _fbAdminIdToken = null;
-      toast('�š�️ Session Firebase expirée �€” rechargez la page.', 'error');
+      toast('⚠️ Session Firebase expirée — rechargez la page.', 'error');
     } else {
       toast('Erreur chargement commentaires : ' + e.message, 'error');
     }
@@ -3729,13 +3729,13 @@ function renderCommentsTable() {
     const dateStr = new Date(c.created_at).toLocaleDateString('fr-FR',
       { day: 'numeric', month: 'short', year: 'numeric' });
     const statusBadge =
-      c.status === 'approved' ? '<span class="badge badge-green">�œ… Approuvé</span>' :
-      c.status === 'rejected' ? '<span class="badge badge-gray">�Œ Rejeté</span>'   :
+      c.status === 'approved' ? '<span class="badge badge-green">✅ Approuvé</span>' :
+      c.status === 'rejected' ? '<span class="badge badge-gray">❌ Rejeté</span>'   :
       '<span class="badge badge-orange">⏳ En attente</span>';
     const flagBadge = c.flagged
-      ? `<span class="badge" style="background:#fee2e2;color:#991b1b;margin-left:4px">�š‘ ${c.flag_count}</span>` : '';
-    const excerpt  = (c.content || '').length > 90 ? c.content.slice(0, 90) + '�€�' : c.content;
-    const hasReply = c.admin_reply ? '�Ÿ’� ' : '';
+      ? `<span class="badge" style="background:#fee2e2;color:#991b1b;margin-left:4px">⚑ ${c.flag_count}</span>` : '';
+    const excerpt  = (c.content || '').length > 90 ? c.content.slice(0, 90) + '…' : c.content;
+    const hasReply = c.admin_reply ? '💬 ' : '';
 
     return `<tr>
       <td>
@@ -3753,17 +3753,17 @@ function renderCommentsTable() {
       <td style="white-space:nowrap">${statusBadge}${flagBadge}</td>
       <td>
         <div class="actions" style="flex-wrap:wrap;gap:4px">
-          ${c.status !== 'approved' ? `<button class="btn btn-success btn-sm" title="Approuver" onclick="moderateComment('${c.id}','approved')">�œ…</button>` : ''}
-          ${c.status !== 'rejected' ? `<button class="btn btn-warning btn-sm" title="Rejeter"   onclick="moderateComment('${c.id}','rejected')">�Œ</button>` : ''}
-          <button class="btn btn-ghost btn-sm" onclick="openReplyModal('${c.id}')">�Ÿ’� Répondre</button>
-          <button class="btn btn-danger btn-sm" onclick="confirmDeleteComment('${c.id}')">�Ÿ—‘️</button>
+          ${c.status !== 'approved' ? `<button class="btn btn-success btn-sm" title="Approuver" onclick="moderateComment('${c.id}','approved')">✅</button>` : ''}
+          ${c.status !== 'rejected' ? `<button class="btn btn-warning btn-sm" title="Rejeter"   onclick="moderateComment('${c.id}','rejected')">❌</button>` : ''}
+          <button class="btn btn-ghost btn-sm" onclick="openReplyModal('${c.id}')">💬 Répondre</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteComment('${c.id}')">🗑️</button>
         </div>
       </td>
     </tr>`;
   }).join('');
 }
 
-/* �”€�”€ Actions de modération �”€�”€ */
+/* ── Actions de modération ── */
 async function moderateComment(id, status) {
   const headers = await _fbaHeaders().catch(() => null);
   if (!headers) { toast('Firebase non configuré', 'error'); return; }
@@ -3777,7 +3777,7 @@ async function moderateComment(id, status) {
     const idx = adminComments.findIndex(c => c.id === id);
     if (idx > -1) adminComments[idx].status = status;
     renderCommentsStats(); renderCommentsTable(); updatePendingBadge();
-    toast(status === 'approved' ? '�œ… Commentaire approuvé' : '�Œ Commentaire rejeté', 'success');
+    toast(status === 'approved' ? '✅ Commentaire approuvé' : '❌ Commentaire rejeté', 'success');
   } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
@@ -3821,7 +3821,7 @@ async function submitAdminReply() {
     }
     document.getElementById('reply-overlay').classList.remove('open');
     renderCommentsTable();
-    toast(reply ? '�Ÿ’� Réponse enregistrée �œ…' : 'Réponse supprimée', 'success');
+    toast(reply ? '💬 Réponse enregistrée ✅' : 'Réponse supprimée', 'success');
   } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
@@ -3829,8 +3829,8 @@ function confirmDeleteComment(id) {
   const c       = adminComments.find(x => x.id === id);
   const excerpt = (c?.content || '').slice(0, 60);
   document.getElementById('confirm-title').textContent = 'Supprimer ce commentaire ?';
-  document.getElementById('confirm-msg').textContent   = `"${excerpt}�€�" �€” Action irréversible.`;
-  document.getElementById('confirm-icon').textContent  = '�Ÿ—‘️';
+  document.getElementById('confirm-msg').textContent   = `"${excerpt}…" — Action irréversible.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
   document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteComment(id); closeConfirm(); };
   document.getElementById('confirm-overlay').classList.add('open');
 }
@@ -3849,7 +3849,7 @@ async function deleteComment(id) {
   } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
-/* �”€�”€ Firebase settings �”€�”€ */
+/* ── Firebase settings ── */
 async function saveFirebaseSettings() {
   const project = document.getElementById('fb-project').value.trim();
   const apiKey  = document.getElementById('fb-apikey').value.trim();
@@ -3864,17 +3864,17 @@ async function saveFirebaseSettings() {
   if (pass)  localStorage.setItem(FB_PASS_KEY,  pass);
 
   // Chiffrer email + mot de passe Firebase avec le mot de passe admin (AES-256-GCM)
-  // Stocké dans config.json �€” inutilisable sans le mot de passe admin
+  // Stocké dans config.json — inutilisable sans le mot de passe admin
   if (email && pass && _sessionPassword) {
     try {
       const fbEnc = await encryptPAT(email + '\x00' + pass, _sessionPassword);
       localStorage.setItem('ouipsycho_fb_enc', JSON.stringify(fbEnc));
-      toast('Configuration Firebase chiffrée et sauvegardée �œ…', 'success');
+      toast('Configuration Firebase chiffrée et sauvegardée ✅', 'success');
     } catch(e) {
-      toast('Configuration Firebase enregistrée �œ… (chiffrement échoué : ' + e.message + ')', 'success');
+      toast('Configuration Firebase enregistrée ✅ (chiffrement échoué : ' + e.message + ')', 'success');
     }
   } else {
-    toast('Configuration Firebase enregistrée �œ…', 'success');
+    toast('Configuration Firebase enregistrée ✅', 'success');
   }
 
   await pushConfigToGitHub(); // pousse tout dans data/config.json
@@ -3890,10 +3890,10 @@ async function testFirebaseConnection() {
   if (!project || !apiKey) { toast('Remplissez Project ID + API Key', 'error'); return; }
   if (!email || !pass)     { toast('Remplissez Email + Mot de passe admin', 'error'); return; }
 
-  resultEl.textContent = '⏳ Connexion�€�'; resultEl.style.color = 'var(--gray-500)';
+  resultEl.textContent = '⏳ Connexion…'; resultEl.style.color = 'var(--gray-500)';
 
   try {
-    // 1. Firebase Auth �€” connexion avec email/mot de passe
+    // 1. Firebase Auth — connexion avec email/mot de passe
     const r1 = await fetch(
       `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`,
       {
@@ -3916,9 +3916,9 @@ async function testFirebaseConnection() {
     _fbAdminIdToken     = authData.idToken;
     _fbAdminTokenExpiry = Date.now() + parseInt(authData.expiresIn, 10) * 1000;
 
-    resultEl.textContent = '⏳ Test Firestore�€�'; resultEl.style.color = 'var(--gray-500)';
+    resultEl.textContent = '⏳ Test Firestore…'; resultEl.style.color = 'var(--gray-500)';
 
-    // 2. Firestore �€” lecture avec token auth (contourne les règles publiques)
+    // 2. Firestore — lecture avec token auth (contourne les règles publiques)
     const base  = `https://firestore.googleapis.com/v1/projects/${project}/databases/(default)/documents`;
     const r2    = await fetch(`${base}:runQuery?key=${apiKey}`, {
       method:  'POST',
@@ -3930,18 +3930,18 @@ async function testFirebaseConnection() {
       throw new Error('Firestore : ' + (e.error?.message || r2.status));
     }
 
-    resultEl.textContent = '�œ… Auth OK · Firestore OK �€” tout est opérationnel !';
+    resultEl.textContent = '✅ Auth OK · Firestore OK — tout est opérationnel !';
     resultEl.style.color = 'var(--success)';
-    toast('Firebase opérationnel �œ…', 'success');
+    toast('Firebase opérationnel ✅', 'success');
   } catch(e) {
-    resultEl.textContent = '�Œ ' + e.message;
+    resultEl.textContent = '❌ ' + e.message;
     resultEl.style.color = 'var(--danger)';
   }
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   PAGE �€ PROPOS
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   PAGE À PROPOS
+══════════════════════════════════════════════ */
 async function loadAboutPage() {
   try {
     const res = await fetch('data/about.json?t=' + Date.now());
@@ -3987,7 +3987,7 @@ async function saveAbout() {
   if (!content) { toast('Le contenu ne peut pas être vide', 'error'); return; }
 
   const btn = document.getElementById('about-save-btn');
-  btn.innerHTML = '<div class="spinner"></div> Enregistrement�€�';
+  btn.innerHTML = '<div class="spinner"></div> Enregistrement…';
   btn.disabled  = true;
 
   const data = { title, subtitle, metaDescription: meta, content };
@@ -3995,17 +3995,17 @@ async function saveAbout() {
   try {
     const pat = localStorage.getItem(GH_PAT_KEY);
     if (pat) {
-      await githubPutFile('data/about.json', JSON.stringify(data, null, 2), 'content: mise à jour page �€ propos');
-      toast('Page �€ propos mise à jour sur GitHub �œ…', 'success');
+      await githubPutFile('data/about.json', JSON.stringify(data, null, 2), 'content: mise à jour page À propos');
+      toast('Page À propos mise à jour sur GitHub ✅', 'success');
     } else {
       downloadJSON(data, 'about.json');
-      toast('Fichier about.json téléchargé �€” uploadez-le dans data/ sur GitHub', 'info');
+      toast('Fichier about.json téléchargé — uploadez-le dans data/ sur GitHub', 'info');
     }
   } catch(e) {
     toast('Erreur : ' + e.message, 'error');
   }
 
-  btn.innerHTML = '�œ“ Enregistrer';
+  btn.innerHTML = '✓ Enregistrer';
   btn.disabled  = false;
 }
 
@@ -4014,19 +4014,19 @@ document.getElementById('reply-overlay').addEventListener('click', function(e) {
   if (e.target === this) this.classList.remove('open');
 });
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   CONTACT �€” email de contact (Paramètres)
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   CONTACT — email de contact (Paramètres)
+══════════════════════════════════════════════ */
 async function saveContactSettings() {
   const email = document.getElementById('contact-email').value.trim();
   if (email) localStorage.setItem(CONTACT_EMAIL_KEY, email);
-  toast('Email de contact enregistré �œ…', 'success');
+  toast('Email de contact enregistré ✅', 'success');
   await pushConfigToGitHub();
 }
 
-/* �•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•�
-   MESSAGES DE CONTACT �€” Firebase Firestore
-�•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•��•� */
+/* ══════════════════════════════════════════════
+   MESSAGES DE CONTACT — Firebase Firestore
+══════════════════════════════════════════════ */
 let adminMessages    = [];
 let messageFilter    = 'all';
 let _msgUnreadCount  = 0;
@@ -4036,16 +4036,16 @@ async function loadAdminMessages() {
   const apiKey  = _fbaApiKey();
   if (!project || !apiKey) {
     document.getElementById('messages-table').innerHTML =
-      '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--gray-400)">�š™️ Configurez Firebase dans les <strong>Paramètres</strong>.</td></tr>';
+      '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--gray-400)">⚙️ Configurez Firebase dans les <strong>Paramètres</strong>.</td></tr>';
     return;
   }
   document.getElementById('messages-table').innerHTML =
-    '<tr class="loading-row"><td colspan="5">Chargement�€�</td></tr>';
+    '<tr class="loading-row"><td colspan="5">Chargement…</td></tr>';
   try {
     const headers = await _fbaHeaders();
     if (!headers) {
       document.getElementById('messages-table').innerHTML =
-        '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--danger)">�š�️ Email/mot de passe Firebase manquants dans Paramètres.</td></tr>';
+        '<tr><td colspan="5" style="text-align:center;padding:32px;color:var(--danger)">⚠️ Email/mot de passe Firebase manquants dans Paramètres.</td></tr>';
       return;
     }
     const query = {
@@ -4123,11 +4123,11 @@ function renderMessagesTable() {
     const readBadge = m.read
       ? '<span class="badge badge-gray" style="font-size:.7rem">Lu</span>'
       : '<span class="badge badge-orange" style="font-size:.7rem">Nouveau</span>';
-    const excerpt = (m.message || '').length > 80 ? m.message.slice(0, 80) + '�€�' : m.message;
+    const excerpt = (m.message || '').length > 80 ? m.message.slice(0, 80) + '…' : m.message;
     const subject = m.subject ? `<div style="font-size:.75rem;color:var(--gray-400)">${escapeAttr(m.subject)}</div>` : '';
     return `<tr style="${m.read ? '' : 'font-weight:600'}">
       <td>
-        <div>${escapeAttr(m.name || '�€”')}</div>
+        <div>${escapeAttr(m.name || '—')}</div>
         <div style="font-size:.75rem;color:var(--primary)">
           <a href="mailto:${escapeAttr(m.email || '')}" style="color:var(--primary)">${escapeAttr(m.email || '')}</a>
         </div>
@@ -4140,9 +4140,9 @@ function renderMessagesTable() {
       <td>${readBadge}</td>
       <td>
         <div class="actions" style="gap:4px">
-          ${!m.read ? `<button class="btn btn-ghost btn-sm" onclick="markMessageRead('${m.id}')">�œ“ Lu</button>` : ''}
-          <a href="mailto:${escapeAttr(m.email || '')}?subject=Re: ${encodeURIComponent(m.subject || 'Votre message')}" class="btn btn-primary btn-sm">�œ‰️ Répondre</a>
-          <button class="btn btn-danger btn-sm" onclick="confirmDeleteMessage('${m.id}')">�Ÿ—‘️</button>
+          ${!m.read ? `<button class="btn btn-ghost btn-sm" onclick="markMessageRead('${m.id}')">✓ Lu</button>` : ''}
+          <a href="mailto:${escapeAttr(m.email || '')}?subject=Re: ${encodeURIComponent(m.subject || 'Votre message')}" class="btn btn-primary btn-sm">✉️ Répondre</a>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteMessage('${m.id}')">🗑️</button>
         </div>
       </td>
     </tr>`;
@@ -4168,8 +4168,8 @@ async function markMessageRead(id) {
 function confirmDeleteMessage(id) {
   const m = adminMessages.find(x => x.id === id);
   document.getElementById('confirm-title').textContent = 'Supprimer ce message ?';
-  document.getElementById('confirm-msg').textContent   = `De ${m?.name || '?'} �€” irréversible.`;
-  document.getElementById('confirm-icon').textContent  = '�Ÿ—‘️';
+  document.getElementById('confirm-msg').textContent   = `De ${m?.name || '?'} — irréversible.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
   document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteMessage(id); closeConfirm(); };
   document.getElementById('confirm-overlay').classList.add('open');
 }
