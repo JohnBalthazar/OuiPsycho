@@ -1,4 +1,4 @@
-/**
+﻿/**
  * PSYCHO CLAIR — Script principal v2
  * Chargement articles · filtres · featured · barre lecture · partage · cookies · commentaires
  */
@@ -1134,6 +1134,12 @@ document.addEventListener('DOMContentLoaded', () => {
   injectNewsletterConsent(); // RGPD : injecte la case sur toutes les pages
   if (document.getElementById('articles-grid'))  initHome();
   if (document.getElementById('article-content')) initArticle();
+
+  // Fallback : insère une espace insécable avant le dernier mot des titres
+  // pour éviter la ponctuation orpheline (complète text-wrap:balance)
+  document.querySelectorAll('h1, h2, h3, .card__title').forEach(el => {
+    el.innerHTML = el.innerHTML.replace(/\s(\S+)\s*$/, ' $1');
+  });
 });
 
 /* ============================================================

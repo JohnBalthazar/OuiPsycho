@@ -110,6 +110,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   line-height: 1.25;
   color: var(--color-text);
+  text-wrap: balance; /* évite la ponctuation orpheline en fin de ligne */
 }
 h1 { font-size: var(--fs-3xl); }
 h2 { font-size: var(--fs-2xl); }

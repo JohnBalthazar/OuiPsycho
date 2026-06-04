@@ -90,10 +90,10 @@
   {
     "id": "cerveau-a-t-il-un-genre",
     "title": "Le cerveau a-t-il un genre ?",
-    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence.",
+    "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence. Plus de 90 % des cerveaux humains sont des mosaïques inclassifiables : voici ce que ça veut dire vraiment.",
     "date": "2026-06-07",
-    "date_modified": "2026-06-07",
-    "category": "Neurosciences & genre",
+    "date_modified": "2026-06-04",
+    "category": "Développement personnel",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -105,24 +105,18 @@
       "cerveau",
       "genre",
       "neurosciences",
-      "sexe",
-      "différences cognitives",
       "mosaïque cérébrale",
-      "testostérone",
-      "Joel",
-      "Eliot",
-      "Rippon",
-      "plasticité",
-      "empathie",
-      "stéréotypes"
+      "stéréotypes",
+      "plasticité cérébrale",
+      "différences cognitives"
     ],
     "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
     "articles_lies": [
       "monde-dirige-par-femmes",
       "a-quoi-sert-la-honte",
-      "normalite-sexualite-chiffres-destigmatisation"
+      "estime-de-soi"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
@@ -343,13 +337,16 @@
     "id": "johatsu",
     "title": "Les évaporés : quand disparaître semble la seule issue",
     "excerpt": "Au Japon, ils ont un nom : les jōhatsu, « ceux qui s'évaporent ». Chaque année, 80 000 personnes s'effacent volontairement de leur propre existence — sans lettre, sans cri. Et si cette tentation de ne plus exister, sans mourir, était bien plus universelle qu'on ne le croit ?",
-    "metaDescription": "Les jōhatsu : 80 000 Japonais qui s'évaporent chaque année pour fuir la honte. Pression sociale, isolement, effacement silencieux — un phénomène universel.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-05-01",
     "date_modified": "2026-06-04",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "jōhatsu",
       "honte",
@@ -359,32 +356,7 @@
       "disparition",
       "santé mentale"
     ],
-    "sources": [
-      {
-        "authors": "Mauger L. & Remael S.",
-        "year": "2014",
-        "title": "Les Évaporés du Japon : enquêtes sur les disparus volontaires",
-        "publisher": "Les Arènes"
-      },
-      {
-        "authors": "Tangney J.P. & Dearing R.L.",
-        "year": "2002",
-        "title": "Shame and Guilt",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Brown B.",
-        "year": "2010",
-        "title": "The Gifts of Imperfection",
-        "publisher": "Hazelden"
-      },
-      {
-        "authors": "Nathanson D.L.",
-        "year": "1992",
-        "title": "Shame and Pride: Affect, Sex, and the Birth of the Self",
-        "publisher": "W.W. Norton & Company"
-      }
-    ],
+    "metaDescription": "Les jōhatsu : 80 000 Japonais qui s'évaporent chaque année pour fuir la honte. Pression sociale, isolement, effacement silencieux — un phénomène universel.",
     "articles_lies": [
       "a-quoi-sert-la-honte",
       "resilience-emotionnelle",
