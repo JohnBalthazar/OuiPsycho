@@ -1895,6 +1895,17 @@ function generateArticleHTML(j) {
     keywords: (j.tags||[]).join(', '), articleSection: j.category, wordCount
   };
   if (j.image) aLDobj.image = { '@type':'ImageObject', url: j.image };
+  // Schema.org citation (sources structurées avec URL)
+  const srcWithUrl = (j.sources || []).filter(s => typeof s === 'object' && s.url);
+  if (srcWithUrl.length) {
+    aLDobj.citation = srcWithUrl.map(s => {
+      const c = { '@type':'CreativeWork', name: s.title || '', url: s.url };
+      if (s.authors) c.author = s.authors;
+      if (s.year)    c.datePublished = s.year;
+      if (s.journal) c.isPartOf = { '@type':'Periodical', name: s.journal };
+      return c;
+    });
+  }
   const aLD = JSON.stringify(aLDobj);
   const bLD = JSON.stringify({
     '@context':'https://schema.org','@type':'BreadcrumbList',
@@ -1936,7 +1947,31 @@ function generateArticleHTML(j) {
   <script type="application/ld+json">${aLD}<\/script>
   <script type="application/ld+json">${bLD}<\/script>
   <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage':    'denied',
+      'ad_storage':           'denied',
+      'ad_user_data':         'denied',
+      'ad_personalization':   'denied',
+      'wait_for_update':      2000
+    });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  <\/script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"><\/script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  <\/script>
 </head>
 <body>
 
@@ -1992,7 +2027,17 @@ ${kpHtml}
         <div class="article-body">
           ${j.content}
         </div>
-
+${(() => {
+  if (!j.sources || !j.sources.length) return '';
+  const items = j.sources.map(s => {
+    if (typeof s === 'string') return `        <li>${s}</li>`;
+    const authYear = [s.authors, s.year ? `(${s.year})` : ''].filter(Boolean).join(' ');
+    const anchor   = s.url ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${authYear}</a>` : authYear;
+    const venue    = s.journal ? ` <cite>${s.journal}</cite>` : (s.publisher ? ` <cite>${s.publisher}</cite>` : '');
+    return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.</li>`;
+  }).join('\n');
+  return `\n        <section class="article-sources" aria-label="Sources et références">\n          <h2 class="article-sources__title">📚 Sources &amp; références</h2>\n          <ol class="article-sources__list">\n${items}\n          </ol>\n        </section>\n`;
+})()}
         <div class="article-author">
           <div class="article-author__avatar" aria-hidden="true">✍️</div>
           <div>
