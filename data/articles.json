@@ -1,5 +1,31 @@
 [
   {
+    "id": "therapie-par-le-rire",
+    "title": "La thérapie par le rire, ce n'est pas une blague !",
+    "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
+    "date": "2026-06-09",
+    "date_modified": "2026-06-04",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/edsmaoooa5r1k1avgbva",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "rire",
+      "gélothérapie",
+      "thérapie",
+      "bien-être",
+      "stress",
+      "humour"
+    ],
+    "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "a-quoi-sert-la-honte",
     "title": "À quoi sert la honte ?",
     "excerpt": "On la fuit, on s'en défend, on l'intériorise jusqu'à la confondre avec soi-même. La psychologie lui reconnaît une utilité — à condition de comprendre la différence entre la honte qui protège et celle qui dévore.",
@@ -134,32 +160,6 @@
       "pessimistes-avaient-raison"
     ],
     "status": "scheduled"
-  },
-  {
-    "id": "therapie-par-le-rire",
-    "title": "La thérapie par le rire, ce n'est pas une blague !",
-    "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
-    "date": "2026-06-04",
-    "date_modified": "2026-06-04",
-    "category": "Bien-être",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "rire",
-      "gélothérapie",
-      "thérapie",
-      "bien-être",
-      "stress",
-      "humour"
-    ],
-    "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
-    "articles_lies": [],
-    "status": "published"
   },
   {
     "id": "a-partir-de-quel-age-est-on-vieux",
