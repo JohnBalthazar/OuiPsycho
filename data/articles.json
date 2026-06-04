@@ -125,6 +125,55 @@
     "status": "scheduled"
   },
   {
+    "id": "animaux-sante-mentale",
+    "title": "Nos animaux sont-ils nos meilleurs psys ?",
+    "excerpt": "Un chien qui pose sa tête sur vos genoux. Un chat qui ronronne dans votre cou. Un cheval qui avance au même rythme que vous. Ce n'est pas que du réconfort — c'est de la biochimie. La science s'intéresse sérieusement aux bienfaits des animaux sur notre santé mentale, et les résultats sont étonnamment solides.",
+    "metaDescription": "Ronronnement, médiation animale, ocytocine : ce que la science dit des bienfaits des animaux sur le stress, l'anxiété et la dépression.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-04",
+    "date_modified": "2026-06-04",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 7,
+    "tags": [
+      "animaux",
+      "médiation animale",
+      "zoothérapie",
+      "stress",
+      "bien-être",
+      "ronronnement"
+    ],
+    "sources": [
+      {
+        "authors": "Levinson B.M.",
+        "year": "1962",
+        "title": "The dog as a co-therapist",
+        "journal": "Mental Hygiene"
+      },
+      {
+        "authors": "Beetz A., Uvnäs-Moberg K., Julius H. & Kotrschal K.",
+        "year": "2012",
+        "title": "Psychosocial and psychophysiological effects of human-animal interactions: the possible role of oxytocin",
+        "journal": "Frontiers in Psychology",
+        "url": "https://doi.org/10.3389/fpsyg.2012.00234"
+      },
+      {
+        "authors": "Lundqvist M., Carlsson P., Sjödahl R., Theodorsson E. & Levin L.Å.",
+        "year": "2017",
+        "title": "Patient benefit of dog-assisted interventions in health care: a systematic review",
+        "journal": "BMC Complementary and Alternative Medicine",
+        "url": "https://doi.org/10.1186/s12906-017-1817-x"
+      },
+      {
+        "authors": "AFTAA (Association Française de Thérapie Assistée par l'Animal)",
+        "year": "2026",
+        "title": "La thérapie assistée par l'animal : définition, fondements scientifiques et cadre professionnel en France",
+        "url": "https://aftaa.fr/la-therapie/"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "monde-dirige-par-femmes",
     "title": "Et si le monde était dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
