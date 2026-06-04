@@ -1233,8 +1233,24 @@ p:last-child { margin-bottom: 0; }
 .share-icon-btn--pi   { background: #E60023; }
 .share-icon-btn--tg   { background: #0088CC; }
 .share-icon-btn--li   { background: #0A66C2; }
+.share-icon-btn--wa   { background: #25D366; }
 .share-icon-btn--copy { background: #6B7280; }
 .share-icon-btn--copy.copied { background: #16A34A; transition: background .25s; }
+
+/* Icônes de partage dans la barre meta (taille réduite) */
+.article-meta-share {
+  display: flex;
+  gap: var(--sp-2);
+  align-items: center;
+  margin-left: auto;
+}
+.article-meta-share .share-icon-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  outline: none;
+}
+.article-meta-share .share-icon-btn:hover { transform: translateY(-2px); }
 
 /* === Barre de partage BASSE (bas d'article) === */
 .article-share {
