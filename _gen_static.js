@@ -345,4 +345,35 @@ ${sourcesHtml}
   console.log(`✓ ${j.id}.html`);
 }
 
+// ── Mise à jour de data/articles.json (index page d'accueil) ─────────────────
+const INDEX_FILE = path.join(__dirname, 'data', 'articles.json');
+let existingIndex = [];
+try { existingIndex = JSON.parse(fs.readFileSync(INDEX_FILE, 'utf8')); } catch(_) {}
+
+const newIndex = jsonFiles.map(file => {
+  const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+  // Ne garde que les champs de l'index (pas content, keypoints, sources)
+  return {
+    id:              j.id,
+    title:           j.title,
+    excerpt:         j.excerpt          || '',
+    date:            j.date,
+    date_modified:   j.date_modified    || j.date,
+    category:        j.category,
+    image:           j.image            || '',
+    imagePosition:   j.imagePosition    || '50% 50%',
+    imageZoom:       j.imageZoom        || 1,
+    imageGravity:    j.imageGravity     || 'none',
+    imageLayout:     j.imageLayout      || 'top',
+    readTime:        j.readTime,
+    author:          j.author,
+    tags:            j.tags             || [],
+    metaDescription: j.metaDescription  || '',
+    articles_lies:   j.articles_lies    || [],
+    status:          j.status           || 'published',
+  };
+}).sort((a, b) => b.date.localeCompare(a.date)); // tri par date décroissante
+
+fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2), 'utf8');
+console.log(`📋 data/articles.json mis à jour (${newIndex.length} articles)`);
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);

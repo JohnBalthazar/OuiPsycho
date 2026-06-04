@@ -1,34 +1,10 @@
 [
   {
-    "id": "therapie-par-le-rire",
-    "title": "La thérapie par le rire, ce n'est pas une blague !",
-    "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
-    "date": "2026-06-04",
-    "category": "Bien-être",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "rire",
-      "gélothérapie",
-      "thérapie",
-      "bien-être",
-      "stress",
-      "humour"
-    ],
-    "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
-    "articles_lies": [],
-    "status": "published"
-  },
-  {
     "id": "a-quoi-sert-la-honte",
     "title": "À quoi sert la honte ?",
     "excerpt": "On la fuit, on s'en défend, on l'intériorise jusqu'à la confondre avec soi-même. La psychologie lui reconnaît une utilité — à condition de comprendre la différence entre la honte qui protège et celle qui dévore.",
     "date": "2026-06-08",
+    "date_modified": "2026-06-08",
     "category": "Émotions & identité",
     "image": "",
     "imagePosition": "50% 50%",
@@ -64,21 +40,36 @@
     "title": "Le cerveau a-t-il un genre ?",
     "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence.",
     "date": "2026-06-07",
+    "date_modified": "2026-06-07",
     "category": "Neurosciences & genre",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 10,
     "author": "La rédaction Oui Psycho!",
     "tags": [
       "cerveau",
       "genre",
       "neurosciences",
+      "sexe",
+      "différences cognitives",
       "mosaïque cérébrale",
+      "testostérone",
       "Joel",
       "Eliot",
       "Rippon",
+      "plasticité",
+      "empathie",
       "stéréotypes"
     ],
     "metaDescription": "Le cerveau a-t-il un genre ? La neuroscience dit : ni tout à fait oui, ni tout à fait non. Le concept de cerveau mosaïque de Daphna Joel expliqué.",
+    "articles_lies": [
+      "monde-dirige-par-femmes",
+      "a-quoi-sert-la-honte",
+      "normalite-sexualite-chiffres-destigmatisation"
+    ],
     "status": "scheduled"
   },
   {
@@ -145,10 +136,37 @@
     "status": "scheduled"
   },
   {
+    "id": "therapie-par-le-rire",
+    "title": "La thérapie par le rire, ce n'est pas une blague !",
+    "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
+    "date": "2026-06-04",
+    "date_modified": "2026-06-04",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "rire",
+      "gélothérapie",
+      "thérapie",
+      "bien-être",
+      "stress",
+      "humour"
+    ],
+    "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "a-partir-de-quel-age-est-on-vieux",
     "title": "À partir de quel âge est-on vieux ? La science répond — et sa réponse va vous surprendre",
     "excerpt": "La réponse intuitive, c'est 65 ans — l'âge de la retraite, les cheveux blancs, le regard des autres. Mais quand on pose la question à 14 000 personnes sur vingt-cinq ans d'étude, la vieillesse commence à 75. Et quand on mesure ce que l'âge qu'on se donne fait réellement à notre cerveau et à notre santé, tout devient plus compliqué — et franchement plus encourageant.",
     "date": "2026-06-02",
+    "date_modified": "2026-06-02",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wzu6y3om2lcleuip9za6",
     "imagePosition": "50% 50%",
@@ -165,13 +183,16 @@
       "bien-être",
       "psychologie positive"
     ],
-    "metaDescription": "La vieillesse commence à 75 ans selon les études les plus récentes — et ça dépend surtout de l'âge qu'on se donne. La science du vieillissement révèle des surprises sur le bonheur, le cerveau et l'âge subjectif."
+    "metaDescription": "La vieillesse commence à 75 ans selon les études les plus récentes — et ça dépend surtout de l'âge qu'on se donne. La science du vieillissement révèle des surprises sur le bonheur, le cerveau et l'âge subjectif.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "crise-angoisse",
     "title": "Crise d'angoisse : que faire quand ça arrive ?",
     "excerpt": "Le cœur qui s'emballe, la respiration qui se coupe, la certitude que quelque chose de grave se passe… La crise d'angoisse est terrifiante. Pourtant, elle est gérable. Voici comment.",
     "date": "2026-05-20",
+    "date_modified": "2026-05-20",
     "category": "Anxiété",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wqhz9zlaqfqw1z4pajim",
     "imagePosition": "51% 34%",
@@ -188,6 +209,7 @@
       "techniques"
     ],
     "metaDescription": "Crise d'angoisse : symptômes, causes et 5 techniques concrètes pour la gérer sur le moment. Guide pratique validé par les professionnels de santé.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -195,6 +217,7 @@
     "title": "Le trouble anxieux généralisé : quand l'inquiétude devient permanente",
     "excerpt": "Se faire du souci, c'est normal. Mais quand l'inquiétude est constante, incontrôlable et envahit tous les aspects de la vie, on parle de trouble anxieux généralisé. Comprendre ce trouble, c'est déjà commencer à s'en libérer.",
     "date": "2026-05-15",
+    "date_modified": "2026-05-15",
     "category": "Anxiété",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sucmbobek7n0lpjbwpbn",
     "imagePosition": "50% 50%",
@@ -211,6 +234,7 @@
       "TCC"
     ],
     "metaDescription": "Le trouble anxieux généralisé : symptômes, causes et traitements. Comprendre pourquoi l'inquiétude devient excessive et comment s'en libérer efficacement.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -218,6 +242,7 @@
     "title": "Dépression : 10 signes qui ne trompent pas",
     "excerpt": "La dépression ne ressemble pas toujours à ce qu'on imagine. Ce n'est pas juste « avoir le blues » ou « être fatigué ». C'est une maladie sérieuse avec des signes précis — et les reconnaître est la première étape vers la guérison.",
     "date": "2026-05-10",
+    "date_modified": "2026-05-10",
     "category": "Dépression",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yzlhe2lntglw137u7mru",
     "imagePosition": "50% 50%",
@@ -234,6 +259,7 @@
       "santé mentale"
     ],
     "metaDescription": "Les 10 signes de la dépression à ne pas ignorer : tristesse persistante, anhédonie, fatigue, troubles du sommeil. Comment distinguer dépression et tristesse passagère.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -241,6 +267,7 @@
     "title": "Comment sortir de la dépression ? Les approches qui fonctionnent vraiment",
     "excerpt": "Sortir de la dépression n'est pas une question de volonté. C'est une question de traitement adapté. Voici ce que la science dit sur les approches les plus efficaces — et comment retrouver le chemin vers le mieux.",
     "date": "2026-05-05",
+    "date_modified": "2026-05-05",
     "category": "Dépression",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fcjngeexfeedsh0ik4us",
     "imagePosition": "50% 50%",
@@ -258,6 +285,7 @@
       "thérapie"
     ],
     "metaDescription": "Comment sortir de la dépression : psychothérapies (TCC, TIP, MBCT), antidépresseurs, exercice physique. Les traitements validés scientifiquement expliqués clairement.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -265,6 +293,7 @@
     "title": "Méditation pleine conscience : le guide complet pour débutants",
     "excerpt": "La méditation de pleine conscience (mindfulness) est l'outil de bien-être mental le mieux documenté de ces 30 dernières années. Pas besoin d'être bouddhiste ni de méditer des heures. Voici comment commencer.",
     "date": "2026-04-28",
+    "date_modified": "2026-04-28",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/izywwrmitgneg9p1ll5a",
     "imagePosition": "50% 50%",
@@ -282,6 +311,7 @@
       "MBSR"
     ],
     "metaDescription": "Guide complet de la méditation pleine conscience pour débutants : bienfaits scientifiques, exercices pratiques et conseils pour créer une habitude durable.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -289,6 +319,7 @@
     "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il ne vous brise",
     "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, silencieusement, jusqu'au point de rupture. Apprendre à le reconnaître tôt — et agir — peut vous épargner des mois de reconstruction.",
     "date": "2026-04-20",
+    "date_modified": "2026-04-20",
     "category": "Stress",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wp0xyx3kidvcywi5p0lq",
     "imagePosition": "50% 50%",
@@ -305,6 +336,7 @@
       "limites"
     ],
     "metaDescription": "Burnout : signes, causes et marche à suivre. Comment reconnaître l'épuisement professionnel avant la rupture et reconstruire durablement.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -312,6 +344,7 @@
     "title": "7 techniques anti-stress validées par la science",
     "excerpt": "Pas besoin de vacances aux Maldives pour déstresser. Ces 7 techniques, toutes validées par des études sérieuses, peuvent transformer votre rapport au stress en quelques semaines — et certaines agissent en quelques minutes.",
     "date": "2026-04-15",
+    "date_modified": "2026-04-15",
     "category": "Stress",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve",
     "imagePosition": "50% 50%",
@@ -329,6 +362,7 @@
       "EFT"
     ],
     "metaDescription": "7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.",
+    "articles_lies": [],
     "status": "published"
   },
   {
@@ -336,6 +370,7 @@
     "title": "Sommeil et santé mentale : ce que l'on ne vous a jamais dit !",
     "excerpt": "Mal dormir rend anxieux. L'anxiété empêche de dormir. Ce cercle vicieux entre sommeil et santé mentale est l'un des plus importants à comprendre — et à briser. Voici comment.",
     "date": "2026-04-10",
+    "date_modified": "2026-04-10",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vuy1pfu1pmap03rgjwsh",
     "imagePosition": "50% 50%",
@@ -365,8 +400,9 @@
     "title": "Vaincre l'insomnie : les méthodes qui marchent vraiment",
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
+    "date_modified": "2026-04-05",
     "category": "Sommeil",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yevadredrrv5ahqjbu3o",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -441,8 +477,13 @@
     "title": "Communication non-violente : transformer vos relations en 4 étapes",
     "excerpt": "La CNV de Marshall Rosenberg est l'une des approches relationnelles les plus puissantes et les plus pratiques. Quatre étapes simples pour exprimer vos besoins sans blesser, et entendre ceux des autres sans vous défendre.",
     "date": "2026-03-15",
+    "date_modified": "2026-03-15",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 3,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -453,15 +494,22 @@
       "Marshall Rosenberg",
       "émotions"
     ],
-    "metaDescription": "La Communication Non-Violente (CNV) en 4 étapes : observer, ressentir, identifier le besoin, formuler une demande. Guide pratique pour transformer vos relations."
+    "metaDescription": "La Communication Non-Violente (CNV) en 4 étapes : observer, ressentir, identifier le besoin, formuler une demande. Guide pratique pour transformer vos relations.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "relation-toxique-signes",
     "title": "Relation toxique : les 8 signes qui ne trompent pas",
     "excerpt": "Une relation toxique ne commence pas forcément par des coups. Elle commence par des petites phrases, des regards, des culpabilisations subtiles. Voici les 8 signaux d'alarme à reconnaître avant que la situation ne s'aggrave.",
     "date": "2026-03-05",
+    "date_modified": "2026-03-05",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -472,15 +520,22 @@
       "couple",
       "relations"
     ],
-    "metaDescription": "Les 8 signes d'une relation toxique : comment les reconnaître, pourquoi on reste et quoi faire. Guide psychologique pour identifier et sortir d'une relation qui fait du mal."
+    "metaDescription": "Les 8 signes d'une relation toxique : comment les reconnaître, pourquoi on reste et quoi faire. Guide psychologique pour identifier et sortir d'une relation qui fait du mal.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "estime-de-soi",
     "title": "L'estime de soi : comprendre et reconstruire la relation avec soi-même",
     "excerpt": "L'estime de soi n'est pas de l'arrogance. C'est la conviction profonde d'avoir de la valeur — indépendamment de ce qu'on accomplit, de l'approbation des autres ou de son apparence. Voici comment elle se construit, se détruit et se répare.",
     "date": "2026-02-28",
+    "date_modified": "2026-02-28",
     "category": "Développement personnel",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
     "author": "La rédaction Oui Psycho!",
     "tags": [
@@ -490,6 +545,8 @@
       "développement personnel",
       "psychologie positive"
     ],
-    "metaDescription": "L'estime de soi : comment elle se construit, se détruit et se répare. Ses 3 dimensions, les signes d'une faible estime et 5 pratiques concrètes pour la reconstruire."
+    "metaDescription": "L'estime de soi : comment elle se construit, se détruit et se répare. Ses 3 dimensions, les signes d'une faible estime et 5 pratiques concrètes pour la reconstruire.",
+    "articles_lies": [],
+    "status": "published"
   }
 ]
