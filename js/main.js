@@ -93,7 +93,7 @@ function skeletons(n) {
    RENDU — CARTE STANDARD
    ============================================================ */
 function articleUrl(id) {
-  return `articles/${esc(id)}.html`;
+  return `articles/${esc(id)}/`;
 }
 
 function renderCard(article) {
@@ -432,7 +432,7 @@ async function initArticle() {
   if (!id) { window.location.href = '404.html'; return; }
 
   // Rediriger vers la page statique si elle existe
-  const staticUrl = `articles/${encodeURIComponent(id)}.html`;
+  const staticUrl = `articles/${encodeURIComponent(id)}/`;
   if (window.location.pathname.indexOf('/articles/') === -1) {
     window.location.replace(staticUrl);
     return;
@@ -1282,8 +1282,7 @@ function injectNewsletterConsent() {
   const btn = form.querySelector('#nl-btn');
   if (!btn) return;
 
-  // Détecter le préfixe de chemin (articles/ → remonter d'un niveau)
-  const prefix = window.location.pathname.includes('/articles/') ? '../' : '';
+  const prefix = '/'; // chemin absolu, valide quelle que soit la profondeur de l'URL
 
   const wrapper = document.createElement('div');
   wrapper.className = 'nl-consent';
@@ -1299,7 +1298,7 @@ function injectNewsletterConsent() {
 let _nlCfg = null;
 async function _loadNlCfg() {
   if (_nlCfg) return _nlCfg;
-  const prefix = window.location.pathname.includes('/articles/') ? '../' : '';
+  const prefix = '/';
   try {
     _nlCfg = await fetch(`${prefix}data/config.json?t=${Date.now()}`).then(r => r.ok ? r.json() : {});
   } catch(_) { _nlCfg = {}; }

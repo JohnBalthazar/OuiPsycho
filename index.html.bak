@@ -1,0 +1,268 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oui Psycho! â€” Comprendre la santÃ© mentale, simplement</title>
+  <meta name="description" content="Des articles clairs et accessibles sur la psychologie, l'anxiÃ©tÃ©, la dÃ©pression, le bien-Ãªtre et la santÃ© mentale. RÃ©digÃ©s pour tous, sans jargon.">
+  <meta name="keywords" content="santÃ© mentale, psychologie, anxiÃ©tÃ©, dÃ©pression, bien-Ãªtre, stress, thÃ©rapie">
+  <meta name="author" content="Oui Psycho!">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Oui Psycho! â€” Comprendre la santÃ© mentale, simplement">
+  <meta property="og:description" content="Des articles clairs et bienveillants sur la psychologie et le bien-Ãªtre.">
+  <meta property="og:url"         content="https://ouipsycho.fr/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.svg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Oui Psycho!",
+    "url": "https://ouipsycho.fr/",
+    "inLanguage": "fr",
+    "description": "Blog de vulgarisation psychologique dÃ©diÃ© Ã  la santÃ© mentale. Articles clairs sur l'anxiÃ©tÃ©, la dÃ©pression, le bien-Ãªtre et les thÃ©rapies.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": {
+        "@type": "EntryPoint",
+        "urlTemplate": "https://ouipsycho.fr/index.html?q={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Oui Psycho!",
+    "url": "https://ouipsycho.fr/",
+    "description": "Blog de vulgarisation psychologique â€” rendre la santÃ© mentale accessible Ã  tous.",
+    "inLanguage": "fr",
+    "sameAs": []
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- AdSense : dÃ©commenter aprÃ¨s approbation
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+  -->
+  <!-- Google Consent Mode v2 (RGPD/Europe) â€” dÃ©faut : refusÃ© -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'analytics_storage':    'denied',
+      'ad_storage':           'denied',
+      'ad_user_data':         'denied',
+      'ad_personalization':   'denied',
+      'wait_for_update':      2000
+    });
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! â€” Accueil">
+        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link nav__link--active" href="index.html">Accueil</a>
+        <a class="nav__link" href="a-propos.html">Ã€ propos</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+
+    <!-- Barre catÃ©gories sticky -->
+    <nav class="cat-nav" aria-label="CatÃ©gories">
+      <div class="cat-nav__inner">
+        <button class="cat-nav__btn active" data-cat="all">Tous les articles</button>
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+        <button class="cat-nav__btn" data-cat="AnxiÃ©tÃ©">AnxiÃ©tÃ©</button>
+        <button class="cat-nav__btn" data-cat="DÃ©pression">DÃ©pression</button>
+        <button class="cat-nav__btn" data-cat="Bien-Ãªtre">Bien-Ãªtre</button>
+        <button class="cat-nav__btn" data-cat="Stress">Stress</button>
+        <button class="cat-nav__btn" data-cat="Sommeil">Sommeil</button>
+        <button class="cat-nav__btn" data-cat="ThÃ©rapies">ThÃ©rapies</button>
+        <button class="cat-nav__btn" data-cat="Relations">Relations</button>
+        <button class="cat-nav__btn" data-cat="DÃ©veloppement personnel">DÃ©veloppement</button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO compact ===== -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="hero__content">
+      <span class="hero__eyebrow">Vulgarisation psychologique</span>
+      <h1 id="hero-heading">La psychologie expliquÃ©e,<em> simplement.</em></h1>
+      <div class="hero-search" role="search">
+        <label for="hero-search" class="sr-only">Rechercher un article</label>
+        <input type="search" id="hero-search" placeholder="AnxiÃ©tÃ©, sommeil, thÃ©rapieâ€¦" autocomplete="off">
+        <button type="button">Rechercher</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTENU ===== -->
+  <div class="container layout">
+    <main>
+
+      <!-- Article Ã  la une (injectÃ© par JS si articles disponibles) -->
+      <div id="featured-container"></div>
+
+      <!-- Section "Derniers articles" -->
+      <div class="section-header" id="articles-section-header" style="display:none">
+        <h2>Derniers articles</h2>
+      </div>
+
+      <div class="articles-grid" id="articles-grid" aria-live="polite" aria-busy="true">
+        <!-- Skeletons puis articles injectÃ©s par JS -->
+      </div>
+
+      <!-- Scroll infini : sentinel observÃ© + fallback bouton -->
+      <div id="scroll-sentinel" aria-hidden="true">
+        <div class="scroll-loader" id="scroll-loader" role="status" aria-label="Chargementâ€¦">
+          <span class="scroll-loader__dot"></span>
+          <span class="scroll-loader__dot"></span>
+          <span class="scroll-loader__dot"></span>
+        </div>
+        <button id="load-more-fallback" type="button">Charger plus d'articles</button>
+      </div>
+
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside aria-label="Sidebar">
+
+      <!-- Recherche -->
+      <div class="widget">
+        <h2 class="widget__title">Rechercher</h2>
+        <div class="search-widget" role="search">
+          <label for="search-input" class="sr-only">Rechercher</label>
+          <input type="search" id="search-input" placeholder="Mot-clÃ©â€¦" autocomplete="off">
+          <button type="button" aria-label="Rechercher">â†’</button>
+        </div>
+      </div>
+
+      <!-- Ã€ propos -->
+      <div class="widget widget-about">
+        <h2 class="widget__title">Ã€ propos</h2>
+        <p>Oui Psycho! est un blog de vulgarisation dÃ©diÃ© Ã  la santÃ© mentale. Notre mission : rendre la psychologie accessible Ã  tous, avec bienveillance et rigueur.</p>
+      </div>
+
+      <!-- Articles les plus lus (Firebase) -->
+      <div class="widget" id="popular-widget" style="display:none">
+        <h2 class="widget__title">ðŸ”¥ Les plus lus</h2>
+        <div class="popular-list" id="popular-list"></div>
+      </div>
+
+      <!-- CatÃ©gories -->
+      <div class="widget">
+        <h2 class="widget__title">CatÃ©gories</h2>
+        <ul class="cat-filter-list" id="category-list" aria-label="Filtrer par catÃ©gorie">
+          <li><button class="cat-filter-btn active" data-cat="all"><span>Tous les articles</span><span class="count">0</span></button></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="widget widget--accent" id="newsletter-widget">
+        <h2 class="widget__title">Newsletter</h2>
+        <div class="newsletter-form" id="nl-form">
+          <p>Recevez nos nouveaux articles chaque semaine.</p>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <div class="nl-consent">
+            <input type="checkbox" id="nl-consent">
+            <label for="nl-consent">J'accepte de recevoir la newsletter hebdomadaire d'Oui Psycho! et confirme avoir lu la <a href="politique-de-confidentialite.html">politique de confidentialitÃ©</a>. DÃ©sinscription possible Ã  tout moment.</label>
+          </div>
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        âš•ï¸ <strong>Avertissement :</strong> Le contenu de ce site est fourni Ã  titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santÃ©. En cas de dÃ©tresse psychique, appelez le <strong>3114</strong> (numÃ©ro national de prÃ©vention du suicide, 24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dÃ©diÃ© Ã  la santÃ© mentale. Rendre la psychologie accessible Ã  tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>ThÃ©matiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=AnxiÃ©tÃ©">AnxiÃ©tÃ©</a></li>
+            <li><a href="index.html?cat=DÃ©pression">DÃ©pression</a></li>
+            <li><a href="index.html?cat=Bien-Ãªtre">Bien-Ãªtre</a></li>
+            <li><a href="index.html?cat=Stress">Stress</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=ThÃ©rapies">ThÃ©rapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ã€ propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="politique-de-confidentialite.html">ConfidentialitÃ©</a></li>
+            <li><a href="mentions-legales.html">Mentions lÃ©gales</a></li>
+            <li><a href="se-desinscrire.html">Se dÃ©sinscrire</a></li>
+            <li><a href="sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>Â© <script>document.write(new Date().getFullYear())</script> Oui Psycho!. Tous droits rÃ©servÃ©s.</span>
+        <span>Fait avec â¤ï¸ pour la santÃ© mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- BanniÃ¨re cookies -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookies">
+    <p class="cookie-text">ðŸª Nous utilisons des cookies pour amÃ©liorer votre expÃ©rience et personnaliser les publicitÃ©s. <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
+    <div class="cookie-buttons">
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
+      <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
