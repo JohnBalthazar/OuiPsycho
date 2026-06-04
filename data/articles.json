@@ -125,6 +125,31 @@
     "status": "scheduled"
   },
   {
+    "id": "age-ideal-avoir-enfants",
+    "title": "Quel est le meilleur âge pour avoir des enfants ?",
+    "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
+    "date": "2026-06-06",
+    "date_modified": "2026-06-04",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "parentalité",
+      "fertilité",
+      "grossesse",
+      "horloge biologique",
+      "projet parental"
+    ],
+    "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "therapie-cognitive-comportementale",
     "title": "La TCC expliquée : comment elle reprogramme les pensées négatives",
     "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
@@ -149,31 +174,6 @@
     "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "age-ideal-avoir-enfants",
-    "title": "Quel est le meilleur âge pour avoir des enfants ?",
-    "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
-    "date": "2026-06-04",
-    "date_modified": "2026-06-04",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dbtqlchtkhcg2r5lqb7j",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "parentalité",
-      "fertilité",
-      "grossesse",
-      "horloge biologique",
-      "projet parental"
-    ],
-    "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
-    "articles_lies": [],
-    "status": "published"
   },
   {
     "id": "monde-dirige-par-femmes",
