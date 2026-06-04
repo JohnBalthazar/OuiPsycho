@@ -1,0 +1,32 @@
+{
+  "id": "slug-de-larticle",
+  "title": "Titre complet de l'article",
+  "excerpt": "Accroche courte affichée dans les cards. 2 à 3 phrases, donne envie de lire sans spoiler le contenu.",
+  "metaDescription": "Description SEO. 140 à 160 caractères. Inclure le mot-clé principal. Ne pas dépasser 160 caractères.",
+  "author": "La rédaction Oui Psycho!",
+  "date": "YYYY-MM-DD",
+  "date_modified": "YYYY-MM-DD",
+  "category": "Anxiété",
+  "image": "",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "readTime": 5,
+  "tags": [
+    "tag-1",
+    "tag-2",
+    "tag-3",
+    "tag-4",
+    "tag-5"
+  ],
+  "keypoints": [
+    "Premier point clé — phrase complète et informative, environ 12 mots",
+    "Deuxième point clé — ce que le lecteur retiendra de l'article",
+    "Troisième point clé — donnée, conseil ou nuance importante",
+    "Quatrième point clé — aspect pratique ou chiffre marquant",
+    "Cinquième point clé — appel à l'action ou conclusion essentielle"
+  ],
+  "content": "<p>Introduction de l'article. Accroche forte, situation concrète ou chiffre marquant. Annonce ce que le lecteur va apprendre.</p>\n\n<h2>Premier titre de section</h2>\n<p>Contenu de la section. Utiliser <strong>le gras</strong> pour les concepts clés et <em>l'italique</em> pour les termes techniques ou citations courtes.</p>\n\n<h2>Deuxième titre de section</h2>\n<p>Contenu. Les listes doivent être précédées d'une phrase introductive :</p>\n<ul>\n<li>Premier élément de liste</li>\n<li>Deuxième élément</li>\n<li>Troisième élément</li>\n</ul>\n\n<h2>Troisième titre de section</h2>\n<p>Pour les sources : <a href=\"https://doi.org/10.XXXX/XXXXX\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"ref-link\" title=\"Auteur (Année) — Titre de l'étude, Nom du journal\">une étude de Auteur et al. (Année)</a> a montré que…</p>\n\n<blockquote>« Citation marquante d'un expert ou d'une recherche, attribuée clairement. » — Prénom Nom, Titre/Institution</blockquote>\n\n<h2>Quand consulter un professionnel ?</h2>\n<p>Toujours inclure une section sur quand consulter. Indiquer les ressources disponibles si pertinent.</p>\n\n<p>Conclusion : synthèse bienveillante, sans dramatiser ni minimiser. Rappeler que des solutions existent.</p>",
+  "status": "published"
+}
