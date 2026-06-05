@@ -258,6 +258,69 @@
     "status": "scheduled"
   },
   {
+    "id": "mentalistes-comment-ils-decryptent-nos-pensees",
+    "title": "Comment les mentalistes décryptent nos pensées",
+    "excerpt": "Ils devinent votre mot secret, révèlent votre prénom sans vous avoir jamais rencontré, ou vous font choisir librement une carte qu'ils avaient « prédite ». Les mentalistes ne lisent pas dans les pensées — mais ils en savent long sur la psychologie humaine. Et ce qu'ils savent devrait vous intéresser.",
+    "metaDescription": "Cold reading, effet Barnum, biais cognitifs, micro-expressions : comment les mentalistes exploitent la psychologie humaine. Ce que la science explique.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-04",
+    "date_modified": "2026-06-04",
+    "category": "Développement personnel",
+    "image": "",
+    "readTime": 15,
+    "tags": [
+      "mentalisme",
+      "biais cognitifs",
+      "psychologie",
+      "cold reading",
+      "manipulation",
+      "esprit critique"
+    ],
+    "sources": [
+      {
+        "authors": "Forer B.R.",
+        "year": "1949",
+        "title": "The fallacy of personal validation: A classroom demonstration of gullibility",
+        "journal": "Journal of Abnormal and Social Psychology",
+        "url": "https://doi.org/10.1037/h0059240"
+      },
+      {
+        "authors": "Ekman P. & Friesen W.V.",
+        "year": "1969",
+        "title": "Nonverbal leakage and clues to deception",
+        "journal": "Psychiatry",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/5779090/"
+      },
+      {
+        "authors": "Hyman R.",
+        "year": "1977",
+        "title": "Cold reading: How to convince strangers that you know all about them",
+        "journal": "The Zetetic",
+        "url": "https://doi.org/10.1177/030631277700100203"
+      },
+      {
+        "authors": "Nickerson R.S.",
+        "year": "1998",
+        "title": "Confirmation bias: A ubiquitous phenomenon in many guises",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.2.2.175"
+      },
+      {
+        "authors": "Brown D.",
+        "year": "2006",
+        "title": "Tricks of the Mind",
+        "publisher": "Channel 4 Books"
+      },
+      {
+        "authors": "Wiseman R.",
+        "year": "2011",
+        "title": "Paranormality: Why We See What Isn't There",
+        "publisher": "Macmillan"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "monde-dirige-par-femmes",
     "title": "Et si le monde était (mieux) dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
