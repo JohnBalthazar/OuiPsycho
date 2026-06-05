@@ -284,6 +284,66 @@
     "status": "scheduled"
   },
   {
+    "id": "naitre-parent-revolution-interieure",
+    "title": "Naître parent : une révolution intérieure",
+    "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
+    "metaDescription": "Matrescence, héritage transgénérationnel, parent suffisamment bon : la psychologie de la parentalité décryptée avec bienveillance et rigueur.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-04",
+    "date_modified": "2026-06-04",
+    "category": "Relations",
+    "image": "",
+    "readTime": 11,
+    "tags": [
+      "parentalité",
+      "matrescence",
+      "transgénérationnel",
+      "identité",
+      "Winnicott",
+      "développement"
+    ],
+    "sources": [
+      {
+        "authors": "Raphael D.",
+        "year": "1975",
+        "title": "Being Female: Reproduction, Power, and Change",
+        "publisher": "Mouton Publishers"
+      },
+      {
+        "authors": "Stern D.N., Bruschweiler-Stern N. & Freeland A.",
+        "year": "1998",
+        "title": "The Birth of a Mother: How the Motherhood Experience Changes You Forever",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Sacks A.",
+        "year": "2017",
+        "title": "The Birth of a Mother",
+        "journal": "The New York Times"
+      },
+      {
+        "authors": "Winnicott D.W.",
+        "year": "1971",
+        "title": "Playing and Reality",
+        "publisher": "Tavistock Publications"
+      },
+      {
+        "authors": "Fraiberg S., Adelson E. & Shapiro V.",
+        "year": "1975",
+        "title": "Ghosts in the nursery: A psychoanalytic approach to the problems of impaired infant-mother relationships",
+        "journal": "Journal of the American Academy of Child Psychiatry",
+        "url": "https://doi.org/10.1097/00004583-197507000-00005"
+      },
+      {
+        "authors": "Ciccone A.",
+        "year": "2012",
+        "title": "La Transmission psychique inconsciente",
+        "publisher": "Dunod"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "monde-dirige-par-femmes",
     "title": "Et si le monde était (mieux) dirigé par des femmes ?",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
