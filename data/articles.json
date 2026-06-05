@@ -1,5 +1,31 @@
 [
   {
+    "id": "peut-on-changer-de-personnalite",
+    "title": "Peut-on vraiment changer de personnalité ?",
+    "excerpt": "Timide depuis toujours, anxieux·se depuis l'enfance, introverti·e jusqu'à la moelle — et si tout ça n'était pas gravé dans le marbre ? La psychologie moderne a une réponse surprenante : oui, on peut changer. Mais pas comme on le croit.",
+    "date": "2026-06-20",
+    "date_modified": "2026-06-05",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "personnalité",
+      "changement",
+      "Big Five",
+      "psychothérapie",
+      "neuroplasticité",
+      "développement"
+    ],
+    "metaDescription": "Peut-on changer de personnalité ? Big Five, neuroplasticité, psychothérapie : ce que la science dit de notre capacité à nous transformer vraiment.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "addiction-ia-cerveau-cloud",
     "title": "IA Addict : la nouvelle addiction aux intelligences artificielles",
     "excerpt": "On lui demande quoi manger, quoi répondre à notre patron, comment se sentir mieux. L'IA est devenue le confident universel, le coach, le psy, le GPS de nos pensées. Pratique ? Indéniablement. Inquiétant ? La science commence à dire oui.",
@@ -334,63 +360,6 @@
     "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "peut-on-changer-de-personnalite",
-    "title": "Peut-on vraiment changer de personnalité ?",
-    "excerpt": "Timide depuis toujours, anxieux·se depuis l'enfance, introverti·e jusqu'à la moelle — et si tout ça n'était pas gravé dans le marbre ? La psychologie moderne a une réponse surprenante : oui, on peut changer. Mais pas comme on le croit.",
-    "metaDescription": "Peut-on changer de personnalité ? Big Five, neuroplasticité, psychothérapie : ce que la science dit de notre capacité à nous transformer vraiment.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-05",
-    "date_modified": "2026-06-05",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 8,
-    "tags": [
-      "personnalité",
-      "changement",
-      "Big Five",
-      "psychothérapie",
-      "neuroplasticité",
-      "développement"
-    ],
-    "sources": [
-      {
-        "authors": "Roberts B.W., Luo J., Briley D.A., Chow P.I., Su R. & Hill P.L.",
-        "year": "2017",
-        "title": "A systematic review of personality trait change through intervention",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/bul0000088"
-      },
-      {
-        "authors": "Stieger M., Flückiger C., Rüegger D., Kowatsch T., Roberts B.W. & Allemand M.",
-        "year": "2021",
-        "title": "Changing personality traits with the help of a digital personality change intervention",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.2017548118"
-      },
-      {
-        "authors": "Hudson N.W. & Fraley R.C.",
-        "year": "2015",
-        "title": "Volitional personality trait change: Can people choose to change their personality traits?",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/pspp0000021"
-      },
-      {
-        "authors": "McCrae R.R. & Costa P.T.",
-        "year": "2003",
-        "title": "Personality in Adulthood: A Five-Factor Theory Perspective",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Bleidorn W., Hopwood C.J. & Lucas R.E.",
-        "year": "2018",
-        "title": "Life events and personality trait change",
-        "journal": "Journal of Personality",
-        "url": "https://doi.org/10.1111/jopy.12286"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "therapie-cognitive-comportementale",
