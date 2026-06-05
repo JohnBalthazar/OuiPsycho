@@ -690,11 +690,15 @@ function buildTOC() {
   const headings = body.querySelectorAll('h2, h3');
   if (headings.length < 3) { toc.style.display = 'none'; return; }
   toc.classList.add('visible');
+  // Préfixer avec l'URL absolue de la page courante pour contourner la balise
+  // <base href="../../"> présente dans les pages statiques d'articles :
+  // sans préfixe, href="#s0" serait résolu en ../../#s0 (= page d'accueil).
+  const pageBase = window.location.href.split('#')[0];
   let html = '<h3 class="widget__title">Table des matières</h3><ol>';
   headings.forEach((h, i) => {
     const id = `s${i}`;
     h.id = id;
-    html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="#${id}">${h.textContent}</a></li>`;
+    html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="${pageBase}#${id}">${h.textContent}</a></li>`;
   });
   toc.innerHTML = html + '</ol>';
 }
