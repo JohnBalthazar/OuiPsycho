@@ -1,5 +1,31 @@
 [
   {
+    "id": "ce-que-votre-metier-dit-de-vous",
+    "title": "Ce que votre métier dit de vous (ou pas)",
+    "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
+    "date": "2026-06-18",
+    "date_modified": "2026-06-05",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "identité",
+      "travail",
+      "personnalité",
+      "burnout",
+      "orientation",
+      "sens"
+    ],
+    "metaDescription": "Votre métier révèle-t-il vraiment qui vous êtes ? Holland, Big Five, identité professionnelle : ce que la psychologie dit du lien entre travail et personnalité.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "naitre-parent-revolution-interieure",
     "title": "Naître parent : une révolution intérieure",
     "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
@@ -308,54 +334,6 @@
     "metaDescription": "La TCC (thérapie cognitivo-comportementale) expliquée : principes, distorsions cognitives, déroulement des séances et effets sur le cerveau. Guide complet.",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "ce-que-votre-metier-dit-de-vous",
-    "title": "Ce que votre métier dit de vous (ou pas)",
-    "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
-    "metaDescription": "Votre métier révèle-t-il vraiment qui vous êtes ? Holland, Big Five, identité professionnelle : ce que la psychologie dit du lien entre travail et personnalité.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-04",
-    "date_modified": "2026-06-04",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 7,
-    "tags": [
-      "identité",
-      "travail",
-      "personnalité",
-      "burnout",
-      "orientation",
-      "sens"
-    ],
-    "sources": [
-      {
-        "authors": "Holland J.L.",
-        "year": "1973",
-        "title": "Making Vocational Choices: A Theory of Careers",
-        "publisher": "Prentice Hall"
-      },
-      {
-        "authors": "Hoff K.A., Briley D.A., Wee C.J.M. & Rounds J.",
-        "year": "2018",
-        "title": "Normative Changes in Interests From Adolescence to Adulthood: A Meta-Analysis of Longitudinal Studies",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/bul0000140"
-      },
-      {
-        "authors": "Dubar C.",
-        "year": "2000",
-        "title": "La crise des identités : l'interprétation d'une mutation",
-        "publisher": "PUF"
-      },
-      {
-        "authors": "Maslach C. & Leiter M.P.",
-        "year": "1997",
-        "title": "The Truth About Burnout",
-        "publisher": "Jossey-Bass"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "monde-dirige-par-femmes",
