@@ -310,6 +310,62 @@
     "status": "scheduled"
   },
   {
+    "id": "addiction-ia-cerveau-cloud",
+    "title": "Mon cerveau est dans le cloud : et si l'IA devenait notre nouvelle addiction ?",
+    "excerpt": "On lui demande quoi manger, quoi répondre à notre patron, comment se sentir mieux. L'IA est devenue le confident universel, le coach, le psy, le GPS de nos pensées. Pratique ? Indéniablement. Inquiétant ? La science commence à dire oui.",
+    "metaDescription": "Addiction à l'IA, délégation cognitive, dépendance émotionnelle à ChatGPT : ce que la psychologie et les neurosciences disent de notre rapport à l'intelligence artificielle.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-05",
+    "date_modified": "2026-06-05",
+    "category": "Développement personnel",
+    "image": "",
+    "readTime": 9,
+    "tags": [
+      "IA",
+      "addiction",
+      "cognition",
+      "dépendance",
+      "cerveau",
+      "technologie"
+    ],
+    "sources": [
+      {
+        "authors": "Kooli C., Kooli Y. & Kooli E.",
+        "year": "2025",
+        "title": "Generative artificial intelligence addiction syndrome: A new behavioral disorder?",
+        "journal": "Asian Journal of Psychiatry",
+        "url": "https://doi.org/10.1016/j.ajp.2025.104476"
+      },
+      {
+        "authors": "Sparrow B., Liu J. & Wegner D.M.",
+        "year": "2011",
+        "title": "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1207745"
+      },
+      {
+        "authors": "OpenAI & MIT Media Lab",
+        "year": "2025",
+        "title": "Affective use and emotional well-being on ChatGPT",
+        "url": "https://openai.com/research/"
+      },
+      {
+        "authors": "Risko E.F. & Gilbert S.J.",
+        "year": "2016",
+        "title": "Cognitive offloading",
+        "journal": "Trends in Cognitive Sciences",
+        "url": "https://doi.org/10.1016/j.tics.2016.07.002"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2025",
+        "title": "L'IA, nos émotions et nous",
+        "publisher": "Albin Michel"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "therapie-cognitive-comportementale",
     "title": "La TCC expliquée : comment elle reprogramme les pensées négatives",
     "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
