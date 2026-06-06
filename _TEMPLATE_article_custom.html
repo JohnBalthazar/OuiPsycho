@@ -165,17 +165,27 @@
       h1 { font-size: 1.75rem; }
     }
   </style>
-  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'analytics_storage':    'denied',
-      'ad_storage':           'denied',
-      'ad_user_data':         'denied',
-      'ad_personalization':   'denied',
-      'wait_for_update':      2000
-    });
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
     gtag('set', 'url_passthrough', true);
     gtag('set', 'ads_data_redaction', true);
   </script>

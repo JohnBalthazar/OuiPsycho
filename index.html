@@ -53,17 +53,31 @@
   <!-- AdSense : décommenter après approbation
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
   -->
-  <!-- Google Consent Mode v2 (RGPD/Europe) — défaut : refusé -->
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      'analytics_storage':    'denied',
-      'ad_storage':           'denied',
-      'ad_user_data':         'denied',
-      'ad_personalization':   'denied',
-      'wait_for_update':      2000
-    });
+    // Restaure le consentement depuis localStorage AVANT que GA ne charge.
+    // Évite le délai wait_for_update pour les visiteurs ayant déjà accepté.
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      // Déjà accepté → GA collecte immédiatement
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      // Nouveau visiteur ou refus → anonymisé, attente bannière
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
     gtag('set', 'url_passthrough', true);
     gtag('set', 'ads_data_redaction', true);
   </script>
