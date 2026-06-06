@@ -2,9 +2,10 @@
 const fs   = require('fs');
 const path = require('path');
 
-const BASE = 'https://ouipsycho.fr';
-const DIR  = path.join(__dirname, 'articles');
-const YEAR = new Date().getFullYear();
+const BASE  = 'https://ouipsycho.fr';
+const DIR   = path.join(__dirname, 'articles');
+const YEAR  = new Date().getFullYear();
+const TODAY = new Date().toISOString().split('T')[0];  // YYYY-MM-DD, pour filtrer les articles planifiés
 
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
@@ -32,6 +33,10 @@ for (const file of jsonFiles) {
   const j   = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
   const ci  = CAT[j.category] || { color: '#555', bg: '#f5f5f5', enc: encodeURIComponent(j.category) };
   const fd  = fmtDate(j.date);
+
+  // Article planifié dont la date n'est pas encore arrivée → noindex pour ne pas être indexé par Google avant publication
+  const isFutureScheduled = j.status === 'scheduled' && j.date > TODAY;
+  const robotsMeta        = isFutureScheduled ? 'noindex, nofollow' : 'index, follow';
 
   // Keypoints
   let kpHtml = '';
@@ -141,7 +146,7 @@ ${srcItems}
   <title>${j.title} — Oui Psycho!</title>
   <meta name="description" content="${j.metaDescription}">
   <meta name="author" content="${j.author}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${robotsMeta}">
   <meta name="theme-color" content="#1F4E6B">
   <base href="../../">
   <link rel="canonical" href="${BASE}/articles/${j.id}/">
@@ -399,6 +404,11 @@ const newIndex = jsonFiles.map(file => {
     articles_lies:   j.articles_lies    || [],
     status:          j.status           || 'published',
   };
+}).filter(a => {
+  // Exclure les brouillons et les articles planifiés dont la date n'est pas encore arrivée
+  if (a.status === 'draft') return false;
+  if (a.status === 'scheduled' && a.date > TODAY) return false;
+  return true;
 }).sort((a, b) => b.date.localeCompare(a.date)); // tri par date décroissante
 
 fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2), 'utf8');
