@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Éditeur d'articles — Oui Psycho!</title>
+  <style>
+    :root {
+      --bg: #f4f2ee;
+      --panel: #ffffff;
+      --border: #e0dbd3;
+      --accent: #6b4fbb;
+      --accent-light: #ede9f8;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --success: #2d7d46;
+      --warning: #b45309;
+      --danger: #b91c1c;
+      --radius: 10px;
+      --font-body: 'Georgia', serif;
+      --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-ui);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── TOPBAR ── */
+    header {
+      background: var(--accent);
+      color: white;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    }
+    header h1 { font-size: 1.1rem; font-weight: 700; letter-spacing: -.3px; }
+    header span { font-size: .85rem; opacity: .8; }
+    .spacer { flex: 1; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 7px; font-size: .82rem;
+      font-family: var(--font-ui); font-weight: 600; cursor: pointer;
+      border: none; transition: opacity .15s, transform .1s;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-white  { background: white; color: var(--accent); }
+    .btn-ghost  { background: rgba(255,255,255,.15); color: white; border: 1px solid rgba(255,255,255,.3); }
+    .btn-accent { background: var(--accent); color: white; }
+    .btn-green  { background: #16a34a; color: white; }
+    .btn-sm     { padding: 5px 10px; font-size: .78rem; }
+
+    /* ── LAYOUT ── */
+    .workspace {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      grid-template-rows: 1fr;
+      gap: 0;
+      overflow: hidden;
+    }
+
+    /* ── LEFT: FORM PANEL ── */
+    .form-panel {
+      background: var(--panel);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .drop-zone {
+      margin: 16px;
+      border: 2px dashed var(--accent);
+      border-radius: var(--radius);
+      background: var(--accent-light);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .drop-zone:hover, .drop-zone.dragover { background: #ddd4f5; }
+    .drop-zone svg { width: 36px; height: 36px; color: var(--accent); margin-bottom: 8px; }
+    .drop-zone p { color: var(--accent); font-size: .88rem; font-weight: 600; }
+    .drop-zone small { color: var(--muted); font-size: .78rem; }
+    #file-input { display: none; }
+
+    .form-body { padding: 0 16px 24px; display: flex; flex-direction: column; gap: 14px; }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+    .field label {
+      font-size: .75rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .5px; color: var(--muted);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .field label .badge {
+      font-size: .68rem; padding: 1px 6px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent); font-weight: 600;
+    }
+    .field input, .field textarea, .field select {
+      font-family: var(--font-ui); font-size: .88rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      padding: 8px 10px; color: var(--text); background: var(--bg);
+      transition: border-color .15s;
+      resize: vertical;
+    }
+    .field input:focus, .field textarea:focus, .field select:focus {
+      outline: none; border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(107,79,187,.12);
+    }
+    .field textarea { min-height: 90px; }
+    .field textarea.code { font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .8rem; min-height: 120px; }
+    .field textarea.html-content { min-height: 280px; }
+
+    .char-count { font-size: .72rem; color: var(--muted); text-align: right; margin-top: 2px; }
+    .char-count.warn { color: var(--warning); font-weight: 700; }
+    .char-count.over { color: var(--danger); font-weight: 700; }
+
+    .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .section-title {
+      font-size: .7rem; text-transform: uppercase; letter-spacing: 1px;
+      color: var(--muted); font-weight: 700; padding: 10px 0 4px;
+      border-bottom: 1px solid var(--border); margin-bottom: 2px;
+    }
+
+    /* status badge */
+    .status-row { display: flex; gap: 8px; }
+    .status-pill {
+      padding: 5px 12px; border-radius: 20px; font-size: .8rem; font-weight: 700;
+      cursor: pointer; border: 2px solid transparent; transition: all .15s;
+    }
+    .status-pill.published  { background: #dcfce7; color: #15803d; border-color: #86efac; }
+    .status-pill.draft      { background: #fef9c3; color: #854d0e; border-color: #fde047; }
+    .status-pill.scheduled  { background: #e0e7ff; color: #3730a3; border-color: #a5b4fc; }
+    .status-pill.active { box-shadow: 0 0 0 2px var(--accent); }
+
+    /* tags editor */
+    .tags-container {
+      display: flex; flex-wrap: wrap; gap: 6px; padding: 6px;
+      border: 1px solid var(--border); border-radius: 7px; background: var(--bg);
+      cursor: text;
+    }
+    .tag-chip {
+      background: var(--accent-light); color: var(--accent);
+      border-radius: 20px; padding: 3px 10px; font-size: .8rem; font-weight: 600;
+      display: flex; align-items: center; gap: 5px;
+    }
+    .tag-chip button {
+      background: none; border: none; cursor: pointer; color: var(--accent);
+      font-size: .9rem; line-height: 1; padding: 0; opacity: .7;
+    }
+    .tag-chip button:hover { opacity: 1; }
+    #tag-input {
+      border: none; background: transparent; outline: none;
+      font-family: var(--font-ui); font-size: .85rem; min-width: 80px; flex: 1;
+    }
+
+    /* keypoints */
+    .keypoints-list { display: flex; flex-direction: column; gap: 6px; }
+    .keypoint-item { display: flex; gap: 6px; align-items: flex-start; }
+    .keypoint-item input {
+      flex: 1; font-family: var(--font-ui); font-size: .85rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      padding: 7px 10px; background: var(--bg); color: var(--text);
+    }
+    .keypoint-item input:focus { outline: none; border-color: var(--accent); }
+    .kp-num {
+      width: 22px; height: 22px; border-radius: 50%; background: var(--accent-light);
+      color: var(--accent); font-size: .75rem; font-weight: 700; margin-top: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .kp-del {
+      background: none; border: none; cursor: pointer; color: #ccc;
+      font-size: 1rem; margin-top: 7px; transition: color .1s;
+    }
+    .kp-del:hover { color: var(--danger); }
+
+    /* panel actions */
+    .panel-actions {
+      position: sticky; bottom: 0; background: var(--panel);
+      border-top: 1px solid var(--border); padding: 12px 16px;
+      display: flex; gap: 8px;
+    }
+
+    /* ── RIGHT: PREVIEW PANEL ── */
+    .preview-panel {
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .preview-toolbar {
+      background: var(--panel); border-bottom: 1px solid var(--border);
+      padding: 8px 20px; display: flex; align-items: center; gap: 10px;
+      position: sticky; top: 0; z-index: 10; flex-shrink: 0;
+    }
+    .preview-toolbar span { font-size: .82rem; color: var(--muted); font-weight: 600; }
+    .tab-btn {
+      padding: 5px 12px; border-radius: 6px; font-size: .82rem; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--border); background: transparent;
+      color: var(--muted); transition: all .15s; font-family: var(--font-ui);
+    }
+    .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+
+    .preview-content { padding: 32px 48px; max-width: 800px; margin: 0 auto; width: 100%; }
+
+    /* Article preview styling */
+    .article-meta { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+    .meta-chip {
+      font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent);
+    }
+    .meta-chip.cat { background: #fce7f3; color: #9d174d; }
+    .meta-chip.date { background: #f0fdf4; color: #15803d; }
+    .meta-chip.time { background: #fff7ed; color: #c2410c; }
+    .meta-chip.status-published { background: #dcfce7; color: #15803d; }
+    .meta-chip.status-draft { background: #fef9c3; color: #854d0e; }
+    .meta-chip.status-scheduled { background: #e0e7ff; color: #3730a3; }
+
+    .preview-content h1 { font-size: 1.9rem; font-family: var(--font-body); line-height: 1.25; margin-bottom: 16px; }
+    .preview-excerpt { font-size: 1.05rem; color: var(--muted); font-family: var(--font-body); line-height: 1.6; margin-bottom: 20px; border-left: 3px solid var(--accent); padding-left: 14px; }
+
+    .preview-image { width: 100%; max-height: 360px; object-fit: cover; border-radius: 12px; margin-bottom: 24px; }
+
+    .keypoints-box {
+      background: var(--accent-light); border-radius: 12px; padding: 18px 20px; margin-bottom: 24px;
+    }
+    .keypoints-box h4 { font-size: .8rem; text-transform: uppercase; letter-spacing: .8px; color: var(--accent); margin-bottom: 10px; }
+    .keypoints-box ul { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .keypoints-box li { display: flex; gap: 8px; font-size: .9rem; line-height: 1.4; }
+    .keypoints-box li::before { content: '✓'; color: var(--accent); font-weight: 800; flex-shrink: 0; }
+
+    .article-body { font-family: var(--font-body); font-size: 1rem; line-height: 1.75; color: var(--text); }
+    .article-body h2 { font-size: 1.35rem; margin: 1.6em 0 .6em; color: var(--text); }
+    .article-body h3 { font-size: 1.1rem; margin: 1.2em 0 .4em; }
+    .article-body p { margin-bottom: 1em; }
+    .article-body ul, .article-body ol { margin: .5em 0 1em 1.4em; }
+    .article-body li { margin-bottom: .4em; }
+    .article-body blockquote {
+      margin: 1.5em 0; padding: 14px 20px;
+      border-left: 4px solid var(--accent); background: var(--accent-light);
+      font-style: italic; border-radius: 0 8px 8px 0;
+    }
+    .article-body strong { font-weight: 700; }
+    .article-body a { color: var(--accent); text-decoration: underline; }
+    .article-body .ref-link { color: #16a34a; }
+
+    .tags-display { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 28px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .tags-display span { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 3px 10px; font-size: .78rem; color: var(--muted); }
+
+    .meta-seo {
+      margin-top: 20px; padding: 14px 16px; background: #f0fdf4; border-radius: 10px;
+      border: 1px solid #bbf7d0;
+    }
+    .meta-seo h4 { font-size: .75rem; text-transform: uppercase; letter-spacing: .6px; color: #15803d; margin-bottom: 8px; }
+    .meta-seo p { font-size: .82rem; color: #166534; line-height: 1.5; }
+    .seo-len { font-size: .72rem; margin-top: 4px; }
+
+    /* JSON preview */
+    .json-view {
+      padding: 20px; background: #1e1e2e;
+      color: #cdd6f4; border-radius: var(--radius);
+      font-family: 'Cascadia Code', 'Fira Code', monospace; font-size: .8rem;
+      line-height: 1.6; white-space: pre-wrap; word-break: break-word;
+    }
+
+    /* empty state */
+    .empty-state {
+      flex: 1; display: flex; flex-direction: column; align-items: center;
+      justify-content: center; gap: 12px; color: var(--muted); padding: 40px;
+      text-align: center;
+    }
+    .empty-state svg { width: 64px; height: 64px; opacity: .3; }
+    .empty-state h2 { font-size: 1.1rem; font-weight: 700; }
+    .empty-state p { font-size: .88rem; max-width: 320px; line-height: 1.5; }
+
+    /* toast */
+    #toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #1a1a1a; color: white; padding: 10px 18px;
+      border-radius: 8px; font-size: .85rem; font-weight: 600;
+      display: none; box-shadow: 0 4px 14px rgba(0,0,0,.3);
+    }
+    #toast.show { display: block; animation: fadeUp .2s ease; }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: none; } }
+
+    /* scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+    ::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+
+    .hidden { display: none !important; }
+
+    /* corrections highlight (spellcheck) */
+    [contenteditable] { outline: none; }
+  </style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<header>
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+  <h1>Éditeur d'articles — Oui Psycho!</h1>
+  <span id="header-slug"></span>
+  <div class="spacer"></div>
+  <button class="btn btn-ghost btn-sm" id="btn-new">✕ Vider</button>
+  <button class="btn btn-white btn-sm" id="btn-export" disabled>⬇ Exporter JSON</button>
+</header>
+
+<!-- WORKSPACE -->
+<div class="workspace">
+
+  <!-- LEFT: FORM -->
+  <div class="form-panel">
+    <!-- Drop zone -->
+    <div class="drop-zone" id="drop-zone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin:0 auto 8px;display:block">
+        <path d="M12 16V4m0 0L8 8m4-4 4 4M4 20h16"/>
+      </svg>
+      <p>Glisser un fichier JSON ici</p>
+      <small>ou</small><br>
+      <button class="btn btn-accent btn-sm" style="margin-top:8px" onclick="document.getElementById('file-input').click()">Choisir un fichier</button>
+      <br><br>
+      <small style="color:var(--muted)">ou coller du JSON ci-dessous</small>
+      <textarea id="paste-json" placeholder='{"id":"…","title":"…"}' style="margin-top:8px;width:100%;height:80px;font-family:monospace;font-size:.78rem;border:1px solid var(--border);border-radius:6px;padding:6px 8px;background:var(--bg);resize:vertical"></textarea>
+      <button class="btn btn-ghost btn-sm" style="margin-top:6px;background:var(--accent);color:white" onclick="loadFromPaste()">Charger le JSON</button>
+      <input type="file" id="file-input" accept=".json">
+    </div>
+
+    <!-- Fields (hidden until article loaded) -->
+    <div class="form-body hidden" id="form-body">
+      <div class="section-title">📋 Identité</div>
+
+      <div class="field">
+        <label>ID / Slug</label>
+        <input type="text" id="f-id" placeholder="slug-de-larticle" oninput="syncPreview()">
+      </div>
+
+      <div class="field">
+        <label>Titre <span class="badge">H1</span></label>
+        <input type="text" id="f-title" placeholder="Titre complet de l'article" oninput="syncPreview(); countChars(this, 80)">
+        <div class="char-count" id="cc-title"></div>
+      </div>
+
+      <div class="field">
+        <label>Accroche <span class="badge">Excerpt</span></label>
+        <textarea id="f-excerpt" rows="3" placeholder="2-3 phrases qui donnent envie de lire…" oninput="syncPreview(); countChars(this, 200)"></textarea>
+        <div class="char-count" id="cc-excerpt"></div>
+      </div>
+
+      <div class="field">
+        <label>Meta description <span class="badge">SEO</span></label>
+        <textarea id="f-meta" rows="2" placeholder="140-160 caractères. Mot-clé principal en début." oninput="syncPreview(); countChars(this, 160, 140)"></textarea>
+        <div class="char-count" id="cc-meta"></div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Catégorie</label>
+          <select id="f-category" onchange="syncPreview()">
+            <option>Anxiété</option>
+            <option>Dépression</option>
+            <option>Relations</option>
+            <option>Thérapies</option>
+            <option>Sommeil</option>
+            <option>Travail</option>
+            <option>Parentalité</option>
+            <option>Émotions</option>
+            <option>Phobies</option>
+            <option>Neurosciences</option>
+            <option>Société</option>
+            <option>Bien-être</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Temps de lecture (min)</label>
+          <input type="number" id="f-readtime" min="1" max="60" oninput="syncPreview()">
+        </div>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Date de publication</label>
+          <input type="date" id="f-date" oninput="syncPreview()">
+        </div>
+        <div class="field">
+          <label>Dernière modif.</label>
+          <input type="date" id="f-datemod" oninput="syncPreview()">
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Auteur</label>
+        <input type="text" id="f-author" oninput="syncPreview()">
+      </div>
+
+      <div class="field">
+        <label>Statut</label>
+        <div class="status-row">
+          <span class="status-pill published" data-val="published" onclick="setStatus('published')">✓ Publié</span>
+          <span class="status-pill draft"     data-val="draft"     onclick="setStatus('draft')">✎ Brouillon</span>
+          <span class="status-pill scheduled" data-val="scheduled" onclick="setStatus('scheduled')">⏰ Planifié</span>
+        </div>
+        <input type="hidden" id="f-status" value="published">
+      </div>
+
+      <div class="section-title">🖼 Image</div>
+
+      <div class="field">
+        <label>URL Image</label>
+        <input type="text" id="f-image" placeholder="https://res.cloudinary.com/…" oninput="syncPreview()">
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label>Position</label>
+          <input type="text" id="f-imgpos" placeholder="50% 50%" oninput="syncPreview()">
+        </div>
+        <div class="field">
+          <label>Layout</label>
+          <select id="f-imglayout" onchange="syncPreview()">
+            <option value="top">top</option>
+            <option value="full">full</option>
+            <option value="side">side</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-title">✅ Points clés</div>
+
+      <div class="keypoints-list" id="keypoints-list"></div>
+      <button class="btn btn-ghost btn-sm" style="align-self:flex-start;background:var(--accent-light);color:var(--accent)" onclick="addKeypoint('')">+ Ajouter un point</button>
+
+      <div class="section-title">🏷 Tags</div>
+
+      <div class="field">
+        <div class="tags-container" id="tags-container" onclick="document.getElementById('tag-input').focus()">
+          <input type="text" id="tag-input" placeholder="Ajouter un tag + Entrée" onkeydown="handleTagInput(event)">
+        </div>
+      </div>
+
+      <div class="section-title">📝 Contenu HTML</div>
+
+      <div class="field">
+        <label>Contenu <span class="badge">HTML</span></label>
+        <textarea id="f-content" class="code html-content" spellcheck="false" oninput="syncPreview()"></textarea>
+      </div>
+
+    </div><!-- /form-body -->
+
+    <div class="panel-actions hidden" id="panel-actions">
+      <button class="btn btn-green" style="flex:1" onclick="exportJSON()">⬇ Exporter JSON corrigé</button>
+      <button class="btn btn-accent" onclick="copyJSON()">⎘ Copier</button>
+    </div>
+  </div><!-- /form-panel -->
+
+  <!-- RIGHT: PREVIEW -->
+  <div class="preview-panel">
+    <div class="preview-toolbar">
+      <span>Prévisualisation</span>
+      <button class="tab-btn active" id="tab-article" onclick="switchTab('article')">Article</button>
+      <button class="tab-btn" id="tab-json" onclick="switchTab('json')">JSON</button>
+      <div class="spacer"></div>
+      <button class="btn btn-sm" style="background:var(--bg);border:1px solid var(--border)" onclick="window.print()">🖨 Imprimer</button>
+    </div>
+
+    <!-- Empty state -->
+    <div class="empty-state" id="empty-state">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M9 12h6M9 16h6M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+      </svg>
+      <h2>Aucun article chargé</h2>
+      <p>Glissez un fichier JSON ou collez votre JSON dans le panneau de gauche pour commencer.</p>
+    </div>
+
+    <!-- Article preview -->
+    <div class="preview-content hidden" id="preview-article">
+      <div class="article-meta" id="prev-meta"></div>
+      <h1 id="prev-title"></h1>
+      <p class="preview-excerpt" id="prev-excerpt"></p>
+      <img id="prev-img" class="preview-image hidden" alt="">
+      <div class="keypoints-box hidden" id="prev-kp">
+        <h4>À retenir</h4>
+        <ul id="prev-kp-list"></ul>
+      </div>
+      <div class="article-body" id="prev-body"></div>
+      <div class="tags-display" id="prev-tags"></div>
+      <div class="meta-seo" id="prev-seo">
+        <h4>🔍 Meta description (SEO)</h4>
+        <p id="prev-meta-desc"></p>
+        <p class="seo-len" id="prev-seo-len"></p>
+      </div>
+    </div>
+
+    <!-- JSON view -->
+    <div class="hidden" id="preview-json" style="padding:20px">
+      <pre class="json-view" id="json-output"></pre>
+    </div>
+
+  </div><!-- /preview-panel -->
+</div><!-- /workspace -->
+
+<div id="toast"></div>
+
+<script>
+  // ── STATE ──
+  let currentTags = [];
+  let currentStatus = 'published';
+  let activeTab = 'article';
+  let articleLoaded = false;
+
+  // ── FILE HANDLING ──
+  const dropZone = document.getElementById('drop-zone');
+
+  dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('dragover'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('dragover'));
+  dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    const file = e.dataTransfer.files[0];
+    if (file) readFile(file);
+  });
+
+  document.getElementById('file-input').addEventListener('change', e => {
+    if (e.target.files[0]) readFile(e.target.files[0]);
+  });
+
+  function readFile(file) {
+    const reader = new FileReader();
+    reader.onload = ev => loadJSON(ev.target.result);
+    reader.readAsText(file);
+  }
+
+  function loadFromPaste() {
+    const txt = document.getElementById('paste-json').value.trim();
+    if (!txt) { toast('❌ Aucun JSON à charger'); return; }
+    loadJSON(txt);
+  }
+
+  function loadJSON(text) {
+    try {
+      const data = JSON.parse(text);
+      fillForm(data);
+      toast('✅ Article chargé : ' + (data.title || data.id || ''));
+    } catch(e) {
+      toast('❌ JSON invalide : ' + e.message);
+    }
+  }
+
+  // ── FILL FORM ──
+  function fillForm(d) {
+    document.getElementById('f-id').value       = d.id || '';
+    document.getElementById('f-title').value    = d.title || '';
+    document.getElementById('f-excerpt').value  = d.excerpt || '';
+    document.getElementById('f-meta').value     = d.metaDescription || '';
+    document.getElementById('f-author').value   = d.author || 'La rédaction Oui Psycho!';
+    document.getElementById('f-date').value     = d.date || '';
+    document.getElementById('f-datemod').value  = d.date_modified || '';
+    document.getElementById('f-readtime').value = d.readTime || 5;
+    document.getElementById('f-image').value    = d.image || '';
+    document.getElementById('f-imgpos').value   = d.imagePosition || '50% 50%';
+    document.getElementById('f-content').value  = d.content || '';
+
+    // category
+    const catSel = document.getElementById('f-category');
+    for (let i = 0; i < catSel.options.length; i++) {
+      if (catSel.options[i].value === d.category) { catSel.selectedIndex = i; break; }
+    }
+
+    // image layout
+    const layoutSel = document.getElementById('f-imglayout');
+    for (let i = 0; i < layoutSel.options.length; i++) {
+      if (layoutSel.options[i].value === d.imageLayout) { layoutSel.selectedIndex = i; break; }
+    }
+
+    // status
+    setStatus(d.status || 'published');
+
+    // tags
+    currentTags = Array.isArray(d.tags) ? [...d.tags] : [];
+    renderTags();
+
+    // keypoints
+    document.getElementById('keypoints-list').innerHTML = '';
+    (d.keypoints || []).forEach(kp => addKeypoint(kp));
+
+    // show form
+    articleLoaded = true;
+    document.getElementById('form-body').classList.remove('hidden');
+    document.getElementById('panel-actions').classList.remove('hidden');
+    document.getElementById('drop-zone').style.display = 'none';
+    document.getElementById('empty-state').classList.add('hidden');
+    document.getElementById('preview-article').classList.remove('hidden');
+    document.getElementById('btn-export').disabled = false;
+    document.getElementById('header-slug').textContent = d.id || '';
+
+    // char counts
+    countChars(document.getElementById('f-title'), 80);
+    countChars(document.getElementById('f-excerpt'), 200);
+    countChars(document.getElementById('f-meta'), 160, 140);
+
+    syncPreview();
+  }
+
+  // ── STATUS ──
+  function setStatus(val) {
+    currentStatus = val;
+    document.getElementById('f-status').value = val;
+    document.querySelectorAll('.status-pill').forEach(p => {
+      p.classList.toggle('active', p.dataset.val === val);
+    });
+    syncPreview();
+  }
+
+  // ── TAGS ──
+  function renderTags() {
+    const container = document.getElementById('tags-container');
+    // remove old chips
+    container.querySelectorAll('.tag-chip').forEach(c => c.remove());
+    const input = document.getElementById('tag-input');
+    currentTags.forEach((tag, i) => {
+      const chip = document.createElement('span');
+      chip.className = 'tag-chip';
+      chip.innerHTML = `${tag} <button onclick="removeTag(${i})">×</button>`;
+      container.insertBefore(chip, input);
+    });
+    syncPreview();
+  }
+
+  function removeTag(i) {
+    currentTags.splice(i, 1);
+    renderTags();
+  }
+
+  function handleTagInput(e) {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      const val = e.target.value.trim().replace(/,$/, '');
+      if (val && !currentTags.includes(val)) {
+        currentTags.push(val);
+        renderTags();
+      }
+      e.target.value = '';
+    } else if (e.key === 'Backspace' && e.target.value === '' && currentTags.length > 0) {
+      currentTags.pop();
+      renderTags();
+    }
+  }
+
+  // ── KEYPOINTS ──
+  function addKeypoint(text) {
+    const list = document.getElementById('keypoints-list');
+    const idx = list.children.length + 1;
+    const div = document.createElement('div');
+    div.className = 'keypoint-item';
+    div.innerHTML = `
+      <span class="kp-num">${idx}</span>
+      <input type="text" value="${escAttr(text)}" placeholder="Point clé ${idx}…" oninput="syncPreview(); renumberKeypoints()">
+      <button class="kp-del" onclick="this.parentElement.remove(); renumberKeypoints(); syncPreview()">✕</button>
+    `;
+    list.appendChild(div);
+    syncPreview();
+  }
+
+  function renumberKeypoints() {
+    document.querySelectorAll('#keypoints-list .kp-num').forEach((el, i) => { el.textContent = i + 1; });
+  }
+
+  function getKeypoints() {
+    return Array.from(document.querySelectorAll('#keypoints-list input'))
+      .map(i => i.value.trim()).filter(Boolean);
+  }
+
+  // ── CHAR COUNT ──
+  function countChars(el, max, min) {
+    const id = 'cc-' + el.id.replace('f-', '');
+    const cc = document.getElementById(id);
+    if (!cc) return;
+    const n = el.value.length;
+    cc.textContent = `${n} / ${max} caractères${min ? ` (min. ${min})` : ''}`;
+    cc.className = 'char-count' + (n > max ? ' over' : (min && n < min && n > 0 ? ' warn' : ''));
+  }
+
+  // ── BUILD DATA ──
+  function buildData() {
+    return {
+      id:              document.getElementById('f-id').value.trim(),
+      title:           document.getElementById('f-title').value,
+      excerpt:         document.getElementById('f-excerpt').value,
+      metaDescription: document.getElementById('f-meta').value,
+      author:          document.getElementById('f-author').value,
+      date:            document.getElementById('f-date').value,
+      ...(document.getElementById('f-datemod').value ? { date_modified: document.getElementById('f-datemod').value } : {}),
+      category:        document.getElementById('f-category').value,
+      image:           document.getElementById('f-image').value,
+      imagePosition:   document.getElementById('f-imgpos').value,
+      imageZoom:       1,
+      imageGravity:    'none',
+      imageLayout:     document.getElementById('f-imglayout').value,
+      readTime:        parseInt(document.getElementById('f-readtime').value) || 5,
+      tags:            currentTags,
+      keypoints:       getKeypoints(),
+      content:         document.getElementById('f-content').value,
+      status:          currentStatus,
+    };
+  }
+
+  // ── SYNC PREVIEW ──
+  function syncPreview() {
+    if (!articleLoaded) return;
+    const d = buildData();
+
+    // header slug
+    document.getElementById('header-slug').textContent = d.id;
+
+    if (activeTab === 'article') renderArticle(d);
+    else renderJSON(d);
+  }
+
+  function renderArticle(d) {
+    // meta chips
+    const statusCls = { published: 'status-published', draft: 'status-draft', scheduled: 'status-scheduled' };
+    const statusLabel = { published: '✓ Publié', draft: '✎ Brouillon', scheduled: '⏰ Planifié' };
+    document.getElementById('prev-meta').innerHTML = `
+      <span class="meta-chip cat">${d.category}</span>
+      <span class="meta-chip date">${formatDate(d.date)}</span>
+      <span class="meta-chip time">⏱ ${d.readTime} min</span>
+      <span class="meta-chip ${statusCls[d.status] || ''}">${statusLabel[d.status] || d.status}</span>
+    `;
+
+    document.getElementById('prev-title').textContent   = d.title || '—';
+    document.getElementById('prev-excerpt').textContent = d.excerpt || '';
+
+    // image
+    const img = document.getElementById('prev-img');
+    if (d.image) {
+      img.src = d.image;
+      img.style.objectPosition = d.imagePosition || '50% 50%';
+      img.classList.remove('hidden');
+    } else {
+      img.classList.add('hidden');
+    }
+
+    // keypoints
+    const kpBox = document.getElementById('prev-kp');
+    const kpList = document.getElementById('prev-kp-list');
+    if (d.keypoints && d.keypoints.length) {
+      kpList.innerHTML = d.keypoints.map(k => `<li>${k}</li>`).join('');
+      kpBox.classList.remove('hidden');
+    } else {
+      kpBox.classList.add('hidden');
+    }
+
+    // content
+    document.getElementById('prev-body').innerHTML = d.content || '';
+
+    // tags
+    document.getElementById('prev-tags').innerHTML = d.tags.map(t => `<span>#${t}</span>`).join('');
+
+    // SEO
+    const meta = d.metaDescription || '';
+    document.getElementById('prev-meta-desc').textContent = meta || '—';
+    const seoLen = document.getElementById('prev-seo-len');
+    const n = meta.length;
+    seoLen.textContent = `${n} caractères${n < 140 ? ' — trop court (min. 140)' : n > 160 ? ' — trop long (max. 160)' : ' ✓'}`;
+    seoLen.style.color = n < 140 || n > 160 ? 'var(--warning)' : 'var(--success)';
+  }
+
+  function renderJSON(d) {
+    document.getElementById('json-output').textContent = JSON.stringify(d, null, 2);
+  }
+
+  // ── TABS ──
+  function switchTab(tab) {
+    activeTab = tab;
+    document.getElementById('tab-article').classList.toggle('active', tab === 'article');
+    document.getElementById('tab-json').classList.toggle('active', tab === 'json');
+    document.getElementById('preview-article').classList.toggle('hidden', tab !== 'article');
+    document.getElementById('preview-json').classList.toggle('hidden', tab !== 'json');
+    syncPreview();
+  }
+
+  // ── EXPORT ──
+  function exportJSON() {
+    const d = buildData();
+    const blob = new Blob([JSON.stringify(d, null, 2)], { type: 'application/json' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = (d.id || 'article') + '.json';
+    a.click();
+    toast('✅ JSON exporté : ' + a.download);
+  }
+
+  document.getElementById('btn-export').addEventListener('click', exportJSON);
+
+  function copyJSON() {
+    const d = buildData();
+    navigator.clipboard.writeText(JSON.stringify(d, null, 2)).then(() => toast('⎘ JSON copié dans le presse-papiers'));
+  }
+
+  // ── RESET ──
+  document.getElementById('btn-new').addEventListener('click', () => {
+    if (!articleLoaded || confirm('Vider le formulaire ?')) {
+      articleLoaded = false;
+      document.getElementById('form-body').classList.add('hidden');
+      document.getElementById('panel-actions').classList.add('hidden');
+      document.getElementById('drop-zone').style.display = '';
+      document.getElementById('empty-state').classList.remove('hidden');
+      document.getElementById('preview-article').classList.add('hidden');
+      document.getElementById('preview-json').classList.add('hidden');
+      document.getElementById('btn-export').disabled = true;
+      document.getElementById('header-slug').textContent = '';
+      document.getElementById('paste-json').value = '';
+      currentTags = [];
+    }
+  });
+
+  // ── UTILS ──
+  function formatDate(str) {
+    if (!str) return '—';
+    const d = new Date(str);
+    return d.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+  }
+
+  function escAttr(s) {
+    return (s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  function toast(msg, duration = 2800) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.classList.add('show');
+    setTimeout(() => el.classList.remove('show'), duration);
+  }
+
+  // Keyboard shortcut: Ctrl+S → export
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === 's') {
+      e.preventDefault();
+      if (articleLoaded) exportJSON();
+    }
+  });
+</script>
+</body>
+</html>

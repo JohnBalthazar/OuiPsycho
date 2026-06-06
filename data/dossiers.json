@@ -1,0 +1,16 @@
+[
+  {
+    "id": "anxiete-guide-complet",
+    "type": "dossier",
+    "title": "L'anxiété : comprendre et surmonter",
+    "subtitle": "Le guide complet en 5 chapitres",
+    "excerpt": "15 millions de Français touchés, pourtant si mal compris. De la neurobiologie aux thérapies validées, ce dossier vous donne toutes les clés pour comprendre l'anxiété — et en sortir.",
+    "category": "Anxiété",
+    "image": "",
+    "readTime": 25,
+    "chapterCount": 5,
+    "date": "2026-06-10",
+    "status": "published",
+    "tags": ["anxiété", "stress", "TCC", "thérapie", "bien-être", "phobies", "TAG"]
+  }
+]

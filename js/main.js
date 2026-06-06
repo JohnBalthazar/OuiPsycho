@@ -205,6 +205,7 @@ async function initHome() {
     buildCategoryFilter();
     syncCatNavFromUrl();
     loadPopularArticles();
+    loadDossierSection();
 
   } catch (_) {
     grid.innerHTML = `
@@ -1267,6 +1268,8 @@ document.addEventListener('DOMContentLoaded', () => {
   injectNewsletterConsent(); // RGPD : injecte la case sur toutes les pages
   if (document.getElementById('articles-grid'))  initHome();
   if (document.getElementById('article-content')) initArticle();
+  if (document.getElementById('dossier-list-grid')) initDossierList();
+  if (document.getElementById('dossier-content'))   initDossierPage();
 
   // Fallback : insère une espace insécable avant le dernier mot des titres
   // pour éviter la ponctuation orpheline (complète text-wrap:balance)
@@ -1426,3 +1429,265 @@ function _nlMsg(text, type) {
   el.style.color = type === 'error' ? '#ffb3a7' : '#a8e6cf';
   el.style.display = 'block';
 }
+
+/* ============================================================
+   DOSSIERS
+   ============================================================ */
+
+function dossierUrl(id) {
+  return `dossiers/${esc(id)}/`;
+}
+
+/** Carte dossier (home + listing) */
+function renderDossierCard(d) {
+  const cat = CATEGORIES[d.category] || {};
+  const imgStyle = d.image
+    ? `background-image:url('${esc(d.image)}');background-size:cover;background-position:center`
+    : '';
+  return `
+    <a href="${dossierUrl(d.id)}" class="dossier-card">
+      <div class="dossier-card__img" style="${imgStyle}">
+        ${!d.image ? '<span class="dossier-card__emoji">📚</span>' : ''}
+        <span class="dossier-card__label">Dossier</span>
+      </div>
+      <div class="dossier-card__body">
+        <span class="badge" style="color:${cat.color||'var(--color-primary)'};background:${cat.bg||'var(--color-primary-light)'}">${esc(d.category || 'Général')}</span>
+        <h3 class="dossier-card__title">${esc(d.title)}</h3>
+        ${d.subtitle ? `<p class="dossier-card__subtitle">${esc(d.subtitle)}</p>` : ''}
+        <p class="dossier-card__excerpt">${esc(d.excerpt || '')}</p>
+        <div class="dossier-card__meta">
+          <span>📖 ${d.chapterCount || d.chapters?.length || 0} chapitres</span>
+          <span>•</span>
+          <span>⏱ ${d.readTime || 20} min</span>
+        </div>
+      </div>
+    </a>`;
+}
+
+/** Section dossiers sur la page d'accueil */
+async function loadDossierSection() {
+  const section = document.getElementById('dossier-section');
+  const grid    = document.getElementById('dossier-grid');
+  if (!section || !grid) return;
+
+  try {
+    const res = await fetch('data/dossiers.json');
+    if (!res.ok) return;
+    const dossiers = await res.json();
+    const today = new Date().toISOString().split('T')[0];
+    const published = dossiers
+      .filter(d => d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today))
+      .slice(0, 3);
+    if (!published.length) return;
+    grid.innerHTML = published.map(renderDossierCard).join('');
+    section.style.display = 'block';
+  } catch (_) {}
+}
+
+/** Page listing de tous les dossiers */
+async function initDossierList() {
+  const grid = document.getElementById('dossier-list-grid');
+  if (!grid) return;
+
+  grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">⏳</div><p>Chargement…</p></div>';
+
+  try {
+    const res = await fetch('data/dossiers.json');
+    if (!res.ok) throw new Error('dossiers.json introuvable');
+    const dossiers = await res.json();
+    const today = new Date().toISOString().split('T')[0];
+    const published = dossiers.filter(d =>
+      d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today)
+    );
+    if (!published.length) {
+      grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">🌱</div><p>Les dossiers arrivent bientôt !</p></div>';
+      return;
+    }
+    grid.innerHTML = published.map(renderDossierCard).join('');
+  } catch (_) {
+    grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">🔍</div><p>Impossible de charger les dossiers.</p></div>';
+  }
+}
+
+/** Page individuelle d'un dossier */
+async function initDossierPage() {
+  const container = document.getElementById('dossier-content');
+  if (!container) return;
+
+  // Page statique pré-générée
+  if (container.dataset.static === 'true') {
+    const id = container.dataset.id;
+    try {
+      const res = await fetch(`dossiers/${encodeURIComponent(id)}.json`);
+      if (res.ok) {
+        const dossier = await res.json();
+        buildDossierTOC(dossier);
+        initShareButtons(dossier);
+        loadRelated(dossier);
+        loadPopularArticles();
+        trackPageView('dossier-' + id);
+      }
+    } catch (_) {}
+    return;
+  }
+
+  // Rendu dynamique depuis ?id=SLUG
+  const id = getParam('id');
+  if (!id) { window.location.href = '404.html'; return; }
+
+  try {
+    const res = await fetch(`dossiers/${encodeURIComponent(id)}.json`);
+    if (!res.ok) throw new Error('Dossier non trouvé');
+    const dossier = await res.json();
+
+    document.title = `${dossier.title} — Dossier — ${CONFIG.siteName}`;
+    setMeta('name',     'description',    dossier.metaDescription || dossier.excerpt || '');
+    setMeta('property', 'og:title',       dossier.title + ' — Dossier');
+    setMeta('property', 'og:description', dossier.metaDescription || dossier.excerpt || '');
+    setMeta('property', 'og:url',         window.location.href);
+    if (dossier.image) setMeta('property', 'og:image', dossier.image);
+    setMeta('name', 'robots', 'index, follow');
+
+    container.innerHTML = buildDossierHTML(dossier);
+    buildDossierTOC(dossier);
+    initShareButtons(dossier);
+    loadRelated(dossier);
+    loadPopularArticles();
+    trackPageView('dossier-' + id);
+
+    // JSON-LD
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify({
+      '@context': 'https://schema.org', '@type': 'Article',
+      headline: dossier.title,
+      description: dossier.metaDescription || dossier.excerpt || '',
+      datePublished: dossier.date,
+      inLanguage: 'fr',
+      author: { '@type': 'Person', name: dossier.author || 'La rédaction Oui Psycho!' },
+      publisher: { '@type': 'Organization', name: CONFIG.siteName, url: CONFIG.siteUrl },
+      mainEntityOfPage: { '@type': 'WebPage', '@id': window.location.href },
+      ...(dossier.image ? { image: dossier.image } : {}),
+    });
+    document.head.appendChild(s);
+
+  } catch (_) {
+    window.location.href = '404.html';
+  }
+}
+
+/** Construit le HTML complet d'un dossier */
+function buildDossierHTML(d) {
+  const keypoints = d.keypoints?.length ? `
+    <div class="article-keypoints">
+      <div class="article-keypoints__title">💡 Ce que vous allez apprendre</div>
+      <ul>${d.keypoints.map(k => `<li>${esc(k)}</li>`).join('')}</ul>
+    </div>` : '';
+
+  const intro = d.intro ? `<div class="dossier-intro">${d.intro}</div>` : '';
+
+  const chapters = (d.chapters || []).map(ch => `
+    <section class="dossier-chapter article-body" id="chapitre-${esc(ch.id)}">
+      <div class="dossier-chapter__header">
+        <span class="dossier-chapter__num">${String(ch.number).padStart(2, '0')}</span>
+        <div class="dossier-chapter__title-block">
+          <div class="dossier-chapter__label">Chapitre ${ch.number}</div>
+          <h2 class="dossier-chapter__title">${esc(ch.title)}</h2>
+        </div>
+      </div>
+      ${ch.content || ''}
+    </section>`).join('');
+
+  const sources = d.sources?.length ? `
+    <div class="dossier-sources">
+      <div class="dossier-sources__title">📚 Sources &amp; références</div>
+      <ol class="dossier-sources__list">
+        ${d.sources.map(s => `
+          <li>
+            <cite>${esc(s.authors)} (${esc(s.year)}). <em>${esc(s.title)}</em>
+            ${s.journal ? `. ${esc(s.journal)}` : ''}
+            ${s.publisher ? `. ${esc(s.publisher)}` : ''}</cite>
+            ${s.url ? ` — <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Lien</a>` : ''}
+          </li>`).join('')}
+      </ol>
+    </div>` : '';
+
+  const cat = CATEGORIES[d.category] || {};
+
+  return `
+    <header class="article-header">
+      <nav class="breadcrumb" aria-label="Fil d'Ariane">
+        <a href="index.html">Accueil</a> <span>›</span>
+        <a href="dossiers.html">Dossiers</a>
+        <span>›</span> <span>${esc(d.title)}</span>
+      </nav>
+      <span class="dossier-badge">Dossier</span>
+      <span class="badge" style="color:${cat.color||'var(--color-primary)'};background:${cat.bg||'var(--color-primary-light)'}">${esc(d.category || 'Général')}</span>
+      <h1>${esc(d.title)}</h1>
+      ${d.subtitle ? `<p style="font-size:var(--fs-lg);color:var(--color-text-muted);margin-top:-var(--sp-3);margin-bottom:var(--sp-4);font-family:var(--font-heading);font-style:italic">${esc(d.subtitle)}</p>` : ''}
+      <div class="article-meta">
+        <span>Par <strong>${esc(d.author || 'La rédaction')}</strong></span>
+        <span class="article-meta-dot">•</span>
+        <time datetime="${esc(d.date_modified || d.date || '')}">${formatDate(d.date_modified || d.date)}</time>
+        <span class="article-meta-dot">•</span>
+        <span>⏱ ${d.readTime || 20} min de lecture</span>
+        <span class="article-meta-dot">•</span>
+        <span>📖 ${(d.chapters || []).length} chapitres</span>
+      </div>
+      <div class="share-top" id="share-top" aria-label="Partager ce dossier">
+        <button class="share-icon-btn share-icon-btn--fb"   data-platform="facebook" title="Facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></button>
+        <button class="share-icon-btn share-icon-btn--tw"   data-platform="twitter"  title="X / Twitter" aria-label="X"><svg viewBox="0 0 24 24" width="17" height="17" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></button>
+        <button class="share-icon-btn share-icon-btn--copy" data-platform="copy"     title="Copier le lien" aria-label="Copier"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></button>
+      </div>
+      ${d.image ? `<div class="article-hero-image"><img src="${esc(d.image)}" alt="${esc(d.title)}" loading="lazy"></div>` : ''}
+    </header>
+
+    ${keypoints}
+    ${intro}
+    ${chapters}
+    ${sources}
+
+    <div class="article-author">
+      <div class="article-author__avatar" aria-hidden="true">✍️</div>
+      <div>
+        <div class="article-author__name">${esc(d.author || 'La rédaction Oui Psycho!')}</div>
+        <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
+      </div>
+    </div>
+
+    <div class="article-tags" aria-label="Mots-clés">
+      ${(d.tags || []).map(t => `<span class="tag">#${esc(t)}</span>`).join('')}
+    </div>
+
+    <div class="article-share" id="share-buttons" aria-label="Partager ce dossier">
+      <span class="share-label">Partager :</span>
+      <button class="share-btn share-btn--fb"   data-platform="facebook">Facebook</button>
+      <button class="share-btn share-btn--tw"   data-platform="twitter">Twitter / X</button>
+      <button class="share-btn share-btn--wa"   data-platform="whatsapp">WhatsApp</button>
+      <button class="share-btn share-btn--copy" data-platform="copy">Copier le lien</button>
+    </div>
+
+    <aside class="article-disclaimer" role="note">
+      ⚕️ <em>Ce dossier est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+      l'avis d'un professionnel de santé. En cas de détresse, appelez le
+      <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
+    </aside>`;
+}
+
+/** Construit la table des matières dans la sidebar */
+function buildDossierTOC(dossier) {
+  const toc = document.getElementById('dossier-toc-widget');
+  if (!toc || !dossier.chapters?.length) { if (toc) toc.style.display = 'none'; return; }
+
+  const pageBase = window.location.href.split('#')[0];
+  toc.innerHTML = `
+    <h3 class="widget__title">Au sommaire</h3>
+    <nav class="dossier-toc-list" aria-label="Chapitres du dossier">
+      ${dossier.chapters.map(ch => `
+        <a href="${pageBase}#chapitre-${esc(ch.id)}" class="dossier-toc-item">
+          <span class="dossier-toc-item__num">${ch.number}</span>
+          <span>${esc(ch.title)}</span>
+        </a>`).join('')}
+    </nav>`;
+}
+

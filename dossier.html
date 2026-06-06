@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dossier — Oui Psycho!</title>
+  <meta name="description" content="">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <meta property="og:type"      content="article">
+  <meta property="og:locale"    content="fr_FR">
+  <meta property="og:site_name" content="Oui Psycho!">
+  <meta name="twitter:card"     content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link nav__link--active" href="dossiers.html">Dossiers</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== CONTENU ===== -->
+  <div class="container layout article-page">
+    <main>
+      <article id="dossier-content">
+        <!-- Injecté dynamiquement par main.js via ?id=SLUG -->
+      </article>
+    </main>
+
+    <!-- SIDEBAR -->
+    <aside aria-label="Sommaire et compléments">
+
+      <!-- Table des matières (chapitres) -->
+      <div class="widget" id="dossier-toc-widget">
+        <!-- Injecté par buildDossierTOC() -->
+      </div>
+
+      <!-- Articles liés -->
+      <div class="widget" id="related-articles">
+        <h3 class="widget__title">À lire aussi</h3>
+      </div>
+
+      <!-- Articles les plus lus -->
+      <div class="widget" id="popular-widget" style="display:none">
+        <h2 class="widget__title">🔥 Les plus lus</h2>
+        <div class="popular-list" id="popular-list"></div>
+      </div>
+
+      <!-- Newsletter -->
+      <div class="widget widget--accent" id="newsletter-widget">
+        <h2 class="widget__title">Newsletter</h2>
+        <div class="newsletter-form" id="nl-form">
+          <p>Un article par semaine pour prendre soin de votre santé mentale.</p>
+          <label for="newsletter-email" class="sr-only">Votre e-mail</label>
+          <input type="email" id="newsletter-email" class="newsletter-input" placeholder="votre@email.fr"
+            onkeydown="if(event.key==='Enter')subscribeNewsletter()">
+          <button class="btn-newsletter" type="button" id="nl-btn" onclick="subscribeNewsletter()">
+            S'abonner gratuitement
+          </button>
+          <p id="nl-msg" style="display:none;font-size:.8rem;margin-top:8px;font-weight:600"></p>
+        </div>
+      </div>
+
+    </aside>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse psychique, appelez le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Anxiété">Anxiété</a></li>
+            <li><a href="index.html?cat=Dépression">Dépression</a></li>
+            <li><a href="index.html?cat=Bien-être">Bien-être</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Thérapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <script>document.write(new Date().getFullYear())</script> Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bannière cookies -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookies">
+    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience. <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
+    <div class="cookie-buttons">
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
+      <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

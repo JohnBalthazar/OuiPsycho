@@ -1,0 +1,56 @@
+{
+  "id": "slug-du-dossier",
+  "type": "dossier",
+  "title": "Titre du dossier — Guide complet",
+  "subtitle": "Sous-titre descriptif, ex. : Le guide en 5 chapitres",
+  "excerpt": "Accroche courte (2-3 phrases). Donne envie de lire sans tout révéler. Chiffre fort en ouverture si possible.",
+  "metaDescription": "Description SEO 140-160 car. Mot-clé principal en début. Ex. : Anxiété, dépression, thérapie... — guide complet sur [sujet] : causes, symptômes, traitements.",
+  "author": "La rédaction Oui Psycho!",
+  "date": "YYYY-MM-DD",
+  "date_modified": "YYYY-MM-DD",
+  "category": "Anxiété",
+  "image": "",
+  "imagePosition": "50% 50%",
+  "readTime": 20,
+  "tags": ["tag-1", "tag-2", "tag-3"],
+  "keypoints": [
+    "Premier point clé — phrase complète et informative",
+    "Deuxième point clé — ce que le lecteur retiendra",
+    "Troisième point clé — donnée ou nuance importante",
+    "Quatrième point clé — aspect pratique ou chiffre",
+    "Cinquième point clé — appel à l'action ou conclusion"
+  ],
+  "intro": "<p>Paragraphe d'introduction du dossier. Accroche forte, chiffre ou paradoxe. Annonce ce que le lecteur va trouver dans ce dossier.</p>",
+  "chapters": [
+    {
+      "id": "c1",
+      "number": 1,
+      "title": "Titre du chapitre 1",
+      "content": "<p>Contenu du chapitre 1. Utiliser les mêmes balises HTML que pour les articles : <strong>gras</strong>, <em>italique</em>, <h2>, <ul>, <blockquote>, .info-box.</p>"
+    },
+    {
+      "id": "c2",
+      "number": 2,
+      "title": "Titre du chapitre 2",
+      "content": "<p>Contenu du chapitre 2.</p>"
+    },
+    {
+      "id": "c3",
+      "number": 3,
+      "title": "Titre du chapitre 3",
+      "content": "<p>Contenu du chapitre 3.</p>"
+    }
+  ],
+  "sources": [
+    {
+      "authors": "Nom A. & Nom B.",
+      "year": "2023",
+      "title": "Titre de l'étude",
+      "journal": "Nom de la revue",
+      "url": "https://doi.org/10.XXXX/XXXXX"
+    }
+  ],
+  "articles_lies": ["slug-article-1", "slug-article-2"],
+  "chapterCount": 3,
+  "status": "published"
+}
