@@ -4,10 +4,13 @@
 User-agent: *
 Allow: /
 
-# Pas des pages publiques
+# Pages non publiques
 Disallow: /admin.html
 Disallow: /data/
 Disallow: /articles/*.json
+
+# Fichiers articles plats (doublons des URLs canoniques /articles/ID/)
+Disallow: /articles/*.html
 
 # Sitemap
 Sitemap: https://ouipsycho.fr/sitemap.xml

@@ -1,4 +1,4 @@
-// Génération des 15 pages HTML statiques SEO — Oui Psycho!
+// Génération des pages HTML statiques SEO — Oui Psycho!
 const fs   = require('fs');
 const path = require('path');
 
@@ -95,12 +95,12 @@ ${srcItems}
       "url": `${BASE}/`,
       "logo": { "@type": "ImageObject", "url": `${BASE}/img/favicon.svg` }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}.html` },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
     "keywords": j.tags.join(', '),
     "articleSection": j.category,
     "wordCount": wordCount
   };
-  if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image };
+  if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image, "width": 1200, "height": 630 };
   // Schema.org citation (sources structurées avec URL uniquement)
   const srcWithUrl = (j.sources || []).filter(s => typeof s === 'object' && s.url);
   if (srcWithUrl.length) {
@@ -118,8 +118,8 @@ ${srcItems}
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${BASE}/` },
-      { "@type": "ListItem", "position": 2, "name": j.category, "item": `${BASE}/index.html?cat=${ci.enc}` },
-      { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}.html` }
+      { "@type": "ListItem", "position": 2, "name": j.category, "item": `${BASE}/?cat=${ci.enc}` },
+      { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}/` }
     ]
   });
 
@@ -130,6 +130,9 @@ ${srcItems}
   const dateLabel   = fdMod ? `Mis à jour le ${fdMod}` : `Publié le ${fd}`;
   const dateDatetime = j.date_modified || j.date;
 
+  const outDir  = path.join(DIR, j.id);
+  if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
+
   const html = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -139,12 +142,13 @@ ${srcItems}
   <meta name="description" content="${j.metaDescription}">
   <meta name="author" content="${j.author}">
   <meta name="robots" content="index, follow">
-  <base href="../">
-  <link rel="canonical" href="${BASE}/articles/${j.id}.html">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="${BASE}/articles/${j.id}/">
   <meta property="og:type"                    content="article">
   <meta property="og:title"                   content="${j.title} — Oui Psycho!">
   <meta property="og:description"             content="${j.metaDescription}">
-  <meta property="og:url"                     content="${BASE}/articles/${j.id}.html">
+  <meta property="og:url"                     content="${BASE}/articles/${j.id}/">
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
@@ -152,7 +156,9 @@ ${srcItems}
   <meta property="article:author"             content="${j.author}">
   <meta property="article:section"            content="${j.category}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
-  <meta property="og:image:alt"               content="${j.title}">` : ''}
+  <meta property="og:image:alt"               content="${j.title}">
+  <meta property="og:image:width"             content="1200">
+  <meta property="og:image:height"            content="630">` : ''}
   <meta name="twitter:card"                   content="summary_large_image">
   <meta name="twitter:title"                  content="${j.title} — Oui Psycho!">
   <meta name="twitter:description"            content="${j.metaDescription}">${j.image ? `
@@ -362,8 +368,8 @@ ${sourcesHtml}
 </html>
 `;
 
-  fs.writeFileSync(path.join(DIR, `${j.id}.html`), html, 'utf8');
-  console.log(`✓ ${j.id}.html`);
+  fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
+  console.log(`✓ ${j.id}/index.html`);
 }
 
 // ── Mise à jour de data/articles.json (index page d'accueil) ─────────────────
