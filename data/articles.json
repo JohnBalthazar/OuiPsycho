@@ -1,5 +1,32 @@
 [
   {
+    "id": "harry-potter-psychopathologie-complice",
+    "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
+    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
+    "date": "2026-06-23",
+    "date_modified": "2026-06-06",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 15,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "harry potter",
+      "psychopathologie",
+      "trauma",
+      "résilience",
+      "dépression",
+      "pop culture",
+      "développement personnel"
+    ],
+    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
     "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
@@ -387,60 +414,6 @@
       "estime-de-soi"
     ],
     "status": "scheduled"
-  },
-  {
-    "id": "harry-potter-psychopathologie-complice",
-    "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
-    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
-    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-06",
-    "date_modified": "2026-06-06",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 15,
-    "tags": [
-      "harry potter",
-      "psychopathologie",
-      "trauma",
-      "résilience",
-      "dépression",
-      "pop culture",
-      "développement personnel"
-    ],
-    "sources": [
-      {
-        "authors": "Herman J.L.",
-        "year": "1992",
-        "title": "Trauma and Recovery: The Aftermath of Violence",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "van der Kolk B.",
-        "year": "2014",
-        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
-        "publisher": "Viking"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1982",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Rowling J.K.",
-        "year": "2000",
-        "title": "Interview sur les Détraqueurs et la dépression",
-        "publisher": "The Telegraph"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
