@@ -205,7 +205,6 @@ async function initHome() {
     buildCategoryFilter();
     syncCatNavFromUrl();
     loadPopularArticles();
-    loadDossierSection();
 
   } catch (_) {
     grid.innerHTML = `
