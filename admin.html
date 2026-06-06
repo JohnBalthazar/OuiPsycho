@@ -139,6 +139,10 @@
       color: var(--gray-600); transition: all .15s;
     }
     .filter-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .filter-chip-photo-ok { border-color: #a7f3d0; color: #065f46; background: #f0fdf4; }
+    .filter-chip-photo-ok.active { background: var(--success); border-color: var(--success); color: #fff; }
+    .filter-chip-photo-ko { border-color: #fde68a; color: #92400e; background: #fffbeb; }
+    .filter-chip-photo-ko.active { background: var(--warning); border-color: var(--warning); color: #fff; }
     table { width: 100%; border-collapse: collapse; }
     th { padding: 10px 16px; text-align: left; font-size: .75rem; font-weight: 700; color: var(--gray-500); text-transform: uppercase; letter-spacing: .05em; background: var(--gray-50); border-bottom: 1px solid var(--gray-200); }
     td { padding: 12px 16px; font-size: .88rem; color: var(--gray-700); border-bottom: 1px solid var(--gray-100); vertical-align: middle; }
@@ -500,8 +504,8 @@
         </div>
         <div class="filter-bar" id="filter-bar"></div>
         <table>
-          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Lecture</th><th>Actions</th></tr></thead>
-          <tbody id="articles-table"><tr class="loading-row"><td colspan="5">Chargement…</td></tr></tbody>
+          <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Photo</th><th>Lecture</th><th>Actions</th></tr></thead>
+          <tbody id="articles-table"><tr class="loading-row"><td colspan="7">Chargement…</td></tr></tbody>
         </table>
       </div>
     </div>
@@ -1274,7 +1278,8 @@ let articles = [];
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
-let activeCatFilter = 'all';
+let activeCatFilter  = 'all';
+let activePhotoFilter = 'all'; // 'all' | 'with' | 'without'
 let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
@@ -1623,10 +1628,11 @@ function renderDashboard() {
   const today = new Date().toISOString().split('T')[0];
   const cats = {};
   articles.forEach(a => { cats[a.category] = (cats[a.category] || 0) + 1; });
-  const totalRead   = articles.reduce((s, a) => s + (a.readTime || 0), 0);
-  const scheduled   = articles.filter(a => a.status === 'scheduled' || (!a.status && a.date > today));
-  const drafts      = articles.filter(a => a.status === 'draft');
-  const published   = articles.filter(a => !a.status || (a.status === 'published') || (a.status === 'scheduled' && a.date <= today));
+  const totalRead    = articles.reduce((s, a) => s + (a.readTime || 0), 0);
+  const scheduled    = articles.filter(a => (a.status === 'scheduled' && a.date > today) || (!a.status && a.date > today));
+  const drafts       = articles.filter(a => a.status === 'draft');
+  const published    = articles.filter(a => !a.status || (a.status === 'published') || (a.status === 'scheduled' && a.date <= today));
+  const withoutPhoto = articles.filter(a => !(a.image && a.image.trim()));
 
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat-card">
@@ -1648,6 +1654,10 @@ function renderDashboard() {
     <div class="stat-card red">
       <div class="stat-val">${totalRead}</div>
       <div class="stat-label">Min de lecture totales</div>
+    </div>
+    <div class="stat-card orange" style="cursor:pointer" onclick="showPage('articles');requestAnimationFrame(()=>setPhotoFilter('without',document.querySelector('#filter-bar .filter-chip-photo-ko')))" title="Voir les articles sans photo">
+      <div class="stat-val">${withoutPhoto.length}</div>
+      <div class="stat-label">🖼️ Sans photo</div>
     </div>
     ${Object.entries(cats).map(([cat, count]) =>
       `<div class="stat-card"><div class="stat-val">${count}</div><div class="stat-label">${cat}</div></div>`
@@ -1696,14 +1706,33 @@ function renderDashboard() {
 ══════════════════════════════════════════════ */
 function buildFilterChips() {
   const cats = [...new Set(articles.map(a => a.category))].sort();
+  const withPhoto    = articles.filter(a => a.image && a.image.trim()).length;
+  const withoutPhoto = articles.length - withPhoto;
   document.getElementById('filter-bar').innerHTML =
-    `<span class="filter-chip active" onclick="setCatFilter('all', this)">Tous (${articles.length})</span>` +
-    cats.map(c => `<span class="filter-chip" onclick="setCatFilter('${c}', this)">${c} (${articles.filter(a=>a.category===c).length})</span>`).join('');
+    /* ── chips catégorie ── */
+    `<span class="filter-chip active" data-group="cat" onclick="setCatFilter('all', this)">Tous (${articles.length})</span>` +
+    cats.map(c =>
+      `<span class="filter-chip" data-group="cat" onclick="setCatFilter('${c}', this)">${c} (${articles.filter(a=>a.category===c).length})</span>`
+    ).join('') +
+    /* ── séparateur ── */
+    `<span style="width:1px;background:var(--gray-200);margin:0 6px;align-self:stretch;flex-shrink:0"></span>` +
+    `<span style="font-size:.72rem;font-weight:700;color:var(--gray-400);display:flex;align-items:center;padding:0 2px;white-space:nowrap">🖼️ Photo&nbsp;:</span>` +
+    /* ── chips photo ── */
+    `<span class="filter-chip active" data-group="photo" onclick="setPhotoFilter('all', this)">Toutes</span>` +
+    `<span class="filter-chip filter-chip-photo-ok"  data-group="photo" onclick="setPhotoFilter('with', this)">✅ Avec (${withPhoto})</span>` +
+    `<span class="filter-chip filter-chip-photo-ko"  data-group="photo" onclick="setPhotoFilter('without', this)">⚠️ Sans (${withoutPhoto})</span>`;
 }
 function setCatFilter(cat, el) {
   activeCatFilter = cat;
-  document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('#filter-bar .filter-chip[data-group="cat"]').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
+  renderArticlesTable();
+}
+function setPhotoFilter(filter, el) {
+  activePhotoFilter = filter;
+  // el peut être null si appelé depuis le dashboard avant que la filter-bar soit visible
+  document.querySelectorAll('#filter-bar .filter-chip[data-group="photo"]').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
   renderArticlesTable();
 }
 function filterArticles() { renderArticlesTable(); }
@@ -1711,20 +1740,28 @@ function filterArticles() { renderArticlesTable(); }
 function getArticleStatusInfo(a) {
   const today = new Date().toISOString().split('T')[0];
   if (a.status === 'draft') return { key: 'draft',     label: '📝 Brouillon',  cls: 'badge-draft' };
-  if (a.status === 'scheduled' || (!a.status && a.date > today))
+  if ((a.status === 'scheduled' && a.date > today) || (!a.status && a.date > today))
     return { key: 'scheduled', label: '⏰ Planifié',   cls: 'badge-scheduled' };
   return { key: 'published',  label: '✅ Publié',     cls: 'badge-published' };
 }
 
 function renderArticlesTable() {
   const q = (document.getElementById('search-input')?.value || '').toLowerCase();
-  let list = articles.filter(a =>
-    (activeCatFilter === 'all' || a.category === activeCatFilter) &&
-    (!q || a.title.toLowerCase().includes(q) || (a.tags||[]).some(t=>t.toLowerCase().includes(q)))
-  ).sort((a,b) => b.date.localeCompare(a.date));
+  let list = articles.filter(a => {
+    const hasPhoto = !!(a.image && a.image.trim());
+    return (activeCatFilter  === 'all' || a.category === activeCatFilter) &&
+           (activePhotoFilter === 'all' ||
+            (activePhotoFilter === 'with'    &&  hasPhoto) ||
+            (activePhotoFilter === 'without' && !hasPhoto)) &&
+           (!q || a.title.toLowerCase().includes(q) || (a.tags||[]).some(t=>t.toLowerCase().includes(q)));
+  }).sort((a,b) => b.date.localeCompare(a.date));
   document.getElementById('articles-count').textContent = `(${list.length})`;
   document.getElementById('articles-table').innerHTML = list.map(a => {
-    const si = getArticleStatusInfo(a);
+    const si       = getArticleStatusInfo(a);
+    const hasPhoto = !!(a.image && a.image.trim());
+    const photoCell = hasPhoto
+      ? `<span class="badge" style="background:#d1fae5;color:#065f46;font-size:.8rem" title="${a.image}">🖼️ Oui</span>`
+      : `<span class="badge badge-gray" style="font-size:.8rem" title="Aucune image">— Non</span>`;
     return `
     <tr>
       <td>
@@ -1734,6 +1771,7 @@ function renderArticlesTable() {
       <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
       <td>${formatDate(a.date)}</td>
       <td><span class="badge ${si.cls}">${si.label}</span></td>
+      <td>${photoCell}</td>
       <td>${a.readTime} min</td>
       <td>
         <div class="actions">
@@ -1743,7 +1781,7 @@ function renderArticlesTable() {
         </div>
       </td>
     </tr>`;
-  }).join('') || '<tr><td colspan="6" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
+  }).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
 }
 
 /* ══════════════════════════════════════════════
