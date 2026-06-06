@@ -1,0 +1,41 @@
+name: Auto-publication des articles planifiés
+
+on:
+  schedule:
+    # 02:00 UTC = 04:00 heure Paris (CEST, UTC+2) → la date UTC == date Paris
+    - cron: '0 2 * * *'
+  workflow_dispatch:   # déclenchement manuel possible depuis GitHub Actions
+
+permissions:
+  contents: write      # nécessaire pour le push de retour
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Régénérer les pages statiques
+        run: node _gen_static.js
+
+      - name: Commit et push si des articles ont été publiés
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Aucun article à publier aujourd'hui."
+          else
+            TODAY=$(date -u +%Y-%m-%d)
+            git commit -m "auto: publication articles planifiés $TODAY"
+            git push
+          fi
