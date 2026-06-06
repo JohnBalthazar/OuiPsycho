@@ -1,29 +1,29 @@
 [
   {
     "id": "harry-potter-psychopathologie-complice",
-    "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
+    "title": "Harry Potter sur le divan : psychopathologie dâun sorcier",
     "type": "dossier",
-    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
+    "excerpt": "Fans de la saga depuis toujours, on a quand mÃªme une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? DÃ©traqueurs, cicatrice qui brÃ»le, rÃªves de Voldemortâ¦ Ce type a clairement besoin dâun suivi. Et nous aussi, peut-Ãªtre.",
     "date": "2026-06-23",
     "date_modified": "2026-06-06",
-    "category": "Développement personnel",
+    "category": "DÃ©veloppement personnel",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 15,
-    "author": "La rédaction Oui Psycho!",
+    "author": "La rÃ©daction Oui Psycho!",
     "tags": [
       "harry potter",
       "psychopathologie",
       "trauma",
-      "résilience",
-      "dépression",
+      "rÃ©silience",
+      "dÃ©pression",
       "pop culture",
-      "développement personnel"
+      "dÃ©veloppement personnel"
     ],
-    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
+    "metaDescription": "Et si Harry Potter Ã©tait un cas clinique fascinant ? Trauma, PTSD, rÃ©silience et DÃ©traqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -415,6 +415,60 @@
       "estime-de-soi"
     ],
     "status": "scheduled"
+  },
+  {
+    "id": "asterix-obelix-psychopathologie-complice",
+    "title": "Astérix et Obélix sur le divan : psychopathologie d'irréductibles gaulois",
+    "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
+    "metaDescription": "Astérix, Obélix, Abraracourcix… et si le village gaulois était un cas clinique ? Anxiété, narcissisme, dépendance : la psycho cachée d'Astérix.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-06",
+    "date_modified": "2026-06-06",
+    "category": "Développement personnel",
+    "image": "",
+    "readTime": 16,
+    "tags": [
+      "astérix",
+      "psychologie",
+      "anxiété",
+      "narcissisme",
+      "résilience",
+      "identité",
+      "pop culture"
+    ],
+    "sources": [
+      {
+        "authors": "Yalom I.D.",
+        "year": "1995",
+        "title": "The Theory and Practice of Group Psychotherapy",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Kernberg O.",
+        "year": "1975",
+        "title": "Borderline Conditions and Pathological Narcissism",
+        "publisher": "Jason Aronson"
+      },
+      {
+        "authors": "Tajfel H. & Turner J.C.",
+        "year": "1979",
+        "title": "An integrative theory of intergroup conflict",
+        "publisher": "In W.G. Austin & S. Worchel (Eds.), The social psychology of intergroup relations"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "American Psychiatric Association",
+        "year": "2013",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5)",
+        "publisher": "American Psychiatric Publishing"
+      }
+    ],
+    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
