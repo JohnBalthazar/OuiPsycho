@@ -1,5 +1,31 @@
 [
   {
+    "id": "ce-que-les-peres-devraient-dire",
+    "title": "Ce que tous les pères devraient dire à leur enfant",
+    "excerpt": "Derrière le silence des pères se cache souvent l'essentiel — ce qui manque, ce qui blesse, et ce qui aurait pu tout changer. Voici les mots que la psychologie nous invite à prononcer, avant qu'il soit trop tard.",
+    "date": "2026-06-21",
+    "date_modified": "2026-06-06",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "parentalité",
+      "père",
+      "attachement",
+      "estime de soi",
+      "développement personnel",
+      "communication"
+    ],
+    "metaDescription": "Psychologie et parentalité : les phrases clés que chaque père peut dire à son enfant pour renforcer l'attachement, l'estime de soi et la confiance durable.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "peut-on-changer-de-personnalite",
     "title": "Peut-on vraiment changer de personnalité ?",
     "excerpt": "Timide depuis toujours, anxieux·se depuis l'enfance, introverti·e jusqu'à la moelle — et si tout ça n'était pas gravé dans le marbre ? La psychologie moderne a une réponse surprenante : oui, on peut changer. Mais pas comme on le croit.",
@@ -335,66 +361,6 @@
       "estime-de-soi"
     ],
     "status": "scheduled"
-  },
-  {
-    "id": "ce-que-les-peres-devraient-dire",
-    "title": "Ce que tous les pères devraient dire à leur enfant",
-    "excerpt": "Derrière le silence des pères se cache souvent l'essentiel — ce qui manque, ce qui blesse, et ce qui aurait pu tout changer. Voici les mots que la psychologie nous invite à prononcer, avant qu'il soit trop tard.",
-    "metaDescription": "Psychologie et parentalité : les phrases clés que chaque père peut dire à son enfant pour renforcer l'attachement, l'estime de soi et la confiance durable.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-06",
-    "date_modified": "2026-06-06",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 11,
-    "tags": [
-      "parentalité",
-      "père",
-      "attachement",
-      "estime de soi",
-      "développement personnel",
-      "communication"
-    ],
-    "sources": [
-      {
-        "authors": "Bowlby J.",
-        "year": "1988",
-        "title": "A Secure Base: Parent-Child Attachment and Healthy Human Development",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Lamb M.E.",
-        "year": "2010",
-        "title": "The Role of the Father in Child Development",
-        "publisher": "Wiley"
-      },
-      {
-        "authors": "Gottman J. & DeClaire J.",
-        "year": "1997",
-        "title": "The Heart of Parenting: Raising an Emotionally Intelligent Child",
-        "publisher": "Simon & Schuster"
-      },
-      {
-        "authors": "Brown B.",
-        "year": "2010",
-        "title": "The Gifts of Imperfection",
-        "publisher": "Hazelden Publishing"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "2004",
-        "title": "Les vilains petits canards",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Pleck J.H.",
-        "year": "2010",
-        "title": "Paternal involvement: Revised conceptualization and theoretical linkages with child outcomes",
-        "journal": "The role of the father in child development",
-        "url": "https://doi.org/10.1002/9780470491737.ch3"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
