@@ -413,4 +413,34 @@ const newIndex = jsonFiles.map(file => {
 
 fs.writeFileSync(INDEX_FILE, JSON.stringify(newIndex, null, 2), 'utf8');
 console.log(`📋 data/articles.json mis à jour (${newIndex.length} articles)`);
+
+// ── Mise à jour de data/articles-all.json (index admin — tout inclus) ────────
+// Contient tous les articles sans filtrage de date ni de statut.
+// Utilisé par admin.html pour afficher planifiés, brouillons et publiés.
+const ALL_INDEX_FILE = path.join(__dirname, 'data', 'articles-all.json');
+const allIndex = jsonFiles.map(file => {
+  const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+  return {
+    id:              j.id,
+    title:           j.title,
+    excerpt:         j.excerpt          || '',
+    date:            j.date,
+    date_modified:   j.date_modified    || j.date,
+    category:        j.category,
+    image:           j.image            || '',
+    imagePosition:   j.imagePosition    || '50% 50%',
+    imageZoom:       j.imageZoom        || 1,
+    imageGravity:    j.imageGravity     || 'none',
+    imageLayout:     j.imageLayout      || 'top',
+    readTime:        j.readTime,
+    author:          j.author,
+    tags:            j.tags             || [],
+    metaDescription: j.metaDescription  || '',
+    articles_lies:   j.articles_lies    || [],
+    status:          j.status           || 'published',
+  };
+}).sort((a, b) => b.date.localeCompare(a.date)); // tri par date décroissante
+
+fs.writeFileSync(ALL_INDEX_FILE, JSON.stringify(allIndex, null, 2), 'utf8');
+console.log(`📋 data/articles-all.json mis à jour (${allIndex.length} articles — admin)`);
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);
