@@ -389,60 +389,6 @@
     "status": "scheduled"
   },
   {
-    "id": "harry-potter-psychopathologie-complice",
-    "title": "Harry Potter sur le divan : psychopathologie d'un sorcier",
-    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d'un suivi. Et nous aussi, peut-être.",
-    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-06",
-    "date_modified": "2026-06-06",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 15,
-    "tags": [
-      "harry potter",
-      "psychopathologie",
-      "trauma",
-      "résilience",
-      "dépression",
-      "pop culture",
-      "développement personnel"
-    ],
-    "sources": [
-      {
-        "authors": "Herman J.L.",
-        "year": "1992",
-        "title": "Trauma and Recovery: The Aftermath of Violence",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "van der Kolk B.",
-        "year": "2014",
-        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
-        "publisher": "Viking"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1982",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Rowling J.K.",
-        "year": "2000",
-        "title": "Interview sur les Détraqueurs et la dépression",
-        "publisher": "The Telegraph"
-      }
-    ],
-    "status": "published"
-  },
-  {
     "id": "age-ideal-avoir-enfants",
     "title": "Quel est le meilleur âge pour avoir des enfants ?",
     "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
