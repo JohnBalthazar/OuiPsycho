@@ -1,5 +1,31 @@
 [
   {
+    "id": "et-si-vous-etiez-hpi",
+    "title": "Et si vous étiez HPI ?",
+    "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
+    "date": "2026-06-22",
+    "date_modified": "2026-06-06",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "HPI",
+      "haut potentiel",
+      "QI",
+      "surdoué",
+      "neurodiversité",
+      "identité"
+    ],
+    "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ce-que-les-peres-devraient-dire",
     "title": "Ce que tous les pères devraient dire à leur enfant",
     "excerpt": "Derrière le silence des pères se cache souvent l'essentiel — ce qui manque, ce qui blesse, et ce qui aurait pu tout changer. Voici les mots que la psychologie nous invite à prononcer, avant qu'il soit trop tard.",
@@ -361,67 +387,6 @@
       "estime-de-soi"
     ],
     "status": "scheduled"
-  },
-  {
-    "id": "et-si-vous-etiez-hpi",
-    "title": "Et si vous étiez HPI ?",
-    "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
-    "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-06",
-    "date_modified": "2026-06-06",
-    "category": "Développement personnel",
-    "image": "",
-    "readTime": 11,
-    "tags": [
-      "HPI",
-      "haut potentiel",
-      "QI",
-      "surdoué",
-      "neurodiversité",
-      "identité"
-    ],
-    "sources": [
-      {
-        "authors": "Gauvrit N.",
-        "year": "2014",
-        "title": "Surdoués, sur la sellette",
-        "publisher": "Éditions de l'Opportun"
-      },
-      {
-        "authors": "Siaud-Facchin J.",
-        "year": "2008",
-        "title": "Trop intelligent pour être heureux ?",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Nusbaum F., Revol O. & Sappey-Marinier D.",
-        "year": "2019",
-        "title": "Les philo-cognitifs : une nouvelle approche de la douance",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Wechsler D.",
-        "year": "2008",
-        "title": "Wechsler Adult Intelligence Scale — Fourth Edition (WAIS-IV)",
-        "publisher": "Pearson"
-      },
-      {
-        "authors": "Rinn A.N. & Bishop J.",
-        "year": "2015",
-        "title": "Gifted adults: A systematic review and analysis of the literature",
-        "journal": "Gifted Child Quarterly",
-        "url": "https://doi.org/10.1177/0016986215600795"
-      },
-      {
-        "authors": "Baudson T.G.",
-        "year": "2016",
-        "title": "The mad genius stereotype: Still alive and well",
-        "journal": "Frontiers in Psychology",
-        "url": "https://doi.org/10.3389/fpsyg.2016.00368"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
