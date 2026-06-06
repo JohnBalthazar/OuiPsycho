@@ -363,6 +363,67 @@
     "status": "scheduled"
   },
   {
+    "id": "et-si-vous-etiez-hpi",
+    "title": "Et si vous étiez HPI ?",
+    "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
+    "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-06",
+    "date_modified": "2026-06-06",
+    "category": "Développement personnel",
+    "image": "",
+    "readTime": 11,
+    "tags": [
+      "HPI",
+      "haut potentiel",
+      "QI",
+      "surdoué",
+      "neurodiversité",
+      "identité"
+    ],
+    "sources": [
+      {
+        "authors": "Gauvrit N.",
+        "year": "2014",
+        "title": "Surdoués, sur la sellette",
+        "publisher": "Éditions de l'Opportun"
+      },
+      {
+        "authors": "Siaud-Facchin J.",
+        "year": "2008",
+        "title": "Trop intelligent pour être heureux ?",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Nusbaum F., Revol O. & Sappey-Marinier D.",
+        "year": "2019",
+        "title": "Les philo-cognitifs : une nouvelle approche de la douance",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Wechsler D.",
+        "year": "2008",
+        "title": "Wechsler Adult Intelligence Scale — Fourth Edition (WAIS-IV)",
+        "publisher": "Pearson"
+      },
+      {
+        "authors": "Rinn A.N. & Bishop J.",
+        "year": "2015",
+        "title": "Gifted adults: A systematic review and analysis of the literature",
+        "journal": "Gifted Child Quarterly",
+        "url": "https://doi.org/10.1177/0016986215600795"
+      },
+      {
+        "authors": "Baudson T.G.",
+        "year": "2016",
+        "title": "The mad genius stereotype: Still alive and well",
+        "journal": "Frontiers in Psychology",
+        "url": "https://doi.org/10.3389/fpsyg.2016.00368"
+      }
+    ],
+    "status": "published"
+  },
+  {
     "id": "age-ideal-avoir-enfants",
     "title": "Quel est le meilleur âge pour avoir des enfants ?",
     "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
