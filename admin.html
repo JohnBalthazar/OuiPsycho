@@ -645,6 +645,14 @@
                 <input type="hidden" id="f-status" value="published">
               </div>
               <div class="form-group">
+                <label style="display:flex;align-items:center;gap:10px;cursor:pointer;font-weight:600;margin-bottom:4px">
+                  <input type="checkbox" id="f-is-dossier"
+                    style="width:18px;height:18px;accent-color:var(--primary);cursor:pointer;flex-shrink:0">
+                  <span>📚 Classer dans les Dossiers</span>
+                </label>
+                <div class="hint">L'article apparaîtra dans la section « Dossiers » en plus des articles habituels</div>
+              </div>
+              <div class="form-group">
                 <label>Temps de lecture (minutes)</label>
                 <input type="number" id="f-readTime" min="1" max="60" value="7">
               </div>
@@ -1766,7 +1774,10 @@ function renderArticlesTable() {
     <tr>
       <td>
         <div style="font-weight:600;color:var(--gray-900)">${a.title}</div>
-        <div style="font-size:.75rem;color:var(--gray-400);margin-top:2px">${a.id}</div>
+        <div style="font-size:.75rem;color:var(--gray-400);margin-top:2px">
+          ${a.id}
+          ${a.type === 'dossier' ? '<span style="display:inline-block;margin-left:6px;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:1px 8px;font-size:.7rem;font-weight:700">📚 Dossier</span>' : ''}
+        </div>
       </td>
       <td><span class="badge cat-${CSS.escape(a.category)}">${a.category}</span></td>
       <td>${formatDate(a.date)}</td>
@@ -1813,6 +1824,8 @@ function resetEditor() {
   const _sb = document.getElementById('save-btn');
   if (_sb) { _sb.style.opacity = ''; _sb.title = ''; }
   document.getElementById('preview-card').style.display = 'none';
+  const _doss = document.getElementById('f-is-dossier');
+  if (_doss) _doss.checked = false;
   // Réinitialiser le widget image (null-safe)
   try { removeImage(); setImageStatus('', ''); } catch(e) {}
 }
@@ -1854,6 +1867,8 @@ function editArticle(id) {
       initRelatedPicker(full.articles_lies || []);
       updateSeoCounter();
       setArticleStatus(full.status || 'published');
+      const _doss2 = document.getElementById('f-is-dossier');
+      if (_doss2) _doss2.checked = full.type === 'dossier';
       // Bannière article HTML personnalisé
       const banner = document.getElementById('custom-html-banner');
       const viewLink = document.getElementById('custom-html-view-link');
@@ -2363,8 +2378,10 @@ async function saveArticle() {
 
   // Préserver les sources de l'article original (non éditables via le formulaire)
   const sources     = editingSources.length ? editingSources : undefined;
-  const articleData = { id, title, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), articles_lies: articlesLies, status };
-  const summaryData = { id, title, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
+  const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
+  const type        = isDossier ? 'dossier' : 'article';
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), articles_lies: articlesLies, status };
+  const summaryData = { id, title, type, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';

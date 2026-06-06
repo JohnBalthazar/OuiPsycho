@@ -1438,14 +1438,22 @@ function dossierUrl(id) {
   return `dossiers/${esc(id)}/`;
 }
 
-/** Carte dossier (home + listing) */
+/** Carte dossier (home + listing)
+ *  d._path = 'articles' → lien vers articles/SLUG/
+ *  d._path = 'dossiers' (ou absent) → lien vers dossiers/SLUG/
+ */
 function renderDossierCard(d) {
-  const cat = CATEGORIES[d.category] || {};
+  const cat      = CATEGORIES[d.category] || {};
+  const url      = d._path === 'articles' ? `articles/${esc(d.id)}/` : `dossiers/${esc(d.id)}/`;
   const imgStyle = d.image
     ? `background-image:url('${esc(d.image)}');background-size:cover;background-position:center`
     : '';
+  const chCount    = d.chapterCount || (d.chapters && d.chapters.length) || 0;
+  const metaChapters = chCount > 0
+    ? `<span>📖 ${chCount} chapitres</span><span>•</span>`
+    : '';
   return `
-    <a href="${dossierUrl(d.id)}" class="dossier-card">
+    <a href="${url}" class="dossier-card">
       <div class="dossier-card__img" style="${imgStyle}">
         ${!d.image ? '<span class="dossier-card__emoji">📚</span>' : ''}
         <span class="dossier-card__label">Dossier</span>
@@ -1456,35 +1464,49 @@ function renderDossierCard(d) {
         ${d.subtitle ? `<p class="dossier-card__subtitle">${esc(d.subtitle)}</p>` : ''}
         <p class="dossier-card__excerpt">${esc(d.excerpt || '')}</p>
         <div class="dossier-card__meta">
-          <span>📖 ${d.chapterCount || d.chapters?.length || 0} chapitres</span>
-          <span>•</span>
+          ${metaChapters}
           <span>⏱ ${d.readTime || 20} min</span>
         </div>
       </div>
     </a>`;
 }
 
-/** Section dossiers sur la page d'accueil */
+/** Section dossiers sur la page d'accueil
+ *  Combine : dossiers manuels (data/dossiers.json)
+ *          + articles marqués type:"dossier" (data/articles.json)
+ */
 async function loadDossierSection() {
   const section = document.getElementById('dossier-section');
   const grid    = document.getElementById('dossier-grid');
   if (!section || !grid) return;
 
   try {
-    const res = await fetch('data/dossiers.json');
-    if (!res.ok) return;
-    const dossiers = await res.json();
-    const today = new Date().toISOString().split('T')[0];
-    const published = dossiers
-      .filter(d => d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today))
+    const today    = new Date().toISOString().split('T')[0];
+    const isOk     = d => d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today);
+
+    const [rawManual, rawArticles] = await Promise.all([
+      fetch('data/dossiers.json').then(r => r.ok ? r.json() : []).catch(() => []),
+      fetch('data/articles.json').then(r => r.ok ? r.json() : []).catch(() => []),
+    ]);
+
+    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: 'dossiers' }));
+    const fromArts = rawArticles.filter(a => a.type === 'dossier' && isOk(a))
+                                .map(a => ({ ...a, _path: 'articles' }));
+
+    const dossiers = [...manual, ...fromArts]
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
       .slice(0, 3);
-    if (!published.length) return;
-    grid.innerHTML = published.map(renderDossierCard).join('');
+
+    if (!dossiers.length) return;
+    grid.innerHTML = dossiers.map(renderDossierCard).join('');
     section.style.display = 'block';
   } catch (_) {}
 }
 
-/** Page listing de tous les dossiers */
+/** Page listing de tous les dossiers
+ *  Combine : dossiers manuels (data/dossiers.json)
+ *          + articles marqués type:"dossier" (data/articles.json)
+ */
 async function initDossierList() {
   const grid = document.getElementById('dossier-list-grid');
   if (!grid) return;
@@ -1492,18 +1514,26 @@ async function initDossierList() {
   grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">⏳</div><p>Chargement…</p></div>';
 
   try {
-    const res = await fetch('data/dossiers.json');
-    if (!res.ok) throw new Error('dossiers.json introuvable');
-    const dossiers = await res.json();
     const today = new Date().toISOString().split('T')[0];
-    const published = dossiers.filter(d =>
-      d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today)
-    );
-    if (!published.length) {
+    const isOk  = d => d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today);
+
+    const [rawManual, rawArticles] = await Promise.all([
+      fetch('data/dossiers.json').then(r => r.ok ? r.json() : []).catch(() => []),
+      fetch('data/articles.json').then(r => r.ok ? r.json() : []).catch(() => []),
+    ]);
+
+    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: 'dossiers' }));
+    const fromArts = rawArticles.filter(a => a.type === 'dossier' && isOk(a))
+                                .map(a => ({ ...a, _path: 'articles' }));
+
+    const dossiers = [...manual, ...fromArts]
+      .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!dossiers.length) {
       grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">🌱</div><p>Les dossiers arrivent bientôt !</p></div>';
       return;
     }
-    grid.innerHTML = published.map(renderDossierCard).join('');
+    grid.innerHTML = dossiers.map(renderDossierCard).join('');
   } catch (_) {
     grid.innerHTML = '<div class="empty-state"><div class="empty-state__icon">🔍</div><p>Impossible de charger les dossiers.</p></div>';
   }
