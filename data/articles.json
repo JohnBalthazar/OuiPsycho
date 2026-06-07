@@ -29,7 +29,6 @@
   {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
-    "type": "dossier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-23",
     "date_modified": "2026-06-06",
@@ -51,38 +50,6 @@
       "développement personnel"
     ],
     "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
-    "sources": [
-      {
-        "authors": "Herman J.L.",
-        "year": "1992",
-        "title": "Trauma and Recovery: The Aftermath of Violence",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "van der Kolk B.",
-        "year": "2014",
-        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
-        "publisher": "Viking"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1982",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Rowling J.K.",
-        "year": "2000",
-        "title": "Interview sur les Détraqueurs et la dépression",
-        "publisher": "The Telegraph"
-      }
-    ],
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -443,6 +410,76 @@
       "etes-vous-normal"
     ],
     "status": "scheduled"
+  },
+  {
+    "id": "ia-revolution-travail-emploi",
+    "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
+    "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
+    "metaDescription": "L'IA supprime des emplois comme la révolution industrielle en son temps. Comprendre l'impact psychologique et trouver ce qui reste irremplaçablement humain.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-07",
+    "date_modified": "2026-06-07",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 14,
+    "tags": [
+      "intelligence artificielle",
+      "emploi",
+      "identité professionnelle",
+      "reconversion",
+      "bien-être au travail",
+      "anxiété",
+      "résilience"
+    ],
+    "sources": [
+      {
+        "authors": "American Psychological Association",
+        "year": "2024",
+        "title": "Work in America Survey — AI and workplace mental health",
+        "publisher": "APA",
+        "url": "https://www.apa.org/pubs/reports/work-in-america"
+      },
+      {
+        "authors": "Kim J. & Lee S.",
+        "year": "2024",
+        "title": "AI adoption, workplace stress and burnout risk: a longitudinal study among Korean professionals",
+        "journal": "Journal of Occupational Health Psychology"
+      },
+      {
+        "authors": "Challenger, Gray & Christmas",
+        "year": "2025",
+        "title": "Job Cut Report — AI-related layoffs in the United States",
+        "publisher": "Challenger, Gray & Christmas",
+        "url": "https://www.challengergray.com"
+      },
+      {
+        "authors": "El-Helaly M. et al.",
+        "year": "2026",
+        "title": "Artificial intelligence and mental health at work: a systematic review",
+        "journal": "Occupational and Environmental Medicine"
+      },
+      {
+        "authors": "INTEFP",
+        "year": "2025",
+        "title": "Travail augmenté ou travail taylorisé : l'impact de l'IA sur la santé mentale des travailleurs",
+        "publisher": "Institut National du Travail, de l'Emploi et de la Formation Professionnelle",
+        "url": "https://www.intefp.travail-emploi.gouv.fr/fr/node/1638"
+      },
+      {
+        "authors": "World Economic Forum",
+        "year": "2025",
+        "title": "The Future of Jobs Report 2025",
+        "publisher": "World Economic Forum",
+        "url": "https://www.weforum.org/publications/the-future-of-jobs-report-2025"
+      },
+      {
+        "authors": "Empreinte Humaine & Ipsos BVA",
+        "year": "2025",
+        "title": "Baromètre santé mentale au travail — édition 2025",
+        "publisher": "Empreinte Humaine"
+      }
+    ],
+    "status": "published"
   },
   {
     "id": "cerveau-a-t-il-un-genre",
