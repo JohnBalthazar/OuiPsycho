@@ -53,10 +53,11 @@ function formatDate(d) {
   return new Date(d).toLocaleDateString('fr-FR', { year:'numeric', month:'long', day:'numeric' });
 }
 // "Publié le X" ou "Mis à jour le Y" selon date_modified
+// "Mis à jour" uniquement si date_modified est POSTÉRIEURE à la date de publication
 function dateLabel(a) {
   const pub = a.date;
   const mod = a.date_modified;
-  if (!mod || mod === pub) return 'Publié le ' + formatDate(pub);
+  if (!mod || mod <= pub) return 'Publié le ' + formatDate(pub);
   return 'Mis à jour le ' + formatDate(mod);
 }
 function getParam(name) {

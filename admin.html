@@ -2112,7 +2112,7 @@ ${navHtml}
           <div class="article-meta">
             <span>Par <strong>${esc(j.author)}</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="${j.date_modified || j.date}">${(() => { const mod = j.date_modified; const [my,mm,md] = (mod||'').split('-'); const fmod = mod ? `${parseInt(md)} ${MONTHS[parseInt(mm)]} ${my}` : ''; return (!mod || mod === j.date) ? `Publié le ${fd}` : `Mis à jour le ${fmod}`; })()}</time>
+            <time datetime="${j.date_modified || j.date}">${(() => { const mod = j.date_modified; const [my,mm,md] = (mod||'').split('-'); const fmod = mod ? `${parseInt(md)} ${MONTHS[parseInt(mm)]} ${my}` : ''; return (!mod || mod <= j.date) ? `Publié le ${fd}` : `Mis à jour le ${fmod}`; })()}</time>
             <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
