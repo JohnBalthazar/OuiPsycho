@@ -981,13 +981,36 @@
           </div>
         </div>
         <div class="card">
-          <div class="card-header"><h3>📥 Importer</h3></div>
-          <div class="panel-body">
-            <p style="font-size:.9rem;color:var(--gray-500);margin-bottom:12px;">Importez un fichier articles.json ou un article individuel.</p>
-            <div class="import-zone" onclick="document.getElementById('import-file').click()">
-              <p>📂 Cliquez ou déposez un fichier JSON</p>
+          <div class="card-header"><h3>📥 Importer un article</h3></div>
+          <div class="panel-body" style="display:flex;flex-direction:column;gap:14px">
+            <p style="font-size:.9rem;color:var(--gray-500)">Importez un article individuel (JSON) ou un export complet. Si l'article contient un quiz interactif, déposez aussi son fichier HTML ci-dessous.</p>
+
+            <!-- ① JSON -->
+            <div>
+              <div style="font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:6px">① Article (JSON)</div>
+              <div class="import-zone" id="json-import-zone" onclick="document.getElementById('import-file').click()">
+                <p id="json-zone-text">📂 Cliquez ou déposez un fichier .json</p>
+              </div>
+              <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
+              <div id="import-json-status" style="font-size:.8rem;margin-top:5px;display:none"></div>
             </div>
-            <input type="file" id="import-file" accept=".json" style="display:none" onchange="handleImport(event)">
+
+            <!-- ② Quiz HTML (optionnel) -->
+            <div>
+              <div style="font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:6px">
+                ② Quiz / Test interactif <span style="font-weight:400;text-transform:none;letter-spacing:0;color:var(--gray-400)">(optionnel · .html)</span>
+              </div>
+              <div class="import-zone" id="quiz-import-zone" onclick="document.getElementById('quiz-html-file').click()" style="border-style:dashed">
+                <p id="quiz-zone-text">🎯 Cliquez ou déposez le fichier .html du quiz</p>
+              </div>
+              <input type="file" id="quiz-html-file" accept=".html,.htm" style="display:none" onchange="handleQuizFile(event)">
+              <div id="quiz-file-status" style="font-size:.8rem;margin-top:5px;display:none"></div>
+            </div>
+
+            <!-- Notice quiz auto-détecté -->
+            <div id="quiz-auto-notice" style="display:none;background:var(--success-light);border:1px solid #a7f3d0;border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--success);line-height:1.5">
+              ✅ <strong>Quiz embarqué détecté</strong> dans le JSON — sera publié automatiquement sur GitHub sans fichier HTML séparé.
+            </div>
           </div>
         </div>
       </div>
@@ -1292,6 +1315,10 @@ let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
 let articleStatus = 'published'; // 'published' | 'scheduled' | 'draft'
+
+// ── Quiz / Test interactif (import) ──
+let _pendingQuizHtml     = null; // HTML du quiz fourni manuellement (2ème fichier)
+let _pendingQuizFilename = null; // Nom du fichier quiz (depuis JSON ou fichier déposé)
 
 // ── Newsletter ──
 let nlSubscribers = [];
@@ -2628,20 +2655,98 @@ function exportAllFull() {
   a.click(); URL.revokeObjectURL(url);
   toast('Backup complet téléchargé', 'success');
 }
+/* ── Gestion du fichier quiz HTML déposé manuellement ── */
+function handleQuizFile(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    _pendingQuizHtml     = e.target.result;
+    _pendingQuizFilename = _pendingQuizFilename || file.name; // filename du JSON prioritaire
+    const statusEl = document.getElementById('quiz-file-status');
+    const zoneText  = document.getElementById('quiz-zone-text');
+    const zone      = document.getElementById('quiz-import-zone');
+    if (statusEl) { statusEl.textContent = '✅ ' + file.name + ' chargé'; statusEl.style.color = 'var(--success)'; statusEl.style.display = 'block'; }
+    if (zoneText)  zoneText.textContent = '✅ ' + file.name;
+    if (zone)      zone.style.borderColor = 'var(--success)';
+  };
+  reader.readAsText(file);
+  event.target.value = '';
+}
+
+/* ── Réinitialiser l'UI d'import ── */
+function _resetImportUI() {
+  _pendingQuizHtml     = null;
+  _pendingQuizFilename = null;
+  const ids = ['import-json-status','quiz-file-status','quiz-auto-notice'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
+  const zoneText = document.getElementById('quiz-zone-text');
+  if (zoneText) zoneText.textContent = '🎯 Cliquez ou déposez le fichier .html du quiz';
+  const quizZone = document.getElementById('quiz-import-zone');
+  if (quizZone) quizZone.style.borderColor = '';
+  const jsonText = document.getElementById('json-zone-text');
+  if (jsonText) jsonText.textContent = '📂 Cliquez ou déposez un fichier .json';
+}
+
 function handleImport(event) {
   const file = event.target.files[0];
   if (!file) return;
+  _resetImportUI();
   const reader = new FileReader();
   reader.onload = async e => {
     try {
       const data = JSON.parse(e.target.result);
+
+      // — Mise à jour de l'UI JSON zone —
+      const jsonText = document.getElementById('json-zone-text');
+      if (jsonText) jsonText.textContent = '✅ ' + file.name;
+
       if (Array.isArray(data)) {
         articles = data;
+        localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+        renderArticlesTable(); renderDashboard();
+        toast(articles.length + ' article(s) importé(s)', 'success');
+        return;
       } else if (data.articles && Array.isArray(data.articles)) {
         articles = data.articles;
+        localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+        renderArticlesTable(); renderDashboard();
+        toast(articles.length + ' article(s) importé(s)', 'success');
+        return;
       } else if (data.id) {
-        // Article individuel — stocker le résumé dans l'index (sans content)
-        const { content, keypoints, ...summary } = data;
+        // ── Article individuel ──
+
+        // Détecter un quiz (embarqué dans le JSON ou référencé par filename)
+        let quizHtml     = null;
+        let quizFilename = null;
+
+        if (data.quiz && typeof data.quiz === 'object') {
+          quizFilename = data.quiz.filename || null;
+          if (data.quiz.html) {
+            // Quiz embarqué dans le JSON → aucun fichier supplémentaire requis
+            quizHtml = data.quiz.html;
+            const notice = document.getElementById('quiz-auto-notice');
+            if (notice) notice.style.display = 'block';
+          } else if (quizFilename) {
+            // Filename fourni mais pas de HTML embarqué → afficher la zone quiz
+            _pendingQuizFilename = quizFilename;
+            const statusEl = document.getElementById('quiz-file-status');
+            if (statusEl) {
+              statusEl.textContent = '⚠️ Déposez le fichier "' + quizFilename + '" dans la zone ② ci-dessus pour le publier.';
+              statusEl.style.color = 'var(--warning)';
+              statusEl.style.display = 'block';
+            }
+          }
+        }
+
+        // Si un quiz HTML a été fourni manuellement via la zone ②, il est prioritaire sur le JSON embarqué
+        if (_pendingQuizHtml) {
+          quizHtml     = _pendingQuizHtml;
+          quizFilename = _pendingQuizFilename || quizFilename;
+        }
+
+        // Stocker le résumé dans l'index local (sans content ni quiz HTML)
+        const { content, keypoints, quiz, ...summary } = data;
         const idx = articles.findIndex(a => a.id === data.id);
         if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
         localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
@@ -2652,26 +2757,46 @@ function handleImport(event) {
         if (pat && content) {
           toast('⏳ Publication sur GitHub…', 'info');
           try {
-            await githubPutFile('articles/' + data.id + '.json', JSON.stringify(data, null, 2), 'import: article ' + data.id);
+            // 1. JSON article (sans le champ quiz.html pour alléger)
+            const dataForGithub = quiz
+              ? { ...data, quiz: quizFilename ? { filename: quizFilename } : undefined }
+              : data;
+            await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
+
+            // 2. Mise à jour index
             articles = await mergeIndexWithRemote(articles);
             localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
             await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
-            // Générer et pousser la page HTML statique
+
+            // 3. Page HTML statique
             const htmlPage = generateArticleHTML(data);
             await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique ' + data.id);
-            toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
+
+            // 4. Quiz HTML → tests/{filename}
+            if (quizHtml && quizFilename) {
+              await githubPutFile('tests/' + quizFilename, quizHtml, 'import: quiz ' + quizFilename);
+              toast('🎉 Article + quiz "' + quizFilename + '" publiés avec succès !', 'success');
+            } else {
+              toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
+            }
+
+            // Nettoyer l'état quiz
+            _pendingQuizHtml = null; _pendingQuizFilename = null;
+
           } catch(err) {
             toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
           }
         } else {
-          toast('Article "' + data.id + '" importé — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
+          const hasQuizWarning = (data.quiz && !quizHtml) ? ' — ⚠️ Quiz non publié (fichier HTML manquant)' : (quizHtml ? ' + quiz chargé' : '');
+          toast('Article "' + data.id + '" importé' + hasQuizWarning + ' — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
         }
         return;
       }
+
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       renderArticlesTable(); renderDashboard();
       toast(articles.length + ' article(s) importé(s)', 'success');
-    } catch(e) { toast('Fichier JSON invalide', 'error'); }
+    } catch(err) { toast('Fichier JSON invalide : ' + err.message, 'error'); }
   };
   reader.readAsText(file);
   event.target.value = '';
