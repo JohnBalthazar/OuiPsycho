@@ -28,6 +28,33 @@
     "status": "scheduled"
   },
   {
+    "id": "nouvelles-formes-sexualite",
+    "title": "Les nouvelles formes de sexualité : tour d'horizon",
+    "type": "article",
+    "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
+    "date": "2026-07-10",
+    "date_modified": "2026-06-08",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexualité",
+      "polyamour",
+      "asexualité",
+      "identité sexuelle",
+      "fluidité",
+      "relations"
+    ],
+    "metaDescription": "Polyamour, asexualité, fluidité sexuelle : la psychologie et la science décryptent les nouvelles formes de sexualité qui redéfinissent nos façons d'aimer.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
     "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
@@ -456,75 +483,6 @@
     "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "nouvelles-formes-sexualite",
-    "title": "Les nouvelles formes de sexualité : tour d'horizon",
-    "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
-    "metaDescription": "Polyamour, asexualité, fluidité sexuelle : la psychologie et la science décryptent les nouvelles formes de sexualité qui redéfinissent nos façons d'aimer.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-08",
-    "date_modified": "2026-06-08",
-    "category": "Bien-être",
-    "image": "",
-    "readTime": 7,
-    "tags": [
-      "sexualité",
-      "polyamour",
-      "asexualité",
-      "identité sexuelle",
-      "fluidité",
-      "relations"
-    ],
-    "sources": [
-      {
-        "authors": "Bogaert A.F.",
-        "year": "2004",
-        "title": "Asexuality: Prevalence and associated factors in a national probability sample",
-        "journal": "Journal of Sex Research",
-        "url": "https://doi.org/10.1080/00224490409552235"
-      },
-      {
-        "authors": "Conley T.D., Matsick J.L., Moors A.C. & Ziegler A.",
-        "year": "2017",
-        "title": "Investigation of consensually nonmonogamous relationships",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691617713189"
-      },
-      {
-        "authors": "Diamond L.M.",
-        "year": "2008",
-        "title": "Sexual Fluidity: Understanding Women's Love and Desire",
-        "publisher": "Harvard University Press"
-      },
-      {
-        "authors": "Bajos N. & Bozon M. (dir.)",
-        "year": "2008",
-        "title": "Enquête sur la sexualité en France — Pratiques, genre et santé",
-        "publisher": "La Découverte"
-      },
-      {
-        "authors": "Moors A.C., Matsick J.L. & Schechinger H.A.",
-        "year": "2017",
-        "title": "Unique and shared relationship benefits of consensually non-monogamous and monogamous relationships",
-        "journal": "European Psychologist",
-        "url": "https://doi.org/10.1027/1016-9040/a000298"
-      },
-      {
-        "authors": "Brotto L.A. & Yule M.",
-        "year": "2017",
-        "title": "Asexuality: Sexual orientation, paraphilia, sexual dysfunction, or none of the above?",
-        "journal": "Archives of Sexual Behavior",
-        "url": "https://doi.org/10.1007/s10508-016-0802-7"
-      },
-      {
-        "authors": "Leridon H.",
-        "year": "2014",
-        "title": "La révolution contraceptive — Histoire de la maîtrise de la fécondité en France",
-        "publisher": "INED Éditions"
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "a-quoi-sert-la-honte",
