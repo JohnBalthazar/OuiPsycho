@@ -1,29 +1,29 @@
 [
   {
     "id": "gaston-lagaffe-psychopathologie",
-    "title": "Gaston Lagaffe sur le divan : psychopathologie de l'employé de bureau",
+    "title": "Gaston Lagaffe sur le divan : psychopathologie de l'employÃ© de bureau",
     "type": "article",
-    "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
+    "excerpt": "Gaston Lagaffe, gÃ©nie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, crÃ©ativitÃ© dÃ©bordante, conflits avec l'autoritÃ©â¦ Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
     "date": "2026-08-01",
     "date_modified": "2026-06-08",
-    "category": "Développement personnel",
+    "category": "DÃ©veloppement personnel",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
+    "author": "La rÃ©daction Oui Psycho!",
     "tags": [
-      "bande dessinée",
+      "bande dessinÃ©e",
       "psychologie du travail",
       "TDAH",
       "procrastination",
-      "créativité",
-      "résistance",
+      "crÃ©ativitÃ©",
+      "rÃ©sistance",
       "Gaston Lagaffe"
     ],
-    "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
+    "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, rÃ©sistance passive et gÃ©nie crÃ©atif mal canalisÃ©. Une analyse sÃ©rieuse (mais amusÃ©e) d'un mythe belge.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -85,17 +85,17 @@
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
     "type": "article",
-    "excerpt": "Vous avez tous un collÃÂ¨gue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-ÃÂªtre atteint d'un syndrome neurologique rarissime, le Witzelsucht. DÃÂ©cryptage.",
+    "excerpt": "Vous avez tous un collÃÂÃÂ¨gue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-ÃÂÃÂªtre atteint d'un syndrome neurologique rarissime, le Witzelsucht. DÃÂÃÂ©cryptage.",
     "date": "2026-06-26",
     "date_modified": "2026-06-08",
-    "category": "Bien-ÃÂªtre",
+    "category": "Bien-ÃÂÃÂªtre",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ltoirjjioqmncryiio4w",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 12,
-    "author": "La rÃÂ©daction Oui Psycho!",
+    "author": "La rÃÂÃÂ©daction Oui Psycho!",
     "tags": [
       "neurologie",
       "humour",
@@ -104,7 +104,7 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractÃÂ©risÃÂ© par une tendance compulsive aux blagues et jeux de mots. Causes, symptÃÂ´mes, diagnostic et test d'auto-ÃÂ©valuation.",
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractÃÂÃÂ©risÃÂÃÂ© par une tendance compulsive aux blagues et jeux de mots. Causes, symptÃÂÃÂ´mes, diagnostic et test d'auto-ÃÂÃÂ©valuation.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -456,6 +456,75 @@
     "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
     "articles_lies": [],
     "status": "scheduled"
+  },
+  {
+    "id": "nouvelles-formes-sexualite",
+    "title": "Les nouvelles formes de sexualité : tour d'horizon",
+    "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
+    "metaDescription": "Polyamour, asexualité, fluidité sexuelle : la psychologie et la science décryptent les nouvelles formes de sexualité qui redéfinissent nos façons d'aimer.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-08",
+    "date_modified": "2026-06-08",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 7,
+    "tags": [
+      "sexualité",
+      "polyamour",
+      "asexualité",
+      "identité sexuelle",
+      "fluidité",
+      "relations"
+    ],
+    "sources": [
+      {
+        "authors": "Bogaert A.F.",
+        "year": "2004",
+        "title": "Asexuality: Prevalence and associated factors in a national probability sample",
+        "journal": "Journal of Sex Research",
+        "url": "https://doi.org/10.1080/00224490409552235"
+      },
+      {
+        "authors": "Conley T.D., Matsick J.L., Moors A.C. & Ziegler A.",
+        "year": "2017",
+        "title": "Investigation of consensually nonmonogamous relationships",
+        "journal": "Perspectives on Psychological Science",
+        "url": "https://doi.org/10.1177/1745691617713189"
+      },
+      {
+        "authors": "Diamond L.M.",
+        "year": "2008",
+        "title": "Sexual Fluidity: Understanding Women's Love and Desire",
+        "publisher": "Harvard University Press"
+      },
+      {
+        "authors": "Bajos N. & Bozon M. (dir.)",
+        "year": "2008",
+        "title": "Enquête sur la sexualité en France — Pratiques, genre et santé",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Moors A.C., Matsick J.L. & Schechinger H.A.",
+        "year": "2017",
+        "title": "Unique and shared relationship benefits of consensually non-monogamous and monogamous relationships",
+        "journal": "European Psychologist",
+        "url": "https://doi.org/10.1027/1016-9040/a000298"
+      },
+      {
+        "authors": "Brotto L.A. & Yule M.",
+        "year": "2017",
+        "title": "Asexuality: Sexual orientation, paraphilia, sexual dysfunction, or none of the above?",
+        "journal": "Archives of Sexual Behavior",
+        "url": "https://doi.org/10.1007/s10508-016-0802-7"
+      },
+      {
+        "authors": "Leridon H.",
+        "year": "2014",
+        "title": "La révolution contraceptive — Histoire de la maîtrise de la fécondité en France",
+        "publisher": "INED Éditions"
+      }
+    ],
+    "status": "published"
   },
   {
     "id": "a-quoi-sert-la-honte",
