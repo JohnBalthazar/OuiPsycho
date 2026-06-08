@@ -115,6 +115,72 @@
     "status": "scheduled"
   },
   {
+    "id": "du-crush-au-crash-anatomie-histoires-amour",
+    "title": "Du crush au crash : anatomie d'une histoire d'amour",
+    "excerpt": "Papillons dans le ventre, fusion totale, premières frictions, désenchantement ou renaissance — une histoire d'amour suit des étapes que la psychologie et les neurosciences ont appris à cartographier. Mais l'amour garde toujours une longueur d'avance sur ses propres cartes.",
+    "metaDescription": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-07",
+    "date_modified": "2026-07-07",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "amour",
+      "couple",
+      "attachement",
+      "rupture",
+      "neurologie",
+      "psychologie-relationnelle"
+    ],
+    "sources": [
+      {
+        "authors": "Fisher H.E., Aron A. & Brown L.L.",
+        "year": "2005",
+        "title": "Romantic love: an fMRI study of a neural mechanism for mate choice",
+        "journal": "Journal of Comparative Neurology",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/16255001/"
+      },
+      {
+        "authors": "Xu X. et al.",
+        "year": "2010",
+        "title": "Reward and motivation systems: a brain mapping study of early-stage intense romantic love in Chinese participants",
+        "journal": "Human Brain Mapping",
+        "url": "https://doi.org/10.1002/hbm.20921"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Johnson S.M.",
+        "year": "2004",
+        "title": "The Practice of Emotionally Focused Couple Therapy",
+        "publisher": "Brunner-Routledge"
+      },
+      {
+        "authors": "Kross E. et al.",
+        "year": "2011",
+        "title": "Social rejection shares somatosensory representations with physical pain",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.1102693108"
+      },
+      {
+        "authors": "Campbell S.",
+        "year": "1980",
+        "title": "The Couple's Journey: Intimacy as a Path to Wholeness",
+        "publisher": "Impact Publishers"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
     "type": "dossier",
