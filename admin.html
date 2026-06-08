@@ -1011,6 +1011,31 @@
             <div id="quiz-auto-notice" style="display:none;background:var(--success-light);border:1px solid #a7f3d0;border-radius:var(--radius);padding:10px 14px;font-size:.82rem;color:var(--success);line-height:1.5">
               ✅ <strong>Quiz embarqué détecté</strong> dans le JSON — sera publié automatiquement sur GitHub sans fichier HTML séparé.
             </div>
+
+            <!-- ③ Confirmation date & statut avant publication -->
+            <div id="import-confirm-panel" style="display:none">
+              <div style="font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--gray-500);margin-bottom:6px">③ Date &amp; statut</div>
+              <div style="background:var(--gray-50);border:1px solid var(--gray-200);border-radius:var(--radius);padding:14px 16px;display:flex;flex-direction:column;gap:12px">
+                <div id="import-confirm-title" style="font-weight:600;font-size:.92rem;color:var(--gray-800);white-space:nowrap;overflow:hidden;text-overflow:ellipsis"></div>
+                <div style="display:flex;gap:14px;align-items:flex-end;flex-wrap:wrap">
+                  <div class="form-group" style="margin:0;flex:1;min-width:150px">
+                    <label style="font-size:.8rem;margin-bottom:4px">Date de publication</label>
+                    <input type="date" id="import-date-input" style="width:100%">
+                  </div>
+                  <div class="form-group" style="margin:0;flex:1;min-width:160px">
+                    <label style="font-size:.8rem;margin-bottom:4px">Statut</label>
+                    <select id="import-status-select" style="width:100%;padding:8px 10px;border:1px solid var(--gray-300);border-radius:var(--radius);font-size:.9rem">
+                      <option value="published">✅ Publié maintenant</option>
+                      <option value="scheduled">⏰ Planifié</option>
+                      <option value="draft">📝 Brouillon</option>
+                    </select>
+                  </div>
+                </div>
+                <button class="btn btn-success" id="import-publish-btn" onclick="publishImportedArticle()" style="align-self:flex-start">
+                  🚀 Publier sur GitHub
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -1319,6 +1344,7 @@ let articleStatus = 'published'; // 'published' | 'scheduled' | 'draft'
 // ── Quiz / Test interactif (import) ──
 let _pendingQuizHtml     = null; // HTML du quiz fourni manuellement (2ème fichier)
 let _pendingQuizFilename = null; // Nom du fichier quiz (depuis JSON ou fichier déposé)
+let _pendingArticleData  = null; // Article importé en attente de confirmation date/statut
 
 // ── Newsletter ──
 let nlSubscribers = [];
@@ -2681,7 +2707,8 @@ function handleQuizFile(event) {
 function _resetImportUI() {
   _pendingQuizHtml     = null;
   _pendingQuizFilename = null;
-  const ids = ['import-json-status','quiz-file-status','quiz-auto-notice'];
+  _pendingArticleData  = null;
+  const ids = ['import-json-status','quiz-file-status','quiz-auto-notice','import-confirm-panel'];
   ids.forEach(id => { const el = document.getElementById(id); if (el) el.style.display = 'none'; });
   const zoneText = document.getElementById('quiz-zone-text');
   if (zoneText) zoneText.textContent = '🎯 Cliquez ou déposez le fichier .html du quiz';
@@ -2689,6 +2716,79 @@ function _resetImportUI() {
   if (quizZone) quizZone.style.borderColor = '';
   const jsonText = document.getElementById('json-zone-text');
   if (jsonText) jsonText.textContent = '📂 Cliquez ou déposez un fichier .json';
+}
+
+/* ── Publier l'article importé après confirmation date/statut ── */
+async function publishImportedArticle() {
+  if (!_pendingArticleData) { toast('Aucun article en attente', 'error'); return; }
+
+  const { data, quizHtml, quizFilename } = _pendingArticleData;
+
+  // Lire la date et le statut choisis par l'utilisateur
+  const dateInput = document.getElementById('import-date-input');
+  const statusSel = document.getElementById('import-status-select');
+  const chosenDate   = dateInput ? dateInput.value : data.date;
+  const chosenStatus = statusSel ? statusSel.value  : (data.status || 'published');
+
+  // Appliquer au data : date choisie, date_modified = ancienne date (ou date elle-même si neuf)
+  const origDate    = data.date || chosenDate;
+  data.date         = chosenDate;
+  data.date_modified = (data.date_modified && data.date_modified !== origDate)
+                        ? data.date_modified
+                        : chosenDate;  // article neuf → date_modified = date
+  data.status = chosenStatus;
+
+  // Désactiver le bouton pendant la publication
+  const btn = document.getElementById('import-publish-btn');
+  if (btn) { btn.disabled = true; btn.innerHTML = '<div class="spinner" style="display:inline-block;width:14px;height:14px;border-width:2px;vertical-align:middle;margin-right:6px"></div> Publication…'; }
+
+  // Stocker le résumé dans l'index local (sans content ni quiz HTML)
+  const { content, keypoints, quiz, ...summary } = data;
+  const idx = articles.findIndex(a => a.id === data.id);
+  if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
+  localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+  renderArticlesTable();
+
+  // Push vers GitHub si PAT configuré
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat && content) {
+    try {
+      // 1. JSON article (sans le champ quiz.html pour alléger)
+      const dataForGithub = quiz
+        ? { ...data, quiz: quizFilename ? { filename: quizFilename } : undefined }
+        : data;
+      await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
+
+      // 2. Mise à jour index
+      articles = await mergeIndexWithRemote(articles);
+      localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
+      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+      await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+
+      // 3. Page HTML statique
+      const htmlPage = generateArticleHTML(data);
+      await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique ' + data.id);
+
+      // 4. Quiz HTML → tests/{filename}
+      if (quizHtml && quizFilename) {
+        await githubPutFile('tests/' + quizFilename, quizHtml, 'import: quiz ' + quizFilename);
+        toast('🎉 Article + quiz "' + quizFilename + '" publiés avec succès !', 'success');
+      } else {
+        toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
+      }
+
+    } catch(err) {
+      toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
+      if (btn) { btn.disabled = false; btn.innerHTML = '🚀 Publier sur GitHub'; }
+      return;
+    }
+  } else {
+    const hasQuizWarning = (data.quiz && !quizHtml) ? ' — ⚠️ Quiz non publié (fichier HTML manquant)' : (quizHtml ? ' + quiz chargé' : '');
+    toast('Article "' + data.id + '" importé' + hasQuizWarning + ' — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
+  }
+
+  _resetImportUI();
+  renderDashboard();
 }
 
 function handleImport(event) {
@@ -2748,52 +2848,20 @@ function handleImport(event) {
           quizFilename = _pendingQuizFilename || quizFilename;
         }
 
-        // Stocker le résumé dans l'index local (sans content ni quiz HTML)
-        const { content, keypoints, quiz, ...summary } = data;
-        const idx = articles.findIndex(a => a.id === data.id);
-        if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
-        localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-        renderArticlesTable();
+        // Stocker les données en attente de confirmation
+        _pendingArticleData = { data, quizHtml, quizFilename };
 
-        // Push automatique vers GitHub si PAT configuré
-        const pat = localStorage.getItem(GH_PAT_KEY);
-        if (pat && content) {
-          toast('⏳ Publication sur GitHub…', 'info');
-          try {
-            // 1. JSON article (sans le champ quiz.html pour alléger)
-            const dataForGithub = quiz
-              ? { ...data, quiz: quizFilename ? { filename: quizFilename } : undefined }
-              : data;
-            await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
+        // Afficher le panneau de confirmation avec date et statut pré-remplis
+        const panel      = document.getElementById('import-confirm-panel');
+        const titleEl    = document.getElementById('import-confirm-title');
+        const dateInput  = document.getElementById('import-date-input');
+        const statusSel  = document.getElementById('import-status-select');
+        if (titleEl)   titleEl.textContent  = data.title || data.id;
+        if (dateInput) dateInput.value      = data.date || new Date().toISOString().split('T')[0];
+        if (statusSel) statusSel.value      = data.status || 'published';
+        if (panel)     panel.style.display  = 'block';
 
-            // 2. Mise à jour index
-            articles = await mergeIndexWithRemote(articles);
-            localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-            await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
-            await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
-
-            // 3. Page HTML statique
-            const htmlPage = generateArticleHTML(data);
-            await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique ' + data.id);
-
-            // 4. Quiz HTML → tests/{filename}
-            if (quizHtml && quizFilename) {
-              await githubPutFile('tests/' + quizFilename, quizHtml, 'import: quiz ' + quizFilename);
-              toast('🎉 Article + quiz "' + quizFilename + '" publiés avec succès !', 'success');
-            } else {
-              toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
-            }
-
-            // Nettoyer l'état quiz
-            _pendingQuizHtml = null; _pendingQuizFilename = null;
-
-          } catch(err) {
-            toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
-          }
-        } else {
-          const hasQuizWarning = (data.quiz && !quizHtml) ? ' — ⚠️ Quiz non publié (fichier HTML manquant)' : (quizHtml ? ' + quiz chargé' : '');
-          toast('Article "' + data.id + '" importé' + hasQuizWarning + ' — cliquez "Pousser vers GitHub" pour mettre en ligne', 'info');
-        }
+        toast('✅ JSON chargé — vérifiez la date et cliquez "Publier sur GitHub"', 'info');
         return;
       }
 
