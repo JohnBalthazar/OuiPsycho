@@ -2438,6 +2438,7 @@ async function saveArticle() {
       articles = await mergeIndexWithRemote(articles);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index');
+      await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index');
       // Régénérer et pousser le HTML statique
       const htmlPage = generateArticleHTML(articleData);
       await githubPutFile('articles/' + id + '/index.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
@@ -2479,6 +2480,7 @@ async function deleteArticle(id) {
       articles = await mergeIndexWithRemote(articles, id);  // id = deletedId, ne sera pas restauré du remote
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index after delete');
+      await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index after delete');
       toast('Article supprimé sur GitHub', 'success');
     } catch(e) {
       toast('Supprimé localement. GitHub : ' + e.message, 'error');
@@ -2635,7 +2637,8 @@ async function pushAllToGitHub() {
     addLog('→ Fusion avec le remote…');
     const mergedIndex = await mergeIndexWithRemote(indexData);
     await githubPutFile('data/articles.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
-    addLog('✓ data/articles.json (' + mergedIndex.length + ' articles)'); ok++;
+    await githubPutFile('data/articles-all.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
+    addLog('✓ data/articles.json + articles-all.json (' + mergedIndex.length + ' articles)'); ok++;
   } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
 
   toast(ok + ' fichier(s) mis à jour' + (fail ? `, ${fail} erreur(s)` : ' ✓'), fail === 0 ? 'success' : 'error');
@@ -2767,6 +2770,7 @@ function handleImport(event) {
             articles = await mergeIndexWithRemote(articles);
             localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
             await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+            await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
 
             // 3. Page HTML statique
             const htmlPage = generateArticleHTML(data);
