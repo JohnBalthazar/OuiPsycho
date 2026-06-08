@@ -2543,7 +2543,11 @@ async function fetchRemoteIndex() {
     if (!res.ok) return null;
     const meta = await res.json();
     const raw = meta.content.replace(/\n/g, '');
-    return JSON.parse(atob(raw));
+    // Décoder correctement : atob() produit une binary string (1 char = 1 byte)
+    // → TextDecoder interprète les séquences multi-octets comme UTF-8,
+    //   évitant le double (ou triple) encodage à chaque cycle load/save.
+    const bytes = Uint8Array.from(atob(raw), c => c.charCodeAt(0));
+    return JSON.parse(new TextDecoder('utf-8').decode(bytes));
   } catch (e) {
     return null;
   }
