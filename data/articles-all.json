@@ -109,33 +109,6 @@
     "status": "scheduled"
   },
   {
-    "id": "syndrome-witzelsucht",
-    "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "type": "article",
-    "excerpt": "Vous avez tous un collÃÂÃÂÃÂÃÂ¨gue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-ÃÂÃÂÃÂÃÂªtre atteint d'un syndrome neurologique rarissime, le Witzelsucht. DÃÂÃÂÃÂÃÂ©cryptage.",
-    "date": "2026-06-26",
-    "date_modified": "2026-06-08",
-    "category": "Bien-ÃÂÃÂÃÂÃÂªtre",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ltoirjjioqmncryiio4w",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 12,
-    "author": "La rÃÂÃÂÃÂÃÂ©daction Oui Psycho!",
-    "tags": [
-      "neurologie",
-      "humour",
-      "comportement",
-      "cerveau",
-      "lobe-frontal",
-      "syndrome-rare"
-    ],
-    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractÃÂÃÂÃÂÃÂ©risÃÂÃÂÃÂÃÂ© par une tendance compulsive aux blagues et jeux de mots. Causes, symptÃÂÃÂÃÂÃÂ´mes, diagnostic et test d'auto-ÃÂÃÂÃÂÃÂ©valuation.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
