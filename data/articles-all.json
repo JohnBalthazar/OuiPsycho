@@ -28,6 +28,66 @@
     "status": "scheduled"
   },
   {
+    "id": "femme-parfaite-pour-les-hommes-2026",
+    "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
+    "excerpt": "Belle mais naturelle, ambitieuse mais disponible, indépendante mais rassurante — les attentes masculines forment un cahier des charges aussi précis que contradictoire. La psychologie évolutionniste et la sociologie décortiquent ces représentations, et ce qu'elles nous disent sur les hommes autant que sur les femmes.",
+    "metaDescription": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-14",
+    "date_modified": "2026-07-14",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "relations",
+      "feminisme",
+      "psychologie-evolutionniste",
+      "injonctions",
+      "attractivite",
+      "societe"
+    ],
+    "sources": [
+      {
+        "authors": "Buss D.M.",
+        "year": "1989",
+        "title": "Sex differences in human mate preferences: Evolutionary hypotheses tested in 37 cultures",
+        "journal": "Behavioral and Brain Sciences",
+        "url": "https://doi.org/10.1017/S0140525X00023992"
+      },
+      {
+        "authors": "Walter K.V. et al.",
+        "year": "2024",
+        "title": "Culture shapes sex differences in mate preferences",
+        "journal": "Evolution and Human Behavior",
+        "url": "https://doi.org/10.1016/j.evolhumbehav.2024.01.003"
+      },
+      {
+        "authors": "Piazzesi C.",
+        "year": "2023",
+        "title": "The Beauty Paradox. Femininity in the Age of Selfies",
+        "publisher": "Rowman & Littlefield"
+      },
+      {
+        "authors": "Chollet M.",
+        "year": "2012",
+        "title": "Beauté fatale. Les nouveaux visages d'une aliénation féminine",
+        "publisher": "Zones / La Découverte"
+      },
+      {
+        "authors": "Zentner M. & Mitura K.",
+        "year": "2012",
+        "title": "Stepping Out of the Caveman's Shadow: Nations' Gender Gap Predicts Degree of Sex Differentiation in Mate Preferences",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1177/0956797611426011"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "nouvelles-formes-sexualite",
     "title": "La séxualité en 2026 : moins de sexe, plus d'IA et le célibat comme acte politique",
     "type": "article",
