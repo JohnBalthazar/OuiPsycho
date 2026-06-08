@@ -54,6 +54,33 @@
     "status": "scheduled"
   },
   {
+    "id": "syndrome-witzelsucht",
+    "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
+    "type": "article",
+    "excerpt": "Vous avez tous un collègue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime, le Witzelsucht. Décryptage.",
+    "date": "2026-06-26",
+    "date_modified": "2026-06-08",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ltoirjjioqmncryiio4w",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 12,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "neurologie",
+      "humour",
+      "comportement",
+      "cerveau",
+      "lobe-frontal",
+      "syndrome-rare"
+    ],
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : psychopathologie d’un sorcier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
@@ -401,61 +428,6 @@
     "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "syndrome-witzelsucht",
-    "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "excerpt": "Vous avez tous un collègue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime, le Witzelsucht. Décryptage.",
-    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-06-08",
-    "date_modified": "2026-06-08",
-    "category": "Bien-être",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 12,
-    "tags": [
-      "neurologie",
-      "humour",
-      "comportement",
-      "cerveau",
-      "lobe-frontal",
-      "syndrome-rare"
-    ],
-    "sources": [
-      {
-        "authors": "Shammi P, Stuss DT",
-        "title": "Humour appreciation: a role of the right frontal lobe",
-        "journal": "Brain",
-        "year": 1999,
-        "doi": "10.1093/brain/122.4.657"
-      },
-      {
-        "authors": "Mendez MF, Nakawatase TV, Brown CV",
-        "title": "Involuntary laughter and inappropriate hilarity",
-        "journal": "Journal of Neuropsychiatry and Clinical Neurosciences",
-        "year": 1999,
-        "doi": "10.1176/jnp.11.2.253"
-      },
-      {
-        "authors": "Geschwind N",
-        "title": "The clinical setting of aggression in temporal lobe epilepsy",
-        "journal": "The Epilepsies: Research for the Patient",
-        "year": 1983,
-        "url": ""
-      },
-      {
-        "authors": "Rainer W",
-        "title": "Witzelsucht",
-        "journal": "Encyclopaedia of Psychopathology",
-        "year": 2007,
-        "url": ""
-      }
-    ],
-    "status": "published"
   },
   {
     "id": "a-quoi-sert-la-honte",
