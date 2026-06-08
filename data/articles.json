@@ -57,17 +57,17 @@
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
     "type": "article",
-    "excerpt": "Vous avez tous un collègue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime, le Witzelsucht. Décryptage.",
+    "excerpt": "Vous avez tous un collÃ¨gue qui fait blague sur blague, abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-Ãªtre atteint d'un syndrome neurologique rarissime, le Witzelsucht. DÃ©cryptage.",
     "date": "2026-06-26",
     "date_modified": "2026-06-08",
-    "category": "Bien-être",
+    "category": "Bien-Ãªtre",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ltoirjjioqmncryiio4w",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 12,
-    "author": "La rédaction Oui Psycho!",
+    "author": "La rÃ©daction Oui Psycho!",
     "tags": [
       "neurologie",
       "humour",
@@ -76,7 +76,7 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractÃ©risÃ© par une tendance compulsive aux blagues et jeux de mots. Causes, symptÃ´mes, diagnostic et test d'auto-Ã©valuation.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -428,6 +428,60 @@
     "metaDescription": "Gélothérapie, yoga du rire, Dr Rubinstein, Norman Cousins : ce que la science dit vraiment des bienfaits du rire sur le stress, la douleur et l'immunité.",
     "articles_lies": [],
     "status": "scheduled"
+  },
+  {
+    "id": "gaston-lagaffe-psychopathologie",
+    "title": "Gaston Lagaffe sur le divan : psychopathologie de l'employé de bureau",
+    "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
+    "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-08",
+    "date_modified": "2026-06-08",
+    "category": "Développement personnel",
+    "image": "",
+    "readTime": 7,
+    "tags": [
+      "bande dessinée",
+      "psychologie du travail",
+      "TDAH",
+      "procrastination",
+      "créativité",
+      "résistance",
+      "Gaston Lagaffe"
+    ],
+    "sources": [
+      {
+        "authors": "Barkley R. A.",
+        "year": "2015",
+        "title": "Attention-Deficit Hyperactivity Disorder: A Handbook for Diagnosis and Treatment",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Dejours C.",
+        "year": "1998",
+        "title": "Souffrance en France : la banalisation de l'injustice sociale",
+        "publisher": "Seuil"
+      },
+      {
+        "authors": "Pink D. H.",
+        "year": "2009",
+        "title": "Drive: The Surprising Truth About What Motivates Us",
+        "publisher": "Riverhead Books"
+      },
+      {
+        "authors": "Csikszentmihalyi M.",
+        "year": "1990",
+        "title": "Flow: The Psychology of Optimal Experience",
+        "publisher": "Harper & Row"
+      },
+      {
+        "authors": "Furnham A. & Taylor J.",
+        "year": "2004",
+        "title": "The Dark Side of Behaviour at Work: Understanding and Avoiding Employees Leaving, Thieving and Deceiving",
+        "publisher": "Palgrave Macmillan"
+      }
+    ],
+    "status": "published"
   },
   {
     "id": "a-quoi-sert-la-honte",
