@@ -29,15 +29,19 @@
   },
   {
     "id": "nouvelles-formes-sexualite",
-    "title": "Sexualité en 2025 : moins de sexe, plus d'IA et le célibat comme acte politique",
+    "title": "La séxualité en 2026 : moins de sexe, plus d'IA et le célibat comme acte politique",
+    "type": "article",
     "excerpt": "Les Français font moins l'amour qu'il y a quinze ans, les jeunes plébiscitent le célibat choisi, et l'intelligence artificielle s'invite dans l'intimité. La psychologie tente de comprendre cette révolution silencieuse des désirs. Enquête sur une sexualité qui se réinvente — ou qui disparaît.",
-    "metaDescription": "Récession sexuelle, célibat choisi, IA et intimité : la psychologie décrypte les grandes tendances qui redéfinissent la sexualité en France en 2025.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-10",
-    "date_modified": "2026-07-10",
+    "date_modified": "2026-06-08",
     "category": "Bien-être",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "sexualité",
       "récession sexuelle",
@@ -46,53 +50,8 @@
       "polyamour",
       "tendances"
     ],
-    "sources": [
-      {
-        "authors": "Kraus F. & IFOP pour LELO",
-        "year": "2024",
-        "title": "La 'sex recession' : les Français font-ils moins l'amour ?",
-        "journal": "Observatoire LELO de la sexualité des Français",
-        "url": "https://www.ifop.com/publication/la-sex-recession-les-francais-font-ils-moins-lamour/"
-      },
-      {
-        "authors": "INED",
-        "year": "2025",
-        "title": "Comportements sexuels des jeunes de 18 à 29 ans en France",
-        "publisher": "Institut national d'études démographiques"
-      },
-      {
-        "authors": "Brotto L.A.",
-        "year": "2018",
-        "title": "Better Sex Through Mindfulness: How Women Can Cultivate Desire",
-        "publisher": "Greystone Books"
-      },
-      {
-        "authors": "Nordmo M., Næss J.Ø., Husøy M.F. & Arnestad M.N.",
-        "year": "2020",
-        "title": "Friends, Lovers or Nothing: Men and Women Differ in Their Perceptions of Sex Robots and Platonic Love Robots",
-        "journal": "Frontiers in Psychology",
-        "url": "https://doi.org/10.3389/fpsyg.2020.00355"
-      },
-      {
-        "authors": "Conley T.D., Matsick J.L., Moors A.C. & Ziegler A.",
-        "year": "2017",
-        "title": "Investigation of consensually nonmonogamous relationships",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691617713189"
-      },
-      {
-        "authors": "LELO",
-        "year": "2025",
-        "title": "Rapport Futurist 2025 : les tendances de la sexualité",
-        "publisher": "LELO Global"
-      },
-      {
-        "authors": "Albert M.",
-        "year": "2023",
-        "title": "Sologamie — Le podcast des célibataires qui n'ont besoin de personne",
-        "publisher": "Acast (podcast)"
-      }
-    ],
+    "metaDescription": "Récession sexuelle, célibat choisi, IA et intimité : la psychologie décrypte les grandes tendances qui redéfinissent la sexualité en France en 2025.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
