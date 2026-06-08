@@ -1,33 +1,5 @@
 [
   {
-    "id": "gaston-lagaffe-psychopathologie",
-    "title": "Gaston Lagaffe sur le divan : psychopathologie de l'employé de bureau",
-    "type": "article",
-    "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
-    "date": "2026-08-01",
-    "date_modified": "2026-06-08",
-    "category": "Développement personnel",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "bande dessinée",
-      "psychologie du travail",
-      "TDAH",
-      "procrastination",
-      "créativité",
-      "résistance",
-      "Gaston Lagaffe"
-    ],
-    "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
     "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
