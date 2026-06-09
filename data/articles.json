@@ -27,6 +27,72 @@
     "status": "scheduled"
   },
   {
+    "id": "accords-tolteques-psychologie-neurosciences",
+    "title": "Les quatre accords toltèques : sagesse ancestrale ou science validée ?",
+    "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
+    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-16",
+    "date_modified": "2026-07-16",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "accords-tolteques",
+      "pleine-conscience",
+      "neurosciences",
+      "therapies",
+      "developpement-personnel",
+      "cognition"
+    ],
+    "sources": [
+      {
+        "authors": "Ruiz M.",
+        "year": "1997",
+        "title": "Les Quatre Accords toltèques",
+        "publisher": "Amber-Allen Publishing"
+      },
+      {
+        "authors": "Kross E. et al.",
+        "year": "2014",
+        "title": "Self-talk as a regulatory mechanism: How you do it matters",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0035173"
+      },
+      {
+        "authors": "Neff K.D.",
+        "year": "2011",
+        "title": "Self-Compassion, Self-Esteem, and Well-Being",
+        "journal": "Social and Personality Psychology Compass",
+        "url": "https://doi.org/10.1111/j.1751-9004.2010.00330.x"
+      },
+      {
+        "authors": "Beck A.T.",
+        "year": "1979",
+        "title": "Cognitive Therapy of Depression",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Fonagy P. & Target M.",
+        "year": "1997",
+        "title": "Attachment and reflective function: Their role in self-organization",
+        "journal": "Development and Psychopathology",
+        "url": "https://doi.org/10.1017/S0954579497001399"
+      },
+      {
+        "authors": "Gottman J.M. & Silver N.",
+        "year": "1999",
+        "title": "The Seven Principles for Making Marriage Work",
+        "publisher": "Crown Publishers"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
     "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
