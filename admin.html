@@ -421,6 +421,10 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
         Nouvel article
       </button>
+      <button class="nav-item" onclick="showPage('dossiers')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+        Dossiers
+      </button>
       <button class="nav-item" onclick="showPage('newsletter')">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
         Newsletter
@@ -507,6 +511,114 @@
           <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Photo</th><th>Lecture</th><th>Actions</th></tr></thead>
           <tbody id="articles-table"><tr class="loading-row"><td colspan="7">Chargement…</td></tr></tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- DOSSIERS LIST -->
+    <div id="page-dossiers" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Dossiers <span id="dossiers-count" style="font-size:.9rem;font-weight:400;color:var(--gray-400)"></span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="loadDossiers()">↻ Rafraîchir</button>
+          <button class="btn btn-primary" onclick="openDossierPanel(null)">+ Nouveau dossier</button>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <div class="search-bar">
+            <input type="text" id="dossiers-search" placeholder="Rechercher un dossier…" oninput="renderDossiersTable()">
+          </div>
+        </div>
+        <table>
+          <thead>
+            <tr><th>Titre</th><th>Catégorie</th><th>Chapitres</th><th>Date</th><th>Statut</th><th>Actions</th></tr>
+          </thead>
+          <tbody id="dossiers-table">
+            <tr class="loading-row"><td colspan="6">Chargement…</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="margin-top:16px;padding:14px 20px;background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);font-size:.85rem;color:#92400e">
+        ⚠️ <strong>Note :</strong> Le contenu HTML des dossiers (chapitres) est dans <code>dossiers/[slug]/index.html</code>. Cet admin gère uniquement les métadonnées (titre, image, statut…).
+      </div>
+    </div>
+
+    <!-- DOSSIER EDIT PANEL -->
+    <div class="panel-overlay" id="dossier-panel-overlay">
+      <div class="panel" style="max-width:640px">
+        <div class="panel-header">
+          <h2 id="dossier-panel-title">Modifier le dossier</h2>
+          <button class="panel-close" onclick="closeDossierPanel()">✕</button>
+        </div>
+        <div class="panel-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Titre *</label>
+              <input type="text" id="dp-title" placeholder="Titre du dossier">
+            </div>
+            <div class="form-group">
+              <label>Slug (URL) *</label>
+              <input type="text" id="dp-id" placeholder="anxiete-guide-complet">
+              <div class="hint">Identifiant unique, sans espaces ni accents</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Sous-titre</label>
+            <input type="text" id="dp-subtitle" placeholder="Ex : Le guide complet en 5 chapitres">
+          </div>
+          <div class="form-group">
+            <label>Excerpt *</label>
+            <textarea id="dp-excerpt" rows="3" placeholder="Description courte et accrocheuse…"></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Catégorie *</label>
+              <select id="dp-category">
+                <option value="">-- Choisir --</option>
+                <option>Anxiété</option><option>Dépression</option><option>Bien-être</option>
+                <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
+                <option>Relations</option><option>Développement personnel</option>
+                <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Statut</label>
+              <select id="dp-status">
+                <option value="published">✅ Publié</option>
+                <option value="draft">📝 Brouillon</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Temps de lecture (min)</label>
+              <input type="number" id="dp-readTime" min="1" max="120" value="20">
+            </div>
+            <div class="form-group">
+              <label>Nombre de chapitres</label>
+              <input type="number" id="dp-chapterCount" min="1" max="20" value="5">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="dp-date">
+          </div>
+          <div class="form-group">
+            <label>Image (URL Cloudinary ou directe)</label>
+            <input type="text" id="dp-image" placeholder="https://res.cloudinary.com/…">
+          </div>
+          <div class="form-group">
+            <label>Tags</label>
+            <input type="text" id="dp-tags" placeholder="anxiété, stress, TCC (séparés par des virgules)">
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-ghost" onclick="closeDossierPanel()">Annuler</button>
+          <button class="btn btn-success" id="dp-save-btn" onclick="saveDossier()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Enregistrer
+          </button>
+        </div>
       </div>
     </div>
 
@@ -1640,6 +1752,7 @@ function showPage(name) {
   if (name === 'comments')    loadAdminComments();
   if (name === 'messages')    loadAdminMessages();
   if (name === 'about')       loadAboutPage();
+  if (name === 'dossiers')    loadDossiers();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
     document.getElementById('gh-owner').value      = localStorage.getItem(GH_OWNER_KEY)  || '';
@@ -4453,6 +4566,198 @@ async function deleteMessage(id) {
     renderMessagesStats(); renderMessagesTable(); updateMessagesBadge();
     toast('Message supprimé', 'success');
   } catch(e) { toast('Erreur : ' + e.message, 'error'); }
+}
+
+/* ══════════════════════════════════════════════
+   DOSSIERS
+══════════════════════════════════════════════ */
+let adminDossiers    = [];
+let editingDossierId = null;
+
+async function loadDossiers() {
+  try {
+    const r = await fetch('data/dossiers.json?t=' + Date.now());
+    adminDossiers = r.ok ? await r.json() : [];
+  } catch(_) { adminDossiers = []; }
+  renderDossiersTable();
+}
+
+function renderDossiersTable() {
+  const q   = (document.getElementById('dossiers-search')?.value || '').toLowerCase();
+  const list = adminDossiers.filter(d =>
+    !q ||
+    (d.title    || '').toLowerCase().includes(q) ||
+    (d.category || '').toLowerCase().includes(q)
+  );
+  const countEl = document.getElementById('dossiers-count');
+  if (countEl) countEl.textContent = `(${adminDossiers.length})`;
+  if (!list.length) {
+    document.getElementById('dossiers-table').innerHTML =
+      '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun dossier</td></tr>';
+    return;
+  }
+  const today = new Date().toISOString().split('T')[0];
+  document.getElementById('dossiers-table').innerHTML = list.map(d => {
+    const cat    = d.category || '—';
+    const catCls = 'cat-' + (d.category || '').replace(/\s/g,'\ ');
+    const dateStr = d.date ? new Date(d.date + 'T12:00:00').toLocaleDateString('fr-FR',
+      { day:'numeric', month:'short', year:'numeric' }) : '—';
+    const isOk  = d.status !== 'draft' && (d.status !== 'scheduled' || d.date <= today);
+    const badge = isOk
+      ? '<span class="badge badge-published">Publié</span>'
+      : d.status === 'draft'
+        ? '<span class="badge badge-draft">Brouillon</span>'
+        : '<span class="badge badge-scheduled">Planifié</span>';
+    const img = d.image
+      ? `<img src="${escapeAttr(d.image)}" style="width:36px;height:36px;object-fit:cover;border-radius:4px;vertical-align:middle;margin-right:8px">`
+      : '<span style="display:inline-block;width:36px;height:36px;background:var(--gray-100);border-radius:4px;vertical-align:middle;margin-right:8px;text-align:center;line-height:36px">📚</span>';
+    return `<tr>
+      <td>
+        ${img}<strong>${escapeAttr(d.title || '—')}</strong>
+        <div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(d.id)}</div>
+      </td>
+      <td><span class="badge ${catCls}">${escapeAttr(cat)}</span></td>
+      <td>${d.chapterCount || '—'} ch.</td>
+      <td style="white-space:nowrap;font-size:.85rem">${dateStr}</td>
+      <td>${badge}</td>
+      <td>
+        <div class="actions">
+          <a href="dossiers/${escapeAttr(d.id)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          <button class="btn btn-primary btn-sm" onclick="openDossierPanel('${escapeAttr(d.id)}')">✏️ Éditer</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteDossier('${escapeAttr(d.id)}','${escapeAttr(d.title || '')}')">🗑️</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function openDossierPanel(id) {
+  editingDossierId = id;
+  const panel = document.getElementById('dossier-panel-overlay');
+  const title = document.getElementById('dossier-panel-title');
+  if (id) {
+    const d = adminDossiers.find(x => x.id === id);
+    if (!d) return;
+    title.textContent = 'Modifier le dossier';
+    document.getElementById('dp-id').value           = d.id           || '';
+    document.getElementById('dp-title').value        = d.title        || '';
+    document.getElementById('dp-subtitle').value     = d.subtitle     || '';
+    document.getElementById('dp-excerpt').value      = d.excerpt      || '';
+    document.getElementById('dp-category').value     = d.category     || '';
+    document.getElementById('dp-status').value       = d.status       || 'published';
+    document.getElementById('dp-readTime').value     = d.readTime     || 20;
+    document.getElementById('dp-chapterCount').value = d.chapterCount || 5;
+    document.getElementById('dp-date').value         = d.date         || '';
+    document.getElementById('dp-image').value        = d.image        || '';
+    document.getElementById('dp-tags').value         = (d.tags || []).join(', ');
+    document.getElementById('dp-id').readOnly = true;
+  } else {
+    title.textContent = 'Nouveau dossier';
+    document.getElementById('dp-id').value           = '';
+    document.getElementById('dp-title').value        = '';
+    document.getElementById('dp-subtitle').value     = '';
+    document.getElementById('dp-excerpt').value      = '';
+    document.getElementById('dp-category').value     = '';
+    document.getElementById('dp-status').value       = 'published';
+    document.getElementById('dp-readTime').value     = 20;
+    document.getElementById('dp-chapterCount').value = 5;
+    document.getElementById('dp-date').value         = new Date().toISOString().split('T')[0];
+    document.getElementById('dp-image').value        = '';
+    document.getElementById('dp-tags').value         = '';
+    document.getElementById('dp-id').readOnly = false;
+  }
+  panel.classList.add('open');
+}
+
+function closeDossierPanel() {
+  document.getElementById('dossier-panel-overlay').classList.remove('open');
+  editingDossierId = null;
+}
+
+async function saveDossier() {
+  const id           = document.getElementById('dp-id').value.trim();
+  const title        = document.getElementById('dp-title').value.trim();
+  const subtitle     = document.getElementById('dp-subtitle').value.trim();
+  const excerpt      = document.getElementById('dp-excerpt').value.trim();
+  const category     = document.getElementById('dp-category').value;
+  const status       = document.getElementById('dp-status').value;
+  const readTime     = parseInt(document.getElementById('dp-readTime').value) || 20;
+  const chapterCount = parseInt(document.getElementById('dp-chapterCount').value) || 5;
+  const date         = document.getElementById('dp-date').value;
+  const image        = document.getElementById('dp-image').value.trim();
+  const tagsRaw      = document.getElementById('dp-tags').value;
+  const tags         = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+
+  if (!id || !title || !category) {
+    toast('Remplissez les champs obligatoires (slug, titre, catégorie)', 'error');
+    return;
+  }
+
+  const dossierData = { id, type: 'dossier', title, subtitle, excerpt, category,
+    image, readTime, chapterCount, date, status, tags };
+
+  if (editingDossierId) {
+    const idx = adminDossiers.findIndex(d => d.id === editingDossierId);
+    if (idx > -1) adminDossiers[idx] = dossierData;
+    else adminDossiers.push(dossierData);
+  } else {
+    if (adminDossiers.find(d => d.id === id)) {
+      toast('Un dossier avec ce slug existe déjà', 'error');
+      return;
+    }
+    adminDossiers.unshift(dossierData);
+  }
+
+  const btn = document.getElementById('dp-save-btn');
+  btn.innerHTML = '<div class="spinner"></div> Enregistrement…';
+  btn.disabled  = true;
+
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await githubPutFile('data/dossiers.json',
+        JSON.stringify(adminDossiers, null, 2),
+        (editingDossierId ? 'update' : 'create') + ': dossier ' + id);
+      toast('Dossier enregistré sur GitHub ✓', 'success');
+      closeDossierPanel();
+      renderDossiersTable();
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('⚠️ Token GitHub manquant — modifications sauvées localement seulement. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer →</a>', 'error', 10000);
+    closeDossierPanel();
+    renderDossiersTable();
+  }
+
+  btn.innerHTML = '✓ Enregistrer';
+  btn.disabled  = false;
+}
+
+function confirmDeleteDossier(id, title) {
+  document.getElementById('confirm-title').textContent = 'Supprimer ce dossier ?';
+  document.getElementById('confirm-msg').textContent   = `"${title}" sera retiré de la liste. Le fichier HTML n'est pas supprimé.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
+  document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteDossier(id); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+
+async function deleteDossier(id) {
+  adminDossiers = adminDossiers.filter(d => d.id !== id);
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await githubPutFile('data/dossiers.json',
+        JSON.stringify(adminDossiers, null, 2),
+        'delete: dossier ' + id + ' from index');
+      toast('Dossier retiré de la liste', 'success');
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('Supprimé localement — configurez le PAT pour synchroniser', 'info');
+  }
+  renderDossiersTable();
 }
 </script>
 </body>
