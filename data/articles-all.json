@@ -577,18 +577,18 @@
   {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
+    "type": "article",
     "excerpt": "Une mère trop critique, envahissante, froide ou manipulatrice laisse des traces profondes dans la vie de ses enfants. Mais comprendre ces dynamiques, c'est déjà commencer à s'en libérer. Ce que la psychologie nous dit sur les mères toxiques — et sur la reconstruction.",
-    "metaDescription": "Mère toxique : comment la reconnaître, comprendre son impact psychologique et entamer un chemin de reconstruction. Éclairage scientifique et clinique.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-10",
-    "date_modified": "2026-06-10",
+    "date_modified": "2026-06-09",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/o8lkyqfoij2w0nssfxju",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "mère toxique",
       "relations familiales",
@@ -597,45 +597,8 @@
       "reconstruction",
       "parentalité"
     ],
-    "sources": [
-      {
-        "authors": "Forward S.",
-        "year": "1989",
-        "title": "Toxic Parents: Overcoming Their Hurtful Legacy and Reclaiming Your Life",
-        "publisher": "Bantam Books"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Ainsworth M.D.S., Blehar M.C., Waters E. & Wall S.",
-        "year": "1978",
-        "title": "Patterns of Attachment: A Psychological Study of the Strange Situation",
-        "publisher": "Lawrence Erlbaum Associates"
-      },
-      {
-        "authors": "Winnicott D.W.",
-        "year": "1971",
-        "title": "Jeu et réalité : l'espace potentiel",
-        "publisher": "Gallimard"
-      },
-      {
-        "authors": "Liotti G.",
-        "year": "2004",
-        "title": "Trauma, dissociation, and disorganized attachment: Three strands of a single braid",
-        "journal": "Psychotherapy: Theory, Research, Practice, Training",
-        "url": "https://doi.org/10.1037/0033-3204.41.4.472"
-      },
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "Syros"
-      }
-    ],
+    "metaDescription": "Mère toxique : comment la reconnaître, comprendre son impact psychologique et entamer un chemin de reconstruction. Éclairage scientifique et clinique.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
