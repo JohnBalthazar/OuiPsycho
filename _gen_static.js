@@ -475,6 +475,26 @@ const sitemapArticles = [...newIndex].sort((a, b) =>
   sitemapLastmod(b).localeCompare(sitemapLastmod(a))
 );
 
+// Articles "orphelins" : index.html existant SANS JSON correspondant, en index, follow
+// (articles créés avant le système JSON — ex: pages à HTML custom)
+const jsonIds = new Set(jsonFiles.map(f => path.basename(f, '.json')));
+const orphanArticles = [];
+if (fs.existsSync(DIR)) {
+  for (const slug of fs.readdirSync(DIR)) {
+    if (jsonIds.has(slug)) continue;                         // a un JSON → déjà dans sitemapArticles
+    const htmlPath = path.join(DIR, slug, 'index.html');
+    if (!fs.existsSync(htmlPath)) continue;
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (!html.includes('content="index, follow"')) continue; // pas indexable
+    const pubM  = html.match(/article:published_time[^>]*content="([^T"]+)/);
+    const modM  = html.match(/article:modified_time[^>]*content="([^T"]+)/);
+    const pub   = pubM ? pubM[1] : TODAY;
+    const mod   = modM ? modM[1] : pub;
+    const lastmod = (mod > pub ? mod : pub) > TODAY ? TODAY : (mod > pub ? mod : pub);
+    orphanArticles.push({ id: slug, lastmod });
+  }
+}
+
 // Dossiers publiés : scan dossiers/*/index.html → vérifier robots="index, follow"
 const DOSSIER_DIR = path.join(__dirname, 'dossiers');
 const sitemapDossiers = [];
@@ -537,19 +557,34 @@ if (sitemapDossiers.length) {
   }
 }
 
-sitemapXml += `\n\n  <!-- Articles (${sitemapArticles.length} publiés — généré automatiquement) -->`;
+const totalArticles = sitemapArticles.length + orphanArticles.length;
+sitemapXml += `\n\n  <!-- Articles (${totalArticles} publiés — généré automatiquement) -->`;
 sitemapArticles.forEach((a, i) => {
   sitemapXml += `
   <url>
     <loc>${BASE}/articles/${a.id}/</loc>
     <lastmod>${sitemapLastmod(a)}</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>${i === 0 ? '0.9' : '0.8'}</priority>
+    <priority>${i === 0 && orphanArticles.length === 0 ? '0.9' : '0.8'}</priority>
   </url>`;
 });
+
+// Articles orphelins (HTML custom sans JSON) indexables
+if (orphanArticles.length) {
+  sitemapXml += `\n\n  <!-- Articles à HTML custom (sans JSON) -->`;
+  orphanArticles.forEach(a => {
+    sitemapXml += `
+  <url>
+    <loc>${BASE}/articles/${a.id}/</loc>
+    <lastmod>${a.lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  });
+}
 
 sitemapXml += `\n\n</urlset>\n`;
 
 fs.writeFileSync(SITEMAP_FILE, sitemapXml, 'utf8');
-console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles + ${sitemapDossiers.length} dossier(s))`);
+console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles JSON + ${orphanArticles.length} orphelins + ${sitemapDossiers.length} dossier(s))`);
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);
