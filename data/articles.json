@@ -575,6 +575,63 @@
     "status": "scheduled"
   },
   {
+    "id": "meres-toxiques-comprendre-pour-se-reconstruire",
+    "title": "Mères toxiques : comprendre pour se reconstruire",
+    "excerpt": "Trop critiques, étouffantes, absentes ou imprévisibles — certaines mères laissent des traces profondes dans la psyché de leurs enfants. Comprendre ces dynamiques n'est pas trahir sa mère : c'est se donner les moyens de se reconstruire.",
+    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-10",
+    "date_modified": "2026-06-10",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "famille",
+      "attachement",
+      "trauma",
+      "reconstruction",
+      "therapie",
+      "relation-mere-enfant"
+    ],
+    "sources": [
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Mikulincer M. & Shaver P.R.",
+        "year": "2007",
+        "title": "Attachment in Adulthood: Structure, Dynamics, and Change",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Forward S.",
+        "year": "1989",
+        "title": "Toxic Parents: Overcoming Their Hurtful Legacy and Reclaiming Your Life",
+        "publisher": "Bantam Books"
+      },
+      {
+        "authors": "McBride K.",
+        "year": "2008",
+        "title": "Will I Ever Be Good Enough? Healing the Daughters of Narcissistic Mothers",
+        "publisher": "Free Press"
+      },
+      {
+        "authors": "Young J.E., Klosko J.S. & Weishaar M.E.",
+        "year": "2003",
+        "title": "Schema Therapy: A Practitioner's Guide",
+        "publisher": "Guilford Press"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "therapie-par-le-rire",
     "title": "La thérapie par le rire, ce n'est pas une blague !",
     "type": "article",
