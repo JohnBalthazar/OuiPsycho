@@ -54,6 +54,71 @@
     "status": "scheduled"
   },
   {
+    "id": "james-bond-psychologie-agent-secret",
+    "title": "James Bond sur le divan : psychologie d'un agent secret",
+    "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
+    "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-16",
+    "date_modified": "2026-07-16",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "pop-culture",
+      "attachement",
+      "trauma",
+      "narcissisme",
+      "alexithymie",
+      "psychologie-personnage"
+    ],
+    "sources": [
+      {
+        "authors": "Johnson G. et al.",
+        "year": "2013",
+        "title": "Were James Bond's drinking habits harmful? A content analysis of the 007 film series",
+        "journal": "BMJ",
+        "url": "https://doi.org/10.1136/bmj.f7255"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Herman J.L.",
+        "year": "1992",
+        "title": "Trauma and Recovery",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Levant R.F.",
+        "year": "1995",
+        "title": "Masculinity ideology and its relationship to violence",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.50.3.164"
+      },
+      {
+        "authors": "Taylor G.J., Bagby R.M. & Parker J.D.A.",
+        "year": "1997",
+        "title": "Disorders of Affect Regulation: Alexithymia in Medical and Psychiatric Illness",
+        "publisher": "Cambridge University Press"
+      },
+      {
+        "authors": "Connell R.W.",
+        "year": "1995",
+        "title": "Masculinities",
+        "publisher": "University of California Press"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
     "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
