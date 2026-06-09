@@ -24,6 +24,7 @@ const CATEGORIES = {
   'Sommeil':                  { color: '#0369A1', bg: '#ECFEFF' },
   'Thérapies':                { color: '#6D28D9', bg: '#EDE9FE' },
   'Développement personnel':  { color: '#15803D', bg: '#F0FDF4' },
+  'Nos héros sur le divan':   { color: '#EA580C', bg: '#FFF7ED' },
 };
 
 /* ============================================================
@@ -1276,6 +1277,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('article-content')) initArticle();
   if (document.getElementById('dossier-list-grid')) initDossierList();
   if (document.getElementById('dossier-content'))   initDossierPage();
+  if (document.getElementById('heros-grid'))        initHerosRubrique();
 
   // Fallback : insère une espace insécable avant le dernier mot des titres
   // pour éviter la ponctuation orpheline (complète text-wrap:balance)
@@ -1434,6 +1436,38 @@ function _nlMsg(text, type) {
   el.textContent = text;
   el.style.color = type === 'error' ? '#ffb3a7' : '#a8e6cf';
   el.style.display = 'block';
+}
+
+/* ============================================================
+   NOS HÉROS SUR LE DIVAN — page rubrique
+   ============================================================ */
+
+async function initHerosRubrique() {
+  const grid = document.getElementById('heros-grid');
+  if (!grid) return;
+  grid.innerHTML = skeletons(6);
+
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
+
+    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const all  = res.ok ? await res.json() : [];
+    const list = all.filter(a => a.category === 'Nos héros sur le divan' && isOk(a))
+                    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!list.length) {
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-state__icon">🛋️</div>
+          <p>Aucun article pour l'instant — revenez bientôt !</p>
+        </div>`;
+      return;
+    }
+    grid.innerHTML = list.map(renderCard).join('');
+  } catch(_) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><p>Erreur de chargement.</p></div>`;
+  }
 }
 
 /* ============================================================

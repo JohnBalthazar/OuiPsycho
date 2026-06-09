@@ -1,11 +1,38 @@
 [
   {
+    "id": "meres-toxiques-comprendre-pour-se-reconstruire",
+    "title": "Mères toxiques : comprendre pour se reconstruire",
+    "type": "article",
+    "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "date": "2026-08-04",
+    "date_modified": "2026-06-09",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "famille",
+      "attachement",
+      "trauma",
+      "reconstruction",
+      "therapie",
+      "relation-mere-enfant"
+    ],
+    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
     "date": "2026-08-01",
     "date_modified": "2026-06-09",
-    "category": "Développement personnel",
+    "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wrefmmtebgcryfkgsery",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -24,6 +51,72 @@
     ],
     "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "accords-tolteques-psychologie-neurosciences",
+    "title": "Les quatre accords toltèques : sagesse ancestrale ou science validée ?",
+    "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
+    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-16",
+    "date_modified": "2026-07-16",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "accords-tolteques",
+      "pleine-conscience",
+      "neurosciences",
+      "therapies",
+      "developpement-personnel",
+      "cognition"
+    ],
+    "sources": [
+      {
+        "authors": "Ruiz M.",
+        "year": "1997",
+        "title": "Les Quatre Accords toltèques",
+        "publisher": "Amber-Allen Publishing"
+      },
+      {
+        "authors": "Kross E. et al.",
+        "year": "2014",
+        "title": "Self-talk as a regulatory mechanism: How you do it matters",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0035173"
+      },
+      {
+        "authors": "Neff K.D.",
+        "year": "2011",
+        "title": "Self-Compassion, Self-Esteem, and Well-Being",
+        "journal": "Social and Personality Psychology Compass",
+        "url": "https://doi.org/10.1111/j.1751-9004.2010.00330.x"
+      },
+      {
+        "authors": "Beck A.T.",
+        "year": "1979",
+        "title": "Cognitive Therapy of Depression",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Fonagy P. & Target M.",
+        "year": "1997",
+        "title": "Attachment and reflective function: Their role in self-organization",
+        "journal": "Development and Psychopathology",
+        "url": "https://doi.org/10.1017/S0954579497001399"
+      },
+      {
+        "authors": "Gottman J.M. & Silver N.",
+        "year": "1999",
+        "title": "The Seven Principles for Making Marriage Work",
+        "publisher": "Crown Publishers"
+      }
+    ],
     "status": "scheduled"
   },
   {
@@ -163,7 +256,7 @@
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-07-01",
     "date_modified": "2026-06-09",
-    "category": "Développement personnel",
+    "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -207,33 +300,6 @@
       "syndrome-rare"
     ],
     "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "harry-potter-psychopathologie-complice",
-    "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
-    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
-    "date": "2026-06-23",
-    "date_modified": "2026-06-09",
-    "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/azupq0sabhlok05y80pd",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 15,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "harry potter",
-      "psychopathologie",
-      "trauma",
-      "résilience",
-      "dépression",
-      "pop culture",
-      "développement personnel"
-    ],
-    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -534,29 +600,30 @@
     "status": "scheduled"
   },
   {
-    "id": "meres-toxiques-comprendre-pour-se-reconstruire",
-    "title": "Mères toxiques : comprendre pour se reconstruire",
-    "type": "article",
-    "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "id": "harry-potter-psychopathologie-complice",
+    "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
+    "type": "dossier",
+    "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-10",
     "date_modified": "2026-06-09",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/azupq0sabhlok05y80pd",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 8,
+    "readTime": 15,
     "author": "La rédaction Oui Psycho!",
     "tags": [
-      "famille",
-      "attachement",
+      "harry potter",
+      "psychopathologie",
       "trauma",
-      "reconstruction",
-      "therapie",
-      "relation-mere-enfant"
+      "résilience",
+      "dépression",
+      "pop culture",
+      "développement personnel"
     ],
-    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "metaDescription": "Et si Harry Potter était un cas clinique fascinant ? Trauma, PTSD, résilience et Détraqueurs vus par la psychologie. Un article psy pour les fans de la saga.",
     "articles_lies": [],
     "status": "scheduled"
   },
