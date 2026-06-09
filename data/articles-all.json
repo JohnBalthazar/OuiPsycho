@@ -2,7 +2,6 @@
   {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
-    "type": "article",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
     "date": "2026-08-01",
     "date_modified": "2026-06-09",
@@ -32,9 +31,9 @@
     "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
     "excerpt": "Belle mais naturelle, ambitieuse mais disponible, indépendante mais rassurante — les attentes masculines forment un cahier des charges aussi précis que contradictoire. La psychologie évolutionniste et la sociologie décortiquent ces représentations, et ce qu'elles nous disent sur les hommes autant que sur les femmes.",
     "date": "2026-07-14",
-    "date_modified": "2026-07-14",
+    "date_modified": "2026-06-09",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vti4roq4ehw5ncfalsis",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -83,13 +82,16 @@
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
     "excerpt": "Sursauter, retenir son souffle, regarder derrière le canapé… et pourtant revenir en redemander. La fascination pour les films d'horreur n'est pas un mystère inexplicable : la psychologie a de bonnes réponses. Et elles sont franchement fascinantes.",
-    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-09",
     "date_modified": "2026-07-09",
     "category": "Bien-être",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "films d'horreur",
       "émotions",
@@ -98,48 +100,8 @@
       "cinéma",
       "psychologie"
     ],
-    "sources": [
-      {
-        "authors": "Clasen M., Kjeldgaard-Christiansen J. & Johnson J.A.",
-        "year": "2020",
-        "title": "Horror, personality, and threat simulation: A survey on the psychology of scary media",
-        "journal": "Evolutionary Behavioral Sciences",
-        "url": "https://doi.org/10.1037/ebs0000152"
-      },
-      {
-        "authors": "Andrade E.B. & Cohen J.B.",
-        "year": "2007",
-        "title": "On the consumption of negative feelings",
-        "journal": "Journal of Consumer Research",
-        "url": "https://doi.org/10.1086/519498"
-      },
-      {
-        "authors": "Scrivner C., Johnson J.A., Kjeldgaard-Christiansen J. & Clasen M.",
-        "year": "2021",
-        "title": "Pandemic practice: Horror fans and morbidly curious individuals are more psychologically resilient during the COVID-19 pandemic",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2020.110397"
-      },
-      {
-        "authors": "Zillmann D.",
-        "year": "1996",
-        "title": "The psychology of suspense in dramatic exposition",
-        "journal": "Suspense: Conceptualizations, theoretical analyses, and empirical explorations",
-        "publisher": "Lawrence Erlbaum Associates"
-      },
-      {
-        "authors": "Laborit H.",
-        "year": "1979",
-        "title": "L'inhibition de l'action",
-        "publisher": "Masson / Presses de l'Université de Montréal"
-      },
-      {
-        "authors": "Tisseron S.",
-        "year": "2012",
-        "title": "Apprivoiser les écrans et grandir",
-        "publisher": "Érès"
-      }
-    ],
+    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -198,7 +160,6 @@
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
-    "type": "article",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-07-01",
     "date_modified": "2026-06-09",
@@ -226,7 +187,6 @@
   {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "type": "article",
     "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
     "date": "2026-06-26",
     "date_modified": "2026-06-09",
@@ -253,7 +213,6 @@
   {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
-    "type": "dossier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-23",
     "date_modified": "2026-06-09",
@@ -578,8 +537,6 @@
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
     "excerpt": "Trop critiques, étouffantes, absentes ou imprévisibles — certaines mères laissent des traces profondes dans la psyché de leurs enfants. Comprendre ces dynamiques n'est pas trahir sa mère : c'est se donner les moyens de se reconstruire.",
-    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-10",
     "date_modified": "2026-06-10",
     "category": "Relations",
@@ -589,6 +546,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "famille",
       "attachement",
@@ -597,44 +555,13 @@
       "therapie",
       "relation-mere-enfant"
     ],
-    "sources": [
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Mikulincer M. & Shaver P.R.",
-        "year": "2007",
-        "title": "Attachment in Adulthood: Structure, Dynamics, and Change",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Forward S.",
-        "year": "1989",
-        "title": "Toxic Parents: Overcoming Their Hurtful Legacy and Reclaiming Your Life",
-        "publisher": "Bantam Books"
-      },
-      {
-        "authors": "McBride K.",
-        "year": "2008",
-        "title": "Will I Ever Be Good Enough? Healing the Daughters of Narcissistic Mothers",
-        "publisher": "Free Press"
-      },
-      {
-        "authors": "Young J.E., Klosko J.S. & Weishaar M.E.",
-        "year": "2003",
-        "title": "Schema Therapy: A Practitioner's Guide",
-        "publisher": "Guilford Press"
-      }
-    ],
+    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "therapie-par-le-rire",
     "title": "La thérapie par le rire, ce n'est pas une blague !",
-    "type": "article",
     "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
     "date": "2026-06-09",
     "date_modified": "2026-06-09",

@@ -457,4 +457,99 @@ const allIndex = jsonFiles.map(file => {
 
 fs.writeFileSync(ALL_INDEX_FILE, JSON.stringify(allIndex, null, 2), 'utf8');
 console.log(`📋 data/articles-all.json mis à jour (${allIndex.length} articles — admin)`);
+
+// ── Génération du sitemap.xml ─────────────────────────────────────────────────
+// Utilise newIndex (articles publiés/passés déjà filtrés) pour rester en sync
+// avec les pages qui ont robots="index, follow".
+const SITEMAP_FILE = path.join(__dirname, 'sitemap.xml');
+
+// lastmod d'un article = max(date, date_modified), plafonné à aujourd'hui
+function sitemapLastmod(a) {
+  const candidates = [a.date, a.date_modified].filter(Boolean);
+  const best = candidates.reduce((m, d) => (d > m ? d : m), '0000-00-00');
+  return best > TODAY ? TODAY : best;
+}
+
+// Articles triés par lastmod décroissant
+const sitemapArticles = [...newIndex].sort((a, b) =>
+  sitemapLastmod(b).localeCompare(sitemapLastmod(a))
+);
+
+// Dossiers publiés : scan dossiers/*/index.html → vérifier robots="index, follow"
+const DOSSIER_DIR = path.join(__dirname, 'dossiers');
+const sitemapDossiers = [];
+if (fs.existsSync(DOSSIER_DIR)) {
+  for (const slug of fs.readdirSync(DOSSIER_DIR)) {
+    const htmlPath = path.join(DOSSIER_DIR, slug, 'index.html');
+    if (!fs.existsSync(htmlPath)) continue;
+    const html = fs.readFileSync(htmlPath, 'utf8');
+    if (!html.includes('content="index, follow"')) continue;
+    const pubM = html.match(/article:published_time[^>]*content="([^T"]+)/);
+    const modM = html.match(/article:modified_time[^>]*content="([^T"]+)/);
+    const pub  = pubM ? pubM[1] : TODAY;
+    const mod  = modM ? modM[1] : pub;
+    const lastmod = (mod > pub ? mod : pub) > TODAY ? TODAY : (mod > pub ? mod : pub);
+    sitemapDossiers.push({ slug, lastmod });
+  }
+}
+
+let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Pages statiques -->
+  <url>
+    <loc>${BASE}/</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>${BASE}/a-propos.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>${BASE}/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>${BASE}/mentions-legales.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  <url>
+    <loc>${BASE}/politique-de-confidentialite.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.2</priority>
+  </url>`;
+
+if (sitemapDossiers.length) {
+  sitemapXml += `\n\n  <!-- Dossiers (${sitemapDossiers.length}) -->`;
+  for (const d of sitemapDossiers) {
+    sitemapXml += `
+  <url>
+    <loc>${BASE}/dossiers/${d.slug}/</loc>
+    <lastmod>${d.lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }
+}
+
+sitemapXml += `\n\n  <!-- Articles (${sitemapArticles.length} publiés — généré automatiquement) -->`;
+sitemapArticles.forEach((a, i) => {
+  sitemapXml += `
+  <url>
+    <loc>${BASE}/articles/${a.id}/</loc>
+    <lastmod>${sitemapLastmod(a)}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>${i === 0 ? '0.9' : '0.8'}</priority>
+  </url>`;
+});
+
+sitemapXml += `\n\n</urlset>\n`;
+
+fs.writeFileSync(SITEMAP_FILE, sitemapXml, 'utf8');
+console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles + ${sitemapDossiers.length} dossier(s))`);
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);
