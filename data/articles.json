@@ -1,5 +1,71 @@
 [
   {
+    "id": "dexter-psychologie-tueur-en-serie",
+    "title": "Dexter sur le divan : psychologie d'un tueur en série",
+    "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
+    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-07",
+    "date_modified": "2026-08-07",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "pop-culture",
+      "psychopathie",
+      "trauma",
+      "morale",
+      "identite",
+      "psychologie-personnage"
+    ],
+    "sources": [
+      {
+        "authors": "Hare R.D.",
+        "year": "1993",
+        "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
+        "publisher": "Pocket Books"
+      },
+      {
+        "authors": "Perry B.D. & Szalavitz M.",
+        "year": "2006",
+        "title": "The Boy Who Was Raised as a Dog",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Perry B.D.",
+        "year": "2001",
+        "title": "Childhood experience and the expression of genetic potential",
+        "journal": "Brain and Mind",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/11063978/"
+      },
+      {
+        "authors": "Green M.C. & Brock T.C.",
+        "year": "2000",
+        "title": "The role of transportation in the persuasiveness of public narratives",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.79.5.701"
+      },
+      {
+        "authors": "Viding E. & McCrory E.J.",
+        "year": "2012",
+        "title": "Genetic and neurocognitive contributions to the development of psychopathy",
+        "journal": "Development and Psychopathology",
+        "url": "https://doi.org/10.1017/S095457941200048X"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
     "type": "article",
