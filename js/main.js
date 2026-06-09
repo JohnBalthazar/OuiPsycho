@@ -957,17 +957,23 @@ function initCookies() {
     return;
   }
 
-  // Première visite : affiche le bandeau
+  // Première visite : affiche l'overlay + bloque le scroll
   banner.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+
+  function closeBanner() {
+    banner.style.display = 'none';
+    document.body.style.overflow = '';
+  }
 
   document.getElementById('cookie-accept')?.addEventListener('click', () => {
     localStorage.setItem('pc_consent', '1');
-    banner.style.display = 'none';
+    closeBanner();
     updateGAConsent(true);  // ✅ Active le tracking GA
   });
   document.getElementById('cookie-decline')?.addEventListener('click', () => {
     localStorage.setItem('pc_consent', '0');
-    banner.style.display = 'none';
+    closeBanner();
     updateGAConsent(false); // ❌ GA collecte anonymement (sans cookies)
   });
 }

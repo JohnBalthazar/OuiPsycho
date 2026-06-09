@@ -373,12 +373,14 @@ ${sourcesHtml}
     </div>
   </footer>
 
-  <div id="cookie-banner" role="dialog" aria-label="Cookies">
-    <p class="cookie-text">🍪 Nous utilisons des cookies pour améliorer votre expérience.
-      <a href="politique-de-confidentialite.html">En savoir plus</a>.</p>
-    <div class="cookie-buttons">
-      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">Accepter</button>
-      <button class="btn-cookie btn-cookie--decline" id="cookie-decline">Refuser</button>
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
     </div>
   </div>
 

@@ -1455,40 +1455,111 @@ p:last-child { margin-bottom: 0; }
 /* ============================================================
    15. BANNIÈRE COOKIES
    ============================================================ */
+
+/* Overlay plein écran — bloque l'arrière-plan comme les grands sites */
 #cookie-banner {
-  display: none;
+  display: none; /* flex via JS */
   position: fixed;
-  bottom: var(--sp-4);
-  left: var(--sp-4);
-  right: var(--sp-4);
-  max-width: 560px;
-  margin: 0 auto;
-  z-index: 1000;
+  inset: 0;
+  background: rgba(8,10,18,.78);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+}
+
+/* Modal centrée */
+.cookie-modal {
   background: #1A1F2E;
-  color: rgba(255,255,255,.85);
-  padding: var(--sp-5) var(--sp-6);
-  gap: var(--sp-4);
-  align-items: flex-start;
+  color: rgba(255,255,255,.88);
+  padding: var(--sp-8);
+  border-radius: var(--radius-xl);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  display: flex;
   flex-direction: column;
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255,255,255,.08);
+  align-items: center;
+  gap: var(--sp-3);
+  box-shadow: 0 32px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.09);
+  animation: cookie-in .35s cubic-bezier(.34,1.4,.64,1);
 }
-.cookie-text { font-size: var(--fs-sm); line-height: 1.6; }
-.cookie-text a { color: #7EB8D0; }
-.cookie-buttons { display: flex; gap: var(--sp-3); }
-.btn-cookie {
-  padding: var(--sp-2) var(--sp-5);
-  border-radius: var(--radius-full);
+
+@keyframes cookie-in {
+  from { opacity: 0; transform: translateY(22px) scale(.94); }
+  to   { opacity: 1; transform: none; }
+}
+
+.cookie-emoji { font-size: 2.6rem; }
+
+.cookie-modal h2 {
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  color: #fff;
+  margin: 0;
+  line-height: 1.25;
+}
+
+.cookie-text {
   font-size: var(--fs-sm);
-  font-weight: 700;
-  font-family: var(--font-body);
-  transition: all .2s;
+  line-height: 1.7;
+  color: rgba(255,255,255,.6);
+  margin: 0;
 }
-.btn-cookie--accept { background: #10B981; color: white; }
-.btn-cookie--accept:hover { background: #059669; }
-.btn-cookie--decline { background: rgba(255,255,255,.1); color: rgba(255,255,255,.65); }
-.btn-cookie--decline:hover { background: rgba(255,255,255,.18); }
+
+.cookie-privacy-link {
+  font-size: var(--fs-xs);
+  color: rgba(255,255,255,.38);
+  text-decoration: none;
+}
+.cookie-privacy-link:hover { color: #7EB8D0; text-decoration: underline; }
+
+/* CTA principal — gros, vert, impossible à rater */
+.btn-cookie--accept {
+  width: 100%;
+  padding: var(--sp-4) var(--sp-6);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-md);
+  font-weight: 800;
+  font-family: var(--font-body);
+  background: linear-gradient(135deg, #12C98D 0%, #059669 100%);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+  box-shadow: 0 4px 20px rgba(16,185,129,.45);
+  margin-top: var(--sp-2);
+  letter-spacing: .01em;
+}
+.btn-cookie--accept:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(16,185,129,.55);
+}
+
+/* Lien "refuser" — ultra-discret, on le cherche */
+.btn-cookie-decline {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.25);
+  font-size: var(--fs-xs);
+  font-family: var(--font-body);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+  transition: color .15s;
+  margin-top: calc(-1 * var(--sp-1));
+}
+.btn-cookie-decline:hover { color: rgba(255,255,255,.5); }
+
+@media (max-width: 480px) {
+  .cookie-modal { padding: var(--sp-6) var(--sp-5); border-radius: var(--radius-lg); }
+  #cookie-banner { align-items: flex-end; padding-bottom: 0; }
+  .cookie-modal { border-radius: var(--radius-lg) var(--radius-lg) 0 0; max-width: 100%; }
+}
 
 /* ============================================================
    16. SKELETONS
@@ -1579,7 +1650,7 @@ p:last-child { margin-bottom: 0; }
 @media (max-width: 480px) {
   .hero h1 { font-size: var(--fs-xl); }
   .section-header h2 { font-size: var(--fs-lg); }
-  #cookie-banner { left: var(--sp-3); right: var(--sp-3); bottom: var(--sp-3); }
+
 }
 
 /* ============================================================
