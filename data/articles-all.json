@@ -1,5 +1,32 @@
 [
   {
+    "id": "meres-toxiques-comprendre-pour-se-reconstruire",
+    "title": "Mères toxiques : comprendre pour se reconstruire",
+    "type": "article",
+    "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "date": "2026-08-04",
+    "date_modified": "2026-06-09",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "famille",
+      "attachement",
+      "trauma",
+      "reconstruction",
+      "therapie",
+      "relation-mere-enfant"
+    ],
+    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
@@ -596,33 +623,6 @@
       "ronronnement"
     ],
     "metaDescription": "Ronronnement, médiation animale, ocytocine : ce que la science dit des bienfaits des animaux sur le stress, l'anxiété et la dépression.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "meres-toxiques-comprendre-pour-se-reconstruire",
-    "title": "Mères toxiques : comprendre pour se reconstruire",
-    "type": "article",
-    "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
-    "date": "2026-06-10",
-    "date_modified": "2026-06-09",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "famille",
-      "attachement",
-      "trauma",
-      "reconstruction",
-      "therapie",
-      "relation-mere-enfant"
-    ],
-    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
     "articles_lies": [],
     "status": "scheduled"
   },
