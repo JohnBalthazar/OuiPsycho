@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quel genre de Wonder Woman êtes-vous ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:#3a3a4a;background:#fff;line-height:1.55;padding:22px}
+  .quiz{max-width:620px;margin:0 auto;background:#fffdf9;border:1px solid #f1e6d8;
+        border-radius:18px;padding:26px 24px;box-shadow:0 8px 28px rgba(180,150,120,.10)}
+  .progress{height:7px;background:#f3ece2;border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e6a14b,#d8627a);
+                   border-radius:99px;transition:width .35s ease}
+  .step{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#b89b7a;
+        font-weight:700;margin-bottom:8px}
+  h2{font-size:1.32rem;line-height:1.3;color:#2e2e3c;margin-bottom:18px}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #efe3d4;
+       border-radius:13px;padding:14px 16px;margin-bottom:11px;font-size:1rem;color:#3a3a4a;
+       cursor:pointer;transition:all .18s ease}
+  .opt:hover{border-color:#e6a14b;background:#fff7ee;transform:translateY(-1px)}
+  .opt:active{transform:translateY(0)}
+  .result{text-align:center;animation:fade .5s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .badge{font-size:3.4rem;line-height:1;margin:6px 0 10px}
+  .result h2{font-size:1.5rem;color:#d8627a;margin-bottom:6px}
+  .sub{font-size:.82rem;letter-spacing:.05em;text-transform:uppercase;color:#b89b7a;
+       font-weight:700;margin-bottom:16px}
+  .desc{font-size:1.02rem;color:#454556;margin-bottom:18px;text-align:left}
+  .note{background:#fbf3e8;border-left:4px solid #e6a14b;border-radius:0 10px 10px 0;
+        padding:13px 15px;font-size:.93rem;color:#6a5a45;text-align:left;margin-bottom:20px}
+  .note b{color:#c47a2e}
+  .restart{display:inline-block;background:#2e2e3c;color:#fff;border:none;border-radius:11px;
+           padding:12px 22px;font-size:.96rem;font-weight:600;cursor:pointer;transition:background .18s}
+  .restart:hover{background:#454556}
+  .disc{margin-top:16px;font-size:.78rem;color:#a99c8c;font-style:italic}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+var PROFILES = {
+  A:{emoji:"🕊️",title:"La Diplomate",tag:"L'ambassadrice de la paix",
+     desc:"Comme la Wonder Woman des grandes médiations, vous croyez qu'on désamorce plus de conflits par le dialogue que par la force. Votre arme secrète : l'empathie. Vous lisez les autres à livre ouvert et vous savez apaiser une tablée tendue d'un mot bien placé. Votre vigilance : à trop vouloir maintenir la paix, ne vous oubliez pas vous-même.",
+     fact:"Marston, le créateur de Wonder Woman, était convaincu qu'un pouvoir fondé sur la persuasion et l'amour valait mieux que la domination. Vous êtes sa parfaite illustration."},
+  B:{emoji:"⚔️",title:"La Guerrière",tag:"L'Amazone indomptable",
+     desc:"Vous, c'est l'action. Là où d'autres hésitent, vous foncez — avec courage et un sacré culot. On vous admire pour votre énergie et votre franc-parler. Votre force est réelle, mais souvenez-vous : même les Amazones se reposent entre deux batailles. Le repos n'est pas une reddition.",
+     fact:"L'archétype de la guerrière, au sens de Jung, sommeille en chacun de nous. Chez vous, il est bien réveillé — et c'est une belle force quand elle protège plutôt qu'elle n'écrase."},
+  C:{emoji:"🛡️",title:"La Gardienne",tag:"La protectrice bienveillante",
+     desc:"Le bouclier avant l'épée : votre instinct, c'est de protéger les vôtres. Loyale, fiable, présente, vous êtes le pilier sur qui tout le monde s'appuie. Magnifique — à une condition : ne devenez pas la seule à ne jamais être protégée en retour. Demander de l'aide n'est pas trahir votre rôle.",
+     fact:"Attention au « syndrome de la femme forte » : à force de tout porter avec le sourire, on s'épuise. Même Wonder Woman a besoin de ses sœurs amazones."},
+  D:{emoji:"✨",title:"La Visionnaire",tag:"L'idéaliste en quête de vérité",
+     desc:"La justice, la vérité, les valeurs : voilà votre boussole. Vous ne transigez pas, et c'est ce qui vous rend inspirante. Vous voyez le monde tel qu'il pourrait être. Votre garde-fou : la nuance. Tout le monde n'avance pas au même rythme que vos idéaux — et ce n'est pas forcément de la mauvaise volonté.",
+     fact:"Le lasso de vérité de Wonder Woman vient tout droit des travaux de Marston sur l'ancêtre du détecteur de mensonge. Votre quête d'authenticité a donc de nobles ancêtres."}
+};
+
+var QUESTIONS = [
+  {q:"Face à un conflit entre deux amis, vous…",
+   a:[["A","Vous proposez de tout poser à plat, calmement, ensemble."],
+      ["B","Vous tranchez : il faut bien que quelqu'un dise les choses."],
+      ["C","Vous réconfortez chacun séparément avant tout."],
+      ["D","Vous cherchez qui a raison, par principe."]]},
+  {q:"Votre super-pouvoir de rêve ?",
+   a:[["A","Comprendre d'un regard ce que ressentent les autres."],
+      ["B","Une force physique à toute épreuve."],
+      ["C","Protéger ceux que j'aime d'un bouclier invincible."],
+      ["D","Détecter le mensonge à coup sûr."]]},
+  {q:"Au travail, on vous décrit comme…",
+   a:[["A","La médiatrice, celle qui apaise."],
+      ["B","La fonceuse, celle qui ose."],
+      ["C","Le pilier, celle sur qui on peut compter."],
+      ["D","L'intègre, celle qui ne transige pas sur ses valeurs."]]},
+  {q:"Votre plus grand défaut, avoué du bout des lèvres ?",
+   a:[["A","J'évite parfois le conflit jusqu'à m'oublier."],
+      ["B","Je fonce avant de réfléchir."],
+      ["C","J'en fais trop pour les autres et je m'épuise."],
+      ["D","Je peux être un peu rigide, voire moralisatrice."]]},
+  {q:"Un week-end idéal ?",
+   a:[["A","Un long brunch à refaire le monde avec mes proches."],
+      ["B","Une activité sportive intense, du dépassement de soi."],
+      ["C","Cocooning à la maison, à prendre soin des miens."],
+      ["D","Un documentaire, un débat — de quoi nourrir la réflexion."]]},
+  {q:"Votre devise secrète ?",
+   a:[["A","« On résout plus par le dialogue que par la force. »"],
+      ["B","« Qui n'ose rien n'a rien. »"],
+      ["C","« Je veille sur les miens, quoi qu'il arrive. »"],
+      ["D","« La vérité finit toujours par triompher. »"]]}
+];
+
+var current = 0;
+var scores = {A:0,B:0,C:0,D:0};
+
+function notifyResize(){
+  setTimeout(function(){
+    window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+  },50);
+}
+
+function renderQuestion(){
+  var item = QUESTIONS[current];
+  var pct = Math.round((current/QUESTIONS.length)*100);
+  var html = '<div class="progress"><span style="width:'+pct+'%"></span></div>';
+  html += '<div class="step">Question '+(current+1)+' / '+QUESTIONS.length+'</div>';
+  html += '<h2>'+item.q+'</h2>';
+  for(var i=0;i<item.a.length;i++){
+    html += '<button class="opt" onclick="choose(\''+item.a[i][0]+'\')">'+item.a[i][1]+'</button>';
+  }
+  document.getElementById('quiz').innerHTML = html;
+  notifyResize();
+}
+
+function choose(letter){
+  scores[letter]++;
+  current++;
+  if(current < QUESTIONS.length){ renderQuestion(); }
+  else { renderResult(); }
+}
+
+function renderResult(){
+  var order = ["A","B","C","D"];
+  var best = order[0];
+  for(var i=1;i<order.length;i++){ if(scores[order[i]] > scores[best]) best = order[i]; }
+  var p = PROFILES[best];
+  var html = '<div class="result">';
+  html += '<div class="progress"><span style="width:100%"></span></div>';
+  html += '<div class="badge">'+p.emoji+'</div>';
+  html += '<h2>'+p.title+'</h2>';
+  html += '<div class="sub">'+p.tag+'</div>';
+  html += '<p class="desc">'+p.desc+'</p>';
+  html += '<div class="note"><b>Le saviez-vous ?</b> '+p.fact+'</div>';
+  html += '<button class="restart" onclick="restart()">↺ Refaire le test</button>';
+  html += '<p class="disc">Ce test est indicatif et ludique — il ne constitue ni un diagnostic ni une évaluation psychologique.</p>';
+  html += '</div>';
+  document.getElementById('quiz').innerHTML = html;
+  notifyResize();
+}
+
+function restart(){
+  current = 0; scores = {A:0,B:0,C:0,D:0};
+  renderQuestion();
+}
+
+renderQuestion();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
