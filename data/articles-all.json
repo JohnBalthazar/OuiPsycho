@@ -3,8 +3,6 @@
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
     "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
-    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-08-07",
     "date_modified": "2026-08-07",
     "category": "Bien-être",
@@ -14,6 +12,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "pop-culture",
       "psychopathie",
@@ -22,53 +21,13 @@
       "identite",
       "psychologie-personnage"
     ],
-    "sources": [
-      {
-        "authors": "Hare R.D.",
-        "year": "1993",
-        "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
-        "publisher": "Pocket Books"
-      },
-      {
-        "authors": "Perry B.D. & Szalavitz M.",
-        "year": "2006",
-        "title": "The Boy Who Was Raised as a Dog",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Perry B.D.",
-        "year": "2001",
-        "title": "Childhood experience and the expression of genetic potential",
-        "journal": "Brain and Mind",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/11063978/"
-      },
-      {
-        "authors": "Green M.C. & Brock T.C.",
-        "year": "2000",
-        "title": "The role of transportation in the persuasiveness of public narratives",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.79.5.701"
-      },
-      {
-        "authors": "Viding E. & McCrory E.J.",
-        "year": "2012",
-        "title": "Genetic and neurocognitive contributions to the development of psychopathy",
-        "journal": "Development and Psychopathology",
-        "url": "https://doi.org/10.1017/S095457941200048X"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      }
-    ],
+    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
-    "type": "article",
     "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
     "date": "2026-08-04",
     "date_modified": "2026-06-09",
@@ -123,8 +82,6 @@
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
     "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
-    "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-16",
     "date_modified": "2026-07-16",
     "category": "Bien-être",
@@ -134,6 +91,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "pop-culture",
       "attachement",
@@ -142,46 +100,8 @@
       "alexithymie",
       "psychologie-personnage"
     ],
-    "sources": [
-      {
-        "authors": "Johnson G. et al.",
-        "year": "2013",
-        "title": "Were James Bond's drinking habits harmful? A content analysis of the 007 film series",
-        "journal": "BMJ",
-        "url": "https://doi.org/10.1136/bmj.f7255"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Herman J.L.",
-        "year": "1992",
-        "title": "Trauma and Recovery",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Levant R.F.",
-        "year": "1995",
-        "title": "Masculinity ideology and its relationship to violence",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.50.3.164"
-      },
-      {
-        "authors": "Taylor G.J., Bagby R.M. & Parker J.D.A.",
-        "year": "1997",
-        "title": "Disorders of Affect Regulation: Alexithymia in Medical and Psychiatric Illness",
-        "publisher": "Cambridge University Press"
-      },
-      {
-        "authors": "Connell R.W.",
-        "year": "1995",
-        "title": "Masculinities",
-        "publisher": "University of California Press"
-      }
-    ],
+    "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -372,8 +292,6 @@
     "id": "accords-tolteques-psychologie-neurosciences",
     "title": "Les quatre accords toltèques : sagesse ancestrale ou science validée ?",
     "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
-    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-23",
     "date_modified": "2026-06-23",
     "category": "Thérapies",
@@ -383,6 +301,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "accords-tolteques",
       "pleine-conscience",
@@ -391,47 +310,8 @@
       "developpement-personnel",
       "cognition"
     ],
-    "sources": [
-      {
-        "authors": "Ruiz M.",
-        "year": "1997",
-        "title": "Les Quatre Accords toltèques",
-        "publisher": "Amber-Allen Publishing"
-      },
-      {
-        "authors": "Kross E. et al.",
-        "year": "2014",
-        "title": "Self-talk as a regulatory mechanism: How you do it matters",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/a0035173"
-      },
-      {
-        "authors": "Neff K.D.",
-        "year": "2011",
-        "title": "Self-Compassion, Self-Esteem, and Well-Being",
-        "journal": "Social and Personality Psychology Compass",
-        "url": "https://doi.org/10.1111/j.1751-9004.2010.00330.x"
-      },
-      {
-        "authors": "Beck A.T.",
-        "year": "1979",
-        "title": "Cognitive Therapy of Depression",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Fonagy P. & Target M.",
-        "year": "1997",
-        "title": "Attachment and reflective function: Their role in self-organization",
-        "journal": "Development and Psychopathology",
-        "url": "https://doi.org/10.1017/S0954579497001399"
-      },
-      {
-        "authors": "Gottman J.M. & Silver N.",
-        "year": "1999",
-        "title": "The Seven Principles for Making Marriage Work",
-        "publisher": "Crown Publishers"
-      }
-    ],
+    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -733,7 +613,6 @@
   {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
-    "type": "dossier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-10",
     "date_modified": "2026-06-09",
