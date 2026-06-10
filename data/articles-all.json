@@ -79,6 +79,65 @@
     "status": "scheduled"
   },
   {
+    "id": "horoscope-pourquoi-on-y-croit",
+    "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
+    "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
+    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-28",
+    "date_modified": "2026-07-28",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "horoscope",
+      "astrologie",
+      "effet barnum",
+      "biais cognitifs",
+      "esprit critique",
+      "test"
+    ],
+    "sources": [
+      {
+        "authors": "Carlson S.",
+        "year": "1985",
+        "title": "A double-blind test of astrology",
+        "journal": "Nature",
+        "url": "https://doi.org/10.1038/318419a0"
+      },
+      {
+        "authors": "Forer B. R.",
+        "year": "1949",
+        "title": "The fallacy of personal validation: A classroom demonstration of gullibility",
+        "journal": "The Journal of Abnormal and Social Psychology",
+        "url": "https://doi.org/10.1037/h0059240"
+      },
+      {
+        "authors": "Bronner G.",
+        "year": "2013",
+        "title": "La démocratie des crédules",
+        "publisher": "Presses Universitaires de France"
+      },
+      {
+        "authors": "Charpak G. & Broch H.",
+        "year": "2002",
+        "title": "Devenez sorciers, devenez savants",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Gauvrit N.",
+        "year": "2009",
+        "title": "Vous avez dit hasard ? Entre mathématiques et psychologie",
+        "publisher": "Belin"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
     "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
