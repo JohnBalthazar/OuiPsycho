@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quel signe êtes-vous vraiment ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       color:#3a3a4a;background:#fff;line-height:1.55;padding:22px}
+  .quiz{max-width:620px;margin:0 auto;background:#fffdf9;border:1px solid #f1e6d8;
+        border-radius:18px;padding:26px 24px;box-shadow:0 8px 28px rgba(150,130,180,.10)}
+  .progress{height:7px;background:#f0ecf5;border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#8b7bc4,#d8627a);
+                   border-radius:99px;transition:width .35s ease}
+  .step{font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;color:#a99bc4;
+        font-weight:700;margin-bottom:8px}
+  h2{font-size:1.32rem;line-height:1.3;color:#2e2e3c;margin-bottom:18px}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #ece4f1;
+       border-radius:13px;padding:14px 16px;margin-bottom:11px;font-size:1rem;color:#3a3a4a;
+       cursor:pointer;transition:all .18s ease}
+  .opt:hover{border-color:#8b7bc4;background:#faf7ff;transform:translateY(-1px)}
+  .opt:active{transform:translateY(0)}
+  .result{text-align:center;animation:fade .5s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .symbol{font-size:3.6rem;line-height:1;margin:6px 0 6px;color:#8b7bc4}
+  .result h2{font-size:1.6rem;color:#6b5aa6;margin-bottom:4px}
+  .dates{font-size:.85rem;letter-spacing:.04em;text-transform:uppercase;color:#a99bc4;
+         font-weight:700;margin-bottom:16px}
+  .desc{font-size:1.05rem;color:#454556;margin-bottom:18px;text-align:left}
+  .wink{font-size:1.12rem;font-weight:700;color:#d8627a;margin-bottom:10px}
+  .note{background:#f6f1fb;border-left:4px solid #8b7bc4;border-radius:0 10px 10px 0;
+        padding:13px 15px;font-size:.95rem;color:#594d70;text-align:left;margin-bottom:20px}
+  .note b{color:#6b5aa6}
+  .restart{display:inline-block;background:#2e2e3c;color:#fff;border:none;border-radius:11px;
+           padding:12px 22px;font-size:.96rem;font-weight:600;cursor:pointer;transition:background .18s}
+  .restart:hover{background:#454556}
+  .disc{margin-top:16px;font-size:.78rem;color:#a99c8c;font-style:italic}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+// element|modalite -> signe
+var SIGNS = {
+ "Feu|Cardinal":{n:"Bélier",s:"\u2648",d:"21 mars – 19 avril",
+   t:"Sous vos airs déterminés, vous avez parfois besoin qu\u2019on vous rassure. Vous aimez foncer, mais vous détestez qu\u2019on vous force la main."},
+ "Feu|Fixe":{n:"Lion",s:"\u264C",d:"23 juillet – 22 août",
+   t:"Vous rayonnez en société, mais vous doutez plus qu\u2019on ne l\u2019imagine. Vous avez autant besoin de reconnaissance que de liberté."},
+ "Feu|Mutable":{n:"Sagittaire",s:"\u2650",d:"22 novembre – 21 décembre",
+   t:"Soif de liberté et de sens : il vous faut des horizons. Optimiste, vous gardez pourtant une part secrète de gravité."},
+ "Terre|Cardinal":{n:"Capricorne",s:"\u2651",d:"22 décembre – 19 janvier",
+   t:"Ambitieux(se) et patient(e), vous construisez sur le long terme. Sous la rigueur se cache une tendresse que vous montrez peu."},
+ "Terre|Fixe":{n:"Taureau",s:"\u2649",d:"20 avril – 20 mai",
+   t:"On vous croit inébranlable, et pourtant vous êtes plus sensible qu\u2019il n\u2019y paraît. Vous tenez à votre confort sans renoncer à vos rêves."},
+ "Terre|Mutable":{n:"Vierge",s:"\u264D",d:"23 août – 22 septembre",
+   t:"Exigeant(e) avec vous-même, attentif(ve) aux détails, vous aimez bien faire — quitte à vous mettre un peu trop la pression."},
+ "Air|Cardinal":{n:"Balance",s:"\u264E",d:"23 septembre – 22 octobre",
+   t:"Vous cherchez l\u2019harmonie et fuyez les conflits, mais vous savez ce que vous valez. Choisir vous coûte parfois."},
+ "Air|Fixe":{n:"Verseau",s:"\u2652",d:"20 janvier – 18 février",
+   t:"Original(e) et indépendant(e), vous pensez autrement. Très sociable, vous avez aussi grand besoin de votre bulle."},
+ "Air|Mutable":{n:"Gémeaux",s:"\u264A",d:"21 mai – 20 juin",
+   t:"Votre esprit ne s\u2019arrête jamais. Tantôt sociable, tantôt en retrait, vous contenez plusieurs personnes en une."},
+ "Eau|Cardinal":{n:"Cancer",s:"\u264B",d:"21 juin – 22 juillet",
+   t:"Derrière une carapace, un cœur immense. Vous protégez les vôtres, parfois au point de vous oublier un peu."},
+ "Eau|Fixe":{n:"Scorpion",s:"\u264F",d:"23 octobre – 21 novembre",
+   t:"Intense et secret(ète), vous ne vous livrez qu\u2019à quelques élu(e)s. On vous sous-estime souvent — à tort."},
+ "Eau|Mutable":{n:"Poissons",s:"\u2653",d:"19 février – 20 mars",
+   t:"Sensible et rêveur(se), profondément empathique, vous captez ce que les autres ne voient pas — au risque d\u2019absorber leurs émotions."}
+};
+
+var QUESTIONS = [
+ {type:"E",q:"Un week-end idéal, c\u2019est plutôt…",
+  a:[["Feu","Une virée spontanée : de l\u2019aventure, un peu d\u2019adrénaline."],
+     ["Terre","Du concret : jardiner, cuisiner, bricoler, profiter du calme."],
+     ["Air","Voir du monde, discuter des heures, découvrir des idées neuves."],
+     ["Eau","Un moment cocon, intime, à ressentir et à créer."]]},
+ {type:"E",q:"Au travail, votre vraie force, c\u2019est…",
+  a:[["Feu","L\u2019énergie : je lance, j\u2019ose, j\u2019entraîne les autres."],
+     ["Terre","La fiabilité : on peut compter sur moi, je tiens parole."],
+     ["Air","Les idées : je connecte, j\u2019analyse, je communique."],
+     ["Eau","L\u2019intuition : je sens les ambiances et les gens."]]},
+ {type:"E",q:"Ce qui vous fait vibrer le plus…",
+  a:[["Feu","Un défi à relever."],
+     ["Terre","Un projet qui se concrétise."],
+     ["Air","Une conversation passionnante."],
+     ["Eau","Une émotion partagée."]]},
+ {type:"E",q:"Vos proches diraient de vous que vous êtes…",
+  a:[["Feu","Passionné(e) et entier(ère)."],
+     ["Terre","Solide et rassurant(e)."],
+     ["Air","Curieux(se) et bavard(e)."],
+     ["Eau","Sensible et à l\u2019écoute."]]},
+ {type:"M",q:"Face à un nouveau projet, vous êtes plutôt…",
+  a:[["Cardinal","Celui/celle qui lance et donne l\u2019impulsion."],
+     ["Fixe","Celui/celle qui s\u2019accroche et va jusqu\u2019au bout."],
+     ["Mutable","Celui/celle qui s\u2019adapte et ajuste en route."]]},
+ {type:"M",q:"Votre rapport au changement ?",
+  a:[["Cardinal","J\u2019aime initier le changement moi-même."],
+     ["Fixe","Je préfère la stabilité, j\u2019avance par conviction."],
+     ["Mutable","Je m\u2019adapte facilement, je suis flexible."]]},
+ {type:"M",q:"Dans un groupe, vous êtes…",
+  a:[["Cardinal","Le moteur, celui/celle qui décide qu\u2019on y va."],
+     ["Fixe","Le pilier, fidèle au poste."],
+     ["Mutable","Le caméléon, à l\u2019aise un peu partout."]]}
+];
+
+var current=0;
+var sc={Feu:0,Terre:0,Air:0,Eau:0,Cardinal:0,Fixe:0,Mutable:0};
+
+function notifyResize(){
+  setTimeout(function(){
+    window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+  },50);
+}
+
+function renderQuestion(){
+  var it=QUESTIONS[current];
+  var pct=Math.round((current/QUESTIONS.length)*100);
+  var h='<div class="progress"><span style="width:'+pct+'%"></span></div>';
+  h+='<div class="step">Question '+(current+1)+' / '+QUESTIONS.length+'</div>';
+  h+='<h2>'+it.q+'</h2>';
+  for(var i=0;i<it.a.length;i++){
+    h+='<button class="opt" onclick="choose(\''+it.a[i][0]+'\')">'+it.a[i][1]+'</button>';
+  }
+  document.getElementById('quiz').innerHTML=h;
+  notifyResize();
+}
+
+function choose(v){
+  sc[v]++;
+  current++;
+  if(current<QUESTIONS.length){renderQuestion();}else{renderResult();}
+}
+
+function dominant(keys){
+  var best=keys[0];
+  for(var i=1;i<keys.length;i++){if(sc[keys[i]]>sc[best])best=keys[i];}
+  return best;
+}
+
+function renderResult(){
+  var elem=dominant(["Feu","Terre","Air","Eau"]);
+  var mod=dominant(["Cardinal","Fixe","Mutable"]);
+  var sign=SIGNS[elem+"|"+mod];
+  var h='<div class="result">';
+  h+='<div class="progress"><span style="width:100%"></span></div>';
+  h+='<div class="step">Votre signe de personnalité</div>';
+  h+='<div class="symbol">'+sign.s+'</div>';
+  h+='<h2>'+sign.n+'</h2>';
+  h+='<div class="dates">'+sign.d+'</div>';
+  h+='<p class="desc">'+sign.t+'</p>';
+  h+='<p class="wink">Alors, ça vous correspond ? 😏</p>';
+  h+='<div class="note"><b>Le piège (gentil) :</b> si ce portrait sonne juste… c\u2019est normal. Il a été écrit pour coller à (presque) tout le monde. Vous venez de vivre l\u2019<b>effet Barnum</b> en direct — exactement ce que raconte l\u2019article juste au-dessus. CQFD !</div>';
+  h+='<button class="restart" onclick="restart()">↺ Refaire le test</button>';
+  h+='<p class="disc">Ce test est ludique et n\u2019a aucune valeur prédictive — c\u2019est tout l\u2019intérêt.</p>';
+  h+='</div>';
+  document.getElementById('quiz').innerHTML=h;
+  notifyResize();
+}
+
+function restart(){
+  current=0; sc={Feu:0,Terre:0,Air:0,Eau:0,Cardinal:0,Fixe:0,Mutable:0};
+  renderQuestion();
+}
+
+renderQuestion();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
