@@ -79,6 +79,50 @@
     "status": "scheduled"
   },
   {
+    "id": "portrait-robot-prince-charmant-2026",
+    "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
+    "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
+    "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-23",
+    "date_modified": "2026-07-23",
+    "category": "Relations",
+    "image": "",
+    "readTime": 5,
+    "tags": [
+      "couple",
+      "séduction",
+      "attirance",
+      "psychologie",
+      "préférences",
+      "charge mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Pailhé A., Solaz A. & Wilner L.",
+        "year": "2022",
+        "title": "Travail domestique et parental au fil des confinements en France : comment ont évolué les inégalités socio-économiques et de sexe ?",
+        "journal": "Economie et Statistique / Economics and Statistics",
+        "url": "https://www.persee.fr/doc/estat_0336-1454_2022_num_536_1_11049"
+      },
+      {
+        "authors": "Górniak J., Zajenkowski M., Szymaniak K. & Jonason P. K.",
+        "year": "2024",
+        "title": "Kindness or Intelligence? Angry Men are Perceived as Less Intelligent by Their Female Romantic Partners",
+        "journal": "Evolutionary Psychology",
+        "url": "https://doi.org/10.1177/14747049241275706"
+      },
+      {
+        "authors": "Furnham A. & Cuppello S.",
+        "year": "2024",
+        "title": "Sex, personality, and mate preferences",
+        "journal": "Evolutionary Behavioral Sciences",
+        "url": "https://doi.org/10.1037/ebs0000362"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
     "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
