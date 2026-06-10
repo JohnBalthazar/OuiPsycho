@@ -79,6 +79,62 @@
     "status": "scheduled"
   },
   {
+    "id": "couples-qui-durent-5-secrets-science",
+    "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
+    "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
+    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-21",
+    "date_modified": "2026-07-21",
+    "category": "Relations",
+    "image": "",
+    "readTime": 5,
+    "tags": [
+      "couple",
+      "relations",
+      "amour",
+      "psychologie",
+      "Gottman",
+      "vie de couple"
+    ],
+    "sources": [
+      {
+        "authors": "Gottman J. M. & Levenson R. W.",
+        "year": "1992",
+        "title": "Marital processes predictive of later dissolution: Behavior, physiology, and health",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.63.2.221"
+      },
+      {
+        "authors": "Gable S. L., Reis H. T., Impett E. A. & Asher E. R.",
+        "year": "2004",
+        "title": "What do you do when things go right? The intrapersonal and interpersonal benefits of sharing positive events",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.87.2.228"
+      },
+      {
+        "authors": "Aron A., Norman C. C., Aron E. N., McKenna C. & Heyman R. E.",
+        "year": "2000",
+        "title": "Couples' shared participation in novel and arousing activities and experienced relationship quality",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.78.2.273"
+      },
+      {
+        "authors": "Gottman J. M. & Silver N.",
+        "year": "1999",
+        "title": "The Seven Principles for Making Marriage Work",
+        "publisher": "Crown Publishers"
+      },
+      {
+        "authors": "Bodenmann G.",
+        "year": "2005",
+        "title": "Dyadic coping and its significance for marital functioning (in Couples Coping with Stress)",
+        "publisher": "American Psychological Association"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
     "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
