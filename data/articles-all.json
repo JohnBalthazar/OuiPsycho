@@ -79,6 +79,69 @@
     "status": "scheduled"
   },
   {
+    "id": "wonder-woman-sur-le-divan",
+    "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
+    "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
+    "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-24",
+    "date_modified": "2026-07-24",
+    "category": "Nos héros",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "wonder woman",
+      "psychologie",
+      "résilience",
+      "charge mentale",
+      "archétypes",
+      "estime de soi"
+    ],
+    "sources": [
+      {
+        "authors": "Marston W. M.",
+        "year": "1928",
+        "title": "Emotions of Normal People",
+        "publisher": "Kegan Paul, Trench, Trubner & Co."
+      },
+      {
+        "authors": "Jung C. G.",
+        "year": "1964",
+        "title": "Les Archétypes et l’inconscient collectif",
+        "publisher": "Buchet/Chastel"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Haicault M.",
+        "year": "1984",
+        "title": "La gestion ordinaire de la vie en deux",
+        "journal": "Sociologie du travail"
+      },
+      {
+        "authors": "Shaevitz M. H.",
+        "year": "1984",
+        "title": "The Superwoman Syndrome",
+        "publisher": "Warner Books"
+      },
+      {
+        "authors": "Lepore J.",
+        "year": "2014",
+        "title": "The Secret History of Wonder Woman",
+        "publisher": "Alfred A. Knopf"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "portrait-robot-prince-charmant-2026",
     "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
     "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
