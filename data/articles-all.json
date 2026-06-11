@@ -82,8 +82,6 @@
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
     "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
-    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-28",
     "date_modified": "2026-07-28",
     "category": "Développement personnel",
@@ -93,6 +91,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "horoscope",
       "astrologie",
@@ -101,48 +100,14 @@
       "esprit critique",
       "test"
     ],
-    "sources": [
-      {
-        "authors": "Carlson S.",
-        "year": "1985",
-        "title": "A double-blind test of astrology",
-        "journal": "Nature",
-        "url": "https://doi.org/10.1038/318419a0"
-      },
-      {
-        "authors": "Forer B. R.",
-        "year": "1949",
-        "title": "The fallacy of personal validation: A classroom demonstration of gullibility",
-        "journal": "The Journal of Abnormal and Social Psychology",
-        "url": "https://doi.org/10.1037/h0059240"
-      },
-      {
-        "authors": "Bronner G.",
-        "year": "2013",
-        "title": "La démocratie des crédules",
-        "publisher": "Presses Universitaires de France"
-      },
-      {
-        "authors": "Charpak G. & Broch H.",
-        "year": "2002",
-        "title": "Devenez sorciers, devenez savants",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Gauvrit N.",
-        "year": "2009",
-        "title": "Vous avez dit hasard ? Entre mathématiques et psychologie",
-        "publisher": "Belin"
-      }
-    ],
+    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
     "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
-    "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-24",
     "date_modified": "2026-07-24",
     "category": "Nos héros",
@@ -152,6 +117,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "wonder woman",
       "psychologie",
@@ -160,57 +126,24 @@
       "archétypes",
       "estime de soi"
     ],
-    "sources": [
-      {
-        "authors": "Marston W. M.",
-        "year": "1928",
-        "title": "Emotions of Normal People",
-        "publisher": "Kegan Paul, Trench, Trubner & Co."
-      },
-      {
-        "authors": "Jung C. G.",
-        "year": "1964",
-        "title": "Les Archétypes et l’inconscient collectif",
-        "publisher": "Buchet/Chastel"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Haicault M.",
-        "year": "1984",
-        "title": "La gestion ordinaire de la vie en deux",
-        "journal": "Sociologie du travail"
-      },
-      {
-        "authors": "Shaevitz M. H.",
-        "year": "1984",
-        "title": "The Superwoman Syndrome",
-        "publisher": "Warner Books"
-      },
-      {
-        "authors": "Lepore J.",
-        "year": "2014",
-        "title": "The Secret History of Wonder Woman",
-        "publisher": "Alfred A. Knopf"
-      }
-    ],
+    "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "portrait-robot-prince-charmant-2026",
     "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
     "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
-    "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-23",
     "date_modified": "2026-07-23",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "couple",
       "séduction",
@@ -219,42 +152,24 @@
       "préférences",
       "charge mentale"
     ],
-    "sources": [
-      {
-        "authors": "Pailhé A., Solaz A. & Wilner L.",
-        "year": "2022",
-        "title": "Travail domestique et parental au fil des confinements en France : comment ont évolué les inégalités socio-économiques et de sexe ?",
-        "journal": "Economie et Statistique / Economics and Statistics",
-        "url": "https://www.persee.fr/doc/estat_0336-1454_2022_num_536_1_11049"
-      },
-      {
-        "authors": "Górniak J., Zajenkowski M., Szymaniak K. & Jonason P. K.",
-        "year": "2024",
-        "title": "Kindness or Intelligence? Angry Men are Perceived as Less Intelligent by Their Female Romantic Partners",
-        "journal": "Evolutionary Psychology",
-        "url": "https://doi.org/10.1177/14747049241275706"
-      },
-      {
-        "authors": "Furnham A. & Cuppello S.",
-        "year": "2024",
-        "title": "Sex, personality, and mate preferences",
-        "journal": "Evolutionary Behavioral Sciences",
-        "url": "https://doi.org/10.1037/ebs0000362"
-      }
-    ],
+    "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
     "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
-    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-21",
     "date_modified": "2026-07-21",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "couple",
       "relations",
@@ -263,41 +178,8 @@
       "Gottman",
       "vie de couple"
     ],
-    "sources": [
-      {
-        "authors": "Gottman J. M. & Levenson R. W.",
-        "year": "1992",
-        "title": "Marital processes predictive of later dissolution: Behavior, physiology, and health",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.63.2.221"
-      },
-      {
-        "authors": "Gable S. L., Reis H. T., Impett E. A. & Asher E. R.",
-        "year": "2004",
-        "title": "What do you do when things go right? The intrapersonal and interpersonal benefits of sharing positive events",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.87.2.228"
-      },
-      {
-        "authors": "Aron A., Norman C. C., Aron E. N., McKenna C. & Heyman R. E.",
-        "year": "2000",
-        "title": "Couples' shared participation in novel and arousing activities and experienced relationship quality",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.78.2.273"
-      },
-      {
-        "authors": "Gottman J. M. & Silver N.",
-        "year": "1999",
-        "title": "The Seven Principles for Making Marriage Work",
-        "publisher": "Crown Publishers"
-      },
-      {
-        "authors": "Bodenmann G.",
-        "year": "2005",
-        "title": "Dyadic coping and its significance for marital functioning (in Couples Coping with Stress)",
-        "publisher": "American Psychological Association"
-      }
-    ],
+    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -835,7 +717,6 @@
   {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
-    "type": "dossier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-10",
     "date_modified": "2026-06-10",
