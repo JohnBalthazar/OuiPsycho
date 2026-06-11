@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quel genre de Reine des neiges êtes-vous ?</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: linear-gradient(160deg, #eaf4fb 0%, #f4f9fd 100%);
+    color: #1f3a52;
+    padding: 24px 18px;
+    line-height: 1.6;
+  }
+  .quiz-wrap { max-width: 640px; margin: 0 auto; }
+  .quiz-intro { text-align: center; margin-bottom: 22px; }
+  .quiz-intro h1 { font-size: 1.45rem; color: #2c6ca0; margin-bottom: 8px; }
+  .quiz-intro p { font-size: .95rem; color: #4a6a85; }
+  .progress { height: 6px; background: #d7e8f5; border-radius: 4px; margin: 18px 0 24px; overflow: hidden; }
+  .progress-bar { height: 100%; background: linear-gradient(90deg, #6db4e8, #2c6ca0); width: 0; transition: width .35s ease; }
+  .question { background: #fff; border-radius: 16px; padding: 22px 20px; box-shadow: 0 4px 18px rgba(44,108,160,.10); }
+  .q-num { font-size: .8rem; color: #8aa6bd; text-transform: uppercase; letter-spacing: .06em; margin-bottom: 6px; }
+  .q-text { font-size: 1.12rem; font-weight: 600; color: #1f3a52; margin-bottom: 18px; }
+  .answers { display: flex; flex-direction: column; gap: 10px; }
+  .answer {
+    text-align: left; background: #f3f8fc; border: 1.5px solid #dceaf5;
+    border-radius: 12px; padding: 13px 16px; font-size: .98rem; color: #2a4a64;
+    cursor: pointer; transition: all .18s ease; font-family: inherit;
+  }
+  .answer:hover { background: #e3f0fa; border-color: #9fcae8; transform: translateY(-1px); }
+  .answer:active { transform: scale(.99); }
+  .result { background: #fff; border-radius: 16px; padding: 28px 22px; text-align: center; box-shadow: 0 4px 18px rgba(44,108,160,.10); }
+  .result .emoji { font-size: 3rem; margin-bottom: 10px; }
+  .result h2 { font-size: 1.5rem; color: #2c6ca0; margin-bottom: 6px; }
+  .result .tagline { font-style: italic; color: #6a8aa3; margin-bottom: 16px; }
+  .result p { font-size: 1rem; color: #34526b; margin-bottom: 14px; text-align: left; }
+  .result .note { font-size: .85rem; color: #8aa6bd; border-top: 1px solid #e3eef6; padding-top: 14px; margin-top: 6px; }
+  .restart {
+    margin-top: 18px; background: #2c6ca0; color: #fff; border: none;
+    border-radius: 30px; padding: 11px 26px; font-size: .95rem; cursor: pointer;
+    font-family: inherit; transition: background .2s;
+  }
+  .restart:hover { background: #225680; }
+  .disclaimer { text-align: center; font-size: .78rem; color: #9bb3c7; margin-top: 16px; }
+</style>
+</head>
+<body>
+<div class="quiz-wrap">
+  <div class="quiz-intro">
+    <h1>❄️ Quel genre de Reine des neiges êtes-vous ?</h1>
+    <p>Six questions pour découvrir si vous régnez sur votre royaume intérieur en Elsa, en Anna, en Olaf ou en Kristoff.</p>
+  </div>
+  <div class="progress"><div class="progress-bar" id="bar"></div></div>
+  <div id="quiz"></div>
+  <p class="disclaimer">Pour le plaisir — ceci n'est pas un test psychologique validé.</p>
+</div>
+
+<script>
+var questions = [
+  {
+    q: "Une émotion forte vous submerge en pleine réunion. Vous…",
+    a: [
+      { t: "Je verrouille tout. Personne ne doit le voir.", p: "elsa" },
+      { t: "Je le dis, quitte à pleurer devant tout le monde.", p: "anna" },
+      { t: "Je dédramatise avec une blague.", p: "olaf" },
+      { t: "Je prends sur moi et je règle le problème concret après.", p: "kristoff" }
+    ]
+  },
+  {
+    q: "Votre rapport à la solitude ?",
+    a: [
+      { t: "Mon refuge. Seul·e, je ne risque de blesser personne.", p: "elsa" },
+      { t: "Insupportable, j'ai besoin des autres pour respirer.", p: "anna" },
+      { t: "J'y trouve toujours de quoi m'amuser tout seul.", p: "olaf" },
+      { t: "Très utile, mais une bonne compagnie reste préférable.", p: "kristoff" }
+    ]
+  },
+  {
+    q: "Face à un conflit avec un proche…",
+    a: [
+      { t: "Je me ferme et je m'éloigne le temps que ça passe.", p: "elsa" },
+      { t: "Je fonce m'expliquer, là, tout de suite.", p: "anna" },
+      { t: "J'essaie de détendre l'atmosphère avant tout.", p: "olaf" },
+      { t: "Je cherche la solution pratique, pas le drame.", p: "kristoff" }
+    ]
+  },
+  {
+    q: "Quel compliment vous touche le plus ?",
+    a: [
+      { t: "« Tu es tellement maîtrisé·e. »", p: "elsa" },
+      { t: "« Tu as un cœur immense. »", p: "anna" },
+      { t: "« Avec toi, on rit tout le temps. »", p: "olaf" },
+      { t: "« On peut toujours compter sur toi. »", p: "kristoff" }
+    ]
+  },
+  {
+    q: "Votre plus grande peur secrète ?",
+    a: [
+      { t: "Perdre le contrôle et faire du mal sans le vouloir.", p: "elsa" },
+      { t: "Être abandonné·e par ceux que j'aime.", p: "anna" },
+      { t: "Que la fête se termine et qu'on s'ennuie.", p: "olaf" },
+      { t: "Ne pas être à la hauteur quand on a besoin de moi.", p: "kristoff" }
+    ]
+  },
+  {
+    q: "Un week-end parfait, c'est…",
+    a: [
+      { t: "Au calme, loin du bruit, à mon rythme.", p: "elsa" },
+      { t: "Entouré·e, à enchaîner les retrouvailles.", p: "anna" },
+      { t: "Une succession de petits plaisirs imprévus.", p: "olaf" },
+      { t: "Une rando, du concret, de l'air frais.", p: "kristoff" }
+    ]
+  }
+];
+
+var results = {
+  elsa: {
+    emoji: "👑",
+    title: "Vous êtes Elsa",
+    tagline: "La souveraine de glace",
+    text: "Maîtrise, dignité, et une tendance redoutable à tout garder pour vous. Comme Elsa, vous protégez les autres en vous protégeant d'eux — mais à force de dissimuler, l'émotion finit par sortir en tempête. Votre défi : apprendre que se montrer vulnérable n'est pas perdre le contrôle, c'est le partager. Le vrai pouvoir, ce n'est pas le gel, c'est le dégel.",
+    note: "Piste douce : nommer une émotion à voix haute par jour. Juste la nommer."
+  },
+  anna: {
+    emoji: "💛",
+    title: "Vous êtes Anna",
+    tagline: "Le cœur grand ouvert",
+    text: "Spontané·e, chaleureux·se, parfois un peu trop impulsif·ve — vous aimez fort et vite. Comme Anna, votre superpouvoir est le lien : vous allez vers les gens même quand ils vous repoussent. Attention quand même à ne pas vous oublier dans l'élan. Aimer les autres, oui, mais sans laisser la porte de votre propre château grande ouverte à tout vent.",
+    note: "Piste douce : avant de foncer aider, demandez-vous ce dont vous, vous avez besoin."
+  },
+  olaf: {
+    emoji: "☃️",
+    title: "Vous êtes Olaf",
+    tagline: "L'âme légère",
+    text: "Vous traversez la vie avec une bienveillance désarmante et un humour qui sauve les situations. Comme Olaf, vous rappelez aux autres que la chaleur — au sens propre comme au figuré — vaut tous les sacrifices. Votre vigilance : la légèreté ne doit pas devenir une façon d'esquiver ce qui fait mal. On a le droit de fondre un peu, parfois.",
+    note: "Piste douce : la prochaine fois que ça pince, restez avec l'émotion deux minutes avant la blague."
+  },
+  kristoff: {
+    emoji: "🏔️",
+    title: "Vous êtes Kristoff",
+    tagline: "Le roc tranquille",
+    text: "Fiable, terre-à-terre, allergique au drame inutile : on peut compter sur vous. Comme Kristoff, vous préférez l'action concrète aux grandes déclarations. Mais derrière la carapace pragmatique se cache quelqu'un de bien plus tendre qu'il ne l'admet. Votre marge de progression : oser dire les choses, pas seulement les faire.",
+    note: "Piste douce : un « je tiens à toi » dit vaut mille gestes silencieux."
+  }
+};
+
+var current = 0;
+var scores = { elsa: 0, anna: 0, olaf: 0, kristoff: 0 };
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function render() {
+  var quiz = document.getElementById('quiz');
+  var bar = document.getElementById('bar');
+  bar.style.width = (current / questions.length * 100) + '%';
+  var item = questions[current];
+  var html = '<div class="question"><div class="q-num">Question ' + (current + 1) + ' / ' + questions.length + '</div>';
+  html += '<div class="q-text">' + item.q + '</div><div class="answers">';
+  for (var i = 0; i < item.a.length; i++) {
+    html += '<button class="answer" onclick="choose(\'' + item.a[i].p + '\')">' + item.a[i].t + '</button>';
+  }
+  html += '</div></div>';
+  quiz.innerHTML = html;
+  notifyResize();
+}
+
+function choose(profile) {
+  scores[profile]++;
+  current++;
+  if (current < questions.length) {
+    render();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById('bar').style.width = '100%';
+  var best = 'elsa', max = -1;
+  for (var key in scores) {
+    if (scores[key] > max) { max = scores[key]; best = key; }
+  }
+  var r = results[best];
+  var html = '<div class="result"><div class="emoji">' + r.emoji + '</div>';
+  html += '<h2>' + r.title + '</h2><div class="tagline">' + r.tagline + '</div>';
+  html += '<p>' + r.text + '</p><div class="note">' + r.note + '</div>';
+  html += '<button class="restart" onclick="restart()">↺ Refaire le test</button></div>';
+  document.getElementById('quiz').innerHTML = html;
+  notifyResize();
+}
+
+function restart() {
+  current = 0;
+  scores = { elsa: 0, anna: 0, olaf: 0, kristoff: 0 };
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
