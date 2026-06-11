@@ -80,6 +80,76 @@
     "status": "scheduled"
   },
   {
+    "id": "friluftsliv-bonheur-norvegien",
+    "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
+    "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
+    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-30",
+    "date_modified": "2026-07-30",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 6,
+    "tags": [
+      "friluftsliv",
+      "bien-être",
+      "nature",
+      "plein air",
+      "bonheur",
+      "psychologie positive"
+    ],
+    "sources": [
+      {
+        "authors": "Bratman G.N., Anderson C.B., Berman M.G. et al.",
+        "year": "2019",
+        "title": "Nature and mental health: An ecosystem service perspective",
+        "journal": "Science Advances",
+        "url": "https://doi.org/10.1126/sciadv.aax0903"
+      },
+      {
+        "authors": "White M.P., Alcock I., Grellier J. et al.",
+        "year": "2019",
+        "title": "Spending at least 120 minutes a week in nature is associated with good health and wellbeing",
+        "journal": "Scientific Reports",
+        "url": "https://doi.org/10.1038/s41598-019-44097-3"
+      },
+      {
+        "authors": "Ulrich R.S.",
+        "year": "1984",
+        "title": "View through a window may influence recovery from surgery",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.6143402"
+      },
+      {
+        "authors": "Berman M.G., Jonides J. & Kaplan S.",
+        "year": "2008",
+        "title": "The cognitive benefits of interacting with nature",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1111/j.1467-9280.2008.02225.x"
+      },
+      {
+        "authors": "Nansen F.",
+        "year": "1922",
+        "title": "Friluftsliv — essai sur la vie en plein air",
+        "publisher": "Gyldendal Norsk Forlag"
+      },
+      {
+        "authors": "Martinsen E.W.",
+        "year": "2008",
+        "title": "Physical activity in the prevention and treatment of anxiety and depression",
+        "journal": "Nordic Journal of Psychiatry",
+        "url": "https://doi.org/10.1080/08039480802315640"
+      },
+      {
+        "authors": "Guégan J.-F. & Suzán G.",
+        "year": "2021",
+        "title": "La nature, une ordonnance médicale ? Plaidoyer pour une médecine verte",
+        "publisher": "Éditions du Seuil"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
     "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
