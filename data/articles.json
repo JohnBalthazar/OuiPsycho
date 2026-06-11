@@ -54,9 +54,10 @@
   {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
+    "type": "article",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
-    "date": "2026-08-01",
-    "date_modified": "2026-06-09",
+    "date": "2026-07-31",
+    "date_modified": "2026-06-11",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wrefmmtebgcryfkgsery",
     "imagePosition": "50% 50%",
