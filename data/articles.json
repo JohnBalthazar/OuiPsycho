@@ -26,6 +26,72 @@
     "status": "scheduled"
   },
   {
+    "id": "reine-des-neiges-psychologie-heroine-glace",
+    "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
+    "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
+    "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-06",
+    "date_modified": "2026-08-06",
+    "category": "Nos héros",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "reine des neiges",
+      "Elsa",
+      "émotions",
+      "honte",
+      "psychologie",
+      "régulation émotionnelle",
+      "cinéma"
+    ],
+    "sources": [
+      {
+        "authors": "Gross J.J. & John O.P.",
+        "year": "2003",
+        "title": "Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.85.2.348"
+      },
+      {
+        "authors": "Brown B.",
+        "year": "2012",
+        "title": "Shame resilience theory: A grounded theory study on women and shame",
+        "journal": "Social Work",
+        "url": "https://doi.org/10.1093/sw/sws010"
+      },
+      {
+        "authors": "Winnicott D.W.",
+        "year": "1960",
+        "title": "Ego distortion in terms of true and false self",
+        "publisher": "The Maturational Processes and the Facilitating Environment"
+      },
+      {
+        "authors": "Mikulincer M. & Shaver P.R.",
+        "year": "2007",
+        "title": "Attachment in adulthood: Structure, dynamics, and change",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2001",
+        "title": "Les vilains petits canards",
+        "publisher": "Éditions Odile Jacob"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2007",
+        "title": "La honte : psychanalyse d'un lien social",
+        "publisher": "Éditions Dunod"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
     "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
