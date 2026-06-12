@@ -2,9 +2,8 @@ name: Newsletter hebdomadaire
 
 on:
   schedule:
-    # Vendredi 10h Paris — 08:00 UTC en été (CEST), 09:00 Paris en hiver (CET)
-    # Ajuste à 09:00 UTC si tu préfères pile 10h en hiver.
-    - cron: '0 8 * * 5'
+    # Mardi 10h Paris — 08:00 UTC en été (CEST), 09:00 Paris en hiver (CET)
+    - cron: '0 8 * * 2'
   workflow_dispatch:   # Bouton "Run workflow" dans GitHub Actions pour tester manuellement
 
 jobs:
