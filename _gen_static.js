@@ -226,7 +226,7 @@ ${srcItems}
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="tests.html">Tests</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
