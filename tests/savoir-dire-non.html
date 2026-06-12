@@ -128,7 +128,14 @@
   .result-desc  { font-size: 15px; line-height: 1.75; text-align: left; margin-bottom: 1.5rem; }
 
   .actions { display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 1.5rem; }
-  .copy-status { font-size: 12.5px; color: var(--green); min-height: 16px; margin-bottom: 0.5rem; }
+  .share-label { font-size: 13px; font-weight: 700; color: var(--text-sec); text-transform: uppercase; letter-spacing: .06em; margin-bottom: .3rem; }
+  .share-btns { display: flex; gap: .6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.2rem; }
+  .share-btn { display: inline-flex; align-items: center; gap: .45rem; padding: .55rem 1.1rem; border-radius: 24px; font-size: 14px; font-weight: 700; text-decoration: none; border: none; cursor: pointer; transition: opacity .15s, transform .12s; }
+  .share-btn:hover { opacity: .88; transform: translateY(-1px); }
+  .share-btn svg { width: 17px; height: 17px; flex-shrink: 0; }
+  .share-btn--fb  { background: #1877F2; color: #fff; }
+  .share-btn--x   { background: #000;    color: #fff; }
+  .share-btn--wa  { background: #25D366; color: #fff; }
 
   .article-link {
     display: block;
@@ -352,9 +359,22 @@ function render() {
         <div class="result-title">${p.title}</div>
         <div class="result-desc">${p.desc}</div>
         <a class="article-link" href="../../articles/therapie-cognitive-comportementale/">En savoir plus sur les TCC →</a>
-        <div class="copy-status" id="copy-status"></div>
+        <div class="share-label">Partager mon résultat</div>
+        <div class="share-btns" id="share-btns-${score100}">
+          <a class="share-btn share-btn--fb" href="${shareUrl('facebook', score100, p.title)}" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.99 3.66 9.12 8.44 9.88v-6.99H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.23.19 2.23.19v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56V12h2.77l-.44 2.89h-2.33v6.99C18.34 21.12 22 17 22 12z"/></svg>
+            Facebook
+          </a>
+          <a class="share-btn share-btn--x" href="${shareUrl('x', score100, p.title)}" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            X (Twitter)
+          </a>
+          <a class="share-btn share-btn--wa" href="${shareUrl('whatsapp', score100, p.title)}" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.126 1.533 5.859L.057 23.428a.5.5 0 0 0 .609.61l5.703-1.457A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.886 0-3.655-.511-5.176-1.402l-.371-.22-3.835.98.999-3.72-.242-.383A9.955 9.955 0 0 1 2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+            WhatsApp
+          </a>
+        </div>
         <div class="actions">
-          <button class="btn btn-primary" onclick="copyResult(${score100})">📋 Copier mon résultat</button>
           <button class="btn" onclick="restart()">↺ Recommencer</button>
         </div>
         <div class="disclaimer">
@@ -374,30 +394,15 @@ function goNext()   { if (answers[current] === null) return; current++; render()
 function goBack()   { if (current > 0) { current--; render(); } }
 function restart()  { current = 0; answers = Array(questions.length).fill(null); render(); }
 
-function copyResult(score100) {
-  const total = answers.reduce((s, i, qi) => s + (i !== null ? questions[qi].options[i].score : 0), 0);
-  const p = getProfile(total);
-  const txt = `J'ai obtenu ${score100}/100 au test « Savez-vous dire non ? » sur Oui Psycho! 🧠 Mon profil : ${p.title}. Et toi ? https://ouipsycho.fr/tests/savoir-dire-non.html`;
-  const done = () => {
-    const el = document.getElementById('copy-status');
-    if (el) el.textContent = '✓ Résultat copié dans le presse-papier !';
-  };
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(txt).then(done).catch(() => fallbackCopy(txt, done));
-  } else {
-    fallbackCopy(txt, done);
-  }
-}
-
-function fallbackCopy(txt, done) {
-  const ta = document.createElement('textarea');
-  ta.value = txt;
-  ta.style.position = 'fixed';
-  ta.style.opacity = '0';
-  document.body.appendChild(ta);
-  ta.select();
-  try { document.execCommand('copy'); done(); } catch (e) {}
-  document.body.removeChild(ta);
+function shareUrl(network, score100, profileTitle) {
+  const url  = 'https://ouipsycho.fr/tests/savoir-dire-non.html';
+  const text = `J'ai obtenu ${score100}/100 au test « Savez-vous dire non ? » sur Oui Psycho! 🧠 Mon profil : ${profileTitle}. Et toi ?`;
+  const encodedText = encodeURIComponent(text);
+  const encodedUrl  = encodeURIComponent(url);
+  if (network === 'facebook')  return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
+  if (network === 'x')         return `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
+  if (network === 'whatsapp')  return `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
+  return url;
 }
 
 function notifyResize() {
