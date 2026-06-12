@@ -98,7 +98,8 @@ function buildHtml(articles) {
   <!-- HEADER -->
   <tr><td align="center" style="padding-bottom:24px;">
     <a href="${SITE}" style="text-decoration:none;">
-      <div style="font-size:26px;font-weight:900;color:#1F4E6B;letter-spacing:-0.5px;">🧠 Oui Psycho!</div>
+      <img src="${SITE}/img/logo-brain.png" alt="Oui Psycho!" width="52" height="52" style="display:block;margin:0 auto 10px;border-radius:12px;">
+      <div style="font-size:26px;font-weight:900;color:#1F4E6B;letter-spacing:-0.5px;">Oui Psycho!</div>
       <div style="font-size:13px;color:#888;margin-top:4px;">La psychologie expliquée, simplement.</div>
     </a>
   </td></tr>
