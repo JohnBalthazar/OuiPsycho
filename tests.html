@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tests psycho — Oui Psycho!</title>
+  <meta name="description" content="Nos tests et quiz psycho : assertivité, profils de personnalité, pop culture… Des tests ludiques et documentés pour mieux vous comprendre.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <link rel="canonical" href="https://ouipsycho.fr/tests.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Tests psycho — Oui Psycho!">
+  <meta property="og:description" content="Nos tests et quiz psycho : assertivité, profils de personnalité, pop culture… Des tests ludiques et documentés pour mieux vous comprendre.">
+  <meta property="og:url"         content="https://ouipsycho.fr/tests.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+  <style>
+    /* ── Grille de tests ── */
+    .tests-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--sp-5, 1.5rem);
+    }
+    @media (max-width: 760px) { .tests-grid { grid-template-columns: 1fr; } }
+
+    .test-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--color-surface, #fff);
+      border: 1px solid var(--color-border, #E5E7EB);
+      border-radius: var(--radius-lg, 16px);
+      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(31,78,107,.07);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+    .test-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 36px rgba(31,78,107,.16);
+    }
+
+    .test-card__head {
+      position: relative;
+      height: 130px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--card-color, #1F4E6B);
+    }
+    .test-card__head::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.18), transparent 60%);
+    }
+    .test-card__emoji {
+      font-size: 3.4rem;
+      line-height: 1;
+      position: relative;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,.22));
+    }
+    .test-card__badge-new {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #DC2626;
+      color: #fff;
+      font-size: .62rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 999px;
+      z-index: 1;
+      box-shadow: 0 3px 8px rgba(220,38,38,.4);
+    }
+
+    .test-card__body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 1.4rem 1.4rem 1.5rem;
+    }
+    .test-card__title {
+      font-family: var(--font-heading, Georgia, serif);
+      font-size: 1.22rem;
+      line-height: 1.3;
+      color: var(--color-text, #1A1E2E);
+      margin: 0 0 .55rem;
+    }
+    .test-card__desc {
+      font-size: .94rem;
+      line-height: 1.55;
+      color: var(--color-text-muted, #6B7280);
+      margin: 0 0 1.1rem;
+      flex: 1;
+    }
+    .test-card__meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .55rem;
+      margin-bottom: 1.2rem;
+    }
+    .test-card__cat {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #fff;
+      background: var(--card-color, #1F4E6B);
+      padding: 4px 11px;
+      border-radius: 999px;
+    }
+    .test-card__time {
+      font-size: .82rem;
+      color: var(--color-text-light, #9CA3AF);
+      font-weight: 600;
+    }
+    .test-card__actions {
+      display: flex;
+      flex-direction: column;
+      gap: .65rem;
+      margin-top: auto;
+    }
+    .test-card__btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: .95rem;
+      padding: .8rem 1rem;
+      border-radius: 999px;
+      background: var(--card-color, #1F4E6B);
+      color: #fff;
+      transition: filter .2s, transform .15s;
+    }
+    .test-card__btn:hover { filter: brightness(1.1); transform: translateY(-1px); }
+    .test-card__link {
+      text-align: center;
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--card-color, #1F4E6B);
+      text-decoration: none;
+    }
+    .test-card__link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="dossiers.html">Dossiers</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">Nos héros</a>
+        <a class="nav__link nav__link--active" href="tests.html">Tests</a>
+        <a class="nav__link" href="a-propos.html">À propos</a>
+        <a class="nav__link" href="contact.html">Contact</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO TESTS ===== -->
+  <section class="dossier-hero" aria-labelledby="tests-hero-title">
+    <div class="dossier-hero__content">
+      <div class="dossier-hero__eyebrow">Tests &amp; quiz</div>
+      <h1 id="tests-hero-title">🧠 Nos tests psycho</h1>
+      <p>Assertivité, profils de personnalité, archétypes de la pop culture… Des tests ludiques et documentés pour mieux vous comprendre — et lire l'article qui va avec.</p>
+    </div>
+  </section>
+
+  <!-- ===== GRILLE TESTS ===== -->
+  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
+    <div class="tests-grid">
+
+      <!-- 1 -->
+      <article class="test-card" style="--card-color:#1F4E6B">
+        <div class="test-card__head">
+          <span class="test-card__badge-new">Nouveau</span>
+          <span class="test-card__emoji">🚫</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Savez-vous vraiment dire non ?</h2>
+          <p class="test-card__desc">Testez votre assertivité sur 10 situations du quotidien et découvrez votre profil TCC.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Développement personnel</span>
+            <span class="test-card__time">⏱ 5 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/savoir-dire-non.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/communication-non-violente/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="test-card" style="--card-color:#6D28D9">
+        <div class="test-card__head">
+          <span class="test-card__emoji">🧙</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Quel personnage Harry Potter êtes-vous ?</h2>
+          <p class="test-card__desc">Découvrez votre profil psychologique à travers les archétypes de Poudlard.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Pop culture</span>
+            <span class="test-card__time">⏱ 3 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/hp-personnalite.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/harry-potter-psychopathologie-complice/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="test-card" style="--card-color:#0369A1">
+        <div class="test-card__head">
+          <span class="test-card__emoji">😄</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Avez-vous le syndrome de Witzelsucht ?</h2>
+          <p class="test-card__desc">Évaluez si votre sens de l'humour cache quelque chose de plus profond.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Neuropsychologie</span>
+            <span class="test-card__time">⏱ 4 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/witzelsucht-quiz.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/syndrome-witzelsucht/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="test-card" style="--card-color:#BE185D">
+        <div class="test-card__head">
+          <span class="test-card__emoji">🌸</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Votre relation maternelle a-t-elle laissé des traces ?</h2>
+          <p class="test-card__desc">Un test clinique pour évaluer l'impact de votre relation maternelle.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Relations</span>
+            <span class="test-card__time">⏱ 5 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/meres-toxiques-quiz.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/meres-toxiques-comprendre-pour-se-reconstruire/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="test-card" style="--card-color:#7C3AED">
+        <div class="test-card__head">
+          <span class="test-card__emoji">🦸‍♀️</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Quel genre de Wonder Woman êtes-vous ?</h2>
+          <p class="test-card__desc">Empathique, combative ou sage ? Trouvez votre héroïne intérieure.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Pop culture</span>
+            <span class="test-card__time">⏱ 3 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/quel-genre-de-wonder-woman.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/wonder-woman-sur-le-divan/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="test-card" style="--card-color:#059669">
+        <div class="test-card__head">
+          <span class="test-card__emoji">⭐</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Quel signe êtes-vous vraiment ?</h2>
+          <p class="test-card__desc">La psychologie répond aux archétypes astrologiques.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Bien-être</span>
+            <span class="test-card__time">⏱ 3 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/quel-signe-etes-vous.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/horoscope-pourquoi-on-y-croit/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7 -->
+      <article class="test-card" style="--card-color:#0EA5E9">
+        <div class="test-card__head">
+          <span class="test-card__emoji">❄️</span>
+        </div>
+        <div class="test-card__body">
+          <h2 class="test-card__title">Quel genre de Reine des neiges êtes-vous ?</h2>
+          <p class="test-card__desc">Votre profil émotionnel révélé par la psychologie des personnages.</p>
+          <div class="test-card__meta">
+            <span class="test-card__cat">Pop culture</span>
+            <span class="test-card__time">⏱ 3 min</span>
+          </div>
+          <div class="test-card__actions">
+            <a class="test-card__btn" href="tests/reine-des-neiges-quiz.html">Faire le test →</a>
+            <a class="test-card__link" href="articles/reine-des-neiges-psychologie-heroine-glace/">Lire l'article</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse psychique, appelez le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Anxiété">Anxiété</a></li>
+            <li><a href="index.html?cat=Dépression">Dépression</a></li>
+            <li><a href="index.html?cat=Bien-être">Bien-être</a></li>
+            <li><a href="index.html?cat=Stress">Stress</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Thérapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="sitemap.xml">Plan du site</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© <script>document.write(new Date().getFullYear())</script> Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bannière cookies -->
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
