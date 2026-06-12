@@ -2,7 +2,6 @@
   {
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
-    "type": "article",
     "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
     "date": "2026-08-13",
     "date_modified": "2026-06-11",
@@ -30,8 +29,6 @@
     "id": "reine-des-neiges-psychologie-heroine-glace",
     "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
     "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
-    "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-08-06",
     "date_modified": "2026-08-06",
     "category": "Nos héros",
@@ -41,6 +38,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "reine des neiges",
       "Elsa",
@@ -50,46 +48,8 @@
       "régulation émotionnelle",
       "cinéma"
     ],
-    "sources": [
-      {
-        "authors": "Gross J.J. & John O.P.",
-        "year": "2003",
-        "title": "Individual differences in two emotion regulation processes: Implications for affect, relationships, and well-being",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.85.2.348"
-      },
-      {
-        "authors": "Brown B.",
-        "year": "2012",
-        "title": "Shame resilience theory: A grounded theory study on women and shame",
-        "journal": "Social Work",
-        "url": "https://doi.org/10.1093/sw/sws010"
-      },
-      {
-        "authors": "Winnicott D.W.",
-        "year": "1960",
-        "title": "Ego distortion in terms of true and false self",
-        "publisher": "The Maturational Processes and the Facilitating Environment"
-      },
-      {
-        "authors": "Mikulincer M. & Shaver P.R.",
-        "year": "2007",
-        "title": "Attachment in adulthood: Structure, dynamics, and change",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "2001",
-        "title": "Les vilains petits canards",
-        "publisher": "Éditions Odile Jacob"
-      },
-      {
-        "authors": "Tisseron S.",
-        "year": "2007",
-        "title": "La honte : psychanalyse d'un lien social",
-        "publisher": "Éditions Dunod"
-      }
-    ],
+    "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -121,7 +81,6 @@
   {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
-    "type": "article",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
     "date": "2026-07-31",
     "date_modified": "2026-06-11",
@@ -150,13 +109,16 @@
     "id": "friluftsliv-bonheur-norvegien",
     "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
     "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
-    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-30",
     "date_modified": "2026-07-30",
     "category": "Bien-être",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "friluftsliv",
       "bien-être",
@@ -165,55 +127,8 @@
       "bonheur",
       "psychologie positive"
     ],
-    "sources": [
-      {
-        "authors": "Bratman G.N., Anderson C.B., Berman M.G. et al.",
-        "year": "2019",
-        "title": "Nature and mental health: An ecosystem service perspective",
-        "journal": "Science Advances",
-        "url": "https://doi.org/10.1126/sciadv.aax0903"
-      },
-      {
-        "authors": "White M.P., Alcock I., Grellier J. et al.",
-        "year": "2019",
-        "title": "Spending at least 120 minutes a week in nature is associated with good health and wellbeing",
-        "journal": "Scientific Reports",
-        "url": "https://doi.org/10.1038/s41598-019-44097-3"
-      },
-      {
-        "authors": "Ulrich R.S.",
-        "year": "1984",
-        "title": "View through a window may influence recovery from surgery",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.6143402"
-      },
-      {
-        "authors": "Berman M.G., Jonides J. & Kaplan S.",
-        "year": "2008",
-        "title": "The cognitive benefits of interacting with nature",
-        "journal": "Psychological Science",
-        "url": "https://doi.org/10.1111/j.1467-9280.2008.02225.x"
-      },
-      {
-        "authors": "Nansen F.",
-        "year": "1922",
-        "title": "Friluftsliv — essai sur la vie en plein air",
-        "publisher": "Gyldendal Norsk Forlag"
-      },
-      {
-        "authors": "Martinsen E.W.",
-        "year": "2008",
-        "title": "Physical activity in the prevention and treatment of anxiety and depression",
-        "journal": "Nordic Journal of Psychiatry",
-        "url": "https://doi.org/10.1080/08039480802315640"
-      },
-      {
-        "authors": "Guégan J.-F. & Suzán G.",
-        "year": "2021",
-        "title": "La nature, une ordonnance médicale ? Plaidoyer pour une médecine verte",
-        "publisher": "Éditions du Seuil"
-      }
-    ],
+    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -533,7 +448,6 @@
   {
     "id": "accords-tolteques-psychologie-neurosciences",
     "title": "Les quatre accords toltèques : la sagesse ancestrale à l'épreuve de la science",
-    "type": "article",
     "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
     "date": "2026-06-23",
     "date_modified": "2026-06-11",
