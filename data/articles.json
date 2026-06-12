@@ -603,6 +603,77 @@
     "status": "scheduled"
   },
   {
+    "id": "hitler-sur-le-divan",
+    "title": "Hitler sur le divan : psychologie d'un nazi",
+    "excerpt": "Que se passait-il dans la tête d'Adolf Hitler ? Entre rapports secrets de psychologues américains, diagnostics posthumes et cocktails pharmaceutiques, la science a tenté de percer le mystère du dictateur. Spoiler : c'est plus compliqué qu'un simple « il était fou ».",
+    "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-18",
+    "date_modified": "2026-06-18",
+    "category": "Les monstres",
+    "image": "",
+    "readTime": 6,
+    "tags": [
+      "psychohistoire",
+      "narcissisme",
+      "paranoïa",
+      "personnalité",
+      "histoire",
+      "psychopathologie"
+    ],
+    "sources": [
+      {
+        "authors": "Langer W.C.",
+        "year": "1972",
+        "title": "The Mind of Adolf Hitler: The Secret Wartime Report",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Murray H.A.",
+        "year": "1943",
+        "title": "Analysis of the Personality of Adolph Hitler",
+        "publisher": "Office of Strategic Services (OSS), Harvard Psychological Clinic"
+      },
+      {
+        "authors": "Redlich F.",
+        "year": "1998",
+        "title": "Hitler: Diagnosis of a Destructive Prophet",
+        "publisher": "Oxford University Press"
+      },
+      {
+        "authors": "Fromm E.",
+        "year": "1975",
+        "title": "La Passion de détruire : anatomie de la destructivité humaine",
+        "publisher": "Robert Laffont"
+      },
+      {
+        "authors": "Miller A.",
+        "year": "1984",
+        "title": "C'est pour ton bien : racines de la violence dans l'éducation de l'enfant",
+        "publisher": "Aubier"
+      },
+      {
+        "authors": "Coolidge F.L., Davis F.L. & Segal D.L.",
+        "year": "2007",
+        "title": "Understanding madmen: A DSM-IV assessment of Adolf Hitler",
+        "journal": "Individual Differences Research"
+      },
+      {
+        "authors": "Ohler N.",
+        "year": "2016",
+        "title": "L'Extase totale : le IIIe Reich, les Allemands et la drogue",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Kershaw I.",
+        "year": "1999",
+        "title": "Hitler 1889-1936 : Hubris",
+        "publisher": "Flammarion"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "naitre-parent-revolution-interieure",
     "title": "Naître parent : une révolution intérieure",
     "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
