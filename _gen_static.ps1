@@ -193,7 +193,7 @@ Get-ChildItem "$DIR\*.json" | Sort-Object Name | ForEach-Object {
     $html += "        </ul></div>`n"
     $html += "      </div>`n"
     $html += "      <div class=`"footer-bottom`">`n"
-    $html += "        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>`n"
+    $html += "        <span>© <script>document.write(new Date().getFullYear())</script> Oui Psycho!. Tous droits réservés.</span>`n"
     $html += "        <span>Fait avec ❤️ pour la santé mentale</span>`n"
     $html += "      </div>`n    </div>`n  </footer>`n`n"
     $html += "  <div id=`"cookie-banner`" role=`"dialog`" aria-label=`"Cookies`">`n"
