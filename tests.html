@@ -75,9 +75,20 @@
       box-shadow: 0 16px 36px rgba(31,78,107,.16);
     }
 
+    .test-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: .78;
+      transition: opacity .3s, transform .4s;
+    }
+    .test-card:hover .test-card__img { opacity: .88; transform: scale(1.04); }
+
     .test-card__head {
       position: relative;
       height: 130px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -221,6 +232,7 @@
       <!-- 1 -->
       <article class="test-card" style="--card-color:#1F4E6B">
         <div class="test-card__head">
+          <img class="test-card__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/ncnxdnamjrzjof0jboeb" alt="Savoir dire non" loading="lazy">
           <span class="test-card__badge-new">Nouveau</span>
           <span class="test-card__emoji">🚫</span>
         </div>
@@ -241,6 +253,7 @@
       <!-- 2 -->
       <article class="test-card" style="--card-color:#6D28D9">
         <div class="test-card__head">
+          <img class="test-card__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/azupq0sabhlok05y80pd" alt="Harry Potter" loading="lazy">
           <span class="test-card__emoji">🧙</span>
         </div>
         <div class="test-card__body">
@@ -260,6 +273,7 @@
       <!-- 3 -->
       <article class="test-card" style="--card-color:#0369A1">
         <div class="test-card__head">
+          <img class="test-card__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/y0srxz0uozhsdszhlxhx" alt="Witzelsucht" loading="lazy">
           <span class="test-card__emoji">😄</span>
         </div>
         <div class="test-card__body">
@@ -279,6 +293,7 @@
       <!-- 4 -->
       <article class="test-card" style="--card-color:#BE185D">
         <div class="test-card__head">
+          <img class="test-card__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd" alt="Mères toxiques" loading="lazy">
           <span class="test-card__emoji">🌸</span>
         </div>
         <div class="test-card__body">
