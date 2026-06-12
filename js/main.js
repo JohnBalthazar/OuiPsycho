@@ -1280,6 +1280,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('heros-grid'))        initHerosRubrique();
   if (document.getElementById('societe-grid'))      initSocieteRubrique();
   if (document.getElementById('monstres-grid'))     initMonstresRubrique();
+  if (document.getElementById('tests-grid'))        initTestsRubrique();
 
   // Fallback : insère une espace insécable avant le dernier mot des titres
   // pour éviter la ponctuation orpheline (complète text-wrap:balance)
@@ -1467,6 +1468,72 @@ async function initHerosRubrique() {
       return;
     }
     grid.innerHTML = list.map(renderCard).join('');
+  } catch(_) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><p>Erreur de chargement.</p></div>`;
+  }
+}
+
+/* ============================================================
+   TESTS — page rubrique (charge data/tests.json)
+   ============================================================ */
+
+async function initTestsRubrique() {
+  const grid = document.getElementById('tests-grid');
+  if (!grid) return;
+
+  // Skeleton placeholder
+  grid.innerHTML = Array(4).fill(0).map(() => `
+    <div class="test-card" style="--card-color:#ccc">
+      <div class="test-card__head" style="background:#e5e7eb;min-height:140px"></div>
+      <div class="test-card__body">
+        <div style="height:1rem;background:#e5e7eb;border-radius:4px;margin-bottom:.5rem"></div>
+        <div style="height:.75rem;background:#f3f4f6;border-radius:4px;width:75%"></div>
+      </div>
+    </div>`).join('');
+
+  try {
+    const res  = await fetch('data/tests.json?t=' + Date.now());
+    const list = res.ok ? await res.json() : [];
+    const published = list.filter(t => t.status !== 'draft');
+
+    if (!published.length) {
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-state__icon">🧪</div>
+          <p>Aucun test disponible pour l'instant — revenez bientôt !</p>
+        </div>`;
+      return;
+    }
+
+    grid.innerHTML = published.map(t => {
+      const imgHtml = t.image
+        ? `<img class="test-card__img" src="${t.image}" alt="${t.title}" loading="lazy">`
+        : '';
+      const newBadge = t.isNew
+        ? `<span class="test-card__badge-new">Nouveau</span>` : '';
+      const articleLink = t.articleUrl
+        ? `<a class="test-card__link" href="${t.articleUrl}">Lire l'article</a>` : '';
+      return `
+        <article class="test-card" style="--card-color:${t.color || '#1F4E6B'}">
+          <div class="test-card__head">
+            ${imgHtml}
+            ${newBadge}
+            <span class="test-card__emoji">${t.emoji || '🧠'}</span>
+          </div>
+          <div class="test-card__body">
+            <h2 class="test-card__title">${t.title}</h2>
+            <p class="test-card__desc">${t.desc || ''}</p>
+            <div class="test-card__meta">
+              <span class="test-card__cat">${t.catLabel || ''}</span>
+              <span class="test-card__time">⏱ ${t.duration || '5 min'}</span>
+            </div>
+            <div class="test-card__actions">
+              <a class="test-card__btn" href="${t.testUrl}">Faire le test →</a>
+              ${articleLink}
+            </div>
+          </div>
+        </article>`;
+    }).join('');
   } catch(_) {
     grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><p>Erreur de chargement.</p></div>`;
   }
