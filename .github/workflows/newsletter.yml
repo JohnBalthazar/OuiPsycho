@@ -1,0 +1,27 @@
+name: Newsletter hebdomadaire
+
+on:
+  schedule:
+    # Vendredi 10h Paris — 08:00 UTC en été (CEST), 09:00 Paris en hiver (CET)
+    # Ajuste à 09:00 UTC si tu préfères pile 10h en hiver.
+    - cron: '0 8 * * 5'
+  workflow_dispatch:   # Bouton "Run workflow" dans GitHub Actions pour tester manuellement
+
+jobs:
+  send-newsletter:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Envoyer la newsletter
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+        run: node .github/scripts/send-newsletter.js
