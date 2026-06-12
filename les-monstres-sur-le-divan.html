@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dossiers — Oui Psycho!</title>
-  <meta name="description" content="Nos dossiers thématiques approfondis sur la santé mentale : anxiété, dépression, thérapies, relations… Des guides complets rédigés avec rigueur et bienveillance.">
+  <title>Les monstres sur le divan — Oui Psycho!</title>
+  <meta name="description" content="Hitler, Staline, Mussolini, serial killers… On les appelle monstres. La psychologie nous rappelle qu'ils étaient humains — et c'est ça le plus inquiétant.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1F4E6B">
-  <link rel="canonical" href="https://ouipsycho.fr/dossiers.html">
+  <link rel="canonical" href="https://ouipsycho.fr/les-monstres-sur-le-divan.html">
   <meta property="og:type"        content="website">
-  <meta property="og:title"       content="Dossiers — Oui Psycho!">
-  <meta property="og:description" content="Des guides complets sur la santé mentale : comprendre et surmonter anxiété, dépression, troubles du sommeil, problèmes relationnels…">
-  <meta property="og:url"         content="https://ouipsycho.fr/dossiers.html">
+  <meta property="og:title"       content="Les monstres sur le divan — Oui Psycho!">
+  <meta property="og:description" content="On les appelle monstres pour ne pas admettre qu'ils étaient humains. La psychologie décrypte les figures les plus sombres de l'histoire.">
+  <meta property="og:url"         content="https://ouipsycho.fr/les-monstres-sur-le-divan.html">
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Oui Psycho!">
   <meta name="twitter:card"       content="summary_large_image">
@@ -19,7 +19,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <!-- Google Consent Mode v2 -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -43,7 +43,6 @@
     gtag('set', 'url_passthrough', true);
     gtag('set', 'ads_data_redaction', true);
   </script>
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -51,6 +50,86 @@
     gtag('js', new Date());
     gtag('config', 'G-NR52DCZ6ZJ');
   </script>
+  <style>
+    /* ── Hero Les monstres sur le divan ── */
+    .monstres-hero {
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a0505 55%, #3b0f0f 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 6rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      clip-path: ellipse(120% 100% at 50% 0%);
+    }
+    .monstres-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Ctext x='50%25' y='50%25' font-size='32' text-anchor='middle' dominant-baseline='central' opacity='.05'%3E🖤%3C/text%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    .monstres-hero__content { position: relative; max-width: 720px; margin: 0 auto; }
+    .monstres-hero__eyebrow {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 2rem;
+      padding: .35rem 1.1rem;
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+      color: #fca5a5;
+    }
+    .monstres-hero h1 {
+      font-size: clamp(1.9rem, 5vw, 3rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1.2rem;
+    }
+    .monstres-hero p {
+      font-size: 1.05rem;
+      opacity: .85;
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .monstres-hero .hero-quote {
+      margin-top: 1.6rem;
+      font-size: .9rem;
+      font-style: italic;
+      opacity: .6;
+      border-left: 3px solid rgba(255,255,255,.25);
+      padding-left: 1rem;
+      text-align: left;
+      display: inline-block;
+    }
+
+    /* ── Grille articles ── */
+    .monstres-grid-wrap {
+      padding: 3.5rem 0 5rem;
+    }
+    .monstres-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── Prochainement ── */
+    .monstres-coming {
+      grid-column: 1/-1;
+      text-align: center;
+      padding: 3.5rem 2rem;
+      background: #1a0505;
+      border: 1px solid #3b1212;
+      border-radius: 14px;
+      color: #fca5a5;
+    }
+    .monstres-coming__icon { font-size: 2.8rem; margin-bottom: 1rem; }
+    .monstres-coming h3 { font-size: 1.05rem; margin-bottom: .5rem; color: #fff; }
+    .monstres-coming p { font-size: .9rem; opacity: .7; color: #fca5a5; }
+  </style>
 </head>
 <body>
 
@@ -66,9 +145,9 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link nav__link--active" href="dossiers.html">📚 Dossiers</a>
+        <a class="nav__link" href="dossiers.html">📚 Dossiers</a>
         <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
-        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link nav__link--active" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="societe.html">🌍 Société</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
@@ -76,19 +155,23 @@
     </div>
   </header>
 
-  <!-- ===== HERO DOSSIERS ===== -->
-  <section class="dossier-hero" aria-labelledby="dossier-hero-title">
-    <div class="dossier-hero__content">
-      <div class="dossier-hero__eyebrow">Guides thématiques</div>
-      <h1 id="dossier-hero-title">📚 Nos dossiers</h1>
-      <p>Des guides complets et scientifiquement documentés pour comprendre en profondeur les grands sujets de la santé mentale — et trouver des réponses concrètes.</p>
+  <!-- ===== HERO ===== -->
+  <section class="monstres-hero" aria-labelledby="monstres-hero-title">
+    <div class="monstres-hero__content">
+      <div class="monstres-hero__eyebrow">Psychopathologie des figures sombres</div>
+      <h1 id="monstres-hero-title">🖤 Les monstres sur le divan</h1>
+      <p>On les appelle "monstres" pour ne pas admettre qu'ils étaient des humains ordinaires. Mais la psychologie le dit clairement : c'est précisément ce qui rend leur histoire si dérangeante — et si instructive.</p>
+      <blockquote class="hero-quote">
+        « Le mal banal n'est pas commis par des monstres, mais par des gens ordinaires qui ont cessé de penser. »<br>
+        <span>— Hannah Arendt</span>
+      </blockquote>
     </div>
   </section>
 
-  <!-- ===== GRILLE DOSSIERS ===== -->
-  <div class="container" style="padding-top:3rem;padding-bottom:5rem">
-    <div class="dossier-grid" id="dossier-list-grid" aria-live="polite" aria-busy="true">
-      <!-- Injecté par JS -->
+  <!-- ===== GRILLE ARTICLES ===== -->
+  <div class="container monstres-grid-wrap">
+    <div class="monstres-grid" id="monstres-grid" aria-live="polite" aria-busy="true">
+      <!-- Injecté par JS (initMonstresRubrique) -->
     </div>
   </div>
 
@@ -107,14 +190,13 @@
           <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
         <div class="footer-col">
-          <h4>Thématiques</h4>
+          <h4>Rubriques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Anxiété">Anxiété</a></li>
-            <li><a href="index.html?cat=Dépression">Dépression</a></li>
-            <li><a href="index.html?cat=Bien-être">Bien-être</a></li>
-            <li><a href="index.html?cat=Stress">Stress</a></li>
-            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
-            <li><a href="index.html?cat=Thérapies">Thérapies</a></li>
+            <li><a href="dossiers.html">📚 Dossiers</a></li>
+            <li><a href="nos-heros-sur-le-divan.html">🛋️ Nos héros sur le divan</a></li>
+            <li><a href="les-monstres-sur-le-divan.html">🖤 Les monstres sur le divan</a></li>
+            <li><a href="societe.html">🌍 Société</a></li>
+            <li><a href="tests.html">🧪 Tests</a></li>
           </ul>
         </div>
         <div class="footer-col">

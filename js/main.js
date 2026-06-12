@@ -1279,6 +1279,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('dossier-content'))   initDossierPage();
   if (document.getElementById('heros-grid'))        initHerosRubrique();
   if (document.getElementById('societe-grid'))      initSocieteRubrique();
+  if (document.getElementById('monstres-grid'))     initMonstresRubrique();
 
   // Fallback : insère une espace insécable avant le dernier mot des titres
   // pour éviter la ponctuation orpheline (complète text-wrap:balance)
@@ -1494,6 +1495,40 @@ async function initSocieteRubrique() {
         <div class="empty-state" style="grid-column:1/-1">
           <div class="empty-state__icon">🌍</div>
           <p>Aucun article pour l'instant — revenez bientôt !</p>
+        </div>`;
+      return;
+    }
+    grid.innerHTML = list.map(renderCard).join('');
+  } catch(_) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><p>Erreur de chargement.</p></div>`;
+  }
+}
+
+/* ============================================================
+   LES MONSTRES SUR LE DIVAN — page rubrique
+   ============================================================ */
+
+async function initMonstresRubrique() {
+  const grid = document.getElementById('monstres-grid');
+  if (!grid) return;
+  grid.innerHTML = skeletons(4);
+
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
+
+    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const all  = res.ok ? await res.json() : [];
+    const list = all.filter(a => a.category === 'Les monstres sur le divan' && isOk(a))
+                    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!list.length) {
+      grid.innerHTML = `
+        <div class="monstres-coming" style="grid-column:1/-1">
+          <div class="monstres-coming__icon">🖤</div>
+          <h3>Prochainement</h3>
+          <p>Les premiers portraits arrivent bientôt — Hitler, Staline, serial killers…<br>Abonnez-vous à la newsletter pour ne rien manquer.</p>
+          <a href="index.html#newsletter-widget" style="display:inline-block;margin-top:1.2rem;background:#3b0f0f;color:#fca5a5;padding:.6rem 1.4rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:.9rem;border:1px solid #7f1d1d;">S'abonner à la newsletter →</a>
         </div>`;
       return;
     }
