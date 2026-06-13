@@ -28,7 +28,6 @@
   {
     "id": "ce-que-votre-metier-dit-de-vous",
     "title": "Ce que votre métier dit de vous (ou pas)",
-    "type": "article",
     "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
     "date": "2026-08-07",
     "date_modified": "2026-06-12",
@@ -606,13 +605,16 @@
     "id": "hitler-sur-le-divan",
     "title": "Hitler sur le divan : psychologie d'un nazi",
     "excerpt": "Que se passait-il dans la tête d'Adolf Hitler ? Entre rapports secrets de psychologues américains, diagnostics posthumes et cocktails pharmaceutiques, la science a tenté de percer le mystère du dictateur. Spoiler : c'est plus compliqué qu'un simple « il était fou ».",
-    "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-18",
     "date_modified": "2026-06-18",
     "category": "Les monstres",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "psychohistoire",
       "narcissisme",
@@ -621,56 +623,8 @@
       "histoire",
       "psychopathologie"
     ],
-    "sources": [
-      {
-        "authors": "Langer W.C.",
-        "year": "1972",
-        "title": "The Mind of Adolf Hitler: The Secret Wartime Report",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Murray H.A.",
-        "year": "1943",
-        "title": "Analysis of the Personality of Adolph Hitler",
-        "publisher": "Office of Strategic Services (OSS), Harvard Psychological Clinic"
-      },
-      {
-        "authors": "Redlich F.",
-        "year": "1998",
-        "title": "Hitler: Diagnosis of a Destructive Prophet",
-        "publisher": "Oxford University Press"
-      },
-      {
-        "authors": "Fromm E.",
-        "year": "1975",
-        "title": "La Passion de détruire : anatomie de la destructivité humaine",
-        "publisher": "Robert Laffont"
-      },
-      {
-        "authors": "Miller A.",
-        "year": "1984",
-        "title": "C'est pour ton bien : racines de la violence dans l'éducation de l'enfant",
-        "publisher": "Aubier"
-      },
-      {
-        "authors": "Coolidge F.L., Davis F.L. & Segal D.L.",
-        "year": "2007",
-        "title": "Understanding madmen: A DSM-IV assessment of Adolf Hitler",
-        "journal": "Individual Differences Research"
-      },
-      {
-        "authors": "Ohler N.",
-        "year": "2016",
-        "title": "L'Extase totale : le IIIe Reich, les Allemands et la drogue",
-        "publisher": "La Découverte"
-      },
-      {
-        "authors": "Kershaw I.",
-        "year": "1999",
-        "title": "Hitler 1889-1936 : Hubris",
-        "publisher": "Flammarion"
-      }
-    ],
+    "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -759,7 +713,6 @@
   {
     "id": "pourquoi-sommes-nous-fascines-par-les-chats",
     "title": "Pourquoi sommes-nous fascinés par les chats ?",
-    "type": "article",
     "excerpt": "600 millions de chats domestiques dans le monde. Des milliards de vidéos visionnées chaque année. Une vénération qui remonte à 11 000 ans. La fascination humaine pour le chat n'est pas anecdotique — elle est profonde, multidimensionnelle, et la science commence à en comprendre les mécanismes.",
     "date": "2026-06-13",
     "date_modified": "2026-06-12",
@@ -786,7 +739,6 @@
   {
     "id": "brandolini",
     "title": "Le principe de Brandolini : pourquoi réfuter une connerie prend dix fois plus de temps que de la dire",
-    "type": "article",
     "excerpt": "Une affirmation fausse se lance en cinq secondes. La démonter prend une heure — si tout va bien. Ce n'est pas de la mauvaise foi, ce n'est pas de l'ignorance. C'est de la physique cognitive. Et une fois qu'on l'a compris, on ne regarde plus jamais pareil une réunion de travail ou un fil d'actualité.",
     "date": "2026-06-12",
     "date_modified": "2026-06-12",
