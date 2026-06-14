@@ -1,5 +1,36 @@
 [
   {
+    "id": "dunning-kruger",
+    "title": "Le syndrome du génie raté : pourquoi on se croit meilleur qu'on n'est",
+    "excerpt": "M. Choupoune arrive avec ses plans de fusée thermonucléaire. Il ne doute de rien — et c'est précisément ça, le problème. L'effet Dunning-Kruger explique pourquoi les moins compétents sont souvent les plus sûrs d'eux, et pourquoi on est tous un peu M. Choupoune.",
+    "date": "2026-06-14",
+    "date_modified": "2026-06-04",
+    "category": "Développement personnel",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uqonetkuyrn9hijvxxfm",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "Dunning-Kruger",
+      "biais cognitifs",
+      "connaissance de soi",
+      "confiance en soi",
+      "ultracrépidarianisme",
+      "métacognition",
+      "pensée critique"
+    ],
+    "metaDescription": "L'effet Dunning-Kruger : pourquoi les moins compétents sont souvent les plus confiants, les 4 phases de la courbe, et comment en sortir.",
+    "articles_lies": [
+      "brandolini",
+      "cerveau-a-t-il-un-genre",
+      "resilience-emotionnelle"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "pourquoi-sommes-nous-fascines-par-les-chats",
     "title": "Pourquoi sommes-nous fascinés par les chats ?",
     "excerpt": "600 millions de chats domestiques dans le monde. Des milliards de vidéos visionnées chaque année. Une vénération qui remonte à 11 000 ans. La fascination humaine pour le chat n'est pas anecdotique — elle est profonde, multidimensionnelle, et la science commence à en comprendre les mécanismes.",
