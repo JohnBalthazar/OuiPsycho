@@ -925,18 +925,18 @@
   {
     "id": "collegue-pervers-sortir-zone-rouge",
     "title": "Collègue pervers : sortir de la zone rouge ?",
+    "type": "article",
     "excerpt": "Il sourit en réunion et vous démolit en coulisses. Vous doutez de vous, vous dormez mal, vous vous demandez si vous exagérez. Spoiler : non. Voici ce que dit la psychologie pour sortir de l'emprise d'un collègue toxique — avec un test pour situer la relation.",
-    "metaDescription": "Manipulation, dévalorisation, doute permanent : comment repérer un collègue pervers narcissique et sortir de la zone rouge sans y laisser sa santé mentale.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-16",
-    "date_modified": "2026-06-16",
+    "date_modified": "2026-06-15",
     "category": "Travail",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vf8ewz5n6cwqp1viyvzx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "harcèlement moral",
       "manipulation",
@@ -945,38 +945,8 @@
       "pervers narcissique",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "Syros"
-      },
-      {
-        "authors": "Nazare-Aga I.",
-        "year": "2004",
-        "title": "Les manipulateurs sont parmi nous",
-        "publisher": "Éditions de l'Homme"
-      },
-      {
-        "authors": "Babiak P. & Hare R.",
-        "year": "2006",
-        "title": "Snakes in Suits: When Psychopaths Go to Work",
-        "publisher": "HarperBusiness"
-      },
-      {
-        "authors": "André C.",
-        "year": "2006",
-        "title": "Imparfaits, libres et heureux : pratiques de l'estime de soi",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Leymann H.",
-        "year": "1996",
-        "title": "The content and development of mobbing at work",
-        "journal": "European Journal of Work and Organizational Psychology"
-      }
-    ],
+    "metaDescription": "Manipulation, dévalorisation, doute permanent : comment repérer un collègue pervers narcissique et sortir de la zone rouge sans y laisser sa santé mentale.",
+    "articles_lies": [],
     "status": "published"
   },
   {
