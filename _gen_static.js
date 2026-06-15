@@ -227,7 +227,6 @@ ${srcItems}
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
-        <a class="nav__link" href="societe.html">🌍 Société</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
@@ -237,6 +236,8 @@ ${srcItems}
         <a class="cat-nav__btn" href="index.html">← Tous les articles</a>
         <div class="cat-nav__divider" aria-hidden="true"></div>
 ${navHtml}
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+        <a class="cat-nav__btn" href="societe.html">🌍 Société</a>
       </div>
     </nav>
   </header>

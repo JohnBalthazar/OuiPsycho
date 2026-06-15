@@ -4,7 +4,7 @@
   <!-- Pages statiques -->
   <url>
     <loc>https://ouipsycho.fr/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -32,12 +32,30 @@
   <!-- Dossiers (1) -->
   <url>
     <loc>https://ouipsycho.fr/dossiers/anxiete-guide-complet/</loc>
-    <lastmod>2026-06-12</lastmod>
+    <lastmod>2026-06-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles (27 publiés — généré automatiquement) -->
+  <!-- Articles (30 publiés — généré automatiquement) -->
+  <url>
+    <loc>https://ouipsycho.fr/articles/mentalistes-comment-ils-decryptent-nos-pensees/</loc>
+    <lastmod>2026-06-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/dunning-kruger/</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/pourquoi-sommes-nous-fascines-par-les-chats/</loc>
+    <lastmod>2026-06-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://ouipsycho.fr/articles/brandolini/</loc>
     <lastmod>2026-06-12</lastmod>
