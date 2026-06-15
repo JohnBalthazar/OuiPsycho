@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test : ton collègue a-t-il un profil de pervers ?</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-50:  #F0FDF4;
+    --green-100: #DCFCE7;
+    --green-400: #4ADE80;
+    --green-600: #16A34A;
+    --green-800: #166534;
+    --amber-50:  #FFFBEB;
+    --amber-200: #FDE68A;
+    --amber-400: #FBBF24;
+    --amber-600: #D97706;
+    --amber-800: #92400E;
+    --red-50:    #FEF2F2;
+    --red-200:   #FECACA;
+    --red-400:   #F87171;
+    --red-600:   #DC2626;
+    --red-800:   #991B1B;
+    --gray-50:   #F9FAFB;
+    --gray-100:  #F3F4F6;
+    --gray-200:  #E5E7EB;
+    --gray-400:  #9CA3AF;
+    --gray-600:  #4B5563;
+    --gray-800:  #1F2937;
+    --text:      #1a1a1a;
+    --text-muted:#6b6b6b;
+    --border:    rgba(0,0,0,0.10);
+    --border-hover: rgba(0,0,0,0.22);
+    --bg:        #ffffff;
+    --bg-sec:    #f8f7f4;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --accent:    #DC2626;
+    --accent-light: #FEF2F2;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 2rem 1.5rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--red-600);
+    background: var(--red-50);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  .header h1 { font-size: 19px; font-weight: 500; color: var(--text); line-height: 1.45; }
+  .header p  { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+  .progress-wrap { margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .progress-label { font-size: 12px; color: var(--text-muted); }
+  .progress-bar   { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.75rem; overflow: hidden; }
+  .progress-fill  { height: 100%; background: var(--red-400); border-radius: 2px; transition: width 0.35s ease; }
+
+  .question { font-size: 16px; font-weight: 500; color: var(--text); margin-bottom: 1.25rem; line-height: 1.55; }
+
+  .options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 1.75rem; }
+  .option {
+    background: var(--bg);
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  .option:hover   { border-color: var(--red-400); background: var(--red-50); }
+  .option.selected{ border: 2px solid var(--red-600); background: var(--red-50); color: var(--red-800); font-weight: 500; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    background: transparent;
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-md);
+    padding: 9px 20px;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover    { background: var(--bg-sec); }
+  .btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+  .btn-primary  { background: var(--red-600); color: #fff; border-color: var(--red-600); }
+  .btn-primary:hover { background: var(--red-800); }
+
+  /* Résultat */
+  .result { animation: fadeUp 0.4s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-zone {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 auto 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .result-icon  { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 1rem; }
+  .result-title { font-size: 21px; font-weight: 600; text-align: center; margin-bottom: 0.25rem; }
+  .result-sub   { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem; }
+
+  .score-band { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .score-track { flex: 1; height: 8px; background: var(--gray-200); border-radius: 4px; overflow: hidden; }
+  .score-fill  { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+  .score-label { font-size: 12px; color: var(--text-muted); min-width: 60px; text-align: right; }
+
+  .result-desc { font-size: 14.5px; line-height: 1.75; margin-bottom: 1.25rem; color: var(--text); }
+
+  .insight-block { background: var(--bg-sec); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 1.25rem; }
+  .insight-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 6px; }
+  .insight-text  { font-size: 14px; line-height: 1.65; color: var(--text); }
+
+  .disclaimer {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--amber-800);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: var(--radius-md);
+    font-size: 13px; font-family: inherit; cursor: pointer;
+    border: none; text-decoration: none; color: #fff; font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .share-btn:hover { opacity: 0.85; }
+  .share-btn--fb  { background: #1877F2; }
+  .share-btn--tw  { background: #000; }
+  .share-btn--wa  { background: #25D366; }
+
+  .restart-wrap { text-align: center; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">Auto-évaluation</div>
+  <h1>Ton collègue a-t-il un profil de pervers&nbsp;?</h1>
+  <p>8 questions · résultats immédiats · aucune donnée collectée</p>
+</div>
+
+<div id="root"></div>
+
+<script>
+const questions = [
+  {
+    text: "Après un échange avec ce collègue, vous ressentez le plus souvent…",
+    options: [
+      { text: "Rien de particulier — la conversation s'est bien passée.", score: 0 },
+      { text: "Un léger malaise, mais difficile à expliquer.", score: 1 },
+      { text: "Du doute sur vous-même : avez-vous mal dit ou mal fait quelque chose ?", score: 2 },
+      { text: "Une vraie fatigue ou une honte, sans savoir exactement pourquoi.", score: 3 }
+    ]
+  },
+  {
+    text: "Ce collègue se comporte-t-il différemment selon qu'il y a des témoins ou non ?",
+    options: [
+      { text: "Non, il est cohérent en public comme en privé.", score: 0 },
+      { text: "Parfois un peu plus charmant en public, mais rien de flagrant.", score: 1 },
+      { text: "Oui, il est agréable devant les autres et froid ou blessant en tête-à-tête.", score: 2 },
+      { text: "Totalement différent — en public il joue un rôle, en privé c'est une autre personne.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous faites une erreur ou oubliez quelque chose, ce collègue…",
+    options: [
+      { text: "Le signale si nécessaire, sans en faire un drame.", score: 0 },
+      { text: "Le note, parfois avec un soupir ou un regard.", score: 1 },
+      { text: "Le ressort souvent à d'autres moments ou le mentionne devant d'autres.", score: 2 },
+      { text: "S'en souvient systématiquement et l'utilise pour vous discréditer.", score: 3 }
+    ]
+  },
+  {
+    text: "Avez-vous l'impression d'être progressivement mis(e) à l'écart ?",
+    options: [
+      { text: "Non, je suis intégré(e) normalement à l'équipe.", score: 0 },
+      { text: "Parfois exclu(e) de certaines conversations, mais ça semble aléatoire.", score: 1 },
+      { text: "Souvent oublié(e) dans des boucles d'e-mails ou des réunions importantes.", score: 2 },
+      { text: "Systématiquement isolé(e) — j'ai l'impression que l'équipe se retourne contre moi.", score: 3 }
+    ]
+  },
+  {
+    text: "Ce collègue utilise-t-il des remarques « pour rire » ou des compliments qui font quand même mal ?",
+    options: [
+      { text: "Non, son humour est bienveillant ou neutre.", score: 0 },
+      { text: "Quelques piques, mais rares et pas ciblées.", score: 1 },
+      { text: "Régulièrement des commentaires déguisés en plaisanteries qui me touchent.", score: 2 },
+      { text: "Très souvent — ses « blagues » me déstabilisent et je n'ose pas réagir.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous tentez de vous expliquer ou de défendre votre point de vue face à lui, vous finissez par…",
+    options: [
+      { text: "Vous exprimer clairement — la discussion reste constructive.", score: 0 },
+      { text: "Vous sentir un peu sur la défensive, mais sans perdre le fil.", score: 1 },
+      { text: "Douter de votre propre version des faits en cours d'échange.", score: 2 },
+      { text: "Vous retrouver à vous excuser, sans bien comprendre comment c'est arrivé.", score: 3 }
+    ]
+  },
+  {
+    text: "Votre travail, vos idées ou vos succès sont-ils reconnus à leur juste valeur ?",
+    options: [
+      { text: "Oui, en général mes contributions sont reconnues.", score: 0 },
+      { text: "Parfois minimisées, mais ça reste occasionnel.", score: 1 },
+      { text: "Souvent ignorées, ou reprises sans vous citer.", score: 2 },
+      { text: "Régulièrement attribués à d'autres ou utilisés pour me critiquer.", score: 3 }
+    ]
+  },
+  {
+    text: "Ces comportements sont-ils…",
+    options: [
+      { text: "Récents et liés à une période de stress particulière.", score: 0 },
+      { text: "Présents par intermittence, sans schéma clair.", score: 1 },
+      { text: "Répétés sur plusieurs semaines ou mois.", score: 2 },
+      { text: "Systématiques et constants depuis longtemps — c'est son mode de fonctionnement.", score: 3 }
+    ]
+  }
+];
+
+const profiles = [
+  {
+    min: 0, max: 7,
+    zone: "🟢 Zone verte",
+    zoneColor: "#16A34A",
+    zoneBg: "#F0FDF4",
+    icon: "🌿", iconBg: "#F0FDF4", iconColor: "#16A34A",
+    scoreColor: "#16A34A",
+    title: "Relation tendue, mais pas de manipulation",
+    sub: "Collègue difficile — pas de profil toxique détecté",
+    desc: "Vos réponses n'indiquent pas de schéma manipulatoire structuré. Ce collègue peut être pénible, maladroit ou peu coopératif, mais sans la logique d'emprise qui caractérise un profil pervers. La tension relationnelle existe, elle est réelle — mais elle ne semble pas relever d'une stratégie délibérée de déstabilisation.",
+    insight: "La distinction est importante : tous les collègues difficiles ne sont pas des manipulateurs. L'erreur fondamentale d'attribution (attribuer les comportements à la personnalité plutôt qu'au contexte) nous pousse parfois à des conclusions hâtives. Une communication directe — assertive et factuellement ancrée — peut souvent désamorcer ce type de friction.",
+    action: "Privilégiez une conversation claire sur ce qui ne va pas, en vous appuyant sur des faits précis plutôt que des ressentis généraux. Si la tension persiste, un entretien avec votre manager ou un médiateur peut aider à recadrer la relation."
+  },
+  {
+    min: 8, max: 15,
+    zone: "🟠 Zone orange",
+    zoneColor: "#D97706",
+    zoneBg: "#FFFBEB",
+    icon: "⚠️", iconBg: "#FFFBEB", iconColor: "#D97706",
+    scoreColor: "#D97706",
+    title: "Comportements préoccupants",
+    sub: "Des signaux à ne pas ignorer",
+    desc: "Vos réponses révèlent des comportements répétés qui méritent votre attention : double discours, remarques déstabilisantes, sentiment de doute après les échanges. Ce n'est pas encore une situation d'emprise avérée, mais le schéma est suffisamment présent pour ne pas être minimisé. La zone orange, c'est le moment d'agir avant d'entrer dans la zone rouge.",
+    insight: "Ces profils savent rester sous le radar — chaque comportement pris isolément semble anodin, mais la répétition construit une dynamique toxique. Votre ressenti de malaise est une information précieuse : ne cherchez pas à le rationner ni à vous en excuser.",
+    action: "Commencez à garder des traces écrites des échanges qui vous posent problème (date, faits, mots exacts). Réduisez les échanges informels avec ce collègue et privilégiez les communications par e-mail. Parlez-en en confiance à un proche ou à la médecine du travail — pas pour « faire un dossier », mais pour ne pas rester seul(e) avec ça."
+  },
+  {
+    min: 16, max: 24,
+    zone: "🔴 Zone rouge",
+    zoneColor: "#DC2626",
+    zoneBg: "#FEF2F2",
+    icon: "🛑", iconBg: "#FEF2F2", iconColor: "#DC2626",
+    scoreColor: "#DC2626",
+    title: "Profil très probablement toxique",
+    sub: "Schéma d'emprise et de manipulation caractérisé",
+    desc: "Vos réponses dessinent un tableau cohérent : double visage, isolement progressif, dévalorisation systématique, renversement de situation lors des confrontations. Ce n'est pas une intuition, c'est un schéma. Ce que vous vivez correspond aux marqueurs cliniques du harcèlement moral et de l'emprise manipulatoire tels que décrits par Hirigoyen, Nazare-Aga et Leymann.",
+    insight: "Le plus grand danger de ce type de relation, c'est que la cible finit par douter d'elle-même. Si vous vous demandez si vous exagérez — vous n'exagérez probablement pas. L'emprise se reconnaît précisément à ce brouillard mental. Ce n'est pas vous le problème.",
+    action: "Trois priorités immédiates : (1) Documentez tout par écrit, avec dates et faits précis. (2) Rompez l'isolement — parlez à un(e) allié(e) de confiance, à la médecine du travail ou aux RH. (3) Ne cherchez pas à « régler ça entre vous » — le dialogue frontal renforce souvent ce type de profil. Si la situation relève du harcèlement moral (agissements répétés, dégradation des conditions de travail), c'est illégal et vous avez des recours."
+  }
+];
+
+let current = 0;
+let answers  = Array(questions.length).fill(null);
+
+function getProfile(total) {
+  return profiles.find(p => total >= p.min && total <= p.max) || profiles[profiles.length - 1];
+}
+
+function shareUrl(network, total, profileTitle) {
+  const url  = 'https://ouipsycho.fr/tests/collegue-pervers-sortir-zone-rouge-quiz.html';
+  const text = 'J\'ai fait le test « Ton collègue a-t-il un profil de pervers ? » sur Oui Psycho! 🧠 Résultat : ' + profileTitle + '. Et toi ?';
+  const encodedText = encodeURIComponent(text);
+  const encodedUrl  = encodeURIComponent(url);
+  if (network === 'facebook') return 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '&quote=' + encodedText;
+  if (network === 'x')        return 'https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl;
+  if (network === 'whatsapp') return 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+  return url;
+}
+
+function render() {
+  const root = document.getElementById('root');
+
+  if (current < questions.length) {
+    const q   = questions[current];
+    const pct = Math.round((current / questions.length) * 100);
+    root.innerHTML =
+      '<div class="progress-wrap">' +
+        '<span class="progress-label">Question ' + (current + 1) + ' / ' + questions.length + '</span>' +
+      '</div>' +
+      '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="question">' + q.text + '</div>' +
+      '<div class="options">' +
+        q.options.map(function(o, i) {
+          return '<button class="option' + (answers[current] === i ? ' selected' : '') + '" onclick="select(' + i + ')">' + o.text + '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="nav">' +
+        '<button class="btn" onclick="goBack()"' + (current === 0 ? ' disabled' : '') + '>← Précédent</button>' +
+        '<button class="btn btn-primary" onclick="goNext()"' + (answers[current] === null ? ' disabled' : '') + '>' +
+          (current === questions.length - 1 ? 'Voir mon résultat' : 'Suivant →') +
+        '</button>' +
+      '</div>';
+  } else {
+    var total    = answers.reduce(function(s, idx, qi) { return s + (idx !== null ? questions[qi].options[idx].score : 0); }, 0);
+    var maxScore = questions.length * 3;
+    var p        = getProfile(total);
+    var pct      = Math.round((total / maxScore) * 100);
+
+    root.innerHTML =
+      '<div class="result">' +
+        '<div class="result-zone" style="color:' + p.zoneColor + ';background:' + p.zoneBg + '">' + p.zone + '</div>' +
+        '<div class="result-icon" style="background:' + p.iconBg + ';color:' + p.iconColor + '">' + p.icon + '</div>' +
+        '<div class="result-title">' + p.title + '</div>' +
+        '<div class="result-sub">' + p.sub + '</div>' +
+
+        '<div class="score-band">' +
+          '<div class="score-track"><div class="score-fill" style="width:' + pct + '%;background:' + p.scoreColor + '"></div></div>' +
+          '<div class="score-label">' + total + ' / ' + maxScore + '</div>' +
+        '</div>' +
+
+        '<div class="result-desc">' + p.desc + '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🔍 Ce que ça dit</div>' +
+          '<div class="insight-text">' + p.insight + '</div>' +
+        '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🛡️ Ce que vous pouvez faire</div>' +
+          '<div class="insight-text">' + p.action + '</div>' +
+        '</div>' +
+
+        '<div class="disclaimer">' +
+          '⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic médical ou juridique. Seul un professionnel peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).' +
+        '</div>' +
+
+        '<div class="share-row">' +
+          '<a class="share-btn share-btn--fb" href="' + shareUrl('facebook', total, p.title) + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+          '<a class="share-btn share-btn--tw" href="' + shareUrl('x', total, p.title) + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+          '<a class="share-btn share-btn--wa" href="' + shareUrl('whatsapp', total, p.title) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+
+        '<div class="restart-wrap">' +
+          '<button class="btn" onclick="restart()">↺ Recommencer</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  notifyResize();
+}
+
+function select(i)  { answers[current] = i; render(); }
+function goNext()   { if (answers[current] === null) return; current++; render(); }
+function goBack()   { if (current > 0) { current--; render(); } }
+function restart()  { current = 0; answers = Array(questions.length).fill(null); render(); }
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+render();
+</script>
+</body>
+</html>
