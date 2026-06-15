@@ -1,5 +1,74 @@
 [
   {
+    "id": "argent-et-bonheur",
+    "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
+    "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
+    "metaDescription": "L'argent fait-il le bonheur ? La psychologie et les neurosciences livrent une réponse surprenante et plus complexe que le dicton populaire.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-14",
+    "date_modified": "2026-08-14",
+    "category": "Bien-être",
+    "image": "",
+    "readTime": 5,
+    "tags": [
+      "bonheur",
+      "argent",
+      "psychologie positive",
+      "bien-être",
+      "revenu",
+      "satisfaction de vie"
+    ],
+    "sources": [
+      {
+        "authors": "Killingsworth M. A.",
+        "year": "2021",
+        "title": "Experienced well-being rises with income, even above $75,000 per year",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.2016976118"
+      },
+      {
+        "authors": "Killingsworth M. A., Kahneman D. & Mellers B.",
+        "year": "2023",
+        "title": "Income and emotional well-being: A conflict resolved",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.2208661120"
+      },
+      {
+        "authors": "Dunn E. W., Aknin L. B. & Norton M. I.",
+        "year": "2008",
+        "title": "Spending Money on Others Promotes Happiness",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1150952"
+      },
+      {
+        "authors": "Van Boven L. & Gilovich T.",
+        "year": "2003",
+        "title": "To Do or to Have? That Is the Question",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
+      },
+      {
+        "authors": "Morin E.",
+        "year": "2011",
+        "title": "La Voie : pour l'avenir de l'humanité",
+        "publisher": "Fayard"
+      },
+      {
+        "authors": "Lyubomirsky S.",
+        "year": "2008",
+        "title": "Comment être heureux… et le rester",
+        "publisher": "Flammarion"
+      },
+      {
+        "authors": "André C. & Lelord F.",
+        "year": "2006",
+        "title": "Le bonheur est toujours possible",
+        "publisher": "Odile Jacob"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
     "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
