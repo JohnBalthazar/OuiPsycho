@@ -1,5 +1,58 @@
 [
   {
+    "id": "bon-travail-collegues-chiants",
+    "title": "Comment faire du bon travail avec des collègues chiants ?",
+    "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
+    "metaDescription": "Collègue toxique, passif-agressif ou pénible : ce que la psychologie conseille pour travailler efficacement et garder son calme au quotidien.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-21",
+    "date_modified": "2026-08-21",
+    "category": "Relations",
+    "image": "",
+    "readTime": 5,
+    "tags": [
+      "travail",
+      "collègues",
+      "communication",
+      "assertivité",
+      "stress",
+      "relations"
+    ],
+    "sources": [
+      {
+        "authors": "André C. & Lelord F.",
+        "year": "2000",
+        "title": "L'estime de soi : s'aimer pour mieux vivre avec les autres",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Rosenberg M.",
+        "year": "1999",
+        "title": "Les mots sont des fenêtres (ou bien ce sont des murs) : introduction à la Communication NonViolente",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Sutton R.",
+        "year": "2007",
+        "title": "Objectif zéro-sale-con : petit guide de survie face aux mufles, aux petits chefs et autres personnes nuisibles",
+        "publisher": "Vuibert"
+      },
+      {
+        "authors": "Nazare-Aga I.",
+        "year": "2004",
+        "title": "Les manipulateurs sont parmi nous",
+        "publisher": "Éditions de l'Homme"
+      },
+      {
+        "authors": "Sonnentag S. & Fritz C.",
+        "year": "2007",
+        "title": "The Recovery Experience Questionnaire: development and validation of a measure for assessing recuperation and unwinding from work",
+        "journal": "Journal of Occupational Health Psychology"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "mussolini-sur-le-divan",
     "title": "Mussolini sur le divan : psychologie d'un fasciste",
     "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
