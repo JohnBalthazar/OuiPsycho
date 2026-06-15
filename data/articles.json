@@ -26,6 +26,63 @@
     "status": "scheduled"
   },
   {
+    "id": "arreter-de-fumer-en-2-semaines",
+    "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
+    "excerpt": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque physique se joue justement sur ces 2 semaines. On t'explique — et un test te dit quel genre de fumeur tu es.",
+    "metaDescription": "Arrêter de fumer en 2 semaines, vraiment possible ? Ce que dit la science du sevrage nicotinique, et un test pour découvrir quel genre de fumeur vous êtes.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-25",
+    "date_modified": "2026-08-25",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "tabac",
+      "arrêt du tabac",
+      "addiction",
+      "nicotine",
+      "sevrage",
+      "habitudes"
+    ],
+    "sources": [
+      {
+        "authors": "Haute Autorité de Santé (HAS)",
+        "year": "2014",
+        "title": "Arrêt de la consommation de tabac : du dépistage individuel au maintien de l'abstinence",
+        "publisher": "HAS"
+      },
+      {
+        "authors": "Benowitz N.L.",
+        "year": "2010",
+        "title": "Nicotine addiction",
+        "journal": "New England Journal of Medicine"
+      },
+      {
+        "authors": "Prochaska J.O. & DiClemente C.C.",
+        "year": "1983",
+        "title": "Stages and processes of self-change of smoking: toward an integrative model of change",
+        "journal": "Journal of Consulting and Clinical Psychology"
+      },
+      {
+        "authors": "Heatherton T.F., Kozlowski L.T., Frecker R.C. & Fagerström K.O.",
+        "year": "1991",
+        "title": "The Fagerström Test for Nicotine Dependence",
+        "journal": "British Journal of Addiction"
+      },
+      {
+        "authors": "West R.",
+        "year": "2017",
+        "title": "Tobacco smoking: Health impact, prevalence, correlates and interventions",
+        "journal": "Psychology & Health"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
     "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
