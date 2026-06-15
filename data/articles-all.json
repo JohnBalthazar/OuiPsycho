@@ -1,5 +1,56 @@
 [
   {
+    "id": "freins-au-bonheur",
+    "title": "Quels sont les 5 plus grands freins au bonheur ?",
+    "excerpt": "",
+    "date": "2026-08-28",
+    "date_modified": "2026-06-15",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "bonheur",
+      "psychologie positive",
+      "biais cognitifs",
+      "rumination",
+      "comparaison sociale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "arreter-de-fumer-en-2-semaines",
+    "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
+    "excerpt": "",
+    "date": "2026-08-25",
+    "date_modified": "2026-08-25",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "tabac",
+      "arrêt du tabac",
+      "addiction",
+      "nicotine",
+      "sevrage",
+      "habitudes"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
     "excerpt": "",
@@ -758,29 +809,30 @@
     "status": "scheduled"
   },
   {
-    "id": "freins-au-bonheur",
-    "title": "Quels sont les 5 plus grands freins au bonheur ?",
-    "excerpt": "",
+    "id": "collegue-pervers-sortir-zone-rouge",
+    "title": "Collègue pervers : sortir de la zone rouge ?",
+    "excerpt": "Il sourit en réunion et vous démolit en coulisses. Vous doutez de vous, vous dormez mal, vous vous demandez si vous exagérez. Spoiler : non. Voici ce que dit la psychologie pour sortir de l'emprise d'un collègue toxique — avec un test pour situer la relation.",
     "date": "2026-06-16",
     "date_modified": "2026-06-15",
-    "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vf8ewz5n6cwqp1viyvzx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 5,
+    "readTime": 6,
     "author": "La rédaction Oui Psycho!",
     "tags": [
-      "bonheur",
-      "psychologie positive",
-      "biais cognitifs",
-      "rumination",
-      "comparaison sociale"
+      "harcèlement moral",
+      "manipulation",
+      "travail",
+      "emprise",
+      "pervers narcissique",
+      "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "Manipulation, dévalorisation, doute permanent : comment repérer un collègue pervers narcissique et sortir de la zone rouge sans y laisser sa santé mentale.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "mentalistes-comment-ils-decryptent-nos-pensees",
