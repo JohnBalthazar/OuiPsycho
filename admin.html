@@ -300,6 +300,9 @@
     .cat-Thérapies { background: #fce7f3; color: #9d174d; }
     .cat-Relations { background: #ccfbf1; color: #115e59; }
     .cat-Développement\ personnel { background: #fef9c3; color: #854d0e; }
+    .cat-Nos\ héros\ sur\ le\ divan { background: #fff7ed; color: #c2410c; }
+    .cat-Les\ monstres\ sur\ le\ divan { background: #fee2e2; color: #991b1b; }
+    .cat-Travail { background: #e2e8f0; color: #1e293b; }
 
     /* ── WYSIWYG EDITOR ── */
     .wysiwyg-wrap { border: 2px solid var(--gray-200); border-radius: var(--radius); overflow: hidden; }
@@ -579,7 +582,9 @@
                 <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
                 <option>Relations</option><option>Développement personnel</option>
                 <option>Nos héros sur le divan</option>
-                <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option>
+                <option>Les monstres sur le divan</option>
+                <option>Travail</option>
+                <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option><option>Société &amp; psychologie politique</option>
               </select>
             </div>
             <div class="form-group">
@@ -738,6 +743,8 @@
                   <option>Stress</option><option>Sommeil</option><option>Thérapies</option>
                   <option>Relations</option><option>Développement personnel</option>
                   <option>Nos héros sur le divan</option>
+                  <option>Les monstres sur le divan</option>
+                  <option>Travail</option>
                   <option>Émotions &amp; identité</option><option>Neurosciences &amp; genre</option><option>Société &amp; psychologie politique</option>
                 </select>
               </div>
@@ -2084,6 +2091,9 @@ function generateArticleHTML(j) {
     'Sommeil':                 { color:'#0369A1', bg:'#ECFEFF', enc:'Sommeil' },
     'Thérapies':               { color:'#6D28D9', bg:'#EDE9FE', enc:'Th%C3%A9rapies' },
     'Développement personnel':          { color:'#15803D', bg:'#F0FDF4', enc:'D%C3%A9veloppement%20personnel' },
+    'Nos héros sur le divan':           { color:'#c2410c', bg:'#fff7ed', enc:'Nos%20h%C3%A9ros%20sur%20le%20divan' },
+    'Les monstres sur le divan':        { color:'#991b1b', bg:'#fee2e2', enc:'Les%20monstres%20sur%20le%20divan' },
+    'Travail':                          { color:'#1e293b', bg:'#e2e8f0', enc:'Travail' },
     'Émotions & identité':              { color:'#6a2a4a', bg:'#f5edf2', enc:'%C3%89motions%20%26%20identit%C3%A9' },
     'Neurosciences & genre':            { color:'#8a3a6a', bg:'#f8eef4', enc:'Neurosciences%20%26%20genre' },
     'Société & psychologie politique':  { color:'#2a6a4a', bg:'#e8f5ef', enc:'Soci%C3%A9t%C3%A9%20%26%20psychologie%20politique' },
