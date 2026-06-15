@@ -656,12 +656,13 @@
   {
     "id": "mentalistes-comment-ils-decryptent-nos-pensees",
     "title": "Comment les mentalistes décryptent nos pensées",
+    "type": "article",
     "excerpt": "Ils devinent votre mot secret, révèlent votre prénom sans vous avoir jamais rencontré, ou vous font choisir librement une carte qu'ils avaient « prédite ». Les mentalistes ne lisent pas dans les pensées — mais ils en savent long sur la psychologie humaine. Et ce qu'ils savent devrait vous intéresser.",
     "date": "2026-06-15",
-    "date_modified": "2026-06-05",
+    "date_modified": "2026-06-15",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ztzle6mx5s3ye5rwzvtc",
-    "imagePosition": "50% 50%",
+    "imagePosition": "54% 74%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
@@ -677,7 +678,7 @@
     ],
     "metaDescription": "Cold reading, effet Barnum, biais cognitifs, micro-expressions : comment les mentalistes exploitent la psychologie humaine. Ce que la science explique.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "dunning-kruger",
