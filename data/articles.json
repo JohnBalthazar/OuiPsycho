@@ -59,6 +59,65 @@
     "status": "scheduled"
   },
   {
+    "id": "lamour-est-il-une-arnaque",
+    "title": "L'amour est-il une arnaque ?",
+    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
+    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-18",
+    "date_modified": "2026-08-18",
+    "category": "Relations",
+    "image": "",
+    "readTime": 6,
+    "tags": [
+      "amour",
+      "couple",
+      "attachement",
+      "neurosciences",
+      "passion",
+      "relations"
+    ],
+    "sources": [
+      {
+        "authors": "Fisher H.",
+        "year": "2006",
+        "title": "Pourquoi nous aimons : nature et chimie de l'amour romantique",
+        "publisher": "Robert Laffont"
+      },
+      {
+        "authors": "Marazziti D. & Canale D.",
+        "year": "2004",
+        "title": "Hormonal changes when falling in love",
+        "journal": "Psychoneuroendocrinology"
+      },
+      {
+        "authors": "Aron A. & Aron E.N.",
+        "year": "1997",
+        "title": "Self-expansion motivation and including other in the self",
+        "journal": "Journal of Social and Personal Relationships"
+      },
+      {
+        "authors": "Gottman J. & Silver N.",
+        "year": "2014",
+        "title": "Les couples heureux ont leurs secrets",
+        "publisher": "JC Lattès"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2004",
+        "title": "Sous le signe du lien",
+        "publisher": "Hachette"
+      },
+      {
+        "authors": "Hatfield E. & Rapson R.",
+        "year": "1993",
+        "title": "Love, Sex, and Intimacy: Their Psychology, Biology, and History",
+        "publisher": "HarperCollins"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "argent-et-bonheur",
     "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
     "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
