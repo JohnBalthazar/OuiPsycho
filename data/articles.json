@@ -1,5 +1,31 @@
 [
   {
+    "id": "freins-au-bonheur",
+    "title": "Quels sont les 5 plus grands freins au bonheur ?",
+    "type": "article",
+    "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
+    "date": "2026-08-28",
+    "date_modified": "2026-06-15",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "bonheur",
+      "psychologie positive",
+      "biais cognitifs",
+      "rumination",
+      "comparaison sociale"
+    ],
+    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
     "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
@@ -893,32 +919,6 @@
       "psychopathologie"
     ],
     "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "freins-au-bonheur",
-    "title": "Quels sont les 5 plus grands freins au bonheur ?",
-    "type": "article",
-    "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
-    "date": "2026-06-16",
-    "date_modified": "2026-06-15",
-    "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 5,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "bonheur",
-      "psychologie positive",
-      "biais cognitifs",
-      "rumination",
-      "comparaison sociale"
-    ],
-    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
     "articles_lies": [],
     "status": "scheduled"
   },
