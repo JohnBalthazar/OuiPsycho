@@ -659,14 +659,18 @@
   {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
+    "type": "article",
     "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
-    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-16",
-    "date_modified": "2026-06-16",
+    "date_modified": "2026-06-15",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "bonheur",
       "psychologie positive",
@@ -674,53 +678,8 @@
       "rumination",
       "comparaison sociale"
     ],
-    "sources": [
-      {
-        "authors": "Kahneman D.",
-        "year": "2011",
-        "title": "Thinking, Fast and Slow",
-        "publisher": "Farrar, Straus and Giroux"
-      },
-      {
-        "authors": "Nolen-Hoeksema S., Wisco B. E. & Lyubomirsky S.",
-        "year": "2008",
-        "title": "Rethinking Rumination",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1111/j.1745-6924.2008.00088.x"
-      },
-      {
-        "authors": "Festinger L.",
-        "year": "1954",
-        "title": "A Theory of Social Comparison Processes",
-        "journal": "Human Relations",
-        "url": "https://doi.org/10.1177/001872675400700202"
-      },
-      {
-        "authors": "Frederick S. & Loewenstein G.",
-        "year": "1999",
-        "title": "Hedonic Adaptation",
-        "journal": "Well-Being: The Foundations of Hedonic Psychology",
-        "publisher": "Russell Sage Foundation"
-      },
-      {
-        "authors": "Hayes S. C., Strosahl K. D. & Wilson K. G.",
-        "year": "2012",
-        "title": "Acceptance and Commitment Therapy : The Process and Practice of Mindful Change",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Lyubomirsky S.",
-        "year": "2008",
-        "title": "Comment être heureux… et le rester",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "André C.",
-        "year": "2011",
-        "title": "Et n'oublie pas d'être heureux — Abécédaire de psychologie positive",
-        "publisher": "Odile Jacob"
-      }
-    ],
+    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
