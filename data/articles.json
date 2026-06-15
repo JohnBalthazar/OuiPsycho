@@ -1,5 +1,64 @@
 [
   {
+    "id": "mussolini-sur-le-divan",
+    "title": "Mussolini sur le divan : psychologie d'un fasciste",
+    "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
+    "metaDescription": "Narcissisme, théâtralité, opportunisme : ce que la psychologie scientifique dit de la personnalité de Benito Mussolini, l'inventeur du fascisme.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-20",
+    "date_modified": "2026-08-20",
+    "category": "Les monstres",
+    "image": "",
+    "readTime": 6,
+    "tags": [
+      "psychohistoire",
+      "narcissisme",
+      "théâtralité",
+      "personnalité",
+      "histoire",
+      "fascisme"
+    ],
+    "sources": [
+      {
+        "authors": "Milza P.",
+        "year": "1999",
+        "title": "Mussolini",
+        "publisher": "Fayard"
+      },
+      {
+        "authors": "Ludwig E.",
+        "year": "1932",
+        "title": "Entretiens avec Mussolini",
+        "publisher": "Albin Michel"
+      },
+      {
+        "authors": "De Felice R.",
+        "year": "1965",
+        "title": "Mussolini il rivoluzionario",
+        "publisher": "Einaudi"
+      },
+      {
+        "authors": "Bosworth R.J.B.",
+        "year": "2002",
+        "title": "Mussolini",
+        "publisher": "Arnold"
+      },
+      {
+        "authors": "Matard-Bonucci M.-A.",
+        "year": "2007",
+        "title": "L'Italie fasciste et la persécution des Juifs",
+        "publisher": "Perrin"
+      },
+      {
+        "authors": "Glad B.",
+        "year": "2002",
+        "title": "Why Tyrants Go Too Far: Malignant Narcissism and Absolute Power",
+        "journal": "Political Psychology"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "argent-et-bonheur",
     "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
     "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
