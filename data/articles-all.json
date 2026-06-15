@@ -26,6 +26,33 @@
     "status": "scheduled"
   },
   {
+    "id": "naitre-parent-revolution-interieure",
+    "title": "Naître parent : une révolution intérieure",
+    "type": "article",
+    "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
+    "date": "2026-08-11",
+    "date_modified": "2026-06-15",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/glysexjwba4cxr04qopk",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "parentalité",
+      "matrescence",
+      "transgénérationnel",
+      "identité",
+      "Winnicott",
+      "développement"
+    ],
+    "metaDescription": "Matrescence, héritage transgénérationnel, parent suffisamment bon : la psychologie de la parentalité décryptée avec bienveillance et rigueur.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ce-que-votre-metier-dit-de-vous",
     "title": "Ce que votre métier dit de vous (ou pas)",
     "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
@@ -626,32 +653,6 @@
       "psychopathologie"
     ],
     "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "naitre-parent-revolution-interieure",
-    "title": "Naître parent : une révolution intérieure",
-    "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
-    "date": "2026-06-16",
-    "date_modified": "2026-06-05",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/glysexjwba4cxr04qopk",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 11,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "parentalité",
-      "matrescence",
-      "transgénérationnel",
-      "identité",
-      "Winnicott",
-      "développement"
-    ],
-    "metaDescription": "Matrescence, héritage transgénérationnel, parent suffisamment bon : la psychologie de la parentalité décryptée avec bienveillance et rigueur.",
     "articles_lies": [],
     "status": "scheduled"
   },
