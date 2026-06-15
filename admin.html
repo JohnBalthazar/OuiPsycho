@@ -378,6 +378,8 @@
     .related-search { width: 100%; padding: 7px 10px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-size: .84rem; font-family: inherit; margin-bottom: 8px; display: block; }
     .related-search:focus { outline: none; border-color: var(--primary); }
   </style>
+  <!-- DOMPurify — assainissement HTML pour la prévisualisation des articles -->
+  <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
 </head>
 <body>
 
@@ -387,6 +389,12 @@
     <div class="login-logo">
       <h1>Oui Psycho! ✦</h1>
       <p>Interface d'administration</p>
+    </div>
+    <!-- Affiché uniquement lors du tout premier démarrage (aucun hash configuré) -->
+    <div id="first-run-banner" style="display:none;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;padding:12px 14px;font-size:.85rem;color:#78350f;margin-bottom:18px;line-height:1.6">
+      ⚠️ <strong>Premier démarrage</strong> — mot de passe temporaire :<br>
+      <code id="first-run-pass" style="display:inline-block;margin-top:4px;font-family:monospace;font-size:.95rem;font-weight:700;letter-spacing:.1em;background:#fff8e1;padding:2px 6px;border-radius:4px"></code><br>
+      Notez-le, connectez-vous, puis changez-le dans Paramètres → Sécurité.
     </div>
     <div class="form-group">
       <label>Mot de passe admin</label>
@@ -1577,10 +1585,15 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   } catch(_) {}
 
-  // 2. Si toujours aucun hash valide (premier démarrage absolu), mot de passe par défaut
+  // 2. Si toujours aucun hash valide (premier démarrage absolu) → MDP aléatoire non-devinable
   const storedPass = localStorage.getItem(ADMIN_PASS_KEY);
   if (!isValidHash(storedPass)) {
-    localStorage.setItem(ADMIN_PASS_KEY, await hashPass('admin2026'));
+    const bytes    = crypto.getRandomValues(new Uint8Array(12));
+    const tempPass = Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('');
+    localStorage.setItem(ADMIN_PASS_KEY, await hashPass(tempPass));
+    const banner = document.getElementById('first-run-banner');
+    const passEl = document.getElementById('first-run-pass');
+    if (banner && passEl) { passEl.textContent = tempPass; banner.style.display = 'block'; }
   }
 
   // Vérifier session existante
@@ -3194,11 +3207,11 @@ function updatePreview() {
   const content = document.getElementById('f-content').value;
   const date = document.getElementById('f-date').value;
   const readTime = document.getElementById('f-readTime').value;
-  document.getElementById('preview-pane').innerHTML = `
+  document.getElementById('preview-pane').innerHTML = DOMPurify.sanitize(`
     <h1>${title}</h1>
     <div class="meta">Mis à jour le ${formatDate(date)} · ${readTime} min de lecture</div>
     ${content}
-  `;
+  `);
 }
 
 /* ══════════════════════════════════════════════

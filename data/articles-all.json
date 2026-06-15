@@ -2,14 +2,17 @@
   {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
-    "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
-    "metaDescription": "Collègue toxique, passif-agressif ou pénible : ce que la psychologie conseille pour travailler efficacement et garder son calme au quotidien.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-08-21",
     "date_modified": "2026-08-21",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "travail",
       "collègues",
@@ -18,51 +21,24 @@
       "stress",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "André C. & Lelord F.",
-        "year": "2000",
-        "title": "L'estime de soi : s'aimer pour mieux vivre avec les autres",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Rosenberg M.",
-        "year": "1999",
-        "title": "Les mots sont des fenêtres (ou bien ce sont des murs) : introduction à la Communication NonViolente",
-        "publisher": "La Découverte"
-      },
-      {
-        "authors": "Sutton R.",
-        "year": "2007",
-        "title": "Objectif zéro-sale-con : petit guide de survie face aux mufles, aux petits chefs et autres personnes nuisibles",
-        "publisher": "Vuibert"
-      },
-      {
-        "authors": "Nazare-Aga I.",
-        "year": "2004",
-        "title": "Les manipulateurs sont parmi nous",
-        "publisher": "Éditions de l'Homme"
-      },
-      {
-        "authors": "Sonnentag S. & Fritz C.",
-        "year": "2007",
-        "title": "The Recovery Experience Questionnaire: development and validation of a measure for assessing recuperation and unwinding from work",
-        "journal": "Journal of Occupational Health Psychology"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "mussolini-sur-le-divan",
     "title": "Mussolini sur le divan : psychologie d'un fasciste",
-    "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
-    "metaDescription": "Narcissisme, théâtralité, opportunisme : ce que la psychologie scientifique dit de la personnalité de Benito Mussolini, l'inventeur du fascisme.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-08-20",
     "date_modified": "2026-08-20",
     "category": "Les monstres",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "psychohistoire",
       "narcissisme",
@@ -71,57 +47,24 @@
       "histoire",
       "fascisme"
     ],
-    "sources": [
-      {
-        "authors": "Milza P.",
-        "year": "1999",
-        "title": "Mussolini",
-        "publisher": "Fayard"
-      },
-      {
-        "authors": "Ludwig E.",
-        "year": "1932",
-        "title": "Entretiens avec Mussolini",
-        "publisher": "Albin Michel"
-      },
-      {
-        "authors": "De Felice R.",
-        "year": "1965",
-        "title": "Mussolini il rivoluzionario",
-        "publisher": "Einaudi"
-      },
-      {
-        "authors": "Bosworth R.J.B.",
-        "year": "2002",
-        "title": "Mussolini",
-        "publisher": "Arnold"
-      },
-      {
-        "authors": "Matard-Bonucci M.-A.",
-        "year": "2007",
-        "title": "L'Italie fasciste et la persécution des Juifs",
-        "publisher": "Perrin"
-      },
-      {
-        "authors": "Glad B.",
-        "year": "2002",
-        "title": "Why Tyrants Go Too Far: Malignant Narcissism and Absolute Power",
-        "journal": "Political Psychology"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
-    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
-    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-08-18",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "amour",
       "couple",
@@ -130,57 +73,24 @@
       "passion",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "Fisher H.",
-        "year": "2006",
-        "title": "Pourquoi nous aimons : nature et chimie de l'amour romantique",
-        "publisher": "Robert Laffont"
-      },
-      {
-        "authors": "Marazziti D. & Canale D.",
-        "year": "2004",
-        "title": "Hormonal changes when falling in love",
-        "journal": "Psychoneuroendocrinology"
-      },
-      {
-        "authors": "Aron A. & Aron E.N.",
-        "year": "1997",
-        "title": "Self-expansion motivation and including other in the self",
-        "journal": "Journal of Social and Personal Relationships"
-      },
-      {
-        "authors": "Gottman J. & Silver N.",
-        "year": "2014",
-        "title": "Les couples heureux ont leurs secrets",
-        "publisher": "JC Lattès"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "2004",
-        "title": "Sous le signe du lien",
-        "publisher": "Hachette"
-      },
-      {
-        "authors": "Hatfield E. & Rapson R.",
-        "year": "1993",
-        "title": "Love, Sex, and Intimacy: Their Psychology, Biology, and History",
-        "publisher": "HarperCollins"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "argent-et-bonheur",
     "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
-    "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
-    "metaDescription": "L'argent fait-il le bonheur ? La psychologie et les neurosciences livrent une réponse surprenante et plus complexe que le dicton populaire.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-08-14",
     "date_modified": "2026-08-14",
     "category": "Bien-être",
     "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "bonheur",
       "argent",
@@ -189,60 +99,14 @@
       "revenu",
       "satisfaction de vie"
     ],
-    "sources": [
-      {
-        "authors": "Killingsworth M. A.",
-        "year": "2021",
-        "title": "Experienced well-being rises with income, even above $75,000 per year",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.2016976118"
-      },
-      {
-        "authors": "Killingsworth M. A., Kahneman D. & Mellers B.",
-        "year": "2023",
-        "title": "Income and emotional well-being: A conflict resolved",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.2208661120"
-      },
-      {
-        "authors": "Dunn E. W., Aknin L. B. & Norton M. I.",
-        "year": "2008",
-        "title": "Spending Money on Others Promotes Happiness",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1150952"
-      },
-      {
-        "authors": "Van Boven L. & Gilovich T.",
-        "year": "2003",
-        "title": "To Do or to Have? That Is the Question",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.85.6.1193"
-      },
-      {
-        "authors": "Morin E.",
-        "year": "2011",
-        "title": "La Voie : pour l'avenir de l'humanité",
-        "publisher": "Fayard"
-      },
-      {
-        "authors": "Lyubomirsky S.",
-        "year": "2008",
-        "title": "Comment être heureux… et le rester",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "André C. & Lelord F.",
-        "year": "2006",
-        "title": "Le bonheur est toujours possible",
-        "publisher": "Odile Jacob"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
-    "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
+    "excerpt": "",
     "date": "2026-08-13",
     "date_modified": "2026-06-11",
     "category": "Bien-être",
@@ -261,15 +125,14 @@
       "identite",
       "psychologie-personnage"
     ],
-    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "naitre-parent-revolution-interieure",
     "title": "Naître parent : une révolution intérieure",
-    "type": "article",
-    "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
+    "excerpt": "",
     "date": "2026-08-11",
     "date_modified": "2026-06-15",
     "category": "Relations",
@@ -288,14 +151,14 @@
       "Winnicott",
       "développement"
     ],
-    "metaDescription": "Matrescence, héritage transgénérationnel, parent suffisamment bon : la psychologie de la parentalité décryptée avec bienveillance et rigueur.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ce-que-votre-metier-dit-de-vous",
     "title": "Ce que votre métier dit de vous (ou pas)",
-    "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
+    "excerpt": "",
     "date": "2026-08-07",
     "date_modified": "2026-06-12",
     "category": "Développement personnel",
@@ -314,14 +177,14 @@
       "orientation",
       "sens"
     ],
-    "metaDescription": "Votre métier révèle-t-il vraiment qui vous êtes ? Holland, Big Five, identité professionnelle : ce que la psychologie dit du lien entre travail et personnalité.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "reine-des-neiges-psychologie-heroine-glace",
     "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
-    "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
+    "excerpt": "",
     "date": "2026-08-06",
     "date_modified": "2026-08-06",
     "category": "Nos héros",
@@ -341,14 +204,14 @@
       "régulation émotionnelle",
       "cinéma"
     ],
-    "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
-    "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "excerpt": "",
     "date": "2026-08-04",
     "date_modified": "2026-06-09",
     "category": "Relations",
@@ -367,14 +230,14 @@
       "therapie",
       "relation-mere-enfant"
     ],
-    "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
-    "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
+    "excerpt": "",
     "date": "2026-07-31",
     "date_modified": "2026-06-11",
     "category": "Nos héros sur le divan",
@@ -394,14 +257,14 @@
       "résistance",
       "Gaston Lagaffe"
     ],
-    "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "friluftsliv-bonheur-norvegien",
     "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
-    "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
+    "excerpt": "",
     "date": "2026-07-30",
     "date_modified": "2026-07-30",
     "category": "Bien-être",
@@ -420,14 +283,14 @@
       "bonheur",
       "psychologie positive"
     ],
-    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
-    "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
+    "excerpt": "",
     "date": "2026-07-28",
     "date_modified": "2026-07-28",
     "category": "Développement personnel",
@@ -446,14 +309,14 @@
       "esprit critique",
       "test"
     ],
-    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
-    "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
+    "excerpt": "",
     "date": "2026-07-24",
     "date_modified": "2026-07-24",
     "category": "Nos héros",
@@ -472,14 +335,14 @@
       "archétypes",
       "estime de soi"
     ],
-    "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "portrait-robot-prince-charmant-2026",
     "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
-    "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
+    "excerpt": "",
     "date": "2026-07-23",
     "date_modified": "2026-07-23",
     "category": "Relations",
@@ -498,14 +361,14 @@
       "préférences",
       "charge mentale"
     ],
-    "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
-    "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
+    "excerpt": "",
     "date": "2026-07-21",
     "date_modified": "2026-07-21",
     "category": "Relations",
@@ -524,15 +387,14 @@
       "Gottman",
       "vie de couple"
     ],
-    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
-    "type": "article",
-    "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
+    "excerpt": "",
     "date": "2026-07-16",
     "date_modified": "2026-06-15",
     "category": "Bien-être",
@@ -551,14 +413,14 @@
       "alexithymie",
       "psychologie-personnage"
     ],
-    "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
-    "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
+    "excerpt": "",
     "date": "2026-07-14",
     "date_modified": "2026-06-09",
     "category": "Relations",
@@ -577,14 +439,14 @@
       "attractivite",
       "societe"
     ],
-    "metaDescription": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "nouvelles-formes-sexualite",
     "title": "La séxualité en 2026 : moins de sexe, plus d'IA et le célibat comme acte politique",
-    "excerpt": "Les Français font moins l'amour qu'il y a quinze ans, les jeunes plébiscitent le célibat choisi, et l'intelligence artificielle s'invite dans l'intimité. La psychologie tente de comprendre cette révolution silencieuse des désirs. Enquête sur une sexualité qui se réinvente — ou qui disparaît.",
+    "excerpt": "",
     "date": "2026-07-10",
     "date_modified": "2026-06-08",
     "category": "Bien-être",
@@ -603,14 +465,14 @@
       "polyamour",
       "tendances"
     ],
-    "metaDescription": "Récession sexuelle, célibat choisi, IA et intimité : la psychologie décrypte les grandes tendances qui redéfinissent la sexualité en France en 2025.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
-    "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "excerpt": "",
     "date": "2026-07-09",
     "date_modified": "2026-07-09",
     "category": "Bien-être",
@@ -629,14 +491,14 @@
       "cinéma",
       "psychologie"
     ],
-    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "du-crush-au-crash-anatomie-histoires-amour",
     "title": "Du crush au crash : anatomie d'une histoire d'amour",
-    "excerpt": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
+    "excerpt": "",
     "date": "2026-07-07",
     "date_modified": "2026-07-07",
     "category": "Relations",
@@ -655,14 +517,14 @@
       "neurologie",
       "psychologie-relationnelle"
     ],
-    "metaDescription": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
-    "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
+    "excerpt": "",
     "date": "2026-07-03",
     "date_modified": "2026-06-07",
     "category": "Bien-être",
@@ -682,14 +544,14 @@
       "anxiété",
       "résilience"
     ],
-    "metaDescription": "L'IA supprime des emplois comme la révolution industrielle en son temps. Comprendre l'impact psychologique et trouver ce qui reste irremplaçablement humain.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
-    "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
+    "excerpt": "",
     "date": "2026-07-01",
     "date_modified": "2026-06-09",
     "category": "Nos héros sur le divan",
@@ -709,14 +571,14 @@
       "identité",
       "pop culture"
     ],
-    "metaDescription": "Astérix, Obélix, Abraracourcix… et si le village gaulois était un cas clinique ? Anxiété, narcissisme, dépendance : la psycho cachée d'Astérix.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
+    "excerpt": "",
     "date": "2026-06-26",
     "date_modified": "2026-06-09",
     "category": "Bien-être",
@@ -735,14 +597,14 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "accords-tolteques-psychologie-neurosciences",
     "title": "Les quatre accords toltèques : la sagesse ancestrale à l'épreuve de la science",
-    "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
+    "excerpt": "",
     "date": "2026-06-23",
     "date_modified": "2026-06-11",
     "category": "Thérapies",
@@ -761,14 +623,14 @@
       "developpement-personnel",
       "cognition"
     ],
-    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
-    "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
+    "excerpt": "",
     "date": "2026-06-22",
     "date_modified": "2026-06-08",
     "category": "Développement personnel",
@@ -787,14 +649,14 @@
       "neurodiversité",
       "identité"
     ],
-    "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ce-que-les-peres-devraient-dire",
     "title": "Ce que tous les pères devraient dire à leur enfant",
-    "excerpt": "Derrière le silence des pères se cache souvent l'essentiel — ce qui manque, ce qui blesse, et ce qui aurait pu tout changer. Voici les mots que la psychologie nous invite à prononcer, avant qu'il soit trop tard.",
+    "excerpt": "",
     "date": "2026-06-21",
     "date_modified": "2026-06-08",
     "category": "Développement personnel",
@@ -813,14 +675,14 @@
       "développement personnel",
       "communication"
     ],
-    "metaDescription": "Psychologie et parentalité : les phrases clés que chaque père peut dire à son enfant pour renforcer l'attachement, l'estime de soi et la confiance durable.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "peut-on-changer-de-personnalite",
     "title": "Peut-on vraiment changer de personnalité ?",
-    "excerpt": "Timide depuis toujours, anxieux·se depuis l'enfance, introverti·e jusqu'à la moelle — et si tout ça n'était pas gravé dans le marbre ? La psychologie moderne a une réponse surprenante : oui, on peut changer. Mais pas comme on le croit.",
+    "excerpt": "",
     "date": "2026-06-20",
     "date_modified": "2026-06-05",
     "category": "Développement personnel",
@@ -839,14 +701,14 @@
       "neuroplasticité",
       "développement"
     ],
-    "metaDescription": "Peut-on changer de personnalité ? Big Five, neuroplasticité, psychothérapie : ce que la science dit de notre capacité à nous transformer vraiment.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "addiction-ia-cerveau-cloud",
     "title": "IA Addict : la nouvelle addiction aux intelligences artificielles",
-    "excerpt": "On lui demande quoi manger, quoi répondre à notre patron, comment se sentir mieux. L'IA est devenue le confident universel, le coach, le psy, le GPS de nos pensées. Pratique ? Indéniablement. Inquiétant ? La science commence à dire oui.",
+    "excerpt": "",
     "date": "2026-06-19",
     "date_modified": "2026-06-05",
     "category": "Développement personnel",
@@ -865,15 +727,14 @@
       "cerveau",
       "technologie"
     ],
-    "metaDescription": "Addiction à l'IA, délégation cognitive, dépendance émotionnelle à ChatGPT : ce que la psychologie et les neurosciences disent de notre rapport à l'intelligence artificielle.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "hitler-sur-le-divan",
     "title": "Hitler sur le divan : psychologie d'un nazi",
-    "type": "article",
-    "excerpt": "Que se passait-il dans la tête d'Adolf Hitler ? Entre rapports secrets de psychologues américains, diagnostics posthumes et cocktails pharmaceutiques, la science a tenté de percer le mystère du dictateur. Spoiler : c'est plus compliqué qu'un simple « il était fou ».",
+    "excerpt": "",
     "date": "2026-06-18",
     "date_modified": "2026-06-15",
     "category": "Thérapies",
@@ -892,15 +753,14 @@
       "histoire",
       "psychopathologie"
     ],
-    "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
-    "type": "article",
-    "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
+    "excerpt": "",
     "date": "2026-06-16",
     "date_modified": "2026-06-15",
     "category": "Bien-être",
@@ -918,21 +778,20 @@
       "rumination",
       "comparaison sociale"
     ],
-    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "mentalistes-comment-ils-decryptent-nos-pensees",
     "title": "Comment les mentalistes décryptent nos pensées",
-    "type": "article",
     "excerpt": "Ils devinent votre mot secret, révèlent votre prénom sans vous avoir jamais rencontré, ou vous font choisir librement une carte qu'ils avaient « prédite ». Les mentalistes ne lisent pas dans les pensées — mais ils en savent long sur la psychologie humaine. Et ce qu'ils savent devrait vous intéresser.",
     "date": "2026-06-15",
     "date_modified": "2026-06-15",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ztzle6mx5s3ye5rwzvtc",
-    "imagePosition": "54% 74%",
-    "imageZoom": 1,
+    "imagePosition": "50% 78%",
+    "imageZoom": 1.5,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 15,

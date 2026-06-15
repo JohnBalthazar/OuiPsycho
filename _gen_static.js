@@ -437,10 +437,14 @@ console.log(`📋 data/articles.json mis à jour (${newIndex.length} articles)`)
 const ALL_INDEX_FILE = path.join(__dirname, 'data', 'articles-all.json');
 const allIndex = jsonFiles.map(file => {
   const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+  // Masquer excerpt/metaDescription pour les articles non encore publiés
+  // (évite la fuite de contenu éditorial avant publication via la route publique /data/articles-all.json)
+  const isPublic = (j.status || 'published') === 'published' ||
+                   (j.status === 'scheduled' && j.date <= TODAY);
   return {
     id:              j.id,
     title:           j.title,
-    excerpt:         j.excerpt          || '',
+    excerpt:         isPublic ? (j.excerpt         || '') : '',
     date:            j.date,
     date_modified:   j.date_modified    || j.date,
     category:        j.category,
@@ -452,7 +456,7 @@ const allIndex = jsonFiles.map(file => {
     readTime:        j.readTime,
     author:          j.author,
     tags:            j.tags             || [],
-    metaDescription: j.metaDescription  || '',
+    metaDescription: isPublic ? (j.metaDescription || '') : '',
     articles_lies:   j.articles_lies    || [],
     status:          j.status           || 'published',
   };
