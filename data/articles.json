@@ -1,5 +1,31 @@
 [
   {
+    "id": "mentalistes-comment-ils-decryptent-nos-pensees",
+    "title": "Comment les mentalistes décryptent nos pensées",
+    "excerpt": "Ils devinent votre mot secret, révèlent votre prénom sans vous avoir jamais rencontré, ou vous font choisir librement une carte qu'ils avaient « prédite ». Les mentalistes ne lisent pas dans les pensées — mais ils en savent long sur la psychologie humaine. Et ce qu'ils savent devrait vous intéresser.",
+    "date": "2026-06-15",
+    "date_modified": "2026-06-05",
+    "category": "Développement personnel",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ztzle6mx5s3ye5rwzvtc",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 15,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "mentalisme",
+      "biais cognitifs",
+      "psychologie",
+      "cold reading",
+      "manipulation",
+      "esprit critique"
+    ],
+    "metaDescription": "Cold reading, effet Barnum, biais cognitifs, micro-expressions : comment les mentalistes exploitent la psychologie humaine. Ce que la science explique.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "dunning-kruger",
     "title": "Le syndrome du génie raté : pourquoi on se croit meilleur qu'on n'est",
     "excerpt": "M. Choupoune arrive avec ses plans de fusée thermonucléaire. Il ne doute de rien — et c'est précisément ça, le problème. L'effet Dunning-Kruger explique pourquoi les moins compétents sont souvent les plus sûrs d'eux, et pourquoi on est tous un peu M. Choupoune.",
