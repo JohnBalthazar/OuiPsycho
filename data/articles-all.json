@@ -2,8 +2,7 @@
   {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
-    "type": "article",
-    "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
+    "excerpt": "",
     "date": "2026-09-03",
     "date_modified": "2026-06-16",
     "category": "Thérapies",
@@ -23,16 +22,14 @@
       "bien-être",
       "yoga"
     ],
-    "metaDescription": "Marche, yoga, sports collectifs… La science révèle quels sports sont les plus efficaces pour la santé mentale et comment bien en profiter au quotidien.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "hermione-granger-divan-psychologie-sorciere",
     "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
-    "excerpt": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse mais complice — de la sorcière la plus studieuse de Poudlard, suivie d'un quiz pour révéler votre profil.",
-    "metaDescription": "Perfectionnisme, syndrome de l'imposteur, sens de la justice : la psychologie d'Hermione Granger décryptée, avec un quiz pour savoir quel genre de sorcière vous êtes.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-01",
     "date_modified": "2026-09-01",
     "category": "Nos héros",
@@ -42,6 +39,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "Hermione Granger",
       "Harry Potter",
@@ -51,35 +49,8 @@
       "résilience",
       "pop-culture"
     ],
-    "sources": [
-      {
-        "authors": "Clance P. R. & Imes S. A.",
-        "year": "1978",
-        "title": "The imposter phenomenon in high achieving women: Dynamics and therapeutic intervention",
-        "journal": "Psychotherapy: Theory, Research & Practice",
-        "url": "https://doi.org/10.1037/h0086006"
-      },
-      {
-        "authors": "Vezzali L., Stathi S., Giovannini D., Capozza D. & Trifiletti E.",
-        "year": "2015",
-        "title": "The greatest magic of Harry Potter: Reducing prejudice",
-        "journal": "Journal of Applied Social Psychology",
-        "url": "https://doi.org/10.1111/jasp.12279"
-      },
-      {
-        "authors": "Delzescaux S.",
-        "year": "2009",
-        "title": "Harry Potter ou les chemins insolites de la résistance",
-        "journal": "Nouvelle revue de psychosociologie",
-        "url": "https://doi.org/10.3917/nrp.007.0085"
-      },
-      {
-        "authors": "Chaillan M.",
-        "year": "2013",
-        "title": "Harry Potter à l'école de la philosophie",
-        "publisher": "Ellipses"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -89,7 +60,7 @@
     "date": "2026-08-28",
     "date_modified": "2026-06-15",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -110,8 +81,7 @@
   {
     "id": "arreter-de-fumer-en-2-semaines",
     "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
-    "type": "article",
-    "excerpt": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque physique se joue justement sur ces 2 semaines. On t'explique — et un test te dit quel genre de fumeur tu es.",
+    "excerpt": "",
     "date": "2026-08-27",
     "date_modified": "2026-06-16",
     "category": "Thérapies",
@@ -130,16 +100,14 @@
       "sevrage",
       "habitudes"
     ],
-    "metaDescription": "Arrêter de fumer en 2 semaines, vraiment possible ? Ce que dit la science du sevrage nicotinique, et un test pour découvrir quel genre de fumeur vous êtes.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "lara-croft-divan-psychologie-aventuriere",
     "title": "Lara Croft sur le divan : psychologie d'une aventurière",
-    "excerpt": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse mais pas trop — de l'aventurière la plus célèbre du jeu vidéo, suivie d'un quiz pour situer votre profil.",
-    "metaDescription": "Orpheline, intrépide, icône sous le male gaze : la psychologie et la sociologie de Lara Croft décryptées, avec un quiz pour trouver votre profil d'aventurière.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-08-25",
     "date_modified": "2026-08-25",
     "category": "Nos héros",
@@ -149,6 +117,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "Lara Croft",
       "jeux vidéo",
@@ -158,48 +127,8 @@
       "représentation",
       "pop-culture"
     ],
-    "sources": [
-      {
-        "authors": "Mulvey L.",
-        "year": "1975",
-        "title": "Visual Pleasure and Narrative Cinema",
-        "journal": "Screen",
-        "url": "https://doi.org/10.1093/screen/16.3.6"
-      },
-      {
-        "authors": "Kennedy H. W.",
-        "year": "2002",
-        "title": "Lara Croft: Feminist Icon or Cyberbimbo? On the Limits of Textual Analysis",
-        "journal": "Game Studies",
-        "url": "http://www.gamestudies.org/0202/kennedy/"
-      },
-      {
-        "authors": "Mikula M.",
-        "year": "2003",
-        "title": "Gender and Videogames: The political valency of Lara Croft",
-        "journal": "Continuum: Journal of Media & Cultural Studies",
-        "url": "https://doi.org/10.1080/1030431022000049038"
-      },
-      {
-        "authors": "Micheli-Rechtman V.",
-        "year": "2013",
-        "title": "La féminité transformée par le virtuel",
-        "journal": "Figures de la psychanalyse",
-        "url": "https://doi.org/10.3917/fp.025.0085"
-      },
-      {
-        "authors": "Micheli-Rechtman V. & Balzerani M.",
-        "year": "2008",
-        "title": "Corps contemporain, post-modernité et jeux vidéo : le syndrome de Lara Croft",
-        "journal": "La Clinique lacanienne"
-      },
-      {
-        "authors": "Lignon F. (dir.)",
-        "year": "2015",
-        "title": "Genre et jeux vidéo",
-        "publisher": "Presses universitaires du Midi"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -339,7 +268,7 @@
     "date": "2026-08-11",
     "date_modified": "2026-06-15",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/glysexjwba4cxr04qopk",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -365,7 +294,7 @@
     "date": "2026-08-07",
     "date_modified": "2026-06-12",
     "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ntdsrmsq8n3vmvynzpkp",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -418,7 +347,7 @@
     "date": "2026-08-04",
     "date_modified": "2026-06-09",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -444,7 +373,7 @@
     "date": "2026-07-31",
     "date_modified": "2026-06-11",
     "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wrefmmtebgcryfkgsery",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -601,7 +530,7 @@
     "date": "2026-07-16",
     "date_modified": "2026-06-15",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wjvkmwbiegoh8msitbvr",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -627,7 +556,7 @@
     "date": "2026-07-14",
     "date_modified": "2026-06-09",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vti4roq4ehw5ncfalsis",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -653,7 +582,7 @@
     "date": "2026-07-10",
     "date_modified": "2026-06-08",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lfce51hchfdl3voik9s5",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -675,12 +604,11 @@
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
-    "type": "article",
-    "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "excerpt": "",
     "date": "2026-07-09",
     "date_modified": "2026-06-16",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -695,19 +623,18 @@
       "cinéma",
       "psychologie"
     ],
-    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "du-crush-au-crash-anatomie-histoires-amour",
     "title": "Du crush au crash : anatomie d'une histoire d'amour",
-    "type": "article",
-    "excerpt": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
+    "excerpt": "",
     "date": "2026-07-07",
     "date_modified": "2026-06-16",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fxeqtgeidjz2zs9ycdcn",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -722,19 +649,18 @@
       "neurologie",
       "psychologie-relationnelle"
     ],
-    "metaDescription": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
-    "type": "dossier",
-    "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
+    "excerpt": "",
     "date": "2026-07-03",
     "date_modified": "2026-06-16",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/isglpayxcna2aqobpces",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -750,7 +676,7 @@
       "anxiété",
       "résilience"
     ],
-    "metaDescription": "L'IA supprime des emplois comme la révolution industrielle en son temps. Comprendre l'impact psychologique et trouver ce qui reste irremplaçablement humain.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -761,7 +687,7 @@
     "date": "2026-07-01",
     "date_modified": "2026-06-09",
     "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -788,7 +714,7 @@
     "date": "2026-06-26",
     "date_modified": "2026-06-09",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -814,7 +740,7 @@
     "date": "2026-06-23",
     "date_modified": "2026-06-11",
     "category": "Thérapies",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/i6bt887t836rh19sc78m",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -840,7 +766,7 @@
     "date": "2026-06-22",
     "date_modified": "2026-06-08",
     "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sfpe1iktmrert7h889v4",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -866,7 +792,7 @@
     "date": "2026-06-21",
     "date_modified": "2026-06-08",
     "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ow2zkbarx0orwsnys76r",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -892,7 +818,7 @@
     "date": "2026-06-20",
     "date_modified": "2026-06-05",
     "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kvqejyl43wqdgombhjul",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -918,7 +844,7 @@
     "date": "2026-06-19",
     "date_modified": "2026-06-05",
     "category": "Développement personnel",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kqhmm2fea4ytvebe9bls",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -940,12 +866,11 @@
   {
     "id": "hitler-sur-le-divan",
     "title": "Hitler sur le divan : psychologie d'un nazi",
-    "type": "article",
-    "excerpt": "Que se passait-il dans la tête d'Adolf Hitler ? Entre rapports secrets de psychologues américains, diagnostics posthumes et cocktails pharmaceutiques, la science a tenté de percer le mystère du dictateur. Spoiler : c'est plus compliqué qu'un simple « il était fou ».",
+    "excerpt": "",
     "date": "2026-06-17",
     "date_modified": "2026-06-16",
     "category": "Thérapies",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ly1rziun5vofzzn2ikis",
+    "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -960,7 +885,7 @@
       "histoire",
       "psychopathologie"
     ],
-    "metaDescription": "Psychopathe, paranoïaque, narcissique ? Ce que la psychologie dit vraiment de la personnalité d'Adolf Hitler, des rapports de l'OSS aux études modernes.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1045,7 +970,7 @@
       "cerveau-a-t-il-un-genre",
       "resilience-emotionnelle"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "pourquoi-sommes-nous-fascines-par-les-chats",
@@ -1071,7 +996,7 @@
     ],
     "metaDescription": "Psychologie, neurosciences, histoire : pourquoi les humains sont-ils si fascinés par les chats ? La science répond avec sérieux — et un peu d'humour.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "brandolini",
@@ -1128,7 +1053,7 @@
     ],
     "metaDescription": "Ronronnement, médiation animale, ocytocine : ce que la science dit des bienfaits des animaux sur le stress, l'anxiété et la dépression.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "harry-potter-psychopathologie-complice",
@@ -1217,7 +1142,7 @@
       "savoir-dire-stop-seuils-fawn-response",
       "etes-vous-normal"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "cerveau-a-t-il-un-genre",
@@ -1248,7 +1173,7 @@
       "a-quoi-sert-la-honte",
       "estime-de-soi"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
