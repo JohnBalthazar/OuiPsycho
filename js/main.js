@@ -25,6 +25,7 @@ const CATEGORIES = {
   'Thérapies':                { color: '#6D28D9', bg: '#EDE9FE' },
   'Développement personnel':  { color: '#15803D', bg: '#F0FDF4' },
   'Nos héros sur le divan':   { color: '#EA580C', bg: '#FFF7ED' },
+  'Sexo':                     { color: '#C2185B', bg: '#FCE4EC' },
 };
 
 /* ============================================================
@@ -1283,6 +1284,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('dossier-content'))   initDossierPage();
   if (document.getElementById('heros-grid'))        initHerosRubrique();
   if (document.getElementById('societe-grid'))      initSocieteRubrique();
+  if (document.getElementById('sexo-grid'))         initSexoRubrique();
   if (document.getElementById('monstres-grid'))     initMonstresRubrique();
   if (document.getElementById('tests-grid'))        initTestsRubrique();
 
@@ -1565,6 +1567,38 @@ async function initSocieteRubrique() {
       grid.innerHTML = `
         <div class="empty-state" style="grid-column:1/-1">
           <div class="empty-state__icon">🌍</div>
+          <p>Aucun article pour l'instant — revenez bientôt !</p>
+        </div>`;
+      return;
+    }
+    grid.innerHTML = list.map(renderCard).join('');
+  } catch(_) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><p>Erreur de chargement.</p></div>`;
+  }
+}
+
+/* ============================================================
+   SEXO — page rubrique
+   ============================================================ */
+
+async function initSexoRubrique() {
+  const grid = document.getElementById('sexo-grid');
+  if (!grid) return;
+  grid.innerHTML = skeletons(6);
+
+  try {
+    const today = new Date().toISOString().split('T')[0];
+    const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
+
+    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const all  = res.ok ? await res.json() : [];
+    const list = all.filter(a => a.category === 'Sexo' && isOk(a))
+                    .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+
+    if (!list.length) {
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-state__icon">❤️</div>
           <p>Aucun article pour l'instant — revenez bientôt !</p>
         </div>`;
       return;
