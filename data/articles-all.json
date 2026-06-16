@@ -116,6 +116,74 @@
     "status": "scheduled"
   },
   {
+    "id": "lara-croft-divan-psychologie-aventuriere",
+    "title": "Lara Croft sur le divan : psychologie d'une aventurière",
+    "excerpt": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse mais pas trop — de l'aventurière la plus célèbre du jeu vidéo, suivie d'un quiz pour situer votre profil.",
+    "metaDescription": "Orpheline, intrépide, icône sous le male gaze : la psychologie et la sociologie de Lara Croft décryptées, avec un quiz pour trouver votre profil d'aventurière.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-08-25",
+    "date_modified": "2026-08-25",
+    "category": "Nos héros",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "Lara Croft",
+      "jeux vidéo",
+      "héroïne",
+      "résilience",
+      "courage",
+      "représentation",
+      "pop-culture"
+    ],
+    "sources": [
+      {
+        "authors": "Mulvey L.",
+        "year": "1975",
+        "title": "Visual Pleasure and Narrative Cinema",
+        "journal": "Screen",
+        "url": "https://doi.org/10.1093/screen/16.3.6"
+      },
+      {
+        "authors": "Kennedy H. W.",
+        "year": "2002",
+        "title": "Lara Croft: Feminist Icon or Cyberbimbo? On the Limits of Textual Analysis",
+        "journal": "Game Studies",
+        "url": "http://www.gamestudies.org/0202/kennedy/"
+      },
+      {
+        "authors": "Mikula M.",
+        "year": "2003",
+        "title": "Gender and Videogames: The political valency of Lara Croft",
+        "journal": "Continuum: Journal of Media & Cultural Studies",
+        "url": "https://doi.org/10.1080/1030431022000049038"
+      },
+      {
+        "authors": "Micheli-Rechtman V.",
+        "year": "2013",
+        "title": "La féminité transformée par le virtuel",
+        "journal": "Figures de la psychanalyse",
+        "url": "https://doi.org/10.3917/fp.025.0085"
+      },
+      {
+        "authors": "Micheli-Rechtman V. & Balzerani M.",
+        "year": "2008",
+        "title": "Corps contemporain, post-modernité et jeux vidéo : le syndrome de Lara Croft",
+        "journal": "La Clinique lacanienne"
+      },
+      {
+        "authors": "Lignon F. (dir.)",
+        "year": "2015",
+        "title": "Genre et jeux vidéo",
+        "publisher": "Presses universitaires du Midi"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
     "excerpt": "",
