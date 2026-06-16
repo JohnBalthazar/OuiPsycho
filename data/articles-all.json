@@ -675,11 +675,12 @@
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "date": "2026-07-09",
-    "date_modified": "2026-07-09",
+    "date_modified": "2026-06-16",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -694,7 +695,7 @@
       "cinéma",
       "psychologie"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "articles_lies": [],
     "status": "scheduled"
   },
