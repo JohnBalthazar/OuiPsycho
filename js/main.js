@@ -1032,6 +1032,8 @@ async function loadFirebaseConfig() {
 }
 
 async function _fbFetchComments(articleId) {
+  // Note : pas de orderBy dans la requête Firestore pour éviter d'exiger un
+  // index composite (article_id + status + created_at). Le tri est fait côté JS.
   const query = {
     structuredQuery: {
       from: [{ collectionId: 'comments' }],
@@ -1044,7 +1046,6 @@ async function _fbFetchComments(articleId) {
           ],
         },
       },
-      orderBy: [{ field: { fieldPath: 'created_at' }, direction: 'ASCENDING' }],
     },
   };
   const res = await fetch(`${_FBBASE()}:runQuery?key=${_fbApiKey}`, {
@@ -1054,7 +1055,10 @@ async function _fbFetchComments(articleId) {
   });
   if (!res.ok) return [];
   const rows = await res.json();
-  return rows.filter(r => r.document).map(r => _fbDoc(r.document));
+  return rows
+    .filter(r => r.document)
+    .map(r => _fbDoc(r.document))
+    .sort((a, b) => (a.created_at || '').localeCompare(b.created_at || ''));
 }
 
 async function _fbSubmitComment(articleId, name, email, content) {
