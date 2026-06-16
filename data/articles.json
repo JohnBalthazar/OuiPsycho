@@ -28,6 +28,61 @@
     "status": "scheduled"
   },
   {
+    "id": "hermione-granger-divan-psychologie-sorciere",
+    "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
+    "excerpt": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse mais complice — de la sorcière la plus studieuse de Poudlard, suivie d'un quiz pour révéler votre profil.",
+    "metaDescription": "Perfectionnisme, syndrome de l'imposteur, sens de la justice : la psychologie d'Hermione Granger décryptée, avec un quiz pour savoir quel genre de sorcière vous êtes.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-01",
+    "date_modified": "2026-09-01",
+    "category": "Nos héros",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "tags": [
+      "Hermione Granger",
+      "Harry Potter",
+      "perfectionnisme",
+      "syndrome de l'imposteur",
+      "préjugés",
+      "résilience",
+      "pop-culture"
+    ],
+    "sources": [
+      {
+        "authors": "Clance P. R. & Imes S. A.",
+        "year": "1978",
+        "title": "The imposter phenomenon in high achieving women: Dynamics and therapeutic intervention",
+        "journal": "Psychotherapy: Theory, Research & Practice",
+        "url": "https://doi.org/10.1037/h0086006"
+      },
+      {
+        "authors": "Vezzali L., Stathi S., Giovannini D., Capozza D. & Trifiletti E.",
+        "year": "2015",
+        "title": "The greatest magic of Harry Potter: Reducing prejudice",
+        "journal": "Journal of Applied Social Psychology",
+        "url": "https://doi.org/10.1111/jasp.12279"
+      },
+      {
+        "authors": "Delzescaux S.",
+        "year": "2009",
+        "title": "Harry Potter ou les chemins insolites de la résistance",
+        "journal": "Nouvelle revue de psychosociologie",
+        "url": "https://doi.org/10.3917/nrp.007.0085"
+      },
+      {
+        "authors": "Chaillan M.",
+        "year": "2013",
+        "title": "Harry Potter à l'école de la philosophie",
+        "publisher": "Ellipses"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "",
