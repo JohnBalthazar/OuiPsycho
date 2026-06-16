@@ -5,6 +5,10 @@ on:
     # 02:00 UTC = 04:00 heure Paris (CEST, UTC+2) → la date UTC == date Paris
     - cron: '0 2 * * *'
   workflow_dispatch:   # déclenchement manuel possible depuis GitHub Actions
+  push:
+    paths:
+      - 'articles/**/*.json'   # nouvel article ou mise à jour d'un article existant
+      - 'dossiers/**/*.json'   # nouveau dossier
 
 permissions:
   contents: write      # nécessaire pour le push de retour

@@ -437,7 +437,7 @@ console.log(`📋 data/articles.json mis à jour (${newIndex.length} articles)`)
 const ALL_INDEX_FILE = path.join(__dirname, 'data', 'articles-all.json');
 const allIndex = jsonFiles.map(file => {
   const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
-  // Masquer excerpt/metaDescription pour les articles non encore publiés
+  // Masquer excerpt, image et metaDescription pour les articles non encore publiés
   // (évite la fuite de contenu éditorial avant publication via la route publique /data/articles-all.json)
   const isPublic = (j.status || 'published') === 'published' ||
                    (j.status === 'scheduled' && j.date <= TODAY);
@@ -448,7 +448,7 @@ const allIndex = jsonFiles.map(file => {
     date:            j.date,
     date_modified:   j.date_modified    || j.date,
     category:        j.category,
-    image:           j.image            || '',
+    image:           isPublic ? (j.image           || '') : '',
     imagePosition:   j.imagePosition    || '50% 50%',
     imageZoom:       j.imageZoom        || 1,
     imageGravity:    j.imageGravity     || 'none',
@@ -549,6 +549,38 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <loc>${BASE}/politique-de-confidentialite.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
+  </url>
+
+  <!-- Pages de navigation (catégories & sections) -->
+  <url>
+    <loc>${BASE}/dossiers.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${BASE}/nos-heros-sur-le-divan.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${BASE}/les-monstres-sur-le-divan.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${BASE}/societe.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${BASE}/tests.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>`;
 
 if (sitemapDossiers.length) {
