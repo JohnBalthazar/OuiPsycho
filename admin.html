@@ -3934,7 +3934,7 @@ async function loadNewsletterSubscribers() {
     }
     // Pré-remplir les champs Brevo
     // Charger l'URL du formulaire Brevo (depuis localStorage ou config distant)
-    const savedFormUrl = localStorage.getItem('ouipsycho_brevo_form_url') || cfg.brevoFormUrl || '';
+    const savedFormUrl = localStorage.getItem('ouipsycho_brevo_form_url') || '';
     document.getElementById('brevo-form-url').value = savedFormUrl;
     const statusEl = document.getElementById('brevo-form-status');
     if (statusEl && savedFormUrl) {
