@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quel genre de sorciere etes-vous ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#352a44;background:transparent;line-height:1.55}
+  .quiz{max-width:560px;margin:0 auto;background:#f7f2fb;border:1px solid #e6dcf3;border-radius:16px;padding:26px 24px}
+  .progress{height:8px;background:#e9e0f4;border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#a98ad6,#7c5cbf);border-radius:99px;transition:width .35s ease}
+  .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#9277b5;margin-bottom:10px;font-weight:600}
+  h2{font-size:1.28rem;line-height:1.35;margin-bottom:20px;color:#4a3866}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #e3d6f1;color:#352a44;border-radius:12px;padding:14px 16px;margin-bottom:11px;font-size:1rem;cursor:pointer;transition:all .18s ease}
+  .opt:hover{border-color:#7c5cbf;background:#f1eafa;transform:translateY(-1px)}
+  .intro p,.result p{margin-bottom:16px}
+  .intro{text-align:center}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:12px}
+  .btn{display:inline-block;background:#7c5cbf;color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .18s ease}
+  .btn:hover{background:#684aa6}
+  .result{text-align:center}
+  .result .tag{display:inline-block;background:#ece1f8;color:#6a4aa0;border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px}
+  .result h2{margin-bottom:14px}
+  .result .desc{text-align:left;background:#fff;border:1px solid #e6dcf3;border-radius:12px;padding:18px;margin-bottom:20px}
+  .restart{margin-top:6px;background:none;border:none;color:#9277b5;font-size:.92rem;cursor:pointer;text-decoration:underline}
+  .restart:hover{color:#7c5cbf}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+(function(){
+  var questions=[
+    {q:"Premier jour a Poudlard. Votre priorite ?",
+     a:[{t:"Avoir deja lu tous les manuels (et pris des notes).",p:"A"},
+        {t:"Reperer les injustices a corriger dans l'ecole.",p:"B"},
+        {t:"Vous faire de vrais amis pour la vie.",p:"C"},
+        {t:"Denicher le passage secret le plus dangereux.",p:"D"}]},
+    {q:"Un examen approche. Vous...",
+     a:[{t:"Avez un planning de revision minute a la seconde.",p:"A"},
+        {t:"Montez un groupe d'entraide pour tout le monde.",p:"B"},
+        {t:"Revisez avec vos amis, l'ambiance avant tout.",p:"C"},
+        {t:"Improvisez : l'inspiration viendra le jour J.",p:"D"}]},
+    {q:"Face a une regle que vous trouvez injuste ?",
+     a:[{t:"Vous la contournez intelligemment, preuves a l'appui.",p:"A"},
+        {t:"Vous montez au creneau, haut et fort.",p:"B"},
+        {t:"Vous protegez d'abord ceux qu'elle penalise.",p:"C"},
+        {t:"Vous l'enfreignez sans trop reflechir.",p:"D"}]},
+    {q:"Votre idee d'une soiree reussie ?",
+     a:[{t:"Un bon grimoire et une tasse de the.",p:"A"},
+        {t:"Un debat passionne sur un grand sujet.",p:"B"},
+        {t:"Un moment cocooning avec vos proches.",p:"C"},
+        {t:"Une viree pleine d'imprevus.",p:"D"}]},
+    {q:"Votre plus grande qualite ?",
+     a:[{t:"Une rigueur sans faille.",p:"A"},
+        {t:"Un sens de la justice a toute epreuve.",p:"B"},
+        {t:"Une loyaute indefectible.",p:"C"},
+        {t:"Un courage qui ne recule devant rien.",p:"D"}]},
+    {q:"Et votre petit defaut, soyons honnetes ?",
+     a:[{t:"Vous visez la perfection... au point de vous epuiser.",p:"A"},
+        {t:"Vous ne lachez jamais une cause, quitte a fatiguer.",p:"B"},
+        {t:"Vous vous oubliez pour les autres.",p:"C"},
+        {t:"Vous foncez avant de reflechir.",p:"D"}]}
+  ];
+  var profiles={
+    A:{emoji:"\uD83D\uDCDA",tag:"Profil A",name:"L'Erudite",
+       desc:"Vous etes la sorciere qui a lu tous les manuels avant la rentree. Rigoureuse, curieuse, redoutablement competente, vous adorez comprendre les choses a fond. Votre defi a la Hermione : desserrer l'etau du perfectionnisme. Votre valeur ne se resume pas a un sans-faute, et avoir le droit de rater est aussi une forme de liberte."},
+    B:{emoji:"\u270A",tag:"Profil B",name:"La Militante",
+       desc:"Vous etes la sorciere qui voit l'injustice la ou les autres voient une habitude. Genereuse, courageuse, infatigable, vous defendez les causes qui comptent. Votre mission secrete : penser a souffler entre deux combats. On ne change le monde durablement qu'en prenant soin de soi en chemin."},
+    C:{emoji:"\uD83E\uDD1D",tag:"Profil C",name:"La Gardienne",
+       desc:"Vous etes la sorciere loyale, celle sur qui on peut toujours compter. L'amitie est votre plus puissant sortilege, et votre presence rassure tout le monde. Votre petit rappel : vos proches comptent, mais vous aussi. Laissez-vous parfois protéger a votre tour."},
+    D:{emoji:"\uD83D\uDD25",tag:"Profil D",name:"La Temeraire",
+       desc:"Vous etes la sorciere d'action, celle qui fonce quand les autres hesitent. Audacieuse, vive, allergique a l'ennui, vous transformez chaque journee en aventure. Votre defi : regarder de temps en temps ou vous mettez les pieds. Le courage, c'est aussi savoir choisir ses risques."}
+  };
+
+  var box=document.getElementById('quiz');
+  var step=-1; var answers=[];
+
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+    },50);
+  }
+
+  function renderIntro(){
+    box.innerHTML='<div class="intro"><span class="emoji">\uD83E\uDE84</span>'+
+      '<h2>Quel genre de sorciere etes-vous ?</h2>'+
+      '<p>Six questions pour reveler la sorciere qui sommeille en vous. Repondez d\'instinct, sans trop reflechir.</p>'+
+      '<button class="btn" id="start">Entrer a Poudlard</button></div>';
+    document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
+    notifyResize();
+  }
+
+  function renderQ(){
+    var item=questions[step];
+    var pct=Math.round((step/questions.length)*100);
+    var html='<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="step-info">Question '+(step+1)+' / '+questions.length+'</div>'+
+      '<h2>'+item.q+'</h2>';
+    for(var i=0;i<item.a.length;i++){
+      html+='<button class="opt" data-p="'+item.a[i].p+'">'+item.a[i].t+'</button>';
+    }
+    box.innerHTML=html;
+    var opts=box.querySelectorAll('.opt');
+    for(var j=0;j<opts.length;j++){
+      opts[j].onclick=function(){
+        answers.push(this.getAttribute('data-p'));
+        step++;
+        if(step<questions.length){renderQ();}else{renderResult();}
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult(){
+    var counts={A:0,B:0,C:0,D:0};
+    for(var i=0;i<answers.length;i++){counts[answers[i]]++;}
+    var best='A',max=-1,order=['A','B','C','D'];
+    for(var k=0;k<order.length;k++){if(counts[order[k]]>max){max=counts[order[k]];best=order[k];}}
+    var p=profiles[best];
+    box.innerHTML='<div class="result">'+
+      '<div class="progress"><span style="width:100%"></span></div>'+
+      '<span class="emoji">'+p.emoji+'</span>'+
+      '<span class="tag">'+p.tag+'</span>'+
+      '<h2>'+p.name+'</h2>'+
+      '<div class="desc">'+p.desc+'</div>'+
+      '<button class="restart" id="again">Refaire le test</button></div>';
+    document.getElementById('again').onclick=renderIntro;
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load',notifyResize);
+})();
+</script>
+</body>
+</html>
