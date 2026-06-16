@@ -1,5 +1,69 @@
 [
   {
+    "id": "meilleurs-sports-sante-mentale",
+    "title": "Quels sont les meilleurs sports pour la santé mentale ?",
+    "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
+    "metaDescription": "Marche, yoga, sports collectifs… La science révèle quels sports sont les plus efficaces pour la santé mentale et comment bien en profiter au quotidien.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-01",
+    "date_modified": "2026-09-01",
+    "category": "Thérapies",
+    "image": "",
+    "readTime": 4,
+    "tags": [
+      "sport",
+      "activité physique",
+      "santé mentale",
+      "dépression",
+      "anxiété",
+      "bien-être",
+      "yoga"
+    ],
+    "sources": [
+      {
+        "authors": "Noetel M. et al.",
+        "year": "2024",
+        "title": "Effect of exercise for depression: systematic review and network meta-analysis of randomised controlled trials",
+        "journal": "The BMJ",
+        "url": "https://doi.org/10.1136/bmj-2023-075847"
+      },
+      {
+        "authors": "Chekroud S. R. et al.",
+        "year": "2018",
+        "title": "Association between physical exercise and mental health in 1.2 million individuals in the USA between 2011 and 2015: a cross-sectional study",
+        "journal": "The Lancet Psychiatry",
+        "url": "https://doi.org/10.1016/S2215-0366(18)30227-X"
+      },
+      {
+        "authors": "Singh B. et al.",
+        "year": "2023",
+        "title": "Effectiveness of physical activity interventions for improving depression, anxiety and distress: an overview of systematic reviews",
+        "journal": "British Journal of Sports Medicine",
+        "url": "https://doi.org/10.1136/bjsports-2022-106195"
+      },
+      {
+        "authors": "Legrand F. D. et al.",
+        "year": "2023",
+        "title": "L'exercice physique pour la santé mentale : mécanismes, recommandations, recherches futures",
+        "journal": "L'Encéphale",
+        "url": "https://doi.org/10.1016/j.encep.2023.03.004"
+      },
+      {
+        "authors": "Inserm",
+        "year": "2019",
+        "title": "Activité physique : Prévention et traitement des maladies chroniques",
+        "publisher": "EDP Sciences"
+      },
+      {
+        "authors": "Organisation mondiale de la Santé",
+        "year": "2020",
+        "title": "Lignes directrices de l'OMS sur l'activité physique et la sédentarité",
+        "publisher": "Organisation mondiale de la Santé"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "",
