@@ -866,9 +866,7 @@
   {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
-    "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
-    "metaDescription": "Trauma, attachement, résilience : ce que la psychologie révèle sur Meredith Grey, l'héroïne de Grey's Anatomy. Avec un test pour trouver votre profil.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-06-18",
     "date_modified": "2026-06-18",
     "category": "Nos héros",
@@ -878,6 +876,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "résilience",
       "attachement",
@@ -886,38 +885,8 @@
       "Grey's Anatomy",
       "soutien social"
     ],
-    "sources": [
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Ainsworth M.D.S. & Bell S.M.",
-        "year": "1970",
-        "title": "Attachment, exploration, and separation",
-        "journal": "Child Development"
-      },
-      {
-        "authors": "Tedeschi R.G. & Calhoun L.G.",
-        "year": "2004",
-        "title": "Posttraumatic growth: conceptual foundations and empirical evidence",
-        "journal": "Psychological Inquiry"
-      },
-      {
-        "authors": "Cohen S. & Wills T.A.",
-        "year": "1985",
-        "title": "Stress, social support, and the buffering hypothesis",
-        "journal": "Psychological Bulletin"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
