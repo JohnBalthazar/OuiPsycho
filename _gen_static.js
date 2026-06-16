@@ -23,6 +23,15 @@ const CAT = {
   'Sommeil':                 { color: '#0369A1', bg: '#ECFEFF', enc: 'Sommeil' },
   'Thérapies':               { color: '#6D28D9', bg: '#EDE9FE', enc: 'Th%C3%A9rapies' },
   'Développement personnel': { color: '#15803D', bg: '#F0FDF4', enc: 'D%C3%A9veloppement%20personnel' },
+  'Sexo':                    { color: '#C2185B', bg: '#FCE4EC', enc: 'Sexo' },
+};
+
+// Catégories qui ont leur propre page rubrique (pas de filtre homepage)
+const RUBRIQUE_PAGES = {
+  'Société':                   'societe.html',
+  'Sexo':                      'sexo.html',
+  'Nos héros sur le divan':    'nos-heros-sur-le-divan.html',
+  'Les monstres sur le divan': 'les-monstres-sur-le-divan.html',
 };
 
 const NAV_CATS = ['Anxiété','Dépression','Bien-être','Stress','Sommeil','Thérapies','Relations'];
@@ -118,12 +127,19 @@ ${srcItems}
     });
   }
   const aLD = JSON.stringify(aLDobj);
+
+  // Lien de catégorie : page rubrique dédiée ou filtre homepage
+  const catHref  = RUBRIQUE_PAGES[j.category] || `index.html?cat=${ci.enc}`;
+  const catHrefAbs = RUBRIQUE_PAGES[j.category]
+    ? `${BASE}/${RUBRIQUE_PAGES[j.category]}`
+    : `${BASE}/?cat=${ci.enc}`;
+
   const bLD = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${BASE}/` },
-      { "@type": "ListItem", "position": 2, "name": j.category, "item": `${BASE}/?cat=${ci.enc}` },
+      { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs },
       { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}/` }
     ]
   });
@@ -237,7 +253,8 @@ ${srcItems}
         <div class="cat-nav__divider" aria-hidden="true"></div>
 ${navHtml}
         <div class="cat-nav__divider" aria-hidden="true"></div>
-        <a class="cat-nav__btn" href="societe.html">🌍 Société</a>
+        <a class="cat-nav__btn${j.category === 'Société' ? ' active' : ''}" href="societe.html">🌍 Société</a>
+        <a class="cat-nav__btn${j.category === 'Sexo' ? ' active' : ''}" href="sexo.html">❤️ Sexo</a>
       </div>
     </nav>
   </header>
@@ -249,7 +266,7 @@ ${navHtml}
         <header class="article-header">
           <nav class="breadcrumb" aria-label="Fil d'Ariane">
             <a href="index.html">Accueil</a> <span>›</span>
-            <a href="index.html?cat=${ci.enc}">${j.category}</a>
+            <a href="${catHref}">${j.category}</a>
             <span>›</span> <span aria-current="page">${j.title}</span>
           </nav>
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
@@ -572,6 +589,12 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
   <url>
     <loc>${BASE}/societe.html</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${BASE}/sexo.html</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
