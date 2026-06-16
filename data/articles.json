@@ -701,11 +701,12 @@
   {
     "id": "du-crush-au-crash-anatomie-histoires-amour",
     "title": "Du crush au crash : anatomie d'une histoire d'amour",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
     "date": "2026-07-07",
-    "date_modified": "2026-07-07",
+    "date_modified": "2026-06-16",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fxeqtgeidjz2zs9ycdcn",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -720,7 +721,7 @@
       "neurologie",
       "psychologie-relationnelle"
     ],
-    "metaDescription": "",
+    "metaDescription": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
     "articles_lies": [],
     "status": "scheduled"
   },
