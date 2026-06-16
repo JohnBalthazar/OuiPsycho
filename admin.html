@@ -4072,10 +4072,17 @@ function refreshComments() {
 
 function updatePendingBadge() {
   const pending = adminComments.filter(c => c.status === 'pending').length;
+  const total   = adminComments.length;
   const badge   = document.getElementById('comments-pending-badge');
   if (!badge) return;
-  if (pending > 0) { badge.textContent = pending; badge.style.display = 'inline'; }
-  else badge.style.display = 'none';
+  if (total > 0) {
+    badge.textContent = pending > 0 ? pending : total;
+    // Orange si des commentaires attendent modération, gris sinon
+    badge.style.background = pending > 0 ? 'var(--accent)' : 'var(--gray-400)';
+    badge.style.display = 'inline';
+  } else {
+    badge.style.display = 'none';
+  }
 }
 
 function renderCommentsStats() {
