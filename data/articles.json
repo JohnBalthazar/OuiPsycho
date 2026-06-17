@@ -2,18 +2,18 @@
   {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
+    "type": "article",
     "excerpt": "Marilyn, James Dean, Beyonce... Un sexe symbole n'est jamais seulement quelqu'un de joli. Plongee dans la mecanique psychologique et sociale du desir collectif, et test pour decouvrir l'aura que vous projetez.",
-    "metaDescription": "Pourquoi certaines personnes incarnent-elles le desir de toute une epoque ? Plongee psychologique et sociologique dans le mystere des sexe symboles.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-09-08",
-    "date_modified": "2026-09-08",
-    "category": "Sexo",
+    "date": "2026-09-10",
+    "date_modified": "2026-06-17",
+    "category": "Relations",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "sexe-symbole",
       "psychologie-du-desir",
@@ -22,20 +22,8 @@
       "relations-parasociales",
       "image-de-soi"
     ],
-    "sources": [
-      {
-        "title": "Wollast, De Wilde, Bernard & Klein (2020), Percevoir son corps a travers le regard d'autrui : une revue de la litterature sur l'auto-objectification, L'Annee psychologique",
-        "url": "https://shs.cairn.info/revue-l-annee-psychologique-2020-3-page-321?lang=fr"
-      },
-      {
-        "title": "Quéval, L. (2026), Relations parasociales a l'ere des reseaux sociaux : l'exemple des communautes de fans, Le Journal des psychologues",
-        "url": "https://shs.cairn.info/revue-le-journal-des-psychologues-2026-2-page-6?lang=fr"
-      },
-      {
-        "title": "Theorie de l'objectification (Fredrickson & Roberts, 1997) - synthese",
-        "url": "https://fr.wikipedia.org/wiki/Th%C3%A9orie_de_l'objectification"
-      }
-    ],
+    "metaDescription": "Pourquoi certaines personnes incarnent-elles le desir de toute une epoque ? Plongee psychologique et sociologique dans le mystere des sexe symboles.",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
