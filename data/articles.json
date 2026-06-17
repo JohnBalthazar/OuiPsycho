@@ -27,6 +27,74 @@
     "status": "scheduled"
   },
   {
+    "id": "nouveautes-sante-mentale-2026",
+    "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
+    "excerpt": "Applications d'IA, champignons hallucinogènes, médicaments « révolutionnaires », accès aux soins simplifié : 2026 ne manque pas d'annonces en santé mentale. On démêle les avancées réelles des effets de mode, sans perdre de vue l'essentiel.",
+    "metaDescription": "Mon soutien psy remanié, psychiatrie de précision, psychédéliques et IA : le tri entre vraies avancées et effets d'annonce en santé mentale en 2026.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-04",
+    "date_modified": "2026-09-04",
+    "category": "Thérapies",
+    "image": "",
+    "readTime": 4,
+    "tags": [
+      "sante-mentale",
+      "psychiatrie",
+      "psychedeliques",
+      "intelligence-artificielle",
+      "mon-soutien-psy",
+      "innovation"
+    ],
+    "sources": [
+      {
+        "authors": "Fondation FondaMental",
+        "year": "2026",
+        "title": "Troubles bipolaires : les avancées de la recherche 2026",
+        "journal": "Santé Mentale",
+        "url": "https://www.santementale.fr/2026/04/troubles-bipolaires-la-fondation-fondamental-fait-le-point-sur-lavancee-de-la-recherche-2026/"
+      },
+      {
+        "authors": "Assurance Maladie",
+        "year": "2026",
+        "title": "Mon soutien psy : douze séances, accès direct et tiers payant (LFSS 2026)",
+        "journal": "Appines"
+      },
+      {
+        "authors": "Luquiens A. et coll.",
+        "year": "2025",
+        "title": "Psilocybin in alcohol use disorder and comorbid depressive symptoms: results from a feasibility randomized clinical trial",
+        "journal": "Addiction"
+      },
+      {
+        "authors": "Heinz M. et coll. (Dartmouth College)",
+        "year": "2025",
+        "title": "Randomized trial of a generative AI chatbot for mental health treatment (Therabot)",
+        "journal": "NEJM AI"
+      },
+      {
+        "authors": "Kaul I. et coll.",
+        "year": "2024",
+        "title": "Efficacy and safety of the muscarinic receptor agonist KarXT (xanomeline-trospium) in schizophrenia (EMERGENT-2)",
+        "journal": "The Lancet"
+      },
+      {
+        "authors": "FDA",
+        "year": "2024",
+        "title": "Homologation du Cobenfy (xanomeline-trospium), nouvelle classe d'antipsychotiques dans la schizophrénie",
+        "journal": "L'Encéphale (actualités)",
+        "url": "https://www.encephale.com/Actualites/Breves/2024/Homologation-americaine-nouveau-type-antipsychotique-schizophrenie"
+      },
+      {
+        "authors": "AXA & IPSOS",
+        "year": "2026",
+        "title": "Baromètre Mind Health 2026 : usage de l'IA en santé mentale",
+        "journal": "Euronews",
+        "url": "https://fr.euronews.com/sante/2026/06/03/plus-de-60-des-gens-utilisent-lia-pour-leur-sante-mentale-mais-beaucoup-en-sont-insatisfai"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
     "excerpt": "",
