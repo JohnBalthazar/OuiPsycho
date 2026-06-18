@@ -26,6 +26,33 @@
     "status": "scheduled"
   },
   {
+    "id": "meredith-grey-sur-le-divan",
+    "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
+    "type": "article",
+    "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
+    "date": "2026-09-08",
+    "date_modified": "2026-06-18",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "résilience",
+      "attachement",
+      "trauma",
+      "psychologie",
+      "Grey's Anatomy",
+      "soutien social"
+    ],
+    "metaDescription": "Trauma, attachement, résilience : ce que la psychologie révèle sur Meredith Grey, l'héroïne de Grey's Anatomy. Avec un test pour trouver votre profil.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
     "excerpt": "",
@@ -915,32 +942,6 @@
     "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
     "articles_lies": [],
     "status": "published"
-  },
-  {
-    "id": "meredith-grey-sur-le-divan",
-    "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
-    "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
-    "date": "2026-06-18",
-    "date_modified": "2026-06-18",
-    "category": "Nos héros",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "résilience",
-      "attachement",
-      "trauma",
-      "psychologie",
-      "Grey's Anatomy",
-      "soutien social"
-    ],
-    "metaDescription": "Trauma, attachement, résilience : ce que la psychologie révèle sur Meredith Grey, l'héroïne de Grey's Anatomy. Avec un test pour trouver votre profil.",
-    "articles_lies": [],
-    "status": "scheduled"
   },
   {
     "id": "hitler-sur-le-divan",
