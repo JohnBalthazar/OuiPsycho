@@ -1,9 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quel sexe symbole etes-vous ?</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Quel sex-symbol êtes-vous ?</title>
 <style>
   :root{
     --bg:#fffaf5; --card:#ffffff; --ink:#3a3340; --muted:#8a8190;
@@ -47,45 +63,45 @@
 <script>
 var QUESTIONS=[
  {q:"En soirée, on vous repère plutôt...",a:[
-   ["au centre, a faire rire toute la tablee","solaire"],
+   ["au centre, à faire rire toute la tablée","solaire"],
    ["en retrait, le regard insondable","magnetique"],
-   ["a refaire le monde dans un coin","esprit"],
-   ["a transgresser gentiment le reglement","rebelle"]]},
- {q:"Votre arme de seduction secrete ?",a:[
-   ["votre sourire qui desarme","solaire"],
+   ["à refaire le monde dans un coin","esprit"],
+   ["à transgresser gentiment le règlement","rebelle"]]},
+ {q:"Votre arme de séduction secrète ?",a:[
+   ["votre sourire qui désarme","solaire"],
    ["votre silence qui intrigue","magnetique"],
    ["votre conversation qui captive","esprit"],
-   ["votre audace qui electrise","rebelle"]]},
- {q:"On vous compare souvent a...",a:[
+   ["votre audace qui électrise","rebelle"]]},
+ {q:"On vous compare souvent à...",a:[
    ["un rayon de soleil","solaire"],
-   ["une enigme bien gardee","magnetique"],
-   ["un livre dont on ne decroche pas","esprit"],
-   ["une etincelle imprevisible","rebelle"]]},
+   ["une énigme bien gardée","magnetique"],
+   ["un livre dont on ne décroche pas","esprit"],
+   ["une étincelle imprévisible","rebelle"]]},
  {q:"Le compliment qui vous touche le plus ?",a:[
-   ["\"tu illumines une piece\"","solaire"],
-   ["\"on ne sait jamais a quoi tu penses\"","magnetique"],
-   ["\"tu es fascinant a ecouter\"","esprit"],
+   ["\"tu illumines une pièce\"","solaire"],
+   ["\"on ne sait jamais à quoi tu penses\"","magnetique"],
+   ["\"tu es fascinant à écouter\"","esprit"],
    ["\"tu n'as peur de rien\"","rebelle"]]},
- {q:"Votre idee du moment parfait ?",a:[
-   ["une plage, des amis, des eclats de rire","solaire"],
-   ["un bar feutre, une conversation a deux","magnetique"],
-   ["une expo puis un debat jusqu'a l'aube","esprit"],
-   ["un road trip decide a la derniere minute","rebelle"]]},
- {q:"Au cinema, vous seriez plutot...",a:[
+ {q:"Votre idée du moment parfait ?",a:[
+   ["une plage, des amis, des éclats de rire","solaire"],
+   ["un bar feutré, une conversation à deux","magnetique"],
+   ["une expo puis un débat jusqu'à l'aube","esprit"],
+   ["un road trip décidé à la dernière minute","rebelle"]]},
+ {q:"Au cinéma, vous seriez plutôt...",a:[
    ["la star solaire que tout le monde adore","solaire"],
    ["la figure fatale et insaisissable","magnetique"],
    ["l'esprit brillant qui fait chavirer par les mots","esprit"],
-   ["l'antihero charismatique et frondeur","rebelle"]]}
+   ["l'antihéro charismatique et frondeur","rebelle"]]}
 ];
 var RESULTS={
- solaire:{emoji:"\u2600\uFE0F",title:"L'icone solaire",tag:"chaleur & lumiere",
-   text:"Vous seduisez comme on rechauffe : sans effort apparent. <strong>Genereux, accessible, rayonnant</strong>, vous mettez les gens a l'aise et c'est precisement la votre magnetisme. Pensez Marilyn cote lumineux, ou l'energie d'une Beyonce. Votre seul piege : croire que vous devez briller en permanence. Vous avez aussi le droit d'eteindre la lumiere."},
- magnetique:{emoji:"\uD83C\uDF11",title:"Le charme magnetique",tag:"mystere & retenue",
-   text:"Vous ne dites pas tout, et c'est exactement ce qui fait tourner les tetes. <strong>Reserve, elegant, un brin enigmatique</strong>, vous laissez l'autre completer le tableau, ce fameux effet de halo qui transforme le silence en profondeur. Cote Garbo ou Bardot. Attention quand meme : derriere le mystere, n'oubliez pas de vous laisser vraiment connaitre."},
- esprit:{emoji:"\uD83D\uDCAC",title:"L'esprit seduisant",tag:"verbe & intelligence",
-   text:"Votre arme fatale, c'est la matiere grise. <strong>Vif, curieux, drole</strong>, vous seduisez par une phrase bien placee plus surement que par un selfie. Le charme intellectuel a ceci de magique qu'il ne se perime pas. Votre defi : accepter qu'on puisse aussi vous trouver craquant quand vous ne dites rien d'intelligent."},
- rebelle:{emoji:"\u26A1",title:"Le rebelle iconique",tag:"audace & liberte",
-   text:"Vous ne suivez pas la regle, vous l'inventez, et ca, c'est terriblement attirant. <strong>Libre, intense, imprevisible</strong>, vous incarnez le frisson facon James Dean. Le danger maitrise fait fondre, c'est connu. Le revers : tout le monde n'a pas envie d'un grand huit permanent. Choisissez vos batailles."}
+ solaire:{emoji:"☀️",title:"L'icône solaire",tag:"chaleur & lumière",
+   text:"Vous séduisez comme on réchauffe : sans effort apparent. <strong>Généreux·se, accessible, rayonnant·e</strong>, vous mettez les gens à l'aise et c'est précisément là votre magnétisme. Pensez Marilyn côté lumineux, ou l'énergie d'une Beyoncé. Votre seul piège : croire que vous devez briller en permanence. Vous avez aussi le droit d'éteindre la lumière."},
+ magnetique:{emoji:"🌑",title:"Le charme magnétique",tag:"mystère & retenue",
+   text:"Vous ne dites pas tout, et c'est exactement ce qui fait tourner les têtes. <strong>Réservé·e, élégant·e, un brin énigmatique</strong>, vous laissez l'autre compléter le tableau, ce fameux effet de halo qui transforme le silence en profondeur. Côté Garbo ou Bardot. Attention quand même : derrière le mystère, n'oubliez pas de vous laisser vraiment connaître."},
+ esprit:{emoji:"💬",title:"L'esprit séduisant",tag:"verbe & intelligence",
+   text:"Votre arme fatale, c'est la matière grise. <strong>Vif·ve, curieux·se, drôle</strong>, vous séduisez par une phrase bien placée plus sûrement que par un selfie. Le charme intellectuel a ceci de magique qu'il ne se périme pas. Votre défi : accepter qu'on puisse aussi vous trouver craquant·e quand vous ne dites rien d'intelligent."},
+ rebelle:{emoji:"⚡",title:"Le rebelle iconique",tag:"audace & liberté",
+   text:"Vous ne suivez pas la règle, vous l'inventez, et ça, c'est terriblement attirant. <strong>Libre, intense, imprévisible</strong>, vous incarnez le frisson façon James Dean. Le danger maîtrisé fait fondre, c'est connu. Le revers : tout le monde n'a pas envie d'un grand huit permanent. Choisissez vos batailles."}
 };
 var idx=0, scores={solaire:0,magnetique:0,esprit:0,rebelle:0};
 
@@ -122,7 +138,7 @@ function showResult(){
   html+='<div class="res-title">'+r.title+'</div>';
   html+='<span class="res-tag">'+r.tag+'</span></div>';
   html+='<p class="res-text">'+r.text+'</p>';
-  html+='<div style="text-align:center"><button class="again" onclick="restart()">\u21BA Refaire le test</button></div>';
+  html+='<div style="text-align:center"><button class="again" onclick="restart()">↺ Refaire le test</button></div>';
   document.getElementById('quiz').innerHTML=html;
   notifyResize();
 }
