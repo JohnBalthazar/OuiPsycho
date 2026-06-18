@@ -786,32 +786,6 @@
     "status": "scheduled"
   },
   {
-    "id": "accords-tolteques-psychologie-neurosciences",
-    "title": "Les quatre accords toltèques : la sagesse ancestrale à l'épreuve de la science",
-    "excerpt": "",
-    "date": "2026-06-23",
-    "date_modified": "2026-06-11",
-    "category": "Thérapies",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "accords-tolteques",
-      "pleine-conscience",
-      "neurosciences",
-      "therapies",
-      "developpement-personnel",
-      "cognition"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
     "excerpt": "",
@@ -914,6 +888,33 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
+  },
+  {
+    "id": "accords-tolteques-psychologie-neurosciences",
+    "title": "Les quatre accords toltèques : la sagesse ancestrale à l'épreuve de la science",
+    "type": "article",
+    "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
+    "date": "2026-06-18",
+    "date_modified": "2026-06-18",
+    "category": "Thérapies",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/i6bt887t836rh19sc78m",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "accords-tolteques",
+      "pleine-conscience",
+      "neurosciences",
+      "therapies",
+      "developpement-personnel",
+      "cognition"
+    ],
+    "metaDescription": "Les quatre accords toltèques de Don Miguel Ruiz décryptés par la psychologie et les neurosciences : ce que la science confirme, nuance ou contredit.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "meredith-grey-sur-le-divan",
