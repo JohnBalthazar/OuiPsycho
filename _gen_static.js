@@ -109,7 +109,7 @@ ${srcItems}
       "url": `${BASE}/`,
       "logo": { "@type": "ImageObject", "url": `${BASE}/img/favicon.svg` }
     },
-    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/${j.id}/` },
     "keywords": j.tags.join(', '),
     "articleSection": j.category,
     "wordCount": wordCount
@@ -140,7 +140,7 @@ ${srcItems}
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${BASE}/` },
       { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs },
-      { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}/` }
+      { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/${j.id}/` }
     ]
   });
 
@@ -151,7 +151,7 @@ ${srcItems}
   const dateLabel   = fdMod ? `Mis à jour le ${fdMod}` : `Publié le ${fd}`;
   const dateDatetime = j.date_modified || j.date;
 
-  const outDir  = path.join(DIR, j.id);
+  const outDir  = path.join(__dirname, j.id);
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
 
   const html = `<!DOCTYPE html>
@@ -164,12 +164,12 @@ ${srcItems}
   <meta name="author" content="${j.author}">
   <meta name="robots" content="${robotsMeta}">
   <meta name="theme-color" content="#1F4E6B">
-  <base href="../../">
-  <link rel="canonical" href="${BASE}/articles/${j.id}/">
+  <base href="../">
+  <link rel="canonical" href="${BASE}/${j.id}/">
   <meta property="og:type"                    content="article">
   <meta property="og:title"                   content="${j.title} — Oui Psycho!">
   <meta property="og:description"             content="${j.metaDescription}">
-  <meta property="og:url"                     content="${BASE}/articles/${j.id}/">
+  <meta property="og:url"                     content="${BASE}/${j.id}/">
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
@@ -409,6 +409,25 @@ ${sourcesHtml}
 
   fs.writeFileSync(path.join(outDir, 'index.html'), html, 'utf8');
   console.log(`✓ ${j.id}/index.html`);
+
+  // ── Redirection 301-like vers la nouvelle URL (ancienne URL /articles/{id}/) ──
+  const oldDir = path.join(DIR, j.id);
+  if (!fs.existsSync(oldDir)) fs.mkdirSync(oldDir, { recursive: true });
+  const redirectHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <link rel="canonical" href="${BASE}/${j.id}/">
+  <meta http-equiv="refresh" content="0; url=/${j.id}/">
+  <title>Redirection…</title>
+</head>
+<body>
+  <p>Cette page a déménagé. <a href="/${j.id}/">Cliquez ici</a> si vous n'êtes pas redirigé automatiquement.</p>
+  <script>window.location.replace('/${j.id}/');<\/script>
+</body>
+</html>`;
+  fs.writeFileSync(path.join(oldDir, 'index.html'), redirectHtml, 'utf8');
+  console.log(`  ↳ redirection articles/${j.id}/index.html`);
 }
 
 // ── Mise à jour de data/articles.json (index page d'accueil) ─────────────────
@@ -624,7 +643,7 @@ sitemapXml += `\n\n  <!-- Articles (${totalArticles} publiés — généré auto
 sitemapArticles.forEach((a, i) => {
   sitemapXml += `
   <url>
-    <loc>${BASE}/articles/${a.id}/</loc>
+    <loc>${BASE}/${a.id}/</loc>
     <lastmod>${sitemapLastmod(a)}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>${i === 0 && orphanArticles.length === 0 ? '0.9' : '0.8'}</priority>

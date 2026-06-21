@@ -96,7 +96,7 @@ function skeletons(n) {
    RENDU — CARTE STANDARD
    ============================================================ */
 function articleUrl(id) {
-  return `articles/${esc(id)}/`;
+  return `${esc(id)}/`;
 }
 
 function renderCard(article) {
@@ -435,11 +435,8 @@ async function initArticle() {
   if (!id) { window.location.href = '404.html'; return; }
 
   // Rediriger vers la page statique si elle existe
-  const staticUrl = `articles/${encodeURIComponent(id)}/`;
-  if (window.location.pathname.indexOf('/articles/') === -1) {
-    window.location.replace(staticUrl);
-    return;
-  }
+  window.location.replace(`/${encodeURIComponent(id)}/`);
+  return;
 
   try {
     const res = await fetch(`${CONFIG.articlesBase}${encodeURIComponent(id)}.json`);
@@ -1652,12 +1649,12 @@ function dossierUrl(id) {
 }
 
 /** Carte dossier (home + listing)
- *  d._path = 'articles' → lien vers articles/SLUG/
+ *  d._path = 'articles' → lien vers /{SLUG}/
  *  d._path = 'dossiers' (ou absent) → lien vers dossiers/SLUG/
  */
 function renderDossierCard(d) {
   const cat      = CATEGORIES[d.category] || {};
-  const url      = d._path === 'articles' ? `articles/${esc(d.id)}/` : `dossiers/${esc(d.id)}/`;
+  const url      = d._path === 'articles' ? `${esc(d.id)}/` : `dossiers/${esc(d.id)}/`;
   const imgStyle = d.image
     ? `background-image:url('${esc(d.image)}');background-size:cover;background-position:center`
     : '';
