@@ -28,10 +28,11 @@ const CAT = {
 
 // Catégories qui ont leur propre page rubrique (pas de filtre homepage)
 const RUBRIQUE_PAGES = {
-  'Société':                   'societe.html',
-  'Sexo':                      'sexo.html',
-  'Nos héros sur le divan':    'nos-heros-sur-le-divan.html',
-  'Les monstres sur le divan': 'les-monstres-sur-le-divan.html',
+  'Société':                          'societe.html',
+  'Société & psychologie politique':  'societe.html',
+  'Sexo':                             'sexo.html',
+  'Nos héros sur le divan':           'nos-heros-sur-le-divan.html',
+  'Les monstres sur le divan':        'les-monstres-sur-le-divan.html',
 };
 
 const NAV_CATS = ['Anxiété','Dépression','Bien-être','Stress','Sommeil','Thérapies','Relations'];
@@ -253,8 +254,9 @@ ${srcItems}
         <div class="cat-nav__divider" aria-hidden="true"></div>
 ${navHtml}
         <div class="cat-nav__divider" aria-hidden="true"></div>
-        <a class="cat-nav__btn${j.category === 'Société' ? ' active' : ''}" href="societe.html">🌍 Société</a>
+        <a class="cat-nav__btn${j.category === 'Société' || j.category === 'Société & psychologie politique' ? ' active' : ''}" href="societe.html">🌍 Société</a>
         <a class="cat-nav__btn${j.category === 'Sexo' ? ' active' : ''}" href="sexo.html">❤️ Sexo</a>
+        <a class="cat-nav__btn" href="dossiers.html">📚 Dossiers</a>
       </div>
     </nav>
   </header>

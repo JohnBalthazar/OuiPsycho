@@ -1563,7 +1563,7 @@ async function initSocieteRubrique() {
 
     const res  = await fetch('data/articles.json?t=' + Date.now());
     const all  = res.ok ? await res.json() : [];
-    const list = all.filter(a => a.category === 'Société' && isOk(a))
+    const list = all.filter(a => (a.category === 'Société' || a.category === 'Société & psychologie politique') && isOk(a))
                     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
     if (!list.length) {
