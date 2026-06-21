@@ -96,7 +96,7 @@ function skeletons(n) {
    RENDU — CARTE STANDARD
    ============================================================ */
 function articleUrl(id) {
-  return `${esc(id)}/`;
+  return `articles/${esc(id)}/`;
 }
 
 function renderCard(article) {

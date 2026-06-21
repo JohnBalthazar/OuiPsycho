@@ -43,7 +43,7 @@ function urlEntry({ loc, lastmod, changefreq, priority }) {
 }
 
 const articleEntries = articles.map((a, i) => urlEntry({
-  loc:        `${BASE}/${a.id}/`,
+  loc:        `${BASE}/articles/${a.id}/`,
   lastmod:    a.date_modified || a.date,
   changefreq: 'monthly',
   priority:   i === 0 ? '0.9' : '0.8',
