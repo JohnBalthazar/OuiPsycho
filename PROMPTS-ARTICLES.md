@@ -98,6 +98,8 @@ Pour un article planifié : "status": "scheduled".
 Le champ "content" contient le HTML complet de l'article :
 - Balises <h2>, <h3>, <p>, <ul>/<ol>/<li>, <strong>, <em>
 - Liens sources dans le texte : <a href="URL" class="ref-link" title="Auteur (année)">ancre</a>
+- Liens internes vers d'autres articles : <a href="articles/slug-article/">Texte</a>
+  (avec préfixe articles/ — les articles sont à ouipsycho.fr/articles/slug-article/)
 - Les " dans le HTML s'écrivent \" en JSON, les sauts de ligne \n
 - Minimum 1500 mots, approche psychologique rigoureuse, ton accessible mais sérieux
 ```
@@ -110,6 +112,12 @@ Le champ "content" contient le HTML complet de l'article :
 
 ```
 Crée un article Oui Psycho! sur le thème : [SUJET]
+Sujet de l'article :
+Titre : [TITRE]
+Catégorie : [CATÉGORIE]
+Dossier : [OUI/NON]
+Angle : psychologique et scientifique
+Ton : Sérieux, complice et humoristique, bref décontracté
 
 Inclus un quiz interactif à la fin (test de personnalité / auto-évaluation).
 
@@ -247,6 +255,22 @@ L'admin publie automatiquement :
 | Article JSON | `articles/{id}.json` |
 | Page statique | `articles/{id}/index.html` |
 | Quiz HTML | `tests/{quiz.filename}` |
+
+> ℹ️ Les articles sont servis à **ouipsycho.fr/articles/{id}/**.  
+> Une page de redirection est automatiquement générée à `{id}/index.html` (racine) pour la compatibilité des anciens liens.
+
+---
+
+## Liens internes dans le contenu
+
+Pour créer un lien vers un autre article du site dans le champ `content` :
+
+```html
+<a href="articles/slug-de-larticle/">Texte du lien</a>
+```
+
+> ℹ️ Les articles sont à **ouipsycho.fr/articles/{id}/** — toujours utiliser le préfixe `articles/`.  
+> La balise `<base href="../../">` injectée automatiquement résout le chemin depuis la racine.
 
 ---
 
