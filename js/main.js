@@ -186,7 +186,7 @@ async function initHome() {
   grid.innerHTML = skeletons(6);
 
   try {
-    const res = await fetch(CONFIG.dataUrl);
+    const res = await fetch(CONFIG.dataUrl + '?v=' + Date.now());
     if (!res.ok) throw new Error('articles.json introuvable');
     allArticles = await res.json();
 
@@ -226,17 +226,23 @@ async function initHome() {
 
   function loadNext() {
     if (_rendering) return;
+    if (!filteredArticles.length || _nextDataStart >= filteredArticles.length) return;
     _rendering = true;
-    renderPage(grid, null);
-    _rendering = false;
+    try {
+      renderPage(grid, null);
+    } catch(e) {
+      console.error('[scroll] renderPage error:', e);
+    } finally {
+      _rendering = false;
+    }
   }
 
   if (sentinel) {
     if ('IntersectionObserver' in window) {
-      // IntersectionObserver : déclenche 250px avant d'atteindre le sentinel
+      // IntersectionObserver : déclenche 300px avant d'atteindre le sentinel
       _scrollObserver = new IntersectionObserver(
         (entries) => { if (entries[0].isIntersecting) loadNext(); },
-        { rootMargin: '250px 0px', threshold: 0 }
+        { rootMargin: '300px 0px', threshold: 0 }
       );
       _scrollObserver.observe(sentinel);
     } else {
