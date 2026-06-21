@@ -4159,7 +4159,7 @@ function renderCommentsTable() {
         ${c.author_email ? `<div style="font-size:.72rem;color:var(--gray-400)">${escapeAttr(c.author_email)}</div>` : ''}
       </td>
       <td>
-        <a href="articles/${escapeAttr(c.article_id)}/" target="_blank"
+        <a href="${escapeAttr(c.article_id)}/" target="_blank"
            style="font-size:.8rem;color:var(--primary);word-break:break-all">${escapeAttr(c.article_id)}</a>
       </td>
       <td style="max-width:260px">
