@@ -1,210 +1,329 @@
-# PROMPT — Créer un article pour Oui Psycho!
+# Prompts de création d'articles — Oui Psycho!
 
-> **Instructions à coller en début de conversation avec Claude.**
-> Elles garantissent la compatibilité avec le site et évitent les bugs d'encodage, de liens cassés et de structure.
-
----
-
-## Contexte du site
-
-- Site : **ouipsycho.fr** — blog de vulgarisation en santé mentale
-- Stack : HTML statique généré par `node _gen_static.js` depuis des fichiers JSON
-- Les articles sont dans `articles/<slug>.json`
-- Après livraison du JSON → lancer `node _gen_static.js` pour générer le HTML
+> Trois variantes selon le type d'article. Lire d'abord la section **Rubriques & catégories** pour bien orienter la demande.
 
 ---
 
-## Ce que tu dois produire
+## 📌 Rubriques & catégories disponibles
 
-**Sauf demande explicite de design personnalisé**, génère toujours un **fichier JSON** (pas un HTML).  
-Format : `articles/<slug>.json`
+### Catégories standard
+
+| Catégorie | Description |
+|-----------|-------------|
+| `Anxiété` | Troubles anxieux, phobies, crises de panique |
+| `Dépression` | Dépression, burn-out, épisodes dépressifs |
+| `Bien-être` | Bonheur, pleine conscience, hygiène mentale |
+| `Stress` | Gestion du stress, cortisol, surcharge |
+| `Sommeil` | Insomnie, cycles, santé du sommeil |
+| `Thérapies` | TCC, psychanalyse, EMDR, choisir son psy… |
+| `Relations` | Couple, amour, attachement, famille |
+| `Développement personnel` | Estime de soi, confiance, motivation |
+| `Travail` | Travail, management, vie pro |
+| `Émotions & identité` | Honte, colère, deuil, identité |
+| `Neurosciences & genre` | Cerveau, genre, biais cognitifs |
+| `Société & psychologie politique` | Société, politique, comportements collectifs |
+| `Sexo` | Désir, couple, intimité, sexualité sans tabous |
+
+### Rubriques spéciales (pages dédiées sur le site)
+
+| Type | Catégorie JSON | Page dédiée |
+|------|---------------|-------------|
+| 🦸 **Nos héros sur le divan** | `"Nos héros sur le divan"` | nos-heros-sur-le-divan.html |
+| 💀 **Les monstres sur le divan** | `"Les monstres sur le divan"` | les-monstres-sur-le-divan.html |
+
+> Ces rubriques analysent des personnages de fiction (héros ou antagonistes) sous l'angle de la psychologie. Utiliser ces catégories **exactes** (casse et accents compris) dans le JSON.
+
+### Type d'article
+
+| Valeur | Usage |
+|--------|-------|
+| `"article"` | Article classique (défaut) |
+| `"dossier"` | Dossier de fond — apparaît aussi dans la section 📚 Dossiers |
 
 ---
 
-## Champs JSON obligatoires
+## Prompt — Article standard (sans quiz)
 
-```json
+```
+Crée un article Oui Psycho! sur le thème : [SUJET]
+
+Génère un bloc de code JSON respectant exactement ce format :
+
 {
-  "id": "slug-en-minuscules-sans-accents",
-  "title": "Titre exact avec majuscule initiale",
-  "excerpt": "Une phrase d'accroche (2-3 lignes, visible dans les cards).",
-  "metaDescription": "Description SEO 140-160 caractères.",
+  "id": "slug-de-larticle",
+  "title": "Titre accrocheur",
+  "type": "article",
+  "excerpt": "Description courte et accrocheuse (2 phrases max).",
+  "metaDescription": "Description SEO (155 caractères max).",
   "author": "La rédaction Oui Psycho!",
   "date": "YYYY-MM-DD",
   "date_modified": "YYYY-MM-DD",
-  "category": "<une des 8 catégories — voir liste ci-dessous>",
+  "category": "[CATÉGORIE — voir liste]",
   "image": "",
-  "readTime": 5,
-  "tags": ["tag1", "tag2", "tag3", "tag4", "tag5"],
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "readTime": 8,
+  "tags": ["tag-1", "tag-2", "tag-3"],
   "keypoints": [
-    "Point clé 1 (phrase complète, ~15 mots)",
+    "Point clé 1 (phrase complète)",
     "Point clé 2",
     "Point clé 3",
     "Point clé 4",
     "Point clé 5"
   ],
-  "content": "<p>Contenu HTML ici…</p>",
+  "content": "<!-- contenu HTML complet de l'article -->",
+  "sources": [
+    {
+      "authors": "Nom A. & Nom B.",
+      "year": "2024",
+      "title": "Titre de l'étude ou ouvrage",
+      "journal": "Nom de la revue",
+      "url": "https://..."
+    }
+  ],
+  "articles_lies": [],
+  "status": "published"
+}
+
+Catégories disponibles :
+Anxiété | Dépression | Bien-être | Stress | Sommeil | Thérapies | Relations
+Développement personnel | Travail | Émotions & identité | Neurosciences & genre
+Société & psychologie politique | Sexo | Nos héros sur le divan | Les monstres sur le divan
+
+Pour un dossier de fond : "type": "dossier" au lieu de "article".
+Pour un article planifié : "status": "scheduled".
+
+Le champ "content" contient le HTML complet de l'article :
+- Balises <h2>, <h3>, <p>, <ul>/<ol>/<li>, <strong>, <em>
+- Liens sources dans le texte : <a href="URL" class="ref-link" title="Auteur (année)">ancre</a>
+- Liens internes vers d'autres articles : <a href="slug-article/">Texte</a>
+  (chemin relatif sans préfixe — les articles sont à ouipsycho.fr/slug-article/)
+- Les " dans le HTML s'écrivent \" en JSON, les sauts de ligne \n
+- Minimum 1500 mots, approche psychologique rigoureuse, ton accessible mais sérieux
+```
+
+---
+
+## Prompt — Article avec quiz interactif
+
+> ⚠️ **Ne jamais embarquer le HTML du quiz dans le JSON** — erreurs d'encodage systématiques. Toujours 2 fichiers séparés.
+
+```
+Crée un article Oui Psycho! sur le thème : [SUJET]
+Sujet de l'article :
+Titre : 12 façons de raviver la flamme
+Catégorie : Sexo
+Dossier : 
+Angle : psychologique et scientifique
+Ton : Sérieux, complice et humoristique, bref décontracté
+
+Inclus un quiz interactif à la fin (test de personnalité / auto-évaluation).
+
+Génère DEUX blocs de code séparés et distincts — pas de JSON combiné :
+
+---
+
+### BLOC 1 — Article JSON
+
+{
+  "id": "slug-de-larticle",
+  "title": "...",
+  "type": "article",
+  "excerpt": "...",
+  "metaDescription": "...",
+  "author": "La rédaction Oui Psycho!",
+  "date": "YYYY-MM-DD",
+  "date_modified": "YYYY-MM-DD",
+  "category": "[CATÉGORIE]",
+  "image": "",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "readTime": 10,
+  "tags": ["tag-1", "tag-2"],
+  "keypoints": ["Point 1", "Point 2", "Point 3"],
+  "content": "<!-- contenu HTML -->\n\n<h2>[Titre du quiz]</h2>\n<p>[Intro courte]</p>\n<iframe src=\"tests/FILENAME\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"[Titre]\" id=\"quiz-frame-QUIZ_ID\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-QUIZ_ID');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>",
+  "quiz": { "filename": "slug-de-larticle-quiz.html" },
+  "sources": [
+    { "authors": "Auteur A.", "year": "2024", "title": "Titre", "journal": "Revue", "url": "https://..." }
+  ],
+  "articles_lies": [],
+  "status": "published"
+}
+
+Remplace FILENAME par le nom du fichier quiz (ex: slug-de-larticle-quiz.html)
+et QUIZ_ID par le slug sans extension (ex: slug-de-larticle-quiz).
+Le </script> dans la string JSON ne nécessite PAS d'échappement supplémentaire.
+
+---
+
+### BLOC 2 — Quiz HTML autonome
+
+Un fichier HTML complet et autonome (<!DOCTYPE html>…</html>) avec :
+- Tous les styles inline (aucune dépendance externe)
+- La fonction notifyResize() appelée après CHAQUE rendu :
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+- notifyResize() appelé à chaque changement d'état (question suivante, résultat, recommencer)
+- 8 à 12 questions, 3 à 4 profils de résultats distincts, styles soignés
+
+Nomme le fichier : slug-de-larticle-quiz.html
+```
+
+---
+
+## Format JSON complet — référence
+
+```json
+{
+  "id": "slug-de-larticle",
+  "title": "Titre de l'article",
+  "type": "article",
+  "excerpt": "Résumé accrocheur en 1–2 phrases.",
+  "metaDescription": "Description SEO 155 caractères max.",
+  "author": "La rédaction Oui Psycho!",
+  "date": "2026-06-17",
+  "date_modified": "2026-06-17",
+  "category": "Bien-être",
+  "image": "",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "readTime": 8,
+  "tags": ["tag-1", "tag-2", "tag-3"],
+  "keypoints": [
+    "Point clé 1 — phrase complète.",
+    "Point clé 2.",
+    "Point clé 3."
+  ],
+  "content": "<p>Contenu HTML…</p>",
+  "quiz": { "filename": "mon-quiz.html" },
+  "sources": [
+    {
+      "authors": "Dupont J. & Martin A.",
+      "year": "2023",
+      "title": "Titre de l'étude",
+      "journal": "Revue de psychologie",
+      "url": "https://doi.org/..."
+    },
+    {
+      "authors": "Smith B.",
+      "year": "2022",
+      "title": "Titre d'un ouvrage",
+      "publisher": "Éditions XYZ"
+    }
+  ],
+  "articles_lies": ["slug-article-1", "slug-article-2"],
   "status": "published"
 }
 ```
 
----
+### Référence des champs
 
-## Catégories valides (exactement comme écrit)
-
-```
-Anxiété
-Dépression
-Bien-être
-Relations
-Stress
-Sommeil
-Thérapies
-Développement personnel
-```
-
-> ⚠️ Toute autre valeur provoque une couleur/badge gris générique.
+| Champ | Valeurs possibles | Notes |
+|-------|------------------|-------|
+| `type` | `"article"` · `"dossier"` | dossier = apparaît aussi dans 📚 Dossiers |
+| `status` | `"published"` · `"scheduled"` · `"draft"` | scheduled = planifié à la date du champ `date` |
+| `category` | voir tableau des catégories | casse et accents **exacts** obligatoires |
+| `articles_lies` | `["slug-1", "slug-2"]` | max 3 — section "À lire aussi" |
+| `sources` | tableau d'objets | `journal` OU `publisher` + `url` optionnel |
+| `quiz` | `{ "filename": "..." }` | uniquement si article avec quiz — jamais de champ `html` |
+| `imageLayout` | `"top"` · `"side"` · `"none"` | position de l'image dans la page |
+| `imageGravity` | `"none"` · `"top"` · `"bottom"` | recadrage de l'image si nécessaire |
 
 ---
 
-## Règles d'encodage — CRITIQUE
+## Comment importer dans l'admin
 
-Ces erreurs ont été trouvées dans les anciens articles. Ne jamais les reproduire.
+1. Aller dans **Admin → Import / Export**
+2. **Zone ①** : déposer le fichier `.json` (article)
+3. **Zone ②** : déposer le `.html` du quiz *(uniquement si article avec quiz)*
+4. Vérifier la date et le statut dans le panneau de confirmation
+5. Cliquer **🚀 Publier sur GitHub**
 
-| ❌ Interdit | ✅ Correct | Caractère |
-|---|---|---|
-| `â` seul comme tiret | `—` | Em-dash (tiret long) |
-| `Ã ` (Ã + espace) | `à` | a-grave |
-| `Ãa` | `Ça` | C cédille + a |
-| `Ãtes` | `Êtes` | E accent circonflexe |
-| `--` ou `-` long | `—` | Em-dash |
-| `"` `"` (guillemets typographiques) | `« ... »` ou `"..."` | Guillemets |
+L'admin publie automatiquement :
 
-**Caractères français autorisés directement** : `é è ê ë à â ä ù û ü î ï ô ö ç œ æ — « » …`  
-**Ne jamais** écrire un caractère spécial en séquence d'échappement HTML (`&#8212;` etc.) — le générateur insère déjà `charset="UTF-8"`.
+| Fichier | Chemin GitHub |
+|---------|--------------|
+| Article JSON | `articles/{id}.json` |
+| Page statique | `{id}/index.html` |
+| Quiz HTML | `tests/{quiz.filename}` |
 
----
-
-## Règles pour les liens dans `content`
-
-### Liens externes (sources, études, références)
-```html
-<a href="https://URL-EXACTE-ICI" target="_blank" rel="noopener noreferrer" class="ref-link" title="Auteur (Année) — Description">Texte affiché</a>
-```
-- Le `href` ne contient **que l'URL**, jamais de texte, parenthèses ou virgules après
-- URL DOI : `https://doi.org/10.XXXX/XXXXX` — vérifier que le DOI est complet
-- PubMed : `https://pubmed.ncbi.nlm.nih.gov/XXXXXXXX/`
-- Si l'URL n'est pas certaine → **ne pas mettre de lien**, citer en texte simple
-
-### Liens internes (vers d'autres articles du site)
-```html
-<a href="articles/slug-article.html">Texte</a>
-```
-- Chemin relatif depuis la racine (le `<base href="../">` est injecté automatiquement)
-- Slugs disponibles : voir liste dans `articles/*.json`
+> ℹ️ Les articles sont servis à **ouipsycho.fr/{id}/** (sans préfixe `/articles/`).  
+> Une page de redirection est automatiquement générée à `articles/{id}/index.html` pour les anciens liens.
 
 ---
 
-## Structure HTML du champ `content`
+## Liens internes dans le contenu
 
-Balises autorisées dans `content` (pas de `<div>`, pas de `<style>`, pas de `<script>`) :
+Pour créer un lien vers un autre article du site dans le champ `content` :
 
 ```html
-<p>Paragraphe</p>
-<h2>Titre de section</h2>
-<h3>Sous-titre</h3>
-<ul><li>Item</li></ul>
-<ol><li>Item numéroté</li></ol>
-<strong>Gras</strong>
-<em>Italique</em>
-<blockquote>Citation</blockquote>
-<a href="...">Lien</a>
-<br>
+<a href="slug-de-larticle/">Texte du lien</a>
 ```
 
-> Le template HTML du site gère tout le reste (header, footer, sidebar, TOC, newsletter, cookie banner, GA).
+> ⚠️ **Pas de préfixe `articles/`** — les articles sont à la racine du site.  
+> La balise `<base href="../">` injectée automatiquement résout le chemin depuis la racine.
 
 ---
 
-## Champ `sources` — bibliographie en bas d'article
+## Structure du quiz HTML — référence
 
-**Toujours inclure ce champ** si l'article cite des études, livres ou rapports.  
-Il génère automatiquement la section "📚 Sources & références" en bas de page + le schema.org `citation` pour Google.
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[Titre du quiz]</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      padding: 2rem 1.5rem 3rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    /* ... styles du quiz ... */
+  </style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const questions = [ /* 8–12 questions */ ];
+const results   = { /* 3–4 profils */ };
 
-```json
-"sources": [
-  {
-    "authors": "Nom A. & Nom B.",
-    "year":    "2023",
-    "title":   "Titre exact de l'article",
-    "journal": "Nom de la revue",
-    "url":     "https://doi.org/10.XXXX/XXXXX"
-  },
-  {
-    "authors":   "Nom C.",
-    "year":      "2020",
-    "title":     "Titre du livre",
-    "publisher": "Éditeur"
-  }
-]
+let current = 0;
+let answers  = Array(questions.length).fill(null);
+
+function render() {
+  // ... générer le HTML dans #root ...
+  notifyResize(); // ⚠️ TOUJOURS appeler après chaque rendu
+}
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+render();
+</script>
+</body>
+</html>
 ```
 
-| Champ | Obligatoire | Notes |
-|---|---|---|
-| `authors` | oui | "Nom P. & Nom Q." ou "Organisation" |
-| `year` | oui | "2023" |
-| `title` | oui | Titre exact, sans guillemets |
-| `journal` | si article | Pour les revues scientifiques |
-| `publisher` | si livre | Pour les ouvrages |
-| `url` | recommandé | DOI (`https://doi.org/...`), PubMed, ou URL directe |
-
-**Règles URL** :
-- DOI de préférence : `https://doi.org/10.XXXX/XXXXX` (format complet, pas tronqué)
-- PubMed : `https://pubmed.ncbi.nlm.nih.gov/XXXXXXXX/`
-- Si le DOI n'est pas certain → **omettre le champ `url`** (mieux vaut pas de lien qu'un lien cassé)
-- Ne jamais mettre de texte dans l'URL (ex: `url: "https://doi.org/10.1234/abcd, Auteur 2023"` est INTERDIT)
-
 ---
 
-## Longueur recommandée
+## Pourquoi 2 fichiers séparés pour le quiz ?
 
-| Élément | Cible |
-|---|---|
-| `content` | 800–1 500 mots (balises incluses) |
-| `metaDescription` | 140–160 caractères |
-| `excerpt` | 2–3 phrases |
-| `keypoints` | 4–6 points, ~12 mots chacun |
-| `tags` | 4–7 tags courts |
-| `readTime` | calculer : nb_mots ÷ 200 (arrondi) |
+L'admin supporte le mode embarqué (`"quiz": { "filename": "...", "html": "..." }`) mais Claude génère souvent du **JSON invalide** dans ce cas — le HTML complet (200–400 lignes) doit être encodé en une seule string avec chaque `"` en `\"`, chaque `\` en `\\`, chaque saut de ligne en `\n`. Une seule erreur casse tout le JSON.
 
----
-
-## Workflow après livraison du JSON
-
-1. Sauvegarder le fichier : `articles/<id>.json`
-2. Lancer : `node _gen_static.js`
-3. Vérifier : `articles/<id>.html` est créé
-4. Pousser : `git add -A && git commit -m "feat: nouvel article <titre>" && git push`
-
----
-
-## Si un design personnalisé est demandé (cas rare)
-
-Préciser dans la demande : **"article à design personnalisé"**.  
-Claude utilisera alors `_TEMPLATE_article_custom.html` comme base.  
-Les mêmes règles d'encodage et de liens s'appliquent.
-
----
-
-## Exemple de demande type
-
-```
-[COLLER CE PROMPT EN ENTIER]
-
-Voici le sujet de l'article :
-- Titre : "Comment gérer la jalousie en couple"
-- Catégorie : Relations
-- Angle : psychologie des émotions, conseils pratiques, 2-3 sources scientifiques
-- Longueur : ~1 000 mots
-- Ton : bienveillant, accessible, sans jargon
-```
+→ **Toujours préférer les 2 fichiers séparés** : plus fiable, plus lisible, l'admin gère les deux zones parfaitement.
