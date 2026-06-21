@@ -1831,7 +1831,7 @@ function renderDashboard() {
   const scheduled    = articles.filter(a => (a.status === 'scheduled' && a.date > today) || (!a.status && a.date > today));
   const drafts       = articles.filter(a => a.status === 'draft');
   const published    = articles.filter(a => !a.status || (a.status === 'published') || (a.status === 'scheduled' && a.date <= today));
-  const withoutPhoto = articles.filter(a => !(a.image && a.image.trim()));
+  const withoutPhoto = articles.filter(a => !(a.image && a.image.trim()) && !a.hasImage);
 
   document.getElementById('stats-grid').innerHTML = `
     <div class="stat-card">
@@ -1905,7 +1905,7 @@ function renderDashboard() {
 ══════════════════════════════════════════════ */
 function buildFilterChips() {
   const cats = [...new Set(articles.map(a => a.category))].sort();
-  const withPhoto    = articles.filter(a => a.image && a.image.trim()).length;
+  const withPhoto    = articles.filter(a => (a.image && a.image.trim()) || a.hasImage).length;
   const withoutPhoto = articles.length - withPhoto;
   document.getElementById('filter-bar').innerHTML =
     /* ── chips catégorie ── */
@@ -1947,7 +1947,7 @@ function getArticleStatusInfo(a) {
 function renderArticlesTable() {
   const q = (document.getElementById('search-input')?.value || '').toLowerCase();
   let list = articles.filter(a => {
-    const hasPhoto = !!(a.image && a.image.trim());
+    const hasPhoto = !!(a.image && a.image.trim()) || !!a.hasImage;
     return (activeCatFilter  === 'all' || a.category === activeCatFilter) &&
            (activePhotoFilter === 'all' ||
             (activePhotoFilter === 'with'    &&  hasPhoto) ||
@@ -1957,9 +1957,9 @@ function renderArticlesTable() {
   document.getElementById('articles-count').textContent = `(${list.length})`;
   document.getElementById('articles-table').innerHTML = list.map(a => {
     const si       = getArticleStatusInfo(a);
-    const hasPhoto = !!(a.image && a.image.trim());
+    const hasPhoto = !!(a.image && a.image.trim()) || !!a.hasImage;
     const photoCell = hasPhoto
-      ? `<span class="badge" style="background:#d1fae5;color:#065f46;font-size:.8rem" title="${a.image}">🖼️ Oui</span>`
+      ? `<span class="badge" style="background:#d1fae5;color:#065f46;font-size:.8rem" title="${a.image || '(image non exposée avant publication)'}">🖼️ Oui</span>`
       : `<span class="badge badge-gray" style="font-size:.8rem" title="Aucune image">— Non</span>`;
     return `
     <tr>

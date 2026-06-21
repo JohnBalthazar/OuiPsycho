@@ -487,6 +487,7 @@ const allIndex = jsonFiles.map(file => {
     date_modified:   j.date_modified    || j.date,
     category:        j.category,
     image:           isPublic ? (j.image           || '') : '',
+    hasImage:        !!(j.image && j.image.trim()),
     imagePosition:   j.imagePosition    || '50% 50%',
     imageZoom:       j.imageZoom        || 1,
     imageGravity:    j.imageGravity     || 'none',
