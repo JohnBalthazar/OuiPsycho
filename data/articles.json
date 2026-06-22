@@ -818,12 +818,12 @@
   {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "excerpt": "",
-    "date": "2026-06-26",
-    "date_modified": "2026-06-09",
+    "type": "article",
+    "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
+    "date": "2026-06-28",
+    "date_modified": "2026-06-22",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -838,7 +838,7 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "",
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
     "articles_lies": [],
     "status": "scheduled"
   },
