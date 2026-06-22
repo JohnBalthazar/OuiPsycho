@@ -519,12 +519,12 @@
   {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
     "date": "2026-07-28",
-    "date_modified": "2026-07-28",
+    "date_modified": "2026-06-22",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qc0q1g8vedl8l1vyjlik",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -539,7 +539,7 @@
       "esprit critique",
       "test"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
     "articles_lies": [],
     "status": "scheduled"
   },
