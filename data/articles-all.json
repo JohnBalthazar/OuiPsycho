@@ -462,12 +462,12 @@
   {
     "id": "reine-des-neiges-psychologie-heroine-glace",
     "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
     "date": "2026-08-06",
     "date_modified": "2026-06-22",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/knqdnjashbahaprr9pir",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -483,7 +483,7 @@
       "régulation émotionnelle",
       "cinéma"
     ],
-    "metaDescription": "",
+    "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -572,12 +572,12 @@
   {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
     "date": "2026-07-28",
     "date_modified": "2026-06-22",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qc0q1g8vedl8l1vyjlik",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -592,19 +592,19 @@
       "esprit critique",
       "test"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
     "date": "2026-07-24",
     "date_modified": "2026-06-22",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uzyw7puhp2ufjwsmtihm",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -619,19 +619,19 @@
       "archétypes",
       "estime de soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "portrait-robot-prince-charmant-2026",
     "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
     "date": "2026-07-23",
     "date_modified": "2026-06-22",
     "category": "Relations",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vn3aczgfwtfq5djdvnft",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -646,19 +646,19 @@
       "préférences",
       "charge mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
     "date": "2026-07-21",
     "date_modified": "2026-06-22",
     "category": "Relations",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lb6wuv2cydrpvy8aogke",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -673,7 +673,7 @@
       "Gottman",
       "vie de couple"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -873,17 +873,16 @@
     "title": "Coloriage thérapie : et si vos crayons de couleur étaient votre meilleur psy ?",
     "type": "article",
     "excerpt": "Best-sellers estampillés « anti-stress », les albums de coloriage pour adultes tiennent-ils leurs promesses ? Ce que dit vraiment la science — et ce qu'un crayon ne remplacera jamais.",
-    "metaDescription": "Le coloriage anti-stress fonctionne-t-il vraiment ? Ce que disent les études sur l'anxiété, le mythe du mandala et la différence avec l'art-thérapie.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-28",
-    "date_modified": "2026-06-28",
+    "date_modified": "2026-06-22",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/o995y5tahhmezjuindpf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "coloriage",
       "art-thérapie",
@@ -892,62 +891,19 @@
       "anti-stress",
       "mandala"
     ],
-    "sources": [
-      {
-        "authors": "Curry N. A. & Kasser T.",
-        "year": "2005",
-        "title": "Can Coloring Mandalas Reduce Anxiety?",
-        "journal": "Art Therapy",
-        "url": "https://files.eric.ed.gov/fulltext/EJ688443.pdf"
-      },
-      {
-        "authors": "Van der Vennet R. & Serice S.",
-        "year": "2012",
-        "title": "Can Coloring Mandalas Reduce Anxiety? A Replication Study",
-        "journal": "Art Therapy",
-        "url": "https://doi.org/10.1080/07421656.2012.680047"
-      },
-      {
-        "authors": "Flett J. A. M. et coll.",
-        "year": "2017",
-        "title": "Sharpen Your Pencils: Preliminary Evidence that Adult Coloring Reduces Depressive Symptoms and Anxiety",
-        "journal": "Creativity Research Journal",
-        "url": "https://doi.org/10.1080/10400419.2017.1376505"
-      },
-      {
-        "authors": "Jakobsson Støre S. & Jakobsson N.",
-        "year": "2022",
-        "title": "The Effect of Mandala Coloring on State Anxiety: A Systematic Review and Meta-Analysis",
-        "journal": "Art Therapy",
-        "url": "https://doi.org/10.1080/07421656.2021.2003144"
-      },
-      {
-        "authors": "Koo M., Chen H.-P. & Yeh Y.-C.",
-        "year": "2020",
-        "title": "Coloring Activities for Anxiety Reduction and Mood Improvement in Taiwanese Community-Dwelling Older Adults: A Randomized Controlled Study",
-        "journal": "Evidence-Based Complementary and Alternative Medicine",
-        "url": "https://doi.org/10.1155/2020/6964737"
-      },
-      {
-        "authors": "Klein J.-P.",
-        "year": "2014",
-        "title": "L'art-thérapie",
-        "publisher": "Presses universitaires de France, coll. « Que sais-je ? »",
-        "url": "https://doi.org/10.3917/puf.klein.2014.01"
-      }
-    ],
+    "metaDescription": "Le coloriage anti-stress fonctionne-t-il vraiment ? Ce que disent les études sur l'anxiété, le mythe du mandala et la différence avec l'art-thérapie.",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
     "date": "2026-06-26",
     "date_modified": "2026-06-22",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -962,7 +918,7 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "",
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -995,12 +951,12 @@
   {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
+    "type": "article",
     "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
     "date": "2026-06-22",
     "date_modified": "2026-06-22",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kxrvvklrfl0vyxu6qy5m",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1357,12 +1313,12 @@
   {
     "id": "therapie-par-le-rire",
     "title": "La thérapie par le rire, ce n'est pas une blague !",
+    "type": "article",
     "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
     "date": "2026-06-09",
     "date_modified": "2026-06-22",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/edsmaoooa5r1k1avgbva",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
