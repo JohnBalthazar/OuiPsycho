@@ -847,17 +847,16 @@
     "title": "À partir de quelle température le cerveau est-il KO ? Impact de la chaleur sur la santé mentale",
     "type": "article",
     "excerpt": "Notre cerveau carbure mieux au frais : passé un certain seuil, attention, mémoire et humeur déclinent. Voici ce que dit la science sur la chaleur — et comment protéger sa tête.",
-    "metaDescription": "Chaleur et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et comment limiter les dégâts.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-06-23",
-    "date_modified": "2026-06-23",
+    "date_modified": "2026-06-22",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rxbnxp5ipvwlw8xzkfxx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "chaleur",
       "canicule",
@@ -865,29 +864,7 @@
       "cerveau",
       "sommeil"
     ],
-    "sources": [
-      {
-        "authors": "Fondation pour la Recherche sur le Cerveau",
-        "year": "2023",
-        "title": "Fortes chaleurs : le cerveau souffre aussi",
-        "journal": "FRC Neurodon",
-        "url": "https://www.frcneurodon.org/informer-sur-la-recherche/actus/fortes-chaleurs-le-cerveau-souffre-aussi/"
-      },
-      {
-        "authors": "Cedeño Laurent J. G. et al.",
-        "year": "2018",
-        "title": "Reduced cognitive function during a heat wave among residents of non-air-conditioned buildings",
-        "journal": "PLOS Medicine",
-        "url": "https://doi.org/10.1371/journal.pmed.1002605"
-      },
-      {
-        "authors": "Santé publique France",
-        "year": "2024",
-        "title": "Fortes chaleurs et canicule : impacts sanitaires et populations à risque",
-        "journal": "Santé publique France",
-        "url": "https://www.santepubliquefrance.fr/determinants-de-sante/climat/fortes-chaleurs-canicule"
-      }
-    ],
+    "metaDescription": "Chaleur et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et comment limiter les dégâts.",
     "articles_lies": [],
     "status": "scheduled"
   },
