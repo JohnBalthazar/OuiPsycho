@@ -843,6 +843,69 @@
     "status": "scheduled"
   },
   {
+    "id": "chaleur-temperature-cerveau-sante-mentale",
+    "title": "À partir de quelle température le cerveau est-il KO ? Impact de la canicule sur la santé mentale",
+    "type": "article",
+    "excerpt": "Sous la canicule, notre cerveau lève le pied : attention, mémoire et humeur déclinent. Et avec des étés de plus en plus chauds, l'enjeu devient urgent. Ce que dit la science.",
+    "metaDescription": "Canicule et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et pourquoi il est urgent d'agir.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-23",
+    "date_modified": "2026-06-23",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "canicule",
+      "chaleur",
+      "santé mentale",
+      "cerveau",
+      "réchauffement climatique"
+    ],
+    "sources": [
+      {
+        "authors": "Fondation pour la Recherche sur le Cerveau",
+        "year": "2023",
+        "title": "Fortes chaleurs : le cerveau souffre aussi",
+        "journal": "FRC Neurodon",
+        "url": "https://www.frcneurodon.org/informer-sur-la-recherche/actus/fortes-chaleurs-le-cerveau-souffre-aussi/"
+      },
+      {
+        "authors": "Santé publique France",
+        "year": "2024",
+        "title": "Fortes chaleurs et canicule : impacts sanitaires et populations à risque",
+        "journal": "Santé publique France",
+        "url": "https://www.santepubliquefrance.fr/determinants-de-sante/climat/fortes-chaleurs-canicule"
+      },
+      {
+        "authors": "Météo-France",
+        "year": "2024",
+        "title": "Changement climatique : des canicules deux fois plus fréquentes d'ici 2050",
+        "journal": "Météo-France",
+        "url": "https://meteofrance.com/actualites-et-dossiers/actualites/climat/changement-climatique-des-canicules-deux-fois-plus-frequentes"
+      },
+      {
+        "authors": "Cedeño Laurent J. G. et al.",
+        "year": "2018",
+        "title": "Reduced cognitive function during a heat wave among residents of non-air-conditioned buildings",
+        "journal": "PLOS Medicine",
+        "url": "https://doi.org/10.1371/journal.pmed.1002605"
+      },
+      {
+        "authors": "Thompson R., Lawrance E. L. et al.",
+        "year": "2023",
+        "title": "Ambient temperature and mental health: a systematic review and meta-analysis",
+        "journal": "The Lancet Planetary Health",
+        "url": "https://www.thelancet.com/journals/lanplh/article/PIIS2542-5196(23)00104-3/fulltext"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
     "type": "article",
