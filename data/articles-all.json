@@ -1,5 +1,58 @@
 [
   {
+    "id": "luc-skywalker-sur-le-divan",
+    "title": "Luc Skywalker sur le divan : psychologie d'un Jedi",
+    "type": "article",
+    "excerpt": "Fermier rêveur, orphelin, héros malgré lui : Luc Skywalker est un cas d'école. On installe le Jedi sur le divan pour décrypter identité, blessure paternelle, colère et résilience.",
+    "metaDescription": "Luc Skywalker sur le divan : quête d'identité, blessure paternelle, côté obscur et résilience. La psychologie du Jedi décryptée avec sérieux et un brin d'humour.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-15",
+    "date_modified": "2026-09-15",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "star wars",
+      "psychologie",
+      "résilience",
+      "identité",
+      "émotions",
+      "héros"
+    ],
+    "sources": [
+      {
+        "authors": "Erikson E. H.",
+        "year": "1972",
+        "title": "Adolescence et crise : la quête de l'identité",
+        "publisher": "Flammarion"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Blanc J.-V.",
+        "year": "2019",
+        "title": "Pop & Psy : comment la pop culture nous aide à comprendre les troubles psychiques",
+        "publisher": "Plon"
+      },
+      {
+        "authors": "Tedeschi R. G. & Calhoun L. G.",
+        "year": "2004",
+        "title": "Posttraumatic Growth: Conceptual Foundations and Empirical Evidence",
+        "journal": "Psychological Inquiry"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
     "excerpt": "",
@@ -816,6 +869,77 @@
     "status": "scheduled"
   },
   {
+    "id": "coloriage-therapie-crayons-meilleur-psy",
+    "title": "Coloriage thérapie : et si vos crayons de couleur étaient votre meilleur psy ?",
+    "type": "article",
+    "excerpt": "Best-sellers estampillés « anti-stress », les albums de coloriage pour adultes tiennent-ils leurs promesses ? Ce que dit vraiment la science — et ce qu'un crayon ne remplacera jamais.",
+    "metaDescription": "Le coloriage anti-stress fonctionne-t-il vraiment ? Ce que disent les études sur l'anxiété, le mythe du mandala et la différence avec l'art-thérapie.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-28",
+    "date_modified": "2026-06-28",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "coloriage",
+      "art-thérapie",
+      "anxiété",
+      "pleine conscience",
+      "anti-stress",
+      "mandala"
+    ],
+    "sources": [
+      {
+        "authors": "Curry N. A. & Kasser T.",
+        "year": "2005",
+        "title": "Can Coloring Mandalas Reduce Anxiety?",
+        "journal": "Art Therapy",
+        "url": "https://files.eric.ed.gov/fulltext/EJ688443.pdf"
+      },
+      {
+        "authors": "Van der Vennet R. & Serice S.",
+        "year": "2012",
+        "title": "Can Coloring Mandalas Reduce Anxiety? A Replication Study",
+        "journal": "Art Therapy",
+        "url": "https://doi.org/10.1080/07421656.2012.680047"
+      },
+      {
+        "authors": "Flett J. A. M. et coll.",
+        "year": "2017",
+        "title": "Sharpen Your Pencils: Preliminary Evidence that Adult Coloring Reduces Depressive Symptoms and Anxiety",
+        "journal": "Creativity Research Journal",
+        "url": "https://doi.org/10.1080/10400419.2017.1376505"
+      },
+      {
+        "authors": "Jakobsson Støre S. & Jakobsson N.",
+        "year": "2022",
+        "title": "The Effect of Mandala Coloring on State Anxiety: A Systematic Review and Meta-Analysis",
+        "journal": "Art Therapy",
+        "url": "https://doi.org/10.1080/07421656.2021.2003144"
+      },
+      {
+        "authors": "Koo M., Chen H.-P. & Yeh Y.-C.",
+        "year": "2020",
+        "title": "Coloring Activities for Anxiety Reduction and Mood Improvement in Taiwanese Community-Dwelling Older Adults: A Randomized Controlled Study",
+        "journal": "Evidence-Based Complementary and Alternative Medicine",
+        "url": "https://doi.org/10.1155/2020/6964737"
+      },
+      {
+        "authors": "Klein J.-P.",
+        "year": "2014",
+        "title": "L'art-thérapie",
+        "publisher": "Presses universitaires de France, coll. « Que sais-je ? »",
+        "url": "https://doi.org/10.3917/puf.klein.2014.01"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
     "excerpt": "",
@@ -839,6 +963,32 @@
       "syndrome-rare"
     ],
     "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "chaleur-temperature-cerveau-sante-mentale",
+    "title": "À partir de quelle température le cerveau est-il KO ? Impact de la canicule sur la santé mentale",
+    "type": "article",
+    "excerpt": "Sous la canicule, notre cerveau lève le pied : attention, mémoire et humeur déclinent. Et avec des étés de plus en plus chauds, l'enjeu devient urgent. Ce que dit la science.",
+    "date": "2026-06-23",
+    "date_modified": "2026-06-22",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kqxfufbstfxz3w3l6veh",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "canicule",
+      "chaleur",
+      "santé mentale",
+      "cerveau",
+      "réchauffement climatique"
+    ],
+    "metaDescription": "Canicule et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et pourquoi il est urgent d'agir.",
     "articles_lies": [],
     "status": "scheduled"
   },
