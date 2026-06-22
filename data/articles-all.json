@@ -845,11 +845,11 @@
   {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
-    "excerpt": "",
+    "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
     "date": "2026-06-22",
     "date_modified": "2026-06-08",
     "category": "Développement personnel",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sfpe1iktmrert7h889v4",
     "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -865,7 +865,7 @@
       "neurodiversité",
       "identité"
     ],
-    "metaDescription": "",
+    "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
     "articles_lies": [],
     "status": "scheduled"
   },
