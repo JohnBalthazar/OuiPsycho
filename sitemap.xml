@@ -83,6 +83,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ouipsycho.fr/articles/therapie-par-le-rire/</loc>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ouipsycho.fr/articles/ce-que-les-peres-devraient-dire/</loc>
     <lastmod>2026-06-21</lastmod>
     <changefreq>monthly</changefreq>
@@ -151,12 +157,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/harry-potter-psychopathologie-complice/</loc>
     <lastmod>2026-06-10</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/therapie-par-le-rire/</loc>
-    <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

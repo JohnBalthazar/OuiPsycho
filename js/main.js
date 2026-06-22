@@ -840,7 +840,15 @@ async function loadRelated(current) {
   try {
     const res = await fetch(CONFIG.dataUrl);
     if (!res.ok) return;
-    const list = await res.json();
+    const raw = await res.json();
+
+    // Filtrer les articles non encore publiés (brouillons et planifiés futurs)
+    const today = new Date().toISOString().split('T')[0];
+    const list = raw.filter(a => {
+      if (a.status === 'draft') return false;
+      if (a.status === 'scheduled') return a.date <= today;
+      return true;
+    });
 
     // Priorité 1 : articles_lies définis manuellement dans l'admin
     let related = [];
