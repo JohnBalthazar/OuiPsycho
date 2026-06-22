@@ -843,6 +843,32 @@
     "status": "scheduled"
   },
   {
+    "id": "chaleur-temperature-cerveau-sante-mentale",
+    "title": "À partir de quelle température le cerveau est-il KO ? Impact de la chaleur sur la santé mentale",
+    "type": "article",
+    "excerpt": "Notre cerveau carbure mieux au frais : passé un certain seuil, attention, mémoire et humeur déclinent. Voici ce que dit la science sur la chaleur — et comment protéger sa tête.",
+    "date": "2026-06-23",
+    "date_modified": "2026-06-22",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rxbnxp5ipvwlw8xzkfxx",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "chaleur",
+      "canicule",
+      "santé mentale",
+      "cerveau",
+      "sommeil"
+    ],
+    "metaDescription": "Chaleur et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et comment limiter les dégâts.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
     "type": "article",
@@ -1207,12 +1233,12 @@
   {
     "id": "therapie-par-le-rire",
     "title": "La thérapie par le rire, ce n'est pas une blague !",
+    "type": "article",
     "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
     "date": "2026-06-09",
-    "date_modified": "2026-06-09",
-    "category": "Bien-être",
+    "date_modified": "2026-06-22",
+    "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/edsmaoooa5r1k1avgbva",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
