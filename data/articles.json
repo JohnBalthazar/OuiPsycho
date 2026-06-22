@@ -869,6 +869,77 @@
     "status": "scheduled"
   },
   {
+    "id": "coloriage-therapie-crayons-meilleur-psy",
+    "title": "Coloriage thérapie : et si vos crayons de couleur étaient votre meilleur psy ?",
+    "type": "article",
+    "excerpt": "Best-sellers estampillés « anti-stress », les albums de coloriage pour adultes tiennent-ils leurs promesses ? Ce que dit vraiment la science — et ce qu'un crayon ne remplacera jamais.",
+    "metaDescription": "Le coloriage anti-stress fonctionne-t-il vraiment ? Ce que disent les études sur l'anxiété, le mythe du mandala et la différence avec l'art-thérapie.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-28",
+    "date_modified": "2026-06-28",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "coloriage",
+      "art-thérapie",
+      "anxiété",
+      "pleine conscience",
+      "anti-stress",
+      "mandala"
+    ],
+    "sources": [
+      {
+        "authors": "Curry N. A. & Kasser T.",
+        "year": "2005",
+        "title": "Can Coloring Mandalas Reduce Anxiety?",
+        "journal": "Art Therapy",
+        "url": "https://files.eric.ed.gov/fulltext/EJ688443.pdf"
+      },
+      {
+        "authors": "Van der Vennet R. & Serice S.",
+        "year": "2012",
+        "title": "Can Coloring Mandalas Reduce Anxiety? A Replication Study",
+        "journal": "Art Therapy",
+        "url": "https://doi.org/10.1080/07421656.2012.680047"
+      },
+      {
+        "authors": "Flett J. A. M. et coll.",
+        "year": "2017",
+        "title": "Sharpen Your Pencils: Preliminary Evidence that Adult Coloring Reduces Depressive Symptoms and Anxiety",
+        "journal": "Creativity Research Journal",
+        "url": "https://doi.org/10.1080/10400419.2017.1376505"
+      },
+      {
+        "authors": "Jakobsson Støre S. & Jakobsson N.",
+        "year": "2022",
+        "title": "The Effect of Mandala Coloring on State Anxiety: A Systematic Review and Meta-Analysis",
+        "journal": "Art Therapy",
+        "url": "https://doi.org/10.1080/07421656.2021.2003144"
+      },
+      {
+        "authors": "Koo M., Chen H.-P. & Yeh Y.-C.",
+        "year": "2020",
+        "title": "Coloring Activities for Anxiety Reduction and Mood Improvement in Taiwanese Community-Dwelling Older Adults: A Randomized Controlled Study",
+        "journal": "Evidence-Based Complementary and Alternative Medicine",
+        "url": "https://doi.org/10.1155/2020/6964737"
+      },
+      {
+        "authors": "Klein J.-P.",
+        "year": "2014",
+        "title": "L'art-thérapie",
+        "publisher": "Presses universitaires de France, coll. « Que sais-je ? »",
+        "url": "https://doi.org/10.3917/puf.klein.2014.01"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
     "type": "article",
