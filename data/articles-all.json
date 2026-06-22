@@ -600,12 +600,12 @@
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
     "date": "2026-07-21",
-    "date_modified": "2026-07-21",
+    "date_modified": "2026-06-22",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lb6wuv2cydrpvy8aogke",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -620,7 +620,7 @@
       "Gottman",
       "vie de couple"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
     "articles_lies": [],
     "status": "scheduled"
   },
