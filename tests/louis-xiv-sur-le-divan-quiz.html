@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quel genre de roi êtes-vous ?</title>
+<style>
+  :root{--vert:#1a9e6e;--or:#d9a441;--encre:#2a2a33;--gris:#6b6b76;--bg:#fbfaf7;--carte:#ffffff;--bord:#ece8df;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:'DM Sans',-apple-system,Segoe UI,Roboto,sans-serif;color:var(--encre);background:var(--bg);line-height:1.55;}
+  .wrap{max-width:640px;margin:0 auto;padding:22px 18px;}
+  .card{background:var(--carte);border:1px solid var(--bord);border-radius:16px;padding:24px 22px;box-shadow:0 6px 24px rgba(40,40,50,.05);}
+  .bar{height:7px;background:#efece4;border-radius:99px;overflow:hidden;margin-bottom:20px;}
+  .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--vert),var(--or));width:0;transition:width .35s ease;}
+  .step{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:var(--gris);margin-bottom:6px;font-weight:600;}
+  h1{font-size:1.45rem;margin:.1em 0 .2em;line-height:1.25;}
+  .q{font-size:1.18rem;font-weight:600;margin:4px 0 18px;}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bord);border-radius:12px;padding:14px 16px;margin:10px 0;font-size:1rem;cursor:pointer;transition:all .15s ease;color:var(--encre);}
+  .opt:hover{border-color:var(--vert);background:#f3fbf7;transform:translateY(-1px);}
+  .nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:12px;}
+  .prev{background:none;border:none;color:var(--gris);font-size:.95rem;cursor:pointer;padding:8px 4px;font-weight:600;}
+  .prev:disabled{opacity:.35;cursor:default;}
+  .count{font-size:.85rem;color:var(--gris);}
+  .res-emoji{font-size:2.6rem;line-height:1;margin-bottom:6px;}
+  .res-title{font-size:1.5rem;color:var(--vert);margin:2px 0 4px;font-weight:700;}
+  .res-sub{font-size:.95rem;color:var(--or);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:14px;}
+  .res-body p{margin:0 0 12px;}
+  .res-body .insight{background:#f7f4ec;border-left:3px solid var(--or);padding:12px 14px;border-radius:8px;font-size:.95rem;}
+  .restart{margin-top:20px;background:var(--vert);color:#fff;border:none;border-radius:99px;padding:12px 26px;font-size:1rem;font-weight:600;cursor:pointer;}
+  .restart:hover{background:#15885d;}
+  .intro p{color:var(--gris);margin:6px 0 18px;}
+  .start{background:var(--vert);color:#fff;border:none;border-radius:99px;padding:13px 30px;font-size:1.05rem;font-weight:600;cursor:pointer;}
+  .start:hover{background:#15885d;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="card"></div>
+</div>
+<script>
+var Q = [
+  {q:"Un imprévu fait dérailler votre journée. Votre premier réflexe ?",
+   a:[{t:"Je reprends la main et je rassure tout le monde autour de moi.",k:"soleil"},
+      {t:"Je sors un plan B que j'avais préparé, évidemment.",k:"batisseur"},
+      {t:"J'observe, j'analyse, je trouve l'angle pour retourner la situation.",k:"stratege"},
+      {t:"Je vérifie d'abord que personne n'est en difficulté.",k:"coeur"}]},
+  {q:"On vous confie un projet. Ce qui vous motive le plus :",
+   a:[{t:"Qu'il soit beau, marquant, et qu'on s'en souvienne.",k:"soleil"},
+      {t:"Qu'il soit carré, structuré, et qu'il tienne dans le temps.",k:"batisseur"},
+      {t:"Qu'il me donne un coup d'avance sur les autres.",k:"stratege"},
+      {t:"Qu'il rende l'équipe heureuse de travailler ensemble.",k:"coeur"}]},
+  {q:"Dans un dîner, on vous reconnaît surtout pour :",
+   a:[{t:"Votre présence : on vous remarque dès que vous entrez.",k:"soleil"},
+      {t:"Votre fiabilité : c'est vous qu'on appelle en cas de pépin.",k:"batisseur"},
+      {t:"Votre flair : vous voyez venir les choses avant tout le monde.",k:"stratege"},
+      {t:"Votre écoute : on se confie facilement à vous.",k:"coeur"}]},
+  {q:"Votre plus grande crainte secrète :",
+   a:[{t:"Devenir invisible, ne plus compter.",k:"soleil"},
+      {t:"Que tout s'écroule par manque de cadre.",k:"batisseur"},
+      {t:"Me faire avoir, ne pas avoir vu le coup venir.",k:"stratege"},
+      {t:"Décevoir ou perdre les gens qui comptent.",k:"coeur"}]},
+  {q:"On vous critique injustement. Vous :",
+   a:[{t:"Gardez la tête haute : votre image avant tout.",k:"soleil"},
+      {t:"Sortez les faits et les preuves, point par point.",k:"batisseur"},
+      {t:"Encaissez, et préparez tranquillement votre réponse.",k:"stratege"},
+      {t:"Êtes touché, mais cherchez d'abord à comprendre l'autre.",k:"coeur"}]},
+  {q:"Votre devise idéale serait plutôt :",
+   a:[{t:"« Briller, c'est exister. »",k:"soleil"},
+      {t:"« Rien de grand sans de bonnes fondations. »",k:"batisseur"},
+      {t:"« Qui voit loin gouverne. »",k:"stratege"},
+      {t:"« On ne règne bien que sur des cœurs. »",k:"coeur"}]}
+];
+
+var R = {
+  soleil:{e:"☀️",t:"Le Roi-Soleil",s:"Charisme & rayonnement",
+    b:["Comme Louis dansant le rôle d'Apollon, vous gouvernez par la présence. On vous remarque, on vous suit, et vous le savez. Votre force : fédérer, inspirer, donner de l'éclat à ce que vous touchez.",
+       "Votre vigilance : le besoin d'être admiré peut devenir un point d'appui fragile. Le vrai rayonnement, c'est celui qui n'a plus besoin du miroir pour se sentir solide."],
+    ins:"Sur le divan : derrière l'éclat se cache souvent une peur ancienne de ne pas compter. Bonne nouvelle — on peut briller pour le plaisir, pas seulement pour se rassurer."},
+  batisseur:{e:"🏰",t:"Le Roi-Bâtisseur",s:"Ordre & solidité",
+    b:["Vous êtes le Versailles fait personne : un monde où chaque chose est à sa place. Structuré, fiable, prévoyant, vous transformez le chaos en système. C'est sur des gens comme vous que reposent les grands édifices.",
+       "Votre vigilance : le contrôle rassure, mais trop de cadre étouffe la spontanéité. Laissez parfois une porte ouverte à l'imprévu — c'est souvent là que la vie passe."],
+    ins:"Sur le divan : le besoin d'ordre naît souvent d'un vieux chaos qu'on ne veut plus revivre. Votre rigueur est une force — tant qu'elle reste un outil, pas une prison."},
+  stratege:{e:"♟️",t:"Le Roi-Stratège",s:"Lucidité & coup d'avance",
+    b:["Comme Louis maître du jeu de cour, vous observez avant d'agir. Vous lisez les rapports de force, anticipez les coups, et avancez vos pièces au bon moment. Discret, mais redoutablement efficace.",
+       "Votre vigilance : à trop calculer, on finit par se méfier de tout. Tout le monde n'est pas un adversaire — s'autoriser à faire confiance est aussi une forme d'intelligence."],
+    ins:"Sur le divan : l'hypervigilance protège, mais elle fatigue. Votre flair est précieux ; veillez juste à ne pas transformer chaque relation en partie d'échecs."},
+  coeur:{e:"❤️",t:"Le Roi de cœur",s:"Lien & chaleur",
+    b:["Vous régnez par l'affection, pas par la crainte. Empathique, à l'écoute, vous tenez votre royaume par la qualité des liens. Les gens vous suivent parce qu'ils se sentent vus et compris.",
+       "Votre vigilance : à force de porter les autres, on s'oublie. Un bon souverain prend aussi soin de lui — sinon le trône se vide de l'intérieur."],
+    ins:"Sur le divan : la peur de décevoir peut vous pousser à tout donner. Rappelez-vous — poser des limites n'est pas trahir, c'est durer."}
+};
+
+var current = 0;
+var answers = [];
+
+function notifyResize(){
+  setTimeout(function(){
+    window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+  },50);
+}
+
+function renderIntro(){
+  var c = document.getElementById('card');
+  c.innerHTML = '<div class="intro"><div class="step">Test de personnalité</div>'+
+    '<h1>Quel genre de roi êtes-vous ?</h1>'+
+    '<p>Six questions pour découvrir votre style de pouvoir personnel, à la lumière du divan de Louis XIV. Spontanéité recommandée.</p>'+
+    '<button class="start" id="go">Commencer le test</button></div>';
+  document.getElementById('go').onclick = function(){ current=0; answers=[]; renderQ(); };
+  notifyResize();
+}
+
+function renderQ(){
+  var c = document.getElementById('card');
+  var q = Q[current];
+  var pct = Math.round((current)/Q.length*100);
+  var html = '<div class="bar"><i style="width:'+pct+'%"></i></div>';
+  html += '<div class="step">Question '+(current+1)+' / '+Q.length+'</div>';
+  html += '<div class="q">'+q.q+'</div>';
+  q.a.forEach(function(opt,i){
+    html += '<button class="opt" data-i="'+i+'">'+opt.t+'</button>';
+  });
+  html += '<div class="nav"><button class="prev" id="prev"'+(current===0?' disabled':'')+'>← Précédent</button>'+
+          '<span class="count">'+(current+1)+' sur '+Q.length+'</span></div>';
+  c.innerHTML = html;
+  var btns = c.querySelectorAll('.opt');
+  btns.forEach(function(b){
+    b.onclick = function(){
+      answers[current] = q.a[parseInt(b.getAttribute('data-i'))].k;
+      if(current < Q.length-1){ current++; renderQ(); }
+      else { renderResult(); }
+    };
+  });
+  document.getElementById('prev').onclick = function(){
+    if(current>0){ current--; renderQ(); }
+  };
+  notifyResize();
+}
+
+function renderResult(){
+  var score = {soleil:0,batisseur:0,stratege:0,coeur:0};
+  answers.forEach(function(k){ score[k]++; });
+  var best = 'soleil', max = -1;
+  ['soleil','batisseur','stratege','coeur'].forEach(function(k){
+    if(score[k] > max){ max = score[k]; best = k; }
+  });
+  var r = R[best];
+  var c = document.getElementById('card');
+  var html = '<div class="bar"><i style="width:100%"></i></div>';
+  html += '<div class="step">Votre résultat</div>';
+  html += '<div class="res-emoji">'+r.e+'</div>';
+  html += '<div class="res-title">'+r.t+'</div>';
+  html += '<div class="res-sub">'+r.s+'</div>';
+  html += '<div class="res-body">';
+  r.b.forEach(function(p){ html += '<p>'+p+'</p>'; });
+  html += '<p class="insight">'+r.ins+'</p>';
+  html += '</div>';
+  html += '<button class="restart" id="restart">Refaire le test</button>';
+  c.innerHTML = html;
+  document.getElementById('restart').onclick = function(){ renderIntro(); };
+  notifyResize();
+}
+
+renderIntro();
+window.addEventListener('load', notifyResize);
+<\/script>
+</body>
+</html>
