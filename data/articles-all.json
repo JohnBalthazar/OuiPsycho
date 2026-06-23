@@ -344,12 +344,12 @@
   {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
     "date": "2026-08-18",
-    "date_modified": "2026-08-18",
+    "date_modified": "2026-06-23",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sw9dewvucupgcgcp708l",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -364,7 +364,7 @@
       "passion",
       "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
     "articles_lies": [],
     "status": "scheduled"
   },
