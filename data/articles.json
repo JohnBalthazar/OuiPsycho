@@ -108,6 +108,71 @@
     "status": "scheduled"
   },
   {
+    "id": "bienfaits-meconnus-du-sexe",
+    "title": "Les bienfaits méconnus du sexe",
+    "type": "article",
+    "excerpt": "On lui prête mille vertus pour le plaisir, mais le sexe est aussi un allié santé largement sous-estimé. Anti-stress, somnifère, antidouleur : ce que dit la science.",
+    "metaDescription": "Les bienfaits méconnus du sexe : anti-stress, sommeil, immunité, cœur et estime de soi. Ce que dit vraiment la science des vertus santé de la sexualité.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-18",
+    "date_modified": "2026-09-18",
+    "category": "Sexo",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "sexualité",
+      "bien-être",
+      "stress",
+      "ocytocine",
+      "santé",
+      "couple"
+    ],
+    "sources": [
+      {
+        "authors": "Davey Smith G., Frankel S. & Yarnell J.",
+        "year": "1997",
+        "title": "Sex and death: are they related? Findings from the Caerphilly cohort study",
+        "journal": "BMJ"
+      },
+      {
+        "authors": "Charnetski C. J. & Brennan F. X.",
+        "year": "2004",
+        "title": "Sexual frequency and salivary immunoglobulin A (IgA)",
+        "journal": "Psychological Reports"
+      },
+      {
+        "authors": "Brody S.",
+        "year": "2006",
+        "title": "Blood pressure reactivity to stress is better for people who recently had penile-vaginal intercourse",
+        "journal": "Biological Psychology"
+      },
+      {
+        "authors": "Meston C. M. & Buss D. M.",
+        "year": "2009",
+        "title": "Why Women Have Sex",
+        "publisher": "Times Books"
+      },
+      {
+        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
+        "year": "2010",
+        "title": "Social relationships and mortality risk: a meta-analytic review",
+        "journal": "PLoS Medicine"
+      },
+      {
+        "authors": "Brenot P.",
+        "year": "2012",
+        "title": "Inventer le couple",
+        "publisher": "Odile Jacob"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
     "type": "article",
