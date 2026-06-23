@@ -108,6 +108,65 @@
     "status": "scheduled"
   },
   {
+    "id": "bon-parent-adolescent",
+    "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
+    "type": "article",
+    "excerpt": "Faut-il être un parent parfait pour bien accompagner son ado ? La psychologie répond non — et c'est tant mieux. Petit voyage au pays du parent « suffisamment bon ».",
+    "metaDescription": "Être un bon parent d'adolescent : le concept de parent « suffisamment bon », l'autorité bienveillante et le soutien à l'autonomie, expliqués par la psychologie.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-17",
+    "date_modified": "2026-09-17",
+    "category": "Société & psychologie politique",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "parentalité",
+      "adolescence",
+      "winnicott",
+      "autorité",
+      "autonomie",
+      "éducation"
+    ],
+    "sources": [
+      {
+        "authors": "Winnicott D. W.",
+        "year": "2006",
+        "title": "La mère suffisamment bonne",
+        "publisher": "Payot & Rivages"
+      },
+      {
+        "authors": "Jeammet P.",
+        "year": "2008",
+        "title": "Pour nos ados, soyons adultes",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Marcelli D. & Braconnier A.",
+        "year": "2018",
+        "title": "Adolescence et psychopathologie",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Baumrind D.",
+        "year": "1991",
+        "title": "The influence of parenting style on adolescent competence and substance use",
+        "journal": "The Journal of Early Adolescence"
+      },
+      {
+        "authors": "Steinberg L.",
+        "year": "2001",
+        "title": "We know some things: Parent-adolescent relationships in retrospect and prospect",
+        "journal": "Journal of Research on Adolescence"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "luc-skywalker-sur-le-divan",
     "title": "Luc Skywalker sur le divan : psychologie d'un Jedi",
     "excerpt": "",
