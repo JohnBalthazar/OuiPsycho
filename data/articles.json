@@ -1,5 +1,70 @@
 [
   {
+    "id": "benedict-bridgerton-sur-le-divan",
+    "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
+    "type": "article",
+    "excerpt": "Éternel deuxième, artiste contrarié, Benedict Bridgerton incarne la quête de sens d'une âme sensible coincée entre devoir aristocratique et désir d'authenticité. Mise au divan.",
+    "metaDescription": "Benedict Bridgerton sur le divan : syndrome du deuxième fils, quête d'identité et hypersensibilité. La psychologie de l'artiste des Bridgerton, décryptée.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-29",
+    "date_modified": "2026-09-29",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "bridgerton",
+      "psychologie de la fratrie",
+      "quête d'identité",
+      "hypersensibilité",
+      "syndrome de l'imposteur",
+      "développement personnel"
+    ],
+    "sources": [
+      {
+        "authors": "Adler A.",
+        "year": "2021",
+        "title": "Le tempérament nerveux : éléments d'une psychologie individuelle",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Erikson E. H.",
+        "year": "1972",
+        "title": "Adolescence et crise : la quête de l'identité",
+        "publisher": "Flammarion"
+      },
+      {
+        "authors": "Marcia J. E.",
+        "year": "1966",
+        "title": "Development and validation of ego identity status",
+        "journal": "Journal of Personality and Social Psychology"
+      },
+      {
+        "authors": "Aron E. N. & Aron A.",
+        "year": "1997",
+        "title": "Sensory-processing sensitivity and its relation to introversion and emotionality",
+        "journal": "Journal of Personality and Social Psychology"
+      },
+      {
+        "authors": "Clance P. R. & Imes S. A.",
+        "year": "1978",
+        "title": "The imposter phenomenon in high achieving women",
+        "journal": "Psychotherapy: Theory, Research & Practice"
+      },
+      {
+        "authors": "Winnicott D. W.",
+        "year": "1970",
+        "title": "Processus de maturation chez l'enfant : développement affectif et environnement",
+        "publisher": "Payot"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
     "excerpt": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir nous regarde.",
