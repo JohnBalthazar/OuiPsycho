@@ -940,6 +940,53 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologie-du-feminisme",
+    "title": "Psychologie du féminisme : ce que la science dit de nos résistances (et de nos élans)",
+    "excerpt": "Sexisme bienveillant, privilège invisible, besoin de croire en un monde juste : et si le féminisme était d'abord une affaire de mécaniques mentales ? Petit voyage décontracté dans la tête de tout le monde.",
+    "metaDescription": "Le féminisme vu par la psychologie : sexisme ambivalent, justification du système, identité sociale et un test pour situer votre profil féministe.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-06-25",
+    "date_modified": "2026-06-25",
+    "category": "Société",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "feminisme",
+      "psychologie-sociale",
+      "sexisme-ambivalent",
+      "genre",
+      "societe",
+      "egalite"
+    ],
+    "sources": [
+      {
+        "title": "Dardenne, B., Delacollette, N., Grégoire, C. & Lecocq, D. (2006). Structure latente et validation de la version française de l'Ambivalent Sexism Inventory : l'échelle de sexisme ambivalent. L'année psychologique, 106, 235-264.",
+        "url": "https://www.persee.fr/doc/psy_0003-5033_2006_num_106_2_30900"
+      },
+      {
+        "title": "Quand les femmes justifient les inégalités de genre — In-Mind (sexisme bienveillant & justification du système).",
+        "url": "https://fr.in-mind.org/fr/article/quand-les-femmes-justifient-les-inegalites-de-genre"
+      },
+      {
+        "title": "Glick, P. & Fiske, S. T. (1996). The Ambivalent Sexism Inventory. Journal of Personality and Social Psychology, 70(3), 491-512.",
+        "url": "https://psycnet.apa.org/record/1996-03014-008"
+      },
+      {
+        "title": "Validation française de l'Ambivalence Toward Men Inventory (sexisme ambivalent envers les hommes) — HAL.",
+        "url": "https://hal.science/hal-03881089/"
+      },
+      {
+        "title": "Bereni, L. & Revillard, A. — Un mouvement social paradigmatique ? L'espace de la cause des femmes (sociologie du féminisme).",
+        "url": "https://shs.hal.science/halshs-02353337/document"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "chaleur-temperature-cerveau-sante-mentale",
     "title": "À partir de quelle température le cerveau est-il KO ? Impact de la canicule sur la santé mentale",
     "excerpt": "Sous la canicule, notre cerveau lève le pied : attention, mémoire et humeur déclinent. Et avec des étés de plus en plus chauds, l'enjeu devient urgent. Ce que dit la science.",
