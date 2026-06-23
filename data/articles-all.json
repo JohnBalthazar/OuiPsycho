@@ -1,5 +1,48 @@
 [
   {
+    "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
+    "title": "Louis XIV sur le divan : psychologie d'un roi",
+    "excerpt": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir nous regarde.",
+    "metaDescription": "Psychologie de Louis XIV : la Fronde, le narcissisme d'État, l'étiquette de Versailles et le besoin de contrôle. Une lecture psy et sociologique du Roi-Soleil, plus un quiz : quel genre de roi êtes-vous ?",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-22",
+    "date_modified": "2026-09-22",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "louis-xiv",
+      "psychologie",
+      "histoire",
+      "pouvoir",
+      "narcissisme",
+      "controle"
+    ],
+    "sources": [
+      {
+        "title": "Jean-Christian Petitfils, Louis XIV (Perrin) — la biographie de référence",
+        "url": "https://www.cairn.info/le-siecle-de-louis-xiv--9782262072698.htm"
+      },
+      {
+        "title": "Norbert Elias, La société de cour (Flammarion)",
+        "url": "https://editions.flammarion.com/la-societe-de-cour/9782080144188"
+      },
+      {
+        "title": "« Louis XIV a-t-il été un grand roi ? », Les Clionautes",
+        "url": "https://www.clionautes.org/louis-xiv-a-t-il-ete-un-grand-roi.html"
+      },
+      {
+        "title": "Repère « La société de cour », BnF / Gallica Essentiels",
+        "url": "https://gallica.bnf.fr/essentiels/repere/societe-cour"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "luc-skywalker-sur-le-divan",
     "title": "Luc Skywalker sur le divan : psychologie d'un Jedi",
     "excerpt": "",
