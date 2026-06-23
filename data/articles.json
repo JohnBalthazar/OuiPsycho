@@ -564,12 +564,12 @@
   {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
     "date": "2026-08-21",
-    "date_modified": "2026-08-21",
+    "date_modified": "2026-06-23",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uapkml96gcawml7qohhe",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -584,7 +584,7 @@
       "stress",
       "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "Collègue toxique, passif-agressif ou pénible : ce que la psychologie conseille pour travailler efficacement et garder son calme au quotidien.",
     "articles_lies": [],
     "status": "scheduled"
   },
