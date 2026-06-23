@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quel genre de féministe êtes-vous ?</title>
+<style>
+  :root{
+    --bg:#fdf8f3; --card:#ffffff; --ink:#3a3330; --muted:#8a7f78;
+    --accent:#e8927c; --accent2:#7ba8a0; --soft:#f4ead9; --line:#ece2d6;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+       color:var(--ink);background:var(--bg);line-height:1.55;padding:20px}
+  .wrap{max-width:640px;margin:0 auto}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 24px;
+        box-shadow:0 6px 22px rgba(120,90,70,.06)}
+  h1{font-size:1.35rem;margin:.1em 0 .2em}
+  .sub{color:var(--muted);font-size:.95rem;margin:0 0 18px}
+  .progress{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:0 0 20px}
+  .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .35s ease}
+  .q{font-weight:600;font-size:1.08rem;margin:0 0 14px}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  button.opt{text-align:left;font:inherit;color:var(--ink);background:var(--soft);border:1px solid var(--line);
+       border-radius:12px;padding:13px 15px;cursor:pointer;transition:transform .08s ease,background .15s,border-color .15s}
+  button.opt:hover{background:#efe2cf;border-color:#e3d4be}
+  button.opt:active{transform:scale(.99)}
+  .count{color:var(--muted);font-size:.85rem;margin:16px 0 0;text-align:center}
+  .result{text-align:center}
+  .badge{display:inline-block;background:var(--soft);color:var(--accent);font-weight:700;font-size:.8rem;
+         letter-spacing:.04em;text-transform:uppercase;padding:6px 12px;border-radius:99px;margin-bottom:10px}
+  .rtitle{font-size:1.5rem;margin:.1em 0 .4em}
+  .rdesc{color:#5a514c;font-size:1rem;margin:0 auto 18px;max-width:480px}
+  .replay{font:inherit;font-weight:600;color:#fff;background:var(--accent);border:none;border-radius:12px;
+          padding:12px 20px;cursor:pointer}
+  .replay:hover{background:#df7e66}
+  .mix{color:var(--muted);font-size:.85rem;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+    <div id="head">
+      <h1>Quel genre de féministe êtes-vous ?</h1>
+      <p class="sub">7 situations, aucune mauvaise réponse — juste votre tempérament.</p>
+    </div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div id="quiz"></div>
+    <p class="count" id="count"></p>
+  </div>
+</div>
+<script>
+var profiles = {
+  P:{t:"La pragmatique de terrain",d:"Vous jugez sur pièces. Les grandes théories, c'est joli, mais ce qui vous intéresse, ce sont les résultats concrets : un salaire égal, une loi qui passe, une chose qui change pour de vrai. Efficace, posée, allergique aux débats stériles."},
+  I:{t:"L'intersectionnelle",d:"Pour vous, aucune oppression ne vit seule : le genre se mêle à l'origine, à la classe, à l'orientation. Vous refusez de regarder une injustice en fermant les yeux sur les autres. Exigeante, attentive aux angles morts, profondément solidaire."},
+  U:{t:"L'universaliste",d:"Une seule règle pour toutes et tous, point. Vous tenez à l'égalité stricte des droits et vous vous méfiez de tout ce qui range les gens dans des cases. Droite dans vos principes, vous défendez la liberté individuelle avant les étiquettes."},
+  Q:{t:"La féministe du quotidien",d:"Votre champ de bataille, c'est la vraie vie : le partage des tâches, la charge mentale, qui pense aux cadeaux et aux rendez-vous médicaux. Vous changez le monde une corvée à la fois, et honnêtement, c'est là que tout se joue."},
+  C:{t:"La curieuse en chemin",d:"Vous posez des questions plus que vous ne donnez de réponses, et c'est une force. Vous découvrez, vous nuancez, vous refusez les certitudes toutes faites. Le doute, chez vous, n'est pas de la tiédeur : c'est de l'honnêteté intellectuelle."}
+};
+
+var questions = [
+  {q:"Une amie vous dit « moi, le féminisme, bof ». Votre première réaction ?",
+   a:[{t:"« Ok, mais regarde l'écart de salaire chiffré, on en reparle. »",p:"P"},
+      {t:"« Ça dépend duquel — il y en a plein, lequel te dérange ? »",p:"C"},
+      {t:"« Pareil pour moi : l'égalité des droits suffit, pas besoin d'étiquette. »",p:"U"},
+      {t:"« Tu dis ça mais qui gère la logistique de ta maison ? »",p:"Q"}]},
+  {q:"Pour vous, la priorité numéro un, c'est :",
+   a:[{t:"Faire passer des mesures concrètes et mesurables.",p:"P"},
+      {t:"Prendre en compte toutes les formes d'inégalités à la fois.",p:"I"},
+      {t:"Garantir les mêmes droits, identiques, pour chaque individu.",p:"U"},
+      {t:"Rééquilibrer la vie domestique et la charge mentale.",p:"Q"}]},
+  {q:"On vous parle de « privilège ». Vous pensez :",
+   a:[{t:"Intéressant, mais montrez-moi les données.",p:"P"},
+      {t:"Oui, et il faut voir comment ils se cumulent selon les profils.",p:"I"},
+      {t:"Méfiance : on finit par opposer les gens en catégories.",p:"U"},
+      {t:"Je le vois surtout à la maison et au boulot, au jour le jour.",p:"Q"}]},
+  {q:"Votre lecture idéale sur le sujet ?",
+   a:[{t:"Une étude solide avec des résultats clairs.",p:"P"},
+      {t:"Un essai qui croise genre, classe et racisme.",p:"I"},
+      {t:"Un texte sur les droits universels et la liberté.",p:"U"},
+      {t:"Aucune idée, mais je suis curieuse d'en trouver une.",p:"C"}]},
+  {q:"Une dispute éclate entre deux courants féministes. Vous :",
+   a:[{t:"Soupirez : pendant ce temps, rien n'avance concrètement.",p:"P"},
+      {t:"Trouvez ça sain, le débat fait partie du jeu.",p:"C"},
+      {t:"Défendez la position la plus universelle et la plus simple.",p:"U"},
+      {t:"Regardez qui est laissé de côté dans la discussion.",p:"I"}]},
+  {q:"Le changement le plus utile selon vous :",
+   a:[{t:"Une loi appliquée et contrôlée.",p:"P"},
+      {t:"Une prise de conscience qui englobe toutes les minorités.",p:"I"},
+      {t:"Des mentalités qui cessent de juger par catégories.",p:"U"},
+      {t:"Des couples qui partagent vraiment, à parts égales.",p:"Q"}]},
+  {q:"Si on résumait votre devise :",
+   a:[{t:"« Les actes, pas les discours. »",p:"P"},
+      {t:"« Personne n'est libre tant que tout le monde ne l'est pas. »",p:"I"},
+      {t:"« Mêmes droits, mêmes règles, pour tous. »",p:"U"},
+      {t:"« Je préfère une bonne question à une mauvaise certitude. »",p:"C"}]}
+];
+
+var idx=0, scores={P:0,I:0,U:0,Q:0,C:0};
+var quiz=document.getElementById('quiz');
+var bar=document.getElementById('bar');
+var count=document.getElementById('count');
+
+function notifyResize(){setTimeout(function(){window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');},50);}
+
+function render(){
+  var Q=questions[idx];
+  bar.style.width=((idx)/questions.length*100)+'%';
+  count.textContent='Question '+(idx+1)+' / '+questions.length;
+  var html='<p class="q">'+Q.q+'</p><div class="opts">';
+  for(var i=0;i<Q.a.length;i++){
+    html+='<button class="opt" data-p="'+Q.a[i].p+'">'+Q.a[i].t+'</button>';
+  }
+  html+='</div>';
+  quiz.innerHTML=html;
+  var btns=quiz.querySelectorAll('button.opt');
+  for(var j=0;j<btns.length;j++){btns[j].addEventListener('click',pick);}
+  notifyResize();
+}
+
+function pick(e){
+  var p=e.currentTarget.getAttribute('data-p');
+  scores[p]=(scores[p]||0)+1;
+  idx++;
+  if(idx<questions.length){render();}else{showResult();}
+}
+
+function showResult(){
+  bar.style.width='100%';
+  count.textContent='';
+  var best=null,bestv=-1,tie=false;
+  for(var k in scores){
+    if(scores[k]>bestv){bestv=scores[k];best=k;tie=false;}
+    else if(scores[k]===bestv){tie=true;}
+  }
+  var prof=profiles[best];
+  var mix='';
+  if(tie){mix='<p class="mix">Et un joli mélange avec d\'autres sensibilités — vous n\'aimez pas les cases, et c\'est tant mieux.</p>';}
+  quiz.innerHTML='<div class="result"><span class="badge">Votre profil</span>'+
+    '<h2 class="rtitle">'+prof.t+'</h2>'+
+    '<p class="rdesc">'+prof.d+'</p>'+mix+
+    '<button class="replay" id="again">Refaire le test</button></div>';
+  document.getElementById('head').style.opacity='.55';
+  document.getElementById('again').addEventListener('click',function(){
+    idx=0;scores={P:0,I:0,U:0,Q:0,C:0};
+    document.getElementById('head').style.opacity='1';render();
+  });
+  notifyResize();
+}
+
+window.addEventListener('load',notifyResize);
+window.addEventListener('resize',notifyResize);
+render();
+</script>
+</body>
+</html>
