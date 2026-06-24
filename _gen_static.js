@@ -15,12 +15,10 @@ function fmtDate(d) {
 }
 
 const CAT = {
-  'Anxiété':                 { color: '#7C3AED', bg: '#F5F3FF', enc: 'Anxi%C3%A9t%C3%A9' },
-  'Dépression':              { color: '#1D4ED8', bg: '#EFF6FF', enc: 'D%C3%A9pression' },
   'Bien-être':               { color: '#059669', bg: '#ECFDF5', enc: 'Bien-%C3%AAtre' },
   'Relations':               { color: '#BE185D', bg: '#FDF2F8', enc: 'Relations' },
-  'Stress':                  { color: '#B45309', bg: '#FFFBEB', enc: 'Stress' },
   'Sommeil':                 { color: '#0369A1', bg: '#ECFEFF', enc: 'Sommeil' },
+  'Troubles Psy':            { color: '#7C3AED', bg: '#F5F3FF', enc: 'Troubles%20Psy' },
   'Thérapies':               { color: '#6D28D9', bg: '#EDE9FE', enc: 'Th%C3%A9rapies' },
   'Développement personnel': { color: '#15803D', bg: '#F0FDF4', enc: 'D%C3%A9veloppement%20personnel' },
   'Sexo':                    { color: '#C2185B', bg: '#FCE4EC', enc: 'Sexo' },
@@ -35,7 +33,7 @@ const RUBRIQUE_PAGES = {
   'Les monstres sur le divan':        'les-monstres-sur-le-divan.html',
 };
 
-const NAV_CATS = ['Anxiété','Dépression','Bien-être','Stress','Sommeil','Thérapies','Relations'];
+const NAV_CATS = ['Bien-être','Sommeil','Troubles Psy','Thérapies','Relations'];
 
 const jsonFiles = fs.readdirSync(DIR).filter(f => f.endsWith('.json'));
 
@@ -369,11 +367,9 @@ ${sourcesHtml}
         <div class="footer-col">
           <h4>Thématiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiété</a></li>
-            <li><a href="index.html?cat=D%C3%A9pression">Dépression</a></li>
             <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
-            <li><a href="index.html?cat=Stress">Stress</a></li>
             <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
             <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
           </ul>
         </div>

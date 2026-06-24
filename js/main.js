@@ -16,12 +16,10 @@ const CONFIG = {
 };
 
 const CATEGORIES = {
-  'Anxiété':                  { color: '#7C3AED', bg: '#F5F3FF' },
-  'Dépression':               { color: '#1D4ED8', bg: '#EFF6FF' },
   'Bien-être':                { color: '#059669', bg: '#ECFDF5' },
   'Relations':                { color: '#BE185D', bg: '#FDF2F8' },
-  'Stress':                   { color: '#B45309', bg: '#FFFBEB' },
   'Sommeil':                  { color: '#0369A1', bg: '#ECFEFF' },
+  'Troubles Psy':             { color: '#7C3AED', bg: '#F5F3FF' },
   'Thérapies':                { color: '#6D28D9', bg: '#EDE9FE' },
   'Développement personnel':  { color: '#15803D', bg: '#F0FDF4' },
   'Nos héros sur le divan':   { color: '#EA580C', bg: '#FFF7ED' },
