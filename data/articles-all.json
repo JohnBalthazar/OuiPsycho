@@ -435,12 +435,12 @@
   {
     "id": "mussolini-sur-le-divan",
     "title": "Mussolini sur le divan : psychologie d'un fasciste",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
     "date": "2026-08-20",
-    "date_modified": "2026-08-20",
-    "category": "Les monstres",
-    "image": "",
-    "hasImage": false,
+    "date_modified": "2026-06-24",
+    "category": "Les monstres sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kbez0hpcncmooye7phdj",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -455,7 +455,7 @@
       "histoire",
       "fascisme"
     ],
-    "metaDescription": "",
+    "metaDescription": "Narcissisme, théâtralité, opportunisme : ce que la psychologie scientifique dit de la personnalité de Benito Mussolini, l'inventeur du fascisme.",
     "articles_lies": [],
     "status": "scheduled"
   },
