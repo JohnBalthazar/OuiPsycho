@@ -2,12 +2,12 @@
   {
     "id": "benedict-bridgerton-sur-le-divan",
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Éternel deuxième, artiste contrarié, Benedict Bridgerton incarne la quête de sens d'une âme sensible coincée entre devoir aristocratique et désir d'authenticité. Mise au divan.",
     "date": "2026-09-29",
-    "date_modified": "2026-09-29",
+    "date_modified": "2026-06-24",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -22,7 +22,7 @@
       "syndrome de l'imposteur",
       "développement personnel"
     ],
-    "metaDescription": "",
+    "metaDescription": "Benedict Bridgerton sur le divan : syndrome du deuxième fils, quête d'identité et hypersensibilité. La psychologie de l'artiste des Bridgerton, décryptée.",
     "articles_lies": [],
     "status": "scheduled"
   },
