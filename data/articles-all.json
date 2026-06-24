@@ -56,12 +56,12 @@
   {
     "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir nous regarde.",
     "date": "2026-09-22",
-    "date_modified": "2026-09-22",
+    "date_modified": "2026-06-24",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k3hxdenqbrw45ncbifq0",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -76,7 +76,7 @@
       "narcissisme",
       "controle"
     ],
-    "metaDescription": "",
+    "metaDescription": "Psychologie de Louis XIV : la Fronde, le narcissisme d'État, l'étiquette de Versailles et le besoin de contrôle. Une lecture psy et sociologique du Roi-Soleil, plus un quiz : quel genre de roi êtes-vous ?",
     "articles_lies": [],
     "status": "scheduled"
   },
