@@ -2,19 +2,18 @@
   {
     "id": "benedict-bridgerton-sur-le-divan",
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
-    "type": "article",
-    "excerpt": "Éternel deuxième, artiste contrarié, Benedict Bridgerton incarne la quête de sens d'une âme sensible coincée entre devoir aristocratique et désir d'authenticité. Mise au divan.",
-    "metaDescription": "Benedict Bridgerton sur le divan : syndrome du deuxième fils, quête d'identité et hypersensibilité. La psychologie de l'artiste des Bridgerton, décryptée.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-29",
     "date_modified": "2026-09-29",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "bridgerton",
       "psychologie de la fratrie",
@@ -23,63 +22,25 @@
       "syndrome de l'imposteur",
       "développement personnel"
     ],
-    "sources": [
-      {
-        "authors": "Adler A.",
-        "year": "2021",
-        "title": "Le tempérament nerveux : éléments d'une psychologie individuelle",
-        "publisher": "Payot"
-      },
-      {
-        "authors": "Erikson E. H.",
-        "year": "1972",
-        "title": "Adolescence et crise : la quête de l'identité",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "Marcia J. E.",
-        "year": "1966",
-        "title": "Development and validation of ego identity status",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Aron E. N. & Aron A.",
-        "year": "1997",
-        "title": "Sensory-processing sensitivity and its relation to introversion and emotionality",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Clance P. R. & Imes S. A.",
-        "year": "1978",
-        "title": "The imposter phenomenon in high achieving women",
-        "journal": "Psychotherapy: Theory, Research & Practice"
-      },
-      {
-        "authors": "Winnicott D. W.",
-        "year": "1970",
-        "title": "Processus de maturation chez l'enfant : développement affectif et environnement",
-        "publisher": "Payot"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ecran-sante-mentale",
     "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
-    "type": "article",
-    "excerpt": "4h11 d'écran par jour pour les 6-17 ans, un smartphone dès 9 ans… Fléau du siècle ou panique morale ? Ce que disent vraiment les chiffres les plus récents.",
-    "metaDescription": "Écrans et santé mentale : 4h11 par jour, sommeil rogné, langage menacé… Ce que disent les chiffres récents, entre consensus net et idées reçues.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-25",
     "date_modified": "2026-09-25",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "écrans",
       "santé mentale",
@@ -88,56 +49,25 @@
       "sommeil",
       "adolescents"
     ],
-    "sources": [
-      {
-        "authors": "Mouton S. & Benyamina A. (dir.)",
-        "year": "2024",
-        "title": "Enfants et écrans : à la recherche du temps perdu — Rapport de la commission d'experts",
-        "publisher": "Présidence de la République française"
-      },
-      {
-        "authors": "Santé publique France",
-        "year": "2025",
-        "title": "Temps d'écran des enfants de 3 à 11 ans scolarisés en France : étude Enabee",
-        "publisher": "Santé publique France"
-      },
-      {
-        "authors": "Li et al.",
-        "year": "2025",
-        "title": "Cross-sectional and longitudinal associations of screen time with adolescent depression and anxiety",
-        "journal": "British Journal of Clinical Psychology"
-      },
-      {
-        "authors": "Lai N. M. et al.",
-        "year": "2025",
-        "title": "The effectiveness of school-based interventions for reducing screen time: a systematic review and meta-analysis",
-        "journal": "Child and Adolescent Mental Health"
-      },
-      {
-        "authors": "Haidt J.",
-        "year": "2024",
-        "title": "Génération anxieuse : comment les réseaux sociaux ont rendu nos enfants malades",
-        "publisher": "Les Arènes"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
-    "excerpt": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir nous regarde.",
-    "metaDescription": "Psychologie de Louis XIV : la Fronde, le narcissisme d'État, l'étiquette de Versailles et le besoin de contrôle. Une lecture psy et sociologique du Roi-Soleil, plus un quiz : quel genre de roi êtes-vous ?",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "louis-xiv",
       "psychologie",
@@ -146,42 +76,25 @@
       "narcissisme",
       "controle"
     ],
-    "sources": [
-      {
-        "title": "Jean-Christian Petitfils, Louis XIV (Perrin) — la biographie de référence",
-        "url": "https://www.cairn.info/le-siecle-de-louis-xiv--9782262072698.htm"
-      },
-      {
-        "title": "Norbert Elias, La société de cour (Flammarion)",
-        "url": "https://editions.flammarion.com/la-societe-de-cour/9782080144188"
-      },
-      {
-        "title": "« Louis XIV a-t-il été un grand roi ? », Les Clionautes",
-        "url": "https://www.clionautes.org/louis-xiv-a-t-il-ete-un-grand-roi.html"
-      },
-      {
-        "title": "Repère « La société de cour », BnF / Gallica Essentiels",
-        "url": "https://gallica.bnf.fr/essentiels/repere/societe-cour"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "bienfaits-meconnus-du-sexe",
     "title": "Les bienfaits méconnus du sexe",
-    "type": "article",
-    "excerpt": "On lui prête mille vertus pour le plaisir, mais le sexe est aussi un allié santé largement sous-estimé. Anti-stress, somnifère, antidouleur : ce que dit la science.",
-    "metaDescription": "Les bienfaits méconnus du sexe : anti-stress, sommeil, immunité, cœur et estime de soi. Ce que dit vraiment la science des vertus santé de la sexualité.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-18",
     "date_modified": "2026-09-18",
     "category": "Sexo",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "sexualité",
       "bien-être",
@@ -190,63 +103,25 @@
       "santé",
       "couple"
     ],
-    "sources": [
-      {
-        "authors": "Davey Smith G., Frankel S. & Yarnell J.",
-        "year": "1997",
-        "title": "Sex and death: are they related? Findings from the Caerphilly cohort study",
-        "journal": "BMJ"
-      },
-      {
-        "authors": "Charnetski C. J. & Brennan F. X.",
-        "year": "2004",
-        "title": "Sexual frequency and salivary immunoglobulin A (IgA)",
-        "journal": "Psychological Reports"
-      },
-      {
-        "authors": "Brody S.",
-        "year": "2006",
-        "title": "Blood pressure reactivity to stress is better for people who recently had penile-vaginal intercourse",
-        "journal": "Biological Psychology"
-      },
-      {
-        "authors": "Meston C. M. & Buss D. M.",
-        "year": "2009",
-        "title": "Why Women Have Sex",
-        "publisher": "Times Books"
-      },
-      {
-        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
-        "year": "2010",
-        "title": "Social relationships and mortality risk: a meta-analytic review",
-        "journal": "PLoS Medicine"
-      },
-      {
-        "authors": "Brenot P.",
-        "year": "2012",
-        "title": "Inventer le couple",
-        "publisher": "Odile Jacob"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
-    "type": "article",
-    "excerpt": "Faut-il être un parent parfait pour bien accompagner son ado ? La psychologie répond non — et c'est tant mieux. Petit voyage au pays du parent « suffisamment bon ».",
-    "metaDescription": "Être un bon parent d'adolescent : le concept de parent « suffisamment bon », l'autorité bienveillante et le soutien à l'autonomie, expliqués par la psychologie.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-17",
     "date_modified": "2026-09-17",
     "category": "Société & psychologie politique",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "parentalité",
       "adolescence",
@@ -255,38 +130,7 @@
       "autonomie",
       "éducation"
     ],
-    "sources": [
-      {
-        "authors": "Winnicott D. W.",
-        "year": "2006",
-        "title": "La mère suffisamment bonne",
-        "publisher": "Payot & Rivages"
-      },
-      {
-        "authors": "Jeammet P.",
-        "year": "2008",
-        "title": "Pour nos ados, soyons adultes",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Marcelli D. & Braconnier A.",
-        "year": "2018",
-        "title": "Adolescence et psychopathologie",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Baumrind D.",
-        "year": "1991",
-        "title": "The influence of parenting style on adolescent competence and substance use",
-        "journal": "The Journal of Early Adolescence"
-      },
-      {
-        "authors": "Steinberg L.",
-        "year": "2001",
-        "title": "We know some things: Parent-adolescent relationships in retrospect and prospect",
-        "journal": "Journal of Research on Adolescence"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -320,12 +164,12 @@
   {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
-    "type": "article",
-    "excerpt": "L'un a envie, l'autre pas. Loin d'être une panne ou une faute, le décalage de désir est l'un des défis les plus banals — et les plus tus — de la vie à deux.",
+    "excerpt": "",
     "date": "2026-09-11",
     "date_modified": "2026-06-23",
     "category": "Sexo",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/slddq8a1qvdy7rpkvwwb",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -339,7 +183,7 @@
       "sexualité",
       "communication"
     ],
-    "metaDescription": "Différence de libido dans le couple : comprendre désir spontané et réactif, sortir du bras de fer et retrouver l'accord. Approche déculpabilisante.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -564,12 +408,12 @@
   {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
-    "type": "article",
-    "excerpt": "Le bavard qui squatte votre bureau, la reine du conflit passif, le génie qui ne répond jamais à un mail. Bonne nouvelle : la psychologie a des outils pour bosser sereinement même entouré de personnalités… disons compliquées.",
+    "excerpt": "",
     "date": "2026-08-21",
     "date_modified": "2026-06-23",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uapkml96gcawml7qohhe",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -584,7 +428,7 @@
       "stress",
       "relations"
     ],
-    "metaDescription": "Collègue toxique, passif-agressif ou pénible : ce que la psychologie conseille pour travailler efficacement et garder son calme au quotidien.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -618,12 +462,12 @@
   {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
-    "type": "article",
-    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
+    "excerpt": "",
     "date": "2026-08-18",
     "date_modified": "2026-06-23",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sw9dewvucupgcgcp708l",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -638,19 +482,19 @@
       "passion",
       "relations"
     ],
-    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "argent-et-bonheur",
     "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
-    "type": "article",
-    "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
+    "excerpt": "",
     "date": "2026-08-14",
     "date_modified": "2026-06-23",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ezc5xye540rwzftrukuj",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -665,19 +509,19 @@
       "revenu",
       "satisfaction de vie"
     ],
-    "metaDescription": "L'argent fait-il le bonheur ? La psychologie et les neurosciences livrent une réponse surprenante et plus complexe que le dicton populaire.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
-    "type": "article",
-    "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
+    "excerpt": "",
     "date": "2026-08-13",
     "date_modified": "2026-06-23",
     "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jhuvy65qh9ipdpnvsuhr",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -692,7 +536,7 @@
       "identite",
       "psychologie-personnage"
     ],
-    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -836,12 +680,12 @@
   {
     "id": "friluftsliv-bonheur-norvegien",
     "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
-    "type": "article",
-    "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
+    "excerpt": "",
     "date": "2026-07-30",
     "date_modified": "2026-06-23",
     "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bzqjkswf1axnzbujj4uw",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -856,7 +700,7 @@
       "bonheur",
       "psychologie positive"
     ],
-    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1216,18 +1060,18 @@
   {
     "id": "psychologie-du-feminisme",
     "title": "Psychologie du féminisme : ce que la science dit de nos résistances (et de nos élans)",
-    "excerpt": "Sexisme bienveillant, privilège invisible, besoin de croire en un monde juste : et si le féminisme était d'abord une affaire de mécaniques mentales ? Petit voyage décontracté dans la tête de tout le monde.",
-    "metaDescription": "Le féminisme vu par la psychologie : sexisme ambivalent, justification du système, identité sociale et un test pour situer votre profil féministe.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-06-25",
     "date_modified": "2026-06-25",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "feminisme",
       "psychologie-sociale",
@@ -1236,28 +1080,8 @@
       "societe",
       "egalite"
     ],
-    "sources": [
-      {
-        "title": "Dardenne, B., Delacollette, N., Grégoire, C. & Lecocq, D. (2006). Structure latente et validation de la version française de l'Ambivalent Sexism Inventory : l'échelle de sexisme ambivalent. L'année psychologique, 106, 235-264.",
-        "url": "https://www.persee.fr/doc/psy_0003-5033_2006_num_106_2_30900"
-      },
-      {
-        "title": "Quand les femmes justifient les inégalités de genre — In-Mind (sexisme bienveillant & justification du système).",
-        "url": "https://fr.in-mind.org/fr/article/quand-les-femmes-justifient-les-inegalites-de-genre"
-      },
-      {
-        "title": "Glick, P. & Fiske, S. T. (1996). The Ambivalent Sexism Inventory. Journal of Personality and Social Psychology, 70(3), 491-512.",
-        "url": "https://psycnet.apa.org/record/1996-03014-008"
-      },
-      {
-        "title": "Validation française de l'Ambivalence Toward Men Inventory (sexisme ambivalent envers les hommes) — HAL.",
-        "url": "https://hal.science/hal-03881089/"
-      },
-      {
-        "title": "Bereni, L. & Revillard, A. — Un mouvement social paradigmatique ? L'espace de la cause des femmes (sociologie du féminisme).",
-        "url": "https://shs.hal.science/halshs-02353337/document"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
