@@ -1060,12 +1060,12 @@
   {
     "id": "psychologie-du-feminisme",
     "title": "Psychologie du féminisme : ce que la science dit de nos résistances (et de nos élans)",
-    "type": "article",
     "excerpt": "Sexisme bienveillant, privilège invisible, besoin de croire en un monde juste : et si le féminisme était d'abord une affaire de mécaniques mentales ? Petit voyage décontracté dans la tête de tout le monde.",
     "date": "2026-06-25",
     "date_modified": "2026-06-24",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/gwpvyv2omgkuqpepgp5i",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
