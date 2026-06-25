@@ -412,6 +412,37 @@
     .related-badge button { background: none; border: none; cursor: pointer; color: var(--primary); font-size: 1rem; padding: 0; line-height: 1; flex-shrink: 0; }
     .related-search { width: 100%; padding: 7px 10px; border: 1.5px solid var(--gray-200); border-radius: var(--radius); font-size: .84rem; font-family: inherit; margin-bottom: 8px; display: block; }
     .related-search:focus { outline: none; border-color: var(--primary); }
+
+    /* ── PAGINATION ── */
+    .pagination-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px 20px; border-top: 1px solid var(--gray-100);
+      gap: 12px; flex-wrap: wrap;
+    }
+    .pagination-info { font-size: .82rem; color: var(--gray-500); flex-shrink: 0; white-space: nowrap; }
+    .pagination-controls { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; }
+    .page-btn {
+      min-width: 34px; height: 34px; padding: 0 10px;
+      border: 1px solid var(--gray-200); border-radius: var(--radius);
+      background: #fff; color: var(--gray-700); font-size: .85rem;
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      transition: all .15s; white-space: nowrap;
+    }
+    .page-btn:hover:not(:disabled) { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+    .page-btn.active { background: var(--primary); border-color: var(--primary); color: #fff; font-weight: 600; }
+    .page-btn:disabled { opacity: .35; cursor: default; }
+    .page-btn.ellipsis { border-color: transparent; background: transparent; cursor: default; min-width: 24px; }
+    .per-page-select {
+      padding: 7px 10px; border: 1px solid var(--gray-200); border-radius: var(--radius);
+      font-size: .82rem; color: var(--gray-700); background: #fff; cursor: pointer;
+    }
+
+    /* ── DATE FILTER CHIPS ── */
+    .filter-bar { flex-wrap: wrap; }
+    .filter-chip-year  { border-color: #bfdbfe; color: #1e40af; background: #eff6ff; }
+    .filter-chip-year.active  { background: #1d4ed8; border-color: #1d4ed8; color: #fff; }
+    .filter-chip-month { border-color: #ddd6fe; color: #5b21b6; background: #f5f3ff; font-size: .75rem; padding: 3px 9px; }
+    .filter-chip-month.active { background: #7c3aed; border-color: #7c3aed; color: #fff; }
   </style>
   <!-- DOMPurify — assainissement HTML pour la prévisualisation des articles -->
   <script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
@@ -557,6 +588,7 @@
           <thead><tr><th>Titre</th><th>Catégorie</th><th>Date</th><th>Statut</th><th>Photo</th><th>Lecture</th><th>Actions</th></tr></thead>
           <tbody id="articles-table"><tr class="loading-row"><td colspan="7">Chargement…</td></tr></tbody>
         </table>
+        <div id="articles-pagination"></div>
       </div>
     </div>
 
@@ -1510,8 +1542,12 @@ let articles = [];
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
-let activeCatFilter  = 'all';
+let activeCatFilter   = 'all';
 let activePhotoFilter = 'all'; // 'all' | 'with' | 'without'
+let activeYearFilter  = 'all';
+let activeMonthFilter = 'all';
+let currentPage       = 1;
+let articlesPerPage   = 25;   // 25 | 50 | 100 | 0 = tout
 let confirmCallback = null;
 let sessionTimer = null;
 let isUploading = false; // verrou pendant l'upload d'image
@@ -1968,38 +2004,133 @@ function renderDashboard() {
 /* ══════════════════════════════════════════════
    ARTICLES TABLE
 ══════════════════════════════════════════════ */
+/* ── helpers séparateur ── */
+const SEP = `<span style="width:1px;background:var(--gray-200);margin:0 6px;align-self:stretch;flex-shrink:0"></span>`;
+const LABEL = txt => `<span style="font-size:.72rem;font-weight:700;color:var(--gray-400);display:flex;align-items:center;padding:0 2px;white-space:nowrap">${txt}</span>`;
+
 function buildFilterChips() {
   const cats = [...new Set(articles.map(a => a.category))].sort();
   const withPhoto    = articles.filter(a => (a.image && a.image.trim()) || a.hasImage).length;
   const withoutPhoto = articles.length - withPhoto;
+
+  /* ── années ── */
+  const yearMap = {};
+  articles.forEach(a => { const y = a.date.slice(0,4); yearMap[y] = (yearMap[y]||0)+1; });
+  const years = Object.keys(yearMap).sort((a,b) => b.localeCompare(a));
+
+  /* ── mois (si une année est sélectionnée) ── */
+  let monthSection = '';
+  if (activeYearFilter !== 'all') {
+    const monthMap = {};
+    articles.filter(a => a.date.startsWith(activeYearFilter))
+            .forEach(a => { const m = a.date.slice(5,7); monthMap[m] = (monthMap[m]||0)+1; });
+    const MN = ['Jan','Fév','Mar','Avr','Mai','Juin','Juil','Août','Sep','Oct','Nov','Déc'];
+    monthSection = SEP +
+      `<span class="filter-chip filter-chip-month${activeMonthFilter==='all'?' active':''}" data-group="month" onclick="setMonthFilter('all',this)">Tous les mois</span>` +
+      Object.keys(monthMap).sort().map(m =>
+        `<span class="filter-chip filter-chip-month${activeMonthFilter===m?' active':''}" data-group="month" onclick="setMonthFilter('${m}',this)">${MN[+m-1]} <small style="opacity:.7">${monthMap[m]}</small></span>`
+      ).join('');
+  }
+
   document.getElementById('filter-bar').innerHTML =
-    /* ── chips catégorie ── */
-    `<span class="filter-chip active" data-group="cat" onclick="setCatFilter('all', this)">Tous (${articles.length})</span>` +
+    /* catégories */
+    `<span class="filter-chip${activeCatFilter==='all'?' active':''}" data-group="cat" onclick="setCatFilter('all',this)">Tous (${articles.length})</span>` +
     cats.map(c =>
-      `<span class="filter-chip" data-group="cat" onclick="setCatFilter('${c}', this)">${c} (${articles.filter(a=>a.category===c).length})</span>`
+      `<span class="filter-chip${activeCatFilter===c?' active':''}" data-group="cat" onclick="setCatFilter('${encodeURIComponent(c)}',this)">${c} (${articles.filter(a=>a.category===c).length})</span>`
     ).join('') +
-    /* ── séparateur ── */
-    `<span style="width:1px;background:var(--gray-200);margin:0 6px;align-self:stretch;flex-shrink:0"></span>` +
-    `<span style="font-size:.72rem;font-weight:700;color:var(--gray-400);display:flex;align-items:center;padding:0 2px;white-space:nowrap">🖼️ Photo&nbsp;:</span>` +
-    /* ── chips photo ── */
-    `<span class="filter-chip active" data-group="photo" onclick="setPhotoFilter('all', this)">Toutes</span>` +
-    `<span class="filter-chip filter-chip-photo-ok"  data-group="photo" onclick="setPhotoFilter('with', this)">✅ Avec (${withPhoto})</span>` +
-    `<span class="filter-chip filter-chip-photo-ko"  data-group="photo" onclick="setPhotoFilter('without', this)">⚠️ Sans (${withoutPhoto})</span>`;
+    SEP + LABEL('🖼️ Photo&nbsp;:') +
+    /* photo */
+    `<span class="filter-chip${activePhotoFilter==='all'?' active':''}" data-group="photo" onclick="setPhotoFilter('all',this)">Toutes</span>` +
+    `<span class="filter-chip filter-chip-photo-ok${activePhotoFilter==='with'?' active':''}" data-group="photo" onclick="setPhotoFilter('with',this)">✅ Avec (${withPhoto})</span>` +
+    `<span class="filter-chip filter-chip-photo-ko${activePhotoFilter==='without'?' active':''}" data-group="photo" onclick="setPhotoFilter('without',this)">⚠️ Sans (${withoutPhoto})</span>` +
+    SEP + LABEL('📅 Période&nbsp;:') +
+    /* années */
+    `<span class="filter-chip filter-chip-year${activeYearFilter==='all'?' active':''}" data-group="year" onclick="setYearFilter('all',this)">Tout</span>` +
+    years.map(y =>
+      `<span class="filter-chip filter-chip-year${activeYearFilter===y?' active':''}" data-group="year" onclick="setYearFilter('${y}',this)">${y} <small style="opacity:.7">${yearMap[y]}</small></span>`
+    ).join('') +
+    /* mois (conditionnel) */
+    monthSection;
 }
+
 function setCatFilter(cat, el) {
-  activeCatFilter = cat;
+  activeCatFilter = decodeURIComponent(cat);
+  currentPage = 1;
   document.querySelectorAll('#filter-bar .filter-chip[data-group="cat"]').forEach(c => c.classList.remove('active'));
   el.classList.add('active');
   renderArticlesTable();
 }
 function setPhotoFilter(filter, el) {
   activePhotoFilter = filter;
-  // el peut être null si appelé depuis le dashboard avant que la filter-bar soit visible
+  currentPage = 1;
   document.querySelectorAll('#filter-bar .filter-chip[data-group="photo"]').forEach(c => c.classList.remove('active'));
   if (el) el.classList.add('active');
   renderArticlesTable();
 }
-function filterArticles() { renderArticlesTable(); }
+function setYearFilter(year) {
+  activeYearFilter  = year;
+  activeMonthFilter = 'all';
+  currentPage = 1;
+  buildFilterChips();   // rebuild pour afficher/masquer les mois
+  renderArticlesTable();
+}
+function setMonthFilter(month, el) {
+  activeMonthFilter = month;
+  currentPage = 1;
+  document.querySelectorAll('#filter-bar .filter-chip[data-group="month"]').forEach(c => c.classList.remove('active'));
+  if (el) el.classList.add('active');
+  renderArticlesTable();
+}
+function filterArticles() { currentPage = 1; renderArticlesTable(); }
+
+/* ── pagination ── */
+function goToPage(page) {
+  currentPage = page;
+  renderArticlesTable();
+  document.getElementById('page-articles').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function setPerPage(n) {
+  articlesPerPage = +n;
+  currentPage = 1;
+  renderArticlesTable();
+}
+function buildPaginationHTML(total, page, perPage) {
+  if (!total) return '';
+  if (perPage === 0 || total <= perPage) {
+    return `<div class="pagination-bar"><span class="pagination-info">${total} article${total>1?'s':''}</span></div>`;
+  }
+  const totalPages = Math.ceil(total / perPage);
+  const from = (page - 1) * perPage + 1;
+  const to   = Math.min(page * perPage, total);
+
+  /* numéros avec ellipsis */
+  const nums = [];
+  for (let i = 1; i <= totalPages; i++) {
+    if (i === 1 || i === totalPages || (i >= page - 2 && i <= page + 2)) nums.push(i);
+    else if (nums[nums.length-1] !== '…') nums.push('…');
+  }
+  const pageButtons = nums.map(p =>
+    p === '…'
+      ? `<span class="page-btn ellipsis">…</span>`
+      : `<button class="page-btn${p===page?' active':''}" onclick="goToPage(${p})">${p}</button>`
+  ).join('');
+
+  return `
+    <div class="pagination-bar">
+      <span class="pagination-info">Articles ${from}–${to} sur ${total}</span>
+      <div class="pagination-controls">
+        <button class="page-btn" onclick="goToPage(${page-1})" ${page<=1?'disabled':''}>‹ Préc.</button>
+        ${pageButtons}
+        <button class="page-btn" onclick="goToPage(${page+1})" ${page>=totalPages?'disabled':''}>Suiv. ›</button>
+      </div>
+      <select class="per-page-select" onchange="setPerPage(this.value)">
+        <option value="25"  ${perPage===25 ?'selected':''}>25 / page</option>
+        <option value="50"  ${perPage===50 ?'selected':''}>50 / page</option>
+        <option value="100" ${perPage===100?'selected':''}>100 / page</option>
+        <option value="0"   ${perPage===0  ?'selected':''}>Tout afficher</option>
+      </select>
+    </div>`;
+}
 
 function getArticleStatusInfo(a) {
   const today = new Date().toISOString().split('T')[0];
@@ -2013,14 +2144,26 @@ function renderArticlesTable() {
   const q = (document.getElementById('search-input')?.value || '').toLowerCase();
   let list = articles.filter(a => {
     const hasPhoto = !!(a.image && a.image.trim()) || !!a.hasImage;
+    const yearOk   = activeYearFilter  === 'all' || a.date.startsWith(activeYearFilter);
+    const monthOk  = activeMonthFilter === 'all' || a.date.slice(5,7) === activeMonthFilter;
     return (activeCatFilter  === 'all' || a.category === activeCatFilter) &&
            (activePhotoFilter === 'all' ||
             (activePhotoFilter === 'with'    &&  hasPhoto) ||
             (activePhotoFilter === 'without' && !hasPhoto)) &&
+           yearOk && monthOk &&
            (!q || a.title.toLowerCase().includes(q) || (a.tags||[]).some(t=>t.toLowerCase().includes(q)));
   }).sort((a,b) => b.date.localeCompare(a.date));
-  document.getElementById('articles-count').textContent = `(${list.length})`;
-  document.getElementById('articles-table').innerHTML = list.map(a => {
+
+  const total = list.length;
+  document.getElementById('articles-count').textContent = `(${total})`;
+
+  /* ── pagination ── */
+  const perPage = articlesPerPage;
+  const totalPages = perPage === 0 ? 1 : Math.ceil(total / perPage) || 1;
+  currentPage = Math.max(1, Math.min(currentPage, totalPages));
+  const pageList = perPage === 0 ? list : list.slice((currentPage-1)*perPage, currentPage*perPage);
+
+  document.getElementById('articles-table').innerHTML = pageList.map(a => {
     const si       = getArticleStatusInfo(a);
     const hasPhoto = !!(a.image && a.image.trim()) || !!a.hasImage;
     const photoCell = hasPhoto
@@ -2049,6 +2192,9 @@ function renderArticlesTable() {
       </td>
     </tr>`;
   }).join('') || '<tr><td colspan="7" style="text-align:center;color:var(--gray-400);padding:32px">Aucun article trouvé</td></tr>';
+
+  /* ── pagination ── */
+  document.getElementById('articles-pagination').innerHTML = buildPaginationHTML(total, currentPage, perPage);
 }
 
 /* ══════════════════════════════════════════════
