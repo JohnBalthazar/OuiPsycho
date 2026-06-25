@@ -1,5 +1,69 @@
 [
   {
+    "id": "innovations-sante-mentale-futur-imminent",
+    "title": "Quelles innovations en santé mentale dans un futur imminent ?",
+    "excerpt": "Psilocybine au seuil de l'approbation, stimulation magnétique accélérée, biomarqueurs et réalité virtuelle : la psychiatrie s'apprête à changer de visage. Voici les innovations en santé mentale qui pourraient arriver d'ici un à trois ans, et leurs limites.",
+    "metaDescription": "Psilocybine bientôt autorisée, stimulation cérébrale en cinq jours, biomarqueurs, réalité virtuelle : les innovations en santé mentale qui arrivent bientôt.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-08",
+    "date_modified": "2026-10-08",
+    "category": "Thérapies",
+    "image": "",
+    "readTime": 4,
+    "tags": [
+      "sante-mentale",
+      "innovation",
+      "psychedeliques",
+      "neuromodulation",
+      "psychiatrie",
+      "realite-virtuelle"
+    ],
+    "sources": [
+      {
+        "authors": "Medscape (B. Pittman)",
+        "year": "2026",
+        "title": "In the Race to the First Psychedelic Approval, Who's Leading?",
+        "journal": "Medscape",
+        "url": "https://www.medscape.com/viewarticle/race-first-psychedelic-approval-whos-leading-2026a1000e0n"
+      },
+      {
+        "authors": "Cole E. J. et coll.",
+        "year": "2023",
+        "title": "Accelerated TMS - moving quickly into the future of depression treatment",
+        "journal": "Neuropsychopharmacology",
+        "url": "https://doi.org/10.1038/s41386-023-01599-z"
+      },
+      {
+        "authors": "Kingwell K.",
+        "year": "2024",
+        "title": "Muscarinic drugs breathe new life into schizophrenia pipeline",
+        "journal": "Nature Reviews Drug Discovery",
+        "url": "https://doi.org/10.1038/d41573-024-00129-w"
+      },
+      {
+        "authors": "Agence nationale de la recherche (projet SENSO, P. Fossati)",
+        "year": "2024",
+        "title": "Biomarqueurs de la sensibilité aux signaux sociaux dans la dépression",
+        "journal": "ANR",
+        "url": "https://anr.fr/Projet-ANR-12-SAMA-0011"
+      },
+      {
+        "authors": "Healthy Mind",
+        "year": "2025",
+        "title": "Réalité virtuelle et IA : un duo prometteur pour la santé mentale",
+        "journal": "Healthy Mind"
+      },
+      {
+        "authors": "Futura Sciences",
+        "year": "2023",
+        "title": "Un nouveau biomarqueur pour personnaliser la prise en charge des dépressions sévères",
+        "journal": "Futura Sciences",
+        "url": "https://www.futura-sciences.com/sante/actualites/cerveau-nouveau-biomarqueur-personnaliser-prise-charge-depressions-severes-25577/"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
     "excerpt": "Le plaisir abrégerait-il la vie ? La science dit l'inverse. Tour d'horizon des études qui relient sexualité, santé et longévité — sans transformer le désir en performance.",
