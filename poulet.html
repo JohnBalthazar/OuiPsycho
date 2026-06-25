@@ -220,6 +220,40 @@
     .toast.info { background: var(--primary); }
     @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
+    /* ── KPI CARDS (tableau de bord) ── */
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 20px; }
+    .kpi-card {
+      background: #fff; border-radius: var(--radius); padding: 20px 22px;
+      box-shadow: var(--shadow); display: flex; align-items: center; gap: 16px;
+      transition: box-shadow .15s;
+    }
+    .kpi-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+    .kpi-card[style*="cursor:pointer"]:hover { box-shadow: 0 4px 16px rgba(0,0,0,.1); }
+    .kpi-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .kpi-icon.kpi-blue  { background: #dbeafe; color: #1d4ed8; }
+    .kpi-icon.kpi-amber { background: #fef3c7; color: #b45309; }
+    .kpi-icon.kpi-slate { background: #f1f5f9; color: #475569; }
+    .kpi-icon.kpi-rose  { background: #ffe4e6; color: #be123c; }
+    .kpi-val   { font-size: 1.75rem; font-weight: 700; color: var(--gray-900); line-height: 1.1; }
+    .kpi-label { font-size: .8rem; color: var(--gray-500); margin-top: 3px; }
+    .kpi-warn  { outline: 2px solid #fde68a; }
+
+    /* ── CATEGORY BREAKDOWN ── */
+    .cat-list { padding: 4px 0; }
+    .cat-row {
+      display: grid; grid-template-columns: 170px 1fr 32px;
+      align-items: center; gap: 14px; padding: 9px 20px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .cat-row:last-child { border-bottom: none; }
+    .cat-name  { font-size: .875rem; color: var(--gray-700); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cat-bar-wrap { height: 6px; background: var(--gray-100); border-radius: 3px; overflow: hidden; }
+    .cat-fill  { height: 100%; border-radius: 3px; background: var(--primary); }
+    .cat-count { font-size: .875rem; font-weight: 600; color: var(--gray-600); text-align: right; }
+
     /* ── LOADING ── */
     .spinner { width: 20px; height: 20px; border: 2px solid rgba(255,255,255,.3); border-top-color: #fff; border-radius: 50%; animation: spin .7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
@@ -493,7 +527,7 @@
           </button>
         </div>
       </div>
-      <div class="stats-grid" id="stats-grid"></div>
+      <div id="stats-grid"></div>
       <div class="card">
         <div class="card-header"><h3>Articles récents</h3></div>
         <table>
@@ -1843,34 +1877,55 @@ function renderDashboard() {
   const published    = articles.filter(a => !a.status || (a.status === 'published') || (a.status === 'scheduled' && a.date <= today));
   const withoutPhoto = articles.filter(a => !(a.image && a.image.trim()) && !a.hasImage);
 
+  const totalArticles = articles.length;
   document.getElementById('stats-grid').innerHTML = `
-    <div class="stat-card">
-      <div class="stat-val">${published.length}</div>
-      <div class="stat-label">Articles publiés</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-blue">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+        </div>
+        <div><div class="kpi-val">${published.length}</div><div class="kpi-label">Articles publiés</div></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-amber">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div><div class="kpi-val">${scheduled.length}</div><div class="kpi-label">Planifiés</div></div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon kpi-slate">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+        </div>
+        <div><div class="kpi-val">${drafts.length}</div><div class="kpi-label">Brouillons</div></div>
+      </div>
+      <div class="kpi-card${withoutPhoto.length > 0 ? ' kpi-warn' : ''}" style="cursor:pointer"
+           onclick="showPage('articles');requestAnimationFrame(()=>setPhotoFilter('without',document.querySelector('#filter-bar .filter-chip-photo-ko')))"
+           title="Voir les articles sans photo">
+        <div class="kpi-icon kpi-rose">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        </div>
+        <div><div class="kpi-val">${withoutPhoto.length}</div><div class="kpi-label">Sans photo</div></div>
+      </div>
     </div>
-    <div class="stat-card orange">
-      <div class="stat-val">${scheduled.length}</div>
-      <div class="stat-label">⏰ Planifiés</div>
+
+    <div class="card" style="margin-bottom:20px">
+      <div class="card-header">
+        <h3>Catégories <span style="font-weight:400;color:var(--gray-400);font-size:.85rem">${Object.keys(cats).length} au total</span></h3>
+        <span style="font-size:.82rem;color:var(--gray-500)">${totalRead} min de lecture · ${totalArticles} articles</span>
+      </div>
+      <div class="cat-list">
+        ${Object.entries(cats)
+          .sort((a, b) => b[1] - a[1])
+          .map(([cat, count]) => {
+            const pct = Math.round((count / (totalArticles || 1)) * 100);
+            return `<div class="cat-row">
+              <span class="cat-name">${cat}</span>
+              <div class="cat-bar-wrap"><div class="cat-fill" style="width:${pct}%"></div></div>
+              <span class="cat-count">${count}</span>
+            </div>`;
+          }).join('')}
+      </div>
     </div>
-    <div class="stat-card" style="border-color:var(--gray-300)">
-      <div class="stat-val">${drafts.length}</div>
-      <div class="stat-label">📝 Brouillons</div>
-    </div>
-    <div class="stat-card green">
-      <div class="stat-val">${Object.keys(cats).length}</div>
-      <div class="stat-label">Catégories</div>
-    </div>
-    <div class="stat-card red">
-      <div class="stat-val">${totalRead}</div>
-      <div class="stat-label">Min de lecture totales</div>
-    </div>
-    <div class="stat-card orange" style="cursor:pointer" onclick="showPage('articles');requestAnimationFrame(()=>setPhotoFilter('without',document.querySelector('#filter-bar .filter-chip-photo-ko')))" title="Voir les articles sans photo">
-      <div class="stat-val">${withoutPhoto.length}</div>
-      <div class="stat-label">🖼️ Sans photo</div>
-    </div>
-    ${Object.entries(cats).map(([cat, count]) =>
-      `<div class="stat-card"><div class="stat-val">${count}</div><div class="stat-label">${cat}</div></div>`
-    ).join('')}
   `;
 
   // ── Prochaines publications planifiées ──
