@@ -54,6 +54,57 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologie-du-masculinisme",
+    "title": "Psychologie du masculinisme : dans la tête de la manosphère",
+    "excerpt": "Avant d'être une idéologie, le masculinisme est la rencontre entre une souffrance masculine bien réelle et une réponse aussi séduisante que toxique. Plongée dans ses ressorts psychologiques.",
+    "metaDescription": "Le masculinisme séduit en répondant mal à une détresse réelle. Décryptage psychologique de la manosphère, ses ressorts et comment y résister.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Société",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "masculinisme",
+      "manosphere",
+      "masculinite",
+      "psychologie-sociale",
+      "radicalisation",
+      "jeunes-hommes"
+    ],
+    "sources": [
+      {
+        "title": "Le masculinisme, un tremplin vers des idéologies réactionnaires",
+        "url": "https://www.sciencespo.fr/cevipof/fr/actualites/le-masculinisme-un-tremplin-vers-des-ideologies-reactionnaires/"
+      },
+      {
+        "title": "Qu'est-ce que la manosphère et pourquoi devrions-nous nous en inquiéter ? — ONU Femmes",
+        "url": "https://www.unwomen.org/fr/articles/article-explicatif/quest-ce-que-la-manosphere-et-pourquoi-devrions-nous-nous-en-inquieter"
+      },
+      {
+        "title": "Étude Equimundo : isolés, les jeunes hommes se réfugient chez les masculinistes (L'ADN)",
+        "url": "https://www.ladn.eu/nouveaux-usages/solitude-jeunes-hommes-manosphere/"
+      },
+      {
+        "title": "Masculinisme — Sexplique",
+        "url": "https://sexplique.org/masculinisme-2/"
+      },
+      {
+        "title": "Raewyn Connell, Masculinités. Enjeux sociaux de l'hégémonie (recension Cairn.info)",
+        "url": "https://shs.cairn.info/revue-agora-debats-jeunesses-2016-3-page-138?lang=fr"
+      },
+      {
+        "title": "La manosphère, chambre d'écho du masculinisme — Ligue de l'enseignement",
+        "url": "https://ligue-enseignement.be/education-enseignement/articles/societe/la-manosphere-chambre-decho-du-masculinisme"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
     "excerpt": "",
