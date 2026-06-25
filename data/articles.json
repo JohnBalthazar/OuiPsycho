@@ -1,63 +1,57 @@
 [
   {
-    "id": "5-traits-insoupconnes-meilleur-ami",
-    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
-    "excerpt": "On croit reconnaître un·e meilleur·e ami·e à sa fidélité ou à sa présence dans les coups durs. Mais la science des relations proches pointe des signes bien plus discrets — et plus fiables. En voici cinq.",
-    "metaDescription": "L'amitié ne tient pas qu'à la loyauté : 5 traits insoupçonnés, validés par la psychologie, qui distinguent un·e vrai·e meilleur·e ami·e des autres.",
+    "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
+    "title": "Espérance de vie et sexualité : ce que dit la science",
+    "excerpt": "Le plaisir abrégerait-il la vie ? La science dit l'inverse. Tour d'horizon des études qui relient sexualité, santé et longévité — sans transformer le désir en performance.",
+    "metaDescription": "Espérance de vie et sexualité : ce que disent vraiment les études sur le lien entre vie sexuelle, santé et longévité, loin des idées reçues.",
     "author": "La rédaction Oui Psycho!",
-    "date": "2026-10-01",
-    "date_modified": "2026-10-01",
-    "category": "Société",
+    "date": "2026-10-02",
+    "date_modified": "2026-10-02",
+    "category": "Sexo",
     "image": "",
     "readTime": 4,
     "tags": [
-      "amitié",
-      "relations",
-      "psychologie",
-      "soutien social",
-      "attachement",
-      "bien-être"
+      "sexualité",
+      "longévité",
+      "santé",
+      "bien-être",
+      "couple",
+      "science"
     ],
     "sources": [
       {
-        "authors": "Gable S. L., Reis H. T., Impett E. A. & Asher E. R.",
+        "authors": "Davey Smith G., Frankel S. & Yarnell J.",
+        "year": "1997",
+        "title": "Sex and death: are they related? Findings from the Caerphilly cohort study",
+        "journal": "BMJ",
+        "url": "https://doi.org/10.1136/bmj.315.7123.1641"
+      },
+      {
+        "authors": "Cao C., Yang L., Xu T. et al.",
+        "year": "2020",
+        "title": "Trends in Sexual Activity and Associations With All-Cause and Cause-Specific Mortality Among US Adults",
+        "journal": "The Journal of Sexual Medicine",
+        "url": "https://doi.org/10.1016/j.jsxm.2020.05.028"
+      },
+      {
+        "authors": "Charnetski C. J. & Brennan F. X.",
         "year": "2004",
-        "title": "What do you do when things go right? The intrapersonal and interpersonal benefits of sharing positive events",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.87.2.228"
+        "title": "Sexual Frequency and Salivary Immunoglobulin A (IgA)",
+        "journal": "Psychological Reports",
+        "url": "https://doi.org/10.2466/pr0.94.3.839-844"
       },
       {
-        "authors": "Koudenburg N., Gordijn E. H. & Postmes T.",
-        "year": "2014",
-        "title": "« More Than Words »: Social Validation in Close Relationships",
-        "journal": "Personality and Social Psychology Bulletin",
-        "url": "https://doi.org/10.1177/0146167214549945"
+        "authors": "Inserm, Santé publique France & ANRS-MIE",
+        "year": "2024",
+        "title": "Contexte des sexualités en France (CSF-2023) — premiers résultats",
+        "journal": "Inserm",
+        "url": "https://www.inserm.fr/actualite/sante-vie-affective-et-sexuelle-lancement-de-la-3e-etude-nationale/"
       },
       {
-        "authors": "Clark M. S. & Mills J.",
-        "year": "1979",
-        "title": "Interpersonal attraction in exchange and communal relationships",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Blois-da Conceicao S., Galiano A. R., Sagne A. & Poussin M.",
-        "year": "2017",
-        "title": "Données actuelles et perspectives futures dans l'étude des liens entre soutien social et santé",
-        "journal": "Psychologie Française",
-        "url": "https://shs.hal.science/halshs-01774285v1"
-      },
-      {
-        "authors": "Guédeney N.",
-        "year": "2010",
-        "title": "L'attachement, un lien vital",
-        "publisher": "Fabert (coll. Temps d'Arrêt / Yapaka)",
-        "url": "https://www.yapaka.be/sites/yapaka.be/files/publication/TA_Lattachement_un_lien_vital_WEB.pdf"
-      },
-      {
-        "authors": "Miljkovitch R.",
-        "year": "2001",
-        "title": "L'attachement au cours de la vie",
-        "publisher": "Presses Universitaires de France"
+        "authors": "Bajos N. & Bozon M.",
+        "year": "2008",
+        "title": "Enquête sur la sexualité en France : pratiques, genre et santé",
+        "publisher": "Éditions La Découverte"
       }
     ],
     "status": "scheduled"
