@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Test : êtes-vous perméable au discours masculiniste ?</title>
+<style>
+:root{--bg:#fbf7f2;--card:#ffffff;--ink:#3a3530;--muted:#8a817a;--accent:#e08a6b;--accent2:#7fa6a0;--soft:#f3ece4;--line:#ece3d8;}
+*{box-sizing:border-box;}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;}
+.wrap{max-width:640px;margin:0 auto;padding:22px 18px;}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;}
+h1{font-size:1.25rem;margin:0 0 6px;}
+.lead{color:var(--muted);font-size:.95rem;margin:0 0 18px;}
+.q{margin:0 0 16px;padding:16px;background:var(--soft);border-radius:12px;}
+.q p{margin:0 0 12px;font-weight:600;}
+.opts{display:flex;flex-direction:column;gap:8px;}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 12px;background:#fff;border:1.5px solid var(--line);border-radius:10px;cursor:pointer;transition:.15s;font-size:.95rem;}
+.opt:hover{border-color:var(--accent2);}
+.opt input{accent-color:var(--accent);width:17px;height:17px;cursor:pointer;}
+.opt.sel{border-color:var(--accent);background:#fdf2ec;}
+.btn{display:block;width:100%;margin-top:8px;padding:14px;border:none;border-radius:12px;background:var(--accent);color:#fff;font-size:1rem;font-weight:600;cursor:pointer;transition:.15s;}
+.btn:hover{filter:brightness(.96);}
+.btn:disabled{opacity:.45;cursor:not-allowed;}
+.res{text-align:center;}
+.score{font-size:2.2rem;font-weight:700;color:var(--accent);margin:4px 0;}
+.bar{height:12px;border-radius:8px;background:var(--soft);overflow:hidden;margin:14px 0;}
+.fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .6s ease;}
+.badge{display:inline-block;padding:6px 14px;border-radius:999px;background:var(--soft);font-weight:600;margin:6px 0 10px;}
+.res p{text-align:left;color:var(--ink);}
+.note{font-size:.85rem;color:var(--muted);text-align:left;margin-top:14px;border-top:1px solid var(--line);padding-top:12px;}
+.again{margin-top:10px;background:#fff;color:var(--accent);border:1.5px solid var(--accent);}
+.hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="card">
+<div id="quiz">
+<h1>Êtes-vous (un peu) perméable au discours masculiniste ?</h1>
+<p class="lead">8 affirmations. Pour chacune, dites à quel point elle vous parle. Aucun jugement à l'arrivée : juste un miroir.</p>
+<div id="questions"></div>
+<button class="btn" id="submit" disabled>Voir mon résultat</button>
+</div>
+<div id="result" class="res hidden"></div>
+</div>
+</div>
+<script>
+var QUESTIONS=[
+"Si les hommes vont mal aujourd'hui, c'est surtout à cause du féminisme et des changements de la société.",
+"Au fond, dans les relations amoureuses, il y a des gagnants et des perdants.",
+"Une femme s'intéresse d'abord au statut social et à l'argent d'un homme.",
+"Montrer ses émotions ou demander de l'aide, pour un homme, c'est un signe de faiblesse.",
+"Les vrais problèmes des hommes sont passés sous silence par des médias trop « woke ».",
+"Il existe un ordre naturel qui assigne à chaque sexe une place et un rôle.",
+"Quand je me sens rejeté, je me dis surtout que le problème vient des autres.",
+"Pour être respecté, un homme doit se montrer dominant et un peu distant."
+];
+var OPTS=[["Pas du tout d'accord",0],["Un peu d'accord",1],["Plutôt d'accord",2]];
+var answers={};
+var qc=document.getElementById('questions');
+QUESTIONS.forEach(function(t,i){
+  var d=document.createElement('div');d.className='q';
+  var p=document.createElement('p');p.textContent=(i+1)+'. '+t;d.appendChild(p);
+  var o=document.createElement('div');o.className='opts';
+  OPTS.forEach(function(op){
+    var lab=document.createElement('label');lab.className='opt';
+    var inp=document.createElement('input');inp.type='radio';inp.name='q'+i;inp.value=op[1];
+    inp.addEventListener('change',function(){
+      answers[i]=op[1];
+      o.querySelectorAll('.opt').forEach(function(x){x.classList.remove('sel');});
+      lab.classList.add('sel');
+      document.getElementById('submit').disabled=Object.keys(answers).length<QUESTIONS.length;
+    });
+    var sp=document.createElement('span');sp.textContent=op[0];
+    lab.appendChild(inp);lab.appendChild(sp);o.appendChild(lab);
+  });
+  d.appendChild(o);qc.appendChild(d);
+});
+
+var BANDS=[
+ {max:4,t:"Plutôt imperméable",
+  d:"Vos réponses montrent un esprit critique solide face aux raccourcis masculinistes. Vous percevez la souffrance masculine comme réelle sans en accuser les femmes, et vous résistez à la pensée binaire « gagnants/perdants ». Continuez à cultiver le lien et le doute : ce sont vos meilleurs alliés."},
+ {max:9,t:"Quelques angles morts",
+  d:"Vous gardez du recul, mais certains réflexes typiques de la manosphère résonnent un peu — l'idée d'un rapport de force, ou la tentation d'attribuer ses difficultés à l'extérieur. Rien d'alarmant : juste une invitation à repérer ces automatismes et à les questionner quand ils surgissent."},
+ {max:16,t:"Terrain favorable",
+  d:"Plusieurs idées centrales du discours masculiniste vous parlent franchement. Cela ne fait pas de vous quelqu'un de « mauvais » : souvent, ces idées séduisent parce qu'elles répondent à une souffrance ou un sentiment d'injustice bien réels. Ça vaut la peine de creuser d'où ils viennent — et, si le besoin est là, d'en parler à quelqu'un de confiance."}
+];
+
+document.getElementById('submit').addEventListener('click',function(){
+  var s=0;for(var k in answers){s+=answers[k];}
+  var band=BANDS.find(function(b){return s<=b.max;});
+  var pct=Math.round(s/16*100);
+  document.getElementById('quiz').classList.add('hidden');
+  var r=document.getElementById('result');
+  r.classList.remove('hidden');
+  r.innerHTML='<div class="score">'+s+'/16</div>'+
+    '<span class="badge">'+band.t+'</span>'+
+    '<div class="bar"><div class="fill" style="width:0%"></div></div>'+
+    '<p>'+band.d+'</p>'+
+    '<p class="note">Ce test est un outil de réflexion, pas un diagnostic. Si ces questions touchent un mal-être que vous portez, en parler à un proche ou à un professionnel n'a rien d'une faiblesse — c'est souvent le geste le plus utile.</p>'+
+    '<button class="btn again" id="again">Recommencer</button>';
+  setTimeout(function(){r.querySelector('.fill').style.width=pct+'%';},80);
+  document.getElementById('again').addEventListener('click',function(){location.reload();});
+  notifyResize();
+});
+
+function notifyResize(){setTimeout(function(){window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');},50);}
+window.addEventListener('load',notifyResize);
+window.addEventListener('resize',notifyResize);
+</script>
+</body>
+</html>
