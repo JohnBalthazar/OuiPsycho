@@ -2,14 +2,18 @@
   {
     "id": "innovations-sante-mentale-futur-imminent",
     "title": "Quelles innovations en santé mentale dans un futur imminent ?",
-    "excerpt": "Psilocybine au seuil de l'approbation, stimulation magnétique accélérée, biomarqueurs et réalité virtuelle : la psychiatrie s'apprête à changer de visage. Voici les innovations en santé mentale qui pourraient arriver d'ici un à trois ans, et leurs limites.",
-    "metaDescription": "Psilocybine bientôt autorisée, stimulation cérébrale en cinq jours, biomarqueurs, réalité virtuelle : les innovations en santé mentale qui arrivent bientôt.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-10-08",
     "date_modified": "2026-10-08",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "sante-mentale",
       "innovation",
@@ -18,62 +22,25 @@
       "psychiatrie",
       "realite-virtuelle"
     ],
-    "sources": [
-      {
-        "authors": "Medscape (B. Pittman)",
-        "year": "2026",
-        "title": "In the Race to the First Psychedelic Approval, Who's Leading?",
-        "journal": "Medscape",
-        "url": "https://www.medscape.com/viewarticle/race-first-psychedelic-approval-whos-leading-2026a1000e0n"
-      },
-      {
-        "authors": "Cole E. J. et coll.",
-        "year": "2023",
-        "title": "Accelerated TMS - moving quickly into the future of depression treatment",
-        "journal": "Neuropsychopharmacology",
-        "url": "https://doi.org/10.1038/s41386-023-01599-z"
-      },
-      {
-        "authors": "Kingwell K.",
-        "year": "2024",
-        "title": "Muscarinic drugs breathe new life into schizophrenia pipeline",
-        "journal": "Nature Reviews Drug Discovery",
-        "url": "https://doi.org/10.1038/d41573-024-00129-w"
-      },
-      {
-        "authors": "Agence nationale de la recherche (projet SENSO, P. Fossati)",
-        "year": "2024",
-        "title": "Biomarqueurs de la sensibilité aux signaux sociaux dans la dépression",
-        "journal": "ANR",
-        "url": "https://anr.fr/Projet-ANR-12-SAMA-0011"
-      },
-      {
-        "authors": "Healthy Mind",
-        "year": "2025",
-        "title": "Réalité virtuelle et IA : un duo prometteur pour la santé mentale",
-        "journal": "Healthy Mind"
-      },
-      {
-        "authors": "Futura Sciences",
-        "year": "2023",
-        "title": "Un nouveau biomarqueur pour personnaliser la prise en charge des dépressions sévères",
-        "journal": "Futura Sciences",
-        "url": "https://www.futura-sciences.com/sante/actualites/cerveau-nouveau-biomarqueur-personnaliser-prise-charge-depressions-severes-25577/"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
-    "excerpt": "Le plaisir abrégerait-il la vie ? La science dit l'inverse. Tour d'horizon des études qui relient sexualité, santé et longévité — sans transformer le désir en performance.",
-    "metaDescription": "Espérance de vie et sexualité : ce que disent vraiment les études sur le lien entre vie sexuelle, santé et longévité, loin des idées reçues.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-10-02",
     "date_modified": "2026-10-02",
     "category": "Sexo",
     "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
     "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "sexualité",
       "longévité",
@@ -82,42 +49,35 @@
       "couple",
       "science"
     ],
-    "sources": [
-      {
-        "authors": "Davey Smith G., Frankel S. & Yarnell J.",
-        "year": "1997",
-        "title": "Sex and death: are they related? Findings from the Caerphilly cohort study",
-        "journal": "BMJ",
-        "url": "https://doi.org/10.1136/bmj.315.7123.1641"
-      },
-      {
-        "authors": "Cao C., Yang L., Xu T. et al.",
-        "year": "2020",
-        "title": "Trends in Sexual Activity and Associations With All-Cause and Cause-Specific Mortality Among US Adults",
-        "journal": "The Journal of Sexual Medicine",
-        "url": "https://doi.org/10.1016/j.jsxm.2020.05.028"
-      },
-      {
-        "authors": "Charnetski C. J. & Brennan F. X.",
-        "year": "2004",
-        "title": "Sexual Frequency and Salivary Immunoglobulin A (IgA)",
-        "journal": "Psychological Reports",
-        "url": "https://doi.org/10.2466/pr0.94.3.839-844"
-      },
-      {
-        "authors": "Inserm, Santé publique France & ANRS-MIE",
-        "year": "2024",
-        "title": "Contexte des sexualités en France (CSF-2023) — premiers résultats",
-        "journal": "Inserm",
-        "url": "https://www.inserm.fr/actualite/sante-vie-affective-et-sexuelle-lancement-de-la-3e-etude-nationale/"
-      },
-      {
-        "authors": "Bajos N. & Bozon M.",
-        "year": "2008",
-        "title": "Enquête sur la sexualité en France : pratiques, genre et santé",
-        "publisher": "Éditions La Découverte"
-      }
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "5-traits-insoupconnes-meilleur-ami",
+    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
+    "excerpt": "",
+    "date": "2026-10-01",
+    "date_modified": "2026-10-01",
+    "category": "Société",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "amitié",
+      "relations",
+      "psychologie",
+      "soutien social",
+      "attachement",
+      "bien-être"
     ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -177,18 +137,18 @@
   {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
-    "excerpt": "Avant d'être une idéologie, le masculinisme est la rencontre entre une souffrance masculine bien réelle et une réponse aussi séduisante que toxique. Plongée dans ses ressorts psychologiques.",
-    "metaDescription": "Le masculinisme séduit en répondant mal à une détresse réelle. Décryptage psychologique de la manosphère, ses ressorts et comment y résister.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "masculinisme",
       "manosphere",
@@ -197,32 +157,8 @@
       "radicalisation",
       "jeunes-hommes"
     ],
-    "sources": [
-      {
-        "title": "Le masculinisme, un tremplin vers des idéologies réactionnaires",
-        "url": "https://www.sciencespo.fr/cevipof/fr/actualites/le-masculinisme-un-tremplin-vers-des-ideologies-reactionnaires/"
-      },
-      {
-        "title": "Qu'est-ce que la manosphère et pourquoi devrions-nous nous en inquiéter ? — ONU Femmes",
-        "url": "https://www.unwomen.org/fr/articles/article-explicatif/quest-ce-que-la-manosphere-et-pourquoi-devrions-nous-nous-en-inquieter"
-      },
-      {
-        "title": "Étude Equimundo : isolés, les jeunes hommes se réfugient chez les masculinistes (L'ADN)",
-        "url": "https://www.ladn.eu/nouveaux-usages/solitude-jeunes-hommes-manosphere/"
-      },
-      {
-        "title": "Masculinisme — Sexplique",
-        "url": "https://sexplique.org/masculinisme-2/"
-      },
-      {
-        "title": "Raewyn Connell, Masculinités. Enjeux sociaux de l'hégémonie (recension Cairn.info)",
-        "url": "https://shs.cairn.info/revue-agora-debats-jeunesses-2016-3-page-138?lang=fr"
-      },
-      {
-        "title": "La manosphère, chambre d'écho du masculinisme — Ligue de l'enseignement",
-        "url": "https://ligue-enseignement.be/education-enseignement/articles/societe/la-manosphere-chambre-decho-du-masculinisme"
-      }
-    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -1205,11 +1141,11 @@
   {
     "id": "syndrome-witzelsucht",
     "title": "Le syndrome de Witzelsucht : quand l'humour devient une maladie",
-    "excerpt": "",
+    "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
     "date": "2026-06-26",
     "date_modified": "2026-06-22",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
     "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -1225,7 +1161,7 @@
       "lobe-frontal",
       "syndrome-rare"
     ],
-    "metaDescription": "",
+    "metaDescription": "Le syndrome de Witzelsucht est un trouble neurologique caractérisé par une tendance compulsive aux blagues et jeux de mots. Causes, symptômes, diagnostic et test d'auto-évaluation.",
     "articles_lies": [],
     "status": "scheduled"
   },
