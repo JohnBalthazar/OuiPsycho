@@ -7,7 +7,7 @@
   "date": "2026-06-26",
   "date_modified": "2026-06-26",
   "category": "Bien-être",
-  "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qlmczmdzkppfjizzzjaa",
+  "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
   "imagePosition": "50% 50%",
   "imageZoom": 1,
   "imageGravity": "none",
@@ -47,5 +47,5 @@
     }
   ],
   "articles_lies": [],
-  "status": "scheduled"
+  "status": "published"
 }
