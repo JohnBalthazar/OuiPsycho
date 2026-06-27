@@ -242,30 +242,12 @@
     .rank-tab-pane{display:none}
     .rank-tab-pane.active{display:block}
 
-    /* Panneau ville (dans le classement) */
-    .panel-city{padding-top:2px}
-    .panel-city-row{display:flex;gap:5px;margin-bottom:7px}
-    .pcity-input{
-      flex:1;border:1px solid #dde3ec;border-radius:7px;
-      padding:5px 8px;font-size:.75rem;font-family:inherit;
-      outline:none;color:#334155;min-width:0
+    /* En-tetes sections villes */
+    .pcity-head{
+      font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;
+      color:#22c55e;margin:8px 0 5px;display:flex;align-items:center;gap:5px
     }
-    .pcity-input:focus{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.1)}
-    .pcity-btn{
-      background:#2563eb;color:#fff;border:none;border-radius:7px;
-      padding:5px 9px;cursor:pointer;font-family:inherit;font-size:.82rem;
-      flex-shrink:0;transition:background .15s
-    }
-    .pcity-btn:hover{background:#1d4ed8}
-    .pcity-status{font-size:.7rem;color:#94a3b8;margin-bottom:4px;min-height:1em}
-    .pcity-row{
-      display:flex;align-items:center;gap:7px;padding:5px;
-      border-radius:7px;cursor:pointer;transition:background .1s;margin-bottom:1px
-    }
-    .pcity-row:hover{background:#eef1f5}
-    .pcity-city{flex:1;font-size:.77rem;font-weight:500;color:#334155;line-height:1.2}
-    .pcity-region{font-size:.66rem;color:#94a3b8}
-    .pcity-score{font-size:.68rem;font-weight:700;padding:2px 6px;border-radius:10px;white-space:nowrap}
+    .pcity-head--bad{color:#ef4444;margin-top:14px}
 
     /* LEGENDE */
     .widget-legend{
@@ -444,16 +426,10 @@
             </div>
             <!-- Panneau villes -->
             <div class="rank-tab-pane" id="rpane-ville">
-              <div class="panel-city">
-                <div class="panel-city-row">
-                  <input type="text" id="pcity-input" class="pcity-input"
-                    placeholder="Ville ou code postal&hellip;"
-                    onkeydown="if(event.key==='Enter')panelSearchCity()">
-                  <button class="pcity-btn" onclick="panelSearchCity()">&#x1F50D;</button>
-                </div>
-                <div class="pcity-status" id="pcity-status"></div>
-                <div id="pcity-result"></div>
-              </div>
+              <p class="pcity-head">&#x1F3C6; 10 meilleures villes</p>
+              <div id="city-top10"></div>
+              <p class="pcity-head pcity-head--bad">&#x1F4C9; 10 pires villes</p>
+              <div id="city-bot10"></div>
             </div>
           </div>
 
@@ -722,6 +698,49 @@
     '93':'Seine-Saint-Denis','94':'Val-de-Marne','95':"Val-d'Oise"
   };
 
+  // Villes de reference — score calcule depuis le departement (scoreDept)
+  var CITIES_LIST = [
+    // IDF
+    {n:'Paris',dept:'75'},{n:'Boulogne-Billancourt',dept:'92'},
+    {n:'Versailles',dept:'78'},{n:'Saint-Denis',dept:'93'},
+    {n:'Argenteuil',dept:'95'},
+    // NORMANDIE
+    {n:'Le Havre',dept:'76'},{n:'Rouen',dept:'76'},{n:'Caen',dept:'14'},
+    // HAUTS-DE-FRANCE
+    {n:'Lille',dept:'59'},{n:'Roubaix',dept:'59'},{n:'Dunkerque',dept:'59'},
+    {n:'Calais',dept:'62'},{n:'Amiens',dept:'80'},
+    // GRAND-EST
+    {n:'Strasbourg',dept:'67'},{n:'Mulhouse',dept:'68'},
+    {n:'Metz',dept:'57'},{n:'Nancy',dept:'54'},
+    {n:'Reims',dept:'51'},{n:'Troyes',dept:'10'},
+    // BRETAGNE
+    {n:'Rennes',dept:'35'},{n:'Brest',dept:'29'},{n:'Lorient',dept:'56'},
+    // PAYS-DE-LA-LOIRE
+    {n:'Nantes',dept:'44'},{n:'Le Mans',dept:'72'},{n:'Angers',dept:'49'},
+    // CENTRE-VAL-DE-LOIRE
+    {n:'Orléans',dept:'45'},{n:'Tours',dept:'37'},
+    // BOURGOGNE-FRANCHE-COMTE
+    {n:'Dijon',dept:'21'},{n:'Besançon',dept:'25'},
+    // AUVERGNE-RHONE-ALPES
+    {n:'Lyon',dept:'69'},{n:'Grenoble',dept:'38'},
+    {n:'Saint-Étienne',dept:'42'},{n:'Clermont-Ferrand',dept:'63'},
+    {n:'Annecy',dept:'74'},{n:'Chambéry',dept:'73'},
+    // NOUVELLE-AQUITAINE
+    {n:'Bordeaux',dept:'33'},{n:'La Rochelle',dept:'17'},
+    {n:'Limoges',dept:'87'},{n:'Poitiers',dept:'86'},
+    {n:'Bayonne',dept:'64'},{n:'Pau',dept:'64'},
+    // OCCITANIE
+    {n:'Toulouse',dept:'31'},{n:'Montpellier',dept:'34'},
+    {n:'Nîmes',dept:'30'},{n:'Perpignan',dept:'66'},
+    {n:'Montauban',dept:'82'},
+    // PACA
+    {n:'Marseille',dept:'13'},{n:'Nice',dept:'06'},
+    {n:'Toulon',dept:'83'},{n:'Aix-en-Provence',dept:'13'},
+    {n:'Avignon',dept:'84'},{n:'Cannes',dept:'06'},
+    // CORSE
+    {n:'Ajaccio',dept:'2A'},{n:'Bastia',dept:'2B'}
+  ];
+
   // Codes departements par region (cle DATA)
   var REGION_DEPTS = {
     'Ile-de-France':['75','77','78','91','92','93','94','95'],
@@ -817,7 +836,40 @@
       if (tb) tb.classList.toggle('active', names[i] === tab);
       if (pn) pn.classList.toggle('active', names[i] === tab);
     }
-    if (tab === 'dept') buildDeptRanking();
+    if (tab === 'dept')  buildDeptRanking();
+    if (tab === 'ville') buildCityRanking();
+  }
+
+  function buildCityRanking() {
+    var ranked = [];
+    for (var i = 0; i < CITIES_LIST.length; i++) {
+      var c = CITIES_LIST[i];
+      ranked.push({n:c.n, dept:c.dept, s:scoreDept(c.dept)});
+    }
+    ranked.sort(function(a,b){ return b.s - a.s; });
+
+    function makeRows(list, isTop) {
+      var gc = ['g','s','b'], html = '';
+      for (var i = 0; i < list.length; i++) {
+        var r = list[i];
+        var cls = (isTop && i < 3) ? gc[i] : '';
+        html += '<div class="rank-row" onclick="focusDept(\'' + r.dept + '\')">';
+        html += '<span class="rank-num ' + cls + '">' + (i+1) + '.</span>';
+        html += '<span class="rank-name">' + r.n
+          + '<br><small style="font-size:.62rem;color:#94a3b8">'
+          + (DEPT_LABELS[r.dept] || r.dept) + '</small></span>';
+        html += '<span class="rank-pill" style="background:' + colorBg(r.s)
+          + ';color:' + colorText(r.s) + '">' + r.s.toFixed(1) + '</span>';
+        html += '</div>';
+      }
+      return html;
+    }
+
+    var top = document.getElementById('city-top10');
+    var bot = document.getElementById('city-bot10');
+    if (top) top.innerHTML = makeRows(ranked.slice(0, 10), true);
+    // Bottom 10 : du pire au moins pire
+    if (bot) bot.innerHTML = makeRows(ranked.slice(-10).reverse(), false);
   }
 
   function buildDeptRanking() {
@@ -851,64 +903,6 @@
     }
   }
 
-  // Recherche ville dans le panneau lateral
-  function panelSearchCity() {
-    var inp    = document.getElementById('pcity-input');
-    var status = document.getElementById('pcity-status');
-    var result = document.getElementById('pcity-result');
-    var q = inp ? inp.value.trim() : '';
-    if (!q) return;
-    if (status) status.textContent = 'Recherche…';
-    if (result) result.innerHTML = '';
-    fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q)
-      + '&countrycodes=fr&format=json&limit=4&accept-language=fr')
-      .then(function(r){ return r.json(); })
-      .then(function(data) {
-        if (status) status.textContent = '';
-        if (!data || !data.length) { if (status) status.textContent = 'Introuvable'; return; }
-        var html = '';
-        for (var i = 0; i < data.length; i++) {
-          var d   = data[i];
-          var cn  = d.display_name.split(',')[0];
-          var lat = parseFloat(d.lat), lng = parseFloat(d.lon);
-          // Escapage apostrophes
-          var cnE = cn.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
-          html += '<div class="pcity-row" onclick="panelGoCity(' + lat + ',' + lng + ',\'' + cnE + '\')">';
-          html += '<span style="font-size:.8rem;flex-shrink:0">&#x1F4CD;</span>';
-          html += '<span class="pcity-city">' + cn + '</span>';
-          html += '</div>';
-        }
-        if (result) result.innerHTML = html;
-      })
-      .catch(function(){ if (status) status.textContent = 'Erreur réseau'; });
-  }
-
-  function panelGoCity(lat, lng, cityName) {
-    if (!leafletMap) return;
-    // Vider les resultats du panneau
-    var ps = document.getElementById('pcity-status'); if (ps) ps.textContent = '';
-    var pr = document.getElementById('pcity-result'); if (pr) pr.innerHTML = '';
-    // Poser le marqueur sur la carte
-    if (cityMarker) { leafletMap.removeLayer(cityMarker); cityMarker = null; }
-    var pinHtml = '<div class="city-pin"><div class="city-pin-label">' + cityName
-      + '</div><div class="city-pin-dot"></div></div>';
-    cityMarker = L.marker([lat, lng], {
-      icon: L.divIcon({html:pinHtml, className:'', iconAnchor:[7,14]}),
-      zIndexOffset: 1000
-    }).addTo(leafletMap);
-    // Trouver la region et afficher la fiche
-    if (currentLevel !== 1) { drillToTop(); }
-    var layer = findRegionByPoint(lng, lat);
-    if (layer) {
-      var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
-      var rk  = toKey(nom);
-      leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
-      showCityResult(cityName, rk, nom);
-    } else {
-      leafletMap.setView([lat, lng], 8);
-    }
-  }
-
   // === TOGGLES ===
   function toggleCrit(k) {
     var al = activeList();
@@ -923,7 +917,8 @@
     var n = activeList().length;
     document.getElementById('badge-actifs').textContent = n + (n > 1 ? ' actifs' : ' actif');
     buildRanking();
-    if (currentRankTab === 'dept') buildDeptRanking();
+    if (currentRankTab === 'dept')  buildDeptRanking();
+    if (currentRankTab === 'ville') buildCityRanking();
     if (currentLevel === 1 && geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
     if (currentLevel === 2 && deptLayer)    { deptLayer.setStyle(deptStyleFn); }
     if (currentLevel === 3 && communeLayer) {
@@ -942,7 +937,8 @@
     }
     document.getElementById('badge-actifs').textContent = '9 actifs';
     buildRanking();
-    if (currentRankTab === 'dept') buildDeptRanking();
+    if (currentRankTab === 'dept')  buildDeptRanking();
+    if (currentRankTab === 'ville') buildCityRanking();
     if (currentLevel === 1 && geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
     if (currentLevel === 2 && deptLayer)    { deptLayer.setStyle(deptStyleFn); }
     if (leafletMap) { leafletMap.closePopup(); }
