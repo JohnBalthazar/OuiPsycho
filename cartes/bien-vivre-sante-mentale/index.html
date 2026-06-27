@@ -1135,7 +1135,10 @@
             e.target.bringToFront();
           },
           mouseout: function(e) { geojsonLayer.resetStyle(e.target); },
-          click:    function()  { showDeptLevel(k); }
+          click:    function()  {
+            showDeptLevel(k);
+            showCityResult(nom, k, nom, null, '');
+          }
         });
       }
     }).addTo(leafletMap);
@@ -1212,7 +1215,12 @@
           layer.on({
             mouseover: function(e){ e.target.setStyle({weight:2.5, color:'#0b1f38', fillOpacity:.95}); e.target.bringToFront(); },
             mouseout:  function(e){ deptLayer.resetStyle(e.target); },
-            click:     function()  { drillToCommunes(code, label); }
+            click:     function()  {
+              drillToCommunes(code, label);
+              var rLabel = LABELS[regionKey] || regionKey;
+              showCityResult(label, regionKey, rLabel, code,
+                'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>');
+            }
           });
         }
       }).addTo(leafletMap);
@@ -1261,14 +1269,21 @@
           onEachFeature: function(feat, layer) {
             var nom = (feat.properties && feat.properties.nom) || '?';
             var pop = feat.properties && feat.properties.population;
-            var ps  = pop ? ' · ' + (pop >= 1000 ? (pop/1000).toFixed(0) + ' k' : pop) + ' hab.' : '';
+            var ps  = pop ? ' · ' + (pop >= 1000 ? (pop/1000).toFixed(0) + ' k' : pop) + ' hab.' : '';
             layer.bindTooltip(
               '<strong>' + nom + '</strong>' + ps + '<br>'
               + '<small style="color:#64748b">' + deptLabel + ' – Score : ' + s.toFixed(1) + '/10</small>',
               {sticky:true, direction:'top'}
             );
+            layer.on('click', function() {
+              var rLabel = LABELS[currentRegionKey] || currentRegionKey || '';
+              showCityResult(nom, currentRegionKey, rLabel, deptCode,
+                'D&eacute;p.&nbsp;<strong>' + deptLabel + '</strong>'
+                + (rLabel ? '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + rLabel + '</strong>' : ''));
+            });
           }
-        }).addTo(leafletMap);
+        
+}).addTo(leafletMap);
 
         if (communeLayer.getBounds().isValid()) leafletMap.fitBounds(communeLayer.getBounds(), {padding:[25,25]});
         updateBreadcrumb();
@@ -1377,8 +1392,11 @@
     return found;
   }
 
-  // Affiche la fiche ville sous la carte
-  function showCityResult(cityName, regionKey, regionNomGeo, deptCode) {
+  // Affiche la fiche détaillée sous la carte.
+  // subtitleHtml : undefined = "Région : X" par défaut
+  //                ''        = pas de sous-titre
+  //                string    = HTML personnalisé
+  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
@@ -1393,6 +1411,13 @@
     var suf        = rank === 1 ? '<sup>re</sup>' : '<sup>e</sup>';
     var rankColor  = rank <= 4 ? '#166534' : rank <= 9 ? '#92400e' : '#991b1b';
     var rankBg     = rank <= 4 ? '#dcfce7' : rank <= 9 ? '#ffedd5' : '#fee2e2';
+    // Sous-titre (région, département, etc.)
+    var subDiv = '';
+    if (typeof subtitleHtml === 'undefined') {
+      subDiv = '<div class="cr-region">R&eacute;gion&nbsp;: <strong>' + label + '</strong></div>';
+    } else if (subtitleHtml) {
+      subDiv = '<div class="cr-region">' + subtitleHtml + '</div>';
+    }
     // Barres : 9 criteres fixes
     var bars = '';
     for (var i = 0; i < KEYS.length; i++) {
@@ -1423,7 +1448,7 @@
     el.innerHTML = '<div class="cr-card">'
       + '<div class="cr-header">'
       + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
-      + '<div class="cr-region">R&eacute;gion : <strong>' + label + '</strong></div>'
+      + subDiv
       + '<div class="cr-rank" style="background:' + rankBg + ';color:' + rankColor + '">'
       + rank + suf + '&nbsp;/ 13 r&eacute;gions &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10'
       + '</div>'
