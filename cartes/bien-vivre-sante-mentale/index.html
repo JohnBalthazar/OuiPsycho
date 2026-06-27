@@ -325,6 +325,7 @@
     .cr-fill{height:100%;border-radius:3px}
     .cr-val{font-size:.68rem;font-weight:700;color:#64748b;text-align:right}
     .cr-comm-rank{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:20px;width:100%}
+    .cr-note{font-size:.67rem;color:#94a3b8;margin-top:10px;padding-top:8px;border-top:1px solid #eef1f5;line-height:1.55}
 
     /* === NAVIGATION DRILL-DOWN === */
     .leaflet-control.map-nav-ctrl{
@@ -1219,6 +1220,39 @@
     return n > 0 ? tot / n : 0;
   }
 
+  // Convertit DEPT_DATA (tableau indexé) en objet {sun,nature,...} identique à DATA
+  function deptToObj(code) {
+    var d = DEPT_DATA[code]; if (!d) return null;
+    var obj = {};
+    for (var i = 0; i < KEYS.length; i++) obj[KEYS[i]] = d[i] || 0;
+    return obj;
+  }
+
+  // Ajustements par taille de commune — indicateurs qui varient réellement à l'échelle communale
+  // sun et weather restent au niveau dept (peu de variation intra-dept)
+  function communeModifiers(pop) {
+    pop = pop || 0;
+    //                    sun  nature  care  cost  air  social  sport  calm  weather
+    if (pop <    500) return {sun:0, nature: 3, care:-3, cost: 3, air: 2, social:-1, sport: 1, calm: 3, weather:0};
+    if (pop <   2000) return {sun:0, nature: 2, care:-2, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
+    if (pop <  10000) return {sun:0, nature: 1, care:-1, cost: 1, air: 1, social: 2, sport: 1, calm: 1, weather:0};
+    if (pop <  50000) return {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
+    if (pop < 200000) return {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
+    /* métropole */    return {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
+  }
+
+  // Score commune : base dept + ajustements population, clampé [1,10]
+  function communeScore(deptCode, pop) {
+    var base = deptToObj(deptCode); if (!base) return null;
+    var mod  = communeModifiers(pop);
+    var out  = {};
+    for (var i = 0; i < KEYS.length; i++) {
+      var k = KEYS[i];
+      out[k] = Math.min(10, Math.max(1, (base[k] || 5) + (mod[k] || 0)));
+    }
+    return out;
+  }
+
   function deptStyleFn(feat) {
     var code = feat && feat.properties && feat.properties.code;
     if (!code || !DEPT_DATA[code]) return {fillOpacity:0, weight:0, opacity:0};
@@ -1267,7 +1301,9 @@
             click:     function()  {
               var rLabel = LABELS[regionKey] || regionKey;
               showCityResult(label, regionKey, rLabel, code,
-                'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>');
+                'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>',
+                deptToObj(code),
+                'Donn&eacute;es au niveau d&eacute;partemental &mdash; cliquez une commune pour affiner');
               drillToCommunes(code, label);
             }
           });
@@ -1330,9 +1366,15 @@
             layer.on('click', function(e) {
               L.DomEvent.stopPropagation(e);
               var rLabel = LABELS[currentRegionKey] || currentRegionKey || '';
+              var popStr = pop && pop >= 1000
+                ? (pop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
+                : pop ? pop + '&nbsp;hab.' : '';
               showCityResult(nom, currentRegionKey, rLabel, deptCode,
                 'D&eacute;p.&nbsp;<strong>' + deptLabel + '</strong>'
-                + (rLabel ? '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + rLabel + '</strong>' : ''));
+                + (rLabel ? '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + rLabel + '</strong>' : '')
+                + (popStr ? '&nbsp;&middot; ' + popStr : ''),
+                communeScore(deptCode, pop),
+                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la taille de la commune');
             });
           }
         
@@ -1449,12 +1491,21 @@
   // subtitleHtml : undefined = "Région : X" par défaut
   //                ''        = pas de sous-titre
   //                string    = HTML personnalisé
-  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml) {
+  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
-    var d = DATA[regionKey];
-    var globalScore = score(regionKey);
+    // Données à afficher : scoreOverride (dept/commune) ou fallback région
+    var d = scoreOverride || DATA[regionKey];
+    // Score global recalculé sur les données effectives
+    var globalScore;
+    if (scoreOverride) {
+      var _al = activeList(), _tot = 0;
+      for (var _i = 0; _i < _al.length; _i++) _tot += (scoreOverride[_al[_i]] || 0);
+      globalScore = _al.length > 0 ? _tot / _al.length : 0;
+    } else {
+      globalScore = score(regionKey);
+    }
     // Rang parmi 13 regions
     var keys = Object.keys(DATA), sorted = [];
     for (var i = 0; i < keys.length; i++) sorted.push({k:keys[i], s:score(keys[i])});
@@ -1498,6 +1549,9 @@
         + '&#x1F3D8; Rang national&nbsp;: ' + rStr + rnSuf + '&nbsp;/ ' + tStr + ' communes'
         + '</div>';
     }
+    var noteHtml = dataNote
+      ? '<p class="cr-note">&#x2139;&#xFE0F; ' + dataNote + '</p>'
+      : '';
     el.innerHTML = '<div class="cr-card">'
       + '<div class="cr-header">'
       + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
@@ -1508,6 +1562,7 @@
       + commHtml
       + '</div>'
       + '<div class="cr-bars">' + bars + '</div>'
+      + noteHtml
       + '</div>';
     el.style.display = 'block';
     // Scroll fiable : window.scrollTo avec offset header, après un tick pour laisser le DOM se peindre
