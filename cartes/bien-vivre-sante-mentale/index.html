@@ -90,12 +90,51 @@
 
     /* CARTE */
     #carte-leaflet{
-      width:100%;height:580px;
+      width:100%;height:460px;
       position:relative;z-index:0;background:#eef1f5;
       border-right:1px solid #eef1f5
     }
-    @media(max-width:860px){#carte-leaflet{height:340px;border-right:none}}
-    @media(max-width:480px){#carte-leaflet{height:280px}}
+    @media(max-width:860px){#carte-leaflet{height:300px;border-right:none}}
+    @media(max-width:480px){#carte-leaflet{height:250px}}
+
+    /* Recherche ville */
+    .city-search{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+    .city-input{
+      border:1px solid #dde3ec;border-radius:8px;
+      padding:5px 11px;font-size:.78rem;font-family:inherit;
+      outline:none;width:150px;color:#334155;background:#fff
+    }
+    .city-input:focus{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.12)}
+    @media(max-width:560px){.city-input{width:100%}}
+    .city-btn{
+      background:#2563eb;color:#fff;border-radius:8px;
+      padding:5px 11px;font-size:.78rem;font-family:inherit;
+      cursor:pointer;border:none;white-space:nowrap;transition:background .15s
+    }
+    .city-btn:hover{background:#1d4ed8}
+    .city-btn:disabled{opacity:.5;cursor:default}
+    .city-status{font-size:.7rem;color:#8fa0b5}
+
+    /* Pin ville */
+    .city-pin{position:relative;display:inline-block}
+    .city-pin-dot{
+      width:14px;height:14px;background:#0b1f38;
+      border:2.5px solid #fff;border-radius:50%;
+      box-shadow:0 2px 8px rgba(0,0,0,.35)
+    }
+    .city-pin-label{
+      position:absolute;bottom:18px;left:50%;
+      transform:translateX(-50%);
+      background:#0b1f38;color:#fff;
+      font-size:.65rem;font-weight:700;white-space:nowrap;
+      padding:2px 8px;border-radius:10px;
+      box-shadow:0 2px 8px rgba(0,0,0,.25)
+    }
+    .city-pin-label::after{
+      content:'';position:absolute;top:100%;left:50%;
+      transform:translateX(-50%);
+      border:5px solid transparent;border-top-color:#0b1f38
+    }
 
     .map-msg{
       position:absolute;inset:0;display:flex;flex-direction:column;
@@ -270,7 +309,13 @@
           <h2>Indice de bien-&ecirc;tre mental par r&eacute;gion</h2>
           <span class="badge-actifs" id="badge-actifs">9 actifs</span>
         </div>
-        <span class="widget-hint">Cliquez sur une r&eacute;gion pour le d&eacute;tail</span>
+        <div class="city-search">
+          <input type="text" class="city-input" id="city-input"
+            placeholder="Votre ville..."
+            onkeydown="if(event.key==='Enter')searchCity()">
+          <button class="city-btn" id="city-btn" onclick="searchCity()">Localiser</button>
+          <span class="city-status" id="city-status"></span>
+        </div>
       </div>
 
       <div class="widget-body">
@@ -586,12 +631,17 @@
   }
 
   function initMap() {
+    // Bornes de la France metropolitaine + Corse
+    var FR_BOUNDS = [[41.2, -5.3], [51.2, 9.7]];
     leafletMap = L.map('carte-leaflet', {
-      center: [46.6, 2.4], zoom: 6,
+      maxBounds: [[39, -7], [53, 12]],
+      maxBoundsViscosity: 0.85,
+      minZoom: 5, maxZoom: 10,
       zoomControl: true, scrollWheelZoom: false
     });
+    leafletMap.fitBounds(FR_BOUNDS);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a> © <a href="https://carto.com">CARTO</a>',
+      attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
       subdomains: 'abcd', maxZoom: 12
     }).addTo(leafletMap);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
@@ -643,6 +693,9 @@
         });
       }
     }).addTo(leafletMap);
+
+    // Cadrer sur la France (exclut DOM-TOM si presents)
+    try { leafletMap.fitBounds(geojsonLayer.getBounds(), {padding: [8, 8], maxZoom: 7}); } catch(e) {}
   }
 
   function showMapError(txt) {
@@ -659,6 +712,99 @@
     } catch (e) {
       showMapError('Erreur init carte');
     }
+  }
+
+  // -----------------------------------------------------------------------
+  // RECHERCHE VILLE (Nominatim OpenStreetMap, sans cle API)
+  // -----------------------------------------------------------------------
+  var cityMarker = null;
+
+  // Ray-casting point-dans-polygone (coordonnees GeoJSON [lng, lat])
+  function pointInRing(px, py, ring) {
+    var inside = false;
+    for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+      var xi = ring[i][0], yi = ring[i][1];
+      var xj = ring[j][0], yj = ring[j][1];
+      if (((yi > py) !== (yj > py)) && (px < (xj - xi) * (py - yi) / (yj - yi) + xi)) {
+        inside = !inside;
+      }
+    }
+    return inside;
+  }
+
+  function findRegionByPoint(lng, lat) {
+    var found = null;
+    if (!geojsonLayer) return null;
+    geojsonLayer.eachLayer(function(layer) {
+      if (found) return;
+      var geom = layer.feature && layer.feature.geometry;
+      if (!geom) return;
+      var rings = [];
+      if (geom.type === 'Polygon') {
+        rings = [geom.coordinates[0]];
+      } else if (geom.type === 'MultiPolygon') {
+        for (var p = 0; p < geom.coordinates.length; p++) rings.push(geom.coordinates[p][0]);
+      }
+      for (var r = 0; r < rings.length; r++) {
+        if (pointInRing(lng, lat, rings[r])) { found = layer; return; }
+      }
+    });
+    return found;
+  }
+
+  function searchCity() {
+    var inp = document.getElementById('city-input');
+    var btn = document.getElementById('city-btn');
+    var status = document.getElementById('city-status');
+    var q = inp ? inp.value.trim() : '';
+    if (!q || !leafletMap) return;
+
+    if (btn) btn.disabled = true;
+    if (status) status.textContent = 'Recherche...';
+
+    var url = 'https://nominatim.openstreetmap.org/search'
+      + '?q=' + encodeURIComponent(q)
+      + '&countrycodes=fr&format=json&limit=1&accept-language=fr';
+
+    fetch(url)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        if (btn) btn.disabled = false;
+        if (!data || !data.length) {
+          if (status) status.textContent = 'Ville introuvable';
+          return;
+        }
+        var lat = parseFloat(data[0].lat);
+        var lng = parseFloat(data[0].lon);
+        var cityName = data[0].display_name.split(',')[0];
+        if (status) status.textContent = '';
+
+        // Supprimer ancien marqueur
+        if (cityMarker) { leafletMap.removeLayer(cityMarker); cityMarker = null; }
+
+        // Ajouter epingle
+        var pinHtml = '<div class="city-pin">'
+          + '<div class="city-pin-label">' + cityName + '</div>'
+          + '<div class="city-pin-dot"></div>'
+          + '</div>';
+        var icon = L.divIcon({html: pinHtml, className: '', iconAnchor: [7, 14]});
+        cityMarker = L.marker([lat, lng], {icon: icon, zIndexOffset: 1000}).addTo(leafletMap);
+
+        // Trouver la region
+        var layer = findRegionByPoint(lng, lat);
+        if (layer) {
+          var nom = layer.feature.properties.nom || '';
+          leafletMap.fitBounds(layer.getBounds(), {padding: [50, 50], maxZoom: 9});
+          setTimeout(function() { openPopup(nom, layer.getBounds().getCenter()); }, 350);
+        } else {
+          leafletMap.setView([lat, lng], 8);
+          if (status) status.textContent = 'Region non trouvee';
+        }
+      })
+      .catch(function() {
+        if (btn) btn.disabled = false;
+        if (status) status.textContent = 'Erreur reseau';
+      });
   }
 
   // -----------------------------------------------------------------------
