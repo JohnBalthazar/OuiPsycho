@@ -1086,12 +1086,12 @@
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-07-01",
-    "date_modified": "2026-06-09",
+    "date_modified": "2026-06-27",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1107,7 +1107,7 @@
       "identité",
       "pop culture"
     ],
-    "metaDescription": "",
+    "metaDescription": "Astérix, Obélix, Abraracourcix… et si le village gaulois était un cas clinique ? Anxiété, narcissisme, dépendance : la psycho cachée d'Astérix.",
     "articles_lies": [],
     "status": "scheduled"
   },
