@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cartes interactives — Oui Psycho!</title>
+  <meta name="description" content="Explorez la France à travers le prisme de la santé mentale : nos cartes interactives croisent données scientifiques et géographie.">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <link rel="canonical" href="https://ouipsycho.fr/cartes.html">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Cartes interactives — Oui Psycho!">
+  <meta property="og:description" content="Données scientifiques + géographie : explorez la santé mentale sur la carte de France.">
+  <meta property="og:url"         content="https://ouipsycho.fr/cartes.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 -->
+  <script>
+    window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+    var _pc=(function(){try{return localStorage.getItem('pc_consent');}catch(e){return null;}})();
+    if(_pc==='1'){gtag('consent','default',{analytics_storage:'granted',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});}
+    else{gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:2000});}
+    gtag('set','url_passthrough',true);gtag('set','ads_data_redaction',true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+  <style>
+    .cartes-page { background: #f8fafc; min-height: 100vh; }
+
+    /* Hero */
+    .cartes-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 55%, #0f4c75 100%);
+      padding: 3.5rem 1.5rem 3rem; text-align: center; color: #fff;
+    }
+    .cartes-hero .hero-tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(255,255,255,.12); color: rgba(255,255,255,.9);
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; padding: 4px 14px; border-radius: 20px;
+      margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,.15);
+    }
+    .cartes-hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.5rem); font-weight: 800; line-height: 1.2;
+      margin: 0 0 1rem; max-width: 600px; margin-left: auto; margin-right: auto;
+    }
+    .cartes-hero p {
+      font-size: 1rem; color: rgba(255,255,255,.75); max-width: 540px;
+      margin: 0 auto; line-height: 1.7;
+    }
+
+    /* Grille */
+    .cartes-wrap {
+      max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 5rem;
+    }
+    .cartes-section-title {
+      font-size: .72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; color: #94a3b8; margin: 0 0 1.5rem;
+    }
+    .cartes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Carte */
+    .carte-card {
+      background: #fff; border-radius: 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 18px rgba(0,0,0,.07);
+      overflow: hidden; display: flex; flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
+      text-decoration: none; color: inherit;
+    }
+    .carte-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(15,23,42,.15);
+    }
+    .carte-card__thumb {
+      height: 180px; position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carte-card__thumb .thumb-map {
+      position: absolute; inset: 0; font-size: 7rem;
+      display: flex; align-items: center; justify-content: center;
+      opacity: .18;
+    }
+    .carte-card__thumb .thumb-labels {
+      position: relative; z-index: 1; text-align: center;
+    }
+    .carte-card__thumb .thumb-labels .thumb-icon {
+      font-size: 2.5rem; margin-bottom: .5rem;
+    }
+    .carte-card__thumb .thumb-labels .thumb-criteria {
+      display: flex; gap: 6px; justify-content: center; flex-wrap: wrap;
+    }
+    .thumb-chip {
+      background: rgba(255,255,255,.2); color: #fff;
+      font-size: .65rem; padding: 2px 8px; border-radius: 20px;
+      font-weight: 600; border: 1px solid rgba(255,255,255,.25);
+    }
+    .carte-card__body { padding: 20px; flex: 1; }
+    .carte-tag {
+      display: inline-block; font-size: .65rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      padding: 2px 9px; border-radius: 20px; margin-bottom: 10px;
+    }
+    .carte-card h2 { font-size: 1.1rem; font-weight: 800; color: #0f172a; margin: 0 0 .5rem; line-height: 1.3; }
+    .carte-card p  { font-size: .88rem; color: #64748b; line-height: 1.6; margin: 0 0 1rem; }
+    .carte-card__footer {
+      padding: 0 20px 18px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .carte-meta { font-size: .75rem; color: #94a3b8; }
+    .carte-cta {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #0f172a; color: #fff; padding: 8px 16px;
+      border-radius: 8px; font-size: .8rem; font-weight: 600;
+      transition: background .15s;
+    }
+    .carte-cta:hover { background: #1e293b; }
+
+    /* Coming soon */
+    .carte-card.coming {
+      opacity: .65; pointer-events: none;
+    }
+    .carte-card.coming .carte-card__thumb { filter: grayscale(1) brightness(.9); }
+    .coming-badge {
+      position: absolute; top: 12px; right: 12px; z-index: 2;
+      background: #0f172a; color: #fff; font-size: .65rem;
+      font-weight: 700; padding: 3px 10px; border-radius: 20px;
+      text-transform: uppercase; letter-spacing: .08em;
+    }
+  </style>
+</head>
+<body class="cartes-page">
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link active" href="cartes.html">🗺️ Cartes</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+    <nav class="cat-nav" aria-label="Catégories">
+      <div class="cat-nav__inner">
+        <a class="cat-nav__btn" href="index.html">← Tous les articles</a>
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+        <a class="cat-nav__btn" href="index.html?cat=Anxiété">Anxiété</a>
+        <a class="cat-nav__btn" href="index.html?cat=Dépression">Dépression</a>
+        <a class="cat-nav__btn" href="index.html?cat=Bien-être">Bien-être</a>
+        <a class="cat-nav__btn" href="index.html?cat=Stress">Stress</a>
+        <a class="cat-nav__btn" href="index.html?cat=Relations">Relations</a>
+        <div class="cat-nav__divider" aria-hidden="true"></div>
+        <a class="cat-nav__btn" href="societe.html">🌍 Société</a>
+        <a class="cat-nav__btn" href="sexo.html">❤️ Sexo</a>
+        <a class="cat-nav__btn active" href="cartes.html">🗺️ Cartes</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <div class="cartes-hero">
+    <div class="hero-tag">🗺️ Cartes interactives</div>
+    <h1>La santé mentale, sur la carte</h1>
+    <p>Des visualisations géographiques qui croisent données scientifiques et territoires. Explorez, filtrez, comparez.</p>
+  </div>
+
+  <!-- ===== GRILLE ===== -->
+  <div class="cartes-wrap">
+    <p class="cartes-section-title">Toutes les cartes</p>
+    <div class="cartes-grid">
+
+      <!-- Carte 1 — publiée -->
+      <a href="cartes/bien-vivre-sante-mentale/" class="carte-card">
+        <div class="carte-card__thumb" style="background: linear-gradient(135deg, #0f4c75, #22c55e)">
+          <div class="thumb-map">🗺️</div>
+          <div class="thumb-labels">
+            <div class="thumb-icon">🌿</div>
+            <div class="thumb-criteria">
+              <span class="thumb-chip">☀️ Soleil</span>
+              <span class="thumb-chip">🏥 Soins</span>
+              <span class="thumb-chip">💨 Air</span>
+              <span class="thumb-chip">🤝 Social</span>
+            </div>
+          </div>
+        </div>
+        <div class="carte-card__body">
+          <span class="carte-tag" style="background:#dcfce7;color:#166534">Bien-être · Société</span>
+          <h2>Où fait-il le mieux bon vivre pour la santé mentale en France ?</h2>
+          <p>9 critères scientifiques, 13 régions métropolitaines. Personnalisez selon vos priorités et trouvez votre territoire idéal.</p>
+        </div>
+        <div class="carte-card__footer">
+          <span class="carte-meta">27 juin 2026 · 9 critères · 13 régions</span>
+          <span class="carte-cta">Explorer →</span>
+        </div>
+      </a>
+
+      <!-- Carte 2 — coming soon -->
+      <div class="carte-card coming">
+        <div class="carte-card__thumb" style="background: linear-gradient(135deg, #312e81, #7c3aed)">
+          <span class="coming-badge">Bientôt</span>
+          <div class="thumb-map">🗺️</div>
+          <div class="thumb-labels">
+            <div class="thumb-icon">😴</div>
+            <div class="thumb-criteria">
+              <span class="thumb-chip">🌙 Sommeil</span>
+              <span class="thumb-chip">🔇 Bruit</span>
+              <span class="thumb-chip">💡 Lumière</span>
+            </div>
+          </div>
+        </div>
+        <div class="carte-card__body">
+          <span class="carte-tag" style="background:#ede9fe;color:#5b21b6">Sommeil</span>
+          <h2>Où dort-on le mieux en France ?</h2>
+          <p>Bruit, pollution lumineuse, décalage horaire solaire, température nocturne… la géographie du sommeil français.</p>
+        </div>
+        <div class="carte-card__footer">
+          <span class="carte-meta">Prochainement</span>
+        </div>
+      </div>
+
+      <!-- Carte 3 — coming soon -->
+      <div class="carte-card coming">
+        <div class="carte-card__thumb" style="background: linear-gradient(135deg, #7f1d1d, #dc2626)">
+          <span class="coming-badge">Bientôt</span>
+          <div class="thumb-map">🗺️</div>
+          <div class="thumb-labels">
+            <div class="thumb-icon">😰</div>
+            <div class="thumb-criteria">
+              <span class="thumb-chip">📉 Emploi</span>
+              <span class="thumb-chip">🏠 Logement</span>
+              <span class="thumb-chip">💳 Endettement</span>
+            </div>
+          </div>
+        </div>
+        <div class="carte-card__body">
+          <span class="carte-tag" style="background:#fee2e2;color:#991b1b">Anxiété · Société</span>
+          <h2>Les zones de stress socio-économique en France</h2>
+          <p>Chômage, précarité du logement, surendettement : les territoires où le stress financier pèse le plus lourd.</p>
+        </div>
+        <div class="carte-card__footer">
+          <span class="carte-meta">Prochainement</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('hamburger')?.addEventListener('click', function () {
+      const nav = document.getElementById('nav-menu');
+      const open = this.getAttribute('aria-expanded') === 'true';
+      this.setAttribute('aria-expanded', String(!open));
+      nav?.classList.toggle('open', !open);
+    });
+  </script>
+</body>
+</html>
