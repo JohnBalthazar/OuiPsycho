@@ -429,7 +429,7 @@
             <div class="rank-tab-pane" id="rpane-ville">
               <p class="pcity-head">&#x1F3C6; 10 meilleures villes</p>
               <div id="city-top10"></div>
-              <p class="pcity-head pcity-head--bad">&#x1F4C9; 10 pires villes</p>
+              <p class="pcity-head pcity-head--bad">&#x1F4C9; 10 villes les moins bien classées</p>
               <div id="city-bot10"></div>
             </div>
           </div>
@@ -925,7 +925,7 @@
     var top = document.getElementById('city-top10');
     var bot = document.getElementById('city-bot10');
     if (top) top.innerHTML = makeRows(ranked.slice(0, 10), true);
-    // Bottom 10 : du pire au moins pire
+    // Bottom 10 : du moins bien au mieux parmi les derniers
     if (bot) bot.innerHTML = makeRows(ranked.slice(-10).reverse(), false);
   }
 
