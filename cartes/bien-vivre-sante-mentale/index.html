@@ -481,13 +481,15 @@
     { min:0,   txt:'😔 Conditions difficiles sur ces critères.' },
   ];
 
-  // Normalise le nom GeoJSON vers une clé DATA
+  // Normalise nom GeoJSON -> cle DATA (NFD + filtre ASCII, sans regex Unicode)
   function toKey(geoNom) {
-    return geoNom
-      .normalize(‘NFD’).replace(/[̀-ͯ]/g, ‘’) // retire les diacritiques
-      .replace(/[‘‘’]/g, ‘’)                  // apostrophes (‘, ‘, ‘)
-      .replace(/\s+/g, ‘-’)                             // espaces → tirets
-      .replace(/-+/g, ‘-’);                             // multi-tirets
+    var nfd = geoNom.normalize(‘NFD’), out = ‘’;
+    for (var i = 0; i < nfd.length; i++) {
+      var c = nfd.charCodeAt(i);
+      // Garde uniquement ASCII imprimable, retire apostrophes (39) et diacritiques (>127)
+      if (c > 31 && c < 128 && c !== 39) out += nfd[i];
+    }
+    return out.replace(/\s+/g, ‘-’).replace(/-+/g, ‘-’);
   }
 
   /* ══ ÉTAT ══ */
