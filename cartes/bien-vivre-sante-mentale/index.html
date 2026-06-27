@@ -250,6 +250,21 @@
     .carte-article strong{color:#1e293b}
     .callout{background:#fffbeb;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:0 9px 9px 0;font-size:.87rem;color:#78350f;margin:1.25rem 0;line-height:1.65}
     .source-note{font-size:.76rem;color:#94a3b8;border-top:1px solid #eef1f5;margin-top:2.5rem;padding-top:1.2rem}
+
+    /* === RESULTAT VILLE === */
+    #city-result{max-width:740px;margin:0 auto 2rem;padding:0 1.25rem}
+    .cr-card{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid #dde3ec;box-shadow:0 4px 20px rgba(11,31,56,.09)}
+    .cr-header{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #eef1f5}
+    .cr-city{font-size:1rem;font-weight:800;color:#0b1f38}
+    .cr-region{font-size:.83rem;color:#475569}
+    .cr-rank{font-size:.8rem;font-weight:700;padding:2px 10px;border-radius:20px}
+    .cr-bars{display:flex;flex-direction:column;gap:5px;margin-top:4px}
+    .cr-bar{display:grid;grid-template-columns:20px 1fr auto 38px;gap:5px;align-items:center}
+    .cr-icon{font-size:.82rem;text-align:center}
+    .cr-lbl{font-size:.75rem;color:#475569;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .cr-track{height:6px;background:#eef1f5;border-radius:3px;overflow:hidden}
+    .cr-fill{height:100%;border-radius:3px}
+    .cr-val{font-size:.68rem;font-weight:700;color:#64748b;text-align:right}
   </style>
 </head>
 <body class="carte-page">
@@ -373,6 +388,9 @@
     </div>
   </div>
 
+  <!-- Resultat recherche ville -->
+  <div id="city-result"></div>
+
   <article class="carte-article">
     <div class="callout">
       &#x26A0;&#xFE0F; <strong>Note &eacute;ditoriale :</strong> Les scores sont bas&eacute;s sur des indicateurs publics agr&eacute;g&eacute;s (INSEE, Sant&eacute; Publique France, M&eacute;t&eacute;o-France, DREES, ATMO France). Cette carte est une visualisation p&eacute;dagogique, non un classement scientifique officiel.
@@ -404,13 +422,10 @@
   </footer>
 
   <!-- =====================================================================
-       JS INLINE (synchrone, s'execute avant Leaflet)
-       IMPORTANT: code 100% ASCII - aucun caractere Unicode dans le source JS
+       JS INLINE - source 100% ASCII (non-ASCII en entites HTML ou \uXXXX JS)
   ===================================================================== -->
   <script>
-  // -----------------------------------------------------------------------
-  // DONNEES : scores 1-10 par region (cles ASCII)
-  // -----------------------------------------------------------------------
+  // === DONNEES : scores 1-10 (cles ASCII pures) ===
   var DATA = {
     'Ile-de-France':            {sun:4, nature:2,  care:9, cost:1, air:2, social:3, sport:5, calm:1, weather:5},
     'Provence-Alpes-Cote-dAzur':{sun:9, nature:8,  care:7, cost:4, air:5, social:6, sport:9, calm:5, weather:9},
@@ -426,8 +441,7 @@
     'Hauts-de-France':          {sun:2, nature:6,  care:5, cost:7, air:5, social:6, sport:5, calm:6, weather:3},
     'Corse':                    {sun:9, nature:9,  care:3, cost:6, air:9, social:6, sport:8, calm:9, weather:9}
   };
-
-  // Labels HTML (entites ASCII pures - pas de risque de guillemets courbes)
+  // Labels HTML (entites ASCII â€” jamais de guillemets courbes)
   var LABELS = {
     'Ile-de-France':            '&Icirc;le-de-France',
     'Provence-Alpes-Cote-dAzur':'Provence-Alpes-C&ocirc;te d&rsquo;Azur',
@@ -443,93 +457,127 @@
     'Hauts-de-France':          'Hauts-de-France',
     'Corse':                    'Corse'
   };
-  // Icons en HTML (lus depuis les boutons statiques)
   var ICONS = {
     sun:'&#x2600;&#xFE0F;', nature:'&#x1F33F;', care:'&#x1F3E5;',
     cost:'&#x1F4B0;',       air:'&#x1F4A8;',    social:'&#x1F91D;',
     sport:'&#x1F3C3;',      calm:'&#x1F507;',   weather:'&#x1F321;'
   };
-
+  var CRIT_LABELS = {
+    sun:'Ensoleillement',         nature:'Espaces verts',               care:'Acc&egrave;s soins psy',
+    cost:'Co&ucirc;t de la vie',  air:'Qualit&eacute; de l&rsquo;air',  social:'Lien social',
+    sport:'Sport &amp; outdoor',  calm:'Calme',                         weather:'Douceur du climat'
+  };
   var KEYS = ['sun','nature','care','cost','air','social','sport','calm','weather'];
   var active = {};
-  for (var i = 0; i < KEYS.length; i++) { active[KEYS[i]] = true; }
+  for (var ii = 0; ii < KEYS.length; ii++) { active[KEYS[ii]] = true; }
 
-  var leafletMap = null;
+  var leafletMap   = null;
   var geojsonLayer = null;
 
-  // -----------------------------------------------------------------------
-  // CALCULS
-  // -----------------------------------------------------------------------
+  // === CALCULS ===
   function activeList() {
     var a = [];
     for (var i = 0; i < KEYS.length; i++) { if (active[KEYS[i]]) a.push(KEYS[i]); }
     return a;
   }
-
   function score(key) {
-    var d = DATA[key];
-    if (!d) return 0;
-    var al = activeList();
-    if (!al.length) return 0;
-    var s = 0;
-    for (var i = 0; i < al.length; i++) s += (d[al[i]] || 0);
+    var d = DATA[key]; if (!d) return 0;
+    var al = activeList(); if (!al.length) return 0;
+    var s = 0; for (var i = 0; i < al.length; i++) s += (d[al[i]] || 0);
     return s / al.length;
   }
-
   function colorFill(s) {
-    if (s >= 8) return '#22c55e';
-    if (s >= 7) return '#84cc16';
-    if (s >= 6) return '#f59e0b';
-    if (s >= 5) return '#f97316';
+    if (s >= 8) return '#22c55e'; if (s >= 7) return '#84cc16';
+    if (s >= 6) return '#f59e0b'; if (s >= 5) return '#f97316';
     return '#ef4444';
   }
   function colorBg(s) {
-    if (s >= 8) return '#dcfce7';
-    if (s >= 7) return '#ecfccb';
-    if (s >= 6) return '#fef9c3';
-    if (s >= 5) return '#ffedd5';
+    if (s >= 8) return '#dcfce7'; if (s >= 7) return '#ecfccb';
+    if (s >= 6) return '#fef9c3'; if (s >= 5) return '#ffedd5';
     return '#fee2e2';
   }
   function colorText(s) {
-    if (s >= 7) return '#166534';
-    if (s >= 5) return '#92400e';
-    return '#991b1b';
+    if (s >= 7) return '#166534'; if (s >= 5) return '#92400e'; return '#991b1b';
   }
 
-  // -----------------------------------------------------------------------
-  // NOM GEOJSON -> CLE DATA (pur ASCII, sans regex Unicode)
-  // -----------------------------------------------------------------------
+  // === CORRESPONDANCE NOM GEOJSON -> CLE DATA ===
+  // \uXXXX = escapes JavaScript (ASCII dans la source, interprete par le navigateur)
+  // Couvre les noms exacts de geo.api.gouv.fr ET de gregoiredavid/france-geojson
+  var GEO_MAP = {};
+  GEO_MAP['Île-de-France']                     = 'Ile-de-France';
+  GEO_MAP['Ile-de-France']                          = 'Ile-de-France';
+  GEO_MAP['Centre-Val de Loire']                    = 'Centre-Val-de-Loire';
+  GEO_MAP['Centre-Val-de-Loire']                    = 'Centre-Val-de-Loire';
+  GEO_MAP['Bourgogne-Franche-Comté']          = 'Bourgogne-Franche-Comte';
+  GEO_MAP['Bourgogne-Franche-Comte']               = 'Bourgogne-Franche-Comte';
+  GEO_MAP['Normandie']                              = 'Normandie';
+  GEO_MAP['Hauts-de-France']                        = 'Hauts-de-France';
+  GEO_MAP['Grand Est']                              = 'Grand-Est';
+  GEO_MAP['Grand-Est']                              = 'Grand-Est';
+  GEO_MAP['Pays de la Loire']                       = 'Pays-de-la-Loire';
+  GEO_MAP['Pays-de-la-Loire']                       = 'Pays-de-la-Loire';
+  GEO_MAP['Bretagne']                               = 'Bretagne';
+  GEO_MAP['Nouvelle-Aquitaine']                     = 'Nouvelle-Aquitaine';
+  GEO_MAP['Occitanie']                              = 'Occitanie';
+  GEO_MAP['Auvergne-Rhône-Alpes']            = 'Auvergne-Rhone-Alpes';
+  GEO_MAP['Auvergne-Rhone-Alpes']                  = 'Auvergne-Rhone-Alpes';
+  GEO_MAP['Provence-Alpes-Côte d’Azur'] = 'Provence-Alpes-Cote-dAzur';
+  GEO_MAP["Provence-Alpes-Côte d'Azur"]      = 'Provence-Alpes-Cote-dAzur';
+  GEO_MAP['Provence-Alpes-Cote-dAzur']            = 'Provence-Alpes-Cote-dAzur';
+  GEO_MAP['Corse']                                  = 'Corse';
+
   function toKey(nom) {
-    var nfd = nom.normalize('NFD');
-    var out = '';
-    for (var i = 0; i < nfd.length; i++) {
-      var c = nfd.charCodeAt(i);
-      // ASCII imprimable (32-127) sauf apostrophe (39)
-      if (c > 31 && c < 128 && c !== 39) out += nfd[i];
+    if (!nom) return '';
+    // 1. Correspondance directe (99% des cas)
+    if (GEO_MAP[nom]) return GEO_MAP[nom];
+    // 2. Normalize NFD + strip combining chars (fallback)
+    try {
+      var nfd = nom.normalize('NFD'), out = '';
+      for (var i = 0; i < nfd.length; i++) {
+        var c = nfd.charCodeAt(i);
+        if (c > 31 && c < 128 && c !== 39) out += nfd[i];
+      }
+      var r1 = out.replace(/\s+/g, '-').replace(/-+/g, '-');
+      if (DATA[r1]) return r1;
+    } catch(e2) {}
+    // 3. Remplacement manuel (securite supplementaire)
+    var ACCS = {};
+    ACCS['Ã ']='a'; ACCS['Ã¢']='a'; ACCS['Ã¤']='a';
+    ACCS['Ã¨']='e'; ACCS['Ã©']='e'; ACCS['Ãª']='e'; ACCS['Ã«']='e';
+    ACCS['Ã®']='i'; ACCS['Ã¯']='i';
+    ACCS['Ã´']='o'; ACCS['Ã¶']='o';
+    ACCS['Ã¹']='u'; ACCS['Ã»']='u'; ACCS['Ã¼']='u';
+    ACCS['Ã§']='c';
+    ACCS['Ã€']='A'; ACCS['Ã‚']='A'; ACCS['Ã„']='A';
+    ACCS['Ãˆ']='E'; ACCS['Ã‰']='E'; ACCS['ÃŠ']='E'; ACCS['Ã‹']='E';
+    ACCS['ÃŽ']='I'; ACCS['Ã']='I';
+    ACCS['Ã”']='O'; ACCS['Ã–']='O';
+    ACCS['Ã™']='U'; ACCS['Ã›']='U'; ACCS['Ãœ']='U';
+    ACCS['Ã‡']='C';
+    ACCS['â€™']='';
+    var out2 = '';
+    for (var j = 0; j < nom.length; j++) {
+      var ch = nom[j], code = nom.charCodeAt(j);
+      if (ACCS[ch] !== undefined) { out2 += ACCS[ch]; }
+      else if (code > 31 && code < 128 && code !== 39) { out2 += ch; }
     }
-    return out.replace(/\s+/g, '-').replace(/-+/g, '-');
+    return out2.replace(/\s+/g, '-').replace(/-+/g, '-');
   }
 
-  // -----------------------------------------------------------------------
-  // CLASSEMENT
-  // -----------------------------------------------------------------------
+  // === CLASSEMENT ===
   function buildRanking() {
-    var keys = Object.keys(DATA);
-    var ranked = [];
+    var keys = Object.keys(DATA), ranked = [];
     for (var i = 0; i < keys.length; i++) {
-      ranked.push({k: keys[i], s: score(keys[i]), lab: LABELS[keys[i]] || keys[i]});
+      ranked.push({k:keys[i], s:score(keys[i]), lab:LABELS[keys[i]] || keys[i]});
     }
-    ranked.sort(function(a, b) { return b.s - a.s; });
-
-    var prefixes = ['1.','2.','3.','4.','5.','6.','7.','8.','9.','10.','11.','12.','13.'];
-    var goldClass = ['g','s','b'];
-
+    ranked.sort(function(a,b){ return b.s - a.s; });
+    var pre = ['1.','2.','3.','4.','5.','6.','7.','8.','9.','10.','11.','12.','13.'];
+    var gc  = ['g','s','b'];
     var html = '';
     for (var i = 0; i < ranked.length; i++) {
-      var r = ranked[i];
-      var cls = i < 3 ? goldClass[i] : '';
+      var r = ranked[i], cls = i < 3 ? gc[i] : '';
       html += '<div class="rank-row" onclick="focusRegion(\'' + r.k + '\')">';
-      html += '<span class="rank-num ' + cls + '">' + prefixes[i] + '</span>';
+      html += '<span class="rank-num ' + cls + '">' + pre[i] + '</span>';
       html += '<span class="rank-name">' + r.lab + '</span>';
       html += '<span class="rank-pill" style="background:' + colorBg(r.s) + ';color:' + colorText(r.s) + '">' + r.s.toFixed(1) + '</span>';
       html += '</div>';
@@ -537,115 +585,91 @@
     document.getElementById('rank-list').innerHTML = html;
   }
 
-  // -----------------------------------------------------------------------
-  // TOGGLES
-  // -----------------------------------------------------------------------
+  // === TOGGLES ===
   function toggleCrit(k) {
     var al = activeList();
     if (active[k]) {
-      if (al.length <= 1) return; // garder au moins 1
+      if (al.length <= 1) return;
       active[k] = false;
-      var btn = document.getElementById('cb-' + k);
-      if (btn) btn.classList.add('off');
+      var b1 = document.getElementById('cb-' + k); if (b1) b1.classList.add('off');
     } else {
       active[k] = true;
-      var btn = document.getElementById('cb-' + k);
-      if (btn) btn.classList.remove('off');
+      var b2 = document.getElementById('cb-' + k); if (b2) b2.classList.remove('off');
     }
     var n = activeList().length;
     document.getElementById('badge-actifs').textContent = n + (n > 1 ? ' actifs' : ' actif');
     buildRanking();
     if (geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
-    if (leafletMap) { leafletMap.closePopup(); }
+    if (leafletMap)   { leafletMap.closePopup(); }
   }
-
   function resetAll() {
     for (var i = 0; i < KEYS.length; i++) {
       active[KEYS[i]] = true;
-      var btn = document.getElementById('cb-' + KEYS[i]);
-      if (btn) btn.classList.remove('off');
+      var b = document.getElementById('cb-' + KEYS[i]); if (b) b.classList.remove('off');
     }
     document.getElementById('badge-actifs').textContent = '9 actifs';
     buildRanking();
     if (geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
-    if (leafletMap) { leafletMap.closePopup(); }
+    if (leafletMap)   { leafletMap.closePopup(); }
   }
 
-  // -----------------------------------------------------------------------
-  // CARTE LEAFLET
-  // -----------------------------------------------------------------------
+  // === CARTE LEAFLET ===
   function layerStyleFn(feat) {
-    var k = toKey(feat.properties.nom || '');
-    var s = score(k);
-    return {fillColor: colorFill(s), weight: 2, opacity: 1, color: '#fff', fillOpacity: 0.82};
+    var nom = (feat && feat.properties && feat.properties.nom) || '';
+    var k   = toKey(nom);
+    // Regions inconnues (DOM-TOM) : totalement invisibles
+    if (!DATA[k]) return {fillOpacity:0, weight:0, opacity:0};
+    return {fillColor:colorFill(score(k)), weight:2, opacity:1, color:'#fff', fillOpacity:0.82};
   }
 
   function openPopup(geoNom, latlng) {
-    var k = toKey(geoNom);
-    var d = DATA[k];
-    if (!d) return;
-    var s = score(k);
-    var al = activeList();
-    var tot = 0;
+    var k = toKey(geoNom), d = DATA[k]; if (!d) return;
+    var s = score(k), al = activeList(), tot = 0;
     for (var i = 0; i < al.length; i++) tot += (d[al[i]] || 0);
-    var label = LABELS[k] || geoNom;
-
-    var verdict = '';
-    if (s >= 8.5)      verdict = 'Exceptionnel pour la santé mentale.';
-    else if (s >= 7.5) verdict = 'Très favorable selon vos critères.';
-    else if (s >= 6.5) verdict = 'Bonnes conditions globales.';
-    else if (s >= 5.5) verdict = 'Conditions mitigées.';
-    else               verdict = 'Conditions difficiles sur ces critères.';
-
+    var label   = LABELS[k] || geoNom;
+    var verdict = s >= 8.5 ? 'Exceptionnel pour la sante mentale.'
+      : s >= 7.5 ? 'Tres favorable selon vos criteres.'
+      : s >= 6.5 ? 'Bonnes conditions globales.'
+      : s >= 5.5 ? 'Conditions mitigees.'
+      : 'Conditions difficiles sur ces criteres.';
     var bars = '';
     for (var i = 0; i < al.length; i++) {
-      var ki = al[i];
-      var v = d[ki] || 0;
-      var fc = v >= 8 ? '#22c55e' : v >= 6 ? '#f59e0b' : '#ef4444';
-      bars += '<div class="rp-row">';
-      bars += '<span class="rp-icon">' + (ICONS[ki] || '') + '</span>';
-      bars += '<div class="rp-track"><div class="rp-fill" style="width:' + (v * 10) + '%;background:' + fc + '"></div></div>';
-      bars += '<span class="rp-val">' + v + '/10</span>';
-      bars += '</div>';
+      var ki = al[i], v = d[ki]||0, fc = v>=8?'#22c55e':v>=6?'#f59e0b':'#ef4444';
+      bars += '<div class="rp-row"><span class="rp-icon">'+(ICONS[ki]||'')+'</span>';
+      bars += '<div class="rp-track"><div class="rp-fill" style="width:'+(v*10)+'%;background:'+fc+'"></div></div>';
+      bars += '<span class="rp-val">'+v+'/10</span></div>';
     }
-
-    var content = '<div class="rp">';
-    content += '<div class="rp-name">' + label + '</div>';
-    content += '<div class="rp-total">Score : <strong>' + s.toFixed(1) + '</strong>/10 &middot; ' + tot + ' pts / ' + (al.length * 10) + '</div>';
-    content += '<div class="rp-rows">' + bars + '</div>';
-    content += '<div class="rp-verdict">' + verdict + '</div>';
-    content += '</div>';
-
-    L.popup({maxWidth: 280}).setLatLng(latlng).setContent(content).openOn(leafletMap);
+    var c = '<div class="rp"><div class="rp-name">'+label+'</div>';
+    c += '<div class="rp-total">Score : <strong>'+s.toFixed(1)+'</strong>/10 &middot; '+tot+' pts / '+(al.length*10)+'</div>';
+    c += '<div class="rp-rows">'+bars+'</div><div class="rp-verdict">'+verdict+'</div></div>';
+    L.popup({maxWidth:280}).setLatLng(latlng).setContent(c).openOn(leafletMap);
   }
 
   function focusRegion(k) {
     if (!geojsonLayer || !leafletMap) return;
     geojsonLayer.eachLayer(function(layer) {
-      var nom = layer.feature && layer.feature.properties && layer.feature.properties.nom || '';
+      var nom = (layer.feature && layer.feature.properties && layer.feature.properties.nom) || '';
       if (toKey(nom) === k) {
-        leafletMap.fitBounds(layer.getBounds(), {padding: [30, 30]});
+        leafletMap.fitBounds(layer.getBounds(), {padding:[30,30]});
         openPopup(nom, layer.getBounds().getCenter());
       }
     });
   }
 
   function initMap() {
-    // Bornes de la France metropolitaine + Corse
-    var FR_BOUNDS = [[41.2, -5.3], [51.2, 9.7]];
     leafletMap = L.map('carte-leaflet', {
-      maxBounds: [[39, -7], [53, 12]],
-      maxBoundsViscosity: 0.85,
+      center: [46.5, 2.5], zoom: 6,
+      maxBounds: [[39.5, -6.5], [52.0, 9.8]],
+      maxBoundsViscosity: 1.0,
       minZoom: 5, maxZoom: 10,
       zoomControl: true, scrollWheelZoom: false
     });
-    leafletMap.fitBounds(FR_BOUNDS);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
       attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
-      subdomains: 'abcd', maxZoom: 12
+      subdomains:'abcd', maxZoom:12
     }).addTo(leafletMap);
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd', maxZoom: 12, zIndex: 10
+      subdomains:'abcd', maxZoom:12, zIndex:10
     }).addTo(leafletMap);
   }
 
@@ -658,44 +682,49 @@
   }
 
   function tryFetch(urls, idx) {
-    if (idx >= urls.length) {
-      showMapError('Carte indisponible (vérifiez votre connexion)');
-      return;
-    }
+    if (idx >= urls.length) { showMapError('Carte indisponible'); return; }
     fetch(urls[idx])
-      .then(function(r) { if (!r.ok) throw new Error(); return r.json(); })
-      .then(function(geo) { onGeoLoaded(geo); })
-      .catch(function() { tryFetch(urls, idx + 1); });
+      .then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
+      .then(function(geo){ onGeoLoaded(geo); })
+      .catch(function(){ tryFetch(urls, idx+1); });
   }
 
   function onGeoLoaded(geo) {
     var msg = document.getElementById('map-msg');
     if (msg) msg.remove();
 
+    // Pas de filter : toutes les features chargent.
+    // layerStyleFn rend les DOM-TOM (non dans DATA) completement invisibles.
     geojsonLayer = L.geoJSON(geo, {
-      filter: function(feat) {
-        var k = toKey(feat.properties.nom || '');
-        return !!DATA[k];
-      },
       style: layerStyleFn,
       onEachFeature: function(feat, layer) {
-        var nom = feat.properties.nom || '';
+        var nom = (feat.properties && feat.properties.nom) || '';
+        var k   = toKey(nom);
+        if (!DATA[k]) return; // pas de tooltip/event pour DOM-TOM
         layer.bindTooltip(function() {
-          return '<strong>' + nom + '</strong> — ' + score(toKey(nom)).toFixed(1) + '/10';
-        }, {sticky: true, direction: 'top'});
+          return '<strong>' + nom + '</strong> - ' + score(k).toFixed(1) + '/10';
+        }, {sticky:true, direction:'top'});
         layer.on({
           mouseover: function(e) {
-            e.target.setStyle({weight: 3, color: '#0b1f38', fillOpacity: 0.95});
+            e.target.setStyle({weight:3, color:'#0b1f38', fillOpacity:0.95});
             e.target.bringToFront();
           },
           mouseout: function(e) { geojsonLayer.resetStyle(e.target); },
-          click: function(e) { openPopup(nom, e.latlng); }
+          click:    function(e) { openPopup(nom, e.latlng); }
         });
       }
     }).addTo(leafletMap);
 
-    // Cadrer sur la France (exclut DOM-TOM si presents)
-    try { leafletMap.fitBounds(geojsonLayer.getBounds(), {padding: [8, 8], maxZoom: 7}); } catch(e) {}
+    // Cadrer uniquement sur les 13 regions metropolitaines (exclut DOM-TOM)
+    var bounds = null;
+    geojsonLayer.eachLayer(function(layer) {
+      var lnom = (layer.feature && layer.feature.properties && layer.feature.properties.nom) || '';
+      if (DATA[toKey(lnom)]) {
+        var b = layer.getBounds();
+        if (!bounds) { bounds = b; } else { bounds.extend(b); }
+      }
+    });
+    if (bounds && bounds.isValid()) { leafletMap.fitBounds(bounds, {padding:[10,10]}); }
   }
 
   function showMapError(txt) {
@@ -706,25 +735,16 @@
   }
 
   function onLeafletReady() {
-    try {
-      initMap();
-      loadGeoJSON();
-    } catch (e) {
-      showMapError('Erreur init carte');
-    }
+    try { initMap(); loadGeoJSON(); } catch(e) { showMapError('Erreur init carte'); }
   }
 
-  // -----------------------------------------------------------------------
-  // RECHERCHE VILLE (Nominatim OpenStreetMap, sans cle API)
-  // -----------------------------------------------------------------------
+  // === RECHERCHE VILLE ===
   var cityMarker = null;
 
-  // Ray-casting point-dans-polygone (coordonnees GeoJSON [lng, lat])
   function pointInRing(px, py, ring) {
     var inside = false;
     for (var i = 0, j = ring.length - 1; i < ring.length; j = i++) {
-      var xi = ring[i][0], yi = ring[i][1];
-      var xj = ring[j][0], yj = ring[j][1];
+      var xi = ring[i][0], yi = ring[i][1], xj = ring[j][0], yj = ring[j][1];
       if (((yi > py) !== (yj > py)) && (px < (xj - xi) * (py - yi) / (yj - yi) + xi)) {
         inside = !inside;
       }
@@ -737,12 +757,13 @@
     if (!geojsonLayer) return null;
     geojsonLayer.eachLayer(function(layer) {
       if (found) return;
+      var nom = (layer.feature && layer.feature.properties && layer.feature.properties.nom) || '';
+      if (!DATA[toKey(nom)]) return; // ignorer DOM-TOM
       var geom = layer.feature && layer.feature.geometry;
       if (!geom) return;
       var rings = [];
-      if (geom.type === 'Polygon') {
-        rings = [geom.coordinates[0]];
-      } else if (geom.type === 'MultiPolygon') {
+      if (geom.type === 'Polygon') { rings = [geom.coordinates[0]]; }
+      else if (geom.type === 'MultiPolygon') {
         for (var p = 0; p < geom.coordinates.length; p++) rings.push(geom.coordinates[p][0]);
       }
       for (var r = 0; r < rings.length; r++) {
@@ -752,53 +773,82 @@
     return found;
   }
 
+  // Affiche la fiche ville sous la carte
+  function showCityResult(cityName, regionKey, regionNomGeo) {
+    var el = document.getElementById('city-result');
+    if (!el) return;
+    var label = LABELS[regionKey] || regionNomGeo || regionKey;
+    var d = DATA[regionKey];
+    var globalScore = score(regionKey);
+    // Rang parmi 13 regions
+    var keys = Object.keys(DATA), sorted = [];
+    for (var i = 0; i < keys.length; i++) sorted.push({k:keys[i], s:score(keys[i])});
+    sorted.sort(function(a,b){ return b.s - a.s; });
+    var rank = 1;
+    for (var j = 0; j < sorted.length; j++) { if (sorted[j].k === regionKey) { rank=j+1; break; } }
+    var suf        = rank === 1 ? '<sup>re</sup>' : '<sup>e</sup>';
+    var rankColor  = rank <= 4 ? '#166534' : rank <= 9 ? '#92400e' : '#991b1b';
+    var rankBg     = rank <= 4 ? '#dcfce7' : rank <= 9 ? '#ffedd5' : '#fee2e2';
+    // Barres : 9 criteres fixes
+    var bars = '';
+    for (var i = 0; i < KEYS.length; i++) {
+      var ki = KEYS[i], v = d ? (d[ki]||0) : 0;
+      var fc = v >= 8 ? '#22c55e' : v >= 6 ? '#f59e0b' : '#ef4444';
+      bars += '<div class="cr-bar">';
+      bars += '<span class="cr-icon">'+(ICONS[ki]||'')+'</span>';
+      bars += '<span class="cr-lbl">'+(CRIT_LABELS[ki]||ki)+'</span>';
+      bars += '<div class="cr-track"><div class="cr-fill" style="width:'+(v*10)+'%;background:'+fc+'"></div></div>';
+      bars += '<span class="cr-val">'+v+'/10</span>';
+      bars += '</div>';
+    }
+    el.innerHTML = '<div class="cr-card">'
+      + '<div class="cr-header">'
+      + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
+      + '<div class="cr-region">R&eacute;gion : <strong>' + label + '</strong></div>'
+      + '<div class="cr-rank" style="background:' + rankBg + ';color:' + rankColor + '">'
+      + rank + suf + '&nbsp;/ 13 r&eacute;gions &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10'
+      + '</div></div>'
+      + '<div class="cr-bars">' + bars + '</div>'
+      + '</div>';
+    el.style.display = 'block';
+    setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 300);
+  }
+
   function searchCity() {
-    var inp = document.getElementById('city-input');
-    var btn = document.getElementById('city-btn');
+    var inp    = document.getElementById('city-input');
+    var btn    = document.getElementById('city-btn');
     var status = document.getElementById('city-status');
     var q = inp ? inp.value.trim() : '';
     if (!q || !leafletMap) return;
-
     if (btn) btn.disabled = true;
     if (status) status.textContent = 'Recherche...';
-
     var url = 'https://nominatim.openstreetmap.org/search'
       + '?q=' + encodeURIComponent(q)
       + '&countrycodes=fr&format=json&limit=1&accept-language=fr';
-
     fetch(url)
-      .then(function(r) { return r.json(); })
+      .then(function(r){ return r.json(); })
       .then(function(data) {
         if (btn) btn.disabled = false;
-        if (!data || !data.length) {
-          if (status) status.textContent = 'Ville introuvable';
-          return;
-        }
-        var lat = parseFloat(data[0].lat);
-        var lng = parseFloat(data[0].lon);
+        if (!data || !data.length) { if (status) status.textContent = 'Ville introuvable'; return; }
+        var lat      = parseFloat(data[0].lat);
+        var lng      = parseFloat(data[0].lon);
         var cityName = data[0].display_name.split(',')[0];
         if (status) status.textContent = '';
-
-        // Supprimer ancien marqueur
         if (cityMarker) { leafletMap.removeLayer(cityMarker); cityMarker = null; }
-
-        // Ajouter epingle
-        var pinHtml = '<div class="city-pin">'
-          + '<div class="city-pin-label">' + cityName + '</div>'
-          + '<div class="city-pin-dot"></div>'
-          + '</div>';
-        var icon = L.divIcon({html: pinHtml, className: '', iconAnchor: [7, 14]});
-        cityMarker = L.marker([lat, lng], {icon: icon, zIndexOffset: 1000}).addTo(leafletMap);
-
-        // Trouver la region
+        var pinHtml = '<div class="city-pin"><div class="city-pin-label">'+cityName+'</div><div class="city-pin-dot"></div></div>';
+        var icon = L.divIcon({html:pinHtml, className:'', iconAnchor:[7,14]});
+        cityMarker = L.marker([lat, lng], {icon:icon, zIndexOffset:1000}).addTo(leafletMap);
         var layer = findRegionByPoint(lng, lat);
         if (layer) {
-          var nom = layer.feature.properties.nom || '';
-          leafletMap.fitBounds(layer.getBounds(), {padding: [50, 50], maxZoom: 9});
-          setTimeout(function() { openPopup(nom, layer.getBounds().getCenter()); }, 350);
+          var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
+          var rk  = toKey(nom);
+          leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
+          showCityResult(cityName, rk, nom);
         } else {
           leafletMap.setView([lat, lng], 8);
-          if (status) status.textContent = 'Region non trouvee';
+          if (status) status.textContent = 'Region non reconnue';
+          var elR = document.getElementById('city-result');
+          if (elR) elR.style.display = 'none';
         }
       })
       .catch(function() {
@@ -807,35 +857,26 @@
       });
   }
 
-  // -----------------------------------------------------------------------
-  // INIT SYNCHRONE (sans attendre DOMContentLoaded)
-  // Les boutons criteres sont dans le HTML statique, buildRanking() suffit
-  // -----------------------------------------------------------------------
+  // === INIT SYNCHRONE ===
   buildRanking();
-
-  // Si Leaflet deja charge (cache navigateur)
   if (typeof L !== 'undefined') { onLeafletReady(); }
-
-  // Navigation hamburger
   document.addEventListener('DOMContentLoaded', function() {
-    var btn = document.getElementById('hamburger');
-    if (btn) {
-      btn.addEventListener('click', function() {
-        var nav = document.getElementById('nav-menu');
+    var hbtn = document.getElementById('hamburger');
+    if (hbtn) {
+      hbtn.addEventListener('click', function() {
+        var nav  = document.getElementById('nav-menu');
         var open = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', String(!open));
         if (nav) nav.classList.toggle('open', !open);
       });
     }
     window.addEventListener('scroll', function() {
-      var p = document.getElementById('reading-progress');
-      if (!p) return;
+      var p = document.getElementById('reading-progress'); if (!p) return;
       var h = document.documentElement.scrollHeight - window.innerHeight;
       p.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
     });
   });
   </script>
-
   <!-- Leaflet async : ne bloque pas le JS inline, appelle onLeafletReady au chargement -->
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"
     onload="if(typeof onLeafletReady==='function' && !leafletMap)onLeafletReady()"
