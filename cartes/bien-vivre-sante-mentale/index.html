@@ -664,19 +664,19 @@
       minZoom: 5, maxZoom: 10,
       zoomControl: true, scrollWheelZoom: false
     });
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://openstreetmap.org">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
-      subdomains:'abcd', maxZoom:12
-    }).addTo(leafletMap);
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains:'abcd', maxZoom:12, zIndex:10
+    // Tuiles OpenStreetMap France — labels en français, libre de droits
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+      attribution: '&copy; Contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &mdash; Rendu <a href="https://openstreetmap.fr/">OSMFR</a>',
+      subdomains: 'abc', maxZoom: 20
     }).addTo(leafletMap);
   }
 
   function loadGeoJSON() {
+    // geo.api.gouv.fr ne retourne plus la géométrie (juste nom+code depuis 2026)
+    // → on utilise gregoiredavid/france-geojson qui contient les polygones complets
     var urls = [
-      'https://geo.api.gouv.fr/regions?format=geojson&geometry=contour',
-      'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions.geojson'
+      'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions.geojson',
+      'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions.geojson'
     ];
     tryFetch(urls, 0);
   }
@@ -684,15 +684,20 @@
   function tryFetch(urls, idx) {
     if (idx >= urls.length) { showMapError('Carte indisponible'); return; }
     fetch(urls[idx])
-      .then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
-      .then(function(geo){ onGeoLoaded(geo); })
+      .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function(geo){
+        // Erreurs de rendu catchées ici, séparément des erreurs réseau
+        try { onGeoLoaded(geo); }
+        catch(e2) {
+          var msg2 = document.getElementById('map-msg');
+          if (msg2) msg2.remove();
+          showMapError('⚠️ ' + (e2.message || 'Erreur rendu').substring(0, 50));
+        }
+      })
       .catch(function(){ tryFetch(urls, idx+1); });
   }
 
   function onGeoLoaded(geo) {
-    var msg = document.getElementById('map-msg');
-    if (msg) msg.remove();
-
     // Pas de filter : toutes les features chargent.
     // layerStyleFn rend les DOM-TOM (non dans DATA) completement invisibles.
     geojsonLayer = L.geoJSON(geo, {
@@ -702,7 +707,7 @@
         var k   = toKey(nom);
         if (!DATA[k]) return; // pas de tooltip/event pour DOM-TOM
         layer.bindTooltip(function() {
-          return '<strong>' + nom + '</strong> - ' + score(k).toFixed(1) + '/10';
+          return '<strong>' + nom + '</strong> – ' + score(k).toFixed(1) + '/10';
         }, {sticky:true, direction:'top'});
         layer.on({
           mouseover: function(e) {
@@ -714,6 +719,10 @@
         });
       }
     }).addTo(leafletMap);
+
+    // Supprimer le spinner seulement après succès
+    var msg = document.getElementById('map-msg');
+    if (msg) msg.remove();
 
     // Cadrer uniquement sur les 13 regions metropolitaines (exclut DOM-TOM)
     var bounds = null;
@@ -728,8 +737,11 @@
   }
 
   function showMapError(txt) {
+    var msg  = document.getElementById('map-msg');
     var ring = document.querySelector('#map-msg .ring');
     var span = document.getElementById('map-msg-txt');
+    // Passer au-dessus des tuiles Leaflet (z-index 200+) si message d'erreur
+    if (msg)  { msg.style.zIndex = '900'; msg.style.background = '#fff8f8'; }
     if (ring) ring.style.display = 'none';
     if (span) span.textContent = txt || 'Carte non disponible';
   }
