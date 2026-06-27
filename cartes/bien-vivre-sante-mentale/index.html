@@ -271,6 +271,38 @@
     .callout{background:#fffbeb;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:0 9px 9px 0;font-size:.87rem;color:#78350f;margin:1.25rem 0;line-height:1.65}
     .source-note{font-size:.76rem;color:#94a3b8;border-top:1px solid #eef1f5;margin-top:2.5rem;padding-top:1.2rem}
 
+    /* Loader drill-down (dept / communes) */
+    .map-drill-loader{
+      position:absolute;top:50%;left:50%;
+      transform:translate(-50%,-50%);
+      z-index:600;display:flex;flex-direction:column;
+      align-items:center;gap:8px;pointer-events:none
+    }
+    .map-drill-orb{
+      width:56px;height:56px;border-radius:50%;
+      background:rgba(255,255,255,.96);
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.7rem;
+      animation:breathe-orb 2.6s ease-in-out infinite
+    }
+    .map-drill-txt{
+      font-size:.67rem;font-weight:700;
+      color:#166534;letter-spacing:.06em;text-transform:uppercase;
+      background:rgba(255,255,255,.92);
+      padding:3px 12px;border-radius:20px;
+      box-shadow:0 2px 10px rgba(11,31,56,.12)
+    }
+    @keyframes breathe-orb{
+      0%,100%{
+        transform:scale(1);
+        box-shadow:0 4px 22px rgba(11,31,56,.18),0 0 0 0 rgba(34,197,94,.5)
+      }
+      50%{
+        transform:scale(1.16);
+        box-shadow:0 8px 30px rgba(11,31,56,.22),0 0 0 16px rgba(34,197,94,0)
+      }
+    }
+
     /* INTRO avant la carte */
     .carte-intro{max-width:700px;margin:2.2rem auto 1.8rem;padding:0 1.5rem;color:#334155;line-height:1.8;font-size:.97rem}
     .carte-intro h2{font-size:1.22rem;font-weight:800;color:#0b1f38;margin:0 0 .9rem;line-height:1.3}
@@ -1051,6 +1083,22 @@
     showDeptLevel(k);
   }
 
+  // Loader drill-down (dept / communes) — orbe respiratoire
+  var mapDrillLoader = null;
+  function showMapLoading() {
+    if (mapDrillLoader) return;
+    var c = document.getElementById('carte-leaflet');
+    if (!c) return;
+    mapDrillLoader = document.createElement('div');
+    mapDrillLoader.className = 'map-drill-loader';
+    mapDrillLoader.innerHTML = '<div class="map-drill-orb">&#x1F9D8;</div>'
+      + '<div class="map-drill-txt">Chargement&hellip;</div>';
+    c.appendChild(mapDrillLoader);
+  }
+  function hideMapLoading() {
+    if (mapDrillLoader) { try { mapDrillLoader.remove(); } catch(e){} mapDrillLoader = null; }
+  }
+
   function initMap() {
     leafletMap = L.map('carte-leaflet', {
       center: [46.5, 2.5], zoom: 6,
@@ -1178,7 +1226,7 @@
   }
 
   function tryFetchDept(urls, idx, cb) {
-    if (idx >= urls.length) return; // echec silencieux au niveau dept
+    if (idx >= urls.length) { hideMapLoading(); return; } // echec silencieux
     fetchTimeout(urls[idx], 12000)
       .then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
       .then(function(geo){ deptGeoCache = geo; cb(geo); })
@@ -1194,6 +1242,7 @@
     if (deptLayer)    { deptLayer.remove();    deptLayer    = null; }
 
     function buildDeptLayer(geo) {
+      hideMapLoading();
       var depts = REGION_DEPTS[regionKey] || [];
       var feats = [];
       for (var i = 0; i < geo.features.length; i++) {
@@ -1230,6 +1279,7 @@
 
     if (deptGeoCache) { buildDeptLayer(deptGeoCache); }
     else {
+      showMapLoading();
       tryFetchDept([
         'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/departements.geojson',
         'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements.geojson'
@@ -1247,9 +1297,11 @@
     var url = 'https://geo.api.gouv.fr/communes?codeDepartement=' + deptCode
             + '&format=geojson&geometry=centre&fields=nom,code,population';
 
+    showMapLoading();
     fetchTimeout(url, 12000)
       .then(function(r){ return r.json(); })
       .then(function(geo){
+        hideMapLoading();
         if (!geo || !geo.features || !geo.features.length) { updateBreadcrumb(); return; }
         var firstGeom = geo.features[0] && geo.features[0].geometry;
         if (!firstGeom) { updateBreadcrumb(); return; }
@@ -1289,7 +1341,7 @@
         if (communeLayer.getBounds().isValid()) leafletMap.fitBounds(communeLayer.getBounds(), {padding:[25,25]});
         updateBreadcrumb();
       })
-      .catch(function(){ updateBreadcrumb(); });
+      .catch(function(){ hideMapLoading(); updateBreadcrumb(); });
   }
 
   function drillBack() {
