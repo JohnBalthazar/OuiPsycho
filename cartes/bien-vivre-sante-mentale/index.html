@@ -229,6 +229,44 @@
     .rank-name{flex:1;font-size:.77rem;font-weight:500;color:#334155;line-height:1.25}
     .rank-pill{font-size:.68rem;font-weight:700;padding:2px 7px;border-radius:20px;white-space:nowrap;flex-shrink:0}
 
+    /* Onglets classement */
+    .rank-tabs{display:flex;border-bottom:2px solid #eef1f5;margin-bottom:8px}
+    .rank-tab{
+      flex:1;padding:5px 2px;font-size:.64rem;font-weight:700;text-align:center;
+      border:none;background:none;cursor:pointer;color:#94a3b8;
+      border-bottom:2px solid transparent;margin-bottom:-2px;
+      font-family:inherit;transition:color .15s;white-space:nowrap;line-height:1.3
+    }
+    .rank-tab.active{color:#2563eb;border-bottom-color:#2563eb}
+    .rank-tab:hover:not(.active){color:#475569}
+    .rank-tab-pane{display:none}
+    .rank-tab-pane.active{display:block}
+
+    /* Panneau ville (dans le classement) */
+    .panel-city{padding-top:2px}
+    .panel-city-row{display:flex;gap:5px;margin-bottom:7px}
+    .pcity-input{
+      flex:1;border:1px solid #dde3ec;border-radius:7px;
+      padding:5px 8px;font-size:.75rem;font-family:inherit;
+      outline:none;color:#334155;min-width:0
+    }
+    .pcity-input:focus{border-color:#2563eb;box-shadow:0 0 0 2px rgba(37,99,235,.1)}
+    .pcity-btn{
+      background:#2563eb;color:#fff;border:none;border-radius:7px;
+      padding:5px 9px;cursor:pointer;font-family:inherit;font-size:.82rem;
+      flex-shrink:0;transition:background .15s
+    }
+    .pcity-btn:hover{background:#1d4ed8}
+    .pcity-status{font-size:.7rem;color:#94a3b8;margin-bottom:4px;min-height:1em}
+    .pcity-row{
+      display:flex;align-items:center;gap:7px;padding:5px;
+      border-radius:7px;cursor:pointer;transition:background .1s;margin-bottom:1px
+    }
+    .pcity-row:hover{background:#eef1f5}
+    .pcity-city{flex:1;font-size:.77rem;font-weight:500;color:#334155;line-height:1.2}
+    .pcity-region{font-size:.66rem;color:#94a3b8}
+    .pcity-score{font-size:.68rem;font-weight:700;padding:2px 6px;border-radius:10px;white-space:nowrap}
+
     /* LEGENDE */
     .widget-legend{
       padding:10px 20px;background:#f4f7fb;border-top:1px solid #eef1f5;
@@ -390,7 +428,33 @@
 
           <div class="panel-block">
             <p class="panel-title">&#x1F3C6; Classement</p>
-            <div id="rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Chargement&hellip;</p></div>
+            <!-- Onglets : region / departement / ville -->
+            <div class="rank-tabs">
+              <button class="rank-tab active" id="rtab-region" onclick="switchRankTab('region')">Par r&eacute;gion</button>
+              <button class="rank-tab" id="rtab-dept"   onclick="switchRankTab('dept')">Par d&eacute;part.</button>
+              <button class="rank-tab" id="rtab-ville"  onclick="switchRankTab('ville')">Par ville</button>
+            </div>
+            <!-- Panneau regions -->
+            <div class="rank-tab-pane active" id="rpane-region">
+              <div id="rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Chargement&hellip;</p></div>
+            </div>
+            <!-- Panneau departements -->
+            <div class="rank-tab-pane" id="rpane-dept">
+              <div id="dept-rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Cliquez sur cet onglet pour afficher&hellip;</p></div>
+            </div>
+            <!-- Panneau villes -->
+            <div class="rank-tab-pane" id="rpane-ville">
+              <div class="panel-city">
+                <div class="panel-city-row">
+                  <input type="text" id="pcity-input" class="pcity-input"
+                    placeholder="Ville ou code postal&hellip;"
+                    onkeydown="if(event.key==='Enter')panelSearchCity()">
+                  <button class="pcity-btn" onclick="panelSearchCity()">&#x1F50D;</button>
+                </div>
+                <div class="pcity-status" id="pcity-status"></div>
+                <div id="pcity-result"></div>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -741,6 +805,110 @@
     document.getElementById('rank-list').innerHTML = html;
   }
 
+  // === ONGLETS CLASSEMENT ===
+  var currentRankTab = 'region';
+
+  function switchRankTab(tab) {
+    currentRankTab = tab;
+    var names = ['region','dept','ville'];
+    for (var i = 0; i < names.length; i++) {
+      var tb = document.getElementById('rtab-' + names[i]);
+      var pn = document.getElementById('rpane-' + names[i]);
+      if (tb) tb.classList.toggle('active', names[i] === tab);
+      if (pn) pn.classList.toggle('active', names[i] === tab);
+    }
+    if (tab === 'dept') buildDeptRanking();
+  }
+
+  function buildDeptRanking() {
+    var codes = Object.keys(DEPT_DATA), ranked = [];
+    for (var i = 0; i < codes.length; i++) {
+      var c = codes[i];
+      ranked.push({code:c, label:DEPT_LABELS[c]||c, s:scoreDept(c)});
+    }
+    ranked.sort(function(a,b){ return b.s - a.s; });
+    var gc = ['g','s','b'], html = '';
+    for (var i = 0; i < ranked.length; i++) {
+      var r = ranked[i], cls = i < 3 ? gc[i] : '';
+      html += '<div class="rank-row" onclick="focusDept(\'' + r.code + '\')">';
+      html += '<span class="rank-num ' + cls + '">' + (i+1) + '.</span>';
+      html += '<span class="rank-name">' + r.label + '</span>';
+      html += '<span class="rank-pill" style="background:' + colorBg(r.s) + ';color:' + colorText(r.s) + '">' + r.s.toFixed(1) + '</span>';
+      html += '</div>';
+    }
+    var el = document.getElementById('dept-rank-list');
+    if (el) el.innerHTML = html;
+  }
+
+  function focusDept(code) {
+    // Trouver la region qui contient ce departement et zoomer dessus
+    var rkeys = Object.keys(REGION_DEPTS);
+    for (var i = 0; i < rkeys.length; i++) {
+      if (REGION_DEPTS[rkeys[i]].indexOf(code) >= 0) {
+        showDeptLevel(rkeys[i]);
+        return;
+      }
+    }
+  }
+
+  // Recherche ville dans le panneau lateral
+  function panelSearchCity() {
+    var inp    = document.getElementById('pcity-input');
+    var status = document.getElementById('pcity-status');
+    var result = document.getElementById('pcity-result');
+    var q = inp ? inp.value.trim() : '';
+    if (!q) return;
+    if (status) status.textContent = 'Recherche…';
+    if (result) result.innerHTML = '';
+    fetch('https://nominatim.openstreetmap.org/search?q=' + encodeURIComponent(q)
+      + '&countrycodes=fr&format=json&limit=4&accept-language=fr')
+      .then(function(r){ return r.json(); })
+      .then(function(data) {
+        if (status) status.textContent = '';
+        if (!data || !data.length) { if (status) status.textContent = 'Introuvable'; return; }
+        var html = '';
+        for (var i = 0; i < data.length; i++) {
+          var d   = data[i];
+          var cn  = d.display_name.split(',')[0];
+          var lat = parseFloat(d.lat), lng = parseFloat(d.lon);
+          // Escapage apostrophes
+          var cnE = cn.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+          html += '<div class="pcity-row" onclick="panelGoCity(' + lat + ',' + lng + ',\'' + cnE + '\')">';
+          html += '<span style="font-size:.8rem;flex-shrink:0">&#x1F4CD;</span>';
+          html += '<span class="pcity-city">' + cn + '</span>';
+          html += '</div>';
+        }
+        if (result) result.innerHTML = html;
+      })
+      .catch(function(){ if (status) status.textContent = 'Erreur réseau'; });
+  }
+
+  function panelGoCity(lat, lng, cityName) {
+    if (!leafletMap) return;
+    // Vider les resultats du panneau
+    var ps = document.getElementById('pcity-status'); if (ps) ps.textContent = '';
+    var pr = document.getElementById('pcity-result'); if (pr) pr.innerHTML = '';
+    // Poser le marqueur sur la carte
+    if (cityMarker) { leafletMap.removeLayer(cityMarker); cityMarker = null; }
+    var pinHtml = '<div class="city-pin"><div class="city-pin-label">' + cityName
+      + '</div><div class="city-pin-dot"></div></div>';
+    cityMarker = L.marker([lat, lng], {
+      icon: L.divIcon({html:pinHtml, className:'', iconAnchor:[7,14]}),
+      zIndexOffset: 1000
+    }).addTo(leafletMap);
+    // Trouver la region et afficher la fiche
+    if (currentLevel !== 1) { drillToTop(); }
+    var layer = findRegionByPoint(lng, lat);
+    if (layer) {
+      var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
+      var rk  = toKey(nom);
+      leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
+      showCityResult(cityName, rk, nom);
+    } else {
+      leafletMap.setView([lat, lng], 8);
+    }
+  }
+
   // === TOGGLES ===
   function toggleCrit(k) {
     var al = activeList();
@@ -755,6 +923,7 @@
     var n = activeList().length;
     document.getElementById('badge-actifs').textContent = n + (n > 1 ? ' actifs' : ' actif');
     buildRanking();
+    if (currentRankTab === 'dept') buildDeptRanking();
     if (currentLevel === 1 && geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
     if (currentLevel === 2 && deptLayer)    { deptLayer.setStyle(deptStyleFn); }
     if (currentLevel === 3 && communeLayer) {
@@ -773,6 +942,7 @@
     }
     document.getElementById('badge-actifs').textContent = '9 actifs';
     buildRanking();
+    if (currentRankTab === 'dept') buildDeptRanking();
     if (currentLevel === 1 && geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
     if (currentLevel === 2 && deptLayer)    { deptLayer.setStyle(deptStyleFn); }
     if (leafletMap) { leafletMap.closePopup(); }
