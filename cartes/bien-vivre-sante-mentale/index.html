@@ -279,7 +279,7 @@
     .carte-intro strong{color:#1e293b}
 
     /* === RESULTAT VILLE === */
-    #city-result{max-width:740px;margin:0 auto 2rem;padding:0 1.25rem}
+    #city-result{max-width:740px;margin:0 auto 2rem;padding:0 1.25rem;scroll-margin-top:90px}
     .cr-card{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid #dde3ec;box-shadow:0 4px 20px rgba(11,31,56,.09)}
     .cr-header{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #eef1f5}
     .cr-city{font-size:1rem;font-weight:800;color:#0b1f38}
@@ -1136,8 +1136,8 @@
           },
           mouseout: function(e) { geojsonLayer.resetStyle(e.target); },
           click:    function()  {
-            showDeptLevel(k);
             showCityResult(nom, k, nom, null, '');
+            showDeptLevel(k);
           }
         });
       }
@@ -1216,10 +1216,10 @@
             mouseover: function(e){ e.target.setStyle({weight:2.5, color:'#0b1f38', fillOpacity:.95}); e.target.bringToFront(); },
             mouseout:  function(e){ deptLayer.resetStyle(e.target); },
             click:     function()  {
-              drillToCommunes(code, label);
               var rLabel = LABELS[regionKey] || regionKey;
               showCityResult(label, regionKey, rLabel, code,
                 'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>');
+              drillToCommunes(code, label);
             }
           });
         }
@@ -1275,7 +1275,8 @@
               + '<small style="color:#64748b">' + deptLabel + ' – Score : ' + s.toFixed(1) + '/10</small>',
               {sticky:true, direction:'top'}
             );
-            layer.on('click', function() {
+            layer.on('click', function(e) {
+              L.DomEvent.stopPropagation(e);
               var rLabel = LABELS[currentRegionKey] || currentRegionKey || '';
               showCityResult(nom, currentRegionKey, rLabel, deptCode,
                 'D&eacute;p.&nbsp;<strong>' + deptLabel + '</strong>'
@@ -1457,7 +1458,12 @@
       + '<div class="cr-bars">' + bars + '</div>'
       + '</div>';
     el.style.display = 'block';
-    setTimeout(function(){ el.scrollIntoView({behavior:'smooth', block:'nearest'}); }, 300);
+    // Scroll fiable : window.scrollTo avec offset header, après un tick pour laisser le DOM se peindre
+    requestAnimationFrame(function() {
+      var rect = el.getBoundingClientRect();
+      var top  = rect.top + window.pageYOffset - 90; // 90 = hauteur header fixe
+      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    });
   }
 
   function searchCity() {
