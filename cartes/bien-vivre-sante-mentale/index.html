@@ -285,6 +285,7 @@
     .cr-track{height:6px;background:#eef1f5;border-radius:3px;overflow:hidden}
     .cr-fill{height:100%;border-radius:3px}
     .cr-val{font-size:.68rem;font-weight:700;color:#64748b;text-align:right}
+    .cr-comm-rank{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:20px;width:100%}
 
     /* === NAVIGATION DRILL-DOWN === */
     .leaflet-control.map-nav-ctrl{
@@ -757,6 +758,62 @@
     'Provence-Alpes-Cote-dAzur':['04','05','06','13','83','84'],
     'Corse':['2A','2B']
   };
+
+  // Nombre de communes par departement (source INSEE 2024, ~35 000 au total)
+  var DEPT_COMMUNE_COUNT = {
+    '01':392,'02':800,'03':317,'04':198,'05':162,'06':163,'07':335,
+    '08':449,'09':332,'10':433,'11':436,'12':285,'13':119,'14':531,
+    '15':246,'16':377,'17':472,'18':290,'19':280,'2A':124,'2B':236,
+    '21':700,'22':348,'23':259,'24':503,'25':589,'26':369,'27':586,
+    '28':403,'29':283,'30':353,'31':588,'32':462,'33':535,'34':343,
+    '35':352,'36':243,'37':277,'38':512,'39':490,'40':330,'41':291,
+    '42':327,'43':257,'44':207,'45':334,'46':340,'47':319,'48':185,
+    '49':182,'50':456,'51':619,'52':426,'53':261,'54':591,'55':500,
+    '56':249,'57':730,'58':309,'59':648,'60':679,'61':395,'62':894,
+    '63':470,'64':546,'65':469,'66':226,'67':513,'68':376,'69':268,
+    '70':540,'71':565,'72':375,'73':305,'74':290,'75':1,'76':745,
+    '77':514,'78':262,'79':260,'80':772,'81':323,'82':195,'83':153,
+    '84':151,'85':282,'86':275,'87':201,'88':507,'89':423,'90':102,
+    '91':196,'92':36,'93':40,'94':47,'95':185
+  };
+
+  // Convertit un code postal en code departement
+  function postcodeToDept(postcode) {
+    if (!postcode) return null;
+    var p = String(postcode).replace(/[^0-9]/g, '');
+    if (p.length < 2) return null;
+    if (p.substring(0, 2) === '97') return null; // DOM-TOM ignore
+    if (p.length >= 5 && p.substring(0, 2) === '20') {
+      return parseInt(p, 10) <= 20199 ? '2A' : '2B';
+    }
+    var d = p.substring(0, 2);
+    return DEPT_COMMUNE_COUNT[d] ? d : null;
+  }
+
+  // Formate un nombre en style francais (separateur espace fine)
+  function fmtNum(n) {
+    var s = String(Math.round(n)), out = '', l = s.length;
+    for (var i = 0; i < l; i++) {
+      if (i > 0 && (l - i) % 3 === 0) out += ' ';
+      out += s[i];
+    }
+    return out;
+  }
+
+  // Rang des communes du dept parmi l ensemble des communes de France
+  function communeRank(deptCode) {
+    var myScore = scoreDept(deptCode);
+    var total = 0, above = 0;
+    var codes = Object.keys(DEPT_COMMUNE_COUNT);
+    for (var i = 0; i < codes.length; i++) {
+      var cnt = DEPT_COMMUNE_COUNT[codes[i]] || 0;
+      total += cnt;
+      var s = scoreDept(codes[i]);
+      if (s > myScore + 0.001) above += cnt;
+      else if (Math.abs(s - myScore) <= 0.001) above += Math.round(cnt / 2);
+    }
+    return { rank: Math.max(1, Math.min(above + 1, total)), total: total };
+  }
 
   // Etat de navigation
   var currentLevel = 1; // 1=regions 2=departements 3=communes
@@ -1308,7 +1365,7 @@
   }
 
   // Affiche la fiche ville sous la carte
-  function showCityResult(cityName, regionKey, regionNomGeo) {
+  function showCityResult(cityName, regionKey, regionNomGeo, deptCode) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
@@ -1335,13 +1392,30 @@
       bars += '<span class="cr-val">'+v+'/10</span>';
       bars += '</div>';
     }
+    // Rang communes nationales (si code dept disponible)
+    var commHtml = '';
+    if (deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
+      var cr   = communeRank(deptCode);
+      var pct  = cr.rank / cr.total * 100;
+      var crBg = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
+      var crCo = pct <= 25 ? '#166534' : pct <= 60 ? '#92400e' : '#991b1b';
+      var rn   = cr.rank <= 100 ? cr.rank : Math.round(cr.rank / 100) * 100;
+      var rStr = (cr.rank <= 100 ? '' : '~') + fmtNum(rn);
+      var tStr = '~' + fmtNum(Math.round(cr.total / 1000) * 1000);
+      var rnSuf = cr.rank <= 1 ? 're' : 'e';
+      commHtml = '<div class="cr-comm-rank" style="background:' + crBg + ';color:' + crCo + '">'
+        + '&#x1F3D8; Rang national&nbsp;: ' + rStr + rnSuf + '&nbsp;/ ' + tStr + ' communes'
+        + '</div>';
+    }
     el.innerHTML = '<div class="cr-card">'
       + '<div class="cr-header">'
       + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
       + '<div class="cr-region">R&eacute;gion : <strong>' + label + '</strong></div>'
       + '<div class="cr-rank" style="background:' + rankBg + ';color:' + rankColor + '">'
       + rank + suf + '&nbsp;/ 13 r&eacute;gions &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10'
-      + '</div></div>'
+      + '</div>'
+      + commHtml
+      + '</div>'
       + '<div class="cr-bars">' + bars + '</div>'
       + '</div>';
     el.style.display = 'block';
@@ -1358,7 +1432,7 @@
     if (status) status.textContent = 'Recherche...';
     var url = 'https://nominatim.openstreetmap.org/search'
       + '?q=' + encodeURIComponent(q)
-      + '&countrycodes=fr&format=json&limit=1&accept-language=fr';
+      + '&countrycodes=fr&format=json&limit=1&accept-language=fr&addressdetails=1';
     fetch(url)
       .then(function(r){ return r.json(); })
       .then(function(data) {
@@ -1367,6 +1441,10 @@
         var lat      = parseFloat(data[0].lat);
         var lng      = parseFloat(data[0].lon);
         var cityName = data[0].display_name.split(',')[0];
+        // Extraction code dept via code postal Nominatim
+        var addr     = data[0].address || {};
+        var postcode = (addr.postcode || '').split(',')[0].trim();
+        var deptCode = postcodeToDept(postcode);
         if (status) status.textContent = '';
         if (cityMarker) { leafletMap.removeLayer(cityMarker); cityMarker = null; }
         var pinHtml = '<div class="city-pin"><div class="city-pin-label">'+cityName+'</div><div class="city-pin-dot"></div></div>';
@@ -1377,7 +1455,7 @@
           var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
           var rk  = toKey(nom);
           leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
-          showCityResult(cityName, rk, nom);
+          showCityResult(cityName, rk, nom, deptCode);
         } else {
           leafletMap.setView([lat, lng], 8);
           if (status) status.textContent = 'Region non reconnue';
