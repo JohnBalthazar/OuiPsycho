@@ -11,7 +11,7 @@
   <link rel="canonical" href="https://ouipsycho.fr/cartes/bien-vivre-sante-mentale/">
   <meta property="og:type"        content="article">
   <meta property="og:title"       content="Où fait-il le mieux bon vivre pour la santé mentale en France ?">
-  <meta property="og:description" content="9 critères, 13 régions, une carte interactive pour trouver où la santé mentale s'épanouit le mieux.">
+  <meta property="og:description" content="9 critères, 13 régions, une carte interactive pour trouver votre région idéale.">
   <meta property="og:url"         content="https://ouipsycho.fr/cartes/bien-vivre-sante-mentale/">
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Oui Psycho!">
@@ -19,9 +19,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css">
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
-  <!-- Google Consent Mode v2 -->
+  <!-- Leaflet CSS (cdnjs — fiable, pas de vérification d'intégrité qui peut bloquer) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+  <!-- GA consent -->
   <script>
     window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
     var _pc=(function(){try{return localStorage.getItem('pc_consent');}catch(e){return null;}})();
@@ -32,196 +32,254 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
   <style>
-    /* ── Page carte ── */
-    .map-page { background: #f8fafc; }
+    /* ══ RESET local ══ */
+    *, *::before, *::after { box-sizing: border-box; }
 
-    .map-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #0f4c75 100%);
-      padding: 3rem 1.5rem 2.5rem; text-align: center; color: #fff;
+    /* ══ PAGE ══ */
+    .carte-page { background: #f0f4f8; }
+
+    /* ══ HERO ══ */
+    .carte-hero {
+      background: linear-gradient(160deg, #0b1f38 0%, #133a62 55%, #0e5f8a 100%);
+      padding: clamp(2rem,5vw,3.5rem) 1.25rem clamp(1.5rem,4vw,2.5rem);
+      text-align: center; color: #fff;
     }
-    .map-hero .hero-tag {
-      display: inline-flex; align-items: center; gap: 6px;
+    .carte-hero .tag {
+      display: inline-flex; align-items: center; gap: 5px;
       background: rgba(255,255,255,.12); color: rgba(255,255,255,.9);
-      font-size: .72rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .1em; padding: 4px 14px; border-radius: 20px;
-      margin-bottom: 1.25rem; border: 1px solid rgba(255,255,255,.15);
+      font-size: .7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .1em; padding: 3px 12px; border-radius: 20px;
+      margin-bottom: 1rem; border: 1px solid rgba(255,255,255,.18);
     }
-    .map-hero h1 {
-      font-size: clamp(1.5rem, 4vw, 2.3rem); font-weight: 800; line-height: 1.2;
-      margin: 0 0 1rem; max-width: 700px; margin-left: auto; margin-right: auto;
+    .carte-hero h1 {
+      font-size: clamp(1.35rem, 4.5vw, 2.2rem);
+      font-weight: 800; line-height: 1.2;
+      margin: 0 auto 0.85rem; max-width: 680px;
     }
-    .map-hero p {
-      font-size: 1rem; color: rgba(255,255,255,.75); max-width: 580px;
-      margin: 0 auto 1.5rem; line-height: 1.7;
+    .carte-hero p {
+      font-size: clamp(.88rem,2.2vw,1rem); color: rgba(255,255,255,.72);
+      max-width: 560px; margin: 0 auto 1.25rem; line-height: 1.7;
     }
-    .map-meta-chips { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
-    .map-meta-chips span {
-      background: rgba(255,255,255,.1); color: rgba(255,255,255,.8);
-      font-size: .75rem; padding: 4px 12px; border-radius: 20px;
+    .hero-chips { display: flex; gap: 7px; justify-content: center; flex-wrap: wrap; }
+    .hero-chips span {
+      background: rgba(255,255,255,.1); color: rgba(255,255,255,.75);
+      font-size: .7rem; padding: 3px 10px; border-radius: 20px;
       border: 1px solid rgba(255,255,255,.12);
     }
 
-    /* ── Widget conteneur ── */
-    .map-widget-wrap {
-      max-width: 1160px; margin: -1px auto 0; padding: 0 1rem 3rem;
+    /* ══ WIDGET CONTENEUR ══ */
+    .widget-outer {
+      max-width: 1220px; margin: 0 auto; padding: 0 1rem 3rem;
     }
-    .map-widget {
-      background: #fff; border-radius: 16px; overflow: hidden;
-      box-shadow: 0 8px 48px rgba(0,0,0,.14); border: 1px solid #e2e8f0;
-      margin-top: -2rem; position: relative;
+    .widget-card {
+      background: #fff; border-radius: 18px;
+      box-shadow: 0 8px 48px rgba(11,31,56,.14);
+      border: 1px solid #dde3ec;
+      margin-top: -1.5rem; position: relative; overflow: hidden;
     }
+
+    /* ══ TOPBAR ══ */
     .widget-topbar {
-      padding: 14px 20px; border-bottom: 1px solid #f1f5f9;
       display: flex; align-items: center; justify-content: space-between;
-      flex-wrap: wrap; gap: 8px;
-      background: #fff;
+      padding: 13px 18px; border-bottom: 1px solid #eef1f5;
+      flex-wrap: wrap; gap: 6px;
     }
-    .widget-topbar-left { display: flex; align-items: center; gap: 10px; }
-    .widget-topbar h2 { font-size: .95rem; font-weight: 700; color: #0f172a; margin: 0; }
-    .active-count {
-      background: #eff6ff; color: #1d4ed8;
-      font-size: .72rem; font-weight: 700; padding: 2px 9px; border-radius: 20px;
+    .widget-topbar-left { display: flex; align-items: center; gap: 9px; }
+    .widget-topbar h2 { font-size: .92rem; font-weight: 700; color: #0b1f38; margin: 0; }
+    .badge-actifs {
+      background: #ebf3ff; color: #1a56db;
+      font-size: .68rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px;
     }
-    .widget-hint { font-size: .75rem; color: #94a3b8; }
+    .widget-hint { font-size: .72rem; color: #8fa0b5; }
 
-    /* ── Layout carte + panel ── */
-    .map-body {
+    /* ══ CORPS : CARTE + PANEL ══ */
+    .widget-body {
       display: grid;
-      grid-template-columns: 1fr 268px;
+      grid-template-columns: 1fr 272px;
+      min-height: 520px;
     }
-    @media (max-width: 820px) { .map-body { grid-template-columns: 1fr; } }
-
-    #leaflet-map {
-      height: 530px; min-height: 320px; position: relative; z-index: 0;
+    @media (max-width: 860px) {
+      .widget-body {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+      }
     }
-    @media (max-width: 640px) { #leaflet-map { height: 360px; } }
 
-    /* ── Panel droit ── */
-    .map-panel {
-      border-left: 1px solid #f1f5f9; overflow-y: auto;
-      max-height: 530px; background: #fafafa;
+    /* ══ CARTE LEAFLET ══ */
+    #carte-leaflet {
+      width: 100%; height: 520px;
+      position: relative; z-index: 0;
+      background: #eef1f5;
+    }
+    @media (max-width: 860px) { #carte-leaflet { height: 340px; } }
+    @media (max-width: 480px) { #carte-leaflet { height: 280px; } }
+
+    .map-msg {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      font-size: .88rem; color: #8fa0b5; gap: 10px;
+      background: #f4f7fb; z-index: 1;
+    }
+    .map-msg .spinner-ring {
+      width: 36px; height: 36px;
+      border: 3px solid #dde3ec;
+      border-top-color: #1a56db;
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform:rotate(360deg); } }
+
+    /* Popup Leaflet */
+    .leaflet-popup-content-wrapper {
+      border-radius: 12px !important;
+      box-shadow: 0 8px 32px rgba(11,31,56,.18) !important;
+      padding: 0 !important;
+    }
+    .leaflet-popup-content { margin: 0 !important; min-width: 220px; }
+    .rp { padding: 15px 17px; }
+    .rp-name { font-size: .95rem; font-weight: 800; color: #0b1f38; margin-bottom: 3px; }
+    .rp-total { font-size: .75rem; color: #64748b; margin-bottom: 11px; }
+    .rp-total strong { font-size: 1.05rem; color: #0b1f38; }
+    .rp-rows { display: flex; flex-direction: column; gap: 4px; }
+    .rp-row { display: grid; grid-template-columns: 18px 1fr 28px; gap: 5px; align-items: center; }
+    .rp-icon { font-size: .78rem; text-align: center; }
+    .rp-track { height: 5px; background: #eef1f5; border-radius: 3px; overflow: hidden; }
+    .rp-fill  { height: 100%; border-radius: 3px; }
+    .rp-val   { font-size: .68rem; font-weight: 700; color: #64748b; text-align: right; }
+    .rp-verdict { font-size: .73rem; color: #64748b; font-style: italic; padding-top: 8px; margin-top: 6px; border-top: 1px solid #eef1f5; }
+
+    /* ══ PANEL DROIT ══ */
+    .widget-panel {
+      border-left: 1px solid #eef1f5;
+      overflow-y: auto; max-height: 520px;
+      background: #f9fafb;
       display: flex; flex-direction: column;
     }
-    @media (max-width: 820px) { .map-panel { max-height: none; border-left: none; border-top: 1px solid #f1f5f9; } }
+    @media (max-width: 860px) {
+      .widget-panel {
+        border-left: none; border-top: 1px solid #eef1f5;
+        max-height: none;
+        flex-direction: row; /* horizontal on mobile */
+        overflow-x: auto;
+        overflow-y: hidden;
+      }
+    }
 
-    .panel-block { padding: 14px 16px; border-bottom: 1px solid #f1f5f9; }
+    .panel-block {
+      padding: 13px 14px;
+      border-bottom: 1px solid #eef1f5;
+      flex-shrink: 0;
+    }
     .panel-block:last-child { border-bottom: none; flex: 1; }
-    .panel-block h3 {
-      font-size: .68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .09em; color: #94a3b8; margin: 0 0 10px;
+    @media (max-width: 860px) {
+      .panel-block {
+        border-bottom: none;
+        border-right: 1px solid #eef1f5;
+        min-width: 200px;
+      }
+      .panel-block:last-child { border-right: none; min-width: 200px; }
     }
 
-    /* Toggles */
-    .criterion-btn {
-      display: flex; align-items: center; gap: 8px;
+    .panel-title {
+      font-size: .64rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .09em; color: #94a3b8; margin: 0 0 9px;
+    }
+
+    /* Critères — toggles */
+    .crit-btn {
+      display: flex; align-items: center; gap: 7px;
       width: 100%; border: none; background: none; cursor: pointer;
-      padding: 6px 8px; border-radius: 8px; text-align: left;
-      font-size: .82rem; color: #334155; font-family: inherit;
-      transition: background .12s; margin-bottom: 2px;
+      padding: 5px 6px; border-radius: 8px; text-align: left;
+      font-size: .8rem; color: #334155; font-family: inherit;
+      transition: background .12s; margin-bottom: 1px;
     }
-    .criterion-btn:hover { background: #f1f5f9; }
-    .criterion-btn.off { opacity: .38; }
-    .criterion-btn .cb-icon { font-size: .95rem; width: 20px; text-align: center; flex-shrink: 0; }
-    .criterion-btn .cb-label { flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .cb-pill {
-      width: 30px; height: 17px; border-radius: 9px; position: relative;
-      background: #e2e8f0; transition: background .2s; flex-shrink: 0;
+    .crit-btn:hover { background: #eef1f5; }
+    .crit-btn.off { opacity: .35; }
+    .crit-icon { font-size: .88rem; width: 18px; text-align: center; flex-shrink: 0; }
+    .crit-label { flex: 1; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: .78rem; }
+    .crit-pill {
+      width: 28px; height: 16px; border-radius: 8px;
+      background: #dde3ec; position: relative; flex-shrink: 0; transition: background .18s;
     }
-    .cb-pill::after {
-      content: ''; position: absolute; top: 2px; left: 2px;
-      width: 13px; height: 13px; border-radius: 50%; background: #fff;
-      transition: transform .2s; box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    .crit-pill::after {
+      content: ''; position: absolute;
+      top: 2px; left: 2px; width: 12px; height: 12px;
+      border-radius: 50%; background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,.2);
+      transition: transform .18s;
     }
-    .criterion-btn:not(.off) .cb-pill { background: #3b82f6; }
-    .criterion-btn:not(.off) .cb-pill::after { transform: translateX(13px); }
+    .crit-btn:not(.off) .crit-pill { background: #2563eb; }
+    .crit-btn:not(.off) .crit-pill::after { transform: translateX(12px); }
 
-    /* Reset btn */
     .reset-btn {
-      width: 100%; border: 1px solid #e2e8f0; border-radius: 8px;
-      background: none; cursor: pointer; padding: 6px;
-      font-size: .75rem; color: #94a3b8; font-family: inherit;
-      margin-top: 6px; transition: all .15s;
+      width: 100%; border: 1px solid #dde3ec; border-radius: 7px;
+      background: none; cursor: pointer; padding: 5px;
+      font-size: .72rem; color: #94a3b8; font-family: inherit;
+      margin-top: 7px; transition: all .15s;
     }
-    .reset-btn:hover { background: #f1f5f9; color: #475569; border-color: #cbd5e1; }
+    .reset-btn:hover { background: #eef1f5; color: #475569; border-color: #b0bec5; }
 
     /* Classement */
     .rank-row {
-      display: flex; align-items: center; gap: 8px;
-      padding: 6px 0; border-bottom: 1px solid #f8fafc; cursor: pointer;
-      transition: background .1s; border-radius: 6px; padding: 5px 4px;
+      display: flex; align-items: center; gap: 7px;
+      padding: 5px 5px; border-radius: 7px; cursor: pointer;
+      transition: background .1s; margin-bottom: 1px;
     }
-    .rank-row:last-child { border-bottom: none; }
-    .rank-row:hover { background: #f8fafc; }
-    .rank-num { font-size: .7rem; font-weight: 800; width: 18px; text-align: center; color: #cbd5e1; }
-    .rank-num.m1 { color: #f59e0b; }
-    .rank-num.m2 { color: #94a3b8; }
-    .rank-num.m3 { color: #b45309; }
-    .rank-name { flex: 1; font-size: .8rem; font-weight: 500; color: #334155; line-height: 1.25; }
-    .rank-score-pill {
-      font-size: .72rem; font-weight: 700; padding: 2px 8px;
-      border-radius: 20px; white-space: nowrap;
+    .rank-row:hover { background: #eef1f5; }
+    .rank-num { font-size: .68rem; font-weight: 800; width: 17px; text-align: center; color: #c8d2dd; flex-shrink: 0; }
+    .rank-num.g { color: #f59e0b; }
+    .rank-num.s { color: #94a3b8; }
+    .rank-num.b { color: #b45309; }
+    .rank-name { flex: 1; font-size: .77rem; font-weight: 500; color: #334155; line-height: 1.25; }
+    .rank-pill {
+      font-size: .68rem; font-weight: 700; padding: 2px 7px;
+      border-radius: 20px; white-space: nowrap; flex-shrink: 0;
     }
 
-    /* ── Légende ── */
-    .map-legend {
-      padding: 11px 20px; background: #f8fafc; border-top: 1px solid #f1f5f9;
-      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    /* ══ LÉGENDE ══ */
+    .widget-legend {
+      padding: 10px 18px; background: #f4f7fb;
+      border-top: 1px solid #eef1f5;
+      display: flex; align-items: center; gap: 9px; flex-wrap: wrap;
     }
-    .legend-label { font-size: .72rem; font-weight: 600; color: #64748b; white-space: nowrap; }
-    .legend-scale { display: flex; gap: 2px; align-items: center; }
-    .legend-swatch { width: 24px; height: 10px; border-radius: 2px; }
-    .legend-text { font-size: .68rem; color: #94a3b8; white-space: nowrap; }
-    .legend-sep { color: #e2e8f0; }
-    .legend-tip { font-size: .68rem; color: #94a3b8; margin-left: auto; white-space: nowrap; }
-    @media (max-width: 640px) { .legend-tip { display: none; } }
+    .legend-label { font-size: .7rem; font-weight: 600; color: #64748b; white-space: nowrap; }
+    .legend-grad {
+      display: flex; gap: 2px; align-items: center;
+      flex-shrink: 0;
+    }
+    .leg-sw { width: 22px; height: 9px; border-radius: 2px; }
+    .legend-lo, .legend-hi { font-size: .67rem; color: #94a3b8; white-space: nowrap; }
+    .legend-tip { font-size: .67rem; color: #94a3b8; margin-left: auto; white-space: nowrap; }
+    @media (max-width: 540px) { .legend-tip { display: none; } }
 
-    /* ── Popup Leaflet ── */
-    .leaflet-popup-content-wrapper { border-radius: 12px !important; box-shadow: 0 8px 32px rgba(0,0,0,.18) !important; padding: 0 !important; }
-    .leaflet-popup-content { margin: 0 !important; }
-    .rp-wrap { padding: 16px 18px; min-width: 210px; max-width: 260px; }
-    .rp-name { font-size: .95rem; font-weight: 800; color: #0f172a; margin-bottom: 4px; }
-    .rp-score-line { font-size: .78rem; color: #64748b; margin-bottom: 12px; }
-    .rp-score-line strong { font-size: 1.1rem; color: #0f172a; }
-    .rp-bars { display: flex; flex-direction: column; gap: 5px; margin-bottom: 10px; }
-    .rp-bar-row { display: grid; grid-template-columns: 18px 1fr 26px; gap: 6px; align-items: center; }
-    .rp-bar-icon { font-size: .8rem; text-align: center; }
-    .rp-bar-track { height: 6px; background: #f1f5f9; border-radius: 3px; overflow: hidden; }
-    .rp-bar-fill { height: 100%; border-radius: 3px; }
-    .rp-bar-val { font-size: .68rem; font-weight: 700; color: #64748b; text-align: right; }
-    .rp-verdict { font-size: .75rem; color: #64748b; font-style: italic; margin-top: 2px; padding-top: 8px; border-top: 1px solid #f1f5f9; }
-
-    /* ── Article texte ── */
-    .map-article {
-      max-width: 760px; margin: 2.5rem auto 4rem; padding: 0 1.5rem;
+    /* ══ ARTICLE ══ */
+    .carte-article {
+      max-width: 740px; margin: 2.5rem auto 4rem; padding: 0 1.25rem;
       font-size: 1rem; line-height: 1.82; color: #334155;
     }
-    .map-article h2 { font-size: 1.35rem; font-weight: 800; color: #0f172a; margin: 2.5rem 0 .75rem; }
-    .map-article h3 { font-size: 1.05rem; font-weight: 700; color: #1e293b; margin: 1.75rem 0 .5rem; }
-    .map-article p  { margin: 0 0 1.1rem; }
-    .map-article ul { margin: 0 0 1.1rem 1.4rem; }
-    .map-article li { margin-bottom: .45rem; }
-    .map-article strong { color: #1e293b; }
-
+    .carte-article h2 { font-size: 1.3rem; font-weight: 800; color: #0b1f38; margin: 2.5rem 0 .7rem; }
+    .carte-article p  { margin: 0 0 1rem; }
+    .carte-article ul { margin: 0 0 1rem 1.3rem; }
+    .carte-article li { margin-bottom: .4rem; }
+    .carte-article strong { color: #1e293b; }
     .callout {
       background: #fffbeb; border-left: 3px solid #f59e0b;
-      padding: 14px 18px; border-radius: 0 10px 10px 0;
-      font-size: .88rem; color: #78350f; margin: 1.5rem 0;
-      line-height: 1.65;
+      padding: 12px 16px; border-radius: 0 9px 9px 0;
+      font-size: .87rem; color: #78350f; margin: 1.25rem 0; line-height: 1.65;
     }
     .source-note {
-      font-size: .78rem; color: #94a3b8; border-top: 1px solid #f1f5f9;
-      margin-top: 2.5rem; padding-top: 1.2rem; line-height: 1.6;
+      font-size: .76rem; color: #94a3b8;
+      border-top: 1px solid #eef1f5; margin-top: 2.5rem; padding-top: 1.2rem;
     }
-
-    /* ── Nav active ── */
-    .nav__link.active { color: var(--color-primary, #1F4E6B); font-weight: 700; }
   </style>
 </head>
-<body class="map-page">
+<body class="carte-page">
 
-  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture"></div>
 
-  <!-- ===== HEADER ===== -->
+  <!-- ══ HEADER ══ -->
   <header class="site-header" id="site-header">
     <div class="header-top">
       <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
@@ -255,390 +313,401 @@
     </nav>
   </header>
 
-  <!-- ===== HERO ===== -->
-  <div class="map-hero">
-    <div class="hero-tag">🗺️ Carte interactive</div>
-    <h1>Où fait-il le mieux bon vivre pour&nbsp;la santé mentale en France&nbsp;?</h1>
-    <p>9 indicateurs scientifiques, 13 régions, une carte choroplèthe pour trouver votre territoire idéal. Activez ou désactivez les critères selon ce qui compte pour vous.</p>
-    <div class="map-meta-chips">
+  <!-- ══ HERO ══ -->
+  <div class="carte-hero">
+    <div class="tag">🗺️ Carte interactive</div>
+    <h1>Où fait-il le mieux bon vivre pour&nbsp;la santé mentale en&nbsp;France&nbsp;?</h1>
+    <p>9 indicateurs scientifiques · 13 régions · Activez ou désactivez les critères selon ce qui compte pour vous.</p>
+    <div class="hero-chips">
       <span>27 juin 2026</span>
-      <span>Société & bien-être</span>
+      <span>Société &amp; bien-être</span>
       <span>9 critères</span>
       <span>13 régions</span>
     </div>
   </div>
 
-  <!-- ===== MAP WIDGET ===== -->
-  <div class="map-widget-wrap">
-    <div class="map-widget">
+  <!-- ══ WIDGET ══ -->
+  <div class="widget-outer">
+    <div class="widget-card">
 
       <!-- Topbar -->
       <div class="widget-topbar">
         <div class="widget-topbar-left">
           <h2>Indice de bien-être mental par région</h2>
-          <span class="active-count" id="active-count">9 actifs</span>
+          <span class="badge-actifs" id="badge-actifs">9 actifs</span>
         </div>
         <span class="widget-hint">Cliquez sur une région pour le détail</span>
       </div>
 
-      <!-- Corps : carte + panel -->
-      <div class="map-body">
+      <!-- Corps -->
+      <div class="widget-body">
 
-        <!-- Carte Leaflet -->
-        <div id="leaflet-map">
-          <div id="map-loading" style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#f8fafc;z-index:1;font-size:.9rem;color:#94a3b8">
-            Chargement de la carte…
+        <!-- Carte -->
+        <div id="carte-leaflet">
+          <div class="map-msg" id="map-msg">
+            <div class="spinner-ring"></div>
+            <span>Chargement de la carte…</span>
           </div>
         </div>
 
-        <!-- Panel critères + classement -->
-        <div class="map-panel">
+        <!-- Panel -->
+        <div class="widget-panel">
 
           <div class="panel-block">
-            <h3>Critères actifs</h3>
-            <div id="criteria-list"></div>
+            <p class="panel-title">Critères actifs</p>
+            <div id="crit-list"><!-- JS --></div>
             <button class="reset-btn" onclick="resetAll()">↺ Tout réactiver</button>
           </div>
 
           <div class="panel-block">
-            <h3>🏆 Classement</h3>
-            <div id="ranking-list"></div>
+            <p class="panel-title">🏆 Classement</p>
+            <div id="rank-list"><!-- JS --></div>
           </div>
 
         </div>
       </div>
 
       <!-- Légende -->
-      <div class="map-legend">
-        <span class="legend-label">Score moyen :</span>
-        <div class="legend-scale">
-          <div class="legend-swatch" style="background:#ef4444" title="< 5 — Défavorable"></div>
-          <div class="legend-swatch" style="background:#f97316" title="5–6 — En dessous de la moyenne"></div>
-          <div class="legend-swatch" style="background:#f59e0b" title="6–7 — Moyen"></div>
-          <div class="legend-swatch" style="background:#84cc16" title="7–8 — Favorable"></div>
-          <div class="legend-swatch" style="background:#22c55e" title="> 8 — Très favorable"></div>
+      <div class="widget-legend">
+        <span class="legend-label">Score :</span>
+        <div class="legend-grad">
+          <div class="leg-sw" style="background:#ef4444" title="< 5/10"></div>
+          <div class="leg-sw" style="background:#f97316"></div>
+          <div class="leg-sw" style="background:#f59e0b"></div>
+          <div class="leg-sw" style="background:#84cc16"></div>
+          <div class="leg-sw" style="background:#22c55e" title="> 8/10"></div>
         </div>
-        <span class="legend-text">Défavorable</span>
-        <span class="legend-sep">→</span>
-        <span class="legend-text">Très favorable</span>
-        <span class="legend-tip">Désactivez des critères pour personnaliser le classement</span>
+        <span class="legend-lo">Défavorable</span>
+        <span style="color:#dde3ec;font-size:.75rem">→</span>
+        <span class="legend-hi">Très favorable</span>
+        <span class="legend-tip">Cliquez sur une région ou sur un rang pour zoomer</span>
       </div>
 
     </div>
   </div>
 
-  <!-- ===== ARTICLE ===== -->
-  <article class="map-article">
+  <!-- ══ ARTICLE ══ -->
+  <article class="carte-article">
 
     <div class="callout">
-      ⚠️ <strong>Note éditoriale :</strong> Les scores sont basés sur des indicateurs publics agrégés (INSEE, Santé Publique France, Météo-France, DREES, ATMO). Il s'agit d'une visualisation pédagogique, non d'un classement scientifique officiel. Chaque territoire a des nuances que la carte ne peut pas entièrement capturer.
+      ⚠️ <strong>Note éditoriale :</strong> Les scores sont basés sur des indicateurs publics agrégés (INSEE, Santé Publique France, Météo-France, DREES, ATMO France). Cette carte est une visualisation pédagogique, non un classement scientifique officiel.
     </div>
 
-    <h2>Pourquoi ces 9 critères&nbsp;?</h2>
-    <p>La psychologie environnementale a identifié depuis les années 1970 un faisceau de facteurs extérieurs qui influencent durablement l'humeur, le niveau de stress et la résilience mentale. Ces 9 indicateurs couvrent les dimensions les plus documentées :</p>
+    <h2>Pourquoi ces 9 critères ?</h2>
+    <p>La psychologie environnementale a identifié un faisceau de facteurs extérieurs qui influencent durablement l'humeur, le stress et la résilience :</p>
     <ul>
-      <li><strong>☀️ Ensoleillement</strong> — La lumière solaire régule la sérotonine et le rythme circadien. Les régions peu ensoleillées présentent un taux de dépression saisonnière (SAD) jusqu'à 3 fois plus élevé selon l'INSERM.</li>
-      <li><strong>🌿 Espaces verts & nature</strong> — 20 minutes dans un parc réduisent le cortisol de 21 % (Hunter et al., 2019). L'accès à la nature atténue l'anxiété chronique et améliore le sommeil.</li>
-      <li><strong>🏥 Accès aux soins psy</strong> — Densité de psychologues et psychiatres libéraux pour 100 000 habitants. Un désert médical en santé mentale retarde jusqu'à 4 ans le premier recours aux soins.</li>
-      <li><strong>💰 Coût de la vie</strong> — Le stress financier est le premier facteur de détresse psychologique déclaré (Baromètre Santé Publique France 2022). Nous valorisons l'accessibilité économique.</li>
-      <li><strong>💨 Qualité de l'air</strong> — L'exposition aux particules fines (PM2.5) est associée à une hausse de 29 % du risque de dépression (Chen & Schwartz, 2009).</li>
-      <li><strong>🤝 Lien social</strong> — Vie associative, bénévolat, sentiment d'appartenance. L'isolement social est aussi dangereux que fumer 15 cigarettes par jour (Holt-Lunstad, 2015).</li>
-      <li><strong>🏃 Sport & outdoor</strong> — Accessibilité des équipements, sentiers de randonnée, pratique régulière. 30 min d'activité physique 3×/semaine réduisent la dépression aussi efficacement qu'un antidépresseur léger.</li>
-      <li><strong>🔇 Calme</strong> — La pollution sonore chronique élève le cortisol, perturbe le sommeil et augmente le risque cardiovasculaire. Faible densité = plus grand calme.</li>
-      <li><strong>🌡️ Douceur du climat</strong> — Des températures clémentes favorisent les sorties, l'activité physique et les interactions sociales — trois piliers du bien-être mental.</li>
+      <li><strong>☀️ Ensoleillement</strong> — La lumière solaire régule la sérotonine et le rythme circadien. Les régions peu ensoleillées présentent un taux de dépression saisonnière jusqu'à 3× supérieur.</li>
+      <li><strong>🌿 Espaces verts</strong> — 20 minutes dans un parc réduisent le cortisol de 21 % (Hunter et al., 2019).</li>
+      <li><strong>🏥 Accès soins psy</strong> — Densité de psychologues et psychiatres libéraux pour 100 000 habitants (DREES 2024).</li>
+      <li><strong>💰 Coût de la vie</strong> — Le stress financier est le 1er facteur de détresse psychologique déclaré en France (Baromètre SPF 2022).</li>
+      <li><strong>💨 Qualité de l'air</strong> — L'exposition aux particules fines PM2.5 augmente le risque de dépression de 29 %.</li>
+      <li><strong>🤝 Lien social</strong> — Vie associative, bénévolat, sentiment d'appartenance. L'isolement social est aussi dangereux que fumer 15 cigarettes/jour (Holt-Lunstad, 2015).</li>
+      <li><strong>🏃 Sport & outdoor</strong> — Équipements, randonnée, pratique régulière. 30 min × 3/semaine = efficacité d'un antidépresseur léger.</li>
+      <li><strong>🔇 Calme</strong> — La pollution sonore chronique élève le cortisol et perturbe le sommeil.</li>
+      <li><strong>🌡️ Douceur du climat</strong> — Des températures clémentes favorisent les sorties et les interactions sociales.</li>
     </ul>
 
     <h2>Les grandes tendances</h2>
-    <p><strong>La Nouvelle-Aquitaine</strong> affiche le profil le plus équilibré : soleil généreux, espaces naturels exceptionnels, coût de la vie modéré, et une densité de population qui préserve la qualité de vie. L'<strong>Occitanie</strong> présente un profil similaire, légèrement pénalisée par la tension immobilière autour de Montpellier et Toulouse.</p>
-    <p><strong>La Corse</strong> décroche les meilleures notes sur les critères environnementaux (soleil, air, calme, nature) mais souffre d'un accès aux soins psychologiques nettement insuffisant — problème structurel des territoires insulaires que la carte rend visible en désactivant ce critère.</p>
-    <p><strong>L'Île-de-France</strong> illustre le paradoxe métropolitain : accès aux soins exceptionnel (concentration nationale de professionnels de santé mentale), mais scores très faibles sur le calme, le coût de la vie, la qualité de l'air et les espaces verts par habitant. La région la mieux équipée médicalement est aussi celle où le stress chronique est le plus répandu.</p>
-    <p><strong>Auvergne-Rhône-Alpes</strong> tire son épingle du jeu notamment sur les critères sport & outdoor (Alpes, Massif central) et accès aux soins (pôle médical lyonnais).</p>
-
-    <h2>Comment interpréter les résultats</h2>
-    <p>Désactivez les critères qui ne comptent pas pour vous et observez comment la carte se reconfigure. Un(e) introverti(e) qui valorise le calme absolu obtiendra un classement très différent de celui d'un sportif cherchant des activités outdoor. Un retraité peu exposé au stress financier accordera moins d'importance au coût de la vie. <strong>La santé mentale est personnelle — la géographie idéale l'est aussi.</strong></p>
-    <p>Cette carte est aussi un outil de plaidoyer : les déserts médicaux en santé mentale, les zones de mauvaise qualité de l'air ou d'ensoleillement insuffisant ne sont pas des fatalités. Les politiques publiques peuvent agir sur chacun de ces indicateurs.</p>
+    <p><strong>La Nouvelle-Aquitaine</strong> affiche le profil le plus équilibré : soleil, espaces naturels, coût modéré, qualité de l'air. <strong>L'Occitanie</strong> suit de près, légèrement pénalisée par la pression immobilière autour de Montpellier et Toulouse. <strong>La Corse</strong> score très haut sur les critères environnementaux mais pâtit d'un accès aux soins insuffisant — visible en désactivant ce critère.</p>
+    <p><strong>L'Île-de-France</strong> illustre le paradoxe métropolitain : accès aux soins exceptionnel, mais score très bas sur le calme, le coût de la vie et la qualité de l'air. <strong>Les Hauts-de-France</strong> cumulent peu de soleil, une qualité de l'air dégradée et un accès aux soins limité hors métropole lilloise.</p>
 
     <div class="source-note">
-      <strong>Sources :</strong> INSEE (statistiques régionales 2023), Santé Publique France (Baromètre santé mentale 2022), DREES (Atlas de la démographie médicale 2024), Météo-France (normales climatiques 1991-2020), ATMO France (indices qualité de l'air 2023), Ministère des Sports (équipements sportifs 2023), OMS (rapport Santé mentale en Europe, 2023). — Scores établis par agrégation et normalisation des indicateurs disponibles.
+      <strong>Sources :</strong> INSEE (statistiques régionales 2023), Santé Publique France (Baromètre 2022), DREES (Atlas démographie médicale 2024), Météo-France (normales 1991-2020), ATMO France (qualité de l'air 2023), Ministère des Sports (équipements 2023).
     </div>
-
   </article>
 
-  <!-- FOOTER -->
-  <footer style="text-align:center;padding:1.5rem 1rem 3rem;font-size:.82rem;color:#94a3b8;border-top:1px solid #f1f5f9;background:#f8fafc">
-    <a href="index.html" style="color:#1d4ed8;text-decoration:none;font-weight:500">← Retour aux articles</a>
+  <footer style="text-align:center;padding:1.5rem 1rem 3rem;font-size:.82rem;color:#94a3b8;border-top:1px solid #eef1f5;background:#f4f7fb">
+    <a href="index.html" style="color:#1a56db;text-decoration:none;font-weight:500">← Retour aux articles</a>
     &nbsp;·&nbsp;
-    <a href="cartes.html" style="color:#1d4ed8;text-decoration:none;font-weight:500">Toutes les cartes interactives</a>
+    <a href="cartes.html" style="color:#1a56db;text-decoration:none;font-weight:500">Toutes les cartes</a>
   </footer>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WPeE=" crossorigin=""></script>
+  <!-- Leaflet JS — cdnjs (fiable) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
   <script>
-  /* ════════════════════════════════════════════════
-     DONNÉES — scores 1–10 par critère et par région
-     Sources agrégées (voir sources en bas de page)
-  ════════════════════════════════════════════════ */
-  const CRITERIA = [
-    { key:'sun',     icon:'☀️',  label:'Ensoleillement'      },
-    { key:'nature',  icon:'🌿',  label:'Espaces verts'       },
-    { key:'care',    icon:'🏥',  label:'Accès soins psy'     },
-    { key:'cost',    icon:'💰',  label:'Coût de la vie'      },
-    { key:'air',     icon:'💨',  label:'Qualité de l\'air'   },
-    { key:'social',  icon:'🤝',  label:'Lien social'         },
-    { key:'sport',   icon:'🏃',  label:'Sport & outdoor'     },
-    { key:'calm',    icon:'🔇',  label:'Calme'               },
-    { key:'weather', icon:'🌡️', label:'Douceur du climat'   },
+  /* ══════════════════════════════════════════════════
+     DONNÉES — scores 1–10, sources agrégées publiques
+  ══════════════════════════════════════════════════ */
+  const CRIT = [
+    { k:'sun',     icon:'☀️',  lab:'Ensoleillement'     },
+    { k:'nature',  icon:'🌿',  lab:'Espaces verts'      },
+    { k:'care',    icon:'🏥',  lab:'Accès soins psy'    },
+    { k:'cost',    icon:'💰',  lab:'Coût de la vie'     },
+    { k:'air',     icon:'💨',  lab:'Qualité de l\'air'  },
+    { k:'social',  icon:'🤝',  lab:'Lien social'        },
+    { k:'sport',   icon:'🏃',  lab:'Sport & outdoor'    },
+    { k:'calm',    icon:'🔇',  lab:'Calme'              },
+    { k:'weather', icon:'🌡',  lab:'Douceur du climat'  },
   ];
 
-  // Noms correspondent exactement aux propriétés `nom` du GeoJSON gregoiredavid
   const DATA = {
-    'Île-de-France':               { sun:4,  nature:2,  care:9, cost:1, air:2, social:3, sport:5, calm:1, weather:5 },
-    'Provence-Alpes-Côte d\'Azur': { sun:9,  nature:8,  care:7, cost:4, air:5, social:6, sport:9, calm:5, weather:9 },
+    'Ile-de-France':               { sun:4,  nature:2,  care:9, cost:1, air:2, social:3, sport:5, calm:1, weather:5 },
+    'Provence-Alpes-Cote-dAzur':   { sun:9,  nature:8,  care:7, cost:4, air:5, social:6, sport:9, calm:5, weather:9 },
     'Occitanie':                   { sun:9,  nature:8,  care:5, cost:7, air:7, social:7, sport:8, calm:7, weather:8 },
     'Bretagne':                    { sun:4,  nature:9,  care:5, cost:7, air:9, social:8, sport:7, calm:8, weather:5 },
-    'Auvergne-Rhône-Alpes':        { sun:6,  nature:10, care:7, cost:6, air:6, social:7, sport:10,calm:7, weather:6 },
+    'Auvergne-Rhone-Alpes':        { sun:6,  nature:10, care:7, cost:6, air:6, social:7, sport:10,calm:7, weather:6 },
     'Nouvelle-Aquitaine':          { sun:7,  nature:9,  care:6, cost:7, air:8, social:7, sport:8, calm:8, weather:8 },
-    'Pays de la Loire':            { sun:6,  nature:8,  care:5, cost:7, air:8, social:8, sport:7, calm:8, weather:7 },
+    'Pays-de-la-Loire':            { sun:6,  nature:8,  care:5, cost:7, air:8, social:8, sport:7, calm:8, weather:7 },
     'Normandie':                   { sun:3,  nature:8,  care:5, cost:7, air:8, social:7, sport:6, calm:8, weather:4 },
-    'Centre-Val de Loire':         { sun:5,  nature:8,  care:4, cost:8, air:8, social:7, sport:6, calm:9, weather:6 },
-    'Grand Est':                   { sun:5,  nature:7,  care:5, cost:7, air:6, social:6, sport:6, calm:7, weather:5 },
-    'Bourgogne-Franche-Comté':     { sun:5,  nature:9,  care:4, cost:8, air:9, social:7, sport:7, calm:9, weather:5 },
+    'Centre-Val-de-Loire':         { sun:5,  nature:8,  care:4, cost:8, air:8, social:7, sport:6, calm:9, weather:6 },
+    'Grand-Est':                   { sun:5,  nature:7,  care:5, cost:7, air:6, social:6, sport:6, calm:7, weather:5 },
+    'Bourgogne-Franche-Comte':     { sun:5,  nature:9,  care:4, cost:8, air:9, social:7, sport:7, calm:9, weather:5 },
     'Hauts-de-France':             { sun:2,  nature:6,  care:5, cost:7, air:5, social:6, sport:5, calm:6, weather:3 },
     'Corse':                       { sun:9,  nature:9,  care:3, cost:6, air:9, social:6, sport:8, calm:9, weather:9 },
   };
 
+  // Noms lisibles pour l'affichage
+  const LABELS = {
+    'Ile-de-France':             'Île-de-France',
+    'Provence-Alpes-Cote-dAzur':'Provence-Alpes-Côte d\'Azur',
+    'Occitanie':                 'Occitanie',
+    'Bretagne':                  'Bretagne',
+    'Auvergne-Rhone-Alpes':      'Auvergne-Rhône-Alpes',
+    'Nouvelle-Aquitaine':        'Nouvelle-Aquitaine',
+    'Pays-de-la-Loire':          'Pays de la Loire',
+    'Normandie':                 'Normandie',
+    'Centre-Val-de-Loire':       'Centre-Val de Loire',
+    'Grand-Est':                 'Grand Est',
+    'Bourgogne-Franche-Comte':   'Bourgogne-Franche-Comté',
+    'Hauts-de-France':           'Hauts-de-France',
+    'Corse':                     'Corse',
+  };
+
   const VERDICTS = [
-    { min:8.5, txt:'🌟 Conditions exceptionnelles pour la santé mentale.' },
+    { min:8.5, txt:'🌟 Exceptionnel pour la santé mentale.' },
     { min:7.5, txt:'✨ Très favorable selon vos critères.' },
     { min:6.5, txt:'😊 Bonnes conditions globales.' },
     { min:5.5, txt:'😐 Conditions mitigées.' },
     { min:0,   txt:'😔 Conditions difficiles sur ces critères.' },
   ];
 
-  /* ════════════════════════════════════════════════
-     ÉTAT
-  ════════════════════════════════════════════════ */
-  let active = new Set(CRITERIA.map(c => c.key));
-  let geojsonLayer = null;
-  let map = null;
+  // Normalise le nom GeoJSON vers une clé DATA
+  function toKey(geoNom) {
+    return geoNom
+      .normalize(‘NFD’).replace(/[̀-ͯ]/g, ‘’) // retire les diacritiques
+      .replace(/[‘‘’]/g, ‘’)                  // apostrophes (‘, ‘, ‘)
+      .replace(/\s+/g, ‘-’)                             // espaces → tirets
+      .replace(/-+/g, ‘-’);                             // multi-tirets
+  }
 
-  /* ════════════════════════════════════════════════
-     CALCULS
-  ════════════════════════════════════════════════ */
-  function score(regionName) {
-    const d = DATA[regionName];
-    if (!d || !active.size) return 0;
-    return [...active].reduce((s, k) => s + (d[k] || 0), 0) / active.size;
+  /* ══ ÉTAT ══ */
+  let active = new Set(CRIT.map(c => c.k));
+  let leafletMap = null, geojsonLayer = null;
+
+  /* ══ CALCULS ══ */
+  function score(key) {
+    const d = DATA[key]; if (!d || !active.size) return 0;
+    return [...active].reduce((s,k)=>s+(d[k]||0),0)/active.size;
   }
 
   function color(s) {
-    if (s >= 8)  return '#22c55e';
-    if (s >= 7)  return '#84cc16';
-    if (s >= 6)  return '#f59e0b';
-    if (s >= 5)  return '#f97316';
+    if (s>=8)  return '#22c55e';
+    if (s>=7)  return '#84cc16';
+    if (s>=6)  return '#f59e0b';
+    if (s>=5)  return '#f97316';
     return '#ef4444';
   }
-
-  function colorLight(s) {
-    if (s >= 8)  return '#dcfce7';
-    if (s >= 7)  return '#ecfccb';
-    if (s >= 6)  return '#fef9c3';
-    if (s >= 5)  return '#ffedd5';
+  function colorBg(s) {
+    if (s>=8)  return '#dcfce7';
+    if (s>=7)  return '#ecfccb';
+    if (s>=6)  return '#fef9c3';
+    if (s>=5)  return '#ffedd5';
     return '#fee2e2';
   }
-
-  /* ════════════════════════════════════════════════
-     LEAFLET
-  ════════════════════════════════════════════════ */
-  function initMap() {
-    map = L.map('leaflet-map', {
-      center: [46.6, 2.4],
-      zoom: 6,
-      zoomControl: true,
-      scrollWheelZoom: false,
-      attributionControl: true,
-    });
-
-    // Tiles CartoDB Positron — fond neutre parfait pour choroplèthe
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: 'abcd',
-      maxZoom: 12,
-    }).addTo(map);
-
-    // Labels au-dessus des régions (transparents)
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png', {
-      subdomains: 'abcd', maxZoom: 12, zIndex: 10,
-    }).addTo(map);
+  function colorFg(s) {
+    if (s>=7)  return '#166534';
+    if (s>=5)  return '#92400e';
+    return '#991b1b';
   }
 
-  function layerStyle(feat) {
-    const s = score(feat.properties.nom);
-    return { fillColor: color(s), weight: 2, opacity: 1, color: '#fff', fillOpacity: 0.82 };
-  }
-
-  function onEach(feat, layer) {
-    const name = feat.properties.nom;
-
-    // Tooltip au survol
-    layer.bindTooltip(() => {
-      const s = score(name);
-      return `<strong>${name}</strong> — ${s.toFixed(1)}/10`;
-    }, { sticky: true, direction: 'top', className: 'leaflet-tooltip-custom' });
-
-    layer.on({
-      mouseover(e) {
-        e.target.setStyle({ weight: 3, color: '#0f172a', fillOpacity: 0.95 });
-        e.target.bringToFront();
-      },
-      mouseout(e) { if (geojsonLayer) geojsonLayer.resetStyle(e.target); },
-      click(e)    { openRegionPopup(name, e.latlng); },
-    });
-  }
-
-  function openRegionPopup(name, latlng) {
-    const d = DATA[name];
-    if (!d) return;
-    const s = score(name);
-    const total = [...active].reduce((acc, k) => acc + (d[k] || 0), 0);
-    const max   = active.size * 10;
-    const verdict = VERDICTS.find(v => s >= v.min)?.txt || '';
-
-    const bars = [...active].map(k => {
-      const c = CRITERIA.find(cr => cr.key === k);
-      const val = d[k] || 0;
-      const pct = val * 10;
-      const fc = val >= 8 ? '#22c55e' : val >= 6 ? '#f59e0b' : '#ef4444';
-      return `<div class="rp-bar-row">
-        <span class="rp-bar-icon">${c?.icon || ''}</span>
-        <div class="rp-bar-track"><div class="rp-bar-fill" style="width:${pct}%;background:${fc}"></div></div>
-        <span class="rp-bar-val">${val}/10</span>
-      </div>`;
-    }).join('');
-
-    L.popup({ maxWidth: 290, className: 'leaflet-popup-map' })
-      .setLatLng(latlng)
-      .setContent(`
-        <div class="rp-wrap">
-          <div class="rp-name">${name}</div>
-          <div class="rp-score-line">Score : <strong>${s.toFixed(1)}</strong>/10 · ${total} pts / ${max}</div>
-          <div class="rp-bars">${bars}</div>
-          <div class="rp-verdict">${verdict}</div>
-        </div>
-      `)
-      .openOn(map);
-  }
-
-  function loadGeoJSON() {
-    fetch('https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions.geojson')
-      .then(r => { if (!r.ok) throw new Error(); return r.json(); })
-      .then(geo => {
-        // Ne garder que les régions avec données
-        geo.features = geo.features.filter(f => DATA[f.properties.nom] !== undefined);
-        geojsonLayer = L.geoJSON(geo, { style: layerStyle, onEachFeature: onEach }).addTo(map);
-        document.getElementById('map-loading').remove();
-        updateRanking();
-      })
-      .catch(() => {
-        document.getElementById('map-loading').textContent = '⚠️ Carte indisponible — vérifiez votre connexion.';
-      });
-  }
-
-  function refreshMap() {
-    if (geojsonLayer) geojsonLayer.setStyle(layerStyle);
-  }
-
-  /* ════════════════════════════════════════════════
-     CRITÈRES UI
-  ════════════════════════════════════════════════ */
+  /* ══ CRITÈRES UI ══ */
   function buildCriteria() {
-    document.getElementById('criteria-list').innerHTML = CRITERIA.map(c => `
-      <button class="criterion-btn" id="btn-${c.key}" onclick="toggleCriterion('${c.key}')">
-        <span class="cb-icon">${c.icon}</span>
-        <span class="cb-label">${c.label}</span>
-        <span class="cb-pill"></span>
-      </button>
-    `).join('');
+    document.getElementById('crit-list').innerHTML = CRIT.map(c=>`
+      <button class="crit-btn" id="cb-${c.k}" onclick="toggleCrit('${c.k}')">
+        <span class="crit-icon">${c.icon}</span>
+        <span class="crit-label">${c.lab}</span>
+        <span class="crit-pill"></span>
+      </button>`).join('');
   }
 
-  function toggleCriterion(key) {
-    if (active.has(key)) {
-      if (active.size <= 1) return; // garder au moins 1
-      active.delete(key);
-      document.getElementById('btn-' + key).classList.add('off');
+  function toggleCrit(k) {
+    if (active.has(k)) {
+      if (active.size<=1) return;
+      active.delete(k);
+      document.getElementById('cb-'+k).classList.add('off');
     } else {
-      active.add(key);
-      document.getElementById('btn-' + key).classList.remove('off');
+      active.add(k);
+      document.getElementById('cb-'+k).classList.remove('off');
     }
-    document.getElementById('active-count').textContent = active.size + ' actif' + (active.size > 1 ? 's' : '');
-    refreshMap();
-    updateRanking();
-    if (map) map.closePopup();
+    document.getElementById('badge-actifs').textContent = active.size+' actif'+(active.size>1?'s':'');
+    if (geojsonLayer) geojsonLayer.setStyle(layerStyle);
+    buildRanking();
+    if (leafletMap) leafletMap.closePopup();
   }
 
   function resetAll() {
-    CRITERIA.forEach(c => {
-      active.add(c.key);
-      document.getElementById('btn-' + c.key)?.classList.remove('off');
-    });
-    document.getElementById('active-count').textContent = '9 actifs';
-    refreshMap();
-    updateRanking();
-    if (map) map.closePopup();
+    CRIT.forEach(c=>{ active.add(c.k); document.getElementById('cb-'+c.k)?.classList.remove('off'); });
+    document.getElementById('badge-actifs').textContent='9 actifs';
+    if (geojsonLayer) geojsonLayer.setStyle(layerStyle);
+    buildRanking();
+    if (leafletMap) leafletMap.closePopup();
   }
 
-  /* ════════════════════════════════════════════════
-     CLASSEMENT
-  ════════════════════════════════════════════════ */
-  function updateRanking() {
+  /* ══ CLASSEMENT ══ */
+  function buildRanking() {
     const ranked = Object.keys(DATA)
-      .map(n => ({ name: n, s: score(n) }))
-      .sort((a, b) => b.s - a.s);
+      .filter(k=>!k.endsWith('-alt'))
+      .map(k=>({k, s:score(k), lab:LABELS[k]||k}))
+      .sort((a,b)=>b.s-a.s);
 
-    const medals = ['🥇', '🥈', '🥉'];
-    document.getElementById('ranking-list').innerHTML = ranked.map((r, i) => {
-      const s = r.s;
-      const bg = colorLight(s);
-      const fg = s >= 7 ? '#166534' : s >= 5 ? '#92400e' : '#991b1b';
-      return `<div class="rank-row" onclick="focusRegion('${r.name}')">
-        <span class="rank-num ${i===0?'m1':i===1?'m2':i===2?'m3':''}">${medals[i] || (i+1)+'.'}</span>
-        <span class="rank-name">${r.name}</span>
-        <span class="rank-score-pill" style="background:${bg};color:${fg}">${s.toFixed(1)}</span>
+    const M=['🥇','🥈','🥉'];
+    document.getElementById('rank-list').innerHTML = ranked.map((r,i)=>{
+      const s=r.s;
+      return `<div class="rank-row" onclick="focusRegion('${r.k}')">
+        <span class="rank-num ${i===0?'g':i===1?'s':i===2?'b':''}">${M[i]||(i+1)+'.'}</span>
+        <span class="rank-name">${r.lab}</span>
+        <span class="rank-pill" style="background:${colorBg(s)};color:${colorFg(s)}">${s.toFixed(1)}</span>
       </div>`;
     }).join('');
   }
 
-  function focusRegion(name) {
-    if (!geojsonLayer || !map) return;
-    geojsonLayer.eachLayer(layer => {
-      if (layer.feature?.properties?.nom === name) {
-        map.fitBounds(layer.getBounds(), { padding: [40, 40] });
-        openRegionPopup(name, layer.getBounds().getCenter());
+  /* ══ CARTE LEAFLET ══ */
+  function layerStyle(feat) {
+    const k = toKey(feat.properties.nom||'');
+    const s = score(k);
+    return { fillColor:color(s), weight:2, opacity:1, color:'#fff', fillOpacity:.82 };
+  }
+
+  function openPopup(geoNom, latlng) {
+    const k = toKey(geoNom);
+    const d = DATA[k]; if(!d) return;
+    const s = score(k);
+    const tot = [...active].reduce((acc,ki)=>acc+(d[ki]||0),0);
+    const max = active.size*10;
+    const label = LABELS[k]||geoNom;
+    const verdict = VERDICTS.find(v=>s>=v.min)?.txt||'';
+
+    const bars = [...active].map(ki=>{
+      const c=CRIT.find(cr=>cr.k===ki);
+      const v=d[ki]||0;
+      const fc=v>=8?'#22c55e':v>=6?'#f59e0b':'#ef4444';
+      return `<div class="rp-row">
+        <span class="rp-icon">${c?.icon||''}</span>
+        <div class="rp-track"><div class="rp-fill" style="width:${v*10}%;background:${fc}"></div></div>
+        <span class="rp-val">${v}/10</span>
+      </div>`;
+    }).join('');
+
+    L.popup({maxWidth:280}).setLatLng(latlng)
+      .setContent(`<div class="rp">
+        <div class="rp-name">${label}</div>
+        <div class="rp-total">Score : <strong>${s.toFixed(1)}</strong>/10 · ${tot} pts / ${max}</div>
+        <div class="rp-rows">${bars}</div>
+        <div class="rp-verdict">${verdict}</div>
+      </div>`).openOn(leafletMap);
+  }
+
+  function focusRegion(k) {
+    if (!geojsonLayer||!leafletMap) return;
+    geojsonLayer.eachLayer(layer=>{
+      const nom = layer.feature?.properties?.nom||'';
+      if (toKey(nom)===k) {
+        leafletMap.fitBounds(layer.getBounds(),{padding:[30,30]});
+        openPopup(nom, layer.getBounds().getCenter());
       }
     });
   }
 
-  /* ════════════════════════════════════════════════
-     INIT
-  ════════════════════════════════════════════════ */
-  initMap();
-  buildCriteria();
-  loadGeoJSON();
+  function initMap() {
+    leafletMap = L.map('carte-leaflet',{
+      center:[46.6,2.4], zoom:6,
+      zoomControl:true, scrollWheelZoom:false,
+    });
+    // Fond clair CartoDB Positron
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',{
+      attribution:'© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> © <a href="https://carto.com/attributions">CARTO</a>',
+      subdomains:'abcd', maxZoom:12,
+    }).addTo(leafletMap);
+    // Labels par-dessus
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png',{
+      subdomains:'abcd', maxZoom:12, zIndex:10, pane:'shadowPane',
+    }).addTo(leafletMap);
+  }
 
-  // Hamburger
-  document.getElementById('hamburger')?.addEventListener('click', function () {
-    const nav = document.getElementById('nav-menu');
-    const open = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', String(!open));
-    nav?.classList.toggle('open', !open);
-  });
+  function loadGeoJSON() {
+    // Source 1 : API officielle France (CORS ok, fiable)
+    const url1 = 'https://geo.api.gouv.fr/regions?format=geojson&geometry=contour';
+    // Source 2 : jsDelivr (CDN GitHub, fallback)
+    const url2 = 'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions.geojson';
 
-  // Barre de lecture
-  window.addEventListener('scroll', () => {
-    const prog = document.getElementById('reading-progress');
-    if (!prog) return;
-    const h = document.documentElement.scrollHeight - window.innerHeight;
-    prog.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    fetchGeo(url1).catch(()=>fetchGeo(url2)).catch(()=>{
+      const msg = document.getElementById('map-msg');
+      if (msg) { msg.querySelector('.spinner-ring').style.display='none'; msg.querySelector('span').textContent='⚠️ Carte indisponible — vérifiez votre connexion'; }
+    });
+  }
+
+  function fetchGeo(url) {
+    return fetch(url)
+      .then(r=>{ if(!r.ok) throw new Error(); return r.json(); })
+      .then(geo=>{
+        const msg=document.getElementById('map-msg');
+        if (msg) msg.remove();
+
+        geojsonLayer = L.geoJSON(geo,{
+          filter: feat=>{ const k=toKey(feat.properties.nom||''); return !!DATA[k]; },
+          style: layerStyle,
+          onEachFeature(feat,layer){
+            const nom=feat.properties.nom||'';
+            layer.bindTooltip(()=>`<strong>${nom}</strong> — ${score(toKey(nom)).toFixed(1)}/10`,
+              {sticky:true,direction:'top'});
+            layer.on({
+              mouseover(e){ e.target.setStyle({weight:3,color:'#0b1f38',fillOpacity:.95}); e.target.bringToFront(); },
+              mouseout(e){ geojsonLayer.resetStyle(e.target); },
+              click(e){ openPopup(nom,e.latlng); }
+            });
+          }
+        }).addTo(leafletMap);
+      });
+  }
+
+  /* ══ INIT ══ */
+  document.addEventListener('DOMContentLoaded',()=>{
+    // L'UI (critères + classement) s'affiche TOUJOURS, indépendamment de la carte
+    buildCriteria();
+    buildRanking();
+
+    // La carte se charge séparément (ne bloque pas le reste)
+    if (typeof L !== 'undefined') {
+      try {
+        initMap();
+        loadGeoJSON();
+      } catch(e) {
+        const msg=document.getElementById('map-msg');
+        if (msg) { msg.querySelector('.spinner-ring').style.display='none'; msg.querySelector('span').textContent='⚠️ Erreur d\'initialisation de la carte'; }
+      }
+    } else {
+      // Leaflet CDN non chargé — réessayer après 2s
+      setTimeout(()=>{
+        if (typeof L !== 'undefined') { try{ initMap(); loadGeoJSON(); }catch(e){} }
+        else { const msg=document.getElementById('map-msg'); if(msg){ msg.querySelector('.spinner-ring').style.display='none'; msg.querySelector('span').textContent='⚠️ Bibliothèque cartographique indisponible'; } }
+      }, 2000);
+    }
+
+    // Navigation hamburger
+    document.getElementById('hamburger')?.addEventListener('click',function(){
+      const nav=document.getElementById('nav-menu');
+      const open=this.getAttribute('aria-expanded')==='true';
+      this.setAttribute('aria-expanded',String(!open));
+      nav?.classList.toggle('open',!open);
+    });
+
+    // Barre de lecture
+    window.addEventListener('scroll',()=>{
+      const p=document.getElementById('reading-progress');
+      if(!p) return;
+      const h=document.documentElement.scrollHeight-window.innerHeight;
+      p.style.width=(h>0?window.scrollY/h*100:0)+'%';
+    });
   });
   </script>
 </body>
