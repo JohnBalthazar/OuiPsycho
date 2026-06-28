@@ -1303,7 +1303,8 @@
               showCityResult(label, regionKey, rLabel, code,
                 'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>',
                 deptToObj(code),
-                'Donn&eacute;es au niveau d&eacute;partemental &mdash; cliquez une commune pour affiner');
+                'Donn&eacute;es au niveau d&eacute;partemental &mdash; cliquez une commune pour affiner',
+                'dept96');
               drillToCommunes(code, label);
             }
           });
@@ -1491,7 +1492,7 @@
   // subtitleHtml : undefined = "Région : X" par défaut
   //                ''        = pas de sous-titre
   //                string    = HTML personnalisé
-  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote) {
+  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote, rankMode) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
@@ -1534,9 +1535,23 @@
       bars += '<span class="cr-val">'+v+'/10</span>';
       bars += '</div>';
     }
-    // Rang communes nationales (si code dept disponible)
+    // Badge de rang selon le mode
     var commHtml = '';
-    if (deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
+    if (rankMode === 'dept96' && deptCode && DEPT_DATA[deptCode]) {
+      // Rang parmi 96 departements (clic dept)
+      var codes96 = Object.keys(DEPT_DATA), ranked96 = [];
+      for (var ri = 0; ri < codes96.length; ri++) ranked96.push({c:codes96[ri], s:scoreDept(codes96[ri])});
+      ranked96.sort(function(a,b){ return b.s - a.s; });
+      var dRank = 1;
+      for (var ri = 0; ri < ranked96.length; ri++) { if (ranked96[ri].c === deptCode) { dRank = ri+1; break; } }
+      var drSuf = dRank === 1 ? 're' : 'e';
+      var drBg  = dRank <= 24 ? '#dcfce7' : dRank <= 72 ? '#fef9c3' : '#fee2e2';
+      var drCo  = dRank <= 24 ? '#166534' : dRank <= 72 ? '#92400e' : '#991b1b';
+      commHtml = '<div class="cr-comm-rank" style="background:' + drBg + ';color:' + drCo + '">'
+        + '&#x1F3D8; Rang d&eacute;partemental&nbsp;: ' + dRank + drSuf + '&nbsp;/ 96 d&eacute;partements'
+        + '</div>';
+    } else if (rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
+      // Rang parmi ~35 000 communes (clic commune ou recherche ville)
       var cr   = communeRank(deptCode);
       var pct  = cr.rank / cr.total * 100;
       var crBg = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
