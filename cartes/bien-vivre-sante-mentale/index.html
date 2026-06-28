@@ -1588,9 +1588,10 @@
       var pct  = cr.rank / cr.total * 100;
       var crBg = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
       var crCo = pct <= 25 ? '#166534' : pct <= 60 ? '#92400e' : '#991b1b';
-      var rn   = cr.rank <= 100 ? cr.rank : Math.round(cr.rank / 100) * 100;
+      var tRnd = Math.round(cr.total / 1000) * 1000;
+      var rn   = cr.rank <= 100 ? cr.rank : Math.min(Math.round(cr.rank / 100) * 100, tRnd);
       var rStr = (cr.rank <= 100 ? '' : '~') + fmtNum(rn);
-      var tStr = '~' + fmtNum(Math.round(cr.total / 1000) * 1000);
+      var tStr = '~' + fmtNum(tRnd);
       var rnSuf = cr.rank <= 1 ? 're' : 'e';
       commHtml = '<div class="cr-comm-rank" style="background:' + crBg + ';color:' + crCo + '">'
         + '&#x1F3D8; Rang national&nbsp;: ' + rStr + rnSuf + '&nbsp;/ ' + tStr + ' communes'
