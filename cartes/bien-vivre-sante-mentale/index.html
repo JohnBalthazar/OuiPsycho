@@ -1227,23 +1227,40 @@
     return obj;
   }
 
-  // Ajustements par taille de commune — indicateurs qui varient réellement à l'échelle communale
+  // Ajustements par densité de population (hab/km²) — différencie toutes les communes
+  // surface (de l'API) est en hectares → densité = pop / (surface / 100)
   // sun et weather restent au niveau dept (peu de variation intra-dept)
-  function communeModifiers(pop) {
+  function communeModifiers(pop, surface) {
     pop = pop || 0;
-    //                    sun  nature  care  cost  air  social  sport  calm  weather
-    if (pop <    500) return {sun:0, nature: 3, care:-3, cost: 3, air: 2, social:-1, sport: 1, calm: 3, weather:0};
-    if (pop <   2000) return {sun:0, nature: 2, care:-2, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
-    if (pop <  10000) return {sun:0, nature: 1, care:-1, cost: 1, air: 1, social: 2, sport: 1, calm: 1, weather:0};
-    if (pop <  50000) return {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
-    if (pop < 200000) return {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
-    /* métropole */    return {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
+    // Densité en hab/km² ; fallback si surface absente : estimation grossière par palier pop
+    var dens;
+    if (surface && surface > 0) {
+      dens = pop / (surface / 100); // surface en ha → /100 = km²
+    } else {
+      // estimation : communes françaises moyennes par taille
+      if (pop <    500) dens = 18;
+      else if (pop <   2000) dens = 55;
+      else if (pop <  10000) dens = 180;
+      else if (pop <  50000) dens = 650;
+      else if (pop < 200000) dens = 1800;
+      else                   dens = 5500;
+    }
+    // Interpolation continue sur 7 paliers de densité
+    //                      sun  nature  care  cost  air  social  sport  calm  weather
+    if (dens <   20) return {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0};
+    if (dens <   60) return {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0};
+    if (dens <  150) return {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
+    if (dens <  400) return {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0};
+    if (dens < 1200) return {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
+    if (dens < 3500) return {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
+    if (dens < 7000) return {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0};
+    /* très dense */ return {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
   }
 
-  // Score commune : base dept + ajustements population, clampé [1,10]
-  function communeScore(deptCode, pop) {
+  // Score commune : base dept + ajustements densité, clampé [1,10]
+  function communeScore(deptCode, pop, surface) {
     var base = deptToObj(deptCode); if (!base) return null;
-    var mod  = communeModifiers(pop);
+    var mod  = communeModifiers(pop, surface);
     var out  = {};
     for (var i = 0; i < KEYS.length; i++) {
       var k = KEYS[i];
@@ -1331,7 +1348,7 @@
     if (communeLayer) { communeLayer.remove(); communeLayer = null; }
 
     var url = 'https://geo.api.gouv.fr/communes?codeDepartement=' + deptCode
-            + '&format=geojson&geometry=centre&fields=nom,code,population';
+            + '&format=geojson&geometry=centre&fields=nom,code,population,surface';
 
     showMapLoading();
     fetchTimeout(url, 12000)
@@ -1346,9 +1363,10 @@
 
         communeLayer = L.geoJSON(geo, {
           pointToLayer: function(feat, ll) {
-            var pop  = (feat.properties && feat.properties.population) || 0;
-            // Couleur individuelle selon score de la commune (dept + modif population)
-            var cSc  = communeScore(deptCode, pop);
+            var pop     = (feat.properties && feat.properties.population) || 0;
+            var surface = (feat.properties && feat.properties.surface)    || 0;
+            // Couleur individuelle selon score de la commune (dept + modif densité)
+            var cSc  = communeScore(deptCode, pop, surface);
             var cAvg = s; // fallback = score dept
             if (cSc) {
               var _al = activeList(), _tot = 0;
@@ -1362,12 +1380,20 @@
             });
           },
           onEachFeature: function(feat, layer) {
-            var nom = (feat.properties && feat.properties.nom) || '?';
-            var pop = feat.properties && feat.properties.population;
-            var ps  = pop ? ' · ' + (pop >= 1000 ? (pop/1000).toFixed(0) + ' k' : pop) + ' hab.' : '';
+            var nom     = (feat.properties && feat.properties.nom)     || '?';
+            var pop     = (feat.properties && feat.properties.population) || 0;
+            var surface = (feat.properties && feat.properties.surface)    || 0;
+            var cSc     = communeScore(deptCode, pop, surface);
+            var cAvg    = s;
+            if (cSc) {
+              var _al2 = activeList(), _tot2 = 0;
+              for (var _j = 0; _j < _al2.length; _j++) _tot2 += (cSc[_al2[_j]] || 0);
+              if (_al2.length > 0) cAvg = _tot2 / _al2.length;
+            }
+            var ps = pop ? ' · ' + (pop >= 1000 ? (pop/1000).toFixed(0) + ' k' : pop) + ' hab.' : '';
             layer.bindTooltip(
               '<strong>' + nom + '</strong>' + ps + '<br>'
-              + '<small style="color:#64748b">' + deptLabel + ' – Score : ' + s.toFixed(1) + '/10</small>',
+              + '<small style="color:#64748b">' + deptLabel + ' – Score : ' + cAvg.toFixed(1) + '/10</small>',
               {sticky:true, direction:'top'}
             );
             layer.on('click', function(e) {
@@ -1380,8 +1406,8 @@
                 'D&eacute;p.&nbsp;<strong>' + deptLabel + '</strong>'
                 + (rLabel ? '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + rLabel + '</strong>' : '')
                 + (popStr ? '&nbsp;&middot; ' + popStr : ''),
-                communeScore(deptCode, pop),
-                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la taille de la commune');
+                communeScore(deptCode, pop, surface),
+                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
             });
           }
         
