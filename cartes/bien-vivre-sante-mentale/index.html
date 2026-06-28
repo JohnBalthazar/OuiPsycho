@@ -846,17 +846,16 @@
     return out;
   }
 
-  // Rang des communes du dept parmi l ensemble des communes de France
-  function communeRank(deptCode) {
-    var myScore = scoreDept(deptCode);
+  // Rang d'un score donné parmi ~35 000 communes (approx via scores départementaux)
+  function communeRankByScore(myScore) {
     var total = 0, above = 0;
     var codes = Object.keys(DEPT_COMMUNE_COUNT);
     for (var i = 0; i < codes.length; i++) {
       var cnt = DEPT_COMMUNE_COUNT[codes[i]] || 0;
       total += cnt;
       var s = scoreDept(codes[i]);
-      if (s > myScore + 0.001) above += cnt;
-      else if (Math.abs(s - myScore) <= 0.001) above += Math.round(cnt / 2);
+      if (s > myScore + 0.05) above += cnt;
+      else if (Math.abs(s - myScore) <= 0.05) above += Math.round(cnt / 2);
     }
     return { rank: Math.max(1, Math.min(above + 1, total)), total: total };
   }
@@ -1343,15 +1342,22 @@
         var firstGeom = geo.features[0] && geo.features[0].geometry;
         if (!firstGeom) { updateBreadcrumb(); return; }
 
-        var s  = scoreDept(deptCode);
-        var fc = colorFill(s);
+        var s  = scoreDept(deptCode); // score dept (pour tooltip)
 
         communeLayer = L.geoJSON(geo, {
           pointToLayer: function(feat, ll) {
-            var pop = (feat.properties && feat.properties.population) || 0;
-            var r   = pop > 200000 ? 11 : pop > 50000 ? 9 : pop > 10000 ? 7 : pop > 2000 ? 5 : 4;
+            var pop  = (feat.properties && feat.properties.population) || 0;
+            // Couleur individuelle selon score de la commune (dept + modif population)
+            var cSc  = communeScore(deptCode, pop);
+            var cAvg = s; // fallback = score dept
+            if (cSc) {
+              var _al = activeList(), _tot = 0;
+              for (var _i = 0; _i < _al.length; _i++) _tot += (cSc[_al[_i]] || 0);
+              if (_al.length > 0) cAvg = _tot / _al.length;
+            }
+            var r = pop > 200000 ? 11 : pop > 50000 ? 9 : pop > 10000 ? 7 : pop > 2000 ? 5 : 4;
             return L.circleMarker(ll, {
-              radius: r, fillColor: fc, fillOpacity: 0.82,
+              radius: r, fillColor: colorFill(cAvg), fillOpacity: 0.82,
               color: '#fff', weight: 1.5, opacity: 1
             });
           },
@@ -1551,8 +1557,8 @@
         + '&#x1F3D8; Rang d&eacute;partemental&nbsp;: ' + dRank + drSuf + '&nbsp;/ 96 d&eacute;partements'
         + '</div>';
     } else if (rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
-      // Rang parmi ~35 000 communes (clic commune ou recherche ville)
-      var cr   = communeRank(deptCode);
+      // Rang parmi ~35 000 communes — basé sur le score réel de la commune/ville
+      var cr   = communeRankByScore(globalScore);
       var pct  = cr.rank / cr.total * 100;
       var crBg = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
       var crCo = pct <= 25 ? '#166534' : pct <= 60 ? '#92400e' : '#991b1b';
