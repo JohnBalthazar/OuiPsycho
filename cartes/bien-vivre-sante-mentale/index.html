@@ -352,6 +352,74 @@
       white-space:nowrap;z-index:800;opacity:0;transition:opacity .3s;
     }
     .drill-hint.show{opacity:1}
+
+    /* ──────────────────────────────────────────────
+       AMÉLIORATIONS VISUELLES / ERGONOMIE
+    ────────────────────────────────────────────── */
+
+    /* Vague de transition hero → contenu */
+    .hero-wave{display:block;width:100%;height:52px;margin-top:-2px;flex-shrink:0}
+
+    /* Intro : accent couleur + fond léger */
+    .carte-intro{
+      background:rgba(255,255,255,.75);
+      border:1px solid #e2eaf4;
+      border-left:4px solid #22c55e;
+      border-radius:0 14px 14px 0;
+      box-shadow:0 2px 16px rgba(11,31,56,.07);
+      padding:1.5rem 1.75rem
+    }
+    .carte-intro h2{margin-top:0}
+
+    /* Widget card : spectre de score en haut + léger lifting */
+    .widget-card{border-radius:0;border-top:none}
+    .widget-card::before{
+      content:'';display:block;height:5px;
+      background:linear-gradient(90deg,#ef4444 0%,#f97316 22%,#f59e0b 44%,#84cc16 72%,#22c55e 100%)
+    }
+
+    /* Résultat ville : apparition fluide */
+    @keyframes cr-fadein{
+      from{opacity:0;transform:translateY(14px)}
+      to  {opacity:1;transform:translateY(0)}
+    }
+    .cr-card{animation:cr-fadein .4s cubic-bezier(.22,.68,0,1.2) both}
+
+    /* Result card : section titre améliorée */
+    #city-result{padding-top:1.5rem}
+
+    /* Article : h2 avec accroche gauche */
+    .carte-article h2{
+      display:flex;align-items:center;gap:.55rem;
+      padding-bottom:.5rem;
+      border-bottom:2px solid #eef1f5
+    }
+    .carte-article h2::before{
+      content:'';display:inline-block;width:4px;height:1.1em;
+      background:linear-gradient(180deg,#22c55e,#2563eb);
+      border-radius:2px;flex-shrink:0
+    }
+
+    /* Callout : bord gauche plus marqué */
+    .callout{border-left-width:4px;border-radius:0 10px 10px 0}
+
+    /* Légende : espace respiration */
+    .widget-legend{gap:11px;padding:11px 22px}
+
+    /* Footer page carte */
+    .carte-page-footer{
+      max-width:740px;margin:2.5rem auto 0;padding:1.4rem 1.25rem 3.5rem;
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;
+      font-size:.82rem;color:#94a3b8;border-top:1px solid #e2eaf4
+    }
+    .carte-page-footer a{
+      color:#2563eb;text-decoration:none;font-weight:600;transition:color .15s
+    }
+    .carte-page-footer a:hover{color:#1d4ed8;text-decoration:underline}
+    .carte-page-footer-links{display:flex;gap:16px;flex-wrap:wrap}
+
+    /* Chips hero : légère amélioration */
+    .hero-chips span{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.22);letter-spacing:.03em}
   </style>
 </head>
 <body class="carte-page">
@@ -369,6 +437,8 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">&#x1F6CB;&#xFE0F; Nos h&eacute;ros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">&#x1F5A4; Les monstres</a>
         <a class="nav__link" href="tests.html">&#x1F9EA; Tests</a>
         <a class="nav__link active" href="cartes.html">&#x1F5FA;&#xFE0F; Cartes</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
@@ -402,6 +472,9 @@
       <span>13 r&eacute;gions</span>
     </div>
   </div>
+  <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 52" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#f0f4f8" d="M0,28 C180,52 360,8 540,28 C720,48 900,8 1080,24 C1260,40 1360,16 1440,20 L1440,52 L0,52 Z"/>
+  </svg>
 
   <section class="carte-intro">
     <h2>L&rsquo;environnement peut-il vraiment influencer notre sant&eacute; mentale&nbsp;?</h2>
@@ -528,10 +601,13 @@
     </div>
   </article>
 
-  <footer style="text-align:center;padding:1.5rem 1rem 3rem;font-size:.82rem;color:#94a3b8;border-top:1px solid #eef1f5;background:#f4f7fb">
-    <a href="index.html" style="color:#1a56db;text-decoration:none;font-weight:500">&larr; Retour aux articles</a>
-    &nbsp;&middot;&nbsp;
-    <a href="cartes.html" style="color:#1a56db;text-decoration:none;font-weight:500">Toutes les cartes</a>
+  <footer class="carte-page-footer">
+    <span>&copy; 2026 Oui&nbsp;Psycho! &mdash; Visualisation p&eacute;dagogique</span>
+    <div class="carte-page-footer-links">
+      <a href="index.html">&larr; Tous les articles</a>
+      <a href="cartes.html">&#x1F5FA;&#xFE0F; Toutes les cartes</a>
+      <a href="a-propos.html">&Agrave; propos</a>
+    </div>
   </footer>
 
   <!-- =====================================================================
