@@ -529,12 +529,12 @@
   {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
     "date": "2026-09-03",
-    "date_modified": "2026-06-16",
+    "date_modified": "2026-06-29",
     "category": "Thérapies",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urctsuiy2sfb7lyj4unj",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -550,7 +550,7 @@
       "bien-être",
       "yoga"
     ],
-    "metaDescription": "",
+    "metaDescription": "Marche, yoga, sports collectifs… La science révèle quels sports sont les plus efficaces pour la santé mentale et comment bien en profiter au quotidien.",
     "articles_lies": [],
     "status": "scheduled"
   },
