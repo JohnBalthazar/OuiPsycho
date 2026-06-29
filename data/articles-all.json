@@ -1,5 +1,66 @@
 [
   {
+    "id": "democratie-ou-dictature-que-prefere-votre-cerveau",
+    "title": "Démocratie ou Dictature : Que préfère votre cerveau ?",
+    "excerpt": "Face à l'incertitude, pourquoi sommes-nous parfois tentés par l'ordre autoritaire plutôt que par la liberté ? Plongée dans les ressorts cérébraux et émotionnels qui font pencher la balance — et dans ce qui nous permet d'y résister.",
+    "metaDescription": "Pourquoi notre cerveau penche-t-il parfois vers l'autorité plutôt que la liberté ? Ce que les neurosciences révèlent sur la peur, le pouvoir et le doute.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-15",
+    "date_modified": "2026-10-15",
+    "category": "Société",
+    "image": "",
+    "readTime": 5,
+    "tags": [
+      "psychologie politique",
+      "cerveau",
+      "autorité",
+      "peur",
+      "neurosciences",
+      "démocratie"
+    ],
+    "sources": [
+      {
+        "authors": "Kanai R., Feilden T., Firth C. & Rees G.",
+        "year": "2011",
+        "title": "Political Orientations Are Correlated with Brain Structure in Young Adults",
+        "journal": "Current Biology",
+        "url": "https://doi.org/10.1016/j.cub.2011.03.017"
+      },
+      {
+        "authors": "Jost J. T., Glaser J., Kruglanski A. W. & Sulloway F. J.",
+        "year": "2003",
+        "title": "Political Conservatism as Motivated Social Cognition",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.129.3.339"
+      },
+      {
+        "authors": "Stenner K.",
+        "year": "2005",
+        "title": "The Authoritarian Dynamic",
+        "publisher": "Cambridge University Press"
+      },
+      {
+        "authors": "Beauvois J.-L. & Joule R.-V.",
+        "year": "2014",
+        "title": "Petit traité de manipulation à l'usage des honnêtes gens",
+        "publisher": "Presses universitaires de Grenoble"
+      },
+      {
+        "authors": "Milgram S.",
+        "year": "1974",
+        "title": "Soumission à l'autorité",
+        "publisher": "Calmann-Lévy"
+      },
+      {
+        "authors": "Mercier H. & Sperber D.",
+        "year": "2017",
+        "title": "L'énigme de la raison",
+        "publisher": "Odile Jacob"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "5-traits-insoupconnes-meilleur-ami",
     "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
     "excerpt": "On croit reconnaître un·e meilleur·e ami·e à sa fidélité ou à sa présence dans les coups durs. Mais la science des relations proches pointe des signes bien plus discrets — et plus fiables. En voici cinq.",
