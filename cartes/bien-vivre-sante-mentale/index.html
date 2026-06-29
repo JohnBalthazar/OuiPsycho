@@ -933,14 +933,26 @@
   function communeRankByScore(myScore) {
     var total = 0, above = 0;
     var codes = Object.keys(DEPT_COMMUNE_COUNT);
+    // Plage de variation des scores au sein d'un même département :
+    //   commune rurale (dens<20)       → modifier moyen +1.0
+    //   commune très dense (dens>7000) → modifier moyen -1.1
+    // Au lieu d'un seuil binaire (tout-ou-rien), on interpole linéairement
+    // la fraction de communes du département qui scorent au-dessus de myScore.
+    var rangeUp = 1.0;   // écart max vers le haut  (communes rurales)
+    var rangeDn = 1.1;   // écart max vers le bas   (communes très denses)
     for (var i = 0; i < codes.length; i++) {
-      var cnt = DEPT_COMMUNE_COUNT[codes[i]] || 0;
-      total += cnt;
-      var s = scoreDept(codes[i]);
-      if (s > myScore + 0.05) above += cnt;
-      else if (Math.abs(s - myScore) <= 0.05) above += Math.round(cnt / 2);
+      var cnt  = DEPT_COMMUNE_COUNT[codes[i]] || 0;
+      total   += cnt;
+      var s    = scoreDept(codes[i]);
+      var hi   = s + rangeUp;          // meilleure commune possible du dept
+      var lo   = s - rangeDn;          // pire commune possible du dept
+      var frac;
+      if      (myScore >= hi) frac = 0;                          // myScore dépasse toutes les communes
+      else if (myScore <= lo) frac = 1;                          // toutes les communes dépassent myScore
+      else                    frac = (hi - myScore) / (hi - lo); // interpolation linéaire
+      above += cnt * frac;
     }
-    return { rank: Math.max(1, Math.min(above + 1, total)), total: total };
+    return { rank: Math.max(1, Math.min(Math.round(above) + 1, total)), total: total };
   }
 
   // Etat de navigation
@@ -1733,16 +1745,45 @@
         var icon = L.divIcon({html:pinHtml, className:'', iconAnchor:[7,14]});
         cityMarker = L.marker([lat, lng], {icon:icon, zIndexOffset:1000}).addTo(leafletMap);
         var layer = findRegionByPoint(lng, lat);
-        if (layer) {
-          var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
-          var rk  = toKey(nom);
-          leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
-          showCityResult(cityName, rk, nom, deptCode);
-        } else {
+        if (!layer) {
           leafletMap.setView([lat, lng], 8);
           if (status) status.textContent = 'Region non reconnue';
           var elR = document.getElementById('city-result');
           if (elR) elR.style.display = 'none';
+          return;
+        }
+        var nom = (layer.feature.properties && layer.feature.properties.nom) || '';
+        var rk  = toKey(nom);
+        leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
+
+        // 2e appel : score de commune précis (population + surface réelle)
+        if (deptCode) {
+          var geoUrl = 'https://geo.api.gouv.fr/communes?lat=' + lat + '&lon=' + lng
+            + '&fields=nom,code,population,surface&format=json';
+          fetch(geoUrl)
+            .then(function(r2){ return r2.json(); })
+            .then(function(cdata) {
+              var comm   = cdata && cdata[0];
+              var cpop   = comm && comm.population || 0;
+              var csurf  = comm && comm.surface    || 0;
+              var cScore = communeScore(deptCode, cpop, csurf);
+              var dLabel = DEPT_LABELS[deptCode] || deptCode;
+              var popStr = cpop && cpop >= 1000
+                ? (cpop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
+                : cpop ? cpop + '&nbsp;hab.' : '';
+              showCityResult(cityName, rk, nom, deptCode,
+                'D&eacute;p.&nbsp;<strong>' + dLabel + '</strong>'
+                + '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + nom + '</strong>'
+                + (popStr ? '&nbsp;&middot; ' + popStr : ''),
+                cScore,
+                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
+            })
+            .catch(function() {
+              // Fallback : score région si l'API commune échoue
+              showCityResult(cityName, rk, nom, deptCode);
+            });
+        } else {
+          showCityResult(cityName, rk, nom, deptCode);
         }
       })
       .catch(function() {
