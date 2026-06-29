@@ -1,5 +1,68 @@
 [
   {
+    "id": "5-traits-insoupconnes-meilleur-ami",
+    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
+    "excerpt": "On croit reconnaître un·e meilleur·e ami·e à sa fidélité ou à sa présence dans les coups durs. Mais la science des relations proches pointe des signes bien plus discrets — et plus fiables. En voici cinq.",
+    "metaDescription": "L'amitié ne tient pas qu'à la loyauté : 5 traits insoupçonnés, validés par la psychologie, qui distinguent un·e vrai·e meilleur·e ami·e des autres.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-09",
+    "date_modified": "2026-10-09",
+    "category": "Société",
+    "image": "",
+    "readTime": 4,
+    "tags": [
+      "amitié",
+      "relations",
+      "psychologie",
+      "soutien social",
+      "attachement",
+      "bien-être"
+    ],
+    "sources": [
+      {
+        "authors": "Gable S. L., Reis H. T., Impett E. A. & Asher E. R.",
+        "year": "2004",
+        "title": "What do you do when things go right? The intrapersonal and interpersonal benefits of sharing positive events",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.87.2.228"
+      },
+      {
+        "authors": "Koudenburg N., Gordijn E. H. & Postmes T.",
+        "year": "2014",
+        "title": "« More Than Words »: Social Validation in Close Relationships",
+        "journal": "Personality and Social Psychology Bulletin",
+        "url": "https://doi.org/10.1177/0146167214549945"
+      },
+      {
+        "authors": "Clark M. S. & Mills J.",
+        "year": "1979",
+        "title": "Interpersonal attraction in exchange and communal relationships",
+        "journal": "Journal of Personality and Social Psychology"
+      },
+      {
+        "authors": "Blois-da Conceicao S., Galiano A. R., Sagne A. & Poussin M.",
+        "year": "2017",
+        "title": "Données actuelles et perspectives futures dans l'étude des liens entre soutien social et santé",
+        "journal": "Psychologie Française",
+        "url": "https://shs.hal.science/halshs-01774285v1"
+      },
+      {
+        "authors": "Guédeney N.",
+        "year": "2010",
+        "title": "L'attachement, un lien vital",
+        "publisher": "Fabert (coll. Temps d'Arrêt / Yapaka)",
+        "url": "https://www.yapaka.be/sites/yapaka.be/files/publication/TA_Lattachement_un_lien_vital_WEB.pdf"
+      },
+      {
+        "authors": "Miljkovitch R.",
+        "year": "2001",
+        "title": "L'attachement au cours de la vie",
+        "publisher": "Presses Universitaires de France"
+      }
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "innovations-sante-mentale-futur-imminent",
     "title": "Quelles innovations en santé mentale dans un futur imminent ?",
     "excerpt": "",
@@ -48,33 +111,6 @@
       "bien-être",
       "couple",
       "science"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "5-traits-insoupconnes-meilleur-ami",
-    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
-    "excerpt": "",
-    "date": "2026-10-01",
-    "date_modified": "2026-10-01",
-    "category": "Société",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "amitié",
-      "relations",
-      "psychologie",
-      "soutien social",
-      "attachement",
-      "bien-être"
     ],
     "metaDescription": "",
     "articles_lies": [],
