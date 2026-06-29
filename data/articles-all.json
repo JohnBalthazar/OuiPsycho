@@ -1,74 +1,5 @@
 [
   {
-    "id": "nouvelles-formes-sexualite",
-    "title": "Les nouvelles formes de sexualité : tour d'horizon",
-    "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
-    "metaDescription": "Polyamour, asexualité, fluidité sexuelle : la psychologie et la science décryptent les nouvelles formes de sexualité qui redéfinissent nos façons d'aimer.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-10-16",
-    "date_modified": "2026-10-16",
-    "category": "Bien-être",
-    "image": "",
-    "readTime": 7,
-    "tags": [
-      "sexualité",
-      "polyamour",
-      "asexualité",
-      "identité sexuelle",
-      "fluidité",
-      "relations"
-    ],
-    "sources": [
-      {
-        "authors": "Bogaert A.F.",
-        "year": "2004",
-        "title": "Asexuality: Prevalence and associated factors in a national probability sample",
-        "journal": "Journal of Sex Research",
-        "url": "https://doi.org/10.1080/00224490409552235"
-      },
-      {
-        "authors": "Conley T.D., Matsick J.L., Moors A.C. & Ziegler A.",
-        "year": "2017",
-        "title": "Investigation of consensually nonmonogamous relationships",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691617713189"
-      },
-      {
-        "authors": "Diamond L.M.",
-        "year": "2008",
-        "title": "Sexual Fluidity: Understanding Women's Love and Desire",
-        "publisher": "Harvard University Press"
-      },
-      {
-        "authors": "Bajos N. & Bozon M. (dir.)",
-        "year": "2008",
-        "title": "Enquête sur la sexualité en France — Pratiques, genre et santé",
-        "publisher": "La Découverte"
-      },
-      {
-        "authors": "Moors A.C., Matsick J.L. & Schechinger H.A.",
-        "year": "2017",
-        "title": "Unique and shared relationship benefits of consensually non-monogamous and monogamous relationships",
-        "journal": "European Psychologist",
-        "url": "https://doi.org/10.1027/1016-9040/a000298"
-      },
-      {
-        "authors": "Brotto L.A. & Yule M.",
-        "year": "2017",
-        "title": "Asexuality: Sexual orientation, paraphilia, sexual dysfunction, or none of the above?",
-        "journal": "Archives of Sexual Behavior",
-        "url": "https://doi.org/10.1007/s10508-016-0802-7"
-      },
-      {
-        "authors": "Leridon H.",
-        "year": "2014",
-        "title": "La révolution contraceptive — Histoire de la maîtrise de la fécondité en France",
-        "publisher": "INED Éditions"
-      }
-    ],
-    "status": "scheduled"
-  },
-  {
     "id": "democratie-ou-dictature-que-prefere-votre-cerveau",
     "title": "Démocratie ou Dictature : Que préfère votre cerveau ?",
     "excerpt": "Face à l'incertitude, pourquoi sommes-nous parfois tentés par l'ordre autoritaire plutôt que par la liberté ? Plongée dans les ressorts cérébraux et émotionnels qui font pencher la balance — et dans ce qui nous permet d'y résister.",
@@ -217,6 +148,59 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "severus-rogue-sur-le-divan",
+    "title": "Severus Rogue sur le divan : psychologie d'un sorcier de sang-mêlé",
+    "excerpt": "Héros admirable ou bourreau mesquin ? Severus Rogue est l'un des cas les plus riches de la fiction populaire. Attachement, harcèlement, deuil figé et complexité morale : décryptage sans complaisance, plus un test pour trouver votre profil de sorcier.",
+    "metaDescription": "Severus Rogue sur le divan : attachement, harcèlement, deuil figé et complexité morale. La psychologie d'un héros ambigu, sans le sanctifier ni le condamner.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-06",
+    "date_modified": "2026-10-06",
+    "category": "Nos héros",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "tags": [
+      "severus-rogue",
+      "nos-heros",
+      "psychologie-des-personnages",
+      "harcelement",
+      "attachement",
+      "complexite-morale"
+    ],
+    "sources": [
+      {
+        "authors": "Gallet F. & Karray A.",
+        "year": "2018",
+        "title": "Le devenir des adolescents victimes de harcèlement scolaire : clinique d'une reconstruction post-traumatique et post-victimisation à l'âge adulte",
+        "journal": "Psychothérapies",
+        "url": "https://doi.org/10.3917/psys.181.0027"
+      },
+      {
+        "authors": "Revue Infokara",
+        "year": "2006",
+        "title": "Deuil normal, deuil pathologique et prévention en milieu clinique",
+        "journal": "Infokara",
+        "url": "https://stm.cairn.info/revue-infokara1-2006-4-page-163?lang=fr"
+      },
+      {
+        "authors": "Olweus D.",
+        "year": "1993",
+        "title": "Bullying at School: What We Know and What We Can Do",
+        "publisher": "Blackwell"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Hogarth Press"
+      }
+    ],
     "status": "scheduled"
   },
   {
@@ -1135,6 +1119,33 @@
       "injonctions",
       "attractivite",
       "societe"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "nouvelles-formes-sexualite",
+    "title": "La séxualité en 2026 : moins de sexe, plus d'IA et le célibat comme acte politique",
+    "excerpt": "",
+    "date": "2026-07-10",
+    "date_modified": "2026-06-08",
+    "category": "Sexo",
+    "image": "",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexualité",
+      "récession sexuelle",
+      "célibat choisi",
+      "intelligence artificielle",
+      "polyamour",
+      "tendances"
     ],
     "metaDescription": "",
     "articles_lies": [],
