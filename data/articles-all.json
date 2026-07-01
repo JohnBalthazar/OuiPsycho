@@ -1030,10 +1030,10 @@
   },
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
-    "title": "La femme parfaite selon les hommes en 2026 : ce que dit vraiment la science",
+    "title": "La femme parfaite selon les hommes en 2026 : ce qu'en dit la science",
     "excerpt": "",
     "date": "2026-07-14",
-    "date_modified": "2026-06-09",
+    "date_modified": "2026-06-30",
     "category": "Relations",
     "image": "",
     "hasImage": true,
@@ -1053,6 +1053,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "date-tinder-tueur-en-serie",
+    "title": "Votre date Tinder est-il un tueur en série ?",
+    "excerpt": "",
+    "date": "2026-07-10",
+    "date_modified": "2026-07-01",
+    "category": "Sexo",
+    "image": "",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "rencontre",
+      "red flags",
+      "love bombing",
+      "sécurité",
+      "emprise",
+      "applications de rencontre"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "techniques-drague-science"
+    ],
     "status": "scheduled"
   },
   {
@@ -1110,6 +1139,32 @@
     "status": "scheduled"
   },
   {
+    "id": "techniques-drague-science",
+    "title": "Les techniques de drague qui marchent vraiment (selon la science)",
+    "excerpt": "",
+    "date": "2026-07-05",
+    "date_modified": "2026-07-01",
+    "category": "Sexo",
+    "image": "",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "séduction",
+      "drague",
+      "attirance",
+      "psychologie sociale",
+      "relations"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
     "excerpt": "",
@@ -1141,8 +1196,8 @@
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
-    "date": "2026-07-01",
-    "date_modified": "2026-06-27",
+    "date": "2026-06-30",
+    "date_modified": "2026-07-01",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
     "hasImage": true,
@@ -1150,7 +1205,7 @@
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 16,
+    "readTime": 14,
     "author": "La rédaction Oui Psycho!",
     "tags": [
       "astérix",
@@ -1163,7 +1218,7 @@
     ],
     "metaDescription": "Astérix, Obélix, Abraracourcix… et si le village gaulois était un cas clinique ? Anxiété, narcissisme, dépendance : la psycho cachée d'Astérix.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "coloriage-therapie-crayons-meilleur-psy",
