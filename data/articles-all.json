@@ -1031,12 +1031,12 @@
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce qu'en dit la science",
-    "type": "article",
-    "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
+    "excerpt": "",
     "date": "2026-07-14",
     "date_modified": "2026-06-30",
     "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vti4roq4ehw5ncfalsis",
+    "image": "",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1051,7 +1051,7 @@
       "attractivite",
       "societe"
     ],
-    "metaDescription": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1140,12 +1140,12 @@
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
-    "type": "article",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-06-30",
     "date_modified": "2026-06-30",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
