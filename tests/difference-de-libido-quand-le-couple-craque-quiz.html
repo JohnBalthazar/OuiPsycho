@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Test : quel type de désir avez-vous ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#2a1020;background:transparent;line-height:1.55}
+  .quiz{max-width:560px;margin:0 auto;background:#fff7fa;border:1px solid #f0c0d8;border-radius:16px;padding:26px 24px}
+  .progress{height:8px;background:#f5d0e4;border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e87ab0,#be185d);border-radius:99px;transition:width .35s ease}
+  .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#be185d;margin-bottom:10px;font-weight:600}
+  h2{font-size:1.22rem;line-height:1.38;margin-bottom:20px;color:#7d0a3a}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #f0c0d8;color:#2a1020;border-radius:12px;padding:13px 16px;margin-bottom:11px;font-size:.97rem;cursor:pointer;transition:all .18s ease;font-family:inherit}
+  .opt:hover{border-color:#e87ab0;background:#fff0f7;transform:translateY(-1px)}
+  .intro{text-align:center}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:12px}
+  .intro p{color:#be185d;margin-bottom:20px;font-size:.97rem}
+  .btn{display:inline-block;background:#be185d;color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .18s ease;font-family:inherit}
+  .btn:hover{background:#9f1239}
+  .result{text-align:center}
+  .result .tag{display:inline-block;background:#fce7f3;color:#be185d;border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px}
+  .result h2{margin-bottom:8px;color:#7d0a3a}
+  .result .sub{font-size:.88rem;color:#be185d;margin-bottom:18px}
+  .result .desc{text-align:left;background:#fff;border:1px solid #f0c0d8;border-radius:12px;padding:18px;margin-bottom:16px;font-size:.95rem;line-height:1.7}
+  .insight{background:#fff7fa;border-radius:10px;padding:13px 16px;margin-bottom:12px;text-align:left}
+  .insight-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#be185d;margin-bottom:5px;font-weight:600}
+  .insight-text{font-size:.93rem;line-height:1.65;color:#2a1020}
+  .disclaimer{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 15px;font-size:.85rem;color:#92400e;line-height:1.6;margin-bottom:16px;text-align:left}
+  .restart{margin-top:6px;background:none;border:none;color:#be185d;font-size:.92rem;cursor:pointer;text-decoration:underline;font-family:inherit}
+  .restart:hover{color:#9f1239}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+(function(){
+  var questions=[
+    {q:"Votre désir sexuel apparaît généralement…",
+     a:[{t:"Spontanément, souvent sans raison particulière — il est là.",p:"SP"},
+        {t:"En réponse à un contexte favorable : tendresse, proximité, stimulation.",p:"RE"},
+        {t:"Rarement de façon spontanée — il faut vraiment les bonnes conditions.",p:"VE"},
+        {t:"Quand je suis touché(e), caressé(e), ou physiquement stimulé(e).",p:"SE"}]},
+    {q:"Une soirée romantique idéale pour vous, ça ressemble à…",
+     a:[{t:"Une envie soudaine et partagée — l'improvisation, c'est ce qui m'allume.",p:"SP"},
+        {t:"Un moment de connexion réelle — rire, discussion, intimité émotionnelle.",p:"RE"},
+        {t:"Un contexte posé, sans pression, où je peux vraiment me déposer.",p:"VE"},
+        {t:"Quelque chose de très physique — toucher, chaleur, sensations.",p:"SE"}]},
+    {q:"Le stress ou la fatigue ont tendance à…",
+     a:[{t:"Peu affecter votre désir — vous pouvez vouloir même fatigué(e).",p:"SP"},
+        {t:"Le refroidir nettement — il faut que la tête soit libre.",p:"RE"},
+        {t:"Le mettre totalement en veille — votre corps se ferme.",p:"VE"},
+        {t:"Ne pas vraiment l'éteindre si le contact physique est là.",p:"SE"}]},
+    {q:"Si votre partenaire prend l'initiative alors que vous n'y pensez pas…",
+     a:[{t:"Vous êtes partant(e) rapidement — l'envie peut venir en route.",p:"RE"},
+        {t:"Vous aimez ça — ça peut allumer quelque chose en vous.",p:"SP"},
+        {t:"Ça dépend beaucoup de votre état du moment.",p:"VE"},
+        {t:"Le contact physique lui-même est souvent ce qui vous met en envie.",p:"SE"}]},
+    {q:"Dans une relation longue durée, votre désir…",
+     a:[{t:"Reste relativement présent — les routines ne l'éteignent pas vraiment.",p:"SP"},
+        {t:"Dépend beaucoup de la qualité de la relation hors du lit.",p:"RE"},
+        {t:"A tendance à diminuer si on ne crée pas les conditions exprès.",p:"VE"},
+        {t:"A besoin que le contact physique reste présent au quotidien.",p:"SE"}]},
+    {q:"Ce qui vous met le plus en envie, c'est…",
+     a:[{t:"Souvent rien de particulier — ça monte tout seul.",p:"SP"},
+        {t:"Sentir qu'on est vraiment vu(e), désiré(e), connecté(e).",p:"RE"},
+        {t:"Être dans le bon état d'esprit — apaisé(e), en confiance, présent(e).",p:"VE"},
+        {t:"Le corps de l'autre, sa chaleur, son odeur, un toucher.",p:"SE"}]},
+    {q:"Vous trouveriez utile que votre partenaire sache que…",
+     a:[{t:"Mon désir peut être là à des moments inattendus — mieux vaut tester.",p:"SP"},
+        {t:"Si la connexion émotionnelle n'est pas là, le désir ne viendra pas.",p:"RE"},
+        {t:"Il faut créer les conditions — ça ne se déclenche pas sous pression.",p:"VE"},
+        {t:"Le toucher et la proximité physique, c'est mon chemin d'accès.",p:"SE"}]}
+  ];
+
+  var profiles={
+    SP:{emoji:"⚡",tag:"Désir spontané",name:"Le Désir Spontané",
+       sub:"Le désir se présente de lui-même",
+       desc:"Votre désir a tendance à surgir sans raison apparente, indépendamment du contexte. Il précède souvent l'acte et peut apparaître dans des situations variées. Ce profil est souvent décrit comme \"libido élevée\" — mais c'est avant tout une façon de fonctionner, pas une hiérarchie.",
+       insight:"Ce profil est statistiquement plus fréquent chez les hommes cisgenres, bien que présent dans toutes les configurations. Il peut créer un déséquilibre dans un couple si l'autre partenaire a un désir plus réactif ou conditionnel — non par manque de désir, mais par différence de fonctionnement.",
+       action:"Si votre partenaire a un désir réactif, proposez-lui des contextes favorables plutôt que des sollicitations directes. Comprendre la différence est déjà énorme."},
+    RE:{emoji:"🌊",tag:"Désir réactif",name:"Le Désir Réactif",
+       sub:"Le désir répond à un contexte favorable",
+       desc:"Votre désir ne se présente pas spontanément — il émerge en réponse à des conditions favorables : la bonne ambiance, la bonne connexion émotionnelle, la bonne présence. Ce n'est pas une libido \"basse\" — c'est une libido conditionnelle, qui a besoin d'un terreau.",
+       insight:"Ce profil est décrit par la sexologue Emily Nagoski comme l'un des deux grands modes de fonctionnement du désir. Il est très courant et tout à fait sain — à condition de ne pas se laisser convaincre qu'on est \"froid(e)\" ou \"dysfonctionnel(le)\".",
+       action:"Identifiez vos déclencheurs positifs : qu'est-ce qui crée les bonnes conditions pour vous ? Partagez-le avec votre partenaire — c'est de l'information, pas une demande exigeante."},
+    VE:{emoji:"🌙",tag:"Désir en veille",name:"Le Désir en Veille",
+       sub:"Le désir existe mais s'exprime peu facilement",
+       desc:"Votre désir est là, mais il a besoin de conditions très spécifiques pour émerger : sécurité, absence de pression, espace mental libre. Le stress, la fatigue ou une relation tendue suffisent à l'éteindre. Ce n'est pas une absence de désir — c'est un désir qui demande de la place.",
+       insight:"Ce profil peut cohabiter avec une forte capacité de plaisir une fois les conditions réunies. Le problème est souvent moins le désir lui-même que les inhibiteurs qui l'empêchent de s'exprimer — et qui sont souvent d'ordre relationnel ou psychologique.",
+       action:"Travailler à réduire les inhibiteurs (stress, culpabilité, image de soi, tensions relationnelles) est souvent plus utile que de chercher à augmenter artificiellement le désir. Un suivi sexologique peut apporter beaucoup."},
+    SE:{emoji:"🔥",tag:"Désir sensoriel",name:"Le Désir Sensoriel",
+       sub:"Le corps avant tout",
+       desc:"Votre désir passe par le corps en priorité : le toucher, la chaleur, la proximité physique sont vos voies d'accès principales. Moins dépendant du contexte émotionnel que d'autres profils, vous répondez à la stimulation physique d'une façon assez directe.",
+       insight:"Ce profil peut sembler simple mais il appelle souvent une présence physique au quotidien — câlins, contacts non-sexuels, proximité corporelle — comme maintien du lien désir. Sans ça, le désir peut s'éteindre même si la relation va bien par ailleurs.",
+       action:"Dites à votre partenaire que le toucher compte pour vous, y compris hors des moments sexuels. La continuité physique dans la vie quotidienne nourrit votre désir sur la durée."}
+  };
+
+  var box=document.getElementById('quiz');
+  var step=-1; var answers=[];
+
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+    },50);
+  }
+
+  function renderIntro(){
+    box.innerHTML='<div class="intro"><span class="emoji">💑</span>'+
+      '<h2>Quel est votre type de désir&nbsp;?</h2>'+
+      '<p>Spontané, réactif, en veille ou sensoriel ? 7 questions pour mieux comprendre votre fonctionnement — et ouvrir la conversation à deux si vous le souhaitez.</p>'+
+      '<button class="btn" id="start">Commencer le test</button></div>';
+    document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
+    notifyResize();
+  }
+
+  function renderQ(){
+    var item=questions[step];
+    var pct=Math.round((step/questions.length)*100);
+    var html='<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="step-info">Question '+(step+1)+' / '+questions.length+'</div>'+
+      '<h2>'+item.q+'</h2>';
+    for(var i=0;i<item.a.length;i++){
+      html+='<button class="opt" data-p="'+item.a[i].p+'">'+item.a[i].t+'</button>';
+    }
+    box.innerHTML=html;
+    var opts=box.querySelectorAll('.opt');
+    for(var j=0;j<opts.length;j++){
+      opts[j].onclick=function(){
+        answers.push(this.getAttribute('data-p'));
+        step++;
+        if(step<questions.length){renderQ();}else{renderResult();}
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult(){
+    var counts={SP:0,RE:0,VE:0,SE:0};
+    for(var i=0;i<answers.length;i++){counts[answers[i]]++;}
+    var best='SP',max=-1,order=['SP','RE','VE','SE'];
+    for(var k=0;k<order.length;k++){if(counts[order[k]]>max){max=counts[order[k]];best=order[k];}}
+    var p=profiles[best];
+    box.innerHTML='<div class="result">'+
+      '<div class="progress"><span style="width:100%"></span></div>'+
+      '<span class="emoji">'+p.emoji+'</span>'+
+      '<span class="tag">'+p.tag+'</span>'+
+      '<h2>'+p.name+'</h2>'+
+      '<div class="sub">'+p.sub+'</div>'+
+      '<div class="desc">'+p.desc+'</div>'+
+      '<div class="insight"><div class="insight-label">🔍 Ce que ça dit</div><div class="insight-text">'+p.insight+'</div></div>'+
+      '<div class="insight"><div class="insight-label">💬 Pour en parler à deux</div><div class="insight-text">'+p.action+'</div></div>'+
+      '<div class="disclaimer">⚕️ <strong>Note :</strong> Ce test est un outil de réflexion, pas un outil clinique. Pour toute question sur votre vie intime, un(e) sexologue peut vous accompagner. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>'+
+      '<button class="restart" id="again">↺ Recommencer</button>';
+    document.getElementById('again').onclick=renderIntro;
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load',notifyResize);
+})();
+</script>
+</body>
+</html>

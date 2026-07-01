@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Test : quelle chirurgienne êtes-vous ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a2535;background:transparent;line-height:1.55}
+  .quiz{max-width:560px;margin:0 auto;background:#f0f6ff;border:1px solid #d4e4f7;border-radius:16px;padding:26px 24px}
+  .progress{height:8px;background:#d4e4f7;border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#4a90d9,#1a5fa8);border-radius:99px;transition:width .35s ease}
+  .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#4a7db5;margin-bottom:10px;font-weight:600}
+  h2{font-size:1.22rem;line-height:1.38;margin-bottom:20px;color:#1a3560}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #c8def2;color:#1a2535;border-radius:12px;padding:13px 16px;margin-bottom:11px;font-size:.97rem;cursor:pointer;transition:all .18s ease;font-family:inherit}
+  .opt:hover{border-color:#4a90d9;background:#e8f3fd;transform:translateY(-1px)}
+  .intro{text-align:center}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:12px}
+  .intro p{color:#4a7db5;margin-bottom:20px;font-size:.97rem}
+  .btn{display:inline-block;background:#1a5fa8;color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .18s ease;font-family:inherit}
+  .btn:hover{background:#154d8a}
+  .result{text-align:center}
+  .result .tag{display:inline-block;background:#d4e8fa;color:#1a5fa8;border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px}
+  .result h2{margin-bottom:8px;color:#1a3560}
+  .result .sub{font-size:.88rem;color:#4a7db5;margin-bottom:18px}
+  .result .desc{text-align:left;background:#fff;border:1px solid #d4e4f7;border-radius:12px;padding:18px;margin-bottom:16px;font-size:.95rem;line-height:1.7}
+  .insight{background:#f0f6ff;border-radius:10px;padding:13px 16px;margin-bottom:12px;text-align:left}
+  .insight-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#4a7db5;margin-bottom:5px;font-weight:600}
+  .insight-text{font-size:.93rem;line-height:1.65;color:#1a2535}
+  .disclaimer{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 15px;font-size:.85rem;color:#92400e;line-height:1.6;margin-bottom:16px;text-align:left}
+  .restart{margin-top:6px;background:none;border:none;color:#4a7db5;font-size:.92rem;cursor:pointer;text-decoration:underline;font-family:inherit}
+  .restart:hover{color:#1a5fa8}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+(function(){
+  var questions=[
+    {q:"Une urgence tombe en salle de réveil. Votre premier réflexe ?",
+     a:[{t:"Analyser, triage rapide, déléguer avec précision.",p:"B"},
+        {t:"Foncer — vous êtes déjà en train d'agir avant qu'on vous appelle.",p:"A"},
+        {t:"Prendre une seconde pour évaluer l'équipe en place.",p:"C"},
+        {t:"Vérifier d'abord comment le patient se sent, pas seulement ses constantes.",p:"D"}]},
+    {q:"Un interne commet une erreur evitable. Comment réagissez-vous ?",
+     a:[{t:"Vous recadrez fermement, sans ménagement — l'erreur ne repasse pas.",p:"C"},
+        {t:"Vous comprenez d'abord pourquoi ça s'est passé.",p:"D"},
+        {t:"Vous l'intégrez à votre propre questionnement sur le protocole.",p:"A"},
+        {t:"Vous passez à autre chose — les erreurs font partie du job.",p:"B"}]},
+    {q:"Le chef de service vous met la pression sur un dossier délicat. Vous ?",
+     a:[{t:"Tenez bon sur votre diagnostic si vous êtes convaincu(e).",p:"B"},
+        {t:"Évaluez ses arguments avec sang-froid — il a peut-être raison.",p:"C"},
+        {t:"Ressentez une pression mais repartez chercher vos notes.",p:"A"},
+        {t:"Pensez d'abord à ce que ça implique pour le patient.",p:"D"}]},
+    {q:"Comment gérez-vous votre propre vie après une journée épuisante ?",
+     a:[{t:"Couper — sport, sortie, déconnexion totale.",p:"B"},
+        {t:"Ruminer malgré vous — les dossiers restent dans la tête.",p:"A"},
+        {t:"Rentrer et imposer un peu d'ordre à la maison aussi.",p:"C"},
+        {t:"Avoir besoin de parler de vos cas — ou d'écouter quelqu'un.",p:"D"}]},
+    {q:"Un patient vous confie quelque chose d'intime qui ne change rien au traitement. Vous…",
+     a:[{t:"Écoutez, mais gardez la distance clinique nécessaire.",p:"B"},
+        {t:"Notez l'info — ça peut toujours servir.",p:"A"},
+        {t:"Évaluez si c'est vraiment pertinent avant de réagir.",p:"C"},
+        {t:"Prenez le temps d'accuser réception — ça compte pour lui.",p:"D"}]},
+    {q:"Quelle phrase résume le mieux votre rapport à la médecine ?",
+     a:[{t:"\"Survivre à tout ça, c'est déjà quelque chose.\"",p:"A"},
+        {t:"\"Être le meilleur, c'est la seule chose qui m'intéresse.\"",p:"B"},
+        {t:"\"Cette salle est mon équipe, et mon équipe ne se plante pas.\"",p:"C"},
+        {t:"\"Ce qu'on fait ici change les gens — il faut s'en souvenir.\"",p:"D"}]},
+    {q:"Un cas impossible tombe dans votre bloc. Ça vous fait…",
+     a:[{t:"Peur, mais vous prenez le relais quand même.",p:"A"},
+        {t:"Monter en puissance — c'est exactement pour ça que vous êtes là.",p:"B"},
+        {t:"Mettre en place un protocole et une équipe en 90 secondes.",p:"C"},
+        {t:"Penser à ce que ça signifie pour la personne allongée.",p:"D"}]}
+  ];
+
+  var profiles={
+    A:{emoji:"🌧",tag:"Profil Meredith",name:"La Résiliente",
+       sub:"Solide malgré les tempêtes",
+       desc:"Vous fonctionnez à l'endurance. Marqué(e) par les coups durs, vous avez appris à tenir debout là où d'autres lâchent — pas sans cicatrices, mais sans jamais vraiment capituler. Votre force vient moins de la certitude que de la capacité à continuer malgré le doute.",
+       insight:"Ce profil reflète une intelligence émotionnelle forgée dans l'adversité. Votre empathie vient de ce que vous avez traversé — et c'est précisément ce qui vous rend attentif(ve) à ceux qui souffrent.",
+       action:"Veillez à ne pas confondre résilience et déni. Tenir debout, c'est bien. Se permettre de ne pas tenir parfaitement, c'est mieux encore."},
+    B:{emoji:"⚡",tag:"Profil Cristina",name:"La Battante",
+       sub:"Brillante, exigeante, implacable",
+       desc:"Vous êtes animé(e) par l'excellence — la vôtre, et celle de votre domaine. Le reste du monde peut attendre. Vous ne faites pas de compromis sur la compétence, et vous n'attendez pas des autres qu'ils vous en fassent non plus. Votre clarté peut désarmer, mais elle est aussi votre outil le plus précieux.",
+       insight:"Votre détachement apparent cache souvent une exigence émotionnelle intérieure très forte. Vous ne montrez pas votre vulnérabilité — mais elle existe, et les meilleurs de votre entourage le savent.",
+       action:"L'excellence solitaire a ses limites. Permettre aux autres d'être à la hauteur plutôt que de tout porter seul(e) est une forme d'intelligence tout aussi rare."},
+    C:{emoji:"🏛",tag:"Profil Bailey",name:"La Capitaine",
+       sub:"Structure, rigueur, leadership",
+       desc:"Vous êtes celui ou celle qui tient l'équipe. Pas par autoritarisme, mais par une conviction absolue que la rigueur protège les gens. Votre exigence n'est pas froide — elle est au service de quelque chose qui compte.",
+       insight:"Le leadership que vous incarnez repose sur la constance : les autres savent ce qu'ils peuvent attendre de vous. Ce n'est pas rien — c'est même très rare.",
+       action:"Un capitaine qui ne se repose jamais finit par couler avec son bateau. Vos limites sont une donnée clinique, pas une faiblesse."},
+    D:{emoji:"🌸",tag:"Profil Izzie",name:"L'Empathique",
+       sub:"La médecine comme acte humain",
+       desc:"Vous n'oubliez jamais que derrière le dossier, il y a une personne. Cette attention à l'autre est votre boussole — et parfois votre vulnérabilité. Vous ressentez ce que les autres mettent à distance, et ça vous coûte quelque chose.",
+       insight:"Votre empathie n'est pas un manque de rigueur : c'est une forme d'intelligence relationnelle que beaucoup de praticiens perdent en cours de route. Ne la laissez pas éteindre.",
+       action:"Apprenez à différencier la présence émotionnelle de la fusion. Vous pouvez être pleinement là pour quelqu'un sans vous dissoudre dans sa douleur."}
+  };
+
+  var box=document.getElementById('quiz');
+  var step=-1; var answers=[];
+
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+    },50);
+  }
+
+  function renderIntro(){
+    box.innerHTML='<div class="intro"><span class="emoji">🏥</span>'+
+      '<h2>Quelle chirurgienne êtes-vous&nbsp;?</h2>'+
+      '<p>Résiliente, battante, capitaine ou empathique ? 7 questions pour révéler votre profil — et les forces (et défis) qui vont avec.</p>'+
+      '<button class="btn" id="start">Commencer le test</button></div>';
+    document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
+    notifyResize();
+  }
+
+  function renderQ(){
+    var item=questions[step];
+    var pct=Math.round((step/questions.length)*100);
+    var html='<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="step-info">Question '+(step+1)+' / '+questions.length+'</div>'+
+      '<h2>'+item.q+'</h2>';
+    for(var i=0;i<item.a.length;i++){
+      html+='<button class="opt" data-p="'+item.a[i].p+'">'+item.a[i].t+'</button>';
+    }
+    box.innerHTML=html;
+    var opts=box.querySelectorAll('.opt');
+    for(var j=0;j<opts.length;j++){
+      opts[j].onclick=function(){
+        answers.push(this.getAttribute('data-p'));
+        step++;
+        if(step<questions.length){renderQ();}else{renderResult();}
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult(){
+    var counts={A:0,B:0,C:0,D:0};
+    for(var i=0;i<answers.length;i++){counts[answers[i]]++;}
+    var best='A',max=-1,order=['A','B','C','D'];
+    for(var k=0;k<order.length;k++){if(counts[order[k]]>max){max=counts[order[k]];best=order[k];}}
+    var p=profiles[best];
+    box.innerHTML='<div class="result">'+
+      '<div class="progress"><span style="width:100%"></span></div>'+
+      '<span class="emoji">'+p.emoji+'</span>'+
+      '<span class="tag">'+p.tag+'</span>'+
+      '<h2>'+p.name+'</h2>'+
+      '<div class="sub">'+p.sub+'</div>'+
+      '<div class="desc">'+p.desc+'</div>'+
+      '<div class="insight"><div class="insight-label">🔍 Ce que ça dit</div><div class="insight-text">'+p.insight+'</div></div>'+
+      '<div class="insight"><div class="insight-label">🌱 Pour aller plus loin</div><div class="insight-text">'+p.action+'</div></div>'+
+      '<div class="disclaimer">⚕️ <strong>Rappel :</strong> Ce test est un outil de réflexion ludique, pas un outil clinique. Pour une évaluation professionnelle, consultez un spécialiste.</div>'+
+      '<button class="restart" id="again">↺ Recommencer</button>';
+    document.getElementById('again').onclick=renderIntro;
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load',notifyResize);
+})();
+</script>
+</body>
+</html>

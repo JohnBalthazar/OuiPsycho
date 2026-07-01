@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Quel Bridgerton êtes-vous ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#2d1f3d;background:transparent;line-height:1.55}
+  .quiz{max-width:560px;margin:0 auto;background:#fdf5ff;border:1px solid #e8d5f5;border-radius:16px;padding:26px 24px}
+  .progress{height:8px;background:#e8d5f5;border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#c084e0,#7c3aed);border-radius:99px;transition:width .35s ease}
+  .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#9555b8;margin-bottom:10px;font-weight:600}
+  h2{font-size:1.22rem;line-height:1.38;margin-bottom:20px;color:#3b0764}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #ddb8f0;color:#2d1f3d;border-radius:12px;padding:13px 16px;margin-bottom:11px;font-size:.97rem;cursor:pointer;transition:all .18s ease;font-family:inherit}
+  .opt:hover{border-color:#9333ea;background:#f5e8ff;transform:translateY(-1px)}
+  .intro{text-align:center}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:12px}
+  .intro p{color:#7c3aed;margin-bottom:20px;font-size:.97rem}
+  .btn{display:inline-block;background:#7c3aed;color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .18s ease;font-family:inherit}
+  .btn:hover{background:#6d28d9}
+  .result{text-align:center}
+  .result .tag{display:inline-block;background:#ede9fe;color:#7c3aed;border-radius:99px;padding:5px 14px;font-size:.8rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;margin-bottom:14px}
+  .result h2{margin-bottom:8px;color:#3b0764}
+  .result .sub{font-size:.88rem;color:#9555b8;margin-bottom:18px}
+  .result .desc{text-align:left;background:#fff;border:1px solid #e8d5f5;border-radius:12px;padding:18px;margin-bottom:16px;font-size:.95rem;line-height:1.7}
+  .insight{background:#fdf5ff;border-radius:10px;padding:13px 16px;margin-bottom:12px;text-align:left}
+  .insight-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:#9555b8;margin-bottom:5px;font-weight:600}
+  .insight-text{font-size:.93rem;line-height:1.65;color:#2d1f3d}
+  .disclaimer{background:#fffbeb;border:1px solid #fde68a;border-radius:10px;padding:12px 15px;font-size:.85rem;color:#92400e;line-height:1.6;margin-bottom:16px;text-align:left}
+  .restart{margin-top:6px;background:none;border:none;color:#9555b8;font-size:.92rem;cursor:pointer;text-decoration:underline;font-family:inherit}
+  .restart:hover{color:#7c3aed}
+</style>
+</head>
+<body>
+<div class="quiz" id="quiz"></div>
+<script>
+(function(){
+  var questions=[
+    {q:"Quand votre entourage a besoin d'aide, vous…",
+     a:[{t:"Prenez les choses en main — c'est votre rôle.",p:"A"},
+        {t:"Offrez votre aide, mais en cherchant la bonne façon de le faire.",p:"B"},
+        {t:"Rendez tout ça plus léger avec une blague ou un plan spontané.",p:"C"},
+        {t:"Leur posez la vraie question que personne d'autre ne pose.",p:"D"}]},
+    {q:"Votre rapport au devoir et aux attentes des autres ?",
+     a:[{t:"Vous les assumez même quand ça pèse — c'est votre code.",p:"A"},
+        {t:"Vous les questionnez intérieurement, même si vous finissez par y répondre.",p:"B"},
+        {t:"Vous les esquivez avec élégance quand elles ne vous correspondent pas.",p:"C"},
+        {t:"Vous les ignorez si elles entrent en conflit avec vos convictions.",p:"D"}]},
+    {q:"Face à une décision difficile, vous…",
+     a:[{t:"Pesez le pour et le contre, puis tranchez — la décision doit être prise.",p:"A"},
+        {t:"Réfléchissez longuement, parfois trop — la bonne réponse se cherche.",p:"B"},
+        {t:"Vous fiez à votre instinct et improvisez si besoin.",p:"C"},
+        {t:"Remettez en question la prémisse avant de décider.",p:"D"}]},
+    {q:"Dans un dîner de famille tendu, vous seriez…",
+     a:[{t:"Celui ou celle qui maîtrise la situation en restant ferme.",p:"A"},
+        {t:"Celui ou celle qui s'éclipse mentalement et dessine dans sa tête.",p:"B"},
+        {t:"Celui ou celle qui désamorce l'ambiance avec de l'humour.",p:"C"},
+        {t:"Celui ou celle qui ose soulever le vrai sujet tabou.",p:"D"}]},
+    {q:"Ce qui vous attire le plus ?",
+     a:[{t:"L'ordre, la fiabilité — savoir exactement où vous allez.",p:"A"},
+        {t:"La beauté, la création — trouver quelque chose qui vous ressemble.",p:"B"},
+        {t:"L'aventure, les rencontres — être là où l'énergie est.",p:"C"},
+        {t:"Les idées, la liberté de penser sans borne.",p:"D"}]},
+    {q:"Votre plus grand défaut, honnêtement ?",
+     a:[{t:"Vous portez trop — et vous n'en parlez pas.",p:"A"},
+        {t:"Vous doutez trop — et vous n'agissez pas assez.",p:"B"},
+        {t:"Vous fuyez parfois ce qui mérite d'être affronté.",p:"C"},
+        {t:"Vous bousculez trop — tout le monde n'est pas prêt.",p:"D"}]},
+    {q:"Ce qui vous rend irrésistible, selon ceux qui vous connaissent bien ?",
+     a:[{t:"Votre solidité — on sait qu'on peut compter sur vous.",p:"A"},
+        {t:"Votre sensibilité — vous remarquez ce que les autres laissent passer.",p:"B"},
+        {t:"Votre énergie — vous illuminez n'importe quelle pièce.",p:"C"},
+        {t:"Votre authenticité — vous ne jouez aucun rôle.",p:"D"}]}
+  ];
+
+  var profiles={
+    A:{emoji:"🏛",tag:"Vous êtes Anthony",name:"Le Pilier",
+       sub:"Responsable, loyal, plus complexe qu'il n'y paraît",
+       desc:"Vous portez beaucoup — parfois trop — et vous le faites sans vous plaindre. Votre sens du devoir est réel, votre fiabilité est votre marque de fabrique. Mais sous cette armure de sérieux, il y a quelqu'un qui voudrait parfois poser le fardeau le temps d'un soir.",
+       insight:"Votre force est aussi votre piège : on vous demande d'être solide parce que vous l'êtes — mais qui prend soin de vous ? Les personnes les plus fiables sont souvent les moins bien soutenues.",
+       action:"Permettre aux autres d'être là pour vous n'est pas une faiblesse de leadership. C'est la condition pour durer."},
+    B:{emoji:"🎨",tag:"Vous êtes Benedict",name:"L'Artiste en devenir",
+       sub:"Sensible, curieux, encore en chemin",
+       desc:"Vous êtes en train de vous chercher — et c'est une bonne nouvelle, même si c'est inconfortable. Vous voyez ce que les autres ne voient pas, vous ressentez en profondeur, et vous aspirez à quelque chose qui vous ressemble vraiment. Le problème, c'est que vous n'êtes pas encore sûr(e) que vous méritez d'y accéder.",
+       insight:"Votre hésitation n'est pas un manque de talent — c'est le syndrome de l'imposteur habillé en costume régency. Agir malgré le doute est la seule façon de s'en défaire.",
+       action:"Commencez par une petite chose que vous avez toujours remise à demain. L'élan vient rarement avant le mouvement."},
+    C:{emoji:"✨",tag:"Vous êtes Colin",name:"Le Charmeur",
+       sub:"Spontané, généreux, légèrement insaisissable",
+       desc:"Vous attirez les gens naturellement — votre énergie est contagieuse et votre entourage vous le rend bien. Vous avancez à l'instinct, vous adaptez au contexte, et vous transformez les obstacles en anecdotes amusantes. L'ennui, par contre, vous est insupportable.",
+       insight:"Votre charme est réel, mais il peut vous servir de bouclier. Ce que vous montrez facilement masque parfois ce que vous traversez vraiment.",
+       action:"Permettre à quelques personnes de vous voir sans le sourire — c'est là que les vraies connexions se font."},
+    D:{emoji:"📖",tag:"Vous êtes Eloïse",name:"La Rebelle éclairée",
+       sub:"Curieuse, libre, insoumise avec grâce",
+       desc:"Vous posez les questions que personne n'ose poser, vous refusez les rôles qu'on cherche à vous assigner, et vous avez une capacité rare à penser par vous-même. Parfois inconfortable pour votre entourage — mais c'est précisément ce qui fait votre valeur.",
+       insight:"Votre indépendance d'esprit est précieuse. Le défi, c'est d'apprendre à choisir vos combats : toutes les règles ne méritent pas d'être brisées, et certaines personnes valent la peine d'être rejointes à mi-chemin.",
+       action:"Votre liberté de penser est une force. Votre capacité à connecter avec ceux qui ne partagent pas votre vision l'est encore plus."}
+  };
+
+  var box=document.getElementById('quiz');
+  var step=-1; var answers=[];
+
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');
+    },50);
+  }
+
+  function renderIntro(){
+    box.innerHTML='<div class="intro"><span class="emoji">🌹</span>'+
+      '<h2>Quel Bridgerton êtes-vous&nbsp;?</h2>'+
+      '<p>Anthony, Benedict, Colin ou Eloïse ? 7 questions pour révéler quel membre de la fratrie sommeille en vous — et ce que ça dit de vous.</p>'+
+      '<button class="btn" id="start">Découvrir mon profil</button></div>';
+    document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
+    notifyResize();
+  }
+
+  function renderQ(){
+    var item=questions[step];
+    var pct=Math.round((step/questions.length)*100);
+    var html='<div class="progress"><span style="width:'+pct+'%"></span></div>'+
+      '<div class="step-info">Question '+(step+1)+' / '+questions.length+'</div>'+
+      '<h2>'+item.q+'</h2>';
+    for(var i=0;i<item.a.length;i++){
+      html+='<button class="opt" data-p="'+item.a[i].p+'">'+item.a[i].t+'</button>';
+    }
+    box.innerHTML=html;
+    var opts=box.querySelectorAll('.opt');
+    for(var j=0;j<opts.length;j++){
+      opts[j].onclick=function(){
+        answers.push(this.getAttribute('data-p'));
+        step++;
+        if(step<questions.length){renderQ();}else{renderResult();}
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult(){
+    var counts={A:0,B:0,C:0,D:0};
+    for(var i=0;i<answers.length;i++){counts[answers[i]]++;}
+    var best='A',max=-1,order=['A','B','C','D'];
+    for(var k=0;k<order.length;k++){if(counts[order[k]]>max){max=counts[order[k]];best=order[k];}}
+    var p=profiles[best];
+    box.innerHTML='<div class="result">'+
+      '<div class="progress"><span style="width:100%"></span></div>'+
+      '<span class="emoji">'+p.emoji+'</span>'+
+      '<span class="tag">'+p.tag+'</span>'+
+      '<h2>'+p.name+'</h2>'+
+      '<div class="sub">'+p.sub+'</div>'+
+      '<div class="desc">'+p.desc+'</div>'+
+      '<div class="insight"><div class="insight-label">🔍 Ce que ça dit</div><div class="insight-text">'+p.insight+'</div></div>'+
+      '<div class="insight"><div class="insight-label">🌱 Pour aller plus loin</div><div class="insight-text">'+p.action+'</div></div>'+
+      '<div class="disclaimer">⚕️ <strong>Note :</strong> Ce test est un outil de réflexion ludique inspiré de la psychologie des personnages, pas un test clinique. Pour une évaluation professionnelle, consultez un spécialiste.</div>'+
+      '<button class="restart" id="again">↺ Recommencer</button>';
+    document.getElementById('again').onclick=renderIntro;
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load',notifyResize);
+})();
+</script>
+</body>
+</html>
