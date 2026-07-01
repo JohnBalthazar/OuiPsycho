@@ -1,258 +1,267 @@
-# Template — Article avec quiz interactif
+# Prompt — Article avec quiz interactif · Oui Psycho!
 
-> **Utiliser ce template** quand tu demandes à Claude de créer un article qui contient un quiz ou test de personnalité à la fin.
->
-> ⚠️ **Ne jamais demander à Claude d'embarquer le HTML du quiz dans le JSON** — ça cause des erreurs d'encodage JSON systématiques. Toujours 3 blocs séparés.
+> Copie tout le bloc ci-dessous, remplis les paramètres en haut, puis envoie à l'IA.
 
 ---
-
-## Prompt à envoyer à Claude
 
 ```
-Crée un article Oui Psycho! sur le thème : [SUJET]
+╔══════════════════════════════════════════════════════╗
+║         PARAMÈTRES — remplir avant tout              ║
+╚══════════════════════════════════════════════════════╝
 
-Inclus un quiz interactif à la fin de l'article (test de personnalité / auto-évaluation).
+Sujet de l'article : 
+Titre              : 
+Catégorie          :    ← voir liste en bas
+Ton                : 
+Angle              : 
+Longueur article   : 1000 mots      ← 800-1400 recommandé (le quiz complète)
+Statut             : published      ← ou : scheduled  /  draft
+Date publication   : YYYY-MM-DD
 
-Génère TROIS blocs de code séparés et distincts — pas de JSON combiné :
+Titre du quiz      : 
+Nb de questions    : 7              ← 6 à 10 recommandé
+Type de quiz       : profils        ← ou : score
+  - profils : chaque réponse vote pour un profil (A/B/C/D) → profil dominant
+  - score   : chaque réponse vaut 0–3 points → score total → profil par seuil
+Nb de profils      : 4              ← 3 à 4
 
----
+══════════════════════════════════════════════════════
+
+## Contexte
+
+Site : ouipsycho.fr — blog de vulgarisation en santé mentale
+Stack : HTML statique généré depuis des fichiers JSON (node _gen_static.js)
+Articles servis à : ouipsycho.fr/articles/{id}/
+Quiz servis à      : ouipsycho.fr/tests/{filename}.html
+
+## Ce que tu dois produire
+
+⚠️ TROIS blocs de code séparés et distincts.
+Ne JAMAIS embarquer le HTML du quiz dans le JSON (risque d'invalider tout le fichier).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ### BLOC 1 — Article JSON
 
-Un fichier JSON respectant exactement ce format :
-- Le champ "quiz" doit contenir UNIQUEMENT { "filename": "slug-du-quiz.html" } — pas de champ "html".
-- Le champ "content" se termine par l'iframe du quiz :
-
-  <h2>[Titre du quiz]</h2>
-  <p>[Introduction courte]</p>
-  <iframe src="tests/FILENAME" style="width:100%;border:none;min-height:580px;border-radius:12px" loading="lazy" title="[Titre]" id="quiz-frame-QUIZ_ID"></iframe>
-  <script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-QUIZ_ID');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>
-
-  Remplace FILENAME par le nom du fichier quiz, et QUIZ_ID par un identifiant court (ex: slug sans extension).
-  Le </script> dans la string JSON ne nécessite PAS d'échappement supplémentaire.
-
----
-
-### BLOC 2 — Quiz HTML autonome
-
-Un fichier HTML complet et autonome (<!DOCTYPE html>...</html>) avec :
-- Tous les styles inline (pas de dépendances externes)
-- La fonction notifyResize() appelée après chaque rendu :
-  function notifyResize() {
-    setTimeout(function() {
-      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
-    }, 50);
-  }
-- Appel de notifyResize() à chaque changement d'état (question suivante, affichage du résultat, recommencer)
-- Boutons de partage sur les réseaux sociaux dans l'écran de résultat (Facebook, X/Twitter, WhatsApp)
-
----
-
-### BLOC 3 — Entrée data/tests.json
-
-Un objet JSON à ajouter dans le tableau data/tests.json pour faire apparaître ce test dans la rubrique Tests du site :
+Fichier : articles/{id}.json
 
 {
-  "id": "slug-du-quiz",
-  "title": "Titre affiché sur la card de test",
-  "desc": "Description courte (1-2 phrases).",
-  "emoji": "🧠",
-  "color": "#1F4E6B",
-  "catLabel": "Catégorie affichée",
-  "duration": "5 min",
-  "testUrl": "tests/slug-du-quiz.html",
-  "articleUrl": "articles/slug-de-larticle/",
-  "image": "",
-  "isNew": true,
-  "status": "published"
-}
-
----
-
-Nomme le fichier quiz : slug-de-larticle-quiz.html
-```
-
----
-
-## Comment importer dans l'admin
-
-1. Va dans **Admin → Import / Export**
-2. **Zone ①** : dépose le fichier `.json` généré (Bloc 1)
-3. **Zone ②** : dépose le fichier `.html` du quiz généré (Bloc 2)
-4. Clique **🚀 Publier sur GitHub**
-
-L'admin publie automatiquement :
-- `articles/{id}.json` (article, sans le HTML du quiz)
-- `articles/{id}/index.html` (page statique)
-- `tests/{quiz.filename}` (quiz HTML)
-
-**Étape supplémentaire — ajouter le test à la rubrique Tests :**
-5. Ouvrir `data/tests.json` dans l'admin ou dans VS Code
-6. Ajouter l'objet du Bloc 3 en **tête du tableau** (pour qu'il apparaisse en premier)
-7. Committer (`git add data/tests.json && git commit -m "feat: nouveau test — [titre]"`)
-
-Le test apparaît alors automatiquement sur [ouipsycho.fr/tests.html](https://ouipsycho.fr/tests.html).
-
----
-
-## Format JSON attendu (Bloc 1)
-
-```json
-{
-  "id": "slug-de-larticle",
-  "title": "...",
-  "excerpt": "...",
-  "metaDescription": "...",
+  "id": "slug-en-minuscules-sans-accents-avec-tirets",
+  "title": "Titre exact",
+  "type": "article",
+  "excerpt": "Accroche courte et percutante (2-3 phrases).",
+  "metaDescription": "Description SEO 140-160 caractères.",
   "author": "La rédaction Oui Psycho!",
   "date": "YYYY-MM-DD",
   "date_modified": "YYYY-MM-DD",
-  "category": "...",
+  "category": "Bien-être",
   "image": "",
   "imagePosition": "50% 50%",
   "imageZoom": 1,
   "imageGravity": "none",
   "imageLayout": "top",
-  "readTime": 15,
-  "tags": ["tag-1", "tag-2"],
-  "keypoints": ["Point 1", "Point 2"],
-  "content": "...<h2>Test : [titre du quiz]</h2>\n<p>Introduction.</p>\n<iframe src=\"tests/mon-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Mon quiz\" id=\"quiz-frame-mon-quiz\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-mon-quiz');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>",
-  "quiz": {
-    "filename": "mon-quiz.html"
-  },
-  "sources": [],
+  "readTime": 8,
+  "tags": ["tag-1", "tag-2", "tag-3"],
+  "keypoints": [
+    "Point clé 1 — phrase complète.",
+    "Point clé 2.",
+    "Point clé 3.",
+    "Point clé 4.",
+    "Point clé 5."
+  ],
+  "content": "<p>Contenu HTML de l'article…</p>\n\n<h2>Titre du quiz</h2>\n<p>Courte intro invitant le lecteur à faire le quiz.</p>\n<iframe src=\"tests/{id}-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Titre du quiz\" id=\"quiz-frame-{id}\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-{id}');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>",
+  "quiz": { "filename": "{id}-quiz.html" },
+  "sources": [
+    {
+      "authors": "Nom A. & Nom B.",
+      "year": "2024",
+      "title": "Titre de l'étude",
+      "journal": "Nom de la revue",
+      "url": "https://doi.org/10.XXXX/XXXXX"
+    }
+  ],
+  "articles_lies": [],
   "status": "published"
 }
-```
 
-> **Points critiques du champ `content`** :
-> - Les `"` dans le HTML s'écrivent `\"` (échappement JSON normal)
-> - Les sauts de ligne s'écrivent `\n`
-> - Le `</script>` ne nécessite PAS d'échappement supplémentaire — `</script>` suffit
-> - Le champ `quiz` ne contient QUE `{ "filename": "..." }` — jamais de champ `html`
+→ Remplace {id} partout par le même slug (ex: "mon-article").
+→ RÈGLE ABSOLUE src : toujours src="tests/{id}-quiz.html" — jamais de slash initial (/tests/...).
+   Raison : la page article a <base href="../../"> → le slash initial crée un double slash en local.
+→ Le </script> dans le contenu JSON ne nécessite PAS d'échappement supplémentaire.
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Format data/tests.json (Bloc 3)
+### BLOC 2 — Quiz HTML autonome
 
-```json
+Fichier : tests/{id}-quiz.html
+
+Un fichier HTML complet (<!DOCTYPE html>…</html>) avec :
+
+OBLIGATOIRE :
+- Tous les styles dans <style> (aucune dépendance externe, aucun CDN)
+- Le bloc Google Consent Mode v2 en tête de <head> (voir ci-dessous)
+- La fonction notifyResize() appelée après CHAQUE changement d'état :
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  → notifyResize() DOIT être appelée : après chaque question, au résultat, après "Recommencer"
+  → window.addEventListener('load', notifyResize) en fin de script
+
+- Boutons de partage dans l'écran de résultat (Facebook, X/Twitter, WhatsApp)
+- Disclaimer ⚕️ dans l'écran de résultat (voir modèle ci-dessous)
+
+BLOC GOOGLE CONSENT (copier exactement en tête de <head>) :
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+DISCLAIMER (copier dans l'écran de résultat) :
+  ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+  Seul un professionnel de santé peut évaluer votre situation.
+  En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+
+PARTAGE (boutons dans l'écran de résultat) :
+  <a href="https://www.facebook.com/sharer/sharer.php?u=ENCODED_URL" target="_blank" rel="noopener">📘 Facebook</a>
+  <a href="https://twitter.com/intent/tweet?text=ENCODED_TEXT&url=ENCODED_URL" target="_blank" rel="noopener">𝕏 Twitter</a>
+  <a href="https://wa.me/?text=ENCODED_TEXT_URL" target="_blank" rel="noopener">💬 WhatsApp</a>
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+### BLOC 3 — Entrée data/tests.json
+
+Un objet JSON à ajouter dans le tableau data/tests.json UNIQUEMENT si l'article est publié
+(status = published, ou scheduled avec une date ≤ aujourd'hui) :
+
 {
-  "id": "slug-du-quiz",
-  "title": "Titre de la card affiché sur /tests.html",
-  "desc": "Description courte visible sous le titre (1-2 phrases max).",
+  "id": "{id}-quiz",
+  "title": "Titre affiché sur la card de test",
+  "desc": "Description courte (1-2 phrases max).",
   "emoji": "🧠",
   "color": "#1F4E6B",
-  "catLabel": "Développement personnel",
+  "catLabel": "Catégorie affichée",
   "duration": "5 min",
-  "testUrl": "tests/slug-du-quiz.html",
-  "articleUrl": "articles/slug-de-larticle/",
-  "image": "https://res.cloudinary.com/... (URL Cloudinary si dispo, sinon vide)",
+  "testUrl": "tests/{id}-quiz.html",
+  "articleUrl": "articles/{id}/",
+  "image": "",
   "isNew": true,
   "status": "published"
 }
-```
 
-**Champs :**
-| Champ | Description |
-|---|---|
-| `id` | Slug unique (même convention que l'article) |
-| `title` | Titre affiché sur la card — peut différer du titre de l'article |
-| `desc` | 1-2 phrases d'accroche pour la card |
-| `emoji` | Emoji affiché sur la card (visible sans image) |
-| `color` | Couleur d'accent de la card (hex) — choisir en cohérence avec la catégorie |
-| `catLabel` | Label de catégorie affiché (libre, pas contraint par les catégories articles) |
-| `duration` | Durée estimée du test (ex. `"5 min"`) |
-| `testUrl` | Chemin vers le fichier quiz (ex. `"tests/mon-quiz.html"`) |
-| `articleUrl` | Chemin vers l'article lié (ex. `"articles/slug/"`) — peut être vide `""` |
-| `image` | URL Cloudinary optionnelle — si vide, l'emoji est affiché à la place |
-| `isNew` | `true` affiche le badge "Nouveau" |
-| `status` | `"published"` ou `"draft"` |
+⚠️ Si l'article est scheduled avec une date future → NE PAS ajouter dans data/tests.json maintenant.
+   Ajouter l'entrée le jour de la publication.
 
----
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-## Structure du quiz HTML (Bloc 2)
+## Catégories valides (casse et accents obligatoires)
 
-```html
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[Titre du quiz]</title>
-  <style>
-    /* Tous les styles ici — pas de fichiers externes */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      padding: 2rem 1.5rem 3rem;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-    /* ... styles du quiz ... */
-  </style>
-</head>
-<body>
+Bien-être | Sommeil | Troubles Psy | Thérapies | Relations
+Développement personnel | Travail | Émotions & identité | Neurosciences & genre
+Société | Société & psychologie politique | Sexo
+Nos héros sur le divan | Les monstres sur le divan
 
-<div id="root"></div>
+## Règles pour le champ "content"
 
-<script>
-// Données du quiz
-const questions = [ /* ... */ ];
-const results   = { /* ... */ };
+Balises autorisées : <p> <h2> <h3> <ul><li> <ol><li> <strong> <em> <blockquote> <a> <br>
+Exception : le bloc <iframe>…<script> du quiz est autorisé à la fin de content.
+PAS d'autre <div>, <style>, <script> dans le reste de l'article.
+Les " dans le HTML s'écrivent \" en JSON. Les sauts de ligne s'écrivent \n.
 
-// État
-let current = 0;
-let answers  = Array(questions.length).fill(null);
+Liens sources externes :
+<a href="https://URL-EXACTE" target="_blank" rel="noopener noreferrer" class="ref-link" title="Auteur (Année) — Description">Texte affiché</a>
 
-// ⚠️ Appeler notifyResize() après CHAQUE rendu
-function render() {
-  // ... générer le HTML dans #root ...
-  notifyResize();
-}
+Liens internes :
+<a href="slug-de-larticle/">Texte du lien</a>   ← juste le slug + slash final, pas de préfixe
 
-function notifyResize() {
-  setTimeout(function() {
-    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
-  }, 50);
-}
+## Encodage
 
-// Partage réseaux sociaux (à inclure dans l'écran de résultat)
-function shareUrl(network, score, profileTitle) {
-  const url  = 'https://ouipsycho.fr/tests/FILENAME.html';
-  const text = `J'ai obtenu ${score} au test « [TITRE DU TEST] » sur Oui Psycho! 🧠 Mon profil : ${profileTitle}. Et toi ?`;
-  const encodedText = encodeURIComponent(text);
-  const encodedUrl  = encodeURIComponent(url);
-  if (network === 'facebook')  return `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
-  if (network === 'x')         return `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
-  if (network === 'whatsapp')  return `https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`;
-  return url;
-}
-
-render();
-</script>
-</body>
-</html>
+Caractères français directs (UTF-8) : é è ê ë à â ä ù û ü î ï ô ö ç œ æ — « » …
+Jamais d'entités HTML (&eacute; etc.) ni de séquences &#XXXX;
+Em-dash : — (jamais --)
 ```
 
 ---
 
-## Où atterrissent les fichiers
+## ✅ Checklist d'intégration (après génération)
 
-| Fichier | Étape | Chemin sur GitHub |
+Effectuer dans cet ordre :
+
+### 1. Créer les fichiers
+
+```
+articles/{id}.json          ← Bloc 1
+tests/{id}-quiz.html        ← Bloc 2
+```
+
+Vérifier que les deux noms correspondent :
+- `"quiz": { "filename": "{id}-quiz.html" }` dans le JSON
+- `src="tests/{id}-quiz.html"` dans le content (sans slash initial)
+- Le fichier HTML s'appelle exactement `tests/{id}-quiz.html`
+
+### 2. Régénérer les pages statiques
+
+```bash
+node _gen_static.js
+```
+
+### 3. Vérifier les quiz
+
+```bash
+node _check_quizzes.js
+```
+
+→ La ligne doit apparaître dans **OK**, pas dans **MANQUANT**.
+
+### 4. Ajouter dans data/tests.json (si article publié)
+
+Ajouter le Bloc 3 en tête du tableau `data/tests.json`.
+
+```bash
+# Vérifier que l'article est bien publié :
+node -e "const j=require('./articles/{id}.json'); console.log(j.status, j.date)"
+```
+
+### 5. Committer et pusher
+
+```bash
+git add articles/{id}.json tests/{id}-quiz.html articles/{id}/ {id}/ data/ sitemap.xml
+git commit -m "feat: article + quiz — {titre}"
+git push
+```
+
+---
+
+## ⚠️ Les 3 bugs classiques à éviter
+
+| Bug | Cause | Correction |
 |---|---|---|
-| Article JSON | Admin Zone ① | `articles/{id}.json` |
-| Page article (auto) | Généré par `_gen_static.js` | `articles/{id}/index.html` |
-| Quiz HTML | Admin Zone ② | `tests/{quiz.filename}` |
-| Entrée tests.json | **Manuel** — ajouter Bloc 3 en tête de `data/tests.json` | `data/tests.json` |
-
-Le quiz est chargé via `<base href="../../">` dans la page article → `src="tests/..."` résout depuis la racine du site.
+| **Iframe vide / blanche** | Le fichier `tests/{id}-quiz.html` n'existe pas | Créer le Bloc 2 et le déposer dans `tests/` |
+| **Quiz introuvable en prod** | `src="/tests/..."` avec slash initial | Toujours `src="tests/..."` (sans slash) — la page a `<base href="../../">` |
+| **Test absent de tests.html** | Entrée manquante dans `data/tests.json` | Ajouter le Bloc 3 dans `data/tests.json` |
 
 ---
 
-## Pourquoi pas d'HTML embarqué dans le JSON ?
+## Pourquoi 3 blocs séparés et pas 1 ?
 
-L'admin **supporte** le mode embarqué (`"quiz": { "filename": "...", "html": "..." }`) mais **Claude génère souvent un JSON invalide** dans ce cas parce que :
-- Le HTML complet du quiz (200–400 lignes) doit être encodé en une seule string JSON
-- Chaque `"` doit être `\"`, chaque `\` doit être `\\`, chaque saut de ligne doit être `\n`
-- Une seule erreur d'échappement casse tout le JSON
+L'IA génère souvent un JSON invalide si le HTML du quiz est embarqué dedans car :
+- 200 à 400 lignes de HTML doivent tenir en une seule chaîne JSON
+- Chaque `"` → `\"`, chaque `\` → `\\`, chaque saut de ligne → `\n`
+- Une seule erreur d'échappement = JSON illisible par `JSON.parse()`
 
-→ **Toujours préférer les 3 blocs séparés** : c'est plus fiable, plus lisible, et l'admin gère parfaitement les deux zones.
+→ Trois blocs séparés = zéro risque d'encodage + lisibilité + facilité d'import.
