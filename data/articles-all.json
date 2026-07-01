@@ -1060,17 +1060,16 @@
     "title": "Votre date Tinder est-il un tueur en série ?",
     "type": "article",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
-    "metaDescription": "Votre date cache-t-il un danger ? La psychologie décrypte les vrais red flags d'une rencontre (love bombing, emprise) et les bons réflexes de sécurité.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-10",
-    "date_modified": "2026-07-10",
+    "date_modified": "2026-07-01",
     "category": "Sexo",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/aq2gy0sq100txyggqwxi",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "rencontre",
       "red flags",
@@ -1079,35 +1078,7 @@
       "emprise",
       "applications de rencontre"
     ],
-    "sources": [
-      {
-        "authors": "Strutzenberg C. C., Wiersma-Mosley J. D., Jozkowski K. N. & Becnel J. N.",
-        "year": "2017",
-        "title": "Love-bombing: A Narcissistic Approach to Relationship Formation",
-        "journal": "Discovery, The Student Journal of Dale Bumpers College, 18(1), 81-89",
-        "url": "https://scholarworks.uark.edu/discoverymag/vol18/iss1/14"
-      },
-      {
-        "authors": "Paulhus D. L. & Williams K. M.",
-        "year": "2002",
-        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
-        "journal": "Journal of Research in Personality, 36(6), 556-563",
-        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
-      },
-      {
-        "authors": "Arabi S.",
-        "year": "2023",
-        "title": "Narcissistic and psychopathic traits in romantic partners predict post-traumatic stress disorder symptomology",
-        "journal": "Personality and Individual Differences, 201, 111942",
-        "url": "https://www.sciencedirect.com/science/article/abs/pii/S0191886922004470"
-      },
-      {
-        "authors": "de Becker G.",
-        "year": "1997",
-        "title": "The Gift of Fear: Survival Signals That Protect Us from Violence",
-        "publisher": "Little, Brown and Company"
-      }
-    ],
+    "metaDescription": "Votre date cache-t-il un danger ? La psychologie décrypte les vrais red flags d'une rencontre (love bombing, emprise) et les bons réflexes de sécurité.",
     "articles_lies": [
       "techniques-drague-science"
     ],
