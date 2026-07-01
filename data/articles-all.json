@@ -1110,6 +1110,61 @@
     "status": "scheduled"
   },
   {
+    "id": "techniques-drague-science",
+    "title": "Les techniques de drague qui marchent vraiment (selon la science)",
+    "type": "dossier",
+    "excerpt": "Oubliez les « techniques » des pickup artists. La psychologie de l'attirance désigne cinq leviers qui marchent vraiment — et quelques classiques qui font surtout fuir.",
+    "metaDescription": "La psychologie révèle les vraies techniques de séduction qui marchent : simple exposition, réciprocité, 36 questions… et celles qu'il faut éviter.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-05",
+    "date_modified": "2026-07-05",
+    "category": "Sexo",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "séduction",
+      "drague",
+      "attirance",
+      "psychologie sociale",
+      "relations"
+    ],
+    "sources": [
+      {
+        "authors": "Aron A., Melinat E., Aron E. N., Vallone R. D. & Bator R. J.",
+        "year": "1997",
+        "title": "The Experimental Generation of Interpersonal Closeness: A Procedure and Some Preliminary Findings",
+        "journal": "Personality and Social Psychology Bulletin, 23(4), 363-377",
+        "url": "https://journals.sagepub.com/doi/10.1177/0146167297234003"
+      },
+      {
+        "authors": "Chartrand T. L. & Bargh J. A.",
+        "year": "1999",
+        "title": "The chameleon effect: The perception-behavior link and social interaction",
+        "journal": "Journal of Personality and Social Psychology, 76(6), 893-910",
+        "url": "https://doi.org/10.1037/0022-3514.76.6.893"
+      },
+      {
+        "authors": "Dutton D. G. & Aron A. P.",
+        "year": "1974",
+        "title": "Some evidence for heightened sexual attraction under conditions of high anxiety",
+        "journal": "Journal of Personality and Social Psychology, 30(4), 510-517",
+        "url": "https://doi.org/10.1037/h0037031"
+      },
+      {
+        "authors": "Zajonc R. B.",
+        "year": "1968",
+        "title": "Attitudinal effects of mere exposure",
+        "journal": "Journal of Personality and Social Psychology, 9(2, Pt.2), 1-27"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
     "excerpt": "",
