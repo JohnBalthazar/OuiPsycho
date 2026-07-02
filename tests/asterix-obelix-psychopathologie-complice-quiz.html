@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel Gaulois êtes-vous ?</title>
+  <style>
+    :root {
+      --bleu:#1A4B8C;
+      --or:#E8C619;
+      --rouge:#C0392B;
+      --vert:#2E7D32;
+      --creme:#FDF8ED;
+      --encre:#1C2A1E;
+      --ciel:#D6E8F7;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--creme);
+      color:var(--encre);
+      padding:20px 14px;
+      line-height:1.55;
+    }
+    .quiz{
+      max-width:640px;margin:0 auto;background:#fff;
+      border:2px solid var(--encre);border-radius:14px;
+      box-shadow:6px 6px 0 var(--ciel);
+      overflow:hidden;
+    }
+    .quiz-head{
+      background:var(--bleu);color:#fff;padding:20px 22px;
+      border-bottom:2px solid var(--encre);
+    }
+    .quiz-head h1{font-size:1.25rem;line-height:1.3;letter-spacing:.2px}
+    .quiz-head p{font-size:.9rem;opacity:.9;margin-top:6px}
+    .quiz-body{padding:22px}
+    .progress{
+      height:12px;border:2px solid var(--encre);border-radius:8px;
+      background:#fff;overflow:hidden;margin-bottom:8px;
+    }
+    .progress-bar{
+      height:100%;width:0;background:var(--or);
+      transition:width .3s ease;
+    }
+    .progress-label{font-size:.8rem;color:var(--bleu);font-weight:600;margin-bottom:16px}
+    .question{font-size:1.08rem;font-weight:700;margin-bottom:16px}
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;width:100%;text-align:left;
+      background:#fff;border:2px solid var(--encre);border-radius:10px;
+      padding:12px 14px;font-size:.96rem;color:var(--encre);
+      cursor:pointer;font-family:inherit;line-height:1.4;
+      transition:transform .1s ease,background .15s ease;
+    }
+    .answer:hover,.answer:focus-visible{background:var(--ciel);transform:translate(-1px,-1px);outline:none}
+    .answer:active{transform:translate(1px,1px)}
+    .start-btn,.restart-btn{
+      display:inline-block;background:var(--or);color:var(--encre);
+      border:2px solid var(--encre);border-radius:10px;
+      padding:12px 26px;font-size:1rem;font-weight:700;cursor:pointer;
+      font-family:inherit;box-shadow:3px 3px 0 var(--encre);
+      transition:transform .1s ease,box-shadow .1s ease;
+    }
+    .start-btn:hover,.restart-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--encre)}
+    .start-btn:active,.restart-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--encre)}
+    .center{text-align:center}
+    .intro-emoji{font-size:2.6rem;margin-bottom:10px}
+    .result-badge{font-size:3rem;line-height:1;margin-bottom:8px}
+    .result-title{font-size:1.35rem;font-weight:800;color:var(--bleu);margin-bottom:4px}
+    .result-sub{font-size:.9rem;font-weight:600;color:var(--rouge);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+    .result-text{text-align:left;font-size:.96rem;margin-bottom:14px}
+    .result-text p{margin-bottom:10px}
+    .traits{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px}
+    .trait{
+      border:2px solid var(--encre);border-radius:999px;
+      padding:4px 12px;font-size:.82rem;font-weight:600;background:var(--ciel);
+    }
+    .share{border-top:2px dashed var(--encre);padding-top:16px;margin-top:6px}
+    .share p{font-size:.88rem;font-weight:700;margin-bottom:10px}
+    .share a{
+      display:inline-block;margin:0 4px 8px;padding:8px 14px;
+      border:2px solid var(--encre);border-radius:10px;
+      text-decoration:none;color:var(--encre);font-size:.88rem;font-weight:600;
+      background:#fff;transition:background .15s ease;
+    }
+    .share a:hover{background:var(--or)}
+    .disclaimer{
+      margin-top:16px;background:var(--ciel);
+      border:2px solid var(--encre);border-radius:10px;
+      padding:12px 14px;font-size:.82rem;text-align:left;
+    }
+    .restart-wrap{margin-top:18px}
+    @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-head">
+      <h1>🛡️ Quel Gaulois êtes-vous ?</h1>
+      <p>7 questions pour savoir quel irréductible habitant du village sommeille en vous.</p>
+    </div>
+    <div class="quiz-body" id="app"></div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Un problème surgit dans votre groupe. Quelle est votre première réaction ?",
+        a: [
+          { t: "Je prends les choses en main immédiatement — je suis le plus efficace de toute façon.", p: "A" },
+          { t: "Je propose mes bras et ma bonne volonté. On verra bien, ça s'arrangera.", p: "B" },
+          { t: "J'attends qu'on vienne me consulter. C'est mon rôle de trancher.", p: "C" },
+          { t: "Je prends le temps de bien analyser avant de donner la solution que j'ai déjà.", p: "D" },
+          { t: "Je propose une idée créative que personne ne retient vraiment.", p: "E" },
+          { t: "Je règle le problème sans bruit pendant que les autres débattent encore.", p: "F" }
+        ]
+      },
+      {
+        q: "Ce qui vous énerve le plus chez les autres ?",
+        a: [
+          { t: "Faire les choses à moitié alors qu'on pourrait faire mieux.", p: "A" },
+          { t: "Honnêtement, pas grand-chose — et si ça m'énerve, ça se règle vite.", p: "B" },
+          { t: "Ne pas me montrer le respect que ma position mérite.", p: "C" },
+          { t: "L'agitation inutile de ceux qui n'ont pas assez réfléchi.", p: "D" },
+          { t: "Quand personne ne prend la peine d'écouter vraiment ce que j'ai à dire.", p: "E" },
+          { t: "Les gens qui font de grandes scènes pour des broutilles.", p: "F" }
+        ]
+      },
+      {
+        q: "Votre plus grande force, sans fausse modestie ?",
+        a: [
+          { t: "Mon efficacité — je trouve toujours une solution, quelle que soit la situation.", p: "A" },
+          { t: "Mon enthousiasme et ma spontanéité. Ce que tu vois, c'est ce que tu as.", p: "B" },
+          { t: "Mon autorité naturelle et mon sens de la tradition.", p: "C" },
+          { t: "Ma sagesse. Je vois loin, j'anticipe ce que les autres ne perçoivent pas encore.", p: "D" },
+          { t: "Ma sensibilité et ma créativité — même si peu de gens s'en rendent compte.", p: "E" },
+          { t: "Mon pragmatisme. Je préfère faire que parler.", p: "F" }
+        ]
+      },
+      {
+        q: "Comment vous situez-vous dans un groupe ?",
+        a: [
+          { t: "Je suis la personne vers qui on se tourne quand ça devient vraiment sérieux.", p: "A" },
+          { t: "Je suis partout, j'embarque tout le monde dans mon élan — parfois un peu fort.", p: "B" },
+          { t: "Je suis le centre naturel. Tout s'organise autour de moi, c'est ainsi.", p: "C" },
+          { t: "En retrait, mais tout le monde sait que mon avis est décisif.", p: "D" },
+          { t: "Sur le bord, un peu à l'écart — je regarde, j'observe, j'attends.", p: "E" },
+          { t: "L'ancre du groupe. Les autres s'agitent, moi je tiens le cap.", p: "F" }
+        ]
+      },
+      {
+        q: "Votre façon de gérer un conflit ?",
+        a: [
+          { t: "J'analyse la situation, je planifie ma réponse, puis j'agis avec méthode.", p: "A" },
+          { t: "Direct et sans détour : je dis ce que je pense sur le moment, et ça s'arrange après.", p: "B" },
+          { t: "J'exige que l'autre reconnaisse ses torts. La parole du chef a du poids.", p: "C" },
+          { t: "Je laisse le temps faire son œuvre. J'interviens seulement si c'est vraiment nécessaire.", p: "D" },
+          { t: "Je tente une médiation par le dialogue — rarement entendue, mais j'essaie quand même.", p: "E" },
+          { t: "Je règle ça en privé, calmement. Pas question de faire une scène.", p: "F" }
+        ]
+      },
+      {
+        q: "On vous offre la journée. Que faites-vous ?",
+        a: [
+          { t: "Je coche tout ce qui était en retard sur ma to-do list. C'est l'occasion rêvée.", p: "A" },
+          { t: "Je profite — un bon repas, des amis, de l'action. La vie est trop courte.", p: "B" },
+          { t: "Je préside quelque chose. Une fête, une réunion, peu importe — du moment que je suis au centre.", p: "C" },
+          { t: "Je lis, je réfléchis, je me promène seul. Mes meilleures idées viennent dans ces moments-là.", p: "D" },
+          { t: "Je crée. Je joue, j'écris, je compose. Enfin du temps rien que pour ça.", p: "E" },
+          { t: "J'aide quelqu'un qui en a besoin, puis je rentre sans en faire tout un plat.", p: "F" }
+        ]
+      },
+      {
+        q: "On vous propose la potion magique pour une heure. Vous en faites quoi ?",
+        a: [
+          { t: "Je règle tout ce qui traîne. La liste est longue, autant en profiter.", p: "A" },
+          { t: "Je m'amuse comme un fou. Des Romains, du sanglier, et beaucoup d'enthousiasme.", p: "B" },
+          { t: "Je me comporterais exactement comme d'habitude, mais avec encore plus d'autorité.", p: "C" },
+          { t: "Je la garderais précieusement. Une telle ressource ne se gaspille pas.", p: "D" },
+          { t: "Je jouerais de ma lyre à pleine puissance pour qu'on m'entende enfin.", p: "E" },
+          { t: "Je m'en servirais pour aider les autres, discrètement, sans le dire.", p: "F" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "⚡",
+        name: "Astérix",
+        sub: "Le stratège irréductible",
+        traits: ["Efficacité", "Sang-froid", "Sens du devoir"],
+        text: "<p>Vous êtes celui sur qui tout le monde compte — et vous le savez. Votre intelligence et votre sens de l'organisation font de vous une pièce maîtresse dans n'importe quel groupe. Vous ne paniquez pas, vous analysez, vous agissez.</p><p>Mais cette indispensabilité a un prix que vous ne vous avouez pas toujours : une identité construite presque entièrement sur ce que vous faites pour les autres. L'agenda toujours plein, l'impression de ne jamais pouvoir décevoir, la légère panique quand une semaine se profile sans urgence — ça vous parle ? La potion magique, chez vous, c'est peut-être votre to-do list.</p><p><strong>Votre part d'ombre :</strong> si le village n'avait plus besoin d'être protégé, qui seriez-vous ? Parfois, le vrai courage, c'est de ne rien faire — et de voir ce qui reste.</p>"
+      },
+      B: {
+        emoji: "🐗",
+        name: "Obélix",
+        sub: "L'enthousiaste au grand cœur",
+        traits: ["Générosité", "Spontanéité", "Loyauté totale"],
+        text: "<p>Vous êtes brut, authentique, et ce que vous voyez c'est ce que vous avez. Votre enthousiasme est contagieux, votre loyauté absolue. Vous agissez avant de réfléchir — ce qui peut faire des dégâts — mais jamais avec malice. Vous ne savez pas faire semblant, et c'est une vraie rareté.</p><p>Vous portez peut-être des traces d'une expérience précoce intense qui a orienté votre façon d'être au monde — sans pour autant vous avoir brisé. Votre force est réelle. Votre cœur aussi.</p><p><strong>Votre part d'ombre :</strong> la spontanéité peut devenir impulsivité. S'arrêter une seconde avant de foncer serait parfois une forme de sagesse obélixienne.</p>"
+      },
+      C: {
+        emoji: "🛡️",
+        name: "Abraracourcix",
+        sub: "Le chef au bouclier bancal",
+        traits: ["Autorité", "Tradition", "Besoin de reconnaissance"],
+        text: "<p>Vous avez une présence naturelle et un sens aigu de votre rôle. Vous aimez que les choses soient à leur place — et que votre place soit reconnue. Vous portez l'histoire du groupe avec un certain sens du devoir.</p><p>Mais votre point sensible est là : quand on ne vous marque pas le respect attendu, la réaction est disproportionnée — et vous le savez parfois vous-même, après coup. Ce n'est pas de l'arrogance, c'est de la fragilité camouflée sous de l'autorité. La vraie confiance en soi ne se nourrit pas du regard des autres.</p><p><strong>Votre part d'ombre :</strong> la peur du ciel qui tomberait sur la tête, c'est l'anxiété de quelqu'un dont l'édifice intérieur est plus fragile qu'il n'y paraît. Travailler sa sécurité intérieure serait votre vraie révolution.</p>"
+      },
+      D: {
+        emoji: "🌿",
+        name: "Panoramix",
+        sub: "Le sage qui tient le secret",
+        traits: ["Sagesse", "Discrétion", "Maîtrise du savoir"],
+        text: "<p>Vous êtes celui qui voit loin, qui réfléchit avant d'agir, qui détient une forme de savoir que peu ont la patience d'acquérir. Votre calme inspire confiance. Votre discrétion est une force.</p><p>Mais avez-vous pensé à ce que votre indispensabilité coûte aux autres ? Garder le secret de la recette rend le groupe dépendant — parfois sans que vous vous en rendiez compte. Transmettre n'est pas perdre son pouvoir : c'est le démultiplier.</p><p><strong>Votre part d'ombre :</strong> l'expert qui garde son savoir pour lui crée autour de lui une dépendance. Votre défi : apprendre à lâcher, à déléguer, à faire confiance.</p>"
+      },
+      E: {
+        emoji: "🎵",
+        name: "Assurancetourix",
+        sub: "L'artiste incompris",
+        traits: ["Créativité", "Sensibilité", "Originalité"],
+        text: "<p>Vous êtes le plus singulier du groupe — et probablement celui qu'on écoute le moins, ce qui vous a blessé plus souvent que vous ne le dites. Votre sensibilité est une force réelle : vous percevez ce que les autres ne voient pas, vous exprimez ce qu'ils n'oseront jamais.</p><p>Vous avez peut-être intégré, avec le temps, l'idée qu'il vaut mieux se taire — pour éviter le rejet. Ce n'est pas de la résignation : c'est de la protection. Mais à quel prix ?</p><p><strong>Votre part d'ombre :</strong> le bouc émissaire du groupe, c'est souvent celui qui porte ce que le groupe ne sait pas faire avec la différence. Continuez à jouer quand même. Votre lyre manquera, le jour où vous vous tairez vraiment.</p>"
+      },
+      F: {
+        emoji: "💪",
+        name: "Bonemine",
+        sub: "L'irréductible discrète",
+        traits: ["Pragmatisme", "Solidité", "Intelligence pratique"],
+        text: "<p>Vous n'avez pas besoin d'être au centre pour avoir du pouvoir. Vous avancez sans fanfare, vous voyez clair là où les autres se perdent dans leurs grands discours, et vous réglez les choses qui comptent vraiment avec un calme déconcertant.</p><p>On vous sous-estime souvent au premier abord. C'est votre avantage. Vous le savez, et vous ne faites rien pour corriger cette impression — parce que l'efficacité vous importe plus que la reconnaissance.</p><p><strong>Votre part d'ombre :</strong> à force de tout gérer seul, on peut finir par porter ce qui devrait être partagé. Votre défi : accepter de demander de l'aide, parfois. Même les plus solides en ont besoin.</p>"
+      }
+    };
+
+    var state = { step: -1, votes: { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 } };
+    var app = document.getElementById('app');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+    function renderIntro() {
+      app.innerHTML =
+        '<div class="center">' +
+        '<div class="intro-emoji">🏺</div>' +
+        '<p style="margin-bottom:18px">Astérix, Obélix, Abraracourcix, Panoramix, Assurancetourix ou Bonemine — chacun incarne une façon bien particulière d\'être au monde. Ces 7 questions vous révèlent lequel vous ressemble le plus, avec les forces et les angles morts qui vont avec.</p>' +
+        '<button class="start-btn" onclick="startQuiz()">Par Toutatis, on y va !</button>' +
+        '</div>';
+      notifyResize();
+    }
+
+    function renderQuestion() {
+      var i = state.step;
+      var q = QUESTIONS[i];
+      var pct = Math.round((i / QUESTIONS.length) * 100);
+      var html =
+        '<div class="progress"><div class="progress-bar" style="width:' + pct + '%"></div></div>' +
+        '<div class="progress-label">Question ' + (i + 1) + ' / ' + QUESTIONS.length + '</div>' +
+        '<div class="question">' + esc(q.q) + '</div>' +
+        '<div class="answers">';
+      for (var k = 0; k < q.a.length; k++) {
+        html += '<button class="answer" onclick="answer(\'' + q.a[k].p + '\')">' + esc(q.a[k].t) + '</button>';
+      }
+      html += '</div>';
+      app.innerHTML = html;
+      notifyResize();
+    }
+
+    function renderResult() {
+      var best = 'A', max = -1;
+      var order = ['A', 'B', 'C', 'D', 'E', 'F'];
+      for (var i = 0; i < order.length; i++) {
+        if (state.votes[order[i]] > max) { max = state.votes[order[i]]; best = order[i]; }
+      }
+      var p = PROFILES[best];
+      var pageUrl = 'https://ouipsycho.fr/articles/asterix-obelix-psychopathologie-complice/';
+      var shareText = 'Mon résultat au quiz « Quel Gaulois êtes-vous ? » : ' + p.name + ' ! Et vous ?';
+      var eUrl = encodeURIComponent(pageUrl);
+      var eText = encodeURIComponent(shareText);
+      var eBoth = encodeURIComponent(shareText + ' ' + pageUrl);
+
+      app.innerHTML =
+        '<div class="center">' +
+        '<div class="progress"><div class="progress-bar" style="width:100%"></div></div>' +
+        '<div class="progress-label">Résultat</div>' +
+        '<div class="result-badge">' + p.emoji + '</div>' +
+        '<div class="result-title">Vous êtes ' + p.name + ' !</div>' +
+        '<div class="result-sub">' + p.sub + '</div>' +
+        '<div class="traits">' + p.traits.map(function(t){ return '<span class="trait">' + t + '</span>'; }).join('') + '</div>' +
+        '<div class="result-text">' + p.text + '</div>' +
+        '<div class="share">' +
+        '<p>Partagez votre résultat :</p>' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + eText + '&url=' + eUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + eBoth + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+        '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion ludique, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+        '<div class="restart-wrap"><button class="restart-btn" onclick="restart()">↺ Recommencer</button></div>' +
+        '</div>';
+      notifyResize();
+    }
+
+    function startQuiz() {
+      state.step = 0;
+      state.votes = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      renderQuestion();
+    }
+
+    function answer(profile) {
+      state.votes[profile]++;
+      state.step++;
+      if (state.step >= QUESTIONS.length) {
+        renderResult();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function restart() {
+      startQuiz();
+      notifyResize();
+    }
+
+    renderIntro();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>

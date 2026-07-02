@@ -1,5 +1,19 @@
 [
   {
+    "id": "asterix-obelix-psychopathologie-complice-quiz",
+    "title": "Quel Gaulois êtes-vous ?",
+    "desc": "Astérix, Obélix, Abraracourcix, Panoramix, Assurancetourix ou Bonemine — 7 questions pour savoir quel irréductible habitant du village sommeille en vous.",
+    "emoji": "🛡️",
+    "color": "#1A4B8C",
+    "catLabel": "Pop culture",
+    "duration": "3 min",
+    "testUrl": "tests/asterix-obelix-psychopathologie-complice-quiz.html",
+    "articleUrl": "articles/asterix-obelix-psychopathologie-complice/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "tintin-sur-le-divan-quiz",
     "title": "Quel personnage de Tintin êtes-vous ?",
     "desc": "Tintin, Haddock, Tournesol, Castafiore… 7 questions pour découvrir quel habitant de Moulinsart vous ressemble le plus.",
