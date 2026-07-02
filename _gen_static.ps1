@@ -1,3 +1,8 @@
+# OBSOLÈTE — Ne plus utiliser. Utiliser _gen_static.js (Node.js) à la place.
+# Ce fichier a divergé de _gen_static.js (catégories différentes, logique dépassée)
+# et n'est plus exécuté par la CI. Conservé temporairement pour référence.
+# Suppression prévue après vérification que rien n'y fait référence.
+
 # Generation pages statiques SEO - Oui Psycho!
 $BASE = "https://ouipsycho.fr"
 $DIR  = "k:\Site\Oui Psycho\articles"
