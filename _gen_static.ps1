@@ -1,5 +1,5 @@
 # Generation pages statiques SEO - Oui Psycho!
-$BASE = "https://johnbalthazar.github.io/OuiPsycho"
+$BASE = "https://ouipsycho.fr"
 $DIR  = "k:\Site\Oui Psycho\articles"
 
 function Get-FmtDate($d) {
@@ -74,8 +74,8 @@ Get-ChildItem "$DIR\*.json" | Sort-Object Name | ForEach-Object {
     $jd = $j.metaDescription -replace '\\','\\' -replace '"','\"'
     $ja = $j.author -replace '\\','\\' -replace '"','\"'
     $jk = ($j.tags -join ", ") -replace '"','\"'
-    $aLD = "{`"@context`":`"https://schema.org`",`"@type`":`"Article`",`"headline`":`"$jt`",`"description`":`"$jd`",`"datePublished`":`"$($j.date)`",`"dateModified`":`"$($j.date)`",`"inLanguage`":`"fr`",`"author`":{`"@type`":`"Person`",`"name`":`"$ja`"},`"publisher`":{`"@type`":`"Organization`",`"name`":`"Oui Psycho!`",`"url`":`"$BASE/`"},`"mainEntityOfPage`":{`"@type`":`"WebPage`",`"@id`":`"$BASE/articles/$($j.id).html`"},`"keywords`":`"$jk`",`"articleSection`":`"$($j.category)`"}"
-    $bLD = "{`"@context`":`"https://schema.org`",`"@type`":`"BreadcrumbList`",`"itemListElement`":[{`"@type`":`"ListItem`",`"position`":1,`"name`":`"Accueil`",`"item`":`"$BASE/`"},{`"@type`":`"ListItem`",`"position`":2,`"name`":`"$($j.category)`",`"item`":`"$BASE/index.html?cat=$enc`"},{`"@type`":`"ListItem`",`"position`":3,`"name`":`"$jt`",`"item`":`"$BASE/articles/$($j.id).html`"}]}"
+    $aLD = "{`"@context`":`"https://schema.org`",`"@type`":`"Article`",`"headline`":`"$jt`",`"description`":`"$jd`",`"datePublished`":`"$($j.date)`",`"dateModified`":`"$($j.date)`",`"inLanguage`":`"fr`",`"author`":{`"@type`":`"Person`",`"name`":`"$ja`"},`"publisher`":{`"@type`":`"Organization`",`"name`":`"Oui Psycho!`",`"url`":`"$BASE/`"},`"mainEntityOfPage`":{`"@type`":`"WebPage`",`"@id`":`"$BASE/articles/$($j.id)/`"},`"keywords`":`"$jk`",`"articleSection`":`"$($j.category)`"}"
+    $bLD = "{`"@context`":`"https://schema.org`",`"@type`":`"BreadcrumbList`",`"itemListElement`":[{`"@type`":`"ListItem`",`"position`":1,`"name`":`"Accueil`",`"item`":`"$BASE/`"},{`"@type`":`"ListItem`",`"position`":2,`"name`":`"$($j.category)`",`"item`":`"$BASE/index.html?cat=$enc`"},{`"@type`":`"ListItem`",`"position`":3,`"name`":`"$jt`",`"item`":`"$BASE/articles/$($j.id)/`"}]}"
 
     $html  = "<!DOCTYPE html>`n<html lang=`"fr`">`n<head>`n"
     $html += "  <meta charset=`"UTF-8`">`n"
@@ -85,11 +85,11 @@ Get-ChildItem "$DIR\*.json" | Sort-Object Name | ForEach-Object {
     $html += "  <meta name=`"author`" content=`"$($j.author)`">`n"
     $html += "  <meta name=`"robots`" content=`"index, follow`">`n"
     $html += "  <base href=`"../`">`n"
-    $html += "  <link rel=`"canonical`" href=`"$BASE/articles/$($j.id).html`">`n"
+    $html += "  <link rel=`"canonical`" href=`"$BASE/articles/$($j.id)/`">`n"
     $html += "  <meta property=`"og:type`" content=`"article`">`n"
     $html += "  <meta property=`"og:title`" content=`"$($j.title) — Oui Psycho!`">`n"
     $html += "  <meta property=`"og:description`" content=`"$($j.metaDescription)`">`n"
-    $html += "  <meta property=`"og:url`" content=`"$BASE/articles/$($j.id).html`">`n"
+    $html += "  <meta property=`"og:url`" content=`"$BASE/articles/$($j.id)/`">`n"
     $html += "  <meta property=`"og:locale`" content=`"fr_FR`">`n"
     $html += "  <meta property=`"og:site_name`" content=`"Oui Psycho!`">`n"
     $html += "  <meta name=`"twitter:card`" content=`"summary_large_image`">`n"
