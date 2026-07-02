@@ -47,9 +47,5 @@ jobs:
             echo "pushed=true" >> $GITHUB_OUTPUT
           fi
 
-      - name: Notifier Google (ping sitemap)
-        if: steps.commit-push.outputs.pushed == 'true'
-        run: |
-          curl -s --max-time 10 \
-            "https://www.google.com/ping?sitemap=https://ouipsycho.fr/sitemap.xml" || true
-          echo "✅ Google pingé — sitemap soumis."
+      # Note : l'endpoint google.com/ping?sitemap= est désactivé depuis juin 2023.
+      # L'indexation passe par Search Console + lastmod du sitemap.
