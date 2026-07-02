@@ -7,6 +7,13 @@ Allow: /
 # Pages non publiques
 Disallow: /admin.html
 Disallow: /data/
+
+# Données JSON nécessaires au rendu JS (chargées par Googlebot)
+Allow: /data/articles.json
+Allow: /data/articles-all.json
+Allow: /data/tests.json
+Allow: /data/dossiers.json
+Allow: /data/config.json
 Disallow: /articles/*.json
 
 # Fichiers articles plats (doublons des URLs canoniques /articles/ID/)
