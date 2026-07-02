@@ -19,6 +19,9 @@ Statut             : published      ← ou : scheduled  /  draft
 Date publication   : YYYY-MM-DD
 
 Titre du quiz      : 
+Description quiz   : (1-2 phrases, affichée sur la page Tests)
+Emoji quiz         : 🧠             ← 1 emoji représentatif
+Couleur quiz       : #1F4E6B        ← couleur hex de la card
 Nb de questions    : 7              ← 6 à 10 recommandé
 Type de quiz       : profils        ← ou : score
   - profils : chaque réponse vote pour un profil (A/B/C/D) → profil dominant
@@ -36,7 +39,7 @@ Quiz servis à      : ouipsycho.fr/tests/{filename}.html
 
 ## Ce que tu dois produire
 
-⚠️ TROIS blocs de code séparés et distincts.
+⚠️ DEUX blocs de code séparés et distincts.
 Ne JAMAIS embarquer le HTML du quiz dans le JSON (risque d'invalider tout le fichier).
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -47,7 +50,7 @@ Fichier : articles/{id}.json
 
 {
   "id": "slug-en-minuscules-sans-accents-avec-tirets",
-  "title": "Titre exact",
+  "title": "Titre exact de l'article",
   "type": "article",
   "excerpt": "Accroche courte et percutante (2-3 phrases).",
   "metaDescription": "Description SEO 140-160 caractères.",
@@ -70,7 +73,17 @@ Fichier : articles/{id}.json
     "Point clé 5."
   ],
   "content": "<p>Contenu HTML de l'article…</p>\n\n<h2>Titre du quiz</h2>\n<p>Courte intro invitant le lecteur à faire le quiz.</p>\n<iframe src=\"tests/{id}-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Titre du quiz\" id=\"quiz-frame-{id}\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-{id}');if(f)f.style.minHeight=(e.data.height+32)+'px';}});<\/script>",
-  "quiz": { "filename": "{id}-quiz.html" },
+  "quiz": {
+    "filename": "{id}-quiz.html",
+    "card": {
+      "title": "Titre affiché sur la page Tests (ex: Quel personnage êtes-vous ?)",
+      "desc": "Description courte pour la card de test (1-2 phrases).",
+      "emoji": "🧠",
+      "color": "#1F4E6B",
+      "catLabel": "Pop culture",
+      "duration": "4 min"
+    }
+  },
   "sources": [
     {
       "authors": "Nom A. & Nom B.",
@@ -87,7 +100,8 @@ Fichier : articles/{id}.json
 → Remplace {id} partout par le même slug (ex: "mon-article").
 → RÈGLE ABSOLUE src : toujours src="tests/{id}-quiz.html" — jamais de slash initial (/tests/...).
    Raison : la page article a <base href="../../"> → le slash initial crée un double slash en local.
-→ Le `<\/script>` dans le contenu JSON s'écrit avec le backslash (`<\/script>`) pour éviter toute ambiguïté de parsing.
+→ Le `<\/script>` dans le contenu JSON s'écrit avec le backslash pour éviter toute ambiguïté de parsing.
+→ quiz.card est lu automatiquement à l'import pour mettre à jour data/tests.json — ne pas l'omettre.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -144,31 +158,6 @@ PARTAGE (boutons dans l'écran de résultat) :
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-### BLOC 3 — Entrée data/tests.json
-
-Un objet JSON à ajouter dans le tableau data/tests.json UNIQUEMENT si l'article est publié
-(status = published, ou scheduled avec une date ≤ aujourd'hui) :
-
-{
-  "id": "{id}-quiz",
-  "title": "Titre affiché sur la card de test",
-  "desc": "Description courte (1-2 phrases max).",
-  "emoji": "🧠",
-  "color": "#1F4E6B",
-  "catLabel": "Catégorie affichée",
-  "duration": "5 min",
-  "testUrl": "tests/{id}-quiz.html",
-  "articleUrl": "articles/{id}/",
-  "image": "",
-  "isNew": true,
-  "status": "published"
-}
-
-⚠️ Si l'article est scheduled avec une date future → NE PAS ajouter dans data/tests.json maintenant.
-   Ajouter l'entrée le jour de la publication.
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
 ## Catégories valides (casse et accents obligatoires)
 
 Bien-être | Sommeil | Troubles Psy | Thérapies | Relations
@@ -198,48 +187,34 @@ Em-dash : — (jamais --)
 
 ---
 
-## ✅ Checklist d'intégration (après génération)
+## ✅ Intégration via l'admin (ouipsycho.fr/poulet)
 
-Effectuer dans cet ordre :
+**C'est tout ce qu'il y a à faire :**
 
-### 1. Créer les fichiers
+1. Aller sur **Import / Export**
+2. Déposer le **Bloc 1** (fichier `.json`) dans la zone ① Article
+3. Déposer le **Bloc 2** (fichier `.html`) dans la zone ② Quiz
+4. Choisir date et statut, puis **Publier sur GitHub**
 
-```
-articles/{id}.json          ← Bloc 1
-tests/{id}-quiz.html        ← Bloc 2
-```
+→ L'admin gère automatiquement : page HTML statique, `data/articles.json`, `data/articles-all.json`, `data/tests.json` (depuis `quiz.card`), `sitemap.xml`.
 
-Vérifier que les deux noms correspondent :
-- `"quiz": { "filename": "{id}-quiz.html" }` dans le JSON
-- `src="tests/{id}-quiz.html"` dans le content (sans slash initial)
-- Le fichier HTML s'appelle exactement `tests/{id}-quiz.html`
+---
 
-### 2. Régénérer les pages statiques
+## ✅ Intégration en ligne de commande (alternative)
 
 ```bash
+# 1. Placer les fichiers
+cp {id}.json        articles/{id}.json
+cp {id}-quiz.html   tests/{id}-quiz.html
+
+# 2. Générer les statiques + mettre à jour tous les index
 node _gen_static.js
-```
 
-### 3. Vérifier les quiz
+# 3. Vérifier le quiz
+node _check_quizzes.js   # → doit apparaître dans OK
 
-```bash
-node _check_quizzes.js
-```
-
-→ La ligne doit apparaître dans **OK**, pas dans **MANQUANT**.
-
-### 4. Ajouter dans data/tests.json (si article publié)
-
-Ajouter le Bloc 3 en tête du tableau `data/tests.json`.
-
-```bash
-# Vérifier que l'article est bien publié :
-node -e "const j=require('./articles/{id}.json'); console.log(j.status, j.date)"
-```
-
-### 5. Committer et pusher
-
-```bash
+# 4. Ajouter manuellement dans data/tests.json (depuis quiz.card)
+# Puis committer
 git add articles/{id}.json tests/{id}-quiz.html articles/{id}/ {id}/ data/ sitemap.xml
 git commit -m "feat: article + quiz — {titre}"
 git push
@@ -247,22 +222,21 @@ git push
 
 ---
 
-## ⚠️ Les 4 bugs classiques à éviter
+## ⚠️ Les 3 bugs classiques à éviter
 
 | Bug | Cause | Correction |
 |---|---|---|
-| **404 sur ouipsycho.fr/{id}/** | Le JSON `articles/{id}.json` n'a jamais été créé | Créer le Bloc 1 dans `articles/` et lancer `node _gen_static.js` |
-| **Iframe vide / blanche** | Le fichier `tests/{id}-quiz.html` n'existe pas | Créer le Bloc 2 et le déposer dans `tests/` |
-| **Quiz introuvable en prod** | `src="/tests/..."` avec slash initial | Toujours `src="tests/..."` (sans slash) — la page a `<base href="../../">` |
-| **Test absent de tests.html** | Entrée manquante dans `data/tests.json` | Ajouter le Bloc 3 dans `data/tests.json` |
+| **404 sur ouipsycho.fr/{id}/** | Le JSON `articles/{id}.json` n'a jamais été importé/créé | Importer via l'admin ou lancer `node _gen_static.js` |
+| **Iframe vide / blanche** | Le fichier `tests/{id}-quiz.html` n'a pas été déposé | Déposer le Bloc 2 dans la zone ② de l'admin |
+| **Test absent de tests.html** | `quiz.card` absent du JSON **ou** import sans PAT configuré | Vérifier que `quiz.card` est bien rempli dans le Bloc 1 |
 
 ---
 
-## Pourquoi 3 blocs séparés et pas 1 ?
+## Pourquoi 2 blocs séparés et pas 1 ?
 
 L'IA génère souvent un JSON invalide si le HTML du quiz est embarqué dedans car :
 - 200 à 400 lignes de HTML doivent tenir en une seule chaîne JSON
 - Chaque `"` → `\"`, chaque `\` → `\\`, chaque saut de ligne → `\n`
 - Une seule erreur d'échappement = JSON illisible par `JSON.parse()`
 
-→ Trois blocs séparés = zéro risque d'encodage + lisibilité + facilité d'import.
+→ Deux blocs séparés = zéro risque d'encodage + lisibilité + import en 2 clics.

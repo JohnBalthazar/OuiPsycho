@@ -2923,6 +2923,20 @@ async function mergeIndexWithRemote(localArticles, deletedId = null) {
   return merged;
 }
 
+async function githubGetFileContent(path) {
+  try {
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const pat    = localStorage.getItem(GH_PAT_KEY) || '';
+    const url = ghBase() + path + '?ref=' + branch + '&t=' + Date.now();
+    const res = await fetch(url, {
+      headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github.v3+json' }
+    });
+    if (!res.ok) return null;
+    const data = await res.json();
+    if (!data.content) return null;
+    return decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+  } catch(e) { return null; }
+}
 async function githubGetSha(path) {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
@@ -3110,10 +3124,11 @@ async function publishImportedArticle() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (pat && content) {
     try {
-      // 1. JSON article (sans le champ quiz.html pour alléger)
-      const dataForGithub = quiz
-        ? { ...data, quiz: quizFilename ? { filename: quizFilename } : undefined }
-        : data;
+      // 1. JSON article — conserve quiz.card mais retire le HTML embarqué si présent
+      const quizMeta = (data.quiz && typeof data.quiz === 'object')
+        ? { filename: quizFilename || data.quiz.filename, ...(data.quiz.card ? { card: data.quiz.card } : {}) }
+        : undefined;
+      const dataForGithub = { ...data, ...(quizMeta ? { quiz: quizMeta } : {}) };
       await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
 
       // 2. Mise à jour index
@@ -3129,6 +3144,34 @@ async function publishImportedArticle() {
       // 4. Quiz HTML → tests/{filename}
       if (quizHtml && quizFilename) {
         await githubPutFile('tests/' + quizFilename, quizHtml, 'import: quiz ' + quizFilename);
+      }
+
+      // 5. data/tests.json — mise à jour automatique si quiz.card présent et article publié
+      const quizCard = data.quiz && data.quiz.card;
+      if (quizCard && quizFilename && chosenStatus === 'published') {
+        const newEntry = {
+          id:         quizFilename.replace(/\.html?$/i, ''),
+          title:      quizCard.title      || data.title,
+          desc:       quizCard.desc       || data.excerpt || '',
+          emoji:      quizCard.emoji      || '🧠',
+          color:      quizCard.color      || '#1F4E6B',
+          catLabel:   quizCard.catLabel   || data.category || '',
+          duration:   quizCard.duration   || '5 min',
+          testUrl:    'tests/' + quizFilename,
+          articleUrl: 'articles/' + data.id + '/',
+          image:      data.image          || '',
+          isNew:      true,
+          status:     'published'
+        };
+        let testsArr = [];
+        const testsRaw = await githubGetFileContent('data/tests.json');
+        if (testsRaw) { try { testsArr = JSON.parse(testsRaw); } catch(e) {} }
+        // Remplacer l'entrée existante ou insérer en tête
+        testsArr = testsArr.filter(t => t.id !== newEntry.id);
+        testsArr.unshift(newEntry);
+        await githubPutFile('data/tests.json', JSON.stringify(testsArr, null, 2), 'import: tests.json entry for ' + data.id);
+        toast('🎉 Article + quiz + tests.json publiés avec succès !', 'success');
+      } else if (quizHtml && quizFilename) {
         toast('🎉 Article + quiz "' + quizFilename + '" publiés avec succès !', 'success');
       } else {
         toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
