@@ -1770,21 +1770,16 @@ async function doLogin() {
   sessionStorage.setItem(SESSION_KEY, JSON.stringify({ loginTime: Date.now() }));
   startSessionTimer(SESSION_DURATION);
 
-  // Déchiffrer PAT + credentials Firebase depuis config.json si absents du localStorage
-  const needPat   = !localStorage.getItem(GH_PAT_KEY);
+  // Déchiffrer credentials Firebase depuis config.json si absents du localStorage
+  // NOTE : pat_enc n'est plus restauré depuis config.json (stockage localStorage uniquement)
   const needFb    = !localStorage.getItem(FB_EMAIL_KEY) || !localStorage.getItem(FB_PASS_KEY);
   const needBrevo = !localStorage.getItem(BREVO_KEY_KEY);
-  if (needPat || needFb || needBrevo) {
+  if (needFb || needBrevo) {
     try {
       const r = await fetch('data/config.json?t=' + Date.now());
       if (r.ok) {
         const cfg = await r.json();
         const restored = [];
-        // Restaurer le PAT GitHub
-        if (needPat && cfg.pat_enc) {
-          const pat = await decryptPAT(cfg.pat_enc, pass);
-          if (pat) { localStorage.setItem(GH_PAT_KEY, pat); restored.push('GitHub'); }
-        }
         // Restaurer les credentials Firebase (email + mot de passe chiffrés)
         if (needFb && cfg.fb_enc) {
           const fb = await decryptPAT(cfg.fb_enc, pass);
@@ -3284,18 +3279,8 @@ async function saveGitHubSettings() {
   const pat = document.getElementById('gh-pat').value.trim();
   if (pat) {
     localStorage.setItem(GH_PAT_KEY, pat);
-    // Chiffrer le PAT et le stocker dans config.json pour auto-restauration
-    if (_sessionPassword) {
-      try {
-        const encrypted = await encryptPAT(pat, _sessionPassword);
-        localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(encrypted));
-        toast('Configuration GitHub enregistrée ✅ (PAT chiffré et sauvegardé)', 'success');
-      } catch(_) {
-        toast('Configuration GitHub enregistrée ✅', 'success');
-      }
-    } else {
-      toast('Configuration GitHub enregistrée ✅', 'success');
-    }
+    // Le PAT reste en localStorage uniquement — jamais poussé vers config.json
+    toast('Configuration GitHub enregistrée ✅', 'success');
   } else {
     toast('Configuration GitHub enregistrée ✅', 'success');
   }
@@ -3311,19 +3296,11 @@ async function changePassword() {
   localStorage.setItem(ADMIN_PASS_KEY, newHash);
   _sessionPassword = np; // mettre à jour le mot de passe session
 
-  // Re-chiffrer le PAT avec le nouveau mot de passe
-  const pat = localStorage.getItem(GH_PAT_KEY);
-  if (pat) {
-    try {
-      const enc = await encryptPAT(pat, np);
-      localStorage.setItem('ouipsycho_pat_enc', JSON.stringify(enc));
-    } catch(_) {}
-  }
-
-  // Pousser le nouveau hash + PAT rechiffré dans config.json → source de vérité
-  // Le hash SHA-256 est safe à stocker publiquement (sens unique + sel)
+  // Pousser le nouveau hash dans config.json → source de vérité
+  // Le hash PBKDF2 est safe à stocker publiquement (sens unique + sel)
+  // NOTE : pat_enc n'est plus inclus dans config.json
   try {
-    await pushConfigToGitHub(); // inclut adminPassHash et pat_enc
+    await pushConfigToGitHub(); // inclut adminPassHash uniquement
     toast('Mot de passe mis à jour ✅ — sauvegardé sur GitHub', 'success');
   } catch(_) {
     toast('Mot de passe mis à jour localement ✅', 'success');
@@ -3554,11 +3531,6 @@ async function pushConfigToGitHub() {
   const pick = (lsKey, remoteKey, def = '') =>
     localStorage.getItem(lsKey) || remote[remoteKey] || def;
 
-  // PAT GitHub chiffré — priorité locale, sinon garder la version distante
-  const patEncLocal  = localStorage.getItem('ouipsycho_pat_enc');
-  const patEncRemote = remote.pat_enc || null;
-  const patEnc       = patEncLocal ? JSON.parse(patEncLocal) : patEncRemote;
-
   // Credentials Firebase chiffrés — même logique
   const fbEncLocal  = localStorage.getItem('ouipsycho_fb_enc');
   const fbEncRemote = remote.fb_enc || null;
@@ -3587,8 +3559,7 @@ async function pushConfigToGitHub() {
     contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
     // Hash du mot de passe admin (SHA-256 + sel, sens unique, safe à publier)
     ...(adminPassHash ? { adminPassHash } : {}),
-    // PAT GitHub chiffré AES-256-GCM (inutilisable sans le mot de passe admin)
-    ...(patEnc ? { pat_enc: patEnc } : {}),
+    // NOTE : pat_enc retiré — le PAT GitHub reste en localStorage uniquement (sécurité)
     // Credentials Firebase chiffrés AES-256-GCM (inutilisables sans le mot de passe admin)
     ...(fbEnc      ? { fb_enc:    fbEnc    } : {}),
     // Clé API Brevo chiffrée AES-256-GCM (inutilisable sans le mot de passe admin)
