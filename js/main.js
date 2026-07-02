@@ -443,41 +443,8 @@ async function initArticle() {
   const id = getParam('id');
   if (!id) { window.location.href = '404.html'; return; }
 
-  // Rediriger vers la page statique si elle existe
-  window.location.replace(`/${encodeURIComponent(id)}/`);
-  return;
-
-  try {
-    const res = await fetch(`${CONFIG.articlesBase}${encodeURIComponent(id)}.json`);
-    if (!res.ok) throw new Error('Article non trouvé');
-    const article = await res.json();
-
-    // Meta SEO
-    document.title = `${article.title} — ${CONFIG.siteName}`;
-    setMeta('name',     'description',    article.metaDescription || article.excerpt || '');
-    setMeta('property', 'og:title',       article.title);
-    setMeta('property', 'og:description', article.metaDescription || article.excerpt || '');
-    setMeta('property', 'og:url',         window.location.href);
-    if (article.image) setMeta('property', 'og:image', article.image);
-    setMeta('name', 'twitter:title',       article.title);
-
-    // Marquer catégorie active dans barre
-    document.querySelectorAll('.cat-nav__btn').forEach(b => {
-      if (b.textContent.trim().includes(article.category)) b.classList.add('active');
-    });
-
-    container.innerHTML = buildArticleHTML(article);
-
-    initShareButtons(article);
-    buildTOC();
-    injectJSONLD(article);
-    loadRelated(article);
-    // Section commentaires
-    initComments(id);
-
-  } catch (_) {
-    window.location.href = '404.html';
-  }
+  // Rediriger directement vers la page statique canonique (1 seul saut)
+  window.location.replace(`/articles/${encodeURIComponent(id)}/`);
 }
 
 function buildArticleHTML(a) {
