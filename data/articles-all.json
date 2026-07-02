@@ -1197,10 +1197,8 @@
     "title": "Tintin sur le divan : Psychologie d'un reporter en culotte courte",
     "type": "article",
     "excerpt": "Un reporter qui n'écrit jamais, un capitaine qui jure pour ne pas pleurer, un savant qui n'entend que lui-même. Et si Moulinsart était le plus grand cabinet de psychologie de la BD ? Analyse — et quiz pour savoir qui vous êtes dans la galerie.",
-    "metaDescription": "Tintin, Haddock, Tournesol : que révèlent les héros d'Hergé sur nous ? Analyse psychologique et quiz pour découvrir quel personnage sommeille en vous.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-03",
-    "date_modified": "2026-07-03",
+    "date_modified": "2026-07-02",
     "category": "Nos héros sur le divan",
     "image": "",
     "imagePosition": "50% 50%",
@@ -1208,6 +1206,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "tintin",
       "psychologie-des-personnages",
@@ -1215,32 +1214,7 @@
       "attachement",
       "secret-de-famille"
     ],
-    "sources": [
-      {
-        "authors": "Tisseron, S.",
-        "year": "1985",
-        "title": "Tintin chez le psychanalyste",
-        "publisher": "Aubier-Archimbaud"
-      },
-      {
-        "authors": "Apostolidès, J.-M.",
-        "year": "2006",
-        "title": "Les Métamorphoses de Tintin",
-        "publisher": "Flammarion, coll. Champs"
-      },
-      {
-        "authors": "Peeters, B.",
-        "year": "2002",
-        "title": "Hergé, fils de Tintin",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "McCarthy, T.",
-        "year": "2006",
-        "title": "Tintin and the Secret of Literature",
-        "publisher": "Granta Books"
-      }
-    ],
+    "metaDescription": "Tintin, Haddock, Tournesol : que révèlent les héros d'Hergé sur nous ? Analyse psychologique et quiz pour découvrir quel personnage sommeille en vous.",
     "articles_lies": [],
     "status": "scheduled"
   },
