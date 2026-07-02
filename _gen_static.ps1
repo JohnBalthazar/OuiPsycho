@@ -74,7 +74,7 @@ Get-ChildItem "$DIR\*.json" | Sort-Object Name | ForEach-Object {
     $jd = $j.metaDescription -replace '\\','\\' -replace '"','\"'
     $ja = $j.author -replace '\\','\\' -replace '"','\"'
     $jk = ($j.tags -join ", ") -replace '"','\"'
-    $aLD = "{`"@context`":`"https://schema.org`",`"@type`":`"Article`",`"headline`":`"$jt`",`"description`":`"$jd`",`"datePublished`":`"$($j.date)`",`"dateModified`":`"$($j.date)`",`"inLanguage`":`"fr`",`"author`":{`"@type`":`"Person`",`"name`":`"$ja`"},`"publisher`":{`"@type`":`"Organization`",`"name`":`"Oui Psycho!`",`"url`":`"$BASE/`"},`"mainEntityOfPage`":{`"@type`":`"WebPage`",`"@id`":`"$BASE/articles/$($j.id)/`"},`"keywords`":`"$jk`",`"articleSection`":`"$($j.category)`"}"
+    $aLD = "{`"@context`":`"https://schema.org`",`"@type`":`"Article`",`"headline`":`"$jt`",`"description`":`"$jd`",`"datePublished`":`"$($j.date)`",`"dateModified`":`"$(if ($j.date_modified) { $j.date_modified } else { $j.date })`",`"inLanguage`":`"fr`",`"author`":{`"@type`":`"Person`",`"name`":`"$ja`"},`"publisher`":{`"@type`":`"Organization`",`"name`":`"Oui Psycho!`",`"url`":`"$BASE/`"},`"mainEntityOfPage`":{`"@type`":`"WebPage`",`"@id`":`"$BASE/articles/$($j.id)/`"},`"keywords`":`"$jk`",`"articleSection`":`"$($j.category)`"}"
     $bLD = "{`"@context`":`"https://schema.org`",`"@type`":`"BreadcrumbList`",`"itemListElement`":[{`"@type`":`"ListItem`",`"position`":1,`"name`":`"Accueil`",`"item`":`"$BASE/`"},{`"@type`":`"ListItem`",`"position`":2,`"name`":`"$($j.category)`",`"item`":`"$BASE/index.html?cat=$enc`"},{`"@type`":`"ListItem`",`"position`":3,`"name`":`"$jt`",`"item`":`"$BASE/articles/$($j.id)/`"}]}"
 
     $html  = "<!DOCTYPE html>`n<html lang=`"fr`">`n<head>`n"
