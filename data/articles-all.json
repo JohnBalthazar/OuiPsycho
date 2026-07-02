@@ -433,12 +433,12 @@
   {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Applications d'IA, champignons hallucinogènes, médicaments « révolutionnaires », accès aux soins simplifié : 2026 ne manque pas d'annonces en santé mentale. On démêle les avancées réelles des effets de mode, sans perdre de vue l'essentiel.",
     "date": "2026-09-04",
-    "date_modified": "2026-09-04",
+    "date_modified": "2026-07-02",
     "category": "Thérapies",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qiatornprnbpsjw0mumo",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -453,7 +453,7 @@
       "mon-soutien-psy",
       "innovation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Mon soutien psy remanié, psychiatrie de précision, psychédéliques et IA : le tri entre vraies avancées et effets d'annonce en santé mentale en 2026.",
     "articles_lies": [],
     "status": "scheduled"
   },
