@@ -1,5 +1,19 @@
 [
   {
+    "id": "tintin-sur-le-divan-quiz",
+    "title": "Quel personnage de Tintin êtes-vous ?",
+    "desc": "Tintin, Haddock, Tournesol, Castafiore… 7 questions pour découvrir quel habitant de Moulinsart vous ressemble le plus.",
+    "emoji": "🔭",
+    "color": "#1F4E6B",
+    "catLabel": "Pop culture",
+    "duration": "3 min",
+    "testUrl": "tests/tintin-sur-le-divan-quiz.html",
+    "articleUrl": "articles/tintin-sur-le-divan/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "savoir-dire-non",
     "title": "Savez-vous vraiment dire non ?",
     "desc": "Testez votre assertivité sur 10 situations du quotidien et découvrez votre profil TCC.",

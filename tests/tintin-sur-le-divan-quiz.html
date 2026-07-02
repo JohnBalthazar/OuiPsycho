@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel personnage de Tintin êtes-vous ?</title>
+  <style>
+    :root{
+      --navy:#1F4E6B;
+      --ink:#16324A;
+      --sky:#BEE3F2;
+      --paper:#FDFBF4;
+      --yellow:#F6C744;
+      --red:#D9584B;
+      --green:#4E9B6E;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--paper);
+      color:var(--ink);
+      padding:20px 14px;
+      line-height:1.55;
+    }
+    .quiz{
+      max-width:640px;margin:0 auto;background:#fff;
+      border:2px solid var(--ink);border-radius:14px;
+      box-shadow:6px 6px 0 var(--sky);
+      overflow:hidden;
+    }
+    .quiz-head{
+      background:var(--navy);color:#fff;padding:20px 22px;
+      border-bottom:2px solid var(--ink);
+    }
+    .quiz-head h1{font-size:1.25rem;line-height:1.3;letter-spacing:.2px}
+    .quiz-head p{font-size:.9rem;opacity:.9;margin-top:6px}
+    .quiz-body{padding:22px}
+    .progress{
+      height:12px;border:2px solid var(--ink);border-radius:8px;
+      background:#fff;overflow:hidden;margin-bottom:8px;
+    }
+    .progress-bar{
+      height:100%;width:0;background:var(--yellow);
+      transition:width .3s ease;
+    }
+    .progress-label{font-size:.8rem;color:var(--navy);font-weight:600;margin-bottom:16px}
+    .question{font-size:1.08rem;font-weight:700;margin-bottom:16px}
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;width:100%;text-align:left;
+      background:#fff;border:2px solid var(--ink);border-radius:10px;
+      padding:12px 14px;font-size:.96rem;color:var(--ink);
+      cursor:pointer;font-family:inherit;line-height:1.4;
+      transition:transform .1s ease,background .15s ease;
+    }
+    .answer:hover,.answer:focus-visible{background:var(--sky);transform:translate(-1px,-1px);outline:none}
+    .answer:active{transform:translate(1px,1px)}
+    .start-btn,.restart-btn{
+      display:inline-block;background:var(--yellow);color:var(--ink);
+      border:2px solid var(--ink);border-radius:10px;
+      padding:12px 26px;font-size:1rem;font-weight:700;cursor:pointer;
+      font-family:inherit;box-shadow:3px 3px 0 var(--ink);
+      transition:transform .1s ease,box-shadow .1s ease;
+    }
+    .start-btn:hover,.restart-btn:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+    .start-btn:active,.restart-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+    .center{text-align:center}
+    .intro-emoji{font-size:2.6rem;margin-bottom:10px}
+    .result-badge{
+      font-size:3rem;line-height:1;margin-bottom:8px;
+    }
+    .result-title{
+      font-size:1.35rem;font-weight:800;color:var(--navy);margin-bottom:4px;
+    }
+    .result-sub{font-size:.9rem;font-weight:600;color:var(--red);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px}
+    .result-text{text-align:left;font-size:.96rem;margin-bottom:14px}
+    .result-text p{margin-bottom:10px}
+    .traits{
+      display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-bottom:18px;
+    }
+    .trait{
+      border:2px solid var(--ink);border-radius:999px;
+      padding:4px 12px;font-size:.82rem;font-weight:600;background:var(--sky);
+    }
+    .share{
+      border-top:2px dashed var(--ink);padding-top:16px;margin-top:6px;
+    }
+    .share p{font-size:.88rem;font-weight:700;margin-bottom:10px}
+    .share a{
+      display:inline-block;margin:0 4px 8px;padding:8px 14px;
+      border:2px solid var(--ink);border-radius:10px;
+      text-decoration:none;color:var(--ink);font-size:.88rem;font-weight:600;
+      background:#fff;transition:background .15s ease;
+    }
+    .share a:hover{background:var(--yellow)}
+    .disclaimer{
+      margin-top:16px;background:var(--sky);
+      border:2px solid var(--ink);border-radius:10px;
+      padding:12px 14px;font-size:.82rem;text-align:left;
+    }
+    .restart-wrap{margin-top:18px}
+    @media (prefers-reduced-motion:reduce){*{transition:none !important}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-head">
+      <h1>🔭 Quel personnage de Tintin êtes-vous ?</h1>
+      <p>7 questions pour savoir qui occupe le divan de Moulinsart dans votre tête.</p>
+    </div>
+    <div class="quiz-body" id="app"></div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Un imprévu chamboule complètement votre journée. Réaction ?",
+        a: [
+          { t: "Parfait, une énigme à résoudre. Je fonce.", p: "A" },
+          { t: "Je râle très fort pendant dix minutes… puis je gère.", p: "B" },
+          { t: "Un imprévu ? Ah bon ? Je n'avais pas remarqué.", p: "C" },
+          { t: "Je transforme la crise en grande scène dont on parlera longtemps.", p: "D" },
+          { t: "Je vérifie deux fois, avec mon binôme, pour être bien sûr de bien faire.", p: "E" },
+          { t: "Je suis loyalement celui qui gère, prêt à l'aider quoi qu'il arrive.", p: "F" }
+        ]
+      },
+      {
+        q: "En soirée, on vous trouve plutôt…",
+        a: [
+          { t: "En train de poser des questions à tout le monde, par curiosité sincère.", p: "A" },
+          { t: "Au centre d'un petit groupe, à raconter une histoire avec de grands gestes.", p: "B" },
+          { t: "Dans un coin, absorbé par une conversation passionnante… ou par le chat.", p: "C" },
+          { t: "Difficile de me rater : je fais l'ambiance, et j'assume.", p: "D" },
+          { t: "Toujours à deux, à compléter les phrases de mon acolyte.", p: "E" },
+          { t: "Auprès de la personne que j'accompagne, à veiller que tout se passe bien.", p: "F" }
+        ]
+      },
+      {
+        q: "Votre rapport à la colère ?",
+        a: [
+          { t: "Je reste calme presque tout le temps. Presque suspect, d'ailleurs.", p: "A" },
+          { t: "Explosive mais courte : ça sort, ça passe, et je n'en veux à personne.", p: "B" },
+          { t: "Rarissime, mais si on touche à MA ligne rouge, tempête garantie.", p: "C" },
+          { t: "Je ne me mets pas en colère, je fais une entrée dramatique.", p: "D" },
+          { t: "Je m'agace surtout quand on ne respecte pas les règles.", p: "E" },
+          { t: "Je grogne un peu, puis je pardonne vite. La rancune, très peu pour moi.", p: "F" }
+        ]
+      },
+      {
+        q: "Votre moteur dans la vie, c'est…",
+        a: [
+          { t: "Comprendre, découvrir, aller voir ce qu'il y a derrière.", p: "A" },
+          { t: "Les gens que j'aime. Le reste est négociable.", p: "B" },
+          { t: "Créer, inventer, poursuivre une idée jusqu'au bout.", p: "C" },
+          { t: "Briller, partager, être vu et entendu. Sans complexe.", p: "D" },
+          { t: "Bien faire mon travail, avec sérieux et méthode.", p: "E" },
+          { t: "Être là, fidèlement, pour ceux qui comptent pour moi.", p: "F" }
+        ]
+      },
+      {
+        q: "Vos amis diraient de vous que vous êtes…",
+        a: [
+          { t: "Fiable, débrouillard, toujours partant.", p: "A" },
+          { t: "Entier, loyal, avec un cœur gros comme ça sous les bougonnements.", p: "B" },
+          { t: "Attachant, lunaire, un peu dans votre monde.", p: "C" },
+          { t: "Solaire, expansif, impossible à ignorer.", p: "D" },
+          { t: "Consciencieux, zélé, parfois un chouïa maladroit à force de bien vouloir faire.", p: "E" },
+          { t: "Fidèle, sensible, guidé par votre instinct autant que par votre cœur.", p: "F" }
+        ]
+      },
+      {
+        q: "Face à un problème qui résiste depuis des semaines :",
+        a: [
+          { t: "Je change d'angle, je vais chercher des indices ailleurs.", p: "A" },
+          { t: "Je m'énerve, je le lâche… et je le résous à 2h du matin.", p: "B" },
+          { t: "Je n'entends plus rien d'autre jusqu'à ce que ça cède.", p: "C" },
+          { t: "J'en parle autour de moi : quelqu'un finira bien par m'aider.", p: "D" },
+          { t: "Je reprends la procédure depuis le début, point par point.", p: "E" },
+          { t: "Je fais confiance à mon flair : quelque chose me dit par où commencer.", p: "F" }
+        ]
+      },
+      {
+        q: "On part à l'aventure demain. Dans votre valise :",
+        a: [
+          { t: "Le strict nécessaire. Le reste, on improvisera sur place.", p: "A" },
+          { t: "De quoi tenir un siège, et un pull pour chaque personne du groupe.", p: "B" },
+          { t: "Trois carnets, deux inventions en cours… et j'ai oublié les chaussettes.", p: "C" },
+          { t: "Quatre tenues par jour. On ne sait jamais qui on va croiser.", p: "D" },
+          { t: "Une valise identique à celle de mon binôme, au cas où.", p: "E" },
+          { t: "Rien du tout : je voyage léger, je suis surtout là pour accompagner.", p: "F" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🧭",
+        name: "Tintin",
+        sub: "L'explorateur au sang-froid",
+        traits: ["Curiosité", "Sang-froid", "Sens du devoir"],
+        text: "<p>Vous avancez, calmement, méthodiquement, et rien ne semble vous arrêter. Votre curiosité est votre boussole : vous voulez comprendre, aller voir, vérifier par vous-même. Dans les crises, c'est vers vous qu'on se tourne, parce que vous gardez la tête froide quand tout le monde la perd.</p><p><strong>Votre part d'ombre :</strong> à force d'être solide pour les autres, vous oubliez parfois d'avoir des émotions pour vous-même. Même les héros ont le droit de dire que ça ne va pas.</p>"
+      },
+      B: {
+        emoji: "⚓",
+        name: "Le capitaine Haddock",
+        sub: "Le cœur tendre au caractère volcanique",
+        traits: ["Loyauté", "Franc-parler", "Émotions XXL"],
+        text: "<p>Chez vous, tout se voit et tout se dit : la joie, la colère, la tendresse. Vous râlez fort, mais vous aimez encore plus fort. Votre loyauté est totale : pour vos proches, vous traverseriez un désert, une tempête et deux réunions de copropriété.</p><p><strong>Votre part d'ombre :</strong> l'impulsivité. Vos éclats partent vite — heureusement, ils retombent aussi vite. Apprendre à respirer avant la première bordée d'injures reste un chantier ouvert.</p>"
+      },
+      C: {
+        emoji: "🔬",
+        name: "Le professeur Tournesol",
+        sub: "Le rêveur obstiné",
+        traits: ["Créativité", "Concentration", "Douceur têtue"],
+        text: "<p>Vous vivez à mi-temps dans votre monde intérieur, et c'est un monde passionnant. Quand une idée vous tient, plus rien d'autre n'existe : vous n'écoutez que ce qui vous arrange, et c'est souvent ce qui vous permet d'aller au bout de projets que tout le monde jugeait impossibles.</p><p><strong>Votre part d'ombre :</strong> cette bulle qui vous protège peut aussi vous couper des autres. Et sous votre calme légendaire, une ligne rouge existe — malheur à qui la franchit.</p>"
+      },
+      D: {
+        emoji: "🤩",
+        name: "La Castafiore",
+        sub: "La force solaire qui remplit la pièce",
+        traits: ["Assurance", "Générosité", "Panache"],
+        text: "<p>Vous entrez quelque part, et l'ambiance change. Vous avez de l'énergie, de la confiance en vous et un vrai talent pour occuper l'espace — non par vanité, mais parce que vous aimez sincèrement les gens et la vie. Votre enthousiasme est contagieux, votre générosité aussi.</p><p><strong>Votre part d'ombre :</strong> à trop tenir la scène, on n'entend plus toujours les autres. Laisser le micro de temps en temps, c'est aussi une forme de charisme.</p>"
+      },
+      E: {
+        emoji: "🕵️",
+        name: "Les Dupondt",
+        sub: "Le zèle en binôme",
+        traits: ["Sérieux", "Loyauté", "Méthode"],
+        text: "<p>Vous prenez les choses au sérieux, vous respectez les règles et vous aimez faire les choses dans les formes. Votre force, c'est la constance : on peut compter sur vous, vous ne lâchez pas. Et vous fonctionnez souvent mieux à deux — un binôme, un partenaire, une équipe qui vous complète.</p><p><strong>Votre part d'ombre :</strong> l'excès de zèle. À force de vouloir tout bien faire, on tourne parfois en rond. S'autoriser à sortir du cadre, de temps en temps, ouvre des portes que la procédure ferme.</p>"
+      },
+      F: {
+        emoji: "🐶",
+        name: "Milou",
+        sub: "Le fidèle au grand cœur",
+        traits: ["Fidélité", "Intuition", "Sensibilité"],
+        text: "<p>Vous êtes le compagnon sur qui tout le monde compte : loyal, sensible, guidé autant par votre cœur que par votre instinct. Vous ressentez les choses avant de les comprendre, et votre flair vous trompe rarement. Discret, vous n'en êtes pas moins essentiel : sans vous, bien des aventures tourneraient court.</p><p><strong>Votre part d'ombre :</strong> vous vous oubliez volontiers pour les autres, et vos petites tentations (ce fameux « os » à vous) vous rappellent qu'on a le droit, aussi, de penser un peu à soi.</p>"
+      }
+    };
+
+    var state = { step: -1, votes: { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 } };
+    var app = document.getElementById('app');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+    function renderIntro() {
+      app.innerHTML =
+        '<div class="center">' +
+        '<div class="intro-emoji">🚀</div>' +
+        '<p style="margin-bottom:18px">Explorateur imperturbable, capitaine au grand cœur, savant dans sa bulle, diva solaire, duo zélé ou fidèle compagnon : sept questions pour découvrir quel habitant de Moulinsart vous ressemble le plus.</p>' +
+        '<button class="start-btn" onclick="startQuiz()">Commencer le quiz</button>' +
+        '</div>';
+      notifyResize();
+    }
+
+    function renderQuestion() {
+      var i = state.step;
+      var q = QUESTIONS[i];
+      var pct = Math.round((i / QUESTIONS.length) * 100);
+      var html =
+        '<div class="progress"><div class="progress-bar" style="width:' + pct + '%"></div></div>' +
+        '<div class="progress-label">Question ' + (i + 1) + ' / ' + QUESTIONS.length + '</div>' +
+        '<div class="question">' + esc(q.q) + '</div>' +
+        '<div class="answers">';
+      for (var k = 0; k < q.a.length; k++) {
+        html += '<button class="answer" onclick="answer(\'' + q.a[k].p + '\')">' + esc(q.a[k].t) + '</button>';
+      }
+      html += '</div>';
+      app.innerHTML = html;
+      notifyResize();
+    }
+
+    function renderResult() {
+      var best = 'A', max = -1;
+      var order = ['A', 'B', 'C', 'D', 'E', 'F'];
+      for (var i = 0; i < order.length; i++) {
+        if (state.votes[order[i]] > max) { max = state.votes[order[i]]; best = order[i]; }
+      }
+      var p = PROFILES[best];
+      var pageUrl = 'https://ouipsycho.fr/articles/tintin-sur-le-divan/';
+      var shareText = 'Mon résultat au quiz « Quel personnage de Tintin êtes-vous ? » : ' + p.name + ' ! Et vous ?';
+      var eUrl = encodeURIComponent(pageUrl);
+      var eText = encodeURIComponent(shareText);
+      var eBoth = encodeURIComponent(shareText + ' ' + pageUrl);
+
+      app.innerHTML =
+        '<div class="center">' +
+        '<div class="progress"><div class="progress-bar" style="width:100%"></div></div>' +
+        '<div class="progress-label">Résultat</div>' +
+        '<div class="result-badge">' + p.emoji + '</div>' +
+        '<div class="result-title">Vous êtes ' + p.name + ' !</div>' +
+        '<div class="result-sub">' + p.sub + '</div>' +
+        '<div class="traits">' + p.traits.map(function(t){ return '<span class="trait">' + t + '</span>'; }).join('') + '</div>' +
+        '<div class="result-text">' + p.text + '</div>' +
+        '<div class="share">' +
+        '<p>Partagez votre résultat :</p>' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + eText + '&url=' + eUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + eBoth + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+        '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+        '<div class="restart-wrap"><button class="restart-btn" onclick="restart()">↺ Recommencer</button></div>' +
+        '</div>';
+      notifyResize();
+    }
+
+    function startQuiz() {
+      state.step = 0;
+      state.votes = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+      renderQuestion();
+    }
+
+    function answer(profile) {
+      state.votes[profile]++;
+      state.step++;
+      if (state.step >= QUESTIONS.length) {
+        renderResult();
+      } else {
+        renderQuestion();
+      }
+    }
+
+    function restart() {
+      startQuiz();
+      notifyResize();
+    }
+
+    renderIntro();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>

@@ -69,7 +69,7 @@ Fichier : articles/{id}.json
     "Point clé 4.",
     "Point clé 5."
   ],
-  "content": "<p>Contenu HTML de l'article…</p>\n\n<h2>Titre du quiz</h2>\n<p>Courte intro invitant le lecteur à faire le quiz.</p>\n<iframe src=\"tests/{id}-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Titre du quiz\" id=\"quiz-frame-{id}\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-{id}');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>",
+  "content": "<p>Contenu HTML de l'article…</p>\n\n<h2>Titre du quiz</h2>\n<p>Courte intro invitant le lecteur à faire le quiz.</p>\n<iframe src=\"tests/{id}-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Titre du quiz\" id=\"quiz-frame-{id}\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-{id}');if(f)f.style.minHeight=(e.data.height+32)+'px';}});<\/script>",
   "quiz": { "filename": "{id}-quiz.html" },
   "sources": [
     {
@@ -87,7 +87,7 @@ Fichier : articles/{id}.json
 → Remplace {id} partout par le même slug (ex: "mon-article").
 → RÈGLE ABSOLUE src : toujours src="tests/{id}-quiz.html" — jamais de slash initial (/tests/...).
    Raison : la page article a <base href="../../"> → le slash initial crée un double slash en local.
-→ Le </script> dans le contenu JSON ne nécessite PAS d'échappement supplémentaire.
+→ Le `<\/script>` dans le contenu JSON s'écrit avec le backslash (`<\/script>`) pour éviter toute ambiguïté de parsing.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -247,10 +247,11 @@ git push
 
 ---
 
-## ⚠️ Les 3 bugs classiques à éviter
+## ⚠️ Les 4 bugs classiques à éviter
 
 | Bug | Cause | Correction |
 |---|---|---|
+| **404 sur ouipsycho.fr/{id}/** | Le JSON `articles/{id}.json` n'a jamais été créé | Créer le Bloc 1 dans `articles/` et lancer `node _gen_static.js` |
 | **Iframe vide / blanche** | Le fichier `tests/{id}-quiz.html` n'existe pas | Créer le Bloc 2 et le déposer dans `tests/` |
 | **Quiz introuvable en prod** | `src="/tests/..."` avec slash initial | Toujours `src="tests/..."` (sans slash) — la page a `<base href="../../">` |
 | **Test absent de tests.html** | Entrée manquante dans `data/tests.json` | Ajouter le Bloc 3 dans `data/tests.json` |

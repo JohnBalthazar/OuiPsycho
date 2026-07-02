@@ -1193,6 +1193,36 @@
     "status": "scheduled"
   },
   {
+    "id": "tintin-sur-le-divan",
+    "title": "Tintin et ses compagnons sur le divan : psychologie de Moulinsart à Pékin",
+    "excerpt": "Tintin ne pleure jamais, Haddock explose pour un rien, Tournesol vit dans sa bulle et la Castafiore occupe tout l'espace. Et si la bande à Hergé était un séminaire de psychologie déguisé en aventure ? On installe tout Moulinsart sur le divan.",
+    "date": "2026-07-02",
+    "date_modified": "2026-07-02",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "tintin",
+      "psychologie",
+      "bande dessinée",
+      "pop culture",
+      "personnalité",
+      "émotions"
+    ],
+    "metaDescription": "Tintin, Haddock, Tournesol, Castafiore : que révèle la psychologie sur les personnages d'Hergé ? Analyse des profils et quiz pour trouver le vôtre.",
+    "articles_lies": [
+      "asterix-obelix-psychopathologie-complice",
+      "harry-potter-psychopathologie-complice"
+    ],
+    "status": "published"
+  },
+  {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
