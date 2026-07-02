@@ -15,6 +15,11 @@ const CONFIG = {
   siteUrl:      'https://ouipsycho.fr',
 };
 
+// Version de cache horaire — change toutes les heures, stable dans la session.
+// Permet au cache HTTP de fonctionner intra-heure tout en garantissant
+// que les articles publiés par la CI sont visibles en moins de 60 min.
+const CACHE_H = Math.floor(Date.now() / 3600000);
+
 const CATEGORIES = {
   'Bien-être':                { color: '#059669', bg: '#ECFDF5' },
   'Relations':                { color: '#BE185D', bg: '#FDF2F8' },
@@ -184,7 +189,7 @@ async function initHome() {
   grid.innerHTML = skeletons(6);
 
   try {
-    const res = await fetch(CONFIG.dataUrl + '?v=' + Date.now());
+    const res = await fetch(CONFIG.dataUrl + '?v=' + CACHE_H);
     if (!res.ok) throw new Error('articles.json introuvable');
     allArticles = await res.json();
 
@@ -1033,7 +1038,7 @@ function _fbFields(obj) {
 async function loadFirebaseConfig() {
   if (_fbProjectId) return;
   try {
-    const res = await fetch('data/config.json?t=' + Date.now());
+    const res = await fetch('data/config.json?t=' + CACHE_H);
     if (!res.ok) return;
     const cfg = await res.json();
     if (cfg.firebaseProjectId) _fbProjectId = cfg.firebaseProjectId;
@@ -1333,7 +1338,7 @@ async function _loadNlCfg() {
   if (_nlCfg) return _nlCfg;
   const prefix = '/';
   try {
-    _nlCfg = await fetch(`${prefix}data/config.json?t=${Date.now()}`).then(r => r.ok ? r.json() : {});
+    _nlCfg = await fetch(`${prefix}data/config.json?t=${CACHE_H}`).then(r => r.ok ? r.json() : {});
   } catch(_) { _nlCfg = {}; }
   return _nlCfg;
 }
@@ -1469,7 +1474,7 @@ async function initHerosRubrique() {
     const today = new Date().toISOString().split('T')[0];
     const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
 
-    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const res  = await fetch('data/articles.json?t=' + CACHE_H);
     const all  = res.ok ? await res.json() : [];
     const list = all.filter(a => a.category === 'Nos héros sur le divan' && isOk(a))
                     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -1507,7 +1512,7 @@ async function initTestsRubrique() {
     </div>`).join('');
 
   try {
-    const res  = await fetch('data/tests.json?t=' + Date.now());
+    const res  = await fetch('data/tests.json?t=' + CACHE_H);
     const list = res.ok ? await res.json() : [];
     const published = list.filter(t => t.status !== 'draft');
 
@@ -1567,7 +1572,7 @@ async function initSocieteRubrique() {
     const today = new Date().toISOString().split('T')[0];
     const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
 
-    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const res  = await fetch('data/articles.json?t=' + CACHE_H);
     const all  = res.ok ? await res.json() : [];
     const list = all.filter(a => (a.category === 'Société' || a.category === 'Société & psychologie politique') && isOk(a))
                     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -1599,7 +1604,7 @@ async function initSexoRubrique() {
     const today = new Date().toISOString().split('T')[0];
     const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
 
-    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const res  = await fetch('data/articles.json?t=' + CACHE_H);
     const all  = res.ok ? await res.json() : [];
     const list = all.filter(a => a.category === 'Sexo' && isOk(a))
                     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
@@ -1631,7 +1636,7 @@ async function initMonstresRubrique() {
     const today = new Date().toISOString().split('T')[0];
     const isOk  = a => a.status !== 'draft' && (a.status !== 'scheduled' || a.date <= today);
 
-    const res  = await fetch('data/articles.json?t=' + Date.now());
+    const res  = await fetch('data/articles.json?t=' + CACHE_H);
     const all  = res.ok ? await res.json() : [];
     const list = all.filter(a => a.category === 'Les monstres sur le divan' && isOk(a))
                     .sort((a, b) => (b.date || '').localeCompare(a.date || ''));
