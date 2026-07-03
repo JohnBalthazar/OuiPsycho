@@ -281,7 +281,7 @@ async function initHome() {
       activeCategory = btn.dataset.cat;
       syncActiveCat();
       applyFilters(grid, featured);
-      grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 
