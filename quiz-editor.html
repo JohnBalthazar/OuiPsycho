@@ -44,11 +44,15 @@
 
     /* START */
     #start{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;}
-    .start-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:40px 48px;max-width:480px;width:100%;text-align:center;}
+    .start-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:36px 44px;max-width:500px;width:100%;text-align:center;}
     .start-card .ico{font-size:3rem;display:block;margin-bottom:14px;}
     .start-card h2{font-size:1.2rem;margin-bottom:8px;}
-    .start-card p{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:22px;}
-    #api-warn{background:#fff8dc;border:1px solid #f0d060;border-radius:8px;padding:11px 15px;font-size:.82rem;color:#7a5c00;margin-top:16px;display:none;}
+    .start-card p{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:20px;}
+    .start-fields{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:16px;}
+    .start-fields label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+    .start-fields input{font-family:var(--font);font-size:.87rem;border:1px solid var(--border);border-radius:7px;padding:9px 12px;width:100%;background:var(--bg);}
+    .start-fields input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,158,110,.1);}
+    .start-hint{font-size:.76rem;color:var(--muted);margin-top:4px;text-align:left;line-height:1.45;}
 
     /* WORKSPACE */
     #workspace{flex:1;display:grid;grid-template-columns:270px 1fr;overflow:hidden;}
@@ -175,11 +179,34 @@
 <!-- START SCREEN (no GitHub config) -->
 <div id="start" class="hidden">
   <div class="start-card">
-    <span class="ico">⚙️</span>
-    <h2>GitHub non configuré</h2>
-    <p>L'éditeur de quiz utilise votre dépôt GitHub pour lire et écrire les fichiers <code>tests/</code>.<br><br>
-       Renseignez votre <strong>Personal Access Token</strong> dans les Paramètres de l'admin, puis revenez ici.</p>
-    <a href="poulet.html" class="btn btn-accent" target="_blank">⚙️ Ouvrir l'admin (Paramètres)</a>
+    <span class="ico">📝</span>
+    <h2>Éditeur de quiz</h2>
+    <p>Renseignez votre dépôt GitHub pour accéder aux fichiers <code>tests/</code> et les modifier directement.</p>
+    <div class="start-fields">
+      <div>
+        <label>Personal Access Token (PAT)</label>
+        <input type="password" id="cfg-pat" placeholder="ghp_xxxxxxxxxxxxxxxx" autocomplete="off">
+        <div class="start-hint">Token avec scope <strong>Contents: Read &amp; Write</strong> — stocké uniquement dans votre navigateur.<br>
+          <a href="https://github.com/settings/tokens/new?description=OuiPsycho+quiz-editor&scopes=repo" target="_blank" style="color:var(--accent)">Créer un token →</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div>
+          <label>Owner GitHub</label>
+          <input type="text" id="cfg-owner" placeholder="JohnBalthazar">
+        </div>
+        <div>
+          <label>Repo</label>
+          <input type="text" id="cfg-repo" placeholder="OuiPsycho">
+        </div>
+      </div>
+      <div>
+        <label>Branche</label>
+        <input type="text" id="cfg-branch" placeholder="main">
+      </div>
+    </div>
+    <button class="btn btn-accent" onclick="doConnect()" style="width:100%">🔗 Connecter et charger les quiz</button>
+    <div id="cfg-err" style="display:none;margin-top:12px;background:var(--danger-light);border:1px solid var(--danger);border-radius:7px;padding:10px 14px;font-size:.82rem;color:var(--danger);text-align:left;"></div>
   </div>
 </div>
 
@@ -302,21 +329,63 @@ async function ghDeleteFile(path, message, sha) {
 }
 
 /* ── Init ── */
+function showStartScreen(errMsg) {
+  document.getElementById('workspace').classList.add('hidden');
+  document.getElementById('btn-refresh').classList.add('hidden');
+  document.getElementById('btn-save').classList.add('hidden');
+  document.getElementById('start').classList.remove('hidden');
+  document.getElementById('hdr-info').textContent = errMsg || 'Connexion requise';
+  // Pre-fill saved values
+  const setVal = (id, key, def) => {
+    const el = document.getElementById(id);
+    if (el) el.value = localStorage.getItem(key) || def;
+  };
+  setVal('cfg-pat',    GH_PAT_KEY,    '');
+  setVal('cfg-owner',  GH_OWNER_KEY,  'JohnBalthazar');
+  setVal('cfg-repo',   GH_REPO_KEY,   'OuiPsycho');
+  setVal('cfg-branch', GH_BRANCH_KEY, 'main');
+}
+
+async function doConnect() {
+  const pat    = document.getElementById('cfg-pat').value.trim();
+  const owner  = document.getElementById('cfg-owner').value.trim() || 'JohnBalthazar';
+  const repo   = document.getElementById('cfg-repo').value.trim()  || 'OuiPsycho';
+  const branch = document.getElementById('cfg-branch').value.trim() || 'main';
+  const errEl  = document.getElementById('cfg-err');
+  errEl.style.display = 'none';
+  if (!pat) { errEl.textContent='Entrez votre Personal Access Token.'; errEl.style.display='block'; return; }
+  // Save credentials
+  localStorage.setItem(GH_PAT_KEY,    pat);
+  localStorage.setItem(GH_OWNER_KEY,  owner);
+  localStorage.setItem(GH_REPO_KEY,   repo);
+  localStorage.setItem(GH_BRANCH_KEY, branch);
+  setLoading(true);
+  try {
+    // Test auth + load list
+    await refreshList();
+    document.getElementById('start').classList.add('hidden');
+    document.getElementById('workspace').classList.remove('hidden');
+    document.getElementById('btn-refresh').classList.remove('hidden');
+  } catch(e) {
+    errEl.textContent = '❌ ' + e.message + ' — Vérifiez le PAT, l\'owner et le repo.';
+    errEl.style.display = 'block';
+  } finally { setLoading(false); }
+}
+
 async function init() {
   const pat = localStorage.getItem(GH_PAT_KEY);
-  if (!pat) {
-    document.getElementById('start').classList.remove('hidden');
-    document.getElementById('hdr-info').textContent = 'GitHub non configuré';
-    return;
-  }
+  if (!pat) { showStartScreen(); return; }
   document.getElementById('workspace').classList.remove('hidden');
   document.getElementById('btn-refresh').classList.remove('hidden');
   setLoading(true);
   try {
     await refreshList();
+    document.getElementById('hdr-info').textContent =
+      `tests/ — ${S.list.length} quiz`;
   } catch(e) {
-    toast('❌ GitHub : ' + e.message, 'err');
-    document.getElementById('hdr-info').textContent = '⚠️ Erreur GitHub';
+    showStartScreen('⚠️ Erreur de connexion GitHub');
+    document.getElementById('cfg-err').textContent = '❌ ' + e.message;
+    document.getElementById('cfg-err').style.display = 'block';
   } finally { setLoading(false); }
 }
 
