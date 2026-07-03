@@ -368,12 +368,17 @@ function extractData(html, c) {
   if (!questions) throw new Error(`Variable ${c.qVar} introuvable dans le script`);
 
   // Option key field detection
-  const firstOpts = (questions[0]?.a || questions[0]?.options || []);
-  const firstOpt = firstOpts[0] ?? {};
-  if (Array.isArray(firstOpt)) {
-    c.optKeyField = 'arr'; // ["text","key"] format
+  if (typeof questions[0] === 'string') {
+    // Likert / scalar format: QUESTIONS = ["text", "text", …] with shared OPTS
+    c.optKeyField = 'likert';
   } else {
-    c.optKeyField = firstOpt.k!==undefined ? 'k' : firstOpt.p!==undefined ? 'p' : 'score';
+    const firstOpts = (questions[0]?.a || questions[0]?.options || []);
+    const firstOpt = firstOpts[0] ?? {};
+    if (Array.isArray(firstOpt)) {
+      c.optKeyField = 'arr'; // ["text","key"] format
+    } else {
+      c.optKeyField = firstOpt.k!==undefined ? 'k' : firstOpt.p!==undefined ? 'p' : 'score';
+    }
   }
   c.pIsArr = Array.isArray(profiles);
 
@@ -480,9 +485,33 @@ function mkMeta(m) {
 
 /* ── QUESTIONS ── */
 function mkQuestions(qs) {
-  const isScore = S.cur.optKeyField==='score';
+  const kf = S.cur.optKeyField;
+  const isScore = kf==='score';
+  const isLikert = kf==='likert';
+  if (isLikert) {
+    return `<p style="color:var(--muted);font-size:.84rem;margin-bottom:8px">
+      📋 Format Likert — affirmations avec échelle commune. Les options de réponse sont partagées (non modifiables ici).
+    </p>
+    <div id="qcont">${qs.map((q,i)=>mkLikertCard(q,i)).join('')}</div>
+    <div class="add-q-wrap"><button class="btn btn-muted btn-sm" onclick="addQ()">+ Ajouter une affirmation</button></div>`;
+  }
   return `<div id="qcont">${qs.map((q,i)=>mkQCard(q,i,isScore)).join('')}</div>
     <div class="add-q-wrap"><button class="btn btn-muted btn-sm" onclick="addQ()">+ Ajouter une question</button></div>`;
+}
+
+// Likert: question is just a plain string
+function mkLikertCard(text, qi) {
+  return `<div class="qcard" id="qcard-${qi}">
+    <div class="qcard-head">
+      <span class="qnum">${qi+1}</span>
+      <textarea class="qtxt" id="q-${qi}-text" rows="2">${xe(typeof text==='string'?text:'')}</textarea>
+      <button class="btn-icon d" onclick="delQ(${qi})" title="Supprimer">✕</button>
+    </div>
+    <div class="qfoot">
+      <button class="btn-icon btn-sm" onclick="mvQ(${qi},-1)" title="Monter">↑</button>
+      <button class="btn-icon btn-sm" onclick="mvQ(${qi},1)" title="Descendre">↓</button>
+    </div>
+  </div>`;
 }
 
 function mkQCard(q, qi, isScore) {
@@ -632,9 +661,23 @@ function mkScoreP(p, idx) {
 ═══════════════════════════════════════ */
 function addQ() {
   const kf = S.cur.optKeyField;
-  const isScore = kf==='score';
+  const isScore   = kf==='score';
+  const isLikert  = kf==='likert';
   const qs = S.cur.data.questions;
   const qi = qs.length;
+
+  if (isLikert) {
+    qs.push('');
+    const el = document.createElement('div');
+    el.innerHTML = mkLikertCard('', qi);
+    const card = el.firstElementChild;
+    document.getElementById('qcont').appendChild(card);
+    card.querySelectorAll('textarea').forEach(ta=>{autoH(ta);ta.addEventListener('input',()=>{autoH(ta);setDirty();});});
+    updSecTitle('questions', qs.length);
+    setDirty();
+    return;
+  }
+
   const newQ = isScore ? {text:'',options:[{text:'',score:0}]}
     : kf==='arr'  ? {q:'',a:[['','?']]}
     : kf==='k'    ? {q:'',a:[{t:'',k:'?'}]}
@@ -717,11 +760,12 @@ function delPara(idx, pi) {
    COLLECT FORM DATA
 ═══════════════════════════════════════ */
 function collectForm() {
-  const optKF  = S.cur.optKeyField; // 'k','p','score','arr'
-  const isScore = optKF==='score';
-  const isArr   = optKF==='arr';
-  const optTF  = isScore ? 'text' : 't';
-  const rawQs  = S.cur.data.questions||[];
+  const optKF   = S.cur.optKeyField; // 'k','p','score','arr','likert'
+  const isScore  = optKF==='score';
+  const isArr    = optKF==='arr';
+  const isLikert = optKF==='likert';
+  const optTF   = isScore ? 'text' : 't';
+  const rawQs   = S.cur.data.questions||[];
 
   // Meta
   const meta = {
@@ -730,6 +774,18 @@ function collectForm() {
 
   // Questions — read from DOM
   const qcards = [...(document.getElementById('qcont')?.children||[])];
+
+  // Likert: questions are plain strings
+  if (isLikert) {
+    const questions = qcards.map(card => {
+      const origIdx = +card.id.replace('qcard-','');
+      const textEl = card.querySelector(`#q-${origIdx}-text`);
+      return textEl ? textEl.value : (rawQs[origIdx]||'');
+    });
+    const profiles = collectProfilesFromDOM(S.cur.data.profiles);
+    return { meta, questions, profiles };
+  }
+
   const questions = qcards.map(card => {
     const origIdx = +card.id.replace('qcard-','');
     const origQ = rawQs[origIdx]||{};
@@ -768,9 +824,12 @@ function collectForm() {
     return newQ;
   });
 
-  // Profiles
+  const profiles = collectProfilesFromDOM(S.cur.data.profiles);
+  return { meta, questions, profiles };
+}
+
+function collectProfilesFromDOM(rawP) {
   let profiles;
-  const rawP = S.cur.data.profiles;
   if (Array.isArray(rawP)) {
     profiles = rawP.map((p,i) => {
       const n = {...p};
@@ -851,8 +910,7 @@ function collectForm() {
       profiles[key] = n;
     });
   }
-
-  return { meta, questions, profiles };
+  return profiles;
 }
 
 /* ═══════════════════════════════════════
@@ -974,6 +1032,8 @@ function doNewQuiz() {
   if (!name) return;
   const fileName = name.endsWith('.html') ? name : name + '-quiz.html';
   const slug = fileName.replace('-quiz.html','').replace('.html','');
+  // The closing tag is built dynamically to avoid premature regex matching
+  const _SC = '<' + '/script>';
   const tpl = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1032,7 +1092,7 @@ function render(){
 }
 render();
 window.addEventListener('load',notifyResize);
-<\/script>
+${_SC}
 </body>
 </html>`;
   const a = document.createElement('a');
