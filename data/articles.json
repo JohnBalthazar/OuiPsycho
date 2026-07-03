@@ -1143,17 +1143,16 @@
     "title": "Dragon Ball Z : Son Goku sur le divan",
     "type": "article",
     "excerpt": "Il meurt, revient et sourit encore. Derrière le combattant increvable de Dragon Ball Z se cache un formidable cas d'école : résilience, quête initiatique et motivation intrinsèque. Son Goku passe sur le divan.",
-    "metaDescription": "Résilience, quête initiatique, motivation : et si Son Goku, le héros de Dragon Ball Z, était un cas d'école de psychologie ? Analyse (et quiz) sur Oui Psycho!",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-07-06",
-    "date_modified": "2026-07-06",
+    "date_modified": "2026-07-03",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zxj5jfrl9zntfpvsabbh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "dragon-ball-z",
       "resilience",
@@ -1161,43 +1160,7 @@
       "psychologie-pop-culture",
       "quete-initiatique"
     ],
-    "sources": [
-      {
-        "authors": "Masten, A. S.",
-        "year": "2001",
-        "title": "Ordinary magic: Resilience processes in development",
-        "journal": "American Psychologist, 56(3), 227-238",
-        "url": "https://doi.org/10.1037/0003-066X.56.3.227"
-      },
-      {
-        "authors": "Ryan, R. M. & Deci, E. L.",
-        "year": "2000",
-        "title": "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being",
-        "journal": "American Psychologist, 55(1), 68-78",
-        "url": "https://doi.org/10.1037/0003-066X.55.1.68"
-      },
-      {
-        "authors": "Bandura, A.",
-        "year": "1997",
-        "title": "Self-Efficacy: The Exercise of Control",
-        "journal": "New York : W. H. Freeman",
-        "url": ""
-      },
-      {
-        "authors": "Cyrulnik, B.",
-        "year": "2001",
-        "title": "Les Vilains Petits Canards",
-        "journal": "Paris : Odile Jacob",
-        "url": ""
-      },
-      {
-        "authors": "Campbell, J.",
-        "year": "1949",
-        "title": "The Hero with a Thousand Faces",
-        "journal": "Princeton University Press",
-        "url": ""
-      }
-    ],
+    "metaDescription": "Résilience, quête initiatique, motivation : et si Son Goku, le héros de Dragon Ball Z, était un cas d'école de psychologie ? Analyse (et quiz) sur Oui Psycho!",
     "articles_lies": [],
     "status": "scheduled"
   },
