@@ -404,13 +404,21 @@ async function refreshList() {
 ═══════════════════════════════════════ */
 function renderList() {
   document.getElementById('qcount').textContent = S.list.length;
-  document.getElementById('quiz-list').innerHTML = S.list.map(q => {
+  const cont = document.getElementById('quiz-list');
+  cont.innerHTML = '';
+  S.list.forEach(q => {
     const label = q.name.replace(/-quiz\.html$/, '').replace(/\.html$/, '');
-    return `<div class="qi${S.cur.name===q.name?' active':''}" onclick="doOpen(${JSON.stringify(q.name)})" title="${xe(q.name)}">
-      <span class="qi-name">${xe(label)}</span>
-      <button class="btn-icon btn-sm qi-del d" onclick="event.stopPropagation();doConfirmDel(${JSON.stringify(q.name)})" title="Supprimer">🗑</button>
-    </div>`;
-  }).join('');
+    const div = document.createElement('div');
+    div.className = 'qi' + (S.cur.name === q.name ? ' active' : '');
+    div.title = q.name;
+    div.innerHTML = `<span class="qi-name">${xe(label)}</span>
+      <button class="btn-icon btn-sm qi-del d" title="Supprimer">🗑</button>`;
+    div.addEventListener('click', () => doOpen(q.name));
+    div.querySelector('.qi-del').addEventListener('click', e => {
+      e.stopPropagation(); doConfirmDel(q.name);
+    });
+    cont.appendChild(div);
+  });
 }
 
 /* ═══════════════════════════════════════
