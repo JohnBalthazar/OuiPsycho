@@ -255,6 +255,7 @@ ${navHtml}
         <div class="cat-nav__divider" aria-hidden="true"></div>
         <a class="cat-nav__btn${j.category === 'Société' || j.category === 'Société & psychologie politique' ? ' active' : ''}" href="societe.html">🌍 Société</a>
         <a class="cat-nav__btn${j.category === 'Sexo' ? ' active' : ''}" href="sexo.html">❤️ Sexo</a>
+        <a class="cat-nav__btn${j.category === 'Nos héros sur le divan' ? ' active' : ''}" href="nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="cat-nav__btn" href="dossiers.html">📚 Dossiers</a>
       </div>
     </nav>
