@@ -166,20 +166,20 @@
 <header>
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
   <h1>Éditeur de quiz — Oui Psycho!</h1>
-  <span class="hdr-sub" id="hdr-info">Sélectionnez le dossier tests/</span>
+  <span class="hdr-sub" id="hdr-info">Connexion…</span>
   <div class="spacer"></div>
   <button class="btn btn-ghost btn-sm hidden" id="btn-refresh" onclick="doRefresh()">↻ Actualiser</button>
   <button class="btn btn-white btn-sm hidden" id="btn-save" onclick="doSave()">💾 Sauvegarder</button>
 </header>
 
-<!-- START SCREEN -->
-<div id="start">
+<!-- START SCREEN (no GitHub config) -->
+<div id="start" class="hidden">
   <div class="start-card">
-    <span class="ico">📝</span>
-    <h2>Éditeur de quiz</h2>
-    <p>Ouvrez le dossier <strong>tests/</strong> de votre projet pour lister, modifier et supprimer vos quiz.</p>
-    <button class="btn btn-accent" onclick="doOpenDir()">📂 Ouvrir le dossier tests/</button>
-    <div id="api-warn">Votre navigateur ne supporte pas l'API File System Access.<br>Utilisez <strong>Chrome</strong> ou <strong>Edge</strong>.</div>
+    <span class="ico">⚙️</span>
+    <h2>GitHub non configuré</h2>
+    <p>L'éditeur de quiz utilise votre dépôt GitHub pour lire et écrire les fichiers <code>tests/</code>.<br><br>
+       Renseignez votre <strong>Personal Access Token</strong> dans les Paramètres de l'admin, puis revenez ici.</p>
+    <a href="poulet.html" class="btn btn-accent" target="_blank">⚙️ Ouvrir l'admin (Paramètres)</a>
   </div>
 </div>
 
@@ -231,56 +231,103 @@
    STATE
 ═══════════════════════════════════════ */
 const S = {
-  dir: null,                // FileSystemDirectoryHandle
-  list: [],                 // [{name, handle}]
+  list: [],    // [{name, path, sha}] — quiz files from GitHub
   cur: {
     name: null, html: null,
+    sha:  null,             // GitHub SHA (required for PUT/DELETE)
     data: null,             // {questions, profiles, meta}
     fmt: null,              // 'QR'|'qp-obj'|'QP-obj'|'score'
     qVar: null, qDecl: null,
     pVar: null, pDecl: null,
-    optKeyField: null,      // 'k'|'p'|'score'
+    optKeyField: null,      // 'k'|'p'|'score'|'arr'|'likert'
     pIsArr: false           // profiles is array?
   },
   dirty: false
 };
 
 /* ═══════════════════════════════════════
-   FILE SYSTEM
+   GITHUB API
+   (mêmes clés localStorage que poulet.html)
 ═══════════════════════════════════════ */
-async function doOpenDir() {
-  if (!window.showDirectoryPicker) {
-    document.getElementById('api-warn').style.display = 'block'; return;
+const GH_OWNER_KEY  = 'ouipsycho_gh_owner';
+const GH_REPO_KEY   = 'ouipsycho_gh_repo';
+const GH_BRANCH_KEY = 'ouipsycho_gh_branch';
+const GH_PAT_KEY    = 'ouipsycho_gh_pat';
+
+function ghBase() {
+  const owner = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+  const repo  = localStorage.getItem(GH_REPO_KEY)  || 'OuiPsycho';
+  return `https://api.github.com/repos/${owner}/${repo}/contents/`;
+}
+function ghHdr() {
+  const pat = localStorage.getItem(GH_PAT_KEY) || '';
+  return { 'Authorization': `token ${pat}`, 'Content-Type': 'application/json',
+           'Accept': 'application/vnd.github.v3+json' };
+}
+function ghBranch() { return localStorage.getItem(GH_BRANCH_KEY) || 'main'; }
+
+async function ghListDir(dir) {
+  const url = `${ghBase()}${dir}?ref=${ghBranch()}&t=${Date.now()}`;
+  const res = await fetch(url, { headers: ghHdr() });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.message || `HTTP ${res.status}`); }
+  return res.json();
+}
+
+async function ghReadFile(path) {
+  const url = `${ghBase()}${path}?ref=${ghBranch()}&t=${Date.now()}`;
+  const res = await fetch(url, { headers: ghHdr() });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.message || `HTTP ${res.status}`); }
+  const data = await res.json();
+  if (!data.content) throw new Error('Contenu vide');
+  // UTF-8 base64 decode
+  const text = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+  return { text, sha: data.sha };
+}
+
+async function ghWriteFile(path, content, message, sha) {
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const body = { message, content: encoded, branch: ghBranch() };
+  if (sha) body.sha = sha;
+  const res = await fetch(ghBase() + path, { method: 'PUT', headers: ghHdr(), body: JSON.stringify(body) });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.message || `HTTP ${res.status}`); }
+  return res.json();
+}
+
+async function ghDeleteFile(path, message, sha) {
+  const res = await fetch(ghBase() + path, {
+    method: 'DELETE', headers: ghHdr(),
+    body: JSON.stringify({ message, sha, branch: ghBranch() })
+  });
+  if (!res.ok) { const e = await res.json().catch(()=>({})); throw new Error(e.message || `HTTP ${res.status}`); }
+}
+
+/* ── Init ── */
+async function init() {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) {
+    document.getElementById('start').classList.remove('hidden');
+    document.getElementById('hdr-info').textContent = 'GitHub non configuré';
+    return;
   }
+  document.getElementById('workspace').classList.remove('hidden');
+  document.getElementById('btn-refresh').classList.remove('hidden');
+  setLoading(true);
   try {
-    S.dir = await window.showDirectoryPicker({ mode: 'readwrite' });
     await refreshList();
-    document.getElementById('start').classList.add('hidden');
-    document.getElementById('workspace').classList.remove('hidden');
-    document.getElementById('btn-refresh').classList.remove('hidden');
-    document.getElementById('hdr-info').textContent = S.dir.name + '/';
   } catch(e) {
-    if (e.name !== 'AbortError') toast('❌ ' + e.message, 'err');
-  }
+    toast('❌ GitHub : ' + e.message, 'err');
+    document.getElementById('hdr-info').textContent = '⚠️ Erreur GitHub';
+  } finally { setLoading(false); }
 }
 
 async function refreshList() {
-  const items = [];
-  for await (const [name, handle] of S.dir.entries()) {
-    if (handle.kind === 'file' && name.endsWith('.html')) items.push({ name, handle });
-  }
-  items.sort((a,b) => a.name.localeCompare(b.name));
-  S.list = items;
+  const items = await ghListDir('tests');
+  S.list = items
+    .filter(f => f.type === 'file' && f.name.endsWith('.html'))
+    .map(f => ({ name: f.name, path: f.path, sha: f.sha }))
+    .sort((a,b) => a.name.localeCompare(b.name));
   renderList();
-}
-
-async function readHandle(handle) {
-  return (await handle.getFile()).text();
-}
-
-async function writeHandle(handle, content) {
-  const w = await handle.createWritable();
-  await w.write(content); await w.close();
+  document.getElementById('hdr-info').textContent = `tests/ — ${S.list.length} quiz`;
 }
 
 /* ═══════════════════════════════════════
@@ -306,8 +353,9 @@ async function doOpen(name) {
   try {
     const entry = S.list.find(q => q.name === name);
     if (!entry) throw new Error('Fichier introuvable');
-    const html = await readHandle(entry.handle);
+    const { text: html, sha } = await ghReadFile(entry.path);
     S.cur.html = html;
+    S.cur.sha  = sha;
     S.cur.name = name;
     detectFmt(html);
     S.cur.data = extractData(html, S.cur);
@@ -976,14 +1024,21 @@ async function doSave() {
   try {
     const fd = collectForm();
     const newHtml = rebuildHtml(S.cur.html, fd);
-    const entry = S.list.find(q=>q.name===S.cur.name);
-    if (!entry) throw new Error('Fichier introuvable');
-    await writeHandle(entry.handle, newHtml);
+    const slug = S.cur.name.replace(/-quiz\.html$/, '').replace(/\.html$/, '');
+    const result = await ghWriteFile(
+      `tests/${S.cur.name}`, newHtml,
+      `update: quiz ${slug}`,
+      S.cur.sha
+    );
+    // Update SHA for next save
+    S.cur.sha  = result?.content?.sha || S.cur.sha;
     S.cur.html = newHtml;
-    S.cur.data = {...S.cur.data, ...fd};
     S.dirty = false;
     updSaveBtn();
-    toast('✓ Sauvegardé : ' + S.cur.name, 'ok');
+    // Update SHA in list too
+    const entry = S.list.find(q=>q.name===S.cur.name);
+    if (entry) entry.sha = S.cur.sha;
+    toast('✅ Sauvegardé sur GitHub : ' + S.cur.name, 'ok');
   } catch(e) {
     toast('❌ ' + e.message, 'err'); console.error(e);
   } finally {
@@ -1009,9 +1064,12 @@ function closeModal() { document.getElementById('modal').classList.remove('on');
 async function execDel(name) {
   closeModal(); setLoading(true);
   try {
-    await S.dir.removeEntry(name);
+    const entry = S.list.find(q => q.name === name);
+    if (!entry) throw new Error('Quiz introuvable dans la liste');
+    const slug = name.replace(/-quiz\.html$/, '').replace(/\.html$/, '');
+    await ghDeleteFile(entry.path, `delete: quiz ${slug}`, entry.sha);
     if (S.cur.name===name) {
-      S.cur = { name:null,html:null,data:null,fmt:null,qVar:null,qDecl:null,pVar:null,pDecl:null,optKeyField:null,pIsArr:false };
+      S.cur = { name:null,html:null,sha:null,data:null,fmt:null,qVar:null,qDecl:null,pVar:null,pDecl:null,optKeyField:null,pIsArr:false };
       S.dirty = false;
       document.getElementById('ed-empty').classList.remove('hidden');
       document.getElementById('ed-content').classList.add('hidden');
@@ -1027,7 +1085,7 @@ async function execDel(name) {
 /* ═══════════════════════════════════════
    NEW QUIZ (template download)
 ═══════════════════════════════════════ */
-function doNewQuiz() {
+async function doNewQuiz() {
   const name = prompt('Nom du fichier quiz (ex: mon-nouveau-quiz.html) :');
   if (!name) return;
   const fileName = name.endsWith('.html') ? name : name + '-quiz.html';
@@ -1095,12 +1153,14 @@ window.addEventListener('load',notifyResize);
 ${_SC}
 </body>
 </html>`;
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(new Blob([tpl],{type:'text/html'}));
-  a.download = fileName;
-  a.click();
-  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
-  toast('📥 Téléchargé. Placez dans tests/ puis ↻ Actualiser.', 'info');
+  setLoading(true);
+  try {
+    await ghWriteFile(`tests/${fileName}`, tpl, `create: quiz ${slug}`, null);
+    await refreshList();
+    toast('✅ Quiz créé ! Cliquez dessus pour l\'éditer.', 'ok');
+  } catch(e) {
+    toast('❌ ' + e.message, 'err'); console.error(e);
+  } finally { setLoading(false); }
 }
 
 /* ═══════════════════════════════════════
@@ -1143,6 +1203,9 @@ function toast(msg, type='') {
 window.addEventListener('beforeunload', e=>{
   if (S.dirty){e.preventDefault();e.returnValue='';}
 });
+
+// Démarrage
+init();
 </script>
 </body>
 </html>
