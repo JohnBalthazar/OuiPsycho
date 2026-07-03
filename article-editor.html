@@ -293,9 +293,37 @@
       background: #1a1a1a; color: white; padding: 10px 18px;
       border-radius: 8px; font-size: .85rem; font-weight: 600;
       display: none; box-shadow: 0 4px 14px rgba(0,0,0,.3);
+      max-width: 360px;
     }
     #toast.show { display: block; animation: fadeUp .2s ease; }
+    #toast.error { background: #b91c1c; }
+    #toast.success { background: #15803d; }
     @keyframes fadeUp { from { opacity:0; transform: translateY(8px); } to { opacity:1; transform: none; } }
+
+    /* PAT modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .modal-overlay.hidden { display: none; }
+    .modal-box {
+      background: white; border-radius: 14px; padding: 28px 32px;
+      max-width: 440px; width: 90%; box-shadow: 0 16px 48px rgba(0,0,0,.25);
+    }
+    .modal-box h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .modal-box p  { font-size: .85rem; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+    .modal-box a  { color: var(--accent); }
+    .modal-box input {
+      width: 100%; font-family: monospace; font-size: .82rem;
+      border: 1px solid var(--border); border-radius: 7px;
+      padding: 9px 11px; margin-bottom: 14px; background: var(--bg);
+    }
+    .modal-box input:focus { outline: none; border-color: var(--accent); }
+    .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+
+    /* publish spinner */
+    .spin { display: inline-block; animation: spin .7s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     /* scrollbar */
     ::-webkit-scrollbar { width: 6px; }
@@ -463,8 +491,9 @@
     </div><!-- /form-body -->
 
     <div class="panel-actions hidden" id="panel-actions">
-      <button class="btn btn-green" style="flex:1" onclick="exportJSON()">⬇ Exporter JSON corrigé</button>
-      <button class="btn btn-accent" onclick="copyJSON()">⎘ Copier</button>
+      <button class="btn btn-green" style="flex:1" id="btn-publish" onclick="publishToGitHub()">🚀 Publier sur GitHub</button>
+      <button class="btn btn-accent" onclick="exportJSON()" title="Télécharger le JSON">⬇</button>
+      <button class="btn btn-accent" onclick="copyJSON()" title="Copier le JSON">⎘</button>
     </div>
   </div><!-- /form-panel -->
 
@@ -515,6 +544,24 @@
 </div><!-- /workspace -->
 
 <div id="toast"></div>
+
+<!-- Modal saisie du token GitHub -->
+<div class="modal-overlay hidden" id="pat-modal">
+  <div class="modal-box">
+    <h3>🔑 Token GitHub (PAT)</h3>
+    <p>
+      Pour publier directement, collez votre <strong>Personal Access Token GitHub</strong>.<br>
+      Créez-en un sur <a href="https://github.com/settings/tokens/new?scopes=repo&description=OuiPsycho+editor" target="_blank">github.com/settings/tokens</a>
+      avec le scope <strong>repo</strong> (ou <em>Contents: Write</em> pour un fine-grained token).<br><br>
+      Le token est stocké uniquement dans votre navigateur (localStorage).
+    </p>
+    <input type="password" id="pat-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+    <div class="modal-actions">
+      <button class="btn" style="background:var(--bg);border:1px solid var(--border)" onclick="closePATModal()">Annuler</button>
+      <button class="btn btn-accent" onclick="savePATAndPublish()">Enregistrer &amp; Publier</button>
+    </div>
+  </div>
+</div>
 
 <script>
   // ── STATE ──
@@ -840,19 +887,123 @@
     return (s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
   }
 
-  function toast(msg, duration = 2800) {
+  function toast(msg, duration = 2800, type = '') {
     const el = document.getElementById('toast');
     el.textContent = msg;
-    el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), duration);
+    el.className = 'show' + (type ? ' ' + type : '');
+    clearTimeout(el._t);
+    el._t = setTimeout(() => el.className = '', duration);
   }
 
-  // Keyboard shortcut: Ctrl+S → export
+  // Keyboard shortcut: Ctrl+S → publish, Ctrl+Shift+S → export JSON
   document.addEventListener('keydown', e => {
     if ((e.ctrlKey || e.metaKey) && e.key === 's') {
       e.preventDefault();
-      if (articleLoaded) exportJSON();
+      if (articleLoaded) {
+        if (e.shiftKey) exportJSON();
+        else publishToGitHub();
+      }
     }
+  });
+
+  // ── GITHUB PUBLISH ──
+  const GH_OWNER = 'JohnBalthazar';
+  const GH_REPO  = 'OuiPsycho';
+  const PAT_KEY  = 'oui_psycho_gh_pat';
+
+  function getPAT() { return localStorage.getItem(PAT_KEY) || ''; }
+  function setPAT(v) { localStorage.setItem(PAT_KEY, v); }
+
+  function openPATModal() {
+    document.getElementById('pat-input').value = getPAT();
+    document.getElementById('pat-modal').classList.remove('hidden');
+    setTimeout(() => document.getElementById('pat-input').focus(), 50);
+  }
+  function closePATModal() {
+    document.getElementById('pat-modal').classList.add('hidden');
+  }
+
+  function savePATAndPublish() {
+    const val = document.getElementById('pat-input').value.trim();
+    if (!val) { toast('❌ Token vide', 2000, 'error'); return; }
+    setPAT(val);
+    closePATModal();
+    publishToGitHub();
+  }
+
+  async function publishToGitHub() {
+    if (!articleLoaded) return;
+    const pat = getPAT();
+    if (!pat) { openPATModal(); return; }
+
+    const d   = buildData();
+    const slug = d.id;
+    if (!slug) { toast('❌ Slug (ID) manquant', 2500, 'error'); return; }
+
+    const filePath = `articles/${slug}.json`;
+    const apiURL   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}`;
+    const headers  = {
+      'Authorization': `Bearer ${pat}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type': 'application/json',
+    };
+
+    // Disable button + spinner
+    const btn = document.getElementById('btn-publish');
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spin">⟳</span> Publication…';
+
+    try {
+      // 1. Récupérer le SHA actuel du fichier
+      let sha = null;
+      const getRes = await fetch(apiURL, { headers });
+      if (getRes.ok) {
+        const meta = await getRes.json();
+        sha = meta.sha;
+      } else if (getRes.status !== 404) {
+        const err = await getRes.json();
+        throw new Error(`GET ${getRes.status}: ${err.message}`);
+      }
+
+      // 2. Encoder le JSON en base64
+      const jsonStr  = JSON.stringify(d, null, 2) + '\n';
+      const b64      = btoa(unescape(encodeURIComponent(jsonStr)));
+      const dateStr  = new Date().toISOString().slice(0,10);
+      const msg      = `fix: modifier article ${slug} (${dateStr})`;
+
+      // 3. Pousser le fichier
+      const body = { message: msg, content: b64, ...(sha ? { sha } : {}) };
+      const putRes = await fetch(apiURL, {
+        method: 'PUT', headers,
+        body: JSON.stringify(body),
+      });
+
+      if (!putRes.ok) {
+        const err = await putRes.json();
+        if (putRes.status === 401) {
+          toast('❌ Token invalide ou expiré — cliquez pour le modifier', 4000, 'error');
+          localStorage.removeItem(PAT_KEY);
+          btn.disabled = false;
+          btn.innerHTML = '🚀 Publier sur GitHub';
+          return;
+        }
+        throw new Error(`PUT ${putRes.status}: ${err.message}`);
+      }
+
+      toast(`✅ Publié ! La CI régénère le site en ~1 min.`, 4000, 'success');
+    } catch (err) {
+      console.error(err);
+      toast(`❌ Erreur : ${err.message}`, 5000, 'error');
+    } finally {
+      btn.disabled = false;
+      btn.innerHTML = '🚀 Publier sur GitHub';
+    }
+  }
+
+  // Clic sur le badge PAT (topbar) pour modifier le token
+  document.querySelector('header').addEventListener('dblclick', () => {
+    if (confirm('Modifier le token GitHub ?')) openPATModal();
   });
 </script>
 </body>
