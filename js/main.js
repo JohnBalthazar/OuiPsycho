@@ -280,10 +280,12 @@ async function initHome() {
     btn.addEventListener('click', () => {
       activeCategory = btn.dataset.cat;
       syncActiveCat();
-      // Scroller en haut AVANT de mettre à jour le contenu :
-      // évite que le scroll-anchoring du navigateur compense la suppression
-      // de l'article à la une et contrecarre le scrollTo.
+      // Scroll instantané en haut AVANT de mettre à jour le contenu.
+      // On désactive momentanément scroll-behavior:smooth (CSS global) pour
+      // éviter que l'animation async soit interrompue par applyFilters.
+      document.documentElement.style.scrollBehavior = 'auto';
       window.scrollTo(0, 0);
+      document.documentElement.style.scrollBehavior = '';
       applyFilters(grid, featured);
     });
   });
