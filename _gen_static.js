@@ -106,7 +106,7 @@ ${srcItems}
       "@type": "Organization",
       "name": "Oui Psycho!",
       "url": `${BASE}/`,
-      "logo": { "@type": "ImageObject", "url": `${BASE}/img/favicon.svg` }
+      "logo": { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.png` }
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
     "keywords": j.tags.join(', '),
@@ -185,7 +185,7 @@ ${srcItems}
   <meta name="twitter:image"                  content="${j.image}">` : ''}
   <script type="application/ld+json">${aLD}</script>
   <script type="application/ld+json">${bLD}</script>
-  <link rel="icon" type="image/svg+xml" href="img/logo-brain.svg">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
@@ -234,7 +234,7 @@ ${srcItems}
   <header class="site-header" id="site-header">
     <div class="header-top">
       <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
-        <img src="img/logo-brain.svg" alt="" class="logo__img" width="40" height="40">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
