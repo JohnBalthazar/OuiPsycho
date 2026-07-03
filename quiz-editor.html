@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Éditeur de quiz — Oui Psycho!</title>
+  <style>
+    :root {
+      --bg:#f4f2ee; --panel:#fff; --border:#e0dbd3;
+      --accent:#1a9e6e; --accent-d:#15885d; --accent-light:#e8f7f2;
+      --text:#1a1a1a; --muted:#6b6b6b;
+      --danger:#dc2626; --danger-light:#fee2e2;
+      --warn:#d97706;
+      --radius:10px;
+      --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+    .hidden{display:none!important;}
+
+    /* HEADER */
+    header{background:var(--accent);color:#fff;padding:11px 20px;display:flex;align-items:center;gap:14px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+    header h1{font-size:1.05rem;font-weight:700;}
+    .hdr-sub{font-size:.82rem;opacity:.8;}
+    .spacer{flex:1;}
+
+    /* BUTTONS */
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:7px;font-size:.82rem;font-family:var(--font);font-weight:600;cursor:pointer;border:none;transition:opacity .15s,background .15s;}
+    .btn:disabled{opacity:.4;cursor:not-allowed;}
+    .btn-white{background:#fff;color:var(--accent);}
+    .btn-white:hover{background:#eafaf4;}
+    .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);}
+    .btn-accent{background:var(--accent);color:#fff;}
+    .btn-accent:hover{background:var(--accent-d);}
+    .btn-danger{background:var(--danger);color:#fff;}
+    .btn-danger:hover{background:#b91c1c;}
+    .btn-muted{background:var(--bg);color:var(--muted);border:1px solid var(--border);}
+    .btn-muted:hover{border-color:var(--accent);color:var(--accent);}
+    .btn-sm{padding:5px 10px;font-size:.78rem;}
+    .btn-icon{padding:5px 8px;background:none;border:none;cursor:pointer;color:var(--muted);border-radius:6px;font-size:.95rem;line-height:1;transition:background .12s,color .12s;}
+    .btn-icon:hover{background:var(--accent-light);color:var(--accent);}
+    .btn-icon.d:hover{background:var(--danger-light);color:var(--danger);}
+
+    /* START */
+    #start{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;}
+    .start-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:40px 48px;max-width:480px;width:100%;text-align:center;}
+    .start-card .ico{font-size:3rem;display:block;margin-bottom:14px;}
+    .start-card h2{font-size:1.2rem;margin-bottom:8px;}
+    .start-card p{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:22px;}
+    #api-warn{background:#fff8dc;border:1px solid #f0d060;border-radius:8px;padding:11px 15px;font-size:.82rem;color:#7a5c00;margin-top:16px;display:none;}
+
+    /* WORKSPACE */
+    #workspace{flex:1;display:grid;grid-template-columns:270px 1fr;overflow:hidden;}
+
+    /* SIDEBAR */
+    .sidebar{background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+    .sb-head{padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+    .sb-head h2{font-size:.88rem;font-weight:700;flex:1;}
+    .quiz-list{flex:1;overflow-y:auto;padding:6px;}
+    .qi{display:flex;align-items:center;gap:6px;padding:8px 10px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:background .1s;}
+    .qi:hover{background:var(--accent-light);}
+    .qi.active{background:var(--accent-light);border-color:var(--accent);}
+    .qi-name{font-size:.8rem;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .qi-del{opacity:0;transition:opacity .12s;}
+    .qi:hover .qi-del{opacity:1;}
+
+    /* EDITOR */
+    .ed{overflow-y:auto;display:flex;flex-direction:column;}
+    .ed-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);padding:40px;text-align:center;}
+    .ed-empty svg{width:52px;height:52px;opacity:.22;}
+    .ed-empty h2{font-size:1rem;font-weight:700;}
+    .ed-empty p{font-size:.84rem;max-width:300px;line-height:1.5;}
+
+    .ed-toolbar{background:var(--panel);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
+    .ed-title{font-size:.9rem;font-weight:700;flex:1;}
+    .fmt-badge{font-size:.7rem;padding:2px 8px;border-radius:20px;background:var(--accent-light);color:var(--accent);font-weight:700;}
+    .ed-body{padding:22px 26px;display:flex;flex-direction:column;gap:22px;max-width:820px;}
+
+    /* SECTION */
+    .sec{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+    .sec-head{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--border);cursor:pointer;user-select:none;}
+    .sec-head h3{font-size:.88rem;font-weight:700;flex:1;}
+    .chevron{font-size:.65rem;color:var(--muted);transition:transform .18s;}
+    .sec.col .chevron{transform:rotate(-90deg);}
+    .sec.col .sec-body{display:none;}
+    .sec-body{padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+
+    /* FIELDS */
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .f{display:flex;flex-direction:column;gap:4px;}
+    .f label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+    .f input,.f textarea,.f select{font-family:var(--font);font-size:.87rem;border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);background:var(--bg);transition:border-color .15s;resize:vertical;}
+    .f input:focus,.f textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,158,110,.1);}
+    .full{grid-column:1/-1;}
+
+    /* QUESTION CARD */
+    .qcard{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:13px 14px;}
+    .qcard-head{display:flex;align-items:flex-start;gap:10px;margin-bottom:10px;}
+    .qnum{width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:.75rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:3px;}
+    .qtxt{flex:1;font-family:var(--font);font-size:.9rem;font-weight:600;border:1px solid var(--border);border-radius:7px;padding:8px 10px;background:#fff;resize:none;min-height:46px;width:100%;}
+    .qtxt:focus{outline:none;border-color:var(--accent);}
+    .opts{display:flex;flex-direction:column;gap:7px;margin-top:7px;}
+    .orow{display:flex;align-items:flex-start;gap:7px;}
+    .okey{width:44px;font-family:var(--font);font-size:.8rem;font-weight:700;text-align:center;border:1px solid var(--border);border-radius:6px;padding:6px 4px;background:#fff;color:var(--accent);}
+    .okey:focus{outline:none;border-color:var(--accent);}
+    .otxt{flex:1;font-family:var(--font);font-size:.84rem;border:1px solid var(--border);border-radius:7px;padding:7px 10px;background:#fff;resize:none;min-height:34px;}
+    .otxt:focus{outline:none;border-color:var(--accent);}
+    .oscore{width:58px;font-family:var(--font);font-size:.82rem;text-align:center;border:1px solid var(--border);border-radius:6px;padding:6px 4px;background:#fff;}
+    .oscore:focus{outline:none;border-color:var(--accent);}
+    .add-opt{background:none;border:1.5px dashed var(--border);color:var(--muted);border-radius:7px;padding:6px;font-size:.78rem;cursor:pointer;width:100%;margin-top:4px;font-family:var(--font);}
+    .add-opt:hover{border-color:var(--accent);color:var(--accent);}
+    .qfoot{display:flex;gap:6px;justify-content:flex-end;margin-top:8px;}
+    .add-q-wrap{padding:10px 14px;border-top:1px solid var(--border);display:flex;justify-content:center;}
+
+    /* PROFILE CARD */
+    .pcard{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:13px 14px;}
+    .pcard-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+    .pkey{min-width:36px;height:36px;background:var(--accent);color:#fff;border-radius:8px;font-size:.82rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 8px;flex-shrink:0;}
+    .pemoji{width:58px;font-size:1.25rem;text-align:center;border:1px solid var(--border);border-radius:7px;padding:4px;background:#fff;}
+    .pfields{display:flex;flex-direction:column;gap:10px;}
+    .pfg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+
+    /* PARAGRAPH LIST */
+    .para-list{display:flex;flex-direction:column;gap:6px;}
+    .para-row{display:flex;gap:6px;align-items:flex-start;}
+    .para-n{width:18px;font-size:.7rem;color:var(--muted);font-weight:700;margin-top:9px;text-align:right;flex-shrink:0;}
+    .para-ta{flex:1;font-family:var(--font);font-size:.84rem;border:1px solid var(--border);border-radius:7px;padding:7px 10px;background:#fff;resize:vertical;min-height:54px;}
+    .para-ta:focus{outline:none;border-color:var(--accent);}
+    .add-para{background:none;border:1.5px dashed var(--border);color:var(--muted);border-radius:7px;padding:5px 10px;font-size:.76rem;cursor:pointer;margin-top:4px;font-family:var(--font);}
+    .add-para:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* SCORE RANGE */
+    .srange{display:flex;align-items:center;gap:8px;font-size:.82rem;}
+    .srange input{width:58px;font-family:var(--font);font-size:.84rem;text-align:center;border:1px solid var(--border);border-radius:6px;padding:5px 4px;background:#fff;}
+    .srange input:focus{outline:none;border-color:var(--accent);}
+    .srange label{color:var(--muted);font-size:.72rem;font-weight:700;}
+
+    /* TOAST */
+    #toast{position:fixed;bottom:22px;right:22px;z-index:9999;background:#1a1a1a;color:#fff;padding:10px 18px;border-radius:8px;font-size:.84rem;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none;}
+    #toast.show{display:flex;align-items:center;gap:8px;animation:fadeUp .2s ease;}
+    #toast.ok{background:var(--accent);}
+    #toast.err{background:var(--danger);}
+    #toast.info{background:#1a5fa8;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+
+    /* LOADING */
+    #loading{position:fixed;inset:0;background:rgba(255,255,255,.75);display:none;align-items:center;justify-content:center;z-index:800;}
+    #loading.on{display:flex;}
+    .spin{width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp .65s linear infinite;}
+    @keyframes sp{to{transform:rotate(360deg)}}
+
+    /* MODAL */
+    .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;display:none;align-items:center;justify-content:center;}
+    .modal-bg.on{display:flex;}
+    .modal{background:var(--panel);border-radius:var(--radius);padding:26px 30px;max-width:400px;width:90%;box-shadow:0 8px 30px rgba(0,0,0,.2);}
+    .modal h3{font-size:.95rem;margin-bottom:8px;}
+    .modal p{font-size:.86rem;color:var(--muted);margin-bottom:18px;line-height:1.55;}
+    .modal-acts{display:flex;gap:10px;justify-content:flex-end;}
+
+    ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+  <h1>Éditeur de quiz — Oui Psycho!</h1>
+  <span class="hdr-sub" id="hdr-info">Sélectionnez le dossier tests/</span>
+  <div class="spacer"></div>
+  <button class="btn btn-ghost btn-sm hidden" id="btn-refresh" onclick="doRefresh()">↻ Actualiser</button>
+  <button class="btn btn-white btn-sm hidden" id="btn-save" onclick="doSave()">💾 Sauvegarder</button>
+</header>
+
+<!-- START SCREEN -->
+<div id="start">
+  <div class="start-card">
+    <span class="ico">📝</span>
+    <h2>Éditeur de quiz</h2>
+    <p>Ouvrez le dossier <strong>tests/</strong> de votre projet pour lister, modifier et supprimer vos quiz.</p>
+    <button class="btn btn-accent" onclick="doOpenDir()">📂 Ouvrir le dossier tests/</button>
+    <div id="api-warn">Votre navigateur ne supporte pas l'API File System Access.<br>Utilisez <strong>Chrome</strong> ou <strong>Edge</strong>.</div>
+  </div>
+</div>
+
+<!-- WORKSPACE -->
+<div id="workspace" class="hidden">
+  <div class="sidebar">
+    <div class="sb-head">
+      <h2>Quiz (<span id="qcount">0</span>)</h2>
+      <button class="btn-icon" title="Nouveau quiz (template)" onclick="doNewQuiz()" style="font-size:1.1rem;">＋</button>
+    </div>
+    <div class="quiz-list" id="quiz-list"></div>
+  </div>
+
+  <div class="ed" id="ed">
+    <div class="ed-empty" id="ed-empty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+        <path d="M9 12h6M9 16h6M17 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2z"/>
+      </svg>
+      <h2>Aucun quiz sélectionné</h2>
+      <p>Choisissez un quiz dans la liste pour l'éditer.</p>
+    </div>
+    <div id="ed-content" class="hidden" style="display:flex;flex-direction:column;flex:1;">
+      <div class="ed-toolbar">
+        <span class="ed-title" id="ed-title">—</span>
+        <span class="fmt-badge" id="ed-fmt">—</span>
+        <button class="btn btn-danger btn-sm" onclick="doDelete()">🗑 Supprimer</button>
+      </div>
+      <div class="ed-body" id="ed-body"></div>
+    </div>
+  </div>
+</div>
+
+<div id="loading"><div class="spin"></div></div>
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h3 id="modal-title">Confirmer</h3>
+    <p id="modal-msg"></p>
+    <div class="modal-acts">
+      <button class="btn btn-muted btn-sm" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-danger btn-sm" id="modal-ok">Supprimer</button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+const S = {
+  dir: null,                // FileSystemDirectoryHandle
+  list: [],                 // [{name, handle}]
+  cur: {
+    name: null, html: null,
+    data: null,             // {questions, profiles, meta}
+    fmt: null,              // 'QR'|'qp-obj'|'QP-obj'|'score'
+    qVar: null, qDecl: null,
+    pVar: null, pDecl: null,
+    optKeyField: null,      // 'k'|'p'|'score'
+    pIsArr: false           // profiles is array?
+  },
+  dirty: false
+};
+
+/* ═══════════════════════════════════════
+   FILE SYSTEM
+═══════════════════════════════════════ */
+async function doOpenDir() {
+  if (!window.showDirectoryPicker) {
+    document.getElementById('api-warn').style.display = 'block'; return;
+  }
+  try {
+    S.dir = await window.showDirectoryPicker({ mode: 'readwrite' });
+    await refreshList();
+    document.getElementById('start').classList.add('hidden');
+    document.getElementById('workspace').classList.remove('hidden');
+    document.getElementById('btn-refresh').classList.remove('hidden');
+    document.getElementById('hdr-info').textContent = S.dir.name + '/';
+  } catch(e) {
+    if (e.name !== 'AbortError') toast('❌ ' + e.message, 'err');
+  }
+}
+
+async function refreshList() {
+  const items = [];
+  for await (const [name, handle] of S.dir.entries()) {
+    if (handle.kind === 'file' && name.endsWith('.html')) items.push({ name, handle });
+  }
+  items.sort((a,b) => a.name.localeCompare(b.name));
+  S.list = items;
+  renderList();
+}
+
+async function readHandle(handle) {
+  return (await handle.getFile()).text();
+}
+
+async function writeHandle(handle, content) {
+  const w = await handle.createWritable();
+  await w.write(content); await w.close();
+}
+
+/* ═══════════════════════════════════════
+   LIST
+═══════════════════════════════════════ */
+function renderList() {
+  document.getElementById('qcount').textContent = S.list.length;
+  document.getElementById('quiz-list').innerHTML = S.list.map(q => {
+    const label = q.name.replace(/-quiz\.html$/, '').replace(/\.html$/, '');
+    return `<div class="qi${S.cur.name===q.name?' active':''}" onclick="doOpen(${JSON.stringify(q.name)})" title="${xe(q.name)}">
+      <span class="qi-name">${xe(label)}</span>
+      <button class="btn-icon btn-sm qi-del d" onclick="event.stopPropagation();doConfirmDel(${JSON.stringify(q.name)})" title="Supprimer">🗑</button>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════
+   OPEN QUIZ
+═══════════════════════════════════════ */
+async function doOpen(name) {
+  if (S.dirty && !confirm('Modifications non sauvegardées. Quitter quand même ?')) return;
+  setLoading(true);
+  try {
+    const entry = S.list.find(q => q.name === name);
+    if (!entry) throw new Error('Fichier introuvable');
+    const html = await readHandle(entry.handle);
+    S.cur.html = html;
+    S.cur.name = name;
+    detectFmt(html);
+    S.cur.data = extractData(html, S.cur);
+    S.dirty = false;
+    renderEditor();
+    renderList();
+    document.getElementById('btn-save').classList.remove('hidden');
+  } catch(e) {
+    toast('❌ ' + e.message, 'err'); console.error(e);
+  } finally {
+    setLoading(false);
+  }
+}
+
+/* ═══════════════════════════════════════
+   FORMAT DETECTION
+═══════════════════════════════════════ */
+function detectFmt(html) {
+  const c = S.cur;
+  // Questions var name
+  for (const v of ['Q','questions','QUESTIONS']) {
+    if (new RegExp(`(?:var|const|let)\\s+${v}\\s*=\\s*\\[`).test(html)) { c.qVar=v; break; }
+  }
+  c.qDecl = new RegExp(`const\\s+${c.qVar}\\s*=`).test(html) ? 'const' : 'var';
+
+  // Profiles var name
+  for (const v of ['R','profiles','PROFILES']) {
+    if (new RegExp(`(?:var|const|let)\\s+${v}\\s*=`).test(html)) { c.pVar=v; break; }
+  }
+  c.pDecl = new RegExp(`const\\s+${c.pVar}\\s*=`).test(html) ? 'const' : 'var';
+
+  // Overall format
+  if (c.qVar==='Q' && c.pVar==='R') c.fmt='QR';
+  else if (c.qVar==='QUESTIONS') c.fmt='QP-obj';
+  else if (c.pVar==='profiles' && /const\s+profiles\s*=\s*\[/.test(html)) c.fmt='score';
+  else c.fmt='qp-obj';
+}
+
+/* ═══════════════════════════════════════
+   DATA EXTRACTION (text-based, works with IIFE)
+═══════════════════════════════════════ */
+function extractData(html, c) {
+  // Find all <script> blocks (excluding tiny ones like GA)
+  const scripts = [];
+  const re = /<script(?:\s[^>]*)?>(?!.*?async)([\s\S]*?)<\/script>/gi;
+  let m;
+  while ((m=re.exec(html))!==null) {
+    if (m[1].trim().length > 200) scripts.push(m[1]);
+  }
+
+  let questions = null, profiles = null;
+  for (const sc of scripts) {
+    if (questions===null) questions = extractVar(sc, c.qVar);
+    if (profiles===null) profiles = extractVar(sc, c.pVar);
+    if (questions!==null && profiles!==null) break;
+  }
+
+  if (!questions) throw new Error(`Variable ${c.qVar} introuvable dans le script`);
+
+  // Option key field detection
+  const firstOpts = (questions[0]?.a || questions[0]?.options || []);
+  const firstOpt = firstOpts[0] || {};
+  c.optKeyField = firstOpt.k!==undefined ? 'k' : firstOpt.p!==undefined ? 'p' : 'score';
+  c.pIsArr = Array.isArray(profiles);
+
+  // Meta
+  const meta = {
+    title: (html.match(/<title>([^<]*)<\/title>/) || [])[1] || '',
+    description: (html.match(/<meta\s+name="description"\s+content="([^"]*)"/) || [])[1] || '',
+    canonical: (html.match(/<link\s+rel="canonical"\s+href="([^"]*)"/) || [])[1] || ''
+  };
+
+  return { questions, profiles: profiles || {}, meta };
+}
+
+function extractVar(scriptText, varName) {
+  const re = new RegExp(`(?:var|const|let)\\s+${varName}\\s*=\\s*`);
+  const match = re.exec(scriptText);
+  if (!match) return null;
+
+  const afterEq = scriptText.slice(match.index + match[0].length);
+  const trimmed = afterEq.trimStart();
+  const skip = afterEq.length - trimmed.length;
+  const start = match.index + match[0].length + skip;
+  const end = findClose(scriptText, start);
+  if (end===-1) return null;
+
+  const src = scriptText.slice(start, end);
+  try {
+    // eslint-disable-next-line no-new-func
+    return (new Function('return ' + src + ';'))();
+  } catch(e) {
+    console.warn(`Parse error for ${varName}:`, e.message);
+    return null;
+  }
+}
+
+/** Find the matching closing bracket/brace */
+function findClose(text, start) {
+  const o = text[start], cl = o==='['?']':o==='{'?'}':null;
+  if (!cl) return start+1;
+  let depth=0, inStr=false, strCh='', esc=false;
+  for (let i=start; i<text.length; i++) {
+    const c=text[i];
+    if (esc){esc=false;continue;}
+    if (c==='\\'&&inStr){esc=true;continue;}
+    if (!inStr&&(c==='"'||c==="'"||c==='`')){inStr=true;strCh=c;continue;}
+    if (inStr&&c===strCh){inStr=false;continue;}
+    if (inStr) continue;
+    if (c===o) depth++;
+    if (c===cl){depth--;if(depth===0)return i+1;}
+  }
+  return -1;
+}
+
+/* ═══════════════════════════════════════
+   EDITOR RENDERING
+═══════════════════════════════════════ */
+function renderEditor() {
+  const {name, data, fmt} = S.cur;
+  const label = name.replace(/-quiz\.html$/,'').replace(/\.html$/,'');
+  document.getElementById('ed-title').textContent = label;
+  document.getElementById('ed-fmt').textContent = fmt;
+  document.getElementById('ed-empty').classList.add('hidden');
+  document.getElementById('ed-content').classList.remove('hidden');
+
+  const body = document.getElementById('ed-body');
+  body.innerHTML = '';
+
+  // Meta
+  body.appendChild(mkSection('🔖 Métadonnées', mkMeta(data.meta), 'meta'));
+  // Questions
+  const qCount = (data.questions||[]).length;
+  body.appendChild(mkSection(`❓ Questions (${qCount})`, mkQuestions(data.questions||[]), 'questions'));
+  // Profiles
+  const pArr = Array.isArray(data.profiles);
+  const pCount = pArr ? data.profiles.length : Object.keys(data.profiles||{}).length;
+  body.appendChild(mkSection(`🎯 Résultats / Profils (${pCount})`, mkProfiles(data.profiles), 'profiles'));
+
+  // Wire
+  body.querySelectorAll('textarea').forEach(ta => {
+    autoH(ta);
+    ta.addEventListener('input', ()=>{autoH(ta);setDirty();});
+  });
+  body.querySelectorAll('input').forEach(el => el.addEventListener('input', setDirty));
+}
+
+function mkSection(title, content, id) {
+  const sec = document.createElement('div');
+  sec.className = 'sec'; sec.id = 'sec-'+id;
+  sec.innerHTML = `<div class="sec-head" onclick="togSec('${id}')"><h3>${title}</h3><span class="chevron">▾</span></div>
+    <div class="sec-body">${content}</div>`;
+  return sec;
+}
+
+function togSec(id) { document.getElementById('sec-'+id).classList.toggle('col'); }
+
+/* ── META ── */
+function mkMeta(m) {
+  return `<div class="fg">
+    <div class="f full"><label>Titre onglet</label><input id="m-title" value="${xa(m?.title||'')}"></div>
+    <div class="f full"><label>Meta description</label><textarea id="m-desc" rows="2">${xe(m?.description||'')}</textarea></div>
+    <div class="f full"><label>URL canonique</label><input id="m-canon" value="${xa(m?.canonical||'')}"></div>
+  </div>`;
+}
+
+/* ── QUESTIONS ── */
+function mkQuestions(qs) {
+  const isScore = S.cur.optKeyField==='score';
+  return `<div id="qcont">${qs.map((q,i)=>mkQCard(q,i,isScore)).join('')}</div>
+    <div class="add-q-wrap"><button class="btn btn-muted btn-sm" onclick="addQ()">+ Ajouter une question</button></div>`;
+}
+
+function mkQCard(q, qi, isScore) {
+  const text = q.q||q.text||'';
+  const opts = q.a||q.options||[];
+  return `<div class="qcard" id="qcard-${qi}">
+    <div class="qcard-head">
+      <span class="qnum">${qi+1}</span>
+      <textarea class="qtxt" id="q-${qi}-text" rows="2">${xe(text)}</textarea>
+      <button class="btn-icon d" onclick="delQ(${qi})" title="Supprimer">✕</button>
+    </div>
+    <div class="opts" id="opts-${qi}">${opts.map((o,oi)=>mkORow(o,qi,oi,isScore)).join('')}</div>
+    <button class="add-opt" onclick="addOpt(${qi})">+ Ajouter une option</button>
+    <div class="qfoot">
+      <button class="btn-icon btn-sm" onclick="mvQ(${qi},-1)" title="Monter">↑</button>
+      <button class="btn-icon btn-sm" onclick="mvQ(${qi},1)" title="Descendre">↓</button>
+    </div>
+  </div>`;
+}
+
+function mkORow(o, qi, oi, isScore) {
+  const text = o.t||o.text||'';
+  return `<div class="orow" id="orow-${qi}-${oi}">${
+    isScore
+      ? `<input type="number" class="oscore" id="q-${qi}-o-${oi}-score" value="${xe(String(o.score??0))}" min="0" max="30" oninput="setDirty()">`
+      : `<input type="text" class="okey" id="q-${qi}-o-${oi}-key" value="${xe(o.k||o.p||'')}" placeholder="A" oninput="setDirty()">`
+  }<textarea class="otxt" id="q-${qi}-o-${oi}-text" rows="1">${xe(text)}</textarea>
+  <button class="btn-icon d btn-sm" onclick="delOpt(${qi},${oi})" title="Supprimer">✕</button>
+  </div>`;
+}
+
+/* ── PROFILES ── */
+function mkProfiles(profiles) {
+  if (!profiles) return '<p style="color:var(--muted);font-size:.84rem;">Aucun profil détecté.</p>';
+  if (Array.isArray(profiles)) {
+    return `<div id="pcont">${profiles.map((p,i)=>mkScoreP(p,i)).join('')}</div>`;
+  }
+  return `<div id="pcont">${Object.entries(profiles).map(([k,p],i)=>mkObjP(p,k,i)).join('')}</div>`;
+}
+
+function mkObjP(p, key, idx) {
+  const emoji = p.e||p.emoji||'';
+  const name  = p.t||p.name||'';
+  const sub   = p.s||p.sub||'';
+  const tag   = p.tag||'';
+  const insight = p.ins||p.insight||'';
+  const action  = p.action||'';
+  const traits  = Array.isArray(p.traits) ? p.traits : [];
+  const bodyArr = Array.isArray(p.b) ? p.b : null;
+  const bodyText= bodyArr!==null ? '' : (p.desc||p.text||'');
+
+  const hasTag   = 'tag' in p;
+  const hasAction= 'action' in p;
+  const hasTraits= 'traits' in p;
+  const hasBodyArr= bodyArr!==null;
+  const hasBody  = !hasBodyArr && ('desc' in p || 'text' in p);
+  const hasInsight= 'ins' in p || 'insight' in p;
+
+  return `<div class="pcard" id="pcard-${idx}">
+    <div class="pcard-head">
+      <span class="pkey">${xe(key)}</span>
+      <input class="pemoji" id="p-${idx}-emoji" value="${xe(emoji)}" placeholder="🎯" oninput="setDirty()">
+      <small style="color:var(--muted)">clé : <b>${xe(key)}</b></small>
+    </div>
+    <div class="pfields">
+      <div class="pfg">
+        <div class="f"><label>Nom du profil</label><input id="p-${idx}-name" value="${xa(name)}" oninput="setDirty()"></div>
+        <div class="f"><label>Sous-titre</label><input id="p-${idx}-sub" value="${xa(sub)}" oninput="setDirty()"></div>
+      </div>
+      ${hasTag?`<div class="f"><label>Tag affiché</label><input id="p-${idx}-tag" value="${xa(tag)}" oninput="setDirty()"></div>`:''}
+      ${hasBodyArr?`<div class="f"><label>Paragraphes du corps</label>
+        <div class="para-list" id="paras-${idx}">${bodyArr.map((t,pi)=>`
+          <div class="para-row" id="para-${idx}-${pi}">
+            <span class="para-n">${pi+1}</span>
+            <textarea class="para-ta" id="p-${idx}-para-${pi}">${xe(t)}</textarea>
+            <button class="btn-icon d btn-sm" onclick="delPara(${idx},${pi})">✕</button>
+          </div>`).join('')}
+        </div>
+        <button class="add-para" onclick="addPara(${idx})">+ Paragraphe</button>
+      </div>`:''}
+      ${hasBody?`<div class="f"><label>Corps du texte</label><textarea id="p-${idx}-body" rows="4">${xe(bodyText)}</textarea></div>`:''}
+      ${hasTraits?`<div class="f"><label>Traits (séparés par virgule)</label>
+        <input id="p-${idx}-traits" value="${xa(traits.join(', '))}" oninput="setDirty()"></div>`:''}
+      ${hasInsight?`<div class="f"><label>Insight psycho</label><textarea id="p-${idx}-insight" rows="2">${xe(insight)}</textarea></div>`:''}
+      ${hasAction?`<div class="f"><label>Pour aller plus loin</label><textarea id="p-${idx}-action" rows="2">${xe(action)}</textarea></div>`:''}
+    </div>
+  </div>`;
+}
+
+function mkScoreP(p, idx) {
+  return `<div class="pcard" id="pcard-${idx}">
+    <div class="pcard-head">
+      <div class="srange">
+        <label>Score</label>
+        <input type="number" id="p-${idx}-min" value="${p.min??0}" min="0" oninput="setDirty()">
+        <label>→</label>
+        <input type="number" id="p-${idx}-max" value="${p.max??0}" min="0" oninput="setDirty()">
+      </div>
+      <input class="pemoji" id="p-${idx}-emoji" value="${xe(p.icon||p.emoji||'')}" placeholder="🌿" style="margin-left:12px" oninput="setDirty()">
+    </div>
+    <div class="pfields">
+      <div class="pfg">
+        <div class="f"><label>Titre</label><input id="p-${idx}-name" value="${xa(p.title||p.name||'')}" oninput="setDirty()"></div>
+        <div class="f"><label>Sous-titre</label><input id="p-${idx}-sub" value="${xa(p.sub||'')}" oninput="setDirty()"></div>
+      </div>
+      ${'desc' in p?`<div class="f"><label>Description</label><textarea id="p-${idx}-desc" rows="4">${xe(p.desc||'')}</textarea></div>`:''}
+      ${'insight' in p?`<div class="f"><label>Insight</label><textarea id="p-${idx}-insight" rows="2">${xe(p.insight||'')}</textarea></div>`:''}
+      ${'action' in p?`<div class="f"><label>Pour aller plus loin</label><textarea id="p-${idx}-action" rows="2">${xe(p.action||'')}</textarea></div>`:''}
+    </div>
+  </div>`;
+}
+
+/* ═══════════════════════════════════════
+   QUESTION MUTATIONS
+═══════════════════════════════════════ */
+function addQ() {
+  const isScore = S.cur.optKeyField==='score';
+  const qs = S.cur.data.questions;
+  const qi = qs.length;
+  const newQ = isScore ? {text:'',options:[{text:'',score:0}]}
+    : S.cur.qVar==='Q' ? {q:'',a:[{t:'',k:'?'}]}
+    : {q:'',a:[{t:'',p:'?'}]};
+  qs.push(newQ);
+
+  const el = document.createElement('div');
+  el.innerHTML = mkQCard(newQ, qi, isScore);
+  const card = el.firstElementChild;
+  document.getElementById('qcont').appendChild(card);
+  card.querySelectorAll('textarea').forEach(ta=>{autoH(ta);ta.addEventListener('input',()=>{autoH(ta);setDirty();});});
+  card.querySelectorAll('input').forEach(el=>el.addEventListener('input',setDirty));
+  updSecTitle('questions', qs.length);
+  setDirty();
+}
+
+function delQ(qi) {
+  const card = document.getElementById(`qcard-${qi}`);
+  if (card) card.remove();
+  setDirty();
+}
+
+function mvQ(qi, dir) {
+  const cont = document.getElementById('qcont');
+  const cards = [...cont.children];
+  const idx = cards.findIndex(c=>c.id===`qcard-${qi}`);
+  if (idx===-1) return;
+  const tgt = idx+dir;
+  if (tgt<0||tgt>=cards.length) return;
+  dir===-1 ? cont.insertBefore(cards[idx],cards[tgt]) : cont.insertBefore(cards[tgt],cards[idx]);
+  setDirty();
+}
+
+function addOpt(qi) {
+  const isScore = S.cur.optKeyField==='score';
+  const cont = document.getElementById(`opts-${qi}`);
+  const oi = cont.children.length;
+  const newO = isScore ? {text:'',score:0} : (S.cur.optKeyField==='k'?{t:'',k:'?'}:{t:'',p:'?'});
+  const el = document.createElement('div');
+  el.innerHTML = mkORow(newO, qi, oi, isScore);
+  const row = el.firstElementChild;
+  cont.appendChild(row);
+  row.querySelectorAll('textarea').forEach(ta=>{autoH(ta);ta.addEventListener('input',()=>{autoH(ta);setDirty();});});
+  row.querySelectorAll('input').forEach(el=>el.addEventListener('input',setDirty));
+  setDirty();
+}
+
+function delOpt(qi, oi) {
+  const row = document.getElementById(`orow-${qi}-${oi}`);
+  if (row) row.remove();
+  setDirty();
+}
+
+function addPara(idx) {
+  const list = document.getElementById(`paras-${idx}`);
+  const pi = list.children.length;
+  const el = document.createElement('div');
+  el.innerHTML = `<div class="para-row" id="para-${idx}-${pi}">
+    <span class="para-n">${pi+1}</span>
+    <textarea class="para-ta" id="p-${idx}-para-${pi}"></textarea>
+    <button class="btn-icon d btn-sm" onclick="delPara(${idx},${pi})">✕</button>
+  </div>`;
+  const row = el.firstElementChild;
+  list.appendChild(row);
+  const ta = row.querySelector('textarea');
+  autoH(ta); ta.addEventListener('input',()=>{autoH(ta);setDirty();});
+  setDirty();
+}
+
+function delPara(idx, pi) {
+  const row = document.getElementById(`para-${idx}-${pi}`);
+  if (row) row.remove();
+  setDirty();
+}
+
+/* ═══════════════════════════════════════
+   COLLECT FORM DATA
+═══════════════════════════════════════ */
+function collectForm() {
+  const isScore = S.cur.optKeyField==='score';
+  const optTF = isScore ? 'text' : 't';
+  const optKF = S.cur.optKeyField; // 'k','p','score'
+  const rawQs = S.cur.data.questions||[];
+
+  // Meta
+  const meta = {
+    title: gv('m-title'), description: gv('m-desc'), canonical: gv('m-canon')
+  };
+
+  // Questions — read from DOM
+  const qcards = [...(document.getElementById('qcont')?.children||[])];
+  const questions = qcards.map(card => {
+    const origIdx = +card.id.replace('qcard-','');
+    const origQ = rawQs[origIdx]||{};
+    const textEl = card.querySelector(`#q-${origIdx}-text`);
+    const newText = textEl ? textEl.value : '';
+    const aField  = origQ.a!==undefined ? 'a' : 'options';
+    const qTF     = origQ.q!==undefined ? 'q' : 'text';
+
+    const optRows = [...(card.querySelector(`#opts-${origIdx}`)?.children||[])];
+    const origOpts= origQ[aField]||[];
+    const options = optRows.map(row => {
+      const oIdx = +row.id.replace(`orow-${origIdx}-`,'');
+      const origO = origOpts[oIdx]||{};
+      const newO = {...origO};
+      const textInput = row.querySelector(`[id$="-text"]`);
+      if (textInput) newO[optTF] = textInput.value;
+      if (isScore) {
+        const sc = row.querySelector(`[id$="-score"]`);
+        if (sc) newO.score = +sc.value||0;
+      } else {
+        const ki = row.querySelector(`[id$="-key"]`);
+        if (ki) newO[optKF] = ki.value;
+        // Remove the other key if it was there from origO
+        if (optKF==='k' && newO.p!==undefined) delete newO.p;
+        if (optKF==='p' && newO.k!==undefined) delete newO.k;
+      }
+      return newO;
+    });
+
+    const newQ = {...origQ};
+    newQ[qTF] = newText;
+    newQ[aField] = options;
+    return newQ;
+  });
+
+  // Profiles
+  let profiles;
+  const rawP = S.cur.data.profiles;
+  if (Array.isArray(rawP)) {
+    profiles = rawP.map((p,i) => {
+      const n = {...p};
+      const minEl=document.getElementById(`p-${i}-min`), maxEl=document.getElementById(`p-${i}-max`);
+      if (minEl) n.min=+minEl.value||0;
+      if (maxEl) n.max=+maxEl.value||0;
+      const emoEl=document.getElementById(`p-${i}-emoji`);
+      if (emoEl) { if('icon' in p) n.icon=emoEl.value; else n.emoji=emoEl.value; }
+      const nm=document.getElementById(`p-${i}-name`); if(nm){ if('title' in p) n.title=nm.value; else n.name=nm.value; }
+      const su=document.getElementById(`p-${i}-sub`); if(su) n.sub=su.value;
+      const de=document.getElementById(`p-${i}-desc`); if(de && 'desc' in p) n.desc=de.value;
+      const ins=document.getElementById(`p-${i}-insight`); if(ins && 'insight' in p) n.insight=ins.value;
+      const act=document.getElementById(`p-${i}-action`); if(act && 'action' in p) n.action=act.value;
+      return n;
+    });
+  } else if (rawP && typeof rawP==='object') {
+    profiles = {};
+    Object.entries(rawP).forEach(([key,p],i) => {
+      const n = {...p};
+      const emoEl=document.getElementById(`p-${i}-emoji`);
+      if (emoEl) { if('e' in p) n.e=emoEl.value; else n.emoji=emoEl.value; }
+      const nm=document.getElementById(`p-${i}-name`); if(nm) { if('t' in p) n.t=nm.value; else n.name=nm.value; }
+      const su=document.getElementById(`p-${i}-sub`); if(su) { if('s' in p) n.s=su.value; else n.sub=su.value; }
+      const tg=document.getElementById(`p-${i}-tag`); if(tg && 'tag' in p) n.tag=tg.value;
+      const tr=document.getElementById(`p-${i}-traits`);
+      if (tr && Array.isArray(p.traits)) n.traits=tr.value.split(',').map(s=>s.trim()).filter(Boolean);
+      // Body paragraphs
+      if (Array.isArray(p.b)) {
+        const pl=document.getElementById(`paras-${i}`);
+        if (pl) n.b=[...pl.children].map(row=>{
+          const ta=row.querySelector('textarea'); return ta?ta.value:(p.b[+row.id.split('-').pop()]||'');
+        });
+      } else {
+        const bd=document.getElementById(`p-${i}-body`);
+        if (bd) { if('desc' in p) n.desc=bd.value; else if('text' in p) n.text=bd.value; }
+      }
+      const ins=document.getElementById(`p-${i}-insight`);
+      if (ins) { if('ins' in p) n.ins=ins.value; else if('insight' in p) n.insight=ins.value; }
+      const act=document.getElementById(`p-${i}-action`); if(act && 'action' in p) n.action=act.value;
+      profiles[key] = n;
+    });
+  }
+
+  return { meta, questions, profiles };
+}
+
+/* ═══════════════════════════════════════
+   REBUILD HTML
+═══════════════════════════════════════ */
+function rebuildHtml(origHtml, fd) {
+  let html = origHtml;
+  const {meta, questions, profiles} = fd;
+  const {qVar, qDecl, pVar, pDecl} = S.cur;
+
+  // Meta tags
+  if (meta.title) html = html.replace(/<title>[^<]*<\/title>/, `<title>${meta.title}</title>`);
+  if (meta.description)
+    html = html.replace(/(<meta\s+name="description"\s+content=")[^"]*"/, `$1${xa(meta.description)}"`);
+  if (meta.canonical)
+    html = html.replace(/(<link\s+rel="canonical"\s+href=")[^"]*"/, `$1${xa(meta.canonical)}"`);
+
+  // Find data script
+  const scRe = /<script(?:\s[^>]*)?>[\s\S]*?<\/script>/gi;
+  let sm = null, tmp;
+  scRe.lastIndex = 0;
+  while ((tmp=scRe.exec(html))!==null) {
+    const c = tmp[0];
+    if (new RegExp(`(?:var|const|let)\\s+${qVar}\\s*=`).test(c) ||
+        new RegExp(`(?:var|const|let)\\s+${pVar}\\s*=`).test(c)) {
+      sm = {full:tmp[0], start:tmp.index, end:tmp.index+tmp[0].length};
+      break;
+    }
+  }
+  if (!sm) { toast('⚠️ Script de données introuvable', 'err'); return html; }
+
+  let sc = sm.full;
+  sc = replaceVar(sc, qVar, qDecl + ' ' + qVar + ' = ' + JSON.stringify(questions, null, 2) + ';');
+  sc = replaceVar(sc, pVar, pDecl + ' ' + pVar + ' = ' + JSON.stringify(profiles, null, 2) + ';');
+
+  return html.slice(0, sm.start) + sc + html.slice(sm.end);
+}
+
+function replaceVar(scriptText, varName, newDecl) {
+  const re = new RegExp(`(?:var|const|let)\\s+${varName}\\s*=\\s*`);
+  const match = re.exec(scriptText);
+  if (!match) return scriptText;
+
+  const afterEq = scriptText.slice(match.index + match[0].length);
+  const trimmed = afterEq.trimStart();
+  const skip = afterEq.length - trimmed.length;
+  const start = match.index + match[0].length + skip;
+  const end = findClose(scriptText, start);
+  if (end===-1) return scriptText;
+
+  let e2 = end;
+  while (e2 < scriptText.length && scriptText[e2] === ';') e2++;
+
+  return scriptText.slice(0, match.index) + newDecl + scriptText.slice(e2);
+}
+
+/* ═══════════════════════════════════════
+   SAVE
+═══════════════════════════════════════ */
+async function doSave() {
+  if (!S.cur.name) return;
+  setLoading(true);
+  try {
+    const fd = collectForm();
+    const newHtml = rebuildHtml(S.cur.html, fd);
+    const entry = S.list.find(q=>q.name===S.cur.name);
+    if (!entry) throw new Error('Fichier introuvable');
+    await writeHandle(entry.handle, newHtml);
+    S.cur.html = newHtml;
+    S.cur.data = {...S.cur.data, ...fd};
+    S.dirty = false;
+    updSaveBtn();
+    toast('✓ Sauvegardé : ' + S.cur.name, 'ok');
+  } catch(e) {
+    toast('❌ ' + e.message, 'err'); console.error(e);
+  } finally {
+    setLoading(false);
+  }
+}
+
+/* ═══════════════════════════════════════
+   DELETE
+═══════════════════════════════════════ */
+function doDelete() { if (S.cur.name) doConfirmDel(S.cur.name); }
+
+function doConfirmDel(name) {
+  document.getElementById('modal-title').textContent = 'Supprimer ce quiz ?';
+  document.getElementById('modal-msg').innerHTML =
+    `Supprimer <strong>${xe(name)}</strong> ?<br><small>Action irréversible. Pensez à retirer l'iframe de l'article JSON correspondant.</small>`;
+  document.getElementById('modal-ok').onclick = () => execDel(name);
+  document.getElementById('modal').classList.add('on');
+}
+
+function closeModal() { document.getElementById('modal').classList.remove('on'); }
+
+async function execDel(name) {
+  closeModal(); setLoading(true);
+  try {
+    await S.dir.removeEntry(name);
+    if (S.cur.name===name) {
+      S.cur = { name:null,html:null,data:null,fmt:null,qVar:null,qDecl:null,pVar:null,pDecl:null,optKeyField:null,pIsArr:false };
+      S.dirty = false;
+      document.getElementById('ed-empty').classList.remove('hidden');
+      document.getElementById('ed-content').classList.add('hidden');
+      document.getElementById('btn-save').classList.add('hidden');
+    }
+    await refreshList();
+    toast('🗑 ' + name + ' supprimé', 'ok');
+  } catch(e) {
+    toast('❌ ' + e.message, 'err'); console.error(e);
+  } finally { setLoading(false); }
+}
+
+/* ═══════════════════════════════════════
+   NEW QUIZ (template download)
+═══════════════════════════════════════ */
+function doNewQuiz() {
+  const name = prompt('Nom du fichier quiz (ex: mon-nouveau-quiz.html) :');
+  if (!name) return;
+  const fileName = name.endsWith('.html') ? name : name + '-quiz.html';
+  const slug = fileName.replace('-quiz.html','').replace('.html','');
+  const tpl = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mon nouveau quiz</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/${slug}/">
+<meta name="description" content="Description du quiz.">
+<style>
+  :root{--vert:#1a9e6e;--encre:#2a2a33;--gris:#6b6b76;--bg:#fbfaf7;--bord:#ece8df;}
+  *{box-sizing:border-box;}
+  body{margin:0;font-family:-apple-system,sans-serif;color:var(--encre);background:var(--bg);}
+  .wrap{max-width:640px;margin:0 auto;padding:22px 18px;}
+  .card{background:#fff;border:1px solid var(--bord);border-radius:14px;padding:22px 20px;}
+  .q{font-size:1.08rem;font-weight:600;margin-bottom:14px;}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bord);border-radius:11px;padding:12px 16px;margin:8px 0;font-size:.97rem;cursor:pointer;font-family:inherit;}
+  .opt:hover{border-color:var(--vert);}
+  .restart{margin-top:16px;background:var(--vert);color:#fff;border:none;border-radius:99px;padding:11px 24px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;}
+</style>
+</head>
+<body>
+<div class="wrap"><div class="card" id="card"></div></div>
+<script>
+var questions = [
+  {q:"Votre première question ?",
+   a:[{t:"Option A",p:"A"},{t:"Option B",p:"B"},{t:"Option C",p:"C"},{t:"Option D",p:"D"}]},
+  {q:"Votre deuxième question ?",
+   a:[{t:"Option A",p:"A"},{t:"Option B",p:"B"},{t:"Option C",p:"C"},{t:"Option D",p:"D"}]}
+];
+var profiles = {
+  A:{emoji:"⭐",name:"Profil A",sub:"Sous-titre A",desc:"Description du profil A.",insight:"Insight psycho.",action:"Pour aller plus loin."},
+  B:{emoji:"🌙",name:"Profil B",sub:"Sous-titre B",desc:"Description du profil B.",insight:"Insight psycho.",action:"Pour aller plus loin."},
+  C:{emoji:"🌿",name:"Profil C",sub:"Sous-titre C",desc:"Description du profil C.",insight:"Insight psycho.",action:"Pour aller plus loin."},
+  D:{emoji:"🔥",name:"Profil D",sub:"Sous-titre D",desc:"Description du profil D.",insight:"Insight psycho.",action:"Pour aller plus loin."}
+};
+var step=-1;var answers=[];
+function notifyResize(){setTimeout(function(){window.parent.postMessage({type:'quiz-resize',height:document.body.scrollHeight},'*');},50);}
+function render(){
+  var c=document.getElementById('card');
+  if(step<0){
+    c.innerHTML='<div style="text-align:center"><h2>Mon quiz</h2><p>Quelques questions pour découvrir votre profil.</p><button class="restart" onclick="step=0;answers=[];render()">Commencer</button></div>';
+  } else if(step<questions.length){
+    var q=questions[step];
+    var h='<div class="q">'+q.q+'</div>';
+    q.a.forEach(function(o,i){h+='<button class="opt" data-i="'+i+'">'+o.t+'</button>';});
+    c.innerHTML=h;
+    c.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){answers.push(q.a[+b.dataset.i].p);step++;render();};});
+  } else {
+    var count={};answers.forEach(function(k){count[k]=(count[k]||0)+1;});
+    var best=Object.keys(count).reduce(function(a,b){return count[a]>count[b]?a:b;});
+    var r=profiles[best];
+    c.innerHTML='<div style="text-align:center;line-height:1.6"><div style="font-size:2.4rem;margin-bottom:8px">'+r.emoji+'</div><h2>'+r.name+'</h2><p><b>'+r.sub+'</b></p><p>'+r.desc+'</p><p><i>'+r.insight+'</i></p><p>'+r.action+'</p><button class="restart" onclick="step=-1;answers=[];render()">Recommencer</button></div>';
+  }
+  notifyResize();
+}
+render();
+window.addEventListener('load',notifyResize);
+<\/script>
+</body>
+</html>`;
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([tpl],{type:'text/html'}));
+  a.download = fileName;
+  a.click();
+  setTimeout(()=>URL.revokeObjectURL(a.href),1000);
+  toast('📥 Téléchargé. Placez dans tests/ puis ↻ Actualiser.', 'info');
+}
+
+/* ═══════════════════════════════════════
+   REFRESH
+═══════════════════════════════════════ */
+async function doRefresh() {
+  setLoading(true);
+  try { await refreshList(); toast('↻ Liste actualisée', 'ok'); }
+  finally { setLoading(false); }
+}
+
+/* ═══════════════════════════════════════
+   UTILS
+═══════════════════════════════════════ */
+function gv(id) { const e=document.getElementById(id); return e?e.value:''; }
+function xe(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function xa(s) { return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;'); }
+function autoH(ta) { ta.style.height='auto'; ta.style.height=Math.max(34,ta.scrollHeight)+'px'; }
+
+function setDirty() {
+  if (!S.dirty) { S.dirty=true; updSaveBtn(); }
+}
+function updSaveBtn() {
+  const b = document.getElementById('btn-save');
+  if (!b) return;
+  b.textContent = S.dirty ? '💾 Sauvegarder *' : '💾 Sauvegarder';
+  b.style.color = S.dirty ? 'var(--warn)' : '';
+}
+function updSecTitle(sec, count) {
+  const h = document.querySelector(`#sec-${sec} h3`);
+  if (h) h.textContent = sec==='questions' ? `❓ Questions (${count})` : `🎯 Résultats / Profils (${count})`;
+}
+function setLoading(on) { document.getElementById('loading').classList.toggle('on',on); }
+function toast(msg, type='') {
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='show'+(type?' '+type:'');
+  clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+window.addEventListener('beforeunload', e=>{
+  if (S.dirty){e.preventDefault();e.returnValue='';}
+});
+</script>
+</body>
+</html>
