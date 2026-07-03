@@ -334,7 +334,7 @@ function detectFmt(html) {
   c.qDecl = new RegExp(`const\\s+${c.qVar}\\s*=`).test(html) ? 'const' : 'var';
 
   // Profiles var name
-  for (const v of ['R','profiles','PROFILES']) {
+  for (const v of ['R','profiles','PROFILES','results','RESULTS','BANDS','SIGNS']) {
     if (new RegExp(`(?:var|const|let)\\s+${v}\\s*=`).test(html)) { c.pVar=v; break; }
   }
   c.pDecl = new RegExp(`const\\s+${c.pVar}\\s*=`).test(html) ? 'const' : 'var';
@@ -342,7 +342,7 @@ function detectFmt(html) {
   // Overall format
   if (c.qVar==='Q' && c.pVar==='R') c.fmt='QR';
   else if (c.qVar==='QUESTIONS') c.fmt='QP-obj';
-  else if (c.pVar==='profiles' && /const\s+profiles\s*=\s*\[/.test(html)) c.fmt='score';
+  else if ((c.pVar==='profiles'||c.pVar==='PROFILES') && new RegExp(`const\\s+${c.pVar}\\s*=\\s*\\[`).test(html)) c.fmt='score';
   else c.fmt='qp-obj';
 }
 
@@ -350,9 +350,9 @@ function detectFmt(html) {
    DATA EXTRACTION (text-based, works with IIFE)
 ═══════════════════════════════════════ */
 function extractData(html, c) {
-  // Find all <script> blocks (excluding tiny ones like GA)
+  // Find all inline <script> blocks; skip external/tiny ones (GA etc.)
   const scripts = [];
-  const re = /<script(?:\s[^>]*)?>(?!.*?async)([\s\S]*?)<\/script>/gi;
+  const re = /<script(?:\s[^>]*)?>([^]*?)<\\?\/script>/gi;
   let m;
   while ((m=re.exec(html))!==null) {
     if (m[1].trim().length > 200) scripts.push(m[1]);
@@ -369,8 +369,12 @@ function extractData(html, c) {
 
   // Option key field detection
   const firstOpts = (questions[0]?.a || questions[0]?.options || []);
-  const firstOpt = firstOpts[0] || {};
-  c.optKeyField = firstOpt.k!==undefined ? 'k' : firstOpt.p!==undefined ? 'p' : 'score';
+  const firstOpt = firstOpts[0] ?? {};
+  if (Array.isArray(firstOpt)) {
+    c.optKeyField = 'arr'; // ["text","key"] format
+  } else {
+    c.optKeyField = firstOpt.k!==undefined ? 'k' : firstOpt.p!==undefined ? 'p' : 'score';
+  }
   c.pIsArr = Array.isArray(profiles);
 
   // Meta
@@ -500,11 +504,14 @@ function mkQCard(q, qi, isScore) {
 }
 
 function mkORow(o, qi, oi, isScore) {
-  const text = o.t||o.text||'';
+  // Array format: o = ["text","key"]
+  const isArr = Array.isArray(o);
+  const text = isArr ? o[0] : (o.t||o.text||'');
+  const key  = isArr ? o[1] : (o.k||o.p||'');
   return `<div class="orow" id="orow-${qi}-${oi}">${
     isScore
       ? `<input type="number" class="oscore" id="q-${qi}-o-${oi}-score" value="${xe(String(o.score??0))}" min="0" max="30" oninput="setDirty()">`
-      : `<input type="text" class="okey" id="q-${qi}-o-${oi}-key" value="${xe(o.k||o.p||'')}" placeholder="A" oninput="setDirty()">`
+      : `<input type="text" class="okey" id="q-${qi}-o-${oi}-key" value="${xe(key)}" placeholder="A" oninput="setDirty()">`
   }<textarea class="otxt" id="q-${qi}-o-${oi}-text" rows="1">${xe(text)}</textarea>
   <button class="btn-icon d btn-sm" onclick="delOpt(${qi},${oi})" title="Supprimer">✕</button>
   </div>`;
@@ -520,33 +527,57 @@ function mkProfiles(profiles) {
 }
 
 function mkObjP(p, key, idx) {
-  const emoji = p.e||p.emoji||'';
-  const name  = p.t||p.name||'';
-  const sub   = p.s||p.sub||'';
-  const tag   = p.tag||'';
+  // Detect field variants across all quiz formats
+  // Note: SIGNS format has {n:"name", s:"♈", d:"dates", t:"long text"}
+  //        QR format has    {e:"emoji", t:"short name", s:"subtitle", b:[...], ins:"..."}
+  const isSigns = 'n' in p && 'd' in p; // heuristic for SIGNS astrological format
+  const emojiField = 'e' in p ? 'e' : 'emoji' in p ? 'emoji' : 'icon' in p ? 'icon' : null;
+  const nameField  = isSigns ? 'n'
+    : 't' in p && !isSigns ? 't'  // QR: t = short name
+    : 'name' in p ? 'name'
+    : 'title' in p ? 'title'
+    : null;
+  const nameLabel  = nameField==='title' ? 'Titre' : nameField==='n' ? 'Nom du signe' : 'Nom du profil';
+  const subField   = isSigns ? 'd'  // SIGNS: d = date range
+    : 's' in p && typeof p.s==='string' ? 's'  // QR format sub-title
+    : 'sub' in p ? 'sub'
+    : 'tagline' in p ? 'tagline'
+    : null;
+  const subLabel   = subField==='tagline' ? 'Accroche' : subField==='d' ? 'Dates / Plage' : 'Sous-titre';
+
+  const emoji   = emojiField  ? p[emojiField]  : '';
+  const name    = nameField   ? p[nameField]   : '';
+  const sub     = subField    ? p[subField]    : '';
+  // SIGNS: symbol (♈ ♉ …) is stored in s; body text in t
+  const symbol  = isSigns && 's' in p ? p.s : '';
+  const tag     = p.tag||'';
   const insight = p.ins||p.insight||'';
   const action  = p.action||'';
+  const note    = p.note||'';
   const traits  = Array.isArray(p.traits) ? p.traits : [];
   const bodyArr = Array.isArray(p.b) ? p.b : null;
-  const bodyText= bodyArr!==null ? '' : (p.desc||p.text||'');
+  const bodyText= bodyArr!==null ? '' : isSigns ? (p.t||'') : (p.desc||p.text||'');
 
-  const hasTag   = 'tag' in p;
-  const hasAction= 'action' in p;
-  const hasTraits= 'traits' in p;
+  const hasSymbol = isSigns && 's' in p;
+  const hasTag    = 'tag' in p;
+  const hasAction = 'action' in p;
+  const hasNote   = 'note' in p;
+  const hasTraits = 'traits' in p;
   const hasBodyArr= bodyArr!==null;
-  const hasBody  = !hasBodyArr && ('desc' in p || 'text' in p);
+  const hasBody   = !hasBodyArr && (isSigns ? 't' in p : 'desc' in p || 'text' in p);
   const hasInsight= 'ins' in p || 'insight' in p;
 
   return `<div class="pcard" id="pcard-${idx}">
     <div class="pcard-head">
       <span class="pkey">${xe(key)}</span>
-      <input class="pemoji" id="p-${idx}-emoji" value="${xe(emoji)}" placeholder="🎯" oninput="setDirty()">
+      ${emojiField ? `<input class="pemoji" id="p-${idx}-emoji" value="${xe(emoji)}" placeholder="🎯" oninput="setDirty()">` : ''}
       <small style="color:var(--muted)">clé : <b>${xe(key)}</b></small>
     </div>
     <div class="pfields">
       <div class="pfg">
-        <div class="f"><label>Nom du profil</label><input id="p-${idx}-name" value="${xa(name)}" oninput="setDirty()"></div>
-        <div class="f"><label>Sous-titre</label><input id="p-${idx}-sub" value="${xa(sub)}" oninput="setDirty()"></div>
+        ${nameField ? `<div class="f"><label>${nameLabel}</label><input id="p-${idx}-name" value="${xa(name)}" oninput="setDirty()"></div>` : ''}
+        ${subField  ? `<div class="f"><label>${subLabel}</label><input id="p-${idx}-sub" value="${xa(sub)}" oninput="setDirty()"></div>` : ''}
+        ${hasSymbol ? `<div class="f"><label>Symbole</label><input id="p-${idx}-sym" value="${xa(symbol)}" oninput="setDirty()"></div>` : ''}
       </div>
       ${hasTag?`<div class="f"><label>Tag affiché</label><input id="p-${idx}-tag" value="${xa(tag)}" oninput="setDirty()"></div>`:''}
       ${hasBodyArr?`<div class="f"><label>Paragraphes du corps</label>
@@ -564,27 +595,32 @@ function mkObjP(p, key, idx) {
         <input id="p-${idx}-traits" value="${xa(traits.join(', '))}" oninput="setDirty()"></div>`:''}
       ${hasInsight?`<div class="f"><label>Insight psycho</label><textarea id="p-${idx}-insight" rows="2">${xe(insight)}</textarea></div>`:''}
       ${hasAction?`<div class="f"><label>Pour aller plus loin</label><textarea id="p-${idx}-action" rows="2">${xe(action)}</textarea></div>`:''}
+      ${hasNote?`<div class="f"><label>Note douce</label><textarea id="p-${idx}-note" rows="2">${xe(note)}</textarea></div>`:''}
     </div>
   </div>`;
 }
 
 function mkScoreP(p, idx) {
+  // BANDS format: {max, t:"title", d:"description"} — no min, no emoji, fields named t/d
+  const isBands = 't' in p && !('title' in p) && !('min' in p) && !('sub' in p);
+  const titleVal = isBands ? (p.t||'') : (p.title||p.name||'');
+  const descVal  = isBands ? (p.d||'') : (p.desc||'');
   return `<div class="pcard" id="pcard-${idx}">
     <div class="pcard-head">
       <div class="srange">
-        <label>Score</label>
+        ${!isBands ? `<label>Min</label>
         <input type="number" id="p-${idx}-min" value="${p.min??0}" min="0" oninput="setDirty()">
-        <label>→</label>
+        <label>→</label>` : `<label>Seuil max</label>`}
         <input type="number" id="p-${idx}-max" value="${p.max??0}" min="0" oninput="setDirty()">
       </div>
-      <input class="pemoji" id="p-${idx}-emoji" value="${xe(p.icon||p.emoji||'')}" placeholder="🌿" style="margin-left:12px" oninput="setDirty()">
+      ${!isBands ? `<input class="pemoji" id="p-${idx}-emoji" value="${xe(p.icon||p.emoji||'')}" placeholder="🌿" style="margin-left:12px" oninput="setDirty()">` : ''}
     </div>
     <div class="pfields">
       <div class="pfg">
-        <div class="f"><label>Titre</label><input id="p-${idx}-name" value="${xa(p.title||p.name||'')}" oninput="setDirty()"></div>
-        <div class="f"><label>Sous-titre</label><input id="p-${idx}-sub" value="${xa(p.sub||'')}" oninput="setDirty()"></div>
+        <div class="f"><label>Titre</label><input id="p-${idx}-name" value="${xa(titleVal)}" oninput="setDirty()"></div>
+        ${!isBands ? `<div class="f"><label>Sous-titre</label><input id="p-${idx}-sub" value="${xa(p.sub||'')}" oninput="setDirty()"></div>` : ''}
       </div>
-      ${'desc' in p?`<div class="f"><label>Description</label><textarea id="p-${idx}-desc" rows="4">${xe(p.desc||'')}</textarea></div>`:''}
+      ${(isBands || 'desc' in p)?`<div class="f"><label>Description</label><textarea id="p-${idx}-desc" rows="4">${xe(descVal)}</textarea></div>`:''}
       ${'insight' in p?`<div class="f"><label>Insight</label><textarea id="p-${idx}-insight" rows="2">${xe(p.insight||'')}</textarea></div>`:''}
       ${'action' in p?`<div class="f"><label>Pour aller plus loin</label><textarea id="p-${idx}-action" rows="2">${xe(p.action||'')}</textarea></div>`:''}
     </div>
@@ -595,11 +631,13 @@ function mkScoreP(p, idx) {
    QUESTION MUTATIONS
 ═══════════════════════════════════════ */
 function addQ() {
-  const isScore = S.cur.optKeyField==='score';
+  const kf = S.cur.optKeyField;
+  const isScore = kf==='score';
   const qs = S.cur.data.questions;
   const qi = qs.length;
   const newQ = isScore ? {text:'',options:[{text:'',score:0}]}
-    : S.cur.qVar==='Q' ? {q:'',a:[{t:'',k:'?'}]}
+    : kf==='arr'  ? {q:'',a:[['','?']]}
+    : kf==='k'    ? {q:'',a:[{t:'',k:'?'}]}
     : {q:'',a:[{t:'',p:'?'}]};
   qs.push(newQ);
 
@@ -631,10 +669,13 @@ function mvQ(qi, dir) {
 }
 
 function addOpt(qi) {
-  const isScore = S.cur.optKeyField==='score';
+  const kf = S.cur.optKeyField;
+  const isScore = kf==='score';
   const cont = document.getElementById(`opts-${qi}`);
   const oi = cont.children.length;
-  const newO = isScore ? {text:'',score:0} : (S.cur.optKeyField==='k'?{t:'',k:'?'}:{t:'',p:'?'});
+  const newO = isScore ? {text:'',score:0}
+    : kf==='arr' ? ['','?']
+    : kf==='k' ? {t:'',k:'?'} : {t:'',p:'?'};
   const el = document.createElement('div');
   el.innerHTML = mkORow(newO, qi, oi, isScore);
   const row = el.firstElementChild;
@@ -676,10 +717,11 @@ function delPara(idx, pi) {
    COLLECT FORM DATA
 ═══════════════════════════════════════ */
 function collectForm() {
-  const isScore = S.cur.optKeyField==='score';
-  const optTF = isScore ? 'text' : 't';
-  const optKF = S.cur.optKeyField; // 'k','p','score'
-  const rawQs = S.cur.data.questions||[];
+  const optKF  = S.cur.optKeyField; // 'k','p','score','arr'
+  const isScore = optKF==='score';
+  const isArr   = optKF==='arr';
+  const optTF  = isScore ? 'text' : 't';
+  const rawQs  = S.cur.data.questions||[];
 
   // Meta
   const meta = {
@@ -700,17 +742,20 @@ function collectForm() {
     const origOpts= origQ[aField]||[];
     const options = optRows.map(row => {
       const oIdx = +row.id.replace(`orow-${origIdx}-`,'');
-      const origO = origOpts[oIdx]||{};
-      const newO = {...origO};
+      const origO = origOpts[oIdx] ?? (isArr ? ['',''] : {});
       const textInput = row.querySelector(`[id$="-text"]`);
+      const keyInput  = row.querySelector(`[id$="-key"]`);
+      const scInput   = row.querySelector(`[id$="-score"]`);
+      if (isArr) {
+        // ["text","key"] format
+        return [textInput?.value??'', keyInput?.value??''];
+      }
+      const newO = Array.isArray(origO) ? {} : {...origO};
       if (textInput) newO[optTF] = textInput.value;
       if (isScore) {
-        const sc = row.querySelector(`[id$="-score"]`);
-        if (sc) newO.score = +sc.value||0;
+        if (scInput) newO.score = +scInput.value||0;
       } else {
-        const ki = row.querySelector(`[id$="-key"]`);
-        if (ki) newO[optKF] = ki.value;
-        // Remove the other key if it was there from origO
+        if (keyInput) newO[optKF] = keyInput.value;
         if (optKF==='k' && newO.p!==undefined) delete newO.p;
         if (optKF==='p' && newO.k!==undefined) delete newO.k;
       }
@@ -729,14 +774,18 @@ function collectForm() {
   if (Array.isArray(rawP)) {
     profiles = rawP.map((p,i) => {
       const n = {...p};
+      // BANDS: {max, t:"title", d:"desc"} — no min, no emoji
+      const isBands = 't' in p && !('title' in p) && !('min' in p) && !('sub' in p);
       const minEl=document.getElementById(`p-${i}-min`), maxEl=document.getElementById(`p-${i}-max`);
       if (minEl) n.min=+minEl.value||0;
       if (maxEl) n.max=+maxEl.value||0;
       const emoEl=document.getElementById(`p-${i}-emoji`);
       if (emoEl) { if('icon' in p) n.icon=emoEl.value; else n.emoji=emoEl.value; }
-      const nm=document.getElementById(`p-${i}-name`); if(nm){ if('title' in p) n.title=nm.value; else n.name=nm.value; }
+      const nm=document.getElementById(`p-${i}-name`);
+      if (nm) { if(isBands) n.t=nm.value; else if('title' in p) n.title=nm.value; else n.name=nm.value; }
       const su=document.getElementById(`p-${i}-sub`); if(su) n.sub=su.value;
-      const de=document.getElementById(`p-${i}-desc`); if(de && 'desc' in p) n.desc=de.value;
+      const de=document.getElementById(`p-${i}-desc`);
+      if (de) { if(isBands) n.d=de.value; else if('desc' in p) n.desc=de.value; }
       const ins=document.getElementById(`p-${i}-insight`); if(ins && 'insight' in p) n.insight=ins.value;
       const act=document.getElementById(`p-${i}-action`); if(act && 'action' in p) n.action=act.value;
       return n;
@@ -745,26 +794,60 @@ function collectForm() {
     profiles = {};
     Object.entries(rawP).forEach(([key,p],i) => {
       const n = {...p};
+      // SIGNS format: {n:"name", s:"♈", d:"dates", t:"body text"}
+      const isSigns = 'n' in p && 'd' in p;
+      // Emoji (handles e / emoji / icon variants — SIGNS has none)
       const emoEl=document.getElementById(`p-${i}-emoji`);
-      if (emoEl) { if('e' in p) n.e=emoEl.value; else n.emoji=emoEl.value; }
-      const nm=document.getElementById(`p-${i}-name`); if(nm) { if('t' in p) n.t=nm.value; else n.name=nm.value; }
-      const su=document.getElementById(`p-${i}-sub`); if(su) { if('s' in p) n.s=su.value; else n.sub=su.value; }
+      if (emoEl) {
+        if ('e' in p) n.e=emoEl.value;
+        else if ('emoji' in p) n.emoji=emoEl.value;
+        else if ('icon' in p) n.icon=emoEl.value;
+      }
+      // Name: SIGNS→n, QR→t, reine/sociopathe→name/title
+      const nm=document.getElementById(`p-${i}-name`);
+      if (nm) {
+        if (isSigns) n.n=nm.value;
+        else if ('t' in p) n.t=nm.value;
+        else if ('name' in p) n.name=nm.value;
+        else if ('title' in p) n.title=nm.value;
+      }
+      // Sub: SIGNS→d (dates), QR→s, reine→tagline
+      const su=document.getElementById(`p-${i}-sub`);
+      if (su) {
+        if (isSigns) n.d=su.value;
+        else if ('s' in p) n.s=su.value;
+        else if ('sub' in p) n.sub=su.value;
+        else if ('tagline' in p) n.tagline=su.value;
+      }
+      // Symbol (SIGNS only: s = astrological symbol ♈♉…)
+      const symEl=document.getElementById(`p-${i}-sym`);
+      if (symEl && isSigns && 's' in p) n.s=symEl.value;
+      // Tag
       const tg=document.getElementById(`p-${i}-tag`); if(tg && 'tag' in p) n.tag=tg.value;
+      // Traits
       const tr=document.getElementById(`p-${i}-traits`);
       if (tr && Array.isArray(p.traits)) n.traits=tr.value.split(',').map(s=>s.trim()).filter(Boolean);
-      // Body paragraphs
+      // Body paragraphs (b field — QR format)
       if (Array.isArray(p.b)) {
         const pl=document.getElementById(`paras-${i}`);
         if (pl) n.b=[...pl.children].map(row=>{
           const ta=row.querySelector('textarea'); return ta?ta.value:(p.b[+row.id.split('-').pop()]||'');
         });
       } else {
+        // Body text: SIGNS→t, desc format→desc, text format→text
         const bd=document.getElementById(`p-${i}-body`);
-        if (bd) { if('desc' in p) n.desc=bd.value; else if('text' in p) n.text=bd.value; }
+        if (bd) {
+          if (isSigns) n.t=bd.value;
+          else if ('desc' in p) n.desc=bd.value;
+          else if ('text' in p) n.text=bd.value;
+        }
       }
+      // Insight
       const ins=document.getElementById(`p-${i}-insight`);
       if (ins) { if('ins' in p) n.ins=ins.value; else if('insight' in p) n.insight=ins.value; }
+      // Action / Note
       const act=document.getElementById(`p-${i}-action`); if(act && 'action' in p) n.action=act.value;
+      const nteEl=document.getElementById(`p-${i}-note`); if(nteEl && 'note' in p) n.note=nteEl.value;
       profiles[key] = n;
     });
   }
@@ -788,7 +871,7 @@ function rebuildHtml(origHtml, fd) {
     html = html.replace(/(<link\s+rel="canonical"\s+href=")[^"]*"/, `$1${xa(meta.canonical)}"`);
 
   // Find data script
-  const scRe = /<script(?:\s[^>]*)?>[\s\S]*?<\/script>/gi;
+  const scRe = /<script(?:\s[^>]*)?>([^]*?)<\\?\/script>/gi;
   let sm = null, tmp;
   scRe.lastIndex = 0;
   while ((tmp=scRe.exec(html))!==null) {
