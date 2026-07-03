@@ -1261,9 +1261,9 @@
     "type": "article",
     "excerpt": "Tintin ne pleure jamais, Haddock explose pour un rien, Tournesol vit dans sa bulle et la Castafiore occupe tout l'espace. Et si la bande à Hergé était un séminaire de psychologie déguisé en aventure ? On installe tout Moulinsart sur le divan.",
     "date": "2026-07-03",
-    "date_modified": "2026-07-02",
+    "date_modified": "2026-07-03",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bjp2nuacuwgqwzn00nhf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1283,7 +1283,7 @@
       "asterix-obelix-psychopathologie-complice",
       "harry-potter-psychopathologie-complice"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "asterix-obelix-psychopathologie-complice",
