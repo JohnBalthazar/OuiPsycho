@@ -280,8 +280,11 @@ async function initHome() {
     btn.addEventListener('click', () => {
       activeCategory = btn.dataset.cat;
       syncActiveCat();
+      // Scroller en haut AVANT de mettre à jour le contenu :
+      // évite que le scroll-anchoring du navigateur compense la suppression
+      // de l'article à la une et contrecarre le scrollTo.
+      window.scrollTo(0, 0);
       applyFilters(grid, featured);
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   });
 
