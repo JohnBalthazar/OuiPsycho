@@ -1193,11 +1193,11 @@
   {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
-    "excerpt": "",
+    "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
     "date": "2026-07-04",
     "date_modified": "2026-07-02",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/isglpayxcna2aqobpces",
     "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -1214,7 +1214,7 @@
       "anxiété",
       "résilience"
     ],
-    "metaDescription": "",
+    "metaDescription": "L'IA supprime des emplois comme la révolution industrielle en son temps. Comprendre l'impact psychologique et trouver ce qui reste irremplaçablement humain.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1251,12 +1251,12 @@
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
-    "type": "article",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-06-30",
     "date_modified": "2026-07-03",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
