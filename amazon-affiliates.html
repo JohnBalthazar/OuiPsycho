@@ -45,22 +45,40 @@
 
     /* Stats bar */
     .stats-bar {
-      display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+      display: flex; gap: 16px; margin-bottom: 20px; flex-wrap: wrap;
     }
     .stat-card {
       background: var(--panel); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 14px 20px;
       display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 140px;
+      cursor: default;
     }
+    .stat-card.clickable { cursor: pointer; transition: box-shadow .15s; }
+    .stat-card.clickable:hover { box-shadow: 0 2px 10px rgba(107,79,187,.15); }
     .stat-card .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
     .stat-card .lbl { font-size: .78rem; color: var(--muted); }
     .stat-card.amz .num { color: #b45309; }
     .stat-card.ok  .num { color: var(--success); }
 
+    /* Filter tabs */
+    .filter-bar {
+      display: flex; gap: 6px; margin-bottom: 20px;
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 5px; width: fit-content;
+    }
+    .filter-tab {
+      padding: 7px 18px; border-radius: 7px; font-size: .84rem;
+      font-family: var(--font); font-weight: 600; cursor: pointer;
+      border: none; background: transparent; color: var(--muted);
+      transition: background .15s, color .15s;
+    }
+    .filter-tab.active { background: var(--accent); color: white; }
+    .filter-tab:not(.active):hover { background: var(--accent-light); color: var(--accent); }
+
     /* Section titles */
     .section-head {
       display: flex; align-items: center; gap: 10px;
-      margin: 28px 0 14px;
+      margin: 24px 0 14px;
     }
     .section-head h2 { font-size: 1rem; font-weight: 700; }
     .section-head .badge {
@@ -117,6 +135,10 @@
     }
     .edit-asin-btn {
       font-size: .75rem; color: var(--muted); background: none; border: none;
+      cursor: pointer; text-decoration: underline; font-family: var(--font);
+    }
+    .del-asin-btn {
+      font-size: .75rem; color: var(--danger); background: none; border: none;
       cursor: pointer; text-decoration: underline; font-family: var(--font);
     }
 
@@ -183,6 +205,13 @@
     <!-- Stats -->
     <div class="stats-bar" id="stats-bar"></div>
 
+    <!-- Filter tabs -->
+    <div class="filter-bar">
+      <button class="filter-tab active" id="tab-missing" onclick="setFilter('missing')">📋 Sans ASIN</button>
+      <button class="filter-tab" id="tab-done"    onclick="setFilter('done')">✅ Avec ASIN</button>
+      <button class="filter-tab" id="tab-all"     onclick="setFilter('all')">Tous</button>
+    </div>
+
     <!-- Missing ASINs -->
     <div id="missing-section">
       <div class="section-head">
@@ -195,7 +224,7 @@
     </div>
 
     <!-- With ASINs -->
-    <div id="done-section">
+    <div id="done-section" class="hidden">
       <div class="section-head">
         <h2>✅ Livres avec ASIN</h2>
         <span class="badge green" id="done-count">0</span>
@@ -259,6 +288,19 @@
   // ── STATE ──
   let allArticles = [];      // { id, title, sources, _sha, _path }
   let pendingChanges = {};   // { articleId: { sourceIdx, asin } }
+  let currentFilter = 'missing';
+
+  // ── FILTER ──
+  function setFilter(f) {
+    currentFilter = f;
+    ['missing', 'done', 'all'].forEach(id => {
+      document.getElementById('tab-' + id).classList.toggle('active', id === f);
+    });
+    const showMissing = (f === 'missing' || f === 'all');
+    const showDone    = (f === 'done'    || f === 'all');
+    document.getElementById('missing-section').classList.toggle('hidden', !showMissing);
+    document.getElementById('done-section').classList.toggle('hidden',    !showDone);
+  }
 
   // ── LOAD ──
   async function loadAll() {
@@ -307,7 +349,13 @@
       const res = await fetch(fileInfo.url, { headers: ghHeaders() });
       if (!res.ok) return null;
       const meta = await res.json();
-      const content = JSON.parse(atob(meta.content.replace(/\n/g, '')));
+      // Décodage UTF-8 correct (atob() seul génère du Latin-1 sur les accents)
+      const b64 = meta.content.replace(/\n/g, '');
+      const binary = atob(b64);
+      const bytes = new Uint8Array(binary.length);
+      for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+      const jsonStr = new TextDecoder('utf-8').decode(bytes);
+      const content = JSON.parse(jsonStr);
       return { ...content, _sha: meta.sha, _path: fileInfo.path };
     } catch { return null; }
   }
@@ -325,7 +373,7 @@
     const allBooks = [];
     allArticles.forEach(art => {
       (art.sources || []).forEach((src, si) => {
-        if (src.publisher !== undefined || (src.amazon_asin)) {
+        if (src.publisher !== undefined || src.amazon_asin) {
           allBooks.push({ art, src, si });
         }
       });
@@ -334,18 +382,21 @@
     const missing = allBooks.filter(b => !b.src.amazon_asin);
     const done    = allBooks.filter(b =>  b.src.amazon_asin);
 
-    // Stats
-    const totalArticles = allArticles.length;
-    const totalBooks    = allBooks.length;
+    // Stats (cliquables pour switcher le filtre)
     document.getElementById('stats-bar').innerHTML = `
-      <div class="stat-card"><span class="num">${totalArticles}</span><span class="lbl">Articles chargés</span></div>
-      <div class="stat-card"><span class="num">${totalBooks}</span><span class="lbl">Livres cités</span></div>
-      <div class="stat-card amz"><span class="num">${missing.length}</span><span class="lbl">Livres sans ASIN</span></div>
-      <div class="stat-card ok"><span class="num">${done.length}</span><span class="lbl">Livres avec ASIN</span></div>
+      <div class="stat-card"><span class="num">${allArticles.length}</span><span class="lbl">Articles chargés</span></div>
+      <div class="stat-card"><span class="num">${allBooks.length}</span><span class="lbl">Livres cités</span></div>
+      <div class="stat-card amz clickable" onclick="setFilter('missing')" title="Voir les livres sans ASIN"><span class="num">${missing.length}</span><span class="lbl">Livres sans ASIN</span></div>
+      <div class="stat-card ok  clickable" onclick="setFilter('done')"    title="Voir les livres avec ASIN"><span class="num">${done.length}</span><span class="lbl">Livres avec ASIN</span></div>
     `;
 
     document.getElementById('missing-count').textContent = missing.length;
     document.getElementById('done-count').textContent    = done.length;
+
+    // Mise à jour des labels des onglets
+    document.getElementById('tab-missing').textContent = `📋 Sans ASIN (${missing.length})`;
+    document.getElementById('tab-done').textContent    = `✅ Avec ASIN (${done.length})`;
+    document.getElementById('tab-all').textContent     = `Tous (${allBooks.length})`;
 
     // Missing
     const missingList = document.getElementById('missing-list');
@@ -360,6 +411,9 @@
     const doneList = document.getElementById('done-list');
     doneList.innerHTML = '';
     done.forEach(b => doneList.appendChild(buildBookRow(b, true)));
+
+    // Réappliquer le filtre actuel
+    setFilter(currentFilter);
   }
 
   function buildBookRow({ art, src, si }, hasSavedAsin) {
@@ -383,7 +437,8 @@
         <div class="asin-row" id="asin-row-${art.id}-${si}">
           ${hasSavedAsin
             ? `<span class="asin-badge">${esc(src.amazon_asin)}</span>
-               <button class="edit-asin-btn" onclick="editAsin('${art.id}', ${si})">✎ Modifier</button>`
+               <button class="edit-asin-btn" onclick="editAsin('${art.id}', ${si})">✎ Modifier</button>
+               <button class="del-asin-btn"  onclick="delAsin('${art.id}', ${si})">✕</button>`
             : `<input type="text" class="asin-input" id="asin-input-${art.id}-${si}"
                       placeholder="ASIN (10 car.)" maxlength="10"
                       oninput="onAsinInput(this, '${art.id}', ${si})"
@@ -396,7 +451,6 @@
   }
 
   function editAsin(artId, si) {
-    const row = document.querySelector(`[data-art-id="${artId}"][data-si="${si}"]`);
     const art = allArticles.find(a => a.id === artId);
     const src = art.sources[si];
     const asinRow = document.getElementById(`asin-row-${artId}-${si}`);
@@ -410,6 +464,18 @@
     if (amzLink) amzLink.textContent = '🛒 Voir sur Amazon';
   }
 
+  async function delAsin(artId, si) {
+    if (!confirm('Supprimer cet ASIN ?')) return;
+    const art = allArticles.find(a => a.id === artId);
+    if (!art) return;
+    delete art.sources[si].amazon_asin;
+    const ok = await pushArticle(art);
+    if (ok) {
+      toast('✅ ASIN supprimé', 'success');
+      renderAll();
+    }
+  }
+
   function onAsinInput(input, artId, si) {
     const val = input.value.trim();
     const valid = val.length === 10;
@@ -421,12 +487,10 @@
     if (valid) {
       const link = document.getElementById(`amz-link-${artId}-${si}`);
       if (link) { link.href = `https://www.amazon.fr/dp/${val}?tag=${AMZN_TAG}`; link.textContent = '🛒 Voir sur Amazon'; }
-      // register pending change
       if (!pendingChanges[artId]) pendingChanges[artId] = {};
       pendingChanges[artId][si] = val;
       document.getElementById('btn-save-all').disabled = false;
     } else {
-      // remove pending
       if (pendingChanges[artId]) delete pendingChanges[artId][si];
     }
   }
@@ -442,22 +506,19 @@
     const art = allArticles.find(a => a.id === artId);
     if (!art) return;
 
-    // Apply change
     art.sources[si].amazon_asin = asin;
     const success = await pushArticle(art);
     if (success) {
       if (btn) { btn.classList.add('saved'); btn.textContent = '✓ Sauvé'; }
-      // update row to "done" state
+      const asinRow = document.getElementById(`asin-row-${artId}-${si}`);
+      if (asinRow) asinRow.innerHTML = `
+        <span class="asin-badge">${esc(asin)}</span>
+        <button class="edit-asin-btn" onclick="editAsin('${artId}', ${si})">✎ Modifier</button>
+        <button class="del-asin-btn"  onclick="delAsin('${artId}', ${si})">✕</button>`;
+      const link = document.getElementById(`amz-link-${artId}-${si}`);
+      if (link) { link.href = `https://www.amazon.fr/dp/${asin}?tag=${AMZN_TAG}`; link.textContent = '🛒 Voir sur Amazon'; }
       const row = document.querySelector(`[data-art-id="${artId}"][data-si="${si}"]`);
-      if (row) {
-        row.classList.add('done');
-        const asinRow = document.getElementById(`asin-row-${artId}-${si}`);
-        if (asinRow) asinRow.innerHTML = `
-          <span class="asin-badge">${esc(asin)}</span>
-          <button class="edit-asin-btn" onclick="editAsin('${artId}', ${si})">✎ Modifier</button>`;
-        const link = document.getElementById(`amz-link-${artId}-${si}`);
-        if (link) { link.href = `https://www.amazon.fr/dp/${asin}?tag=${AMZN_TAG}`; link.textContent = '🛒 Voir sur Amazon'; }
-      }
+      if (row) row.classList.add('done');
       if (pendingChanges[artId]) delete pendingChanges[artId][si];
     } else {
       if (btn) { btn.disabled = false; btn.textContent = 'Sauver'; }
@@ -491,13 +552,13 @@
     const apiURL   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}`;
     const headers  = { ...ghHeaders(), 'Content-Type': 'application/json' };
 
-    // rebuild clean JSON (remove internal props)
     const clean = { ...art };
     delete clean._sha; delete clean._path;
 
     const jsonStr = JSON.stringify(clean, null, 2) + '\n';
-    const b64     = btoa(unescape(encodeURIComponent(jsonStr)));
-    const msg     = `feat: asin amazon ${art.id}`;
+    // Encodage UTF-8 correct pour btoa
+    const b64 = btoa(String.fromCharCode(...new TextEncoder().encode(jsonStr)));
+    const msg  = `feat: asin amazon ${art.id}`;
 
     try {
       const res = await fetch(apiURL, {
@@ -511,7 +572,7 @@
         return false;
       }
       const data = await res.json();
-      art._sha = data.content.sha; // update SHA for next save
+      art._sha = data.content.sha;
       toast(`✅ ${art.id} sauvegardé`, 'success', 2000);
       return true;
     } catch (err) {
