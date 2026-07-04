@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Liens Amazon Affiliés — Oui Psycho!</title>
+  <style>
+    :root {
+      --bg: #f4f2ee; --panel: #fff; --border: #e0dbd3;
+      --accent: #6b4fbb; --accent-light: #ede9f8;
+      --text: #1a1a1a; --muted: #6b6b6b;
+      --success: #15803d; --danger: #b91c1c;
+      --amz: #FF9900; --radius: 10px;
+      --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; }
+
+    header {
+      background: var(--accent); color: white;
+      padding: 13px 24px; display: flex; align-items: center; gap: 14px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.18);
+    }
+    header h1 { font-size: 1.05rem; font-weight: 700; }
+    header a { color: rgba(255,255,255,.75); font-size: .82rem; text-decoration: none; }
+    header a:hover { color: white; }
+    .spacer { flex: 1; }
+
+    .btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 7px 14px; border-radius: 7px; font-size: .82rem;
+      font-family: var(--font); font-weight: 600; cursor: pointer;
+      border: none; transition: opacity .15s;
+    }
+    .btn:disabled { opacity: .4; cursor: not-allowed; }
+    .btn-white  { background: white; color: var(--accent); }
+    .btn-ghost  { background: rgba(255,255,255,.15); color: white; border: 1px solid rgba(255,255,255,.3); }
+    .btn-green  { background: #16a34a; color: white; }
+    .btn-amz    { background: var(--amz); color: #111; font-weight: 700; }
+    .btn-amz:hover { background: #e68900; }
+    .btn-sm { padding: 5px 10px; font-size: .78rem; }
+
+    .container { max-width: 960px; margin: 0 auto; padding: 28px 20px; }
+
+    /* Stats bar */
+    .stats-bar {
+      display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap;
+    }
+    .stat-card {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 20px;
+      display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 140px;
+    }
+    .stat-card .num { font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+    .stat-card .lbl { font-size: .78rem; color: var(--muted); }
+    .stat-card.amz .num { color: #b45309; }
+    .stat-card.ok  .num { color: var(--success); }
+
+    /* Section titles */
+    .section-head {
+      display: flex; align-items: center; gap: 10px;
+      margin: 28px 0 14px;
+    }
+    .section-head h2 { font-size: 1rem; font-weight: 700; }
+    .section-head .badge {
+      font-size: .72rem; font-weight: 700; padding: 2px 9px; border-radius: 20px;
+      background: #fef3c7; color: #92400e;
+    }
+    .section-head .badge.green { background: #dcfce7; color: #15803d; }
+
+    /* Book rows */
+    .book-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .book-row {
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 14px 16px;
+      display: grid; grid-template-columns: 1fr auto; gap: 10px 16px;
+      align-items: start;
+    }
+    .book-row.done { border-color: #86efac; background: #f0fdf4; }
+
+    .book-info { display: flex; flex-direction: column; gap: 3px; }
+    .book-title { font-weight: 700; font-size: .95rem; }
+    .book-authors { font-size: .82rem; color: var(--muted); }
+    .book-article {
+      font-size: .78rem; font-weight: 600; color: var(--accent);
+      background: var(--accent-light); padding: 2px 8px; border-radius: 20px;
+      display: inline-block; margin-top: 2px;
+    }
+
+    .book-actions {
+      display: flex; flex-direction: column; gap: 7px; align-items: flex-end; min-width: 220px;
+    }
+    .asin-row { display: flex; gap: 6px; align-items: center; }
+    .asin-input {
+      width: 130px; font-family: monospace; font-size: .85rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 6px 9px; background: var(--bg); color: var(--text);
+      transition: border-color .15s;
+    }
+    .asin-input:focus { outline: none; border-color: var(--accent); }
+    .asin-input.valid { border-color: #16a34a; background: #f0fdf4; }
+    .asin-input.invalid { border-color: var(--danger); }
+    .save-row-btn {
+      font-size: .78rem; padding: 5px 12px; border-radius: 6px;
+      background: var(--accent); color: white; border: none; cursor: pointer;
+      font-family: var(--font); font-weight: 600; transition: opacity .15s;
+    }
+    .save-row-btn:disabled { opacity: .4; cursor: not-allowed; }
+    .save-row-btn.saved { background: var(--success); }
+
+    .asin-badge {
+      font-family: monospace; font-size: .82rem; font-weight: 700;
+      color: var(--success); background: #dcfce7; padding: 3px 9px;
+      border-radius: 6px;
+    }
+    .edit-asin-btn {
+      font-size: .75rem; color: var(--muted); background: none; border: none;
+      cursor: pointer; text-decoration: underline; font-family: var(--font);
+    }
+
+    /* Load screen */
+    .load-screen {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; padding: 80px 20px; gap: 16px; color: var(--muted);
+    }
+    .load-screen p { font-size: .9rem; }
+    .spin { display: inline-block; animation: spin .7s linear infinite; font-size: 1.8rem; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .progress-bar-wrap { width: 280px; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+    .progress-bar { height: 100%; background: var(--accent); border-radius: 3px; transition: width .1s; }
+
+    /* Toast */
+    #toast {
+      position: fixed; bottom: 24px; right: 24px; z-index: 999;
+      background: #1a1a1a; color: white; padding: 10px 18px;
+      border-radius: 8px; font-size: .85rem; font-weight: 600;
+      display: none; box-shadow: 0 4px 14px rgba(0,0,0,.3); max-width: 360px;
+    }
+    #toast.show { display: block; animation: fadeUp .2s ease; }
+    #toast.success { background: var(--success); }
+    #toast.error   { background: var(--danger); }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:none; } }
+
+    /* PAT modal */
+    .modal-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000; display: flex; align-items: center; justify-content: center; }
+    .modal-overlay.hidden { display: none; }
+    .modal-box { background: white; border-radius: 14px; padding: 28px 32px; max-width: 440px; width: 90%; box-shadow: 0 16px 48px rgba(0,0,0,.25); }
+    .modal-box h3 { font-size: 1.05rem; margin-bottom: 8px; }
+    .modal-box p  { font-size: .85rem; color: var(--muted); line-height: 1.5; margin-bottom: 14px; }
+    .modal-box a  { color: var(--accent); }
+    .modal-box input { width: 100%; font-family: monospace; font-size: .82rem; border: 1px solid var(--border); border-radius: 7px; padding: 9px 11px; margin-bottom: 14px; background: var(--bg); }
+    .modal-box input:focus { outline: none; border-color: var(--accent); }
+    .modal-actions { display: flex; gap: 8px; justify-content: flex-end; }
+    .hidden { display: none !important; }
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+  <h1>🛒 Liens Amazon Affiliés</h1>
+  <a href="article-editor.html">← Éditeur</a>
+  <div class="spacer"></div>
+  <button class="btn btn-ghost btn-sm" id="btn-reload">↺ Recharger</button>
+  <button class="btn btn-white btn-sm" id="btn-save-all" disabled>💾 Tout sauvegarder</button>
+</header>
+
+<div class="container">
+
+  <!-- Load screen -->
+  <div class="load-screen" id="load-screen">
+    <span class="spin">⟳</span>
+    <p id="load-msg">Chargement des articles…</p>
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progress-bar" style="width:0%"></div></div>
+  </div>
+
+  <!-- Content (hidden until loaded) -->
+  <div class="hidden" id="content">
+
+    <!-- Stats -->
+    <div class="stats-bar" id="stats-bar"></div>
+
+    <!-- Missing ASINs -->
+    <div id="missing-section">
+      <div class="section-head">
+        <h2>📋 Livres sans ASIN</h2>
+        <span class="badge" id="missing-count">0</span>
+      </div>
+      <div class="book-list" id="missing-list">
+        <p style="color:var(--muted);font-size:.88rem">Aucun livre sans ASIN — bravo ! 🎉</p>
+      </div>
+    </div>
+
+    <!-- With ASINs -->
+    <div id="done-section">
+      <div class="section-head">
+        <h2>✅ Livres avec ASIN</h2>
+        <span class="badge green" id="done-count">0</span>
+      </div>
+      <div class="book-list" id="done-list"></div>
+    </div>
+
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- PAT modal -->
+<div class="modal-overlay hidden" id="pat-modal">
+  <div class="modal-box">
+    <h3>🔑 Token GitHub (PAT)</h3>
+    <p>Collez votre <strong>Personal Access Token GitHub</strong> avec le scope <strong>repo</strong>.<br>
+    Créez-en un sur <a href="https://github.com/settings/tokens/new?scopes=repo&description=OuiPsycho+affiliates" target="_blank">github.com/settings/tokens</a>.</p>
+    <input type="password" id="pat-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+    <div class="modal-actions">
+      <button class="btn" style="background:var(--bg);border:1px solid var(--border)" onclick="closePAT()">Annuler</button>
+      <button class="btn" style="background:var(--accent);color:white" onclick="savePATAndLoad()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const GH_OWNER  = 'JohnBalthazar';
+  const GH_REPO   = 'OuiPsycho';
+  const PAT_KEY   = 'oui_psycho_gh_pat';
+  const AMZN_TAG  = 'ouipsycho-21';
+
+  // ── PAT ──
+  const getPAT = () => localStorage.getItem(PAT_KEY) || '';
+  const setPAT = v  => localStorage.setItem(PAT_KEY, v);
+
+  function openPAT()  { document.getElementById('pat-input').value = getPAT(); document.getElementById('pat-modal').classList.remove('hidden'); }
+  function closePAT() { document.getElementById('pat-modal').classList.add('hidden'); }
+  function savePATAndLoad() {
+    const v = document.getElementById('pat-input').value.trim();
+    if (!v) return;
+    setPAT(v); closePAT(); loadAll();
+  }
+
+  // ── TOAST ──
+  function toast(msg, type = '', dur = 3000) {
+    const el = document.getElementById('toast');
+    el.textContent = msg; el.className = 'show' + (type ? ' '+type : '');
+    clearTimeout(el._t); el._t = setTimeout(() => el.className = '', dur);
+  }
+
+  // ── GH HEADERS ──
+  function ghHeaders() {
+    return {
+      'Authorization': `Bearer ${getPAT()}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    };
+  }
+
+  // ── STATE ──
+  let allArticles = [];      // { id, title, sources, _sha, _path }
+  let pendingChanges = {};   // { articleId: { sourceIdx, asin } }
+
+  // ── LOAD ──
+  async function loadAll() {
+    const pat = getPAT();
+    if (!pat) { openPAT(); return; }
+
+    document.getElementById('load-screen').classList.remove('hidden');
+    document.getElementById('content').classList.add('hidden');
+    document.getElementById('btn-save-all').disabled = true;
+    setProgress(0, 'Récupération de la liste des articles…');
+    pendingChanges = {};
+    allArticles = [];
+
+    try {
+      // 1. Liste les fichiers articles/*.json
+      const listRes = await fetch(
+        `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/articles`,
+        { headers: ghHeaders() }
+      );
+      if (!listRes.ok) throw new Error(`GitHub ${listRes.status} — vérifiez votre token`);
+      const files = (await listRes.json()).filter(f => f.name.endsWith('.json'));
+
+      // 2. Fetch chaque JSON en parallèle (par lots de 10)
+      const BATCH = 10;
+      for (let i = 0; i < files.length; i += BATCH) {
+        const batch = files.slice(i, i + BATCH);
+        const results = await Promise.all(batch.map(f => fetchArticle(f)));
+        allArticles.push(...results.filter(Boolean));
+        setProgress(Math.round((i + BATCH) / files.length * 100),
+          `Chargement ${Math.min(i+BATCH, files.length)} / ${files.length}…`);
+      }
+
+      renderAll();
+    } catch (err) {
+      toast('❌ ' + err.message, 'error', 6000);
+      document.getElementById('load-msg').textContent = '❌ ' + err.message;
+      if (err.message.includes('401') || err.message.includes('token')) {
+        localStorage.removeItem(PAT_KEY);
+        setTimeout(openPAT, 1500);
+      }
+    }
+  }
+
+  async function fetchArticle(fileInfo) {
+    try {
+      const res = await fetch(fileInfo.url, { headers: ghHeaders() });
+      if (!res.ok) return null;
+      const meta = await res.json();
+      const content = JSON.parse(atob(meta.content.replace(/\n/g, '')));
+      return { ...content, _sha: meta.sha, _path: fileInfo.path };
+    } catch { return null; }
+  }
+
+  function setProgress(pct, msg) {
+    document.getElementById('progress-bar').style.width = pct + '%';
+    document.getElementById('load-msg').textContent = msg;
+  }
+
+  // ── RENDER ──
+  function renderAll() {
+    document.getElementById('load-screen').classList.add('hidden');
+    document.getElementById('content').classList.remove('hidden');
+
+    const allBooks = [];
+    allArticles.forEach(art => {
+      (art.sources || []).forEach((src, si) => {
+        if (src.publisher !== undefined || (src.amazon_asin)) {
+          allBooks.push({ art, src, si });
+        }
+      });
+    });
+
+    const missing = allBooks.filter(b => !b.src.amazon_asin);
+    const done    = allBooks.filter(b =>  b.src.amazon_asin);
+
+    // Stats
+    const totalArticles = allArticles.length;
+    const totalBooks    = allBooks.length;
+    document.getElementById('stats-bar').innerHTML = `
+      <div class="stat-card"><span class="num">${totalArticles}</span><span class="lbl">Articles chargés</span></div>
+      <div class="stat-card"><span class="num">${totalBooks}</span><span class="lbl">Livres cités</span></div>
+      <div class="stat-card amz"><span class="num">${missing.length}</span><span class="lbl">Livres sans ASIN</span></div>
+      <div class="stat-card ok"><span class="num">${done.length}</span><span class="lbl">Livres avec ASIN</span></div>
+    `;
+
+    document.getElementById('missing-count').textContent = missing.length;
+    document.getElementById('done-count').textContent    = done.length;
+
+    // Missing
+    const missingList = document.getElementById('missing-list');
+    if (missing.length === 0) {
+      missingList.innerHTML = '<p style="color:var(--muted);font-size:.88rem">Aucun livre sans ASIN — bravo ! 🎉</p>';
+    } else {
+      missingList.innerHTML = '';
+      missing.forEach(b => missingList.appendChild(buildBookRow(b, false)));
+    }
+
+    // Done
+    const doneList = document.getElementById('done-list');
+    doneList.innerHTML = '';
+    done.forEach(b => doneList.appendChild(buildBookRow(b, true)));
+  }
+
+  function buildBookRow({ art, src, si }, hasSavedAsin) {
+    const row = document.createElement('div');
+    row.className = 'book-row' + (hasSavedAsin ? ' done' : '');
+    row.dataset.artId = art.id;
+    row.dataset.si    = si;
+
+    const q = encodeURIComponent((src.title || '') + ' ' + (src.authors || ''));
+    const amzSearchUrl = `https://www.amazon.fr/s?k=${q}`;
+    const amzProdUrl   = src.amazon_asin ? `https://www.amazon.fr/dp/${src.amazon_asin}?tag=${AMZN_TAG}` : amzSearchUrl;
+
+    row.innerHTML = `
+      <div class="book-info">
+        <span class="book-title">${esc(src.title || '—')}</span>
+        <span class="book-authors">${esc(src.authors || '')}${src.year ? ' ('+src.year+')' : ''}${src.publisher ? ' · '+src.publisher : ''}</span>
+        <span class="book-article">${esc(art.title || art.id)}</span>
+      </div>
+      <div class="book-actions">
+        <a class="btn btn-amz btn-sm" href="${amzProdUrl}" target="_blank" id="amz-link-${art.id}-${si}">🛒 ${hasSavedAsin ? 'Voir' : 'Chercher'} sur Amazon</a>
+        <div class="asin-row" id="asin-row-${art.id}-${si}">
+          ${hasSavedAsin
+            ? `<span class="asin-badge">${esc(src.amazon_asin)}</span>
+               <button class="edit-asin-btn" onclick="editAsin('${art.id}', ${si})">✎ Modifier</button>`
+            : `<input type="text" class="asin-input" id="asin-input-${art.id}-${si}"
+                      placeholder="ASIN (10 car.)" maxlength="10"
+                      oninput="onAsinInput(this, '${art.id}', ${si})"
+                      value="">
+               <button class="save-row-btn" id="save-btn-${art.id}-${si}" onclick="saveOne('${art.id}', ${si})" disabled>Sauver</button>`
+          }
+        </div>
+      </div>`;
+    return row;
+  }
+
+  function editAsin(artId, si) {
+    const row = document.querySelector(`[data-art-id="${artId}"][data-si="${si}"]`);
+    const art = allArticles.find(a => a.id === artId);
+    const src = art.sources[si];
+    const asinRow = document.getElementById(`asin-row-${artId}-${si}`);
+    asinRow.innerHTML = `
+      <input type="text" class="asin-input valid" id="asin-input-${artId}-${si}"
+             placeholder="ASIN (10 car.)" maxlength="10"
+             oninput="onAsinInput(this, '${artId}', ${si})"
+             value="${esc(src.amazon_asin||'')}">
+      <button class="save-row-btn" id="save-btn-${artId}-${si}" onclick="saveOne('${artId}', ${si})">Sauver</button>`;
+    const amzLink = document.getElementById(`amz-link-${artId}-${si}`);
+    if (amzLink) amzLink.textContent = '🛒 Voir sur Amazon';
+  }
+
+  function onAsinInput(input, artId, si) {
+    const val = input.value.trim();
+    const valid = val.length === 10;
+    input.classList.toggle('valid',   valid);
+    input.classList.toggle('invalid', val.length > 0 && !valid);
+    const btn = document.getElementById(`save-btn-${artId}-${si}`);
+    if (btn) btn.disabled = !valid;
+
+    if (valid) {
+      const link = document.getElementById(`amz-link-${artId}-${si}`);
+      if (link) { link.href = `https://www.amazon.fr/dp/${val}?tag=${AMZN_TAG}`; link.textContent = '🛒 Voir sur Amazon'; }
+      // register pending change
+      if (!pendingChanges[artId]) pendingChanges[artId] = {};
+      pendingChanges[artId][si] = val;
+      document.getElementById('btn-save-all').disabled = false;
+    } else {
+      // remove pending
+      if (pendingChanges[artId]) delete pendingChanges[artId][si];
+    }
+  }
+
+  // ── SAVE ONE ──
+  async function saveOne(artId, si) {
+    const btn = document.getElementById(`save-btn-${artId}-${si}`);
+    const input = document.getElementById(`asin-input-${artId}-${si}`);
+    const asin = input ? input.value.trim() : (pendingChanges[artId] && pendingChanges[artId][si]);
+    if (!asin || asin.length !== 10) return;
+    if (btn) { btn.disabled = true; btn.textContent = '…'; }
+
+    const art = allArticles.find(a => a.id === artId);
+    if (!art) return;
+
+    // Apply change
+    art.sources[si].amazon_asin = asin;
+    const success = await pushArticle(art);
+    if (success) {
+      if (btn) { btn.classList.add('saved'); btn.textContent = '✓ Sauvé'; }
+      // update row to "done" state
+      const row = document.querySelector(`[data-art-id="${artId}"][data-si="${si}"]`);
+      if (row) {
+        row.classList.add('done');
+        const asinRow = document.getElementById(`asin-row-${artId}-${si}`);
+        if (asinRow) asinRow.innerHTML = `
+          <span class="asin-badge">${esc(asin)}</span>
+          <button class="edit-asin-btn" onclick="editAsin('${artId}', ${si})">✎ Modifier</button>`;
+        const link = document.getElementById(`amz-link-${artId}-${si}`);
+        if (link) { link.href = `https://www.amazon.fr/dp/${asin}?tag=${AMZN_TAG}`; link.textContent = '🛒 Voir sur Amazon'; }
+      }
+      if (pendingChanges[artId]) delete pendingChanges[artId][si];
+    } else {
+      if (btn) { btn.disabled = false; btn.textContent = 'Sauver'; }
+    }
+  }
+
+  // ── SAVE ALL ──
+  document.getElementById('btn-save-all').addEventListener('click', async () => {
+    const entries = Object.entries(pendingChanges);
+    if (!entries.length) return;
+    const btn = document.getElementById('btn-save-all');
+    btn.disabled = true; btn.textContent = '💾 Sauvegarde…';
+    let saved = 0;
+    for (const [artId, changes] of entries) {
+      const art = allArticles.find(a => a.id === artId);
+      if (!art) continue;
+      for (const [si, asin] of Object.entries(changes)) {
+        art.sources[parseInt(si)].amazon_asin = asin;
+      }
+      if (await pushArticle(art)) saved++;
+    }
+    pendingChanges = {};
+    btn.textContent = '💾 Tout sauvegarder';
+    toast(`✅ ${saved} article(s) sauvegardé(s)`, 'success');
+    setTimeout(loadAll, 1200);
+  });
+
+  // ── PUSH TO GITHUB ──
+  async function pushArticle(art) {
+    const filePath = art._path;
+    const apiURL   = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${filePath}`;
+    const headers  = { ...ghHeaders(), 'Content-Type': 'application/json' };
+
+    // rebuild clean JSON (remove internal props)
+    const clean = { ...art };
+    delete clean._sha; delete clean._path;
+
+    const jsonStr = JSON.stringify(clean, null, 2) + '\n';
+    const b64     = btoa(unescape(encodeURIComponent(jsonStr)));
+    const msg     = `feat: asin amazon ${art.id}`;
+
+    try {
+      const res = await fetch(apiURL, {
+        method: 'PUT', headers,
+        body: JSON.stringify({ message: msg, content: b64, sha: art._sha }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        toast(`❌ ${art.id}: ${err.message}`, 'error', 5000);
+        if (res.status === 401) { localStorage.removeItem(PAT_KEY); openPAT(); }
+        return false;
+      }
+      const data = await res.json();
+      art._sha = data.content.sha; // update SHA for next save
+      toast(`✅ ${art.id} sauvegardé`, 'success', 2000);
+      return true;
+    } catch (err) {
+      toast(`❌ ${art.id}: ${err.message}`, 'error', 5000);
+      return false;
+    }
+  }
+
+  // ── UTILS ──
+  function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;'); }
+
+  // ── INIT ──
+  document.getElementById('btn-reload').addEventListener('click', loadAll);
+  document.querySelector('header').addEventListener('dblclick', () => {
+    if (confirm('Modifier le token GitHub ?')) openPAT();
+  });
+
+  if (getPAT()) loadAll();
+  else openPAT();
+</script>
+</body>
+</html>

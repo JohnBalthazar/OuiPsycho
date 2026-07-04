@@ -188,6 +188,42 @@
     }
     .kp-del:hover { color: var(--danger); }
 
+    /* ── SOURCES ── */
+    .sources-list { display: flex; flex-direction: column; gap: 10px; }
+    .source-item {
+      border: 1px solid var(--border); border-radius: 8px;
+      padding: 10px 12px 10px; background: var(--bg);
+      display: flex; flex-direction: column; gap: 7px; position: relative;
+    }
+    .source-item .src-row { display: flex; gap: 7px; flex-wrap: wrap; }
+    .source-item input, .source-item select {
+      font-family: var(--font-ui); font-size: .82rem;
+      border: 1px solid var(--border); border-radius: 6px;
+      padding: 6px 8px; background: white; color: var(--text);
+    }
+    .source-item input:focus, .source-item select:focus {
+      outline: none; border-color: var(--accent);
+    }
+    .src-del {
+      position: absolute; top: 7px; right: 8px;
+      background: none; border: none; cursor: pointer;
+      color: #ccc; font-size: 1rem; line-height: 1; transition: color .1s;
+    }
+    .src-del:hover { color: var(--danger); }
+    .src-asin-wrap { display: flex; gap: 5px; align-items: center; flex: 1; }
+    .src-asin-wrap input { flex: 1; }
+    .btn-amz {
+      display: inline-flex; align-items: center; padding: 5px 9px;
+      border-radius: 6px; font-size: .78rem; font-weight: 700;
+      background: #FF9900; color: #111; text-decoration: none;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .btn-amz:hover { background: #e68900; }
+    .src-type-badge {
+      font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 20px;
+      background: var(--accent-light); color: var(--accent); align-self: center;
+    }
+
     /* panel actions */
     .panel-actions {
       position: sticky; bottom: 0; background: var(--panel);
@@ -488,6 +524,10 @@
         <textarea id="f-content" class="code html-content" spellcheck="false" oninput="syncPreview()"></textarea>
       </div>
 
+      <div class="section-title">📚 Sources &amp; références</div>
+      <div class="sources-list" id="sources-list"></div>
+      <button class="btn btn-ghost btn-sm" style="align-self:flex-start;background:var(--accent-light);color:var(--accent);margin-top:2px" onclick="addSource()">+ Ajouter une source</button>
+
     </div><!-- /form-body -->
 
     <div class="panel-actions hidden" id="panel-actions">
@@ -569,6 +609,7 @@
   let currentStatus = 'published';
   let activeTab = 'article';
   let articleLoaded = false;
+  let _rawData = {}; // préserve les champs non édités (articles_lies, quiz, type…)
 
   // ── FILE HANDLING ──
   const dropZone = document.getElementById('drop-zone');
@@ -608,8 +649,107 @@
     }
   }
 
+  // ── SOURCES ──
+  function addSource(src) {
+    src = src || {};
+    const isBook = (src.publisher !== undefined) || (!src.journal && !src.url && !src.authors);
+    const list = document.getElementById('sources-list');
+    const div = document.createElement('div');
+    div.className = 'source-item';
+
+    div.innerHTML = `
+      <button class="src-del" onclick="this.closest('.source-item').remove();syncPreview()" title="Supprimer">✕</button>
+      <div class="src-row">
+        <input type="text" class="src-authors" placeholder="Auteurs (ex: Dupont J.)" value="${escAttr(src.authors||'')}" style="flex:2;min-width:120px" oninput="syncPreview()">
+        <input type="text" class="src-year"    placeholder="Année" value="${escAttr(src.year||'')}" style="width:65px" oninput="syncPreview()">
+        <select class="src-type" onchange="toggleSrcType(this)">
+          <option value="journal" ${!isBook?'selected':''}>📄 Revue</option>
+          <option value="book"    ${isBook ?'selected':''}>📖 Livre</option>
+        </select>
+      </div>
+      <input type="text" class="src-title" placeholder="Titre" value="${escAttr(src.title||'')}" oninput="srcTitleChange(this);syncPreview()" style="width:100%">
+      <div class="src-row src-journal-row" ${isBook?'style="display:none"':''}>
+        <input type="text" class="src-journal" placeholder="Revue / Journal" value="${escAttr(src.journal||'')}" style="flex:1" oninput="syncPreview()">
+        <input type="text" class="src-url"     placeholder="URL / DOI" value="${escAttr(src.url||'')}" style="flex:1" oninput="syncPreview()">
+      </div>
+      <div class="src-row src-book-row" ${!isBook?'style="display:none"':''}>
+        <input type="text" class="src-publisher" placeholder="Éditeur" value="${escAttr(src.publisher||'')}" style="flex:1" oninput="syncPreview()">
+        <div class="src-asin-wrap">
+          <input type="text" class="src-asin" placeholder="ASIN Amazon" value="${escAttr(src.amazon_asin||'')}" maxlength="10" oninput="srcAsinChange(this)">
+          <a class="btn-amz src-amz-link" href="#" target="_blank" title="Chercher ou voir sur Amazon.fr">🛒</a>
+        </div>
+      </div>`;
+
+    list.appendChild(div);
+    _refreshAmazonLink(div, src.amazon_asin || '', src.title || '', src.authors || '');
+  }
+
+  function toggleSrcType(sel) {
+    const item = sel.closest('.source-item');
+    const isBook = sel.value === 'book';
+    item.querySelector('.src-journal-row').style.display = isBook ? 'none' : '';
+    item.querySelector('.src-book-row').style.display    = isBook ? '' : 'none';
+    syncPreview();
+  }
+
+  function srcTitleChange(input) {
+    const item = input.closest('.source-item');
+    const asin = item.querySelector('.src-asin').value.trim();
+    if (!asin) _refreshAmazonLink(item, '', input.value, item.querySelector('.src-authors').value);
+  }
+
+  function srcAsinChange(input) {
+    const item = input.closest('.source-item');
+    _refreshAmazonLink(item, input.value.trim(),
+      item.querySelector('.src-title').value,
+      item.querySelector('.src-authors').value);
+    syncPreview();
+  }
+
+  function _refreshAmazonLink(item, asin, title, authors) {
+    const link = item.querySelector('.src-amz-link');
+    if (!link) return;
+    if (asin && asin.length >= 10) {
+      link.href  = `https://www.amazon.fr/dp/${asin}?tag=ouipsycho-21`;
+      link.title = 'Voir sur Amazon.fr';
+    } else {
+      const q = encodeURIComponent((title + ' ' + authors).trim() || 'livre psychologie');
+      link.href  = `https://www.amazon.fr/s?k=${q}`;
+      link.title = 'Chercher sur Amazon.fr';
+    }
+  }
+
+  function getSources() {
+    const sources = [];
+    document.querySelectorAll('#sources-list .source-item').forEach(item => {
+      const type    = item.querySelector('.src-type').value;
+      const authors = item.querySelector('.src-authors').value.trim();
+      const year    = item.querySelector('.src-year').value.trim();
+      const title   = item.querySelector('.src-title').value.trim();
+      if (!title && !authors) return; // ligne vide → ignorer
+      const src = {};
+      if (authors) src.authors = authors;
+      if (year)    src.year    = year;
+      if (title)   src.title   = title;
+      if (type === 'book') {
+        const pub  = item.querySelector('.src-publisher').value.trim();
+        const asin = item.querySelector('.src-asin').value.trim();
+        if (pub)  src.publisher   = pub;
+        if (asin) src.amazon_asin = asin;
+      } else {
+        const journal = item.querySelector('.src-journal').value.trim();
+        const url     = item.querySelector('.src-url').value.trim();
+        if (journal) src.journal = journal;
+        if (url)     src.url     = url;
+      }
+      sources.push(src);
+    });
+    return sources;
+  }
+
   // ── FILL FORM ──
   function fillForm(d) {
+    _rawData = d;
     document.getElementById('f-id').value       = d.id || '';
     document.getElementById('f-title').value    = d.title || '';
     document.getElementById('f-excerpt').value  = d.excerpt || '';
@@ -644,6 +784,10 @@
     // keypoints
     document.getElementById('keypoints-list').innerHTML = '';
     (d.keypoints || []).forEach(kp => addKeypoint(kp));
+
+    // sources
+    document.getElementById('sources-list').innerHTML = '';
+    (d.sources || []).forEach(s => addSource(s));
 
     // show form
     articleLoaded = true;
@@ -744,7 +888,9 @@
 
   // ── BUILD DATA ──
   function buildData() {
+    const src = getSources();
     return {
+      ..._rawData,                                          // préserve quiz, articles_lies, type…
       id:              document.getElementById('f-id').value.trim(),
       title:           document.getElementById('f-title').value,
       excerpt:         document.getElementById('f-excerpt').value,
@@ -762,6 +908,7 @@
       tags:            currentTags,
       keypoints:       getKeypoints(),
       content:         document.getElementById('f-content').value,
+      ...(src.length ? { sources: src } : {}),
       status:          currentStatus,
     };
   }
