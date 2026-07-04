@@ -143,8 +143,8 @@ ${srcItems}
     "@type":            "BlogPosting",
     "headline":         j.title,
     "description":      j.metaDescription,
-    "datePublished":    j.date,
-    "dateModified":     j.date_modified || j.date,
+    "datePublished":    `${j.date}T00:00:00+02:00`,
+    "dateModified":     `${j.date_modified || j.date}T00:00:00+02:00`,
     "inLanguage":       "fr-FR",
     "author":           authorLd,
     "publisher": {
