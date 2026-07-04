@@ -106,6 +106,11 @@ Liens internes (vers d'autres articles du site) :
 - url : DOI (https://doi.org/…) ou PubMed (https://pubmed.ncbi.nlm.nih.gov/ID/)
   → Omettre si l'URL n'est pas certaine — mieux vaut pas de lien qu'un lien cassé.
 - Privilégier les sources françaises quand elles existent.
+- amazon_asin : ASIN du livre sur Amazon.fr (10 caractères après /dp/ dans l'URL).
+  Ex : amazon.fr/dp/2081211475 → "amazon_asin": "2081211475"
+  → Ajouter UNIQUEMENT si le livre est disponible sur Amazon.fr.
+  → Génère automatiquement un bouton 🛒 Voir sur Amazon (lien affilié ouipsycho-21).
+  → Ne jamais inventer un ASIN — omettre le champ si inconnu.
 
 ## Encodage
 
