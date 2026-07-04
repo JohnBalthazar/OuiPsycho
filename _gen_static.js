@@ -7,6 +7,16 @@ const DIR   = path.join(__dirname, 'articles');
 const YEAR  = new Date().getFullYear();
 const TODAY = new Date().toISOString().split('T')[0];  // YYYY-MM-DD, pour filtrer les articles planifiés
 
+// ── Identité auteur & E-E-A-T ────────────────────────────────────────────────
+const AUTHOR_NAME      = 'John Balthazar';
+const AUTHOR_BIO_SHORT = 'Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l\'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d\'écriture.';
+const AUTHOR_PHOTO_ABS = `${BASE}/images/auteur.jpg`;  // URL absolue (JSON-LD, OG)
+const AUTHOR_PHOTO_REL = 'images/auteur.jpg';           // chemin relatif (base href="../../" sur les pages articles)
+const AUTHOR_PAGE_URL  = `${BASE}/a-propos.html`;
+const AUTHOR_BOOK_URL  = ''; // ← Renseigner l'URL du livre dès qu'elle est connue — apparaît automatiquement partout
+// Noms génériques à remplacer par AUTHOR_NAME
+const RÉDACTION_SET    = new Set(['La rédaction Oui Psycho!', 'La rédaction', 'Oui Psycho!', 'Rédaction Oui Psycho!']);
+
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
 function fmtDate(d) {
@@ -41,6 +51,10 @@ for (const file of jsonFiles) {
   const j   = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
   const ci  = CAT[j.category] || { color: '#555', bg: '#f5f5f5', enc: encodeURIComponent(j.category) };
   const fd  = fmtDate(j.date);
+
+  // Auteur affiché : John Balthazar si rédaction générique, sinon respect du nom JSON
+  const displayAuthor = (!j.author || RÉDACTION_SET.has(j.author)) ? AUTHOR_NAME : j.author;
+  const isJohnB       = displayAuthor === AUTHOR_NAME;
 
   // Article planifié dont la date n'est pas encore arrivée → noindex pour ne pas être indexé par Google avant publication
   const isFutureScheduled = j.status === 'scheduled' && j.date > TODAY;
@@ -101,28 +115,39 @@ ${srcItems}
     return `        <a class="${cls}" href="index.html?cat=${nc_enc}">${nc}</a>`;
   }).join('\n');
 
-  // JSON-LD
+  // JSON-LD ───────────────────────────────────────────────────────────────────
   const esc = s => String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"');
+  // Sécurise l'injection dans <script>…</script> (séquence </script> interdite)
+  const escLd = s => s.replace(/<\/script>/gi, '<\\/script>');
   const wordCount = j.content.replace(/<[^>]+>/g,'').split(/\s+/).length;
+
+  // Auteur JSON-LD
+  const authorLd = { "@type": "Person", "name": displayAuthor };
+  if (isJohnB) {
+    authorLd.url   = AUTHOR_PAGE_URL;
+    authorLd.image = { "@type": "ImageObject", "url": AUTHOR_PHOTO_ABS };
+    if (AUTHOR_BOOK_URL) authorLd.sameAs = [AUTHOR_BOOK_URL];
+  }
+
   const aLDobj = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": j.title,
-    "description": j.metaDescription,
-    "datePublished": j.date,
-    "dateModified": j.date_modified || j.date,
-    "inLanguage": "fr",
-    "author": { "@type": "Person", "name": j.author },
+    "@context":         "https://schema.org",
+    "@type":            "BlogPosting",
+    "headline":         j.title,
+    "description":      j.metaDescription,
+    "datePublished":    j.date,
+    "dateModified":     j.date_modified || j.date,
+    "inLanguage":       "fr-FR",
+    "author":           authorLd,
     "publisher": {
       "@type": "Organization",
-      "name": "Oui Psycho!",
-      "url": `${BASE}/`,
-      "logo": { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.png` }
+      "name":  "Oui Psycho!",
+      "url":   `${BASE}/`,
+      "logo":  { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.png`, "width": 512, "height": 512 }
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
-    "keywords": j.tags.join(', '),
-    "articleSection": j.category,
-    "wordCount": wordCount
+    "keywords":         j.tags.join(', '),
+    "articleSection":   j.category,
+    "wordCount":        wordCount
   };
   if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image, "width": 1200, "height": 630 };
   // Schema.org citation (sources structurées avec URL uniquement)
@@ -136,7 +161,7 @@ ${srcItems}
       return c;
     });
   }
-  const aLD = JSON.stringify(aLDobj);
+  const aLD = escLd(JSON.stringify(aLDobj));
 
   // Lien de catégorie : page rubrique dédiée ou filtre homepage
   const catHref  = RUBRIQUE_PAGES[j.category] || `index.html?cat=${ci.enc}`;
@@ -144,7 +169,7 @@ ${srcItems}
     ? `${BASE}/${RUBRIQUE_PAGES[j.category]}`
     : `${BASE}/?cat=${ci.enc}`;
 
-  const bLD = JSON.stringify({
+  const bLD = escLd(JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -152,7 +177,7 @@ ${srcItems}
       { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs },
       { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}/` }
     ]
-  });
+  }));
 
   // Label de date : "Publié le" ou "Mis à jour le"
   const fdMod = j.date_modified && j.date_modified !== j.date
@@ -171,7 +196,7 @@ ${srcItems}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${j.title} — Oui Psycho!</title>
   <meta name="description" content="${j.metaDescription}">
-  <meta name="author" content="${j.author}">
+  <meta name="author" content="${displayAuthor}">
   <meta name="robots" content="${robotsMeta}">
   <meta name="theme-color" content="#1F4E6B">
   <base href="../../">
@@ -184,7 +209,7 @@ ${srcItems}
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
   <meta property="article:modified_time"      content="${j.date_modified || j.date}T00:00:00+01:00">
-  <meta property="article:author"             content="${j.author}">
+  <meta property="article:author"             content="${displayAuthor}">
   <meta property="article:section"            content="${j.category}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
   <meta property="og:image:alt"               content="${j.title}">
@@ -256,6 +281,7 @@ ${srcItems}
         <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
@@ -286,9 +312,9 @@ ${navHtml}
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
           <h1>${j.title}</h1>
           <div class="article-meta">
-            <span>Par <strong>${j.author}</strong></span>
+            <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${displayAuthor}</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="${dateDatetime}">${dateLabel}</time>
+            <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `<span class="article-meta-dot">•</span><time datetime="${j.date_modified}">Mis à jour le ${fdMod}</time>` : ''}
             <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
@@ -313,11 +339,16 @@ ${kpHtml}
           ${j.content}
         </div>
 ${sourcesHtml}
-        <div class="article-author">
-          <div class="article-author__avatar" aria-hidden="true">✍️</div>
-          <div>
-            <div class="article-author__name">${j.author}</div>
-            <div class="article-author__role">Rédacteur spécialisé en santé mentale</div>
+        <div class="author-box">
+          ${isJohnB
+            ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="author-box__avatar" width="72" height="72" loading="lazy">`
+            : '<div class="author-box__avatar-placeholder" aria-hidden="true">✍️</div>'}
+          <div class="author-box__content">
+            <div class="author-box__name">${displayAuthor}</div>
+            <p class="author-box__bio">${isJohnB ? AUTHOR_BIO_SHORT : 'Rédacteur spécialisé en santé mentale.'}</p>
+            <div class="author-box__links">
+              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
+            </div>
           </div>
         </div>
 

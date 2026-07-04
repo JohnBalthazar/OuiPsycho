@@ -1,18 +1,51 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>À propos — Oui Psycho!</title>
-  <meta name="description" content="Qui sommes-nous ? Oui Psycho! est un blog de vulgarisation psychologique indépendant, dédié à rendre la santé mentale accessible à tous, avec rigueur et bienveillance.">
+  <title>Qui sommes-nous ? — Oui Psycho!</title>
+  <meta name="description" content="John Balthazar, infirmier en psychiatrie et auteur, vous présente Oui Psycho! : un blog de vulgarisation en santé mentale rigoureux, bienveillant et déstigmatisant.">
+  <meta name="author" content="John Balthazar">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://ouipsycho.fr/a-propos.html">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="À propos — Oui Psycho!">
-  <meta property="og:description" content="Qui sommes-nous ? Oui Psycho! est un blog de vulgarisation psychologique dédié à rendre la santé mentale accessible à tous.">
-  <meta property="og:url" content="https://ouipsycho.fr/a-propos.html">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="Oui Psycho!">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Qui sommes-nous ? — Oui Psycho!">
+  <meta property="og:description" content="John Balthazar, infirmier en psychiatrie, présente la démarche d'Oui Psycho! : vulgarisation rigoureuse, sources scientifiques, ton déstigmatisant.">
+  <meta property="og:url"         content="https://ouipsycho.fr/a-propos.html">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta property="og:image"       content="https://ouipsycho.fr/images/auteur.jpg">
+  <meta property="og:image:alt"   content="John Balthazar, auteur de Oui Psycho!">
+  <!-- JSON-LD AboutPage + Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "Qui sommes-nous ? — Oui Psycho!",
+    "url": "https://ouipsycho.fr/a-propos.html",
+    "inLanguage": "fr-FR",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Oui Psycho!",
+      "url": "https://ouipsycho.fr/",
+      "logo": { "@type": "ImageObject", "url": "https://ouipsycho.fr/img/logo-brain.png" }
+    },
+    "mainEntity": {
+      "@type": "Person",
+      "name": "John Balthazar",
+      "image": { "@type": "ImageObject", "url": "https://ouipsycho.fr/images/auteur.jpg" },
+      "url": "https://ouipsycho.fr/a-propos.html",
+      "jobTitle": "Infirmier",
+      "description": "Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d'écriture.",
+      "knowsAbout": ["psychologie", "santé mentale", "psychiatrie", "soins infirmiers"],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Oui Psycho!",
+        "url": "https://ouipsycho.fr/"
+      }
+    }
+  }
+  </script>
   <link rel="icon" type="image/png" href="img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,62 +97,91 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
-        <a class="nav__link" href="cartes.html">🗺️ Cartes</a>
+        <a class="nav__link nav__link--active" href="a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
   </header>
 
-  <div class="container" style="max-width:760px;margin:3rem auto;padding:0 1.5rem" id="about-wrapper">
+  <div class="container" style="max-width:800px;margin:0 auto;padding:2.5rem 1.5rem 4rem">
 
-    <nav class="breadcrumb" aria-label="Fil d'Ariane" style="margin-bottom:2rem">
-      <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">À propos</span>
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">Qui sommes-nous ?</span>
     </nav>
 
-    <h1 id="about-title" style="font-size:2.2rem;margin-bottom:0.5rem">À propos de Oui Psycho!</h1>
-    <p id="about-subtitle" style="color:#6b7280;margin-bottom:2.5rem">Notre mission, notre approche, nos engagements.</p>
+    <h1 style="font-family:var(--font-heading);font-size:clamp(1.75rem,4vw,2.5rem);margin:1rem 0 .4rem">
+      À propos de Oui Psycho!
+    </h1>
+    <p style="color:var(--color-text-muted);margin-bottom:3rem;font-size:1.05rem">
+      Un blog de vulgarisation psychologique indépendant, rigoureux et bienveillant.
+    </p>
 
-    <div id="about-content">
-      <!-- Contenu chargé dynamiquement depuis data/about.json -->
-      <!-- Fallback statique ci-dessous (visible si JS désactivé) -->
-      <section style="margin-bottom:2.5rem">
-        <h2>🧠 Qui sommes-nous ?</h2>
-        <p><strong>Oui Psycho!</strong> est un blog de vulgarisation psychologique indépendant, fondé avec une conviction simple : <em>comprendre comment fonctionne son esprit est l'un des actes les plus utiles qu'on puisse faire pour soi-même.</em></p>
-        <p>Nous publions des articles clairs, rigoureux et accessibles sur la santé mentale — l'anxiété, la dépression, le stress, le sommeil, les thérapies, les relations et le développement personnel.</p>
-      </section>
-      <section style="margin-bottom:2.5rem">
-        <h2>⚕️ Ce que nous ne sommes pas</h2>
-        <p>Oui Psycho! est un site d'information. Nos articles <strong>ne constituent pas un avis médical</strong> et ne remplacent pas une consultation professionnelle.</p>
-        <p><strong>En cas d'urgence :</strong> <a href="tel:3114">3114</a> (prévention suicide, 24h/24, gratuit).</p>
-      </section>
+    <!-- ── Le site ── -->
+    <section style="margin-bottom:3rem">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:1rem">🧠 Le site</h2>
+      <p><strong>Oui Psycho!</strong> est né d'une conviction simple : comprendre comment fonctionne son esprit est l'un des actes les plus utiles qu'on puisse faire pour soi-même. Trop souvent, la psychologie reste confinée dans des manuels universitaires ou des cabinets fermés. Trop souvent, la santé mentale est taboue, incomprise, ou réduite à des clichés.</p>
+      <p>Ce blog publie des articles clairs, sourcés et accessibles sur la psychologie, l'anxiété, la dépression, le sommeil, les thérapies, les relations et le développement personnel. Le ton est volontairement déstigmatisant : ici, parler de sa santé mentale n'est pas une faiblesse, c'est une démarche de lucidité.</p>
+      <p>Chaque article s'appuie sur des <strong>sources scientifiques vérifiées</strong> — études peer-reviewed, meta-analyses, recommandations de sociétés savantes — citées en fin d'article. Nous ne faisons pas de diagnostic, nous ne remplaçons pas un professionnel : nous ouvrons des portes.</p>
+    </section>
+
+    <!-- ── L'auteur ── -->
+    <section style="margin-bottom:3rem">
+      <h2 style="font-family:var(--font-heading);font-size:1.5rem;margin-bottom:1.5rem">✍️ L'auteur</h2>
+
+      <div class="about-author-wrap">
+        <img
+          src="images/auteur.jpg"
+          alt="John Balthazar, auteur de Oui Psycho!"
+          class="about-author-photo"
+          width="180" height="180"
+          loading="lazy">
+        <div>
+          <p><strong>John Balthazar</strong> est infirmier de formation, spécialisé en psychiatrie. Pendant plusieurs années, il a exercé en services hospitaliers — urgences psychiatriques, unités fermées, hôpital de jour — au contact de patients traversant des crises d'angoisse, des épisodes dépressifs sévères, des troubles psychotiques ou des hospitalisations sous contrainte.</p>
+          <p>Cette expérience du terrain lui a appris une chose essentielle : <em>la souffrance psychique n'est pas une question de caractère ou de volonté</em>. Elle a des mécanismes, des causes, et des traitements. Et la comprendre, même partiellement, aide à la traverser.</p>
+          <p>Parallèlement à son activité hospitalière, il a publié <strong>« Mon mari est une pantoufle, des brèves de psychiatrie »</strong>, un recueil de récits courts tiré de ses années de service — une façon d'humaniser ce que les statistiques ne montrent pas.</p>
+          <p>John Balthazar écrit sous pseudonyme. Ce choix n'est pas une honte : c'est une nécessité professionnelle et éthique. Il permet de séparer clairement son activité de soignant — soumise au secret professionnel et à des règles déontologiques strictes — de son travail d'écriture et de vulgarisation. Le pseudonyme protège aussi les patients et les institutions avec lesquels il travaille.</p>
+          <p>Oui Psycho! est sa façon de prolonger, hors les murs, ce qu'il tente de faire en soins : <em>rendre la psychiatrie un peu moins étrangère, et la psychologie un peu plus utile au quotidien.</em></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Démarche qualité ── -->
+    <div class="about-quality-box">
+      <h2>🎯 Notre démarche qualité</h2>
+      <ul>
+        <li><strong>Sources scientifiques vérifiées :</strong> chaque article cite ses références — études publiées dans des revues à comité de lecture, avec DOI quand disponible. Les affirmations non sourcées n'ont pas leur place ici.</li>
+        <li><strong>Pas de diagnostic :</strong> Oui Psycho! informe, il ne diagnostique pas. Nos articles décrivent des phénomènes psychologiques, pas des profils individuels.</li>
+        <li><strong>Orientation systématique vers les professionnels :</strong> chaque article qui aborde une pathologie ou une souffrance importante invite le lecteur à consulter un médecin, un psychologue ou un psychiatre.</li>
+        <li><strong>Numéro national de prévention du suicide :</strong> le <a href="tel:3114"><strong>3114</strong></a> est rappelé sur chaque article sensible. Ce numéro est gratuit, disponible 24h/24 et 7j/7, accessible depuis la France entière.</li>
+        <li><strong>Mise à jour régulière :</strong> les articles sont revisités pour rester en accord avec les données scientifiques récentes. La date de mise à jour est indiquée sur chaque page.</li>
+        <li><strong>Transparence éditoriale :</strong> aucun contenu sponsorisé présenté comme éditorial, aucun partenariat qui compromet l'indépendance des articles. Les liens affiliés (Amazon) sont clairement signalés.</li>
+      </ul>
+    </div>
+
+    <!-- ── Contact ── -->
+    <div class="about-contact-box">
+      <h2>📬 Contact</h2>
+      <p>Pour toute question éditoriale, signalement, partenariat ou demande de reproduction :</p>
+      <p><a href="mailto:contact@ouipsycho.fr" style="font-weight:700;font-size:1.05rem">contact@ouipsycho.fr</a></p>
+      <p style="font-size:.875rem;color:var(--color-text-muted);margin-top:.5rem">
+        Délai de réponse habituel : 48 à 72 heures ouvrées.
+      </p>
+      <div class="about-hotline" role="note">
+        🆘 En cas de détresse psychologique, appelez le <a href="tel:3114" style="color:inherit;font-weight:700">3114</a> — gratuit, 24h/24.
+      </div>
     </div>
 
   </div>
 
-  <script>
-    fetch('data/about.json?t=' + Date.now())
-      .then(r => r.ok ? r.json() : null)
-      .then(d => {
-        if (!d) return;
-        const t = document.getElementById('about-title');
-        const s = document.getElementById('about-subtitle');
-        const c = document.getElementById('about-content');
-        if (t && d.title)    t.textContent = d.title;
-        if (s && d.subtitle) s.textContent = d.subtitle;
-        if (c && d.content)  c.innerHTML   = d.content;
-        if (d.metaDescription) {
-          const m = document.querySelector('meta[name="description"]');
-          if (m) m.setAttribute('content', d.metaDescription);
-        }
-      })
-      .catch(() => {});
-  </script>
-
   <footer class="site-footer">
     <div class="container">
       <div class="footer-disclaimer">
-        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le <strong>3114</strong> (24h/24, gratuit).
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
@@ -127,16 +189,14 @@
             <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
             <span>Oui Psycho!</span>
           </a>
-          <p>Blog de vulgarisation dédié à la santé mentale.</p>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
         </div>
         <div class="footer-col">
           <h4>Thématiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiété</a></li>
-            <li><a href="index.html?cat=D%C3%A9pression">Dépression</a></li>
             <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
-            <li><a href="index.html?cat=Stress">Stress</a></li>
             <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
             <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
           </ul>
         </div>
@@ -150,11 +210,22 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>© <script>document.write(new Date().getFullYear())</script> Oui Psycho!. Tous droits réservés.</span>
         <span>Fait avec ❤️ pour la santé mentale</span>
       </div>
     </div>
   </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
