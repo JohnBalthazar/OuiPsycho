@@ -263,8 +263,10 @@ async function initHome() {
   const searchHero    = document.getElementById('hero-search');
   function handleSearch(val) {
     searchQuery = val.trim().toLowerCase();
+    document.documentElement.style.scrollBehavior = 'auto';
+    window.scrollTo(0, 0);
+    document.documentElement.style.scrollBehavior = '';
     applyFilters(grid, featured);
-    grid.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   if (searchSidebar) {
     searchSidebar.addEventListener('input', debounce(() => handleSearch(searchSidebar.value), 300));
