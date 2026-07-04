@@ -186,7 +186,8 @@ async function initHome() {
   const sectionHdr = document.getElementById('articles-section-header');
   if (!grid) return;
 
-  grid.innerHTML = skeletons(6);
+  // data-static="true" = cards HTML déjà injectées par _gen_static.js → pas de squelettes
+  if (!grid.dataset.static) grid.innerHTML = skeletons(6);
 
   try {
     const res = await fetch(CONFIG.dataUrl + '?v=' + CACHE_H);
@@ -1440,7 +1441,7 @@ function _nlMsg(text, type) {
 async function initHerosRubrique() {
   const grid = document.getElementById('heros-grid');
   if (!grid) return;
-  grid.innerHTML = skeletons(6);
+  if (!grid.dataset.static) grid.innerHTML = skeletons(6);
 
   try {
     const today = new Date().toISOString().split('T')[0];
@@ -1538,7 +1539,7 @@ async function initTestsRubrique() {
 async function initSocieteRubrique() {
   const grid = document.getElementById('societe-grid');
   if (!grid) return;
-  grid.innerHTML = skeletons(6);
+  if (!grid.dataset.static) grid.innerHTML = skeletons(6);
 
   try {
     const today = new Date().toISOString().split('T')[0];
@@ -1570,7 +1571,7 @@ async function initSocieteRubrique() {
 async function initSexoRubrique() {
   const grid = document.getElementById('sexo-grid');
   if (!grid) return;
-  grid.innerHTML = skeletons(6);
+  if (!grid.dataset.static) grid.innerHTML = skeletons(6);
 
   try {
     const today = new Date().toISOString().split('T')[0];
@@ -1602,7 +1603,7 @@ async function initSexoRubrique() {
 async function initMonstresRubrique() {
   const grid = document.getElementById('monstres-grid');
   if (!grid) return;
-  grid.innerHTML = skeletons(4);
+  if (!grid.dataset.static) grid.innerHTML = skeletons(4);
 
   try {
     const today = new Date().toISOString().split('T')[0];

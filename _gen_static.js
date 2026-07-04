@@ -669,4 +669,229 @@ sitemapXml += `\n\n</urlset>\n`;
 
 fs.writeFileSync(SITEMAP_FILE, sitemapXml, 'utf8');
 console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles JSON + ${orphanArticles.length} orphelins + ${sitemapDossiers.length} dossier(s))`);
+
+// ── Injection des cards statiques dans les pages de listing (SEO sans JS) ─────
+// Objectif : Googlebot voit du HTML avec liens internes dès le premier octet.
+// Le JS prend le relais au chargement (renderPage remplace les cards en live).
+//
+// Approche : balanced-div walker → fonctionne à chaque ré-exécution du script
+// même si le fichier contient déjà des cards du run précédent.
+
+const CATS_CARD = {
+  'Bien-être':                       { color: '#059669', bg: '#ECFDF5' },
+  'Relations':                       { color: '#BE185D', bg: '#FDF2F8' },
+  'Sommeil':                         { color: '#0369A1', bg: '#ECFEFF' },
+  'Troubles Psy':                    { color: '#7C3AED', bg: '#F5F3FF' },
+  'Thérapies':                       { color: '#6D28D9', bg: '#EDE9FE' },
+  'Développement personnel':         { color: '#15803D', bg: '#F0FDF4' },
+  'Nos héros sur le divan':          { color: '#EA580C', bg: '#FFF7ED' },
+  'Les monstres sur le divan':       { color: '#9B1C1C', bg: '#FFF5F5' },
+  'Sexo':                            { color: '#C2185B', bg: '#FCE4EC' },
+  'Société':                         { color: '#1E40AF', bg: '#EFF6FF' },
+  'Société & psychologie politique': { color: '#1E40AF', bg: '#EFF6FF' },
+};
+
+function escCard(s) {
+  return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function buildCloudUrl(url, gravity) {
+  if (!url || !url.includes('res.cloudinary.com')) return url;
+  const idx = url.indexOf('/upload/');
+  if (idx === -1) return url;
+  const parts    = url.slice(idx + 8).split('/');
+  const publicId = parts.slice(1).join('/');
+  const g = gravity === 'face' ? 'face' : 'auto';
+  return `${url.slice(0, idx + 8)}c_fill,g_${g},ar_3:2,w_900/f_auto,q_auto/${publicId}`;
+}
+
+function fmtDateCard(d) {
+  if (!d) return '';
+  const [y, m, day] = d.split('-');
+  return `${parseInt(day)} ${MONTHS[parseInt(m)]} ${y}`;
+}
+
+function dateLabelCard(a) {
+  const pub = a.date, mod = a.date_modified;
+  if (!mod || mod <= pub) return 'Publié le ' + fmtDateCard(pub);
+  return 'Mis à jour le ' + fmtDateCard(mod);
+}
+
+function renderCardStatic(a) {
+  const useIA    = a.imageGravity && a.imageGravity !== 'none';
+  const imgUrl   = useIA ? buildCloudUrl(a.image, a.imageGravity) : a.image;
+  const zoom     = useIA ? 1 : (parseFloat(a.imageZoom) || 1);
+  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}%` : 'cover';
+  const bgPos    = useIA ? 'center center' : (a.imagePosition || 'center center');
+  const imgStyle = imgUrl
+    ? `background-image:url('${escCard(imgUrl)}');background-position:${bgPos};background-size:${bgSize}`
+    : '';
+  const cat    = CATS_CARD[a.category] || {};
+  const catSty = cat.color ? ` style="color:${cat.color};background:${cat.bg}"` : '';
+  const label  = dateLabelCard(a);
+  const phld   = !a.image ? '<span class="card__image-placeholder" aria-hidden="true">🧠</span>' : '';
+  return `
+    <article class="card" data-category="${escCard(a.category || '')}">
+      <a href="articles/${escCard(a.id)}/" class="card__image-link" tabindex="-1" aria-hidden="true">
+        <div class="card__image" style="${imgStyle}" data-cat="${escCard(a.category || '')}">${phld}</div>
+      </a>
+      <div class="card__body">
+        <span class="badge"${catSty}>${escCard(a.category || 'Général')}</span>
+        <h2 class="card__title"><a href="articles/${escCard(a.id)}/">${escCard(a.title)}</a></h2>
+        <p class="card__excerpt">${escCard(a.excerpt || '')}</p>
+        <footer class="card__meta">
+          <time datetime="${escCard(a.date_modified || a.date || '')}">${label}</time>
+          <span class="card__meta-dot">•</span>
+          <span>${a.readTime || 5} min de lecture</span>
+        </footer>
+      </div>
+    </article>`;
+}
+
+function renderFeaturedStatic(a) {
+  const useIA    = a.imageGravity && a.imageGravity !== 'none';
+  const imgUrl   = useIA ? buildCloudUrl(a.image, a.imageGravity) : a.image;
+  const zoom     = useIA ? 1 : (parseFloat(a.imageZoom) || 1);
+  const bgSize   = zoom > 1 ? `${Math.round(zoom * 100)}%` : 'cover';
+  const bgPos    = useIA ? 'center center' : (a.imagePosition || 'center center');
+  const imgStyle = imgUrl
+    ? `background-image:url('${escCard(imgUrl)}');background-position:${bgPos};background-size:${bgSize}`
+    : '';
+  const cat    = CATS_CARD[a.category] || {};
+  const catSty = cat.color ? ` style="color:${cat.color};background:${cat.bg}"` : '';
+  const label  = dateLabelCard(a);
+  const phld   = !a.image ? '<span class="card__image-placeholder" aria-hidden="true">🧠</span>' : '';
+  return `
+    <article class="card card--featured" data-category="${escCard(a.category || '')}" style="margin-bottom:2rem">
+      <a href="articles/${escCard(a.id)}/" class="card__image-link" tabindex="-1" aria-hidden="true">
+        <div class="card__image" style="${imgStyle}" data-cat="${escCard(a.category || '')}">${phld}</div>
+      </a>
+      <div class="card__body">
+        <div class="card--featured-label">À la une</div>
+        <span class="badge"${catSty}>${escCard(a.category || 'Général')}</span>
+        <h2 class="card__title"><a href="articles/${escCard(a.id)}/">${escCard(a.title)}</a></h2>
+        <p class="card__excerpt">${escCard(a.excerpt || '')}</p>
+        <footer class="card__meta">
+          <time datetime="${escCard(a.date_modified || a.date || '')}">${label}</time>
+          <span class="card__meta-dot">•</span>
+          <span>${a.readTime || 5} min de lecture</span>
+        </footer>
+        <a href="articles/${escCard(a.id)}/" class="card__read-more">Lire l'article</a>
+      </div>
+    </article>`;
+}
+
+/**
+ * Remplace le contenu d'une div identifiée par son ouverture de balise (regex).
+ * Utilise un compteur de profondeur pour trouver le </div> correspondant,
+ * ce qui fonctionne même si la div contient des articles imbriqués au run précédent.
+ * Retourne le nouveau HTML ou null si la balise n'est pas trouvée.
+ */
+function replaceDivContent(html, openTagRegex, newOpenTag, newInnerHtml) {
+  const m = html.match(openTagRegex);
+  if (!m) return null;
+  const tagStart    = m.index;
+  const contentStart = tagStart + m[0].length;
+  let depth = 1;
+  let pos   = contentStart;
+  while (pos < html.length && depth > 0) {
+    const nextOpen  = html.indexOf('<div', pos);
+    const nextClose = html.indexOf('</div>', pos);
+    if (nextClose === -1) break;
+    if (nextOpen !== -1 && nextOpen < nextClose) {
+      depth++;
+      pos = nextOpen + 4;
+    } else {
+      depth--;
+      if (depth === 0) {
+        return html.slice(0, tagStart) + newOpenTag + newInnerHtml + '\n    </div>' + html.slice(nextClose + 6);
+      }
+      pos = nextClose + 6;
+    }
+  }
+  return null;
+}
+
+function injectStaticInFile(filePath, transformFn) {
+  if (!fs.existsSync(filePath)) { console.warn(`  ⚠  introuvable : ${filePath}`); return; }
+  const original = fs.readFileSync(filePath, 'utf8');
+  const result   = transformFn(original);
+  if (!result) { console.warn(`  ⚠  injection échouée : ${filePath}`); return; }
+  fs.writeFileSync(filePath, result, 'utf8');
+}
+
+// ── 1. index.html ──────────────────────────────────────────────────────────────
+if (newIndex.length > 0) {
+  const featured  = newIndex[0];
+  const gridSlice = newIndex.slice(1, 10);  // 2e au 10e article
+
+  injectStaticInFile(path.join(__dirname, 'index.html'), html => {
+    // a) Featured container
+    let h = replaceDivContent(
+      html,
+      /<div id="featured-container"[^>]*>/,
+      '<div id="featured-container">',
+      '\n      ' + renderFeaturedStatic(featured) + '\n      '
+    );
+    if (!h) return null;
+
+    // b) Révèle le titre "Derniers articles" (supprime style="display:none")
+    h = h.replace('id="articles-section-header" style="display:none"', 'id="articles-section-header"');
+
+    // c) Grille principale + data-static (signale au JS de sauter les squelettes)
+    h = replaceDivContent(
+      h,
+      /<div class="articles-grid" id="articles-grid"[^>]*>/,
+      '<div class="articles-grid" id="articles-grid" aria-live="polite" aria-busy="true" data-static="true">',
+      gridSlice.map(renderCardStatic).join('')
+    );
+    return h;
+  });
+  console.log(`🏠 index.html → 1 featured + ${gridSlice.length} cards statiques injectées`);
+}
+
+// ── Helper : injection d'une page rubrique ─────────────────────────────────────
+function injectRubriquePage(htmlFile, gridId, gridClass, articles) {
+  if (!articles.length) {
+    console.log(`  ⚠  ${path.basename(htmlFile)} : aucun article publié pour cette rubrique`);
+    return;
+  }
+  const cards = articles.map(renderCardStatic).join('');
+  injectStaticInFile(htmlFile, html => replaceDivContent(
+    html,
+    new RegExp(`<div class="${gridClass}" id="${gridId}"[^>]*>`),
+    `<div class="${gridClass}" id="${gridId}" aria-live="polite" aria-busy="true" data-static="true">`,
+    cards
+  ));
+  console.log(`📄 ${path.basename(htmlFile)} → ${articles.length} cards statiques`);
+}
+
+// ── 2. nos-heros-sur-le-divan.html ────────────────────────────────────────────
+injectRubriquePage(
+  path.join(__dirname, 'nos-heros-sur-le-divan.html'),
+  'heros-grid', 'heros-grid',
+  newIndex.filter(a => a.category === 'Nos héros sur le divan')
+);
+
+// ── 3. les-monstres-sur-le-divan.html ─────────────────────────────────────────
+injectRubriquePage(
+  path.join(__dirname, 'les-monstres-sur-le-divan.html'),
+  'monstres-grid', 'monstres-grid',
+  newIndex.filter(a => a.category === 'Les monstres sur le divan')
+);
+
+// ── 4. societe.html ───────────────────────────────────────────────────────────
+injectRubriquePage(
+  path.join(__dirname, 'societe.html'),
+  'societe-grid', 'societe-grid',
+  newIndex.filter(a => a.category === 'Société' || a.category === 'Société & psychologie politique')
+);
+
+// ── 5. sexo.html ──────────────────────────────────────────────────────────────
+injectRubriquePage(
+  path.join(__dirname, 'sexo.html'),
+  'sexo-grid', 'sexo-grid',
+  newIndex.filter(a => a.category === 'Sexo')
+);
+
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);
