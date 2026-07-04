@@ -9,6 +9,8 @@ on:
     paths:
       - 'articles/**/*.json'   # nouvel article ou mise à jour d'un article existant
       - 'dossiers/**/*.json'   # nouveau dossier
+      - '_gen_static.js'       # changement du générateur → regénère tout
+      - 'data/about.json'      # données site modifiées
 
 permissions:
   contents: write      # nécessaire pour le push de retour
