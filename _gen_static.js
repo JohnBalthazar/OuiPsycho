@@ -54,28 +54,39 @@ for (const file of jsonFiles) {
   }
 
   // Sources & références
+  const AMAZON_TAG = 'ouipsycho-21';
   let sourcesHtml = '';
   if (j.sources && j.sources.length) {
+    let hasAmazon = false;
     const srcItems = j.sources.map(s => {
       if (typeof s === 'string') {
         // Format legacy : chaîne brute
         return `        <li>${s}</li>`;
       }
-      // Format structuré : { authors, year, title, journal|publisher, url }
-      const authYear = [s.authors, s.year ? `(${s.year})` : ''].filter(Boolean).join(' ');
+      // Format structuré : { authors, year, title, journal|publisher, url, amazon_asin }
+      const authYear = [s.authors, s.year ? `(${s.year})` : ''].filter(Boolean).join(' ');
       const anchor   = s.url
         ? `<a href="${s.url}" target="_blank" rel="noopener noreferrer">${authYear}</a>`
         : authYear;
       const venue    = s.journal   ? ` <cite>${s.journal}</cite>`
                      : s.publisher ? ` <cite>${s.publisher}</cite>` : '';
-      return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.</li>`;
+      let amazonBtn  = '';
+      if (s.amazon_asin) {
+        hasAmazon = true;
+        const amzUrl = `https://www.amazon.fr/dp/${s.amazon_asin}?tag=${AMAZON_TAG}`;
+        amazonBtn = ` <a href="${amzUrl}" target="_blank" rel="noopener sponsored" class="btn-amazon">🛒 Voir sur Amazon</a>`;
+      }
+      return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.${amazonBtn}</li>`;
     }).join('\n');
+    const affiliateNote = hasAmazon
+      ? `\n          <p class="sources-affiliate-note">🛒 Liens affiliés Amazon — vous payez le même prix, une petite commission aide à financer ce site.</p>`
+      : '';
     sourcesHtml = `
         <section class="article-sources" aria-label="Sources et références">
           <h2 class="article-sources__title">📚 Sources &amp; références</h2>
           <ol class="article-sources__list">
 ${srcItems}
-          </ol>
+          </ol>${affiliateNote}
         </section>
 `;
   }

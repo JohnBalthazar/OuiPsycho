@@ -1223,6 +1223,33 @@ p:last-child { margin-bottom: 0; }
   text-underline-offset: 3px;
 }
 .article-sources__list a:hover { text-decoration-style: solid; }
+/* Bouton Amazon affilié */
+.btn-amazon {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  margin-left: .5em;
+  padding: .15em .55em;
+  font-size: .78em;
+  font-weight: 600;
+  color: #111 !important;
+  background: #FF9900;
+  border-radius: 4px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background .15s, opacity .15s;
+}
+.btn-amazon:hover { background: #e68900; opacity: 1; }
+/* Note de transparence affiliation */
+.sources-affiliate-note {
+  margin-top: var(--sp-4);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: .78em;
+  color: var(--color-text-muted, #666);
+  background: #f9f9f9;
+  border-left: 3px solid #FF9900;
+  border-radius: 0 4px 4px 0;
+}
 
 /* Encadré info générique */
 .article-body .info-box {
