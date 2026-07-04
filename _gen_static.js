@@ -134,7 +134,7 @@ ${srcItems}
   const authorLd = { "@type": "Person", "name": displayAuthor };
   if (isJohnB) {
     authorLd.url   = AUTHOR_PAGE_URL;
-    authorLd.image = { "@type": "ImageObject", "url": AUTHOR_PHOTO_ABS };
+    authorLd.image = { "@type": "ImageObject", "url": AUTHOR_PHOTO_ABS, "width": 800, "height": 800 };
     if (AUTHOR_BOOK_SAME_AS) authorLd.sameAs = [AUTHOR_BOOK_SAME_AS];
   }
 
@@ -151,7 +151,7 @@ ${srcItems}
       "@type": "Organization",
       "name":  "Oui Psycho!",
       "url":   `${BASE}/`,
-      "logo":  { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.png`, "width": 512, "height": 512 }
+      "logo":  { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.svg` }
     },
     "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
     "keywords":         j.tags.join(', '),
