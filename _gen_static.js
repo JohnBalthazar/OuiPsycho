@@ -7,13 +7,23 @@ const DIR   = path.join(__dirname, 'articles');
 const YEAR  = new Date().getFullYear();
 const TODAY = new Date().toISOString().split('T')[0];  // YYYY-MM-DD, pour filtrer les articles planifiés
 
+// ── Affiliation Amazon ───────────────────────────────────────────────────────
+const AMAZON_TAG  = 'ouipsycho-21';
+
 // ── Identité auteur & E-E-A-T ────────────────────────────────────────────────
 const AUTHOR_NAME      = 'John Balthazar';
 const AUTHOR_BIO_SHORT = 'Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l\'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d\'écriture.';
 const AUTHOR_PHOTO_ABS = `${BASE}/images/auteur.jpg`;  // URL absolue (JSON-LD, OG)
 const AUTHOR_PHOTO_REL = 'images/auteur.jpg';           // chemin relatif (base href="../../" sur les pages articles)
 const AUTHOR_PAGE_URL  = `${BASE}/a-propos.html`;
-const AUTHOR_BOOK_URL  = ''; // ← Renseigner l'URL du livre dès qu'elle est connue — apparaît automatiquement partout
+// Livre de l'auteur — renseigner l'ASIN Amazon ; laisser vide pour masquer tous les liens
+const AUTHOR_BOOK_ASIN = 'B08NWTCT2G';
+const AUTHOR_BOOK_URL  = AUTHOR_BOOK_ASIN
+  ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}?tag=${AMAZON_TAG}`
+  : '';  // vide = aucun lien livre affiché nulle part
+const AUTHOR_BOOK_SAME_AS = AUTHOR_BOOK_ASIN
+  ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}`  // URL propre pour JSON-LD sameAs (sans tag)
+  : '';
 // Noms génériques à remplacer par AUTHOR_NAME
 const RÉDACTION_SET    = new Set(['La rédaction Oui Psycho!', 'La rédaction', 'Oui Psycho!', 'Rédaction Oui Psycho!']);
 
@@ -68,7 +78,6 @@ for (const file of jsonFiles) {
   }
 
   // Sources & références
-  const AMAZON_TAG = 'ouipsycho-21';
   let sourcesHtml = '';
   if (j.sources && j.sources.length) {
     let hasAmazon = false;
@@ -126,7 +135,7 @@ ${srcItems}
   if (isJohnB) {
     authorLd.url   = AUTHOR_PAGE_URL;
     authorLd.image = { "@type": "ImageObject", "url": AUTHOR_PHOTO_ABS };
-    if (AUTHOR_BOOK_URL) authorLd.sameAs = [AUTHOR_BOOK_URL];
+    if (AUTHOR_BOOK_SAME_AS) authorLd.sameAs = [AUTHOR_BOOK_SAME_AS];
   }
 
   const aLDobj = {
