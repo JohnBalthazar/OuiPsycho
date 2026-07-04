@@ -62,6 +62,13 @@ Un seul bloc JSON valide, respectant exactement ce format :
       "title": "Titre de l'étude ou ouvrage",
       "journal": "Nom de la revue",
       "url": "https://doi.org/10.XXXX/XXXXX"
+    },
+    {
+      "authors": "Nom C.",
+      "year": "2020",
+      "title": "Titre du livre",
+      "publisher": "Éditeur",
+      "amazon_asin": "XXXXXXXXXX"
     }
   ],
   "articles_lies": [],

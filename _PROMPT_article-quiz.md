@@ -73,6 +73,13 @@ Ne jamais embarquer le HTML du quiz dans le JSON (risque d'invalider tout le fic
       "title": "Titre de l'étude",
       "journal": "Nom de la revue",
       "url": "https://doi.org/10.XXXX/XXXXX"
+    },
+    {
+      "authors": "Nom C.",
+      "year": "2020",
+      "title": "Titre du livre",
+      "publisher": "Éditeur",
+      "amazon_asin": "XXXXXXXXXX"
     }
   ],
   "articles_lies": [],
@@ -143,6 +150,11 @@ Liens internes (vers d'autres articles du site) :
 - publisher : pour les livres (à la place de journal)
 - url : DOI ou PubMed — omettre si incertaine
 - Privilégier les sources françaises.
+- amazon_asin : ASIN du livre sur Amazon.fr (10 caractères après /dp/ dans l'URL).
+  Ex : amazon.fr/dp/2081211475 → "amazon_asin": "2081211475"
+  → Ajouter UNIQUEMENT si le livre est disponible sur Amazon.fr.
+  → Génère automatiquement un bouton 🛒 Voir sur Amazon (lien affilié ouipsycho-21).
+  → Ne jamais inventer un ASIN — omettre le champ si inconnu.
 
 ## Encodage
 
