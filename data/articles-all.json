@@ -488,18 +488,18 @@
   {
     "id": "hermione-granger-divan-psychologie-sorciere",
     "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse mais complice — de la sorcière la plus studieuse de Poudlard, suivie d'un quiz pour révéler votre profil.",
     "date": "2026-09-01",
-    "date_modified": "2026-06-29",
+    "date_modified": "2026-07-04",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": true,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhpnhjcevsz5tq2087l1",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
+    "author": "John Balthazar",
     "tags": [
       "Hermione Granger",
       "Harry Potter",
@@ -509,7 +509,7 @@
       "résilience",
       "pop-culture"
     ],
-    "metaDescription": "",
+    "metaDescription": "Perfectionnisme, syndrome de l'imposteur, sens de la justice : la psychologie d'Hermione Granger décryptée, avec un quiz pour savoir quel genre de sorcière vous êtes.",
     "articles_lies": [],
     "status": "scheduled"
   },
