@@ -320,11 +320,12 @@
   {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Avant d'être une idéologie, le masculinisme est la rencontre entre une souffrance masculine bien réelle et une réponse aussi séduisante que toxique. Plongée dans ses ressorts psychologiques.",
     "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Société",
-    "image": "",
+    "date_modified": "2026-07-05",
+    "category": "Émotions & identité",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/d5xkqvfkzujmwbrfcjw6",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -339,7 +340,7 @@
       "radicalisation",
       "jeunes-hommes"
     ],
-    "metaDescription": "",
+    "metaDescription": "Le masculinisme séduit en répondant mal à une détresse réelle. Décryptage psychologique de la manosphère, ses ressorts et comment y résister.",
     "articles_lies": [],
     "status": "scheduled"
   },
