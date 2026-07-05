@@ -223,7 +223,16 @@ Em-dash : — (jamais --)
 
 ## ✅ Checklist d'intégration (après génération)
 
-Effectuer dans cet ordre :
+### 🔀 Deux façons d'intégrer — choisir l'une ou l'autre
+
+**Via la page admin (`/poulet`)** :
+1. Onglet "Import / Export"
+2. Déposer le fichier JSON (Bloc 1) dans la zone ①
+3. **⚠️ Obligatoire** : déposer le fichier quiz HTML (Bloc 2) dans la zone ② qui apparaît automatiquement
+4. Vérifier la date et le statut, puis cliquer "Publier sur GitHub"
+5. Ajouter le Bloc 3 dans `data/tests.json` manuellement si l'article est publié
+
+**Via Claude Code (terminal)** — effectuer dans cet ordre :
 
 ### 1. Créer les fichiers
 

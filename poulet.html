@@ -2820,8 +2820,11 @@ async function saveArticle() {
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
       articles = await mergeIndexWithRemote(articles);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index');
+      // articles-all.json : format admin complet (avec hasImage)
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index');
+      // articles.json public : strip hasImage (champ admin uniquement, ne doit pas fuir dans le public)
+      const publicArticles = articles.map(({ hasImage: _h, ...rest }) => rest);
+      await githubPutFile('data/articles.json', JSON.stringify(publicArticles, null, 2), 'update: articles index');
       // Régénérer et pousser le HTML statique
       const htmlPage = generateArticleHTML(articleData);
       await githubPutFile(id + '/index.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
@@ -3033,12 +3036,16 @@ async function pushAllToGitHub() {
   }
 
   // 2. Push l'index fusionné avec le remote (jamais d'écrasement)
+  // strip content/keypoints pour l'index ; strip hasImage pour le fichier public
   const indexData = articles.map(({ content: _c, keypoints: _k, ...summary }) => summary);
   try {
     addLog('→ Fusion avec le remote…');
     const mergedIndex = await mergeIndexWithRemote(indexData);
-    await githubPutFile('data/articles.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
+    // articles-all.json : format admin complet (avec hasImage)
     await githubPutFile('data/articles-all.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
+    // articles.json public : strip hasImage (champ admin uniquement)
+    const mergedPublic = mergedIndex.map(({ hasImage: _h, ...rest }) => rest);
+    await githubPutFile('data/articles.json', JSON.stringify(mergedPublic, null, 2), msg + ' (index)');
     addLog('✓ data/articles.json + articles-all.json (' + mergedIndex.length + ' articles)'); ok++;
   } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
 
@@ -3244,7 +3251,22 @@ function handleImport(event) {
               statusEl.style.display = 'block';
             }
           }
-        }
+
+
+        // Fallback : détecter un quiz depuis l'iframe dans content (si champ "quiz" absent)
+        if (!quizFilename && data.content) {
+          const m = data.content.match(/src=["'](?:\/)?tests\/([^"']+\.html)["']/);
+          if (m) {
+            quizFilename = m[1];
+            _pendingQuizFilename = quizFilename;
+            const statusEl = document.getElementById('quiz-file-status');
+            if (statusEl) {
+              statusEl.textContent = '⚠️ Quiz détecté — déposez le fichier "' + quizFilename + '" dans la zone ② ci-dessus pour le publier.';
+              statusEl.style.color = 'var(--warning)';
+              statusEl.style.display = 'block';
+            }
+          }
+        }        }
 
         // Si un quiz HTML a été fourni manuellement via la zone ②, il est prioritaire sur le JSON embarqué
         if (_pendingQuizHtml) {
