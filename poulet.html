@@ -3161,7 +3161,7 @@ async function publishImportedArticle() {
       await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique articles/' + data.id);
 
       // 3b. Redirect → {id}/index.html (URL courte)
-      const redirectHtml = '<!DOCTYPE html><html><head><link rel="canonical" href="https://ouipsycho.fr/articles/' + data.id + '/"><meta http-equiv="refresh" content="0; url=/articles/' + data.id + '/"><script>window.location.replace("/articles/' + data.id + '/");</script></head><body><p><a href="/articles/' + data.id + '/">Cliquez ici</a> si vous n'êtes pas redirigé.</p></body></html>';
+      const redirectHtml = '<!DOCTYPE html><html><head><link rel="canonical" href="https://ouipsycho.fr/articles/' + data.id + '/"><meta http-equiv="refresh" content="0; url=/articles/' + data.id + '/"><script>window.location.replace("/articles/' + data.id + '/");</script></head><body><p><a href="/articles/' + data.id + '/">Cliquez ici</a> si la redirection ne fonctionne pas.</p></body></html>';
       await githubPutFile(data.id + '/index.html', redirectHtml, 'import: redirect ' + data.id);
 
       // 4. Quiz HTML → tests/{filename}
