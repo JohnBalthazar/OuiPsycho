@@ -15,10 +15,10 @@ const CONFIG = {
   siteUrl:      'https://ouipsycho.fr',
 };
 
-// Version de cache horaire — change toutes les heures, stable dans la session.
-// Permet au cache HTTP de fonctionner intra-heure tout en garantissant
-// que les articles publiés par la CI sont visibles en moins de 60 min.
-const CACHE_H = Math.floor(Date.now() / 3600000);
+// Version de cache par quart d'heure — change toutes les 15 min.
+// Garantit que les déploiements CI (articles, images) sont visibles
+// en moins de 15 min sans saturer le réseau (stable dans le quart d'heure).
+const CACHE_H = Math.floor(Date.now() / 900000);
 
 const CATEGORIES = {
   'Bien-être':                { color: '#059669', bg: '#ECFDF5' },
