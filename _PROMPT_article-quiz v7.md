@@ -1,2 +1,2 @@
 > ⛔ **Ce fichier est OBSOLÈTE.**
-> Utilise **`PROMPT-ARTICLE-QUIZ.md`** à la place — version à 3 blocs avec checklist d'intégration.
+> Utilise **`_PROMPT_article-quiz v9.md`** à la place — version à 3 blocs avec checklist d'intégration complète.
