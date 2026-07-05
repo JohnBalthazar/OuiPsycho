@@ -1,5 +1,59 @@
 [
   {
+    "id": "michel-fourniret-sur-le-divan",
+    "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
+    "type": "article",
+    "excerpt": "Courtois, cultivé, « sans histoires » : l'ogre des Ardennes ne ressemblait pas au monstre qu'on imagine. Psychopathie, sadisme, couple pervers — ce que la clinique sait vraiment de ce profil, et pourquoi personne ne le repère jamais.",
+    "metaDescription": "Michel Fourniret analysé par la psychologie : psychopathie, sadisme sexuel, couple criminel avec Monique Olivier, et le mythe du monstre détectable.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-20",
+    "date_modified": "2026-10-20",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "tueur en série",
+      "psychopathie",
+      "sadisme",
+      "true crime",
+      "criminologie",
+      "emprise"
+    ],
+    "sources": [
+      {
+        "authors": "Hare R. D.",
+        "year": "1993",
+        "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Zagury D.",
+        "year": "2018",
+        "title": "La barbarie des hommes ordinaires : ces criminels qui pourraient être nous",
+        "publisher": "Éditions de l'Observatoire"
+      },
+      {
+        "authors": "American Psychiatric Association",
+        "year": "2013",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5) — Trouble sadisme sexuel",
+        "publisher": "American Psychiatric Publishing"
+      },
+      {
+        "authors": "Yardley E., Wilson D. & Lynes A.",
+        "year": "2014",
+        "title": "A Taxonomy of Male British Family Annihilators, 1980-2012",
+        "journal": "The Howard Journal of Criminal Justice",
+        "url": "https://doi.org/10.1111/hojo.12033"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon",
     "excerpt": "",
@@ -1167,11 +1221,11 @@
   {
     "id": "techniques-drague-science",
     "title": "Les techniques de drague qui marchent vraiment (selon la science)",
-    "excerpt": "Oubliez les « techniques » des pickup artists. La psychologie de l'attirance désigne cinq leviers qui marchent vraiment — et quelques classiques qui font surtout fuir.",
+    "excerpt": "",
     "date": "2026-07-05",
     "date_modified": "2026-07-01",
     "category": "Sexo",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qeiykjp13poqjfgxccop",
+    "image": "",
     "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -1186,7 +1240,7 @@
       "psychologie sociale",
       "relations"
     ],
-    "metaDescription": "La psychologie révèle les vraies techniques de séduction qui marchent : simple exposition, réciprocité, 36 questions… et celles qu'il faut éviter.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
