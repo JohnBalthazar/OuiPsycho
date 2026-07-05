@@ -1214,9 +1214,10 @@
   {
     "id": "son-goku-sur-le-divan",
     "title": "Dragon Ball Z : Son Goku sur le divan",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Il meurt, revient et sourit encore. Derrière le combattant increvable de Dragon Ball Z se cache un formidable cas d'école : résilience, quête initiatique et motivation intrinsèque. Son Goku passe sur le divan.",
     "date": "2026-07-06",
-    "date_modified": "2026-07-03",
+    "date_modified": "2026-07-05",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zxj5jfrl9zntfpvsabbh",
     "imagePosition": "50% 50%",
@@ -1232,7 +1233,7 @@
       "psychologie-pop-culture",
       "quete-initiatique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Résilience, quête initiatique, motivation : et si Son Goku, le héros de Dragon Ball Z, était un cas d'école de psychologie ? Analyse (et quiz) sur Oui Psycho!",
     "articles_lies": [],
     "status": "scheduled"
   },
