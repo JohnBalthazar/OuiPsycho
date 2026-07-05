@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pourriez-vous être la mort ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/la-grande-faucheuse-sur-le-divan/">
+  <meta name="description" content="Quel genre de Grande Faucheuse sommeille en vous ? 7 questions pour révéler votre rapport à la mort et à la finitude.">
+  <style>
+    :root {
+      --noir: #1A1A2E;
+      --encre: #16213E;
+      --violet: #533483;
+      --mauve: #7B5EA7;
+      --ciel: #C8B8E8;
+      --papier: #F8F5FF;
+      --or: #C9A84C;
+      --rouge: #C0392B;
+      --vert: #27AE60;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--papier);
+      color: var(--encre);
+      padding: 18px 14px 28px;
+      line-height: 1.55;
+    }
+    .quiz {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border: 2px solid var(--encre);
+      border-radius: 16px;
+      box-shadow: 6px 6px 0 var(--ciel);
+      overflow: hidden;
+    }
+    .quiz-head {
+      background: var(--noir);
+      color: #fff;
+      padding: 22px 24px;
+      border-bottom: 2px solid var(--encre);
+    }
+    .quiz-head h1 { font-size: 1.2rem; line-height: 1.35; }
+    .quiz-head p  { font-size: .88rem; opacity: .85; margin-top: 6px; }
+    .quiz-body { padding: 22px; }
+
+    /* Barre de progression */
+    .progress-wrap { margin-bottom: 14px; }
+    .progress-label { font-size: .78rem; color: #888; margin-bottom: 5px; }
+    .progress-bar-outer {
+      height: 10px;
+      background: #ede8f5;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid #d0c4e8;
+    }
+    .progress-bar-inner {
+      height: 100%;
+      background: linear-gradient(90deg, var(--violet), var(--mauve));
+      border-radius: 8px;
+      transition: width .35s ease;
+    }
+
+    /* Question */
+    .question-text {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--noir);
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+    .choices { display: flex; flex-direction: column; gap: 10px; }
+    .choice {
+      display: block;
+      padding: 12px 16px;
+      background: #fff;
+      border: 2px solid #d0c4e8;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: .92rem;
+      color: var(--encre);
+      transition: border-color .18s, background .18s, transform .1s;
+      text-align: left;
+      width: 100%;
+    }
+    .choice:hover {
+      border-color: var(--violet);
+      background: #f3eeff;
+      transform: translateX(3px);
+    }
+    .choice:active { transform: translateX(1px); }
+
+    /* Résultat */
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 10px; }
+    .result-type {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: var(--mauve);
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .result-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--noir);
+      text-align: center;
+      margin-bottom: 14px;
+    }
+    .result-desc {
+      font-size: .92rem;
+      color: #444;
+      line-height: 1.6;
+      margin-bottom: 18px;
+    }
+    .result-insight {
+      background: #f3eeff;
+      border-left: 4px solid var(--violet);
+      border-radius: 0 8px 8px 0;
+      padding: 12px 14px;
+      font-size: .88rem;
+      color: var(--encre);
+      margin-bottom: 18px;
+      line-height: 1.55;
+    }
+    .result-insight strong { color: var(--violet); }
+
+    /* Bouton recommencer */
+    .btn-restart {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--noir);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      font-size: .95rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: opacity .18s;
+    }
+    .btn-restart:hover { opacity: .85; }
+
+    /* Partage */
+    .share-block { margin-bottom: 18px; }
+    .share-label { font-size: .8rem; color: #888; margin-bottom: 8px; text-align: center; }
+    .share-buttons { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+    .share-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: .82rem;
+      font-weight: 600;
+      text-decoration: none;
+      color: #fff;
+      transition: opacity .18s;
+    }
+    .share-btn:hover { opacity: .85; }
+    .share-fb  { background: #1877F2; }
+    .share-tw  { background: #000; }
+    .share-wa  { background: #25D366; }
+
+    /* Disclaimer */
+    .disclaimer {
+      background: #fef9ec;
+      border: 1px solid #f3d98c;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: .8rem;
+      color: #6b5000;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+<div class="quiz" id="quiz-root">
+  <div class="quiz-head">
+    <h1>🌑 Pourriez-vous être la mort ?</h1>
+    <p>7 questions pour révéler quel genre de Grande Faucheuse sommeille en vous.</p>
+  </div>
+  <div class="quiz-body" id="quiz-body"></div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  const questions = [
+    {
+      q: "Il est minuit. Vous avez un rendez-vous important demain. Comment passez-vous la nuit ?",
+      choices: [
+        { text: "Je dors paisiblement — l'essentiel est de bien me reposer.", p: "A" },
+        { text: "Je médite sur le sens de ce rendez-vous dans ma vie.", p: "B" },
+        { text: "Je prépare des arguments, je veux être imbattable.", p: "C" },
+        { text: "Je liste ce qu'il faut faire. Méthode, efficacité.", p: "D" }
+      ]
+    },
+    {
+      q: "Face à quelqu'un qui souffre, votre premier réflexe est de…",
+      choices: [
+        { text: "Lui tenir compagnie en silence. La présence suffit.", p: "A" },
+        { text: "L'aider à trouver un sens à ce qu'il traverse.", p: "B" },
+        { text: "Chercher une solution concrète pour que ça s'arrête.", p: "C" },
+        { text: "Évaluer la situation et agir de façon appropriée.", p: "D" }
+      ]
+    },
+    {
+      q: "Si vous pouviez choisir la façon dont les choses se terminent, vous préféreriez…",
+      choices: [
+        { text: "Une fin douce, au bon moment, sans résistance.", p: "A" },
+        { text: "Une fin qui a du sens, qui laisse quelque chose derrière.", p: "B" },
+        { text: "Pas de fin — ou du moins, une fin qu'on a choisie.", p: "C" },
+        { text: "Une fin nette. Rien de douloureux, rien de traîné en longueur.", p: "D" }
+      ]
+    },
+    {
+      q: "On vous dit que vous avez trop de pouvoir. Votre réaction ?",
+      choices: [
+        { text: "Je l'exerce avec douceur. Le pouvoir peut être bienveillant.", p: "A" },
+        { text: "Le pouvoir est une responsabilité. Je le médite.", p: "B" },
+        { text: "On ne m'a jamais donné assez de pouvoir pour vraiment agir.", p: "C" },
+        { text: "Le pouvoir est un outil. Ce qui compte, c'est ce qu'on en fait.", p: "D" }
+      ]
+    },
+    {
+      q: "Votre rapport au temps, c'est plutôt…",
+      choices: [
+        { text: "Le temps coule. J'accompagne son mouvement.", p: "A" },
+        { text: "Le temps est précieux. Chaque instant compte.", p: "B" },
+        { text: "Le temps est mon ennemi. Je résiste à son emprise.", p: "C" },
+        { text: "Le temps est un facteur parmi d'autres. Je l'organise.", p: "D" }
+      ]
+    },
+    {
+      q: "Quelqu'un refuse catégoriquement d'accepter une réalité inévitable. Vous…",
+      choices: [
+        { text: "Je reste là, patient. Il trouvera son chemin.", p: "A" },
+        { text: "Je tente de lui montrer ce que cette réalité peut lui apprendre.", p: "B" },
+        { text: "Je comprends. Moi aussi j'aurais voulu résister.", p: "C" },
+        { text: "Je lui présente les faits. La réalité ne change pas selon nos désirs.", p: "D" }
+      ]
+    },
+    {
+      q: "Ce que vous laisseriez derrière vous, si vous pouviez, c'est…",
+      choices: [
+        { text: "Un souvenir de paix. La sensation que tout s'est bien passé.", p: "A" },
+        { text: "Une trace. Quelque chose qui a eu du sens.", p: "B" },
+        { text: "Une preuve qu'on peut se battre jusqu'au bout.", p: "C" },
+        { text: "Un monde un peu mieux organisé qu'à mon arrivée.", p: "D" }
+      ]
+    }
+  ];
+
+  const profiles = {
+    A: {
+      emoji: "🌙",
+      type: "Votre profil",
+      title: "La Faucheuse Douce",
+      desc: "Vous incarnez une mort bienveillante, presque tendre. Vous ne venez pas arracher — vous accompagnez. Dans votre rapport à la finitude, il y a une acceptation sereine qui force le respect : vous savez que certaines choses doivent se terminer, et vous les laissez aller avec grâce.\n\nCela se traduit dans votre vie par une capacité à lâcher prise, à ne pas vous accrocher à ce qui est révolu, et à accueillir les transitions avec une douceur rare.",
+      insight: "<strong>Ce que ça révèle :</strong> Votre rapport à la mort est empreint d'une sagesse naturelle. Vous vivez le deuil comme un passage plutôt que comme une rupture. Cette acceptation est une force — mais veillez à ne pas confondre lâcher-prise et résignation."
+    },
+    B: {
+      emoji: "📜",
+      type: "Votre profil",
+      title: "La Faucheuse Philosophe",
+      desc: "Pour vous, la mort n'est pas une ennemie — c'est le miroir qui donne son prix à la vie. Vous portez en vous une conscience aiguë de la finitude, et cette conscience oriente chacun de vos choix. Vous cherchez le sens avant le confort.\n\nFace à la mort — la vôtre comme celle des autres — vous posez des questions là où d'autres détournent le regard. C'est inconfortable pour votre entourage, mais profondément humain.",
+      insight: "<strong>Ce que ça révèle :</strong> La thanatologie (l'étude de la mort) montre que ceux qui réfléchissent consciemment à leur finitude vivent souvent avec plus d'intentionnalité. Vous en êtes l'exemple. Le risque : rester dans la pensée au lieu de vivre pleinement."
+    },
+    C: {
+      emoji: "⚔️",
+      type: "Votre profil",
+      title: "La Faucheuse Rebelle",
+      desc: "Vous refusez les fins imposées. Que ce soit dans votre vie ou dans votre rapport à la mort, vous préférez choisir plutôt que de subir. Vous comprenez ceux qui résistent — parce que vous êtes l'un d'eux.\n\nCette position est profondément humaine : l'instinct de survie, le refus de la perte, l'envie que les choses durent. Vous incarnez la tension fondamentale de l'existence : celle entre accepter et se battre.",
+      insight: "<strong>Ce que ça révèle :</strong> La psychologie du deuil de Kübler-Ross place la résistance comme étape naturelle. Vous y résidez plus longtemps que d'autres — et c'est parfois ce qui vous donne votre énergie vitale. Mais la résistance à tout prix peut aussi épuiser."
+    },
+    D: {
+      emoji: "⚖️",
+      type: "Votre profil",
+      title: "La Faucheuse Pragmatique",
+      desc: "Vous voyez la mort comme un fait. Pas de dramatisation, pas de romantisme : la fin est la fin, et il vaut mieux l'organiser que la subir. Votre rapport à la finitude est étonnamment pacifié — non par résignation, mais par réalisme.\n\nVous êtes probablement celui qui parle de testament, de soins palliatifs et de volontés de fin de vie quand tout le monde change de sujet. Ce pragmatisme est un cadeau rare, même s'il dérange.",
+      insight: "<strong>Ce que ça révèle :</strong> Les études sur la mort bien vécue montrent que l'anticipation lucide réduit l'angoisse. Vous le savez intuitivement. Le risque : que votre distance apparente soit perçue comme un manque d'empathie — alors que c'est souvent le contraire."
+    }
+  };
+
+  let current = 0;
+  const votes = { A: 0, B: 0, C: 0, D: 0 };
+
+  function render() {
+    const body = document.getElementById('quiz-body');
+    if (current < questions.length) {
+      const q = questions[current];
+      const pct = Math.round((current / questions.length) * 100);
+      body.innerHTML =
+        '<div class="progress-wrap">' +
+          '<div class="progress-label">Question ' + (current + 1) + ' sur ' + questions.length + '</div>' +
+          '<div class="progress-bar-outer"><div class="progress-bar-inner" style="width:' + pct + '%"></div></div>' +
+        '</div>' +
+        '<p class="question-text">' + q.q + '</p>' +
+        '<div class="choices">' +
+          q.choices.map(function(c, i) {
+            return '<button class="choice" onclick="answer(\'' + c.p + '\')">' + c.text + '</button>';
+          }).join('') +
+        '</div>';
+    } else {
+      showResult();
+    }
+    notifyResize();
+  }
+
+  function answer(profile) {
+    votes[profile]++;
+    current++;
+    render();
+  }
+
+  function showResult() {
+    const winner = Object.keys(votes).reduce(function(a, b) { return votes[a] >= votes[b] ? a : b; });
+    const p = profiles[winner];
+    const url   = encodeURIComponent('https://ouipsycho.fr/articles/la-grande-faucheuse-sur-le-divan/');
+    const text  = encodeURIComponent('Mon profil : ' + p.title + ' — et vous ? Découvrez votre Grande Faucheuse intérieure 🌑');
+    const body = document.getElementById('quiz-body');
+    body.innerHTML =
+      '<div class="result-emoji">' + p.emoji + '</div>' +
+      '<div class="result-type">' + p.type + '</div>' +
+      '<div class="result-title">' + p.title + '</div>' +
+      '<div class="result-desc">' + p.desc.replace(/\n/g, '<br><br>') + '</div>' +
+      '<div class="result-insight">' + p.insight + '</div>' +
+      '<button class="btn-restart" onclick="restart()">↩ Recommencer</button>' +
+      '<div class="share-block">' +
+        '<div class="share-label">Partagez votre résultat</div>' +
+        '<div class="share-buttons">' +
+          '<a class="share-btn share-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+          '<a class="share-btn share-tw" href="https://twitter.com/intent/tweet?text=' + text + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+          '<a class="share-btn share-wa" href="https://wa.me/?text=' + text + '%20' + url + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+    notifyResize();
+  }
+
+  function restart() {
+    current = 0;
+    votes.A = 0; votes.B = 0; votes.C = 0; votes.D = 0;
+    render();
+    notifyResize();
+  }
+
+  render();
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
