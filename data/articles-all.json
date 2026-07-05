@@ -1,5 +1,60 @@
 [
   {
+    "id": "la-grande-faucheuse-sur-le-divan",
+    "title": "La grande faucheuse sur le divan : psychologie de la mort",
+    "type": "article",
+    "excerpt": "Le seul monstre certain de venir nous chercher. Théorie de la gestion de la terreur, deuil, angoisse existentielle : ce que la psychologie révèle non pas sur la mort, mais sur ce que notre cerveau invente pour ne pas y penser.",
+    "metaDescription": "La psychologie de la mort : gestion de la terreur, cinq étapes du deuil de Kübler-Ross et angoisse existentielle selon Yalom, expliquées avec légèreté.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-03",
+    "date_modified": "2026-11-03",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "mort",
+      "deuil",
+      "angoisse existentielle",
+      "gestion de la terreur",
+      "Kübler-Ross",
+      "Yalom"
+    ],
+    "sources": [
+      {
+        "authors": "Rosenblatt A., Greenberg J., Solomon S., Pyszczynski T. & Lyon D.",
+        "year": "1989",
+        "title": "Evidence for terror management theory: The effects of mortality salience on reactions to those who violate or uphold cultural values",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.57.4.681"
+      },
+      {
+        "authors": "Burke B. L., Martens A. & Faucher E. H.",
+        "year": "2010",
+        "title": "Two decades of terror management theory: A meta-analysis of mortality salience research",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1177/1088868309352321"
+      },
+      {
+        "authors": "Kübler-Ross E.",
+        "year": "1969",
+        "title": "On Death and Dying",
+        "publisher": "Macmillan"
+      },
+      {
+        "authors": "Yalom I. D.",
+        "year": "1980",
+        "title": "Existential Psychotherapy",
+        "publisher": "Basic Books"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
     "type": "article",
