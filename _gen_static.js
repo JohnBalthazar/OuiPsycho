@@ -536,7 +536,9 @@ const allIndex = jsonFiles.map(file => {
     date:            j.date,
     date_modified:   j.date_modified    || j.date,
     category:        j.category,
-    image:           isPublic ? (j.image           || '') : '',
+    // image : toujours la vraie URL (pas masquée) — articles-all.json est admin-only,
+    // masquer l'URL ici causait des corruptions dans data/articles.json public via l'outil d'import
+    image:           j.image            || '',
     hasImage:        !!(j.image && j.image.trim()),
     imagePosition:   j.imagePosition    || '50% 50%',
     imageZoom:       j.imageZoom        || 1,
