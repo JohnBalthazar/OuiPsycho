@@ -247,12 +247,12 @@
   {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le plaisir abrégerait-il la vie ? La science dit l'inverse. Tour d'horizon des études qui relient sexualité, santé et longévité — sans transformer le désir en performance.",
     "date": "2026-10-02",
-    "date_modified": "2026-10-02",
+    "date_modified": "2026-07-05",
     "category": "Sexo",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/imawfgtyqse7ha0zcufx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -267,7 +267,7 @@
       "couple",
       "science"
     ],
-    "metaDescription": "",
+    "metaDescription": "Espérance de vie et sexualité : ce que disent vraiment les études sur le lien entre vie sexuelle, santé et longévité, loin des idées reçues.",
     "articles_lies": [],
     "status": "scheduled"
   },
