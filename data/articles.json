@@ -398,11 +398,12 @@
   {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Faut-il être un parent parfait pour bien accompagner son ado ? La psychologie répond non — et c'est tant mieux. Petit voyage au pays du parent « suffisamment bon ».",
     "date": "2026-09-17",
-    "date_modified": "2026-09-17",
+    "date_modified": "2026-07-05",
     "category": "Société & psychologie politique",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -417,7 +418,7 @@
       "autonomie",
       "éducation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Être un bon parent d'adolescent : le concept de parent « suffisamment bon », l'autorité bienveillante et le soutien à l'autonomie, expliqués par la psychologie.",
     "articles_lies": [],
     "status": "scheduled"
   },
