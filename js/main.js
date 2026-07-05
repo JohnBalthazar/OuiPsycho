@@ -610,9 +610,11 @@ function injectJSONLD(a) {
 }
 
 function initShareButtons(article) {
-  const url   = encodeURIComponent(window.location.href);
-  const title = encodeURIComponent(article.title);
-  const imgUrl = encodeURIComponent(article.image || '');
+  const rawUrl   = window.location.href;
+  const rawTitle = article.title;
+  const url      = encodeURIComponent(rawUrl);
+  const title    = encodeURIComponent(rawTitle);
+  const imgUrl   = encodeURIComponent(article.image || '');
 
   const shareUrls = {
     facebook:  `https://www.facebook.com/sharer/sharer.php?u=${url}`,
@@ -620,7 +622,8 @@ function initShareButtons(article) {
     pinterest: `https://pinterest.com/pin/create/button/?url=${url}&media=${imgUrl}&description=${title}`,
     telegram:  `https://t.me/share/url?url=${url}&text=${title}`,
     linkedin:  `https://www.linkedin.com/sharing/share-offsite/?url=${url}`,
-    whatsapp:  `https://wa.me/?text=${title}%20→%20${url}`,
+    // Encoder l'ensemble du texte en une seule passe pour que l'URL reste lisible dans WhatsApp
+    whatsapp:  `https://wa.me/?text=${encodeURIComponent(`${rawTitle} → ${rawUrl}`)}`,
   };
 
   function handleShareClick(e) {
