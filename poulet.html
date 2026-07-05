@@ -3074,6 +3074,11 @@ function handleQuizFile(event) {
   reader.onload = e => {
     _pendingQuizHtml     = e.target.result;
     _pendingQuizFilename = _pendingQuizFilename || file.name; // filename du JSON prioritaire
+    // ── Mettre à jour _pendingArticleData si le JSON a déjà été chargé ──
+    if (_pendingArticleData) {
+      _pendingArticleData.quizHtml     = _pendingQuizHtml;
+      _pendingArticleData.quizFilename = _pendingQuizFilename || _pendingArticleData.quizFilename;
+    }
     const statusEl = document.getElementById('quiz-file-status');
     const zoneText  = document.getElementById('quiz-zone-text');
     const zone      = document.getElementById('quiz-import-zone');
@@ -3104,7 +3109,10 @@ function _resetImportUI() {
 async function publishImportedArticle() {
   if (!_pendingArticleData) { toast('Aucun article en attente', 'error'); return; }
 
-  const { data, quizHtml, quizFilename } = _pendingArticleData;
+  const { data } = _pendingArticleData;
+  // Priorité : quiz déposé après le JSON > quiz détecté au moment de l'import
+  let quizHtml     = _pendingQuizHtml     || _pendingArticleData.quizHtml;
+  let quizFilename = _pendingQuizFilename || _pendingArticleData.quizFilename;
 
   // Lire la date et le statut choisis par l'utilisateur
   const dateInput = document.getElementById('import-date-input');
@@ -3148,9 +3156,13 @@ async function publishImportedArticle() {
       await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
 
-      // 3. Page HTML statique
+      // 3a. Page HTML statique → articles/{id}/index.html (URL canonique)
       const htmlPage = generateArticleHTML(data);
-      await githubPutFile(data.id + '/index.html', htmlPage, 'import: page statique ' + data.id);
+      await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique articles/' + data.id);
+
+      // 3b. Redirect → {id}/index.html (URL courte)
+      const redirectHtml = '<!DOCTYPE html><html><head><link rel="canonical" href="https://ouipsycho.fr/articles/' + data.id + '/"><meta http-equiv="refresh" content="0; url=/articles/' + data.id + '/"><script>window.location.replace("/articles/' + data.id + '/");</script></head><body><p><a href="/articles/' + data.id + '/">Cliquez ici</a> si vous n'êtes pas redirigé.</p></body></html>';
+      await githubPutFile(data.id + '/index.html', redirectHtml, 'import: redirect ' + data.id);
 
       // 4. Quiz HTML → tests/{filename}
       if (quizHtml && quizFilename) {
