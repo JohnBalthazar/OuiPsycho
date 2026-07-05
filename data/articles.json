@@ -56,33 +56,6 @@
     "status": "scheduled"
   },
   {
-    "id": "michel-fourniret-sur-le-divan",
-    "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
-    "excerpt": "",
-    "date": "2026-10-20",
-    "date_modified": "2026-10-20",
-    "category": "Les monstres sur le divan",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "tueur en série",
-      "psychopathie",
-      "sadisme",
-      "true crime",
-      "criminologie",
-      "emprise"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon",
     "excerpt": "",
