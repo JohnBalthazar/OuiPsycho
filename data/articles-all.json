@@ -301,12 +301,12 @@
   {
     "id": "ecran-sante-mentale",
     "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "4h11 d'écran par jour pour les 6-17 ans, un smartphone dès 9 ans… Fléau du siècle ou panique morale ? Ce que disent vraiment les chiffres les plus récents.",
     "date": "2026-09-25",
-    "date_modified": "2026-09-25",
+    "date_modified": "2026-07-05",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bsagrlaoi5xke3gxrtir",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -321,7 +321,7 @@
       "sommeil",
       "adolescents"
     ],
-    "metaDescription": "",
+    "metaDescription": "Écrans et santé mentale : 4h11 par jour, sommeil rogné, langage menacé… Ce que disent les chiffres récents, entre consensus net et idées reçues.",
     "articles_lies": [],
     "status": "scheduled"
   },
