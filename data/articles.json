@@ -475,11 +475,12 @@
   {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Marilyn, James Dean, Beyonce... Un sexe symbole n'est jamais seulement quelqu'un de joli. Plongee dans la mecanique psychologique et sociale du desir collectif, et test pour decouvrir l'aura que vous projetez.",
     "date": "2026-09-10",
-    "date_modified": "2026-06-17",
+    "date_modified": "2026-07-05",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -494,7 +495,7 @@
       "relations-parasociales",
       "image-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi certaines personnes incarnent-elles le desir de toute une epoque ? Plongee psychologique et sociologique dans le mystere des sexe symboles.",
     "articles_lies": [],
     "status": "scheduled"
   },
