@@ -2,19 +2,18 @@
   {
     "id": "la-grande-faucheuse-sur-le-divan",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
-    "type": "article",
-    "excerpt": "Le seul monstre certain de venir nous chercher. Théorie de la gestion de la terreur, deuil, angoisse existentielle : ce que la psychologie révèle non pas sur la mort, mais sur ce que notre cerveau invente pour ne pas y penser.",
-    "metaDescription": "La psychologie de la mort : gestion de la terreur, cinq étapes du deuil de Kübler-Ross et angoisse existentielle selon Yalom, expliquées avec légèreté.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2026-11-03",
     "date_modified": "2026-11-03",
     "category": "Les monstres sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "mort",
       "deuil",
@@ -23,54 +22,25 @@
       "Kübler-Ross",
       "Yalom"
     ],
-    "sources": [
-      {
-        "authors": "Rosenblatt A., Greenberg J., Solomon S., Pyszczynski T. & Lyon D.",
-        "year": "1989",
-        "title": "Evidence for terror management theory: The effects of mortality salience on reactions to those who violate or uphold cultural values",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.57.4.681"
-      },
-      {
-        "authors": "Burke B. L., Martens A. & Faucher E. H.",
-        "year": "2010",
-        "title": "Two decades of terror management theory: A meta-analysis of mortality salience research",
-        "journal": "Personality and Social Psychology Review",
-        "url": "https://doi.org/10.1177/1088868309352321"
-      },
-      {
-        "authors": "Kübler-Ross E.",
-        "year": "2011",
-        "title": "Les derniers instants de la vie",
-        "publisher": "Labor et Fides",
-        "amazon_asin": "283091841X"
-      },
-      {
-        "authors": "Yalom I. D.",
-        "year": "1980",
-        "title": "Existential Psychotherapy",
-        "publisher": "Basic Books"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
-    "type": "article",
-    "excerpt": "Courtois, cultivé, « sans histoires » : l'ogre des Ardennes ne ressemblait pas au monstre qu'on imagine. Psychopathie, sadisme, couple pervers — ce que la clinique sait vraiment de ce profil, et pourquoi personne ne le repère jamais.",
-    "metaDescription": "Michel Fourniret analysé par la psychologie : psychopathie, sadisme sexuel, couple criminel avec Monique Olivier, et le mythe du monstre détectable.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-10-20",
     "date_modified": "2026-10-20",
     "category": "Les monstres sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "tueur en série",
       "psychopathie",
@@ -79,33 +49,7 @@
       "criminologie",
       "emprise"
     ],
-    "sources": [
-      {
-        "authors": "Hare R. D.",
-        "year": "1993",
-        "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Zagury D.",
-        "year": "2018",
-        "title": "La barbarie des hommes ordinaires : ces criminels qui pourraient être nous",
-        "publisher": "Éditions de l'Observatoire"
-      },
-      {
-        "authors": "American Psychiatric Association",
-        "year": "2013",
-        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5) — Trouble sadisme sexuel",
-        "publisher": "American Psychiatric Publishing"
-      },
-      {
-        "authors": "Yardley E., Wilson D. & Lynes A.",
-        "year": "2014",
-        "title": "A Taxonomy of Male British Family Annihilators, 1980-2012",
-        "journal": "The Howard Journal of Criminal Justice",
-        "url": "https://doi.org/10.1111/hojo.12033"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1277,11 +1221,11 @@
   {
     "id": "techniques-drague-science",
     "title": "Les techniques de drague qui marchent vraiment (selon la science)",
-    "excerpt": "",
+    "excerpt": "Oubliez les « techniques » des pickup artists. La psychologie de l'attirance désigne cinq leviers qui marchent vraiment — et quelques classiques qui font surtout fuir.",
     "date": "2026-07-05",
     "date_modified": "2026-07-01",
     "category": "Sexo",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qeiykjp13poqjfgxccop",
     "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
@@ -1296,7 +1240,7 @@
       "psychologie sociale",
       "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "La psychologie révèle les vraies techniques de séduction qui marchent : simple exposition, réciprocité, 36 questions… et celles qu'il faut éviter.",
     "articles_lies": [],
     "status": "scheduled"
   },
