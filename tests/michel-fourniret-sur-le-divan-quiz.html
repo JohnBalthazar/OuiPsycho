@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre voisin a-t-il un profil de tueur en série ?</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Segoe UI', system-ui, -apple-system, sans-serif; background:#f7f9fb; color:#1c2b36; padding:16px; }
+  .quiz { max-width:640px; margin:0 auto; background:#fff; border-radius:14px; box-shadow:0 2px 12px rgba(31,78,107,.10); overflow:hidden; }
+  .head { background:#1F4E6B; color:#fff; padding:20px 24px; }
+  .head h1 { font-size:1.25rem; line-height:1.35; }
+  .head p { margin-top:6px; font-size:.9rem; opacity:.85; }
+  .body { padding:24px; }
+  .progress { height:6px; background:#e3ebf1; border-radius:3px; margin-bottom:20px; overflow:hidden; }
+  .progress span { display:block; height:100%; background:#1F4E6B; width:0%; transition:width .3s; }
+  .qnum { font-size:.8rem; color:#6a8296; text-transform:uppercase; letter-spacing:.05em; margin-bottom:8px; }
+  .qtext { font-size:1.05rem; font-weight:600; margin-bottom:16px; line-height:1.45; }
+  .opt { display:block; width:100%; text-align:left; background:#f2f6f9; border:2px solid transparent; border-radius:10px; padding:13px 15px; margin-bottom:10px; font-size:.95rem; line-height:1.4; cursor:pointer; transition:border-color .15s, background .15s; color:#1c2b36; }
+  .opt:hover { border-color:#1F4E6B; background:#eaf1f6; }
+  .result h2 { font-size:1.3rem; color:#1F4E6B; margin-bottom:4px; }
+  .result .emoji { font-size:2.4rem; margin-bottom:8px; }
+  .result p { font-size:.95rem; line-height:1.55; margin-bottom:12px; }
+  .twist { background:#fdf3e3; border-left:4px solid #d98e2b; border-radius:8px; padding:14px 16px; margin:14px 0; font-size:.92rem; line-height:1.55; }
+  .disclaimer { background:#eef4f8; border-radius:8px; padding:12px 14px; font-size:.83rem; line-height:1.5; color:#3c556a; margin:14px 0; }
+  .share { display:flex; gap:8px; flex-wrap:wrap; margin-top:14px; }
+  .share a { text-decoration:none; font-size:.85rem; background:#f2f6f9; border-radius:8px; padding:9px 13px; color:#1c2b36; border:1px solid #dde7ee; }
+  .share a:hover { background:#eaf1f6; }
+  .restart { margin-top:16px; background:#1F4E6B; color:#fff; border:none; border-radius:10px; padding:12px 20px; font-size:.95rem; cursor:pointer; }
+  .restart:hover { background:#173d55; }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="head">
+    <h1>🕵️ Votre voisin a-t-il un profil de tueur en série ?</h1>
+    <p>6 questions pour découvrir comment vous jaugez les gens qui vous entourent.</p>
+  </div>
+  <div class="body">
+    <div id="screen-quiz">
+      <div class="progress"><span id="bar"></span></div>
+      <div class="qnum" id="qnum"></div>
+      <div class="qtext" id="qtext"></div>
+      <div id="opts"></div>
+    </div>
+    <div id="screen-result" class="result hidden"></div>
+  </div>
+</div>
+<script>
+var QUESTIONS = [
+  {
+    q: "Un nouveau voisin emménage. Il est très poli, presque cérémonieux. Votre première pensée :",
+    opts: [
+      { t: "Trop poli pour être honnête. Je le garde à l'œil.", p: "A" },
+      { t: "Quelqu'un de bien élevé, ça fait plaisir.", p: "B" },
+      { t: "La politesse ne dit rien de fiable sur quelqu'un.", p: "C" },
+      { t: "Je verrai bien ce que je ressens en lui parlant.", p: "D" }
+    ]
+  },
+  {
+    q: "Il bricole dans son garage tard le soir, volets fermés. Vous vous dites :",
+    opts: [
+      { t: "Volets fermés ?! Je note les horaires, on ne sait jamais.", p: "A" },
+      { t: "Chacun son rythme, moi aussi je vis la nuit parfois.", p: "B" },
+      { t: "Des milliers de gens bricolent la nuit. Statistiquement, rien d'alarmant.", p: "C" },
+      { t: "Quelque chose me gêne, mais je ne sais pas quoi.", p: "D" }
+    ]
+  },
+  {
+    q: "Dans un documentaire true crime, les voisins disent « il était si gentil ». Votre réaction :",
+    opts: [
+      { t: "Voilà pourquoi je me méfie des gens gentils.", p: "A" },
+      { t: "Ça doit être tellement dur pour eux de découvrir ça.", p: "B" },
+      { t: "Logique : si les prédateurs étaient repérables, ils seraient arrêtés avant.", p: "C" },
+      { t: "Moi, je crois que j'aurais senti quelque chose.", p: "D" }
+    ]
+  },
+  {
+    q: "On vous présente quelqu'un de charmant, drôle, un peu trop flatteur. Vous pensez :",
+    opts: [
+      { t: "Le charme excessif, c'est louche. Qu'est-ce qu'il me veut ?", p: "A" },
+      { t: "Quelle belle rencontre ! Les gens chaleureux sont rares.", p: "B" },
+      { t: "Le charme est une compétence sociale, ni bonne ni mauvaise en soi.", p: "C" },
+      { t: "Je me fie à mon radar interne : là, il clignote un peu.", p: "D" }
+    ]
+  },
+  {
+    q: "Votre collègue affirme qu'elle « sait reconnaître les gens toxiques au premier regard ». Vous :",
+    opts: [
+      { t: "Moi aussi. L'expérience, ça ne trompe pas.", p: "A" },
+      { t: "Admiratif : j'aimerais avoir cette capacité.", p: "B" },
+      { t: "Sceptique : aucune étude sérieuse ne valide ce genre de flair.", p: "C" },
+      { t: "D'accord avec elle : l'intuition capte des signaux invisibles.", p: "D" }
+    ]
+  },
+  {
+    q: "Honnêtement, si un tueur en série vivait dans votre rue, vous pensez que vous :",
+    opts: [
+      { t: "L'auriez déjà repéré. Vous observez tout le monde.", p: "A" },
+      { t: "N'y pensez jamais : les gens de votre rue sont adorables.", p: "B" },
+      { t: "Ne le sauriez pas, comme 100 % des voisins dans 100 % des affaires.", p: "C" },
+      { t: "Auriez ressenti un malaise en le croisant, forcément.", p: "D" }
+    ]
+  }
+];
+
+var PROFILES = {
+  A: {
+    emoji: "🔍",
+    name: "Le Sherlock du palier",
+    desc: "Vous observez, vous notez, vous recoupez. Votre vigilance part d'une intention saine — se protéger — mais elle a un coût : la sur-détection. À force de voir des indices partout, on finit par suspecter le retraité qui taille sa haie et par rater l'essentiel : les prédateurs réels ne laissent justement pas d'indices visibles."
+  },
+  B: {
+    emoji: "🌻",
+    name: "Le Confiant",
+    desc: "Vous accordez votre confiance par défaut, et c'est statistiquement très rationnel : l'écrasante majorité des gens qui vous entourent sont exactement ce qu'ils paraissent. Votre angle mort, c'est l'effet de halo — la politesse et le charme vous servent de garantie morale, alors qu'ils n'en sont pas une."
+  },
+  C: {
+    emoji: "📊",
+    name: "Le Statisticien prudent",
+    desc: "Vous savez que le flair humain est surestimé et que les base rates comptent plus que les impressions. C'est la posture la plus proche de ce que dit la recherche. Attention seulement à ne pas devenir la personne insupportable qui répond « corrélation n'est pas causalité » aux apéros de quartier."
+  },
+  D: {
+    emoji: "✨",
+    name: "L'Intuitif",
+    desc: "Vous vous fiez à votre ressenti, ce fameux « radar interne ». L'intuition est précieuse pour capter une ambiance ou une incohérence — mais les études sont formelles : face à un profil manipulateur entraîné, le radar de tout le monde reste muet. Le vôtre aussi. Désolé."
+  }
+};
+
+var idx = 0, votes = { A:0, B:0, C:0, D:0 };
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  return arr;
+}
+
+function showQuestion() {
+  var q = QUESTIONS[idx];
+  document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+  document.getElementById('qnum').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+  document.getElementById('qtext').textContent = q.q;
+  var box = document.getElementById('opts');
+  box.innerHTML = '';
+  shuffle(q.opts.slice()).forEach(function(o) {
+    var b = document.createElement('button');
+    b.className = 'opt';
+    b.textContent = o.t;
+    b.onclick = function() { votes[o.p]++; idx++; idx < QUESTIONS.length ? showQuestion() : showResult(); };
+    box.appendChild(b);
+  });
+  notifyResize();
+}
+
+function showResult() {
+  var best = 'A';
+  ['B','C','D'].forEach(function(k){ if (votes[k] > votes[best]) best = k; });
+  var p = PROFILES[best];
+  var pageUrl = 'https://ouipsycho.fr/articles/michel-fourniret-sur-le-divan/';
+  var shareText = 'Mon profil de détecteur de voisins : ' + p.name + ' ' + p.emoji + ' — et vous ?';
+  var eu = encodeURIComponent(pageUrl), et = encodeURIComponent(shareText);
+  document.getElementById('screen-quiz').classList.add('hidden');
+  var r = document.getElementById('screen-result');
+  r.classList.remove('hidden');
+  r.innerHTML =
+    '<div class="emoji">' + p.emoji + '</div>' +
+    '<h2>' + p.name + '</h2>' +
+    '<p>' + p.desc + '</p>' +
+    '<div class="twist">🎭 <strong>La vraie réponse à la question du titre :</strong> personne ne peut le savoir — et surtout pas ce quiz. Dans toutes les grandes affaires criminelles, de Fourniret à Ted Bundy, les voisins décrivaient un homme « courtois et sans histoires ». L\u2019invisibilité sociale du prédateur n\u2019est pas un hasard : c\u2019est une compétence. Ce quiz ne mesurait donc pas votre voisin, mais votre façon de juger les autres. Si vous avez cliqué en pensant vraiment évaluer quelqu\u2019un… relisez l\u2019article, il a été écrit pour vous. 😉</div>' +
+    '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+    '<div class="share">' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + et + '%20' + eu + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+    '</div>' +
+    '<button class="restart" onclick="restart()">↻ Recommencer</button>';
+  notifyResize();
+}
+
+function restart() {
+  idx = 0; votes = { A:0, B:0, C:0, D:0 };
+  document.getElementById('screen-result').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  showQuestion();
+  notifyResize();
+}
+
+showQuestion();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
