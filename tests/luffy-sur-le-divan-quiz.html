@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel personnage de One Piece êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/luffy-sur-le-divan/">
+  <meta name="description" content="Luffy, Zoro, Nami, Usopp, Sanji, Robin ou Chopper ? Découvrez quel Chapeau de paille sommeille en vous.">
+  <style>
+    :root{
+      --navy:#1F4E6B; --navy-d:#163a50; --accent:#E8934A; --accent-d:#d97e33;
+      --ink:#20303a; --muted:#5c7180; --bg:#f4f7f9; --card:#ffffff; --line:#e2e9ee;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.55;padding:14px}
+    .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(31,78,107,.08)}
+    .head{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:22px 22px 18px}
+    .head h1{font-size:1.28rem;line-height:1.25;letter-spacing:-.01em}
+    .head p{opacity:.85;font-size:.9rem;margin-top:6px}
+    .bar{height:7px;background:rgba(255,255,255,.22);border-radius:20px;margin-top:16px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .35s ease}
+    .body{padding:22px}
+    .count{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+    .q{font-size:1.14rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.35}
+    .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+      border-radius:12px;padding:13px 16px;margin-bottom:10px;font-size:.96rem;color:var(--ink);
+      cursor:pointer;transition:all .15s ease}
+    .opt:hover{border-color:var(--navy);background:#f6fafc;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .res{text-align:center;padding:8px 4px}
+    .res .emoji{font-size:3.4rem;line-height:1;margin-bottom:6px}
+    .res .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-d)}
+    .res h2{font-size:1.5rem;color:var(--navy);margin:4px 0 14px}
+    .res .desc{text-align:left;background:#f6fafc;border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;font-size:.98rem;color:var(--ink)}
+    .res .desc .twist{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+      color:var(--muted);font-size:.93rem}
+    .share{margin:20px 0 6px}
+    .share p{font-size:.82rem;color:var(--muted);margin-bottom:10px;font-weight:600}
+    .share a{display:inline-block;margin:4px 5px;padding:9px 15px;border-radius:30px;
+      font-size:.88rem;font-weight:600;text-decoration:none;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25d366}
+    .restart{margin-top:16px;background:var(--navy);color:#fff;border:none;border-radius:30px;
+      padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .restart:hover{background:var(--navy-d)}
+    .disclaimer{margin-top:20px;background:#fff7ef;border:1px solid #f2dcc2;border-radius:12px;
+      padding:14px 16px;font-size:.86rem;color:#6b5335;line-height:1.5}
+    .disclaimer strong{color:#8a5a1e}
+    @media(max-width:480px){.head h1{font-size:1.12rem}.q{font-size:1.04rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Quel personnage de One Piece êtes-vous ?</h1>
+      <p>7 questions pour trouver votre Chapeau de paille intérieur.</p>
+      <div class="bar"><span id="prog"></span></div>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+  <script>
+    var PROFILES = {
+      luffy: {emoji:"👒", name:"Luffy, le capitaine libre",
+        desc:"Optimiste, spontané, fidèle à vos rêves : vous foncez le sourire aux lèvres et entraînez les autres dans votre sillage.",
+        twist:"Le twist psy : votre force, c'est la motivation intrinsèque — agir par passion, pas pour la récompense. Gardez juste une oreille pour les plans des autres avant de foncer."},
+      zoro: {emoji:"⚔️", name:"Zoro, l'épéiste loyal",
+        desc:"Discipline de fer, loyauté sans faille, objectif clair : devenir le meilleur. (Et un sens de l'orientation... perfectible.)",
+        twist:"Le twist psy : la discipline est un moteur puissant. Mais accepter de demander son chemin — au propre comme au figuré — n'a rien d'une faiblesse."},
+      nami: {emoji:"🗺️", name:"Nami, la navigatrice maligne",
+        desc:"Intelligente, pragmatique, un brin intéressée : vous gardez la tête froide quand tout le monde s'emballe.",
+        twist:"Le twist psy : la prudence est une vraie force. Veillez juste à ce qu'elle ne vous empêche pas de faire confiance et de lâcher prise, parfois."},
+      usopp: {emoji:"🎯", name:"Usopp, le courageux froussard",
+        desc:"Imaginatif, sensible, souvent mort de trouille — et pourtant capable des plus grands actes de bravoure quand ça compte.",
+        twist:"Le twist psy : vous incarnez la vraie définition du courage — non pas l'absence de peur, mais le fait d'agir malgré elle. Chapeau."},
+      sanji: {emoji:"🍳", name:"Sanji, le cœur chevaleresque",
+        desc:"Passionné, généreux, prêt à tout pour nourrir et protéger les siens : vous prenez soin des autres avec panache.",
+        twist:"Le twist psy : prendre soin des autres est une belle qualité. Pensez à vous mettre, vous aussi, sur la liste des gens dont vous vous occupez."},
+      robin: {emoji:"📚", name:"Robin, l'énigmatique lucide",
+        desc:"Calme, cultivée, un peu secrète : vous observez, vous analysez, et vous en savez souvent plus que vous n'en dites.",
+        twist:"Le twist psy : la lucidité protège, surtout quand le passé a été rude. Mais s'ouvrir aux bonnes personnes, c'est ce qui répare vraiment."},
+      chopper: {emoji:"🩺", name:"Chopper, le soignant au grand cœur",
+        desc:"Doux, empathique, un poil naïf : vous voulez soigner tout le monde et vous vous émerveillez d'un rien.",
+        twist:"Le twist psy : votre douceur est une force rare, pas une faiblesse. Gardez-la précieusement — sans jamais vous oublier au passage."}
+    };
+
+    var QUESTIONS = [
+      {q:"Une nouvelle aventure commence. Vous…", o:[
+        {t:"Foncez, on verra bien sur place !", p:"luffy"},
+        {t:"Vérifiez votre équipement et vous entraînez.", p:"zoro"},
+        {t:"Calculez l'itinéraire et le budget.", p:"nami"},
+        {t:"Paniquez un peu… puis y allez quand même.", p:"usopp"},
+        {t:"Préparez de quoi bien nourrir la troupe.", p:"sanji"},
+        {t:"Cherchez d'abord à comprendre où l'on met les pieds.", p:"robin"},
+        {t:"Vous inquiétez pour la sécurité de chacun.", p:"chopper"}]},
+      {q:"Votre plus grande qualité ?", o:[
+        {t:"Un optimisme que rien n'entame.", p:"luffy"},
+        {t:"Une discipline à toute épreuve.", p:"zoro"},
+        {t:"Un sens pratique redoutable.", p:"nami"},
+        {t:"Une imagination débordante.", p:"usopp"},
+        {t:"Une générosité sans limites.", p:"sanji"},
+        {t:"Un calme et une lucidité rares.", p:"robin"},
+        {t:"Une empathie immense.", p:"chopper"}]},
+      {q:"Face au danger, votre réflexe…", o:[
+        {t:"Y aller franco, le sourire aux lèvres.", p:"luffy"},
+        {t:"Tenir la ligne, coûte que coûte.", p:"zoro"},
+        {t:"Trouver l'échappatoire la plus futée.", p:"nami"},
+        {t:"Trembler… puis se dépasser pour les amis.", p:"usopp"},
+        {t:"Protéger les plus fragiles d'abord.", p:"sanji"},
+        {t:"Analyser froidement la situation.", p:"robin"},
+        {t:"Aider les blessés avant tout.", p:"chopper"}]},
+      {q:"Votre rêve secret ressemble à…", o:[
+        {t:"Être totalement libre.", p:"luffy"},
+        {t:"Devenir le meilleur dans mon domaine.", p:"zoro"},
+        {t:"Voir le monde entier de mes yeux.", p:"nami"},
+        {t:"Qu'on reconnaisse enfin ma valeur.", p:"usopp"},
+        {t:"Trouver le lieu (ou l'amour) parfait.", p:"sanji"},
+        {t:"Découvrir une vérité longtemps cachée.", p:"robin"},
+        {t:"Soulager la souffrance autour de moi.", p:"chopper"}]},
+      {q:"En groupe, vous êtes plutôt…", o:[
+        {t:"Le moteur qui entraîne tout le monde.", p:"luffy"},
+        {t:"Le pilier silencieux et fiable.", p:"zoro"},
+        {t:"La tête qui garde le cap.", p:"nami"},
+        {t:"Celui qui raconte les meilleures histoires.", p:"usopp"},
+        {t:"Celui qui prend soin de l'ambiance.", p:"sanji"},
+        {t:"L'observateur discret mais essentiel.", p:"robin"},
+        {t:"Le confident vers qui on va quand ça va mal.", p:"chopper"}]},
+      {q:"Votre petit défaut assumé ?", o:[
+        {t:"Je fonce sans réfléchir.", p:"luffy"},
+        {t:"Je suis parfois trop tête de mule.", p:"zoro"},
+        {t:"Je peux être un peu trop calculatrice.", p:"nami"},
+        {t:"J'exagère (beaucoup) mes histoires.", p:"usopp"},
+        {t:"Je m'enflamme pour un rien.", p:"sanji"},
+        {t:"Je garde trop de choses pour moi.", p:"robin"},
+        {t:"Je me laisse vite déborder par mes émotions.", p:"chopper"}]},
+      {q:"On se souviendra de vous comme…", o:[
+        {t:"Celui qui n'a jamais renoncé à sa liberté.", p:"luffy"},
+        {t:"Celui qui a tenu parole jusqu'au bout.", p:"zoro"},
+        {t:"Celle qui a toujours trouvé la solution.", p:"nami"},
+        {t:"Celui qui a osé malgré ses peurs.", p:"usopp"},
+        {t:"Celui qui aimait et protégeait sans compter.", p:"sanji"},
+        {t:"Celle qui comprenait tout, en silence.", p:"robin"},
+        {t:"Celui qui prenait soin de chacun.", p:"chopper"}]}
+    ];
+
+    var CANONICAL = "https://ouipsycho.fr/articles/luffy-sur-le-divan/";
+    var idx = 0, scores = {};
+
+    function notifyResize(){
+      setTimeout(function(){
+        window.parent.postMessage({type:'quiz-resize', height:document.body.scrollHeight}, '*');
+      }, 50);
+    }
+
+    function shuffle(a){
+      a = a.slice();
+      for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+      return a;
+    }
+
+    function setProgress(pct){ document.getElementById('prog').style.width = pct + '%'; }
+
+    function renderQuestion(){
+      var cur = QUESTIONS[idx];
+      var opts = shuffle(cur.o);
+      var html = '<div class="count">Question ' + (idx+1) + ' / ' + QUESTIONS.length + '</div>';
+      html += '<div class="q">' + cur.q + '</div>';
+      opts.forEach(function(op){
+        html += '<button class="opt" data-p="' + op.p + '">' + op.t + '</button>';
+      });
+      document.getElementById('app').innerHTML = html;
+      setProgress(Math.round((idx/QUESTIONS.length)*100));
+      document.querySelectorAll('.opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var p = this.getAttribute('data-p');
+          scores[p] = (scores[p]||0) + 1;
+          idx++;
+          if(idx < QUESTIONS.length){ renderQuestion(); } else { renderResult(); }
+          window.scrollTo(0,0);
+          notifyResize();
+        });
+      });
+      notifyResize();
+    }
+
+    function topProfile(){
+      var best=null, max=-1;
+      Object.keys(PROFILES).forEach(function(k){
+        var v = scores[k]||0;
+        if(v>max){max=v;best=k;}
+      });
+      return best;
+    }
+
+    function renderResult(){
+      setProgress(100);
+      var key = topProfile();
+      var p = PROFILES[key];
+      var shareText = encodeURIComponent("Mon personnage de One Piece, c'est " + p.name + " ! Et vous ? Faites le test sur Oui Psycho !");
+      var url = encodeURIComponent(CANONICAL);
+      var waText = encodeURIComponent("Mon personnage de One Piece, c'est " + p.name + " ! Et vous ? " + CANONICAL);
+
+      var html = '<div class="res">';
+      html += '<div class="emoji">' + p.emoji + '</div>';
+      html += '<div class="kicker">Votre personnage</div>';
+      html += '<h2>' + p.name + '</h2>';
+      html += '<div class="desc">' + p.desc + '<span class="twist">' + p.twist + '</span></div>';
+
+      html += '<div class="share"><p>Partagez votre résultat :</p>';
+      html += '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a class="tw" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a class="wa" href="https://wa.me/?text=' + waText + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+
+      html += '<button class="restart" id="again">↻ Recommencer</button>';
+
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      html += '</div>';
+
+      document.getElementById('app').innerHTML = html;
+      document.getElementById('again').addEventListener('click', function(){
+        idx = 0; scores = {}; renderQuestion(); window.scrollTo(0,0); notifyResize();
+      });
+      notifyResize();
+    }
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
