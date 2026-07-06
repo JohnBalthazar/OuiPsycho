@@ -317,11 +317,12 @@
   {
     "id": "5-traits-insoupconnes-meilleur-ami",
     "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "On croit reconnaître un·e meilleur·e ami·e à sa fidélité ou à sa présence dans les coups durs. Mais la science des relations proches pointe des signes bien plus discrets — et plus fiables. En voici cinq.",
     "date": "2026-10-09",
-    "date_modified": "2026-10-09",
-    "category": "Société",
-    "image": "",
+    "date_modified": "2026-07-06",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wktui8owx9nndinxcmpf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -336,7 +337,7 @@
       "attachement",
       "bien-être"
     ],
-    "metaDescription": "",
+    "metaDescription": "L'amitié ne tient pas qu'à la loyauté : 5 traits insoupçonnés, validés par la psychologie, qui distinguent un·e vrai·e meilleur·e ami·e des autres.",
     "articles_lies": [],
     "status": "scheduled"
   },
