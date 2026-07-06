@@ -50,10 +50,8 @@
     "title": "Jésus sur le divan : psychologie d'un messie",
     "type": "article",
     "excerpt": "Charisme magnétique, empathie radicale, foules en délire : et si on allongeait Jésus sur le divan ? Sans toucher à la foi de personne, plongée dans la psychologie du leader le plus célèbre de l'Histoire — et dans nos propres besoins de croire.",
-    "metaDescription": "Charisme, dissonance cognitive, sociologie du messianisme : et si on mettait Jésus sur le divan ? Une analyse psychologique sérieuse (et un brin taquine).",
-    "author": "John Balthazar",
     "date": "2026-11-10",
-    "date_modified": "2026-11-10",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
     "image": "",
     "imagePosition": "50% 50%",
@@ -61,6 +59,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "charisme",
       "messianisme",
@@ -68,38 +67,7 @@
       "psychologie sociale",
       "religion et psychologie"
     ],
-    "sources": [
-      {
-        "authors": "Weber, M.",
-        "year": "1922",
-        "title": "Économie et société",
-        "publisher": "Plon"
-      },
-      {
-        "authors": "Cohn, N.",
-        "year": "1957",
-        "title": "Les Fanatiques de l'Apocalypse",
-        "publisher": "Payot"
-      },
-      {
-        "authors": "Festinger, L., Riecken, H. & Schachter, S.",
-        "year": "1956",
-        "title": "L'échec d'une prophétie",
-        "publisher": "PUF"
-      },
-      {
-        "authors": "Boyer, P.",
-        "year": "2001",
-        "title": "Et l'homme créa les dieux",
-        "publisher": "Robert Laffont"
-      },
-      {
-        "authors": "Schweitzer, A.",
-        "year": "1913",
-        "title": "The Psychiatric Study of Jesus",
-        "publisher": "Beacon Press"
-      }
-    ],
+    "metaDescription": "Charisme, dissonance cognitive, sociologie du messianisme : et si on mettait Jésus sur le divan ? Une analyse psychologique sérieuse (et un brin taquine).",
     "articles_lies": [],
     "status": "scheduled"
   },
