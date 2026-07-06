@@ -57,7 +57,8 @@
       "authors": "Beck A.T.",
       "year": "1979",
       "title": "Cognitive Therapy of Depression",
-      "publisher": "Guilford Press"
+      "publisher": "Guilford Press",
+      "amazon_asin": "0898629195"
     },
     {
       "authors": "Fonagy P. & Target M.",
@@ -70,7 +71,8 @@
       "authors": "Gottman J.M. & Silver N.",
       "year": "1999",
       "title": "The Seven Principles for Making Marriage Work",
-      "publisher": "Crown Publishers"
+      "publisher": "Crown Publishers",
+      "amazon_asin": "0553447718"
     }
   ],
   "articles_lies": [],

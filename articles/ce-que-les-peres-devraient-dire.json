@@ -36,7 +36,8 @@
       "authors": "Bowlby J.",
       "year": "1988",
       "title": "A Secure Base: Parent-Child Attachment and Healthy Human Development",
-      "publisher": "Basic Books"
+      "publisher": "Basic Books",
+      "amazon_asin": "0465075975"
     },
     {
       "authors": "Lamb M.E.",
@@ -48,19 +49,22 @@
       "authors": "Gottman J. & DeClaire J.",
       "year": "1997",
       "title": "The Heart of Parenting: Raising an Emotionally Intelligent Child",
-      "publisher": "Simon & Schuster"
+      "publisher": "Simon & Schuster",
+      "amazon_asin": "0684838656"
     },
     {
       "authors": "Brown B.",
       "year": "2010",
       "title": "The Gifts of Imperfection",
-      "publisher": "Hazelden Publishing"
+      "publisher": "Hazelden Publishing",
+      "amazon_asin": "2848996722"
     },
     {
       "authors": "Cyrulnik B.",
       "year": "2004",
       "title": "Les vilains petits canards",
-      "publisher": "Odile Jacob"
+      "publisher": "Odile Jacob",
+      "amazon_asin": "2738115233"
     },
     {
       "authors": "Pleck J.H.",

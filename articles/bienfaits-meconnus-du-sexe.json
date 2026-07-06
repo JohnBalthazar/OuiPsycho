@@ -54,7 +54,8 @@
       "authors": "Meston C. M. & Buss D. M.",
       "year": "2009",
       "title": "Why Women Have Sex",
-      "publisher": "Times Books"
+      "publisher": "Times Books",
+      "amazon_asin": "0805088342"
     },
     {
       "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
@@ -66,7 +67,8 @@
       "authors": "Brenot P.",
       "year": "2012",
       "title": "Inventer le couple",
-      "publisher": "Odile Jacob"
+      "publisher": "Odile Jacob",
+      "amazon_asin": "2738109918"
     }
   ],
   "articles_lies": [],

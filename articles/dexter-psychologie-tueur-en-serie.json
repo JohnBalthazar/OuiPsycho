@@ -36,13 +36,15 @@
       "authors": "Hare R.D.",
       "year": "1993",
       "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
-      "publisher": "Pocket Books"
+      "publisher": "Pocket Books",
+      "amazon_asin": "1572304510"
     },
     {
       "authors": "Perry B.D. & Szalavitz M.",
       "year": "2006",
       "title": "The Boy Who Was Raised as a Dog",
-      "publisher": "Basic Books"
+      "publisher": "Basic Books",
+      "amazon_asin": "0465056520"
     },
     {
       "authors": "Perry B.D.",
@@ -69,7 +71,8 @@
       "authors": "Cyrulnik B.",
       "year": "1999",
       "title": "Un merveilleux malheur",
-      "publisher": "Odile Jacob"
+      "publisher": "Odile Jacob",
+      "amazon_asin": "2738111254"
     }
   ],
   "articles_lies": [],

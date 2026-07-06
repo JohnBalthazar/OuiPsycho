@@ -56,19 +56,22 @@
       "authors": "Beauvois J.-L. & Joule R.-V.",
       "year": "2014",
       "title": "Petit traité de manipulation à l'usage des honnêtes gens",
-      "publisher": "Presses universitaires de Grenoble"
+      "publisher": "Presses universitaires de Grenoble",
+      "amazon_asin": "2706110449"
     },
     {
       "authors": "Milgram S.",
       "year": "1974",
       "title": "Soumission à l'autorité",
-      "publisher": "Calmann-Lévy"
+      "publisher": "Calmann-Lévy",
+      "amazon_asin": "2818505283"
     },
     {
       "authors": "Mercier H. & Sperber D.",
       "year": "2017",
       "title": "L'énigme de la raison",
-      "publisher": "Odile Jacob"
+      "publisher": "Odile Jacob",
+      "amazon_asin": "2738157599"
     }
   ],
   "articles_lies": [],

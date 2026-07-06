@@ -35,13 +35,15 @@
       "authors": "Adler A.",
       "year": "2021",
       "title": "Le tempérament nerveux : éléments d'une psychologie individuelle",
-      "publisher": "Payot"
+      "publisher": "Payot",
+      "amazon_asin": "222888507X"
     },
     {
       "authors": "Erikson E. H.",
       "year": "1972",
       "title": "Adolescence et crise : la quête de l'identité",
-      "publisher": "Flammarion"
+      "publisher": "Flammarion",
+      "amazon_asin": "2081255871"
     },
     {
       "authors": "Marcia J. E.",
@@ -65,7 +67,8 @@
       "authors": "Winnicott D. W.",
       "year": "1970",
       "title": "Processus de maturation chez l'enfant : développement affectif et environnement",
-      "publisher": "Payot"
+      "publisher": "Payot",
+      "amazon_asin": "222888121X"
     }
   ],
   "articles_lies": [],

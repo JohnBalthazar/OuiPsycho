@@ -49,7 +49,8 @@
       "authors": "Bronner G.",
       "year": "2013",
       "title": "La démocratie des crédules",
-      "publisher": "Presses Universitaires de France"
+      "publisher": "Presses Universitaires de France",
+      "amazon_asin": "2130607292"
     },
     {
       "authors": "Charpak G. & Broch H.",
@@ -61,7 +62,8 @@
       "authors": "Gauvrit N.",
       "year": "2009",
       "title": "Vous avez dit hasard ? Entre mathématiques et psychologie",
-      "publisher": "Belin"
+      "publisher": "Belin",
+      "amazon_asin": "2701146224"
     }
   ],
   "articles_lies": [],

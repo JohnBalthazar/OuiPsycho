@@ -49,13 +49,15 @@
       "authors": "Dubar C.",
       "year": "2000",
       "title": "La crise des identités : l'interprétation d'une mutation",
-      "publisher": "PUF"
+      "publisher": "PUF",
+      "amazon_asin": "2130583652"
     },
     {
       "authors": "Maslach C. & Leiter M.P.",
       "year": "1997",
       "title": "The Truth About Burnout",
-      "publisher": "Jossey-Bass"
+      "publisher": "Jossey-Bass",
+      "amazon_asin": "1118692136"
     }
   ],
   "articles_lies": [],

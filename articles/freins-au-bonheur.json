@@ -35,7 +35,8 @@
       "authors": "Kahneman D.",
       "year": "2011",
       "title": "Thinking, Fast and Slow",
-      "publisher": "Farrar, Straus and Giroux"
+      "publisher": "Farrar, Straus and Giroux",
+      "amazon_asin": "2081211475"
     },
     {
       "authors": "Nolen-Hoeksema S., Wisco B. E. & Lyubomirsky S.",
@@ -62,19 +63,22 @@
       "authors": "Hayes S. C., Strosahl K. D. & Wilson K. G.",
       "year": "2012",
       "title": "Acceptance and Commitment Therapy : The Process and Practice of Mindful Change",
-      "publisher": "Guilford Press"
+      "publisher": "Guilford Press",
+      "amazon_asin": "1462528945"
     },
     {
       "authors": "Lyubomirsky S.",
       "year": "2008",
       "title": "Comment être heureux… et le rester",
-      "publisher": "Flammarion"
+      "publisher": "Flammarion",
+      "amazon_asin": "250108490X"
     },
     {
       "authors": "André C.",
       "year": "2011",
       "title": "Et n'oublie pas d'être heureux — Abécédaire de psychologie positive",
-      "publisher": "Odile Jacob"
+      "publisher": "Odile Jacob",
+      "amazon_asin": "2738134114"
     }
   ],
   "articles_lies": [],
