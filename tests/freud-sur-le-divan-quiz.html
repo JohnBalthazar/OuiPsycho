@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel psychanalyste êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/freud-sur-le-divan/">
+  <meta name="description" content="Freudien, jungien, adepte des TCC, humaniste ou intégratif ? Découvrez quel praticien sommeille en vous.">
+  <style>
+    :root{
+      --navy:#1F4E6B; --navy-d:#163a50; --accent:#E8934A; --accent-d:#d97e33;
+      --ink:#20303a; --muted:#5c7180; --bg:#f4f7f9; --card:#ffffff; --line:#e2e9ee;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.55;padding:14px}
+    .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(31,78,107,.08)}
+    .head{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:22px 22px 18px}
+    .head h1{font-size:1.28rem;line-height:1.25;letter-spacing:-.01em}
+    .head p{opacity:.85;font-size:.9rem;margin-top:6px}
+    .bar{height:7px;background:rgba(255,255,255,.22);border-radius:20px;margin-top:16px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .35s ease}
+    .body{padding:22px}
+    .count{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+    .q{font-size:1.14rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.35}
+    .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+      border-radius:12px;padding:14px 16px;margin-bottom:11px;font-size:.97rem;color:var(--ink);
+      cursor:pointer;transition:all .15s ease}
+    .opt:hover{border-color:var(--navy);background:#f6fafc;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .res{text-align:center;padding:8px 4px}
+    .res .emoji{font-size:3.4rem;line-height:1;margin-bottom:6px}
+    .res .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-d)}
+    .res h2{font-size:1.5rem;color:var(--navy);margin:4px 0 14px}
+    .res .desc{text-align:left;background:#f6fafc;border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;font-size:.98rem;color:var(--ink)}
+    .res .desc .twist{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+      color:var(--muted);font-size:.93rem}
+    .share{margin:20px 0 6px}
+    .share p{font-size:.82rem;color:var(--muted);margin-bottom:10px;font-weight:600}
+    .share a{display:inline-block;margin:4px 5px;padding:9px 15px;border-radius:30px;
+      font-size:.88rem;font-weight:600;text-decoration:none;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25d366}
+    .restart{margin-top:16px;background:var(--navy);color:#fff;border:none;border-radius:30px;
+      padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .restart:hover{background:var(--navy-d)}
+    .disclaimer{margin-top:20px;background:#fff7ef;border:1px solid #f2dcc2;border-radius:12px;
+      padding:14px 16px;font-size:.86rem;color:#6b5335;line-height:1.5}
+    .disclaimer strong{color:#8a5a1e}
+    @media(max-width:480px){.head h1{font-size:1.14rem}.q{font-size:1.05rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Quel psychanalyste êtes-vous ?</h1>
+      <p>7 questions pour révéler le praticien qui sommeille en vous.</p>
+      <div class="bar"><span id="prog"></span></div>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+  <script>
+    var PROFILES = {
+      freudien: {emoji:"🛋️", name:"Le Classique freudien",
+        desc:"L'inconscient, l'enfance, les lapsus : rien ne vous échappe. Vous cherchez toujours le sens caché derrière le symptôme.",
+        twist:"Le twist psy : attention, une théorie qui explique TOUT finit par ne plus rien expliquer du tout — c'est la fameuse critique de Popper. Le doute reste votre meilleur outil clinique."},
+      jungien: {emoji:"🌀", name:"L'Explorateur jungien",
+        desc:"Symboles, rêves, archétypes : vous lisez la psyché comme une carte au trésor. Votre truc, c'est le sens et la quête intérieure.",
+        twist:"Le twist psy : le symbole fait rêver, mais il ne remplace pas la preuve. Gardez un pied dans le concret pour ne pas perdre le patient en chemin."},
+      tcc: {emoji:"📊", name:"Le Pragmatique des TCC",
+        desc:"Objectifs clairs, progrès mesurables, efficacité : vous êtes l'école qui a le plus de données pour elle.",
+        twist:"Le twist psy : les protocoles marchent, mais un humain n'est pas une grille d'exposition. N'oubliez jamais la personne derrière le tableau de bord."},
+      humaniste: {emoji:"🌿", name:"L'Écoute humaniste",
+        desc:"Empathie, authenticité, absence de jugement : dans votre cabinet, c'est le patient qui mène la danse, façon Carl Rogers.",
+        twist:"Le twist psy : la chaleur relationnelle soigne réellement — mais parfois, écouter ne suffit pas, et proposer une direction est aussi un acte de soin."},
+      integratif: {emoji:"🦎", name:"Le Caméléon intégratif",
+        desc:"Vous piochez chez Freud, Rogers, les TCC, sans jamais vous enfermer. Pragmatique et souple, vous vous adaptez à chacun.",
+        twist:"Le twist psy : l'éclectisme est une force… tant qu'il ne devient pas une façon d'éviter d'aller en profondeur. Choisir, parfois, c'est aussi soigner."}
+    };
+
+    var QUESTIONS = [
+      {q:"Un patient vous raconte un rêve très étrange. Vous…", o:[
+        {t:"Cherchez le désir refoulé qui se cache derrière.", p:"freudien"},
+        {t:"Y voyez un symbole universel à explorer.", p:"jungien"},
+        {t:"Notez surtout qu'il dort mal et ciblez le sommeil.", p:"tcc"},
+        {t:"Demandez ce que LUI en ressent.", p:"humaniste"},
+        {t:"Piochez l'outil qui collera le mieux au moment.", p:"integratif"}]},
+      {q:"Pour vous, la clé d'une thérapie réussie, c'est…", o:[
+        {t:"Rendre conscient ce qui était inconscient.", p:"freudien"},
+        {t:"Réconcilier la personne avec ses profondeurs.", p:"jungien"},
+        {t:"Des objectifs clairs et des progrès mesurables.", p:"tcc"},
+        {t:"Une relation authentique et sans jugement.", p:"humaniste"},
+        {t:"S'adapter à chaque personne, sans dogme.", p:"integratif"}]},
+      {q:"Votre bureau ressemble plutôt à…", o:[
+        {t:"Un divan, des livres anciens, une statuette ou deux.", p:"freudien"},
+        {t:"Mandalas, symboles, une ambiance feutrée.", p:"jungien"},
+        {t:"Un tableau, des grilles, un agenda au carré.", p:"tcc"},
+        {t:"Deux fauteuils face à face, lumière douce.", p:"humaniste"},
+        {t:"Un peu de tout ça, selon l'humeur du jour.", p:"integratif"}]},
+      {q:"Un patient résiste et se braque. Vous pensez…", o:[
+        {t:"« Intéressant — la résistance a un sens. »", p:"freudien"},
+        {t:"« Quelque chose de profond cherche à émerger. »", p:"jungien"},
+        {t:"« Ajustons le plan, on est allés trop vite. »", p:"tcc"},
+        {t:"« Il n'est pas prêt, respectons son rythme. »", p:"humaniste"},
+        {t:"« Changeons d'approche, celle-ci ne prend pas. »", p:"integratif"}]},
+      {q:"L'enfance d'un patient, pour vous…", o:[
+        {t:"C'est là que tout se joue, ou presque.", p:"freudien"},
+        {t:"Une matière parmi d'autres pour le voyage intérieur.", p:"jungien"},
+        {t:"Utile, mais le présent prime toujours.", p:"tcc"},
+        {t:"Importante si le patient choisit d'y aller.", p:"humaniste"},
+        {t:"Ça dépend de ce dont il a besoin, là, maintenant.", p:"integratif"}]},
+      {q:"Face à un collègue d'une autre école, vous…", o:[
+        {t:"Défendez fermement les fondamentaux.", p:"freudien"},
+        {t:"Cherchez les correspondances symboliques.", p:"jungien"},
+        {t:"Demandez : « où sont les preuves ? »", p:"tcc"},
+        {t:"Écoutez avec bienveillance sa perspective.", p:"humaniste"},
+        {t:"Prenez ce qu'il y a de bon chez lui.", p:"integratif"}]},
+      {q:"On se souviendra de vous comme…", o:[
+        {t:"Le gardien d'une grande tradition.", p:"freudien"},
+        {t:"Le passeur de sens et de symboles.", p:"jungien"},
+        {t:"Celui qui obtient des résultats concrets.", p:"tcc"},
+        {t:"Celui qui a vraiment écouté.", p:"humaniste"},
+        {t:"Celui qui n'entrait dans aucune case.", p:"integratif"}]}
+    ];
+
+    var CANONICAL = "https://ouipsycho.fr/articles/freud-sur-le-divan/";
+    var idx = 0, scores = {};
+
+    function notifyResize(){
+      setTimeout(function(){
+        window.parent.postMessage({type:'quiz-resize', height:document.body.scrollHeight}, '*');
+      }, 50);
+    }
+
+    function shuffle(a){
+      a = a.slice();
+      for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+      return a;
+    }
+
+    function setProgress(pct){ document.getElementById('prog').style.width = pct + '%'; }
+
+    function renderQuestion(){
+      var cur = QUESTIONS[idx];
+      var opts = shuffle(cur.o);
+      var html = '<div class="count">Question ' + (idx+1) + ' / ' + QUESTIONS.length + '</div>';
+      html += '<div class="q">' + cur.q + '</div>';
+      opts.forEach(function(op){
+        html += '<button class="opt" data-p="' + op.p + '">' + op.t + '</button>';
+      });
+      document.getElementById('app').innerHTML = html;
+      setProgress(Math.round((idx/QUESTIONS.length)*100));
+      document.querySelectorAll('.opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var p = this.getAttribute('data-p');
+          scores[p] = (scores[p]||0) + 1;
+          idx++;
+          if(idx < QUESTIONS.length){ renderQuestion(); } else { renderResult(); }
+          window.scrollTo(0,0);
+          notifyResize();
+        });
+      });
+      notifyResize();
+    }
+
+    function topProfile(){
+      var best=null, max=-1;
+      Object.keys(PROFILES).forEach(function(k){
+        var v = scores[k]||0;
+        if(v>max){max=v;best=k;}
+      });
+      return best;
+    }
+
+    function renderResult(){
+      setProgress(100);
+      var key = topProfile();
+      var p = PROFILES[key];
+      var shareText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel psychanalyste êtes-vous ? Faites le test sur Oui Psycho !");
+      var url = encodeURIComponent(CANONICAL);
+      var waText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel psychanalyste êtes-vous ? " + CANONICAL);
+
+      var html = '<div class="res">';
+      html += '<div class="emoji">' + p.emoji + '</div>';
+      html += '<div class="kicker">Votre profil</div>';
+      html += '<h2>' + p.name + '</h2>';
+      html += '<div class="desc">' + p.desc + '<span class="twist">' + p.twist + '</span></div>';
+
+      html += '<div class="share"><p>Partagez votre profil :</p>';
+      html += '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a class="tw" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a class="wa" href="https://wa.me/?text=' + waText + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+
+      html += '<button class="restart" id="again">↻ Recommencer</button>';
+
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      html += '</div>';
+
+      document.getElementById('app').innerHTML = html;
+      document.getElementById('again').addEventListener('click', function(){
+        idx = 0; scores = {}; renderQuestion(); window.scrollTo(0,0); notifyResize();
+      });
+      notifyResize();
+    }
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
