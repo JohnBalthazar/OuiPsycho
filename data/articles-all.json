@@ -254,6 +254,59 @@
     "status": "scheduled"
   },
   {
+    "id": "stereotypes-nationaux-personnalite",
+    "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
+    "type": "article",
+    "excerpt": "Italiens chaleureux, Allemands rigoureux, Anglais flegmatiques : ces « personnalités nationales » nous semblent évidentes. Pourtant, la science n'y retrouve presque rien de vrai. Voyage au pays des clichés — et des biais qui les fabriquent.",
+    "metaDescription": "Italiens chaleureux, Allemands rigoureux : pourquoi y croit-on alors que la science n'y trouve presque rien de vrai ? La psychologie des stéréotypes nationaux.",
+    "author": "John Balthazar",
+    "date": "2026-10-22",
+    "date_modified": "2026-10-22",
+    "category": "Société & psychologie politique",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "stéréotypes",
+      "personnalité nationale",
+      "biais cognitifs",
+      "psychologie sociale",
+      "cultures"
+    ],
+    "sources": [
+      {
+        "authors": "Terracciano, A. et al.",
+        "year": "2005",
+        "title": "National Character Does Not Reflect Mean Personality Trait Levels in 49 Cultures",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1117199"
+      },
+      {
+        "authors": "Hamilton, D. L. & Gifford, R. K.",
+        "year": "1976",
+        "title": "Illusory correlation in interpersonal perception",
+        "journal": "Journal of Experimental Social Psychology"
+      },
+      {
+        "authors": "Jussim, L.",
+        "year": "2012",
+        "title": "Social Perception and Social Reality: Why Accuracy Dominates Bias and Self-Fulfilling Prophecy",
+        "publisher": "Oxford University Press"
+      },
+      {
+        "authors": "Hofstede, G.",
+        "year": "2001",
+        "title": "Culture's Consequences",
+        "publisher": "Sage"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
     "type": "article",
