@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel inspecteur êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/inspecteur-gadget-sur-le-divan/">
+  <meta name="description" content="Fonceur, cerveau de l'ombre, acolyte loyal ou chef qui délègue ? Découvrez quel enquêteur sommeille en vous.">
+  <style>
+    :root{
+      --navy:#1F4E6B; --navy-d:#163a50; --accent:#E8934A; --accent-d:#d97e33;
+      --ink:#20303a; --muted:#5c7180; --bg:#f4f7f9; --card:#ffffff; --line:#e2e9ee;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.55;padding:14px}
+    .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(31,78,107,.08)}
+    .head{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:22px 22px 18px}
+    .head h1{font-size:1.28rem;line-height:1.25;letter-spacing:-.01em}
+    .head p{opacity:.85;font-size:.9rem;margin-top:6px}
+    .bar{height:7px;background:rgba(255,255,255,.22);border-radius:20px;margin-top:16px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .35s ease}
+    .body{padding:22px}
+    .count{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+    .q{font-size:1.14rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.35}
+    .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+      border-radius:12px;padding:14px 16px;margin-bottom:11px;font-size:.97rem;color:var(--ink);
+      cursor:pointer;transition:all .15s ease}
+    .opt:hover{border-color:var(--navy);background:#f6fafc;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .res{text-align:center;padding:8px 4px}
+    .res .emoji{font-size:3.4rem;line-height:1;margin-bottom:6px}
+    .res .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-d)}
+    .res h2{font-size:1.5rem;color:var(--navy);margin:4px 0 14px}
+    .res .desc{text-align:left;background:#f6fafc;border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;font-size:.98rem;color:var(--ink)}
+    .res .desc .twist{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+      color:var(--muted);font-size:.93rem}
+    .share{margin:20px 0 6px}
+    .share p{font-size:.82rem;color:var(--muted);margin-bottom:10px;font-weight:600}
+    .share a{display:inline-block;margin:4px 5px;padding:9px 15px;border-radius:30px;
+      font-size:.88rem;font-weight:600;text-decoration:none;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25d366}
+    .restart{margin-top:16px;background:var(--navy);color:#fff;border:none;border-radius:30px;
+      padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .restart:hover{background:var(--navy-d)}
+    .disclaimer{margin-top:20px;background:#fff7ef;border:1px solid #f2dcc2;border-radius:12px;
+      padding:14px 16px;font-size:.86rem;color:#6b5335;line-height:1.5}
+    .disclaimer strong{color:#8a5a1e}
+    @media(max-width:480px){.head h1{font-size:1.14rem}.q{font-size:1.05rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Quel inspecteur êtes-vous ?</h1>
+      <p>6 questions pour révéler l'enquêteur qui sommeille en vous.</p>
+      <div class="bar"><span id="prog"></span></div>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+  <script>
+    var PROFILES = {
+      gadget: {emoji:"🕵️", name:"L'Inspecteur Gadget",
+        desc:"Confiance inébranlable, énergie débordante et une chance insolente : rien ne vous arrête, pas même vos propres gaffes. Vous foncez, et bizarrement, ça marche.",
+        twist:"Le twist psy : la confiance sans la compétence porte un nom — l'effet Dunning-Kruger. Un petit doute salutaire vaut mille certitudes aveugles. Écoutez la Sophie qui sommeille à côté de vous."},
+      sophie: {emoji:"💻", name:"La Sophie de l'ombre",
+        desc:"Méthodique, brillant·e, indispensable : c'est vous qui résolvez tout — souvent sans que personne ne s'en aperçoive.",
+        twist:"Le twist psy : le travail invisible existe, et il a un coût. Rendre visible sa contribution n'est pas de l'arrogance, c'est de la simple justice. Osez réclamer votre part de lumière."},
+      finot: {emoji:"🐾", name:"Le Finot fidèle",
+        desc:"Loyal, dévoué, toujours prêt à filer un coup de patte : l'équipe tient debout grâce à des gens comme vous.",
+        twist:"Le twist psy : se dévouer, c'est précieux — mais gare à ne pas finir en bouc émissaire de service. Poser ses limites est aussi une forme de fidélité : envers soi-même."},
+      gontier: {emoji:"📋", name:"Le Chef Gontier",
+        desc:"Vous orchestrez, vous déléguez, vous distribuez les félicitations. Le capitaine reste à la barre, vue d'ensemble oblige.",
+        twist:"Le twist psy : bien encadrer, c'est surtout savoir QUI fait réellement le travail. Féliciter la bonne personne — pas la plus visible — change tout dans une équipe."}
+    };
+
+    var QUESTIONS = [
+      {q:"Sur une enquête difficile, vous êtes plutôt…", o:[
+        {t:"Sûr de vous : « Je maîtrise, aucun souci ! »", p:"gadget"},
+        {t:"Discret mais efficace : vous résolvez en coulisses.", p:"sophie"},
+        {t:"Sur le terrain, prêt à tout pour aider.", p:"finot"},
+        {t:"Au QG, à distribuer les consignes.", p:"gontier"}]},
+      {q:"On attribue votre travail à quelqu'un d'autre. Vous…", o:[
+        {t:"Ne remarquez même pas — vous pensiez l'avoir fait.", p:"gadget"},
+        {t:"Serrez les dents, mais continuez dans l'ombre.", p:"sophie"},
+        {t:"Haussez les épaules : l'essentiel, c'est le résultat.", p:"finot"},
+        {t:"Félicitez… la mauvaise personne, par habitude.", p:"gontier"}]},
+      {q:"Votre rapport à la technologie ?", o:[
+        {t:"Vous EN êtes truffé, sans savoir comment ça marche.", p:"gadget"},
+        {t:"Vous la maîtrisez mieux que personne.", p:"sophie"},
+        {t:"Un bon flair vaut tous les gadgets du monde.", p:"finot"},
+        {t:"Vous préférez le bon vieux dossier papier.", p:"gontier"}]},
+      {q:"Face au danger, votre réflexe…", o:[
+        {t:"Foncer tête baissée (et retomber sur vos pieds).", p:"gadget"},
+        {t:"Analyser vite et trouver la faille.", p:"sophie"},
+        {t:"Protéger les autres avant vous-même.", p:"finot"},
+        {t:"Envoyer quelqu'un vérifier d'abord.", p:"gontier"}]},
+      {q:"Votre plus gros défaut, avoué du bout des lèvres…", o:[
+        {t:"Un léger excès de confiance, disons.", p:"gadget"},
+        {t:"Vous ne réclamez jamais votre dû.", p:"sophie"},
+        {t:"Vous vous oubliez pour les autres.", p:"finot"},
+        {t:"Vous déléguez… un peu trop, peut-être.", p:"gontier"}]},
+      {q:"On se souviendra de vous comme…", o:[
+        {t:"Le héros médiatique (méritant ou pas).", p:"gadget"},
+        {t:"Le cerveau qu'on n'a jamais assez remercié.", p:"sophie"},
+        {t:"Le cœur fidèle de l'équipe.", p:"finot"},
+        {t:"Celui qui tirait (vaguement) les ficelles.", p:"gontier"}]}
+    ];
+
+    var CANONICAL = "https://ouipsycho.fr/articles/inspecteur-gadget-sur-le-divan/";
+    var idx = 0, scores = {};
+
+    function notifyResize(){
+      setTimeout(function(){
+        window.parent.postMessage({type:'quiz-resize', height:document.body.scrollHeight}, '*');
+      }, 50);
+    }
+
+    function shuffle(a){
+      a = a.slice();
+      for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+      return a;
+    }
+
+    function setProgress(pct){ document.getElementById('prog').style.width = pct + '%'; }
+
+    function renderQuestion(){
+      var cur = QUESTIONS[idx];
+      var opts = shuffle(cur.o);
+      var html = '<div class="count">Question ' + (idx+1) + ' / ' + QUESTIONS.length + '</div>';
+      html += '<div class="q">' + cur.q + '</div>';
+      opts.forEach(function(op){
+        html += '<button class="opt" data-p="' + op.p + '">' + op.t + '</button>';
+      });
+      document.getElementById('app').innerHTML = html;
+      setProgress(Math.round((idx/QUESTIONS.length)*100));
+      document.querySelectorAll('.opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var p = this.getAttribute('data-p');
+          scores[p] = (scores[p]||0) + 1;
+          idx++;
+          if(idx < QUESTIONS.length){ renderQuestion(); } else { renderResult(); }
+          window.scrollTo(0,0);
+          notifyResize();
+        });
+      });
+      notifyResize();
+    }
+
+    function topProfile(){
+      var best=null, max=-1;
+      Object.keys(PROFILES).forEach(function(k){
+        var v = scores[k]||0;
+        if(v>max){max=v;best=k;}
+      });
+      return best;
+    }
+
+    function renderResult(){
+      setProgress(100);
+      var key = topProfile();
+      var p = PROFILES[key];
+      var shareText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel inspecteur êtes-vous ? Faites le test sur Oui Psycho !");
+      var url = encodeURIComponent(CANONICAL);
+      var waText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel inspecteur êtes-vous ? " + CANONICAL);
+
+      var html = '<div class="res">';
+      html += '<div class="emoji">' + p.emoji + '</div>';
+      html += '<div class="kicker">Votre profil</div>';
+      html += '<h2>' + p.name + '</h2>';
+      html += '<div class="desc">' + p.desc + '<span class="twist">' + p.twist + '</span></div>';
+
+      html += '<div class="share"><p>Partagez votre profil :</p>';
+      html += '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a class="tw" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a class="wa" href="https://wa.me/?text=' + waText + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+
+      html += '<button class="restart" id="again">↻ Recommencer</button>';
+
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      html += '</div>';
+
+      document.getElementById('app').innerHTML = html;
+      document.getElementById('again').addEventListener('click', function(){
+        idx = 0; scores = {}; renderQuestion(); window.scrollTo(0,0); notifyResize();
+      });
+      notifyResize();
+    }
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
