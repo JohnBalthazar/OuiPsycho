@@ -265,11 +265,12 @@
   {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
     "date": "2026-10-16",
-    "date_modified": "2026-10-16",
+    "date_modified": "2026-07-06",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uhght6jkqtmhhmhrvrwh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -284,7 +285,7 @@
       "fluidité",
       "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "Polyamour, asexualité, fluidité sexuelle : la psychologie et la science décryptent les nouvelles formes de sexualité qui redéfinissent nos façons d'aimer.",
     "articles_lies": [],
     "status": "scheduled"
   },
