@@ -4,17 +4,16 @@
     "title": "Monkey D. Luffy sur le divan : psychologie du héros de One Piece",
     "type": "article",
     "excerpt": "Il veut devenir « Roi des Pirates » — c'est-à-dire l'homme le plus libre du monde. Derrière le sourire et le corps élastique de Monkey D. Luffy se cachent l'autonomie, le lien aux autres, la résilience et une authenticité désarmante. Le héros de One Piece sur le divan.",
-    "metaDescription": "Liberté, motivation intrinsèque, nakama, résilience : que révèle la psychologie du héros de One Piece ? Monkey D. Luffy et son chapeau de paille sur le divan.",
-    "author": "John Balthazar",
     "date": "2026-12-29",
-    "date_modified": "2026-12-29",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ie0rx8mjnnmbq3azctda",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "one piece",
       "luffy",
@@ -22,39 +21,7 @@
       "appartenance",
       "culture pop"
     ],
-    "sources": [
-      {
-        "authors": "Ryan, R. M. & Deci, E. L.",
-        "year": "2000",
-        "title": "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.55.1.68"
-      },
-      {
-        "authors": "Vallerand, R. J. et al.",
-        "year": "2003",
-        "title": "Les passions de l'âme: On obsessive and harmonious passion",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Baumeister, R. F. & Leary, M. R.",
-        "year": "1995",
-        "title": "The need to belong: Desire for interpersonal attachments as a fundamental human motivation",
-        "journal": "Psychological Bulletin"
-      },
-      {
-        "authors": "Tedeschi, R. G. & Calhoun, L. G.",
-        "year": "2004",
-        "title": "Posttraumatic growth: Conceptual foundations and empirical evidence",
-        "journal": "Psychological Inquiry"
-      },
-      {
-        "authors": "Fredrickson, B. L.",
-        "year": "2001",
-        "title": "The broaden-and-build theory of positive emotions",
-        "journal": "American Psychologist"
-      }
-    ],
+    "metaDescription": "Liberté, motivation intrinsèque, nakama, résilience : que révèle la psychologie du héros de One Piece ? Monkey D. Luffy et son chapeau de paille sur le divan.",
     "articles_lies": [],
     "status": "scheduled"
   },
