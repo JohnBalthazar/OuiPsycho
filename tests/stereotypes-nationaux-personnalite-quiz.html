@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De quelle nationalité est votre personnalité ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/stereotypes-nationaux-personnalite/">
+  <meta name="description" content="Un quiz (volontairement) truffé de clichés : découvrez votre « personnalité nationale »… avant de la déconstruire.">
+  <style>
+    :root{
+      --navy:#1F4E6B; --navy-d:#163a50; --accent:#E8934A; --accent-d:#d97e33;
+      --ink:#20303a; --muted:#5c7180; --bg:#f4f7f9; --card:#ffffff; --line:#e2e9ee;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.55;padding:14px}
+    .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(31,78,107,.08)}
+    .head{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:22px 22px 18px}
+    .head h1{font-size:1.28rem;line-height:1.25;letter-spacing:-.01em}
+    .head p{opacity:.85;font-size:.9rem;margin-top:6px}
+    .bar{height:7px;background:rgba(255,255,255,.22);border-radius:20px;margin-top:16px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .35s ease}
+    .body{padding:22px}
+    .count{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+    .q{font-size:1.14rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.35}
+    .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+      border-radius:12px;padding:13px 16px;margin-bottom:10px;font-size:.96rem;color:var(--ink);
+      cursor:pointer;transition:all .15s ease}
+    .opt:hover{border-color:var(--navy);background:#f6fafc;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .res{text-align:center;padding:8px 4px}
+    .res .emoji{font-size:3.4rem;line-height:1;margin-bottom:6px}
+    .res .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-d)}
+    .res h2{font-size:1.5rem;color:var(--navy);margin:4px 0 14px}
+    .res .desc{text-align:left;background:#f6fafc;border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;font-size:.98rem;color:var(--ink)}
+    .res .desc .twist{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+      color:var(--muted);font-size:.93rem}
+    .mythe{margin-top:16px;background:#eef4f8;border:1px solid #d3e2ec;border-radius:12px;
+      padding:14px 16px;font-size:.9rem;color:var(--navy-d);text-align:left;line-height:1.5}
+    .mythe strong{color:var(--navy)}
+    .share{margin:20px 0 6px}
+    .share p{font-size:.82rem;color:var(--muted);margin-bottom:10px;font-weight:600}
+    .share a{display:inline-block;margin:4px 5px;padding:9px 15px;border-radius:30px;
+      font-size:.88rem;font-weight:600;text-decoration:none;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25d366}
+    .restart{margin-top:16px;background:var(--navy);color:#fff;border:none;border-radius:30px;
+      padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .restart:hover{background:var(--navy-d)}
+    .disclaimer{margin-top:20px;background:#fff7ef;border:1px solid #f2dcc2;border-radius:12px;
+      padding:14px 16px;font-size:.86rem;color:#6b5335;line-height:1.5}
+    .disclaimer strong{color:#8a5a1e}
+    @media(max-width:480px){.head h1{font-size:1.12rem}.q{font-size:1.04rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>De quelle nationalité est votre personnalité ?</h1>
+      <p>7 questions… et un twist à la fin. (Spoiler : c'est un jeu !)</p>
+      <div class="bar"><span id="prog"></span></div>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+  <script>
+    var PROFILES = {
+      italien: {emoji:"🇮🇹", name:"L'Italien de cœur",
+        desc:"Expressif, chaleureux, tactile : vous mettez de la passion partout et le cœur sur la table.",
+        twist:"Le twist : la « chaleur italienne » est un cliché tenace… que la science ne confirme pas vraiment. Mais votre chaleur à vous, elle, est bien réelle."},
+      allemand: {emoji:"🇩🇪", name:"L'Allemand méthodique",
+        desc:"Ordre, ponctualité, fiabilité : avec vous, tout roule comme une horloge suisse (ou allemande).",
+        twist:"Le twist : la « rigueur allemande » relève surtout du mythe national. Votre sens de l'organisation, lui, vous appartient en propre."},
+      japonais: {emoji:"🇯🇵", name:"Le Japonais zen",
+        desc:"Politesse, discrétion, souci du détail et de l'harmonie : le calme incarné.",
+        twist:"Le twist : réduire tout un peuple à la « zénitude » est un fameux raccourci. Mais votre attention aux autres, gardez-la précieusement."},
+      bresilien: {emoji:"🇧🇷", name:"Le Brésilien solaire",
+        desc:"Joie de vivre, spontanéité, optimisme contagieux : vous êtes une fête ambulante.",
+        twist:"Le twist : la « joie brésilienne » est une carte postale, pas une réalité statistique. Votre pétillant, en revanche, ne triche pas."},
+      anglais: {emoji:"🇬🇧", name:"L'Anglais flegmatique",
+        desc:"Réserve, self-control et humour pince-sans-rire : vous gardez votre sang-froid en toute circonstance.",
+        twist:"Le twist : le « flegme britannique » est un cliché de série télé. Votre second degré, lui, est parfaitement authentique."},
+      francais: {emoji:"🇫🇷", name:"Le Français épicurien",
+        desc:"Amateur de bonne chère, de débats et — avouons-le — d'une petite râlerie de temps à autre.",
+        twist:"Le twist : le « Français râleur » est une caricature (qu'on adore entretenir). Votre art de vivre, lui, n'est pas une légende."},
+      suedois: {emoji:"🇸🇪", name:"Le Suédois posé",
+        desc:"Calme, égalitaire, proche de la nature et adepte du lagom : ni trop, ni trop peu.",
+        twist:"Le twist : la « sérénité scandinave » est un joli cliché de plus. Votre équilibre, c'est vous qui le construisez."}
+    };
+
+    var QUESTIONS = [
+      {q:"À un dîner, vous êtes plutôt…", o:[
+        {t:"Celui qui parle fort et enlace tout le monde.", p:"italien"},
+        {t:"Arrivé pile à l'heure, avec un plan de table.", p:"allemand"},
+        {t:"Discret, attentif, poli avec chacun.", p:"japonais"},
+        {t:"Le premier à lancer la musique.", p:"bresilien"},
+        {t:"En retrait, avec une vanne bien placée.", p:"anglais"},
+        {t:"En train de débattre politique au dessert.", p:"francais"},
+        {t:"Calme, à l'aise, sans chichis.", p:"suedois"}]},
+      {q:"Votre rapport au temps ?", o:[
+        {t:"Le temps est élastique, on verra bien.", p:"italien"},
+        {t:"Cinq minutes en avance, c'est déjà en retard.", p:"allemand"},
+        {t:"La ponctualité est une marque de respect.", p:"japonais"},
+        {t:"Ça commence quand ça commence !", p:"bresilien"},
+        {t:"On respecte l'horaire, sobrement.", p:"anglais"},
+        {t:"Le fameux quart d'heure de politesse.", p:"francais"},
+        {t:"À l'heure, sans en faire un drame.", p:"suedois"}]},
+      {q:"Face à un problème…", o:[
+        {t:"J'y mets du cœur et de grands gestes.", p:"italien"},
+        {t:"Je liste, j'organise, je planifie.", p:"allemand"},
+        {t:"Je cherche la solution qui préserve l'harmonie.", p:"japonais"},
+        {t:"Je garde le sourire, ça va s'arranger.", p:"bresilien"},
+        {t:"Je relativise avec un flegme parfait.", p:"anglais"},
+        {t:"Je commence par râler, puis je trouve.", p:"francais"},
+        {t:"J'en discute posément pour un consensus.", p:"suedois"}]},
+      {q:"Votre idée d'un bon moment ?", o:[
+        {t:"Un grand repas familial qui n'en finit pas.", p:"italien"},
+        {t:"Une rando bien préparée, matériel nickel.", p:"allemand"},
+        {t:"Un jardin calme, un thé, le silence.", p:"japonais"},
+        {t:"Une fête qui déborde dans la rue.", p:"bresilien"},
+        {t:"Un pub, des amis, un humour bien sec.", p:"anglais"},
+        {t:"Une terrasse, du vin, une bonne discussion.", p:"francais"},
+        {t:"Un chalet au bord d'un lac, au calme.", p:"suedois"}]},
+      {q:"On vous décrit souvent comme…", o:[
+        {t:"Chaleureux et expressif.", p:"italien"},
+        {t:"Fiable et carré.", p:"allemand"},
+        {t:"Poli et attentionné.", p:"japonais"},
+        {t:"Solaire et spontané.", p:"bresilien"},
+        {t:"Pince-sans-rire et réservé.", p:"anglais"},
+        {t:"Élégant et un brin râleur.", p:"francais"},
+        {t:"Posé et égalitaire.", p:"suedois"}]},
+      {q:"Votre devise, ce serait…", o:[
+        {t:"« La vie est belle, savourons-la ! »", p:"italien"},
+        {t:"« Un problème, une méthode. »", p:"allemand"},
+        {t:"« Le respect avant tout. »", p:"japonais"},
+        {t:"« Demain est un autre jour. »", p:"bresilien"},
+        {t:"« Keep calm and carry on. »", p:"anglais"},
+        {t:"« Ce n'est pas parfait, mais on peut en discuter. »", p:"francais"},
+        {t:"« Lagom : ni trop, ni trop peu. »", p:"suedois"}]},
+      {q:"En vacances, vous…", o:[
+        {t:"Cherchez la meilleure trattoria du coin.", p:"italien"},
+        {t:"Avez réservé et planifié depuis mars.", p:"allemand"},
+        {t:"Visitez temples et musées avec soin.", p:"japonais"},
+        {t:"Suivez la fête et l'improvisation.", p:"bresilien"},
+        {t:"Gardez votre routine, thé compris.", p:"anglais"},
+        {t:"Comparez tout à « chez nous ».", p:"francais"},
+        {t:"Filez dans la nature vous ressourcer.", p:"suedois"}]}
+    ];
+
+    var CANONICAL = "https://ouipsycho.fr/articles/stereotypes-nationaux-personnalite/";
+    var idx = 0, scores = {};
+
+    function notifyResize(){
+      setTimeout(function(){
+        window.parent.postMessage({type:'quiz-resize', height:document.body.scrollHeight}, '*');
+      }, 50);
+    }
+
+    function shuffle(a){
+      a = a.slice();
+      for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+      return a;
+    }
+
+    function setProgress(pct){ document.getElementById('prog').style.width = pct + '%'; }
+
+    function renderQuestion(){
+      var cur = QUESTIONS[idx];
+      var opts = shuffle(cur.o);
+      var html = '<div class="count">Question ' + (idx+1) + ' / ' + QUESTIONS.length + '</div>';
+      html += '<div class="q">' + cur.q + '</div>';
+      opts.forEach(function(op){
+        html += '<button class="opt" data-p="' + op.p + '">' + op.t + '</button>';
+      });
+      document.getElementById('app').innerHTML = html;
+      setProgress(Math.round((idx/QUESTIONS.length)*100));
+      document.querySelectorAll('.opt').forEach(function(b){
+        b.addEventListener('click', function(){
+          var p = this.getAttribute('data-p');
+          scores[p] = (scores[p]||0) + 1;
+          idx++;
+          if(idx < QUESTIONS.length){ renderQuestion(); } else { renderResult(); }
+          window.scrollTo(0,0);
+          notifyResize();
+        });
+      });
+      notifyResize();
+    }
+
+    function topProfile(){
+      var best=null, max=-1;
+      Object.keys(PROFILES).forEach(function(k){
+        var v = scores[k]||0;
+        if(v>max){max=v;best=k;}
+      });
+      return best;
+    }
+
+    function renderResult(){
+      setProgress(100);
+      var key = topProfile();
+      var p = PROFILES[key];
+      var shareText = encodeURIComponent("D'après ce quiz (100% cliché), ma personnalité est « " + p.name + " ». Et vous ? Faites le test sur Oui Psycho !");
+      var url = encodeURIComponent(CANONICAL);
+      var waText = encodeURIComponent("Ma personnalité serait « " + p.name + " » (mais c'est un cliché !). Et vous ? " + CANONICAL);
+
+      var html = '<div class="res">';
+      html += '<div class="emoji">' + p.emoji + '</div>';
+      html += '<div class="kicker">Votre profil (tout en clichés)</div>';
+      html += '<h2>' + p.name + '</h2>';
+      html += '<div class="desc">' + p.desc + '<span class="twist">' + p.twist + '</span></div>';
+
+      html += '<div class="mythe">🧠 <strong>Le vrai twist :</strong> ces « personnalités nationales » n\'existent pas. Une grande étude publiée dans <em>Science</em> (2005) a montré que le caractère qu\'on prête à un peuple ne correspond pas à la personnalité réelle de ses habitants. Bref : vous n\'êtes ni italien ni suédois « dans l\'âme »… vous êtes surtout <strong>vous</strong>.</div>';
+
+      html += '<div class="share"><p>Partagez votre profil :</p>';
+      html += '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a class="tw" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a class="wa" href="https://wa.me/?text=' + waText + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+
+      html += '<button class="restart" id="again">↻ Recommencer</button>';
+
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      html += '</div>';
+
+      document.getElementById('app').innerHTML = html;
+      document.getElementById('again').addEventListener('click', function(){
+        idx = 0; scores = {}; renderQuestion(); window.scrollTo(0,0); notifyResize();
+      });
+      notifyResize();
+    }
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
