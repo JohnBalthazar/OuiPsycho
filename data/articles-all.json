@@ -1480,17 +1480,16 @@
     "title": "Mickey sur le divan : psychologie d'une souris qui a réussi",
     "type": "article",
     "excerpt": "Pourquoi une souris dessinée déclenche-t-elle autant d'affection chez des milliards d'humains ? Derrière le sourire de Mickey se cachent la néoténie, l'instinct parental, l'anthropomorphisme et la psychologie de la nostalgie. Une réussite qui n'a rien d'un hasard.",
-    "metaDescription": "Néoténie, schéma du bébé, nostalgie : pourquoi Mickey nous attendrit-il autant ? La psychologie et la biologie de la souris la plus célèbre du monde.",
-    "author": "John Balthazar",
     "date": "2026-07-12",
-    "date_modified": "2026-07-12",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/naxydftx6stjmkodne3e",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "mickey",
       "néoténie",
@@ -1498,38 +1497,7 @@
       "nostalgie",
       "culture pop"
     ],
-    "sources": [
-      {
-        "authors": "Gould, S. J.",
-        "year": "1980",
-        "title": "Le Pouce du panda",
-        "publisher": "Grasset"
-      },
-      {
-        "authors": "Kringelbach, M. L. et al.",
-        "year": "2016",
-        "title": "On cuteness: Unlocking the parental brain and beyond",
-        "journal": "Trends in Cognitive Sciences"
-      },
-      {
-        "authors": "Epley, N., Waytz, A. & Cacioppo, J. T.",
-        "year": "2007",
-        "title": "On seeing human: A three-factor theory of anthropomorphism",
-        "journal": "Psychological Review"
-      },
-      {
-        "authors": "Sedikides, C. & Wildschut, T.",
-        "year": "2016",
-        "title": "Past forward: Nostalgia as a motivational force",
-        "journal": "Trends in Cognitive Sciences"
-      },
-      {
-        "authors": "Horton, D. & Wohl, R. R.",
-        "year": "1956",
-        "title": "Mass communication and para-social interaction",
-        "journal": "Psychiatry"
-      }
-    ],
+    "metaDescription": "Néoténie, schéma du bébé, nostalgie : pourquoi Mickey nous attendrit-il autant ? La psychologie et la biologie de la souris la plus célèbre du monde.",
     "articles_lies": [],
     "status": "scheduled"
   },
