@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel messie êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/jesus-sur-le-divan/">
+  <meta name="description" content="Réformateur, prophète, guérisseur, sage ou rebelle ? Découvrez quel profil de messie sommeille en vous.">
+  <style>
+    :root{
+      --navy:#1F4E6B; --navy-d:#163a50; --accent:#E8934A; --accent-d:#d97e33;
+      --ink:#20303a; --muted:#5c7180; --bg:#f4f7f9; --card:#ffffff; --line:#e2e9ee;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg);color:var(--ink);line-height:1.55;padding:14px}
+    .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--line);
+      border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(31,78,107,.08)}
+    .head{background:linear-gradient(135deg,var(--navy),var(--navy-d));color:#fff;padding:22px 22px 18px}
+    .head h1{font-size:1.28rem;line-height:1.25;letter-spacing:-.01em}
+    .head p{opacity:.85;font-size:.9rem;margin-top:6px}
+    .bar{height:7px;background:rgba(255,255,255,.22);border-radius:20px;margin-top:16px;overflow:hidden}
+    .bar span{display:block;height:100%;width:0;background:var(--accent);border-radius:20px;transition:width .35s ease}
+    .body{padding:22px}
+    .count{font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-d);margin-bottom:8px}
+    .q{font-size:1.14rem;font-weight:700;color:var(--navy);margin-bottom:18px;line-height:1.35}
+    .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--line);
+      border-radius:12px;padding:14px 16px;margin-bottom:11px;font-size:.97rem;color:var(--ink);
+      cursor:pointer;transition:all .15s ease}
+    .opt:hover{border-color:var(--navy);background:#f6fafc;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    /* résultat */
+    .res{text-align:center;padding:8px 4px}
+    .res .emoji{font-size:3.4rem;line-height:1;margin-bottom:6px}
+    .res .kicker{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-d)}
+    .res h2{font-size:1.5rem;color:var(--navy);margin:4px 0 14px}
+    .res .desc{text-align:left;background:#f6fafc;border:1px solid var(--line);border-radius:12px;
+      padding:16px 18px;font-size:.98rem;color:var(--ink)}
+    .res .desc .twist{display:block;margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);
+      color:var(--muted);font-size:.93rem}
+    .share{margin:20px 0 6px}
+    .share p{font-size:.82rem;color:var(--muted);margin-bottom:10px;font-weight:600}
+    .share a{display:inline-block;margin:4px 5px;padding:9px 15px;border-radius:30px;
+      font-size:.88rem;font-weight:600;text-decoration:none;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25d366}
+    .restart{margin-top:16px;background:var(--navy);color:#fff;border:none;border-radius:30px;
+      padding:12px 26px;font-size:.95rem;font-weight:700;cursor:pointer;transition:background .15s}
+    .restart:hover{background:var(--navy-d)}
+    .disclaimer{margin-top:20px;background:#fff7ef;border:1px solid #f2dcc2;border-radius:12px;
+      padding:14px 16px;font-size:.86rem;color:#6b5335;line-height:1.5}
+    .disclaimer strong{color:#8a5a1e}
+    @media(max-width:480px){.head h1{font-size:1.14rem}.q{font-size:1.05rem}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="head">
+      <h1>Quel messie êtes-vous ?</h1>
+      <p>6 questions pour révéler le leader qui sommeille en vous.</p>
+      <div class="bar"><span id="prog"></span></div>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+  <script>
+    var PROFILES = {
+      reformateur: {emoji:"🛠️", name:"Le Réformateur tranquille",
+        desc:"Vous ne courez pas après les projecteurs, vous voulez que ça marche. Patience, méthode, sens du collectif : votre superpouvoir, c'est la constance.",
+        twist:"Le twist psy : ce que l'Histoire retient comme un « destin » n'est souvent qu'une longue série de petits gestes obstinés. Pas besoin d'auréole pour changer le monde — juste de la ténacité."},
+      prophete: {emoji:"✨", name:"Le Prophète charismatique",
+        desc:"Vous avez ce truc : quand vous parlez, on écoute. Vision, énergie, capacité à fédérer — le charisme wébérien à l'état pur.",
+        twist:"Le twist psy : le charisme n'est pas une essence magique, c'est une relation. Il existe parce que les autres ont besoin d'y croire. Votre force est aussi celle de votre auditoire — gardez les pieds sur terre."},
+      guerisseur: {emoji:"❤️‍🩹", name:"Le Guérisseur empathique",
+        desc:"Vous sentez la douleur des autres avant même qu'ils la nomment. Votre boussole, c'est la compassion.",
+        twist:"Le twist psy : l'empathie radicale — aimer même ceux qui vous rejettent — va à contre-courant de nos réflexes tribaux. C'est admirable… et épuisant. Pensez à vous mettre, vous aussi, sur la liste des gens à sauver."},
+      sage: {emoji:"🧘", name:"Le Sage contemplatif",
+        desc:"Pendant que le monde s'agite, vous prenez de la hauteur. Recul, profondeur, goût du sens : vous êtes le philosophe de la bande.",
+        twist:"Le twist psy : la sagesse a besoin du désert pour se former, mais un message qui ne redescend jamais vers les autres reste lettre morte. Réfléchir, c'est bien ; partager, c'est mieux."},
+      rebelle: {emoji:"🔥", name:"Le Rebelle idéaliste",
+        desc:"Vous ne supportez pas l'injustice et vous le faites savoir. Tables renversées, vérités qui dérangent : vous êtes l'aiguillon des consciences.",
+        twist:"Le twist psy : l'indignation est un moteur puissant mais gourmand en énergie. Les révoltes qui durent sont celles qui savent aussi construire. Canalisez le feu — il éclaire mieux qu'il ne brûle."}
+    };
+
+    var QUESTIONS = [
+      {q:"On vous confie une mission qui vous dépasse. Votre premier réflexe ?", o:[
+        {t:"Réunir les bonnes personnes et poser un plan solide.", p:"reformateur"},
+        {t:"Rassembler les foules autour d'une vision qui claque.", p:"prophete"},
+        {t:"Commencer par écouter celles et ceux qui souffrent.", p:"guerisseur"},
+        {t:"M'isoler pour réfléchir au sens de tout ça.", p:"sage"},
+        {t:"Renverser la table et dénoncer ce qui ne va pas.", p:"rebelle"}]},
+      {q:"Votre plus grande qualité, selon vos proches ?", o:[
+        {t:"Ma fiabilité : on peut compter sur moi.", p:"reformateur"},
+        {t:"Mon magnétisme : je fédère naturellement.", p:"prophete"},
+        {t:"Mon écoute : je sens les gens.", p:"guerisseur"},
+        {t:"Ma sagesse : je sais prendre du recul.", p:"sage"},
+        {t:"Mon courage : je ne me tais pas.", p:"rebelle"}]},
+      {q:"Face à une injustice, vous…", o:[
+        {t:"Cherchez à réformer le système de l'intérieur.", p:"reformateur"},
+        {t:"Prononcez un discours qui marque les esprits.", p:"prophete"},
+        {t:"Consolez d'abord les victimes.", p:"guerisseur"},
+        {t:"Analysez patiemment les causes profondes.", p:"sage"},
+        {t:"Passez à l'action, quitte à déranger.", p:"rebelle"}]},
+      {q:"Votre rapport à la solitude ?", o:[
+        {t:"Je préfère nettement travailler en équipe.", p:"reformateur"},
+        {t:"Elle me pèse : j'ai besoin d'un public.", p:"prophete"},
+        {t:"Je me ressource au contact des autres.", p:"guerisseur"},
+        {t:"C'est mon carburant : j'en sors plus clair.", p:"sage"},
+        {t:"Je m'isole pour mieux revenir au combat.", p:"rebelle"}]},
+      {q:"Quelle phrase vous ressemble le plus ?", o:[
+        {t:"« Petit à petit, on change les choses. »", p:"reformateur"},
+        {t:"« Suivez-moi, je sais où l'on va. »", p:"prophete"},
+        {t:"« Personne ne devrait souffrir seul. »", p:"guerisseur"},
+        {t:"« La vérité se trouve dans le silence. »", p:"sage"},
+        {t:"« L'injustice ne doit jamais être tolérée. »", p:"rebelle"}]},
+      {q:"On se souviendra de vous comme…", o:[
+        {t:"Le bâtisseur discret.", p:"reformateur"},
+        {t:"La voix qui a rassemblé.", p:"prophete"},
+        {t:"Le cœur qui a réconforté.", p:"guerisseur"},
+        {t:"L'esprit qui a éclairé.", p:"sage"},
+        {t:"Le poing qui a secoué.", p:"rebelle"}]}
+    ];
+
+    var CANONICAL = "https://ouipsycho.fr/articles/jesus-sur-le-divan/";
+    var idx = 0, scores = {};
+
+    function notifyResize(){
+      setTimeout(function(){
+        window.parent.postMessage({type:'quiz-resize', height:document.body.scrollHeight}, '*');
+      }, 50);
+    }
+
+    function shuffle(a){
+      a = a.slice();
+      for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}
+      return a;
+    }
+
+    function setProgress(pct){ document.getElementById('prog').style.width = pct + '%'; }
+
+    function renderQuestion(){
+      var cur = QUESTIONS[idx];
+      var opts = shuffle(cur.o);
+      var html = '<div class="count">Question ' + (idx+1) + ' / ' + QUESTIONS.length + '</div>';
+      html += '<div class="q">' + cur.q + '</div>';
+      opts.forEach(function(op){
+        html += '<button class="opt" data-p="' + op.p + '">' + op.t + '</button>';
+      });
+      document.getElementById('app').innerHTML = html;
+      setProgress(Math.round((idx/QUESTIONS.length)*100));
+      var btns = document.querySelectorAll('.opt');
+      btns.forEach(function(b){
+        b.addEventListener('click', function(){
+          var p = this.getAttribute('data-p');
+          scores[p] = (scores[p]||0) + 1;
+          idx++;
+          if(idx < QUESTIONS.length){ renderQuestion(); } else { renderResult(); }
+          window.scrollTo(0,0);
+          notifyResize();
+        });
+      });
+      notifyResize();
+    }
+
+    function topProfile(){
+      var best=null, max=-1;
+      Object.keys(PROFILES).forEach(function(k){
+        var v = scores[k]||0;
+        if(v>max){max=v;best=k;}
+      });
+      return best;
+    }
+
+    function renderResult(){
+      setProgress(100);
+      var key = topProfile();
+      var p = PROFILES[key];
+      var shareText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel messie êtes-vous ? Faites le test sur Oui Psycho !");
+      var url = encodeURIComponent(CANONICAL);
+      var waText = encodeURIComponent("Je suis « " + p.name + " ». Et vous, quel messie êtes-vous ? " + CANONICAL);
+
+      var html = '<div class="res">';
+      html += '<div class="emoji">' + p.emoji + '</div>';
+      html += '<div class="kicker">Votre profil</div>';
+      html += '<h2>' + p.name + '</h2>';
+      html += '<div class="desc">' + p.desc + '<span class="twist">' + p.twist + '</span></div>';
+
+      html += '<div class="share"><p>Partagez votre profil :</p>';
+      html += '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a class="tw" href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a class="wa" href="https://wa.me/?text=' + waText + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+
+      html += '<button class="restart" id="again">↻ Recommencer</button>';
+
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      html += '</div>';
+
+      document.getElementById('app').innerHTML = html;
+      document.getElementById('again').addEventListener('click', function(){
+        idx = 0; scores = {}; renderQuestion(); window.scrollTo(0,0); notifyResize();
+      });
+      notifyResize();
+    }
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
