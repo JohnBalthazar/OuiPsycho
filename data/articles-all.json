@@ -109,17 +109,16 @@
     "title": "Picsou sur le divan : psychologie d'un canard millionnaire",
     "type": "article",
     "excerpt": "Il nage dans l'or, tremble pour chaque centime et chérit une pièce de dix cents plus que sa fortune entière. Et si le canard le plus riche du monde était un cas d'école de la psychologie de l'argent ? Aversion à la perte, adaptation hédonique, comparaison sociale : Picsou sur le divan.",
-    "metaDescription": "Aversion à la perte, adaptation hédonique, comparaison sociale : et si Picsou était un cas d'école ? La psychologie de l'argent d'un canard milliardaire.",
-    "author": "John Balthazar",
     "date": "2026-12-15",
-    "date_modified": "2026-12-15",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xy8u4kinl720zalpkosh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "psychologie de l'argent",
       "aversion à la perte",
@@ -127,34 +126,7 @@
       "comparaison sociale",
       "culture pop"
     ],
-    "sources": [
-      {
-        "authors": "Kahneman, D. & Deaton, A.",
-        "year": "2010",
-        "title": "High income improves evaluation of life but not emotional well-being",
-        "journal": "Proceedings of the National Academy of Sciences (PNAS)",
-        "url": "https://doi.org/10.1073/pnas.1011492107"
-      },
-      {
-        "authors": "Kahneman, D. & Tversky, A.",
-        "year": "1979",
-        "title": "Prospect Theory: An Analysis of Decision under Risk",
-        "journal": "Econometrica"
-      },
-      {
-        "authors": "Weber, M.",
-        "year": "1905",
-        "title": "L'éthique protestante et l'esprit du capitalisme",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "Dunn, E. W., Aknin, L. B. & Norton, M. I.",
-        "year": "2008",
-        "title": "Spending money on others promotes happiness",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1150952"
-      }
-    ],
+    "metaDescription": "Aversion à la perte, adaptation hédonique, comparaison sociale : et si Picsou était un cas d'école ? La psychologie de l'argent d'un canard milliardaire.",
     "articles_lies": [],
     "status": "scheduled"
   },
