@@ -83,6 +83,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ouipsycho.fr/articles/tintin-sur-le-divan/</loc>
+    <lastmod>2026-07-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ouipsycho.fr/articles/techniques-drague-science/</loc>
     <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
@@ -90,12 +96,6 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/ia-revolution-travail-emploi/</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/tintin-sur-le-divan/</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
