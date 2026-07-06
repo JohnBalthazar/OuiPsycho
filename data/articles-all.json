@@ -535,12 +535,12 @@
   {
     "id": "bienfaits-meconnus-du-sexe",
     "title": "Les bienfaits méconnus du sexe",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "On lui prête mille vertus pour le plaisir, mais le sexe est aussi un allié santé largement sous-estimé. Anti-stress, somnifère, antidouleur : ce que dit la science.",
     "date": "2026-09-18",
-    "date_modified": "2026-09-18",
+    "date_modified": "2026-07-06",
     "category": "Sexo",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dwn5obhnyshfx2n6l9vx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -555,7 +555,7 @@
       "santé",
       "couple"
     ],
-    "metaDescription": "",
+    "metaDescription": "Les bienfaits méconnus du sexe : anti-stress, sommeil, immunité, cœur et estime de soi. Ce que dit vraiment la science des vertus santé de la sexualité.",
     "articles_lies": [],
     "status": "scheduled"
   },
