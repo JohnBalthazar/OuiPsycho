@@ -826,12 +826,12 @@
   {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
     "date": "2026-09-08",
-    "date_modified": "2026-06-18",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xrpba0h4wamc36rifpah",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -846,7 +846,7 @@
       "Grey's Anatomy",
       "soutien social"
     ],
-    "metaDescription": "",
+    "metaDescription": "Trauma, attachement, résilience : ce que la psychologie révèle sur Meredith Grey, l'héroïne de Grey's Anatomy. Avec un test pour trouver votre profil.",
     "articles_lies": [],
     "status": "scheduled"
   },
