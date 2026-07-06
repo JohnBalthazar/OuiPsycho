@@ -63,17 +63,16 @@
     "title": "Le Père Noël sur le divan : psychologie d'un vieux barbu se déplaçant en traîneau",
     "type": "article",
     "excerpt": "Pourquoi les enfants y croient si fort, et pourquoi des parents raisonnables tiennent tant à entretenir le mythe ? Entre pensée magique, mensonge bienveillant et surveillant surnaturel, le Père Noël en dit long sur nous. Direction le divan.",
-    "metaDescription": "Pensée magique, mensonge prosocial, agent moral qui voit tout : que dit la psychologie de notre attachement au Père Noël ? Le vieux barbu rouge sur le divan.",
-    "author": "John Balthazar",
     "date": "2026-12-22",
-    "date_modified": "2026-12-22",
+    "date_modified": "2026-07-06",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dwnq6uxywpc6ngqny9hy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "père noël",
       "pensée magique",
@@ -81,26 +80,7 @@
       "mensonge prosocial",
       "culture pop"
     ],
-    "sources": [
-      {
-        "authors": "Woolley, J. D. & Ghossainy, M. E.",
-        "year": "2013",
-        "title": "Revisiting the fantasy-reality distinction: Children as naive skeptics",
-        "journal": "Child Development"
-      },
-      {
-        "authors": "Bateson, M., Nettle, D. & Roberts, G.",
-        "year": "2006",
-        "title": "Cues of being watched enhance cooperation in a real-world setting",
-        "journal": "Biology Letters"
-      },
-      {
-        "authors": "Bering, J.",
-        "year": "2011",
-        "title": "The Belief Instinct",
-        "publisher": "W. W. Norton"
-      }
-    ],
+    "metaDescription": "Pensée magique, mensonge prosocial, agent moral qui voit tout : que dit la psychologie de notre attachement au Père Noël ? Le vieux barbu rouge sur le divan.",
     "articles_lies": [],
     "status": "scheduled"
   },
