@@ -1,5 +1,51 @@
 [
   {
+    "id": "freud-sur-le-divan",
+    "title": "Freud sur le divan : psychologie d'un psychanalyste",
+    "type": "article",
+    "excerpt": "Il a inventé la cure par la parole et disséqué l'âme des autres toute sa vie. Et si on rendait la politesse à Sigmund Freud en l'allongeant sur son propre divan ? Génie libérateur, cobaye de lui-même, fondateur d'une orthodoxie : portrait sans marbre.",
+    "metaDescription": "L'inventeur du divan méritait bien d'y passer à son tour. Génie, gourou, cobaye de lui-même ? Portrait psychologique (sérieux et taquin) de Sigmund Freud.",
+    "author": "John Balthazar",
+    "date": "2026-11-17",
+    "date_modified": "2026-11-17",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "freud",
+      "psychanalyse",
+      "histoire de la psychologie",
+      "inconscient",
+      "esprit critique"
+    ],
+    "sources": [
+      {
+        "authors": "Freud, S.",
+        "year": "1900",
+        "title": "L'interprétation des rêves",
+        "publisher": "PUF"
+      },
+      {
+        "authors": "Popper, K.",
+        "year": "1963",
+        "title": "Conjectures et réfutations",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Roudinesco, É.",
+        "year": "2014",
+        "title": "Sigmund Freud en son temps et dans le nôtre",
+        "publisher": "Seuil"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "jesus-sur-le-divan",
     "title": "Jésus sur le divan : psychologie d'un messie",
     "type": "article",
