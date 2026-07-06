@@ -1,19 +1,66 @@
 [
   {
-    "id": "la-grande-faucheuse-sur-le-divan",
-    "title": "La grande faucheuse sur le divan : psychologie de la mort",
-    "excerpt": "",
-    "date": "2026-11-03",
-    "date_modified": "2026-11-03",
-    "category": "Les monstres sur le divan",
+    "id": "jesus-sur-le-divan",
+    "title": "Jésus sur le divan : psychologie d'un messie",
+    "type": "article",
+    "excerpt": "Charisme magnétique, empathie radicale, foules en délire : et si on allongeait Jésus sur le divan ? Sans toucher à la foi de personne, petite plongée dans la psychologie du leader le plus célèbre de l'Histoire — et dans nos propres besoins de croire.",
+    "metaDescription": "Charisme, empathie radicale, sociologie du messianisme : et si on mettait Jésus sur le divan ? Une analyse psychologique sérieuse (et un brin taquine).",
+    "author": "John Balthazar",
+    "date": "2026-11-10",
+    "date_modified": "2026-11-10",
+    "category": "Nos héros sur le divan",
     "image": "",
-    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "tags": [
+      "charisme",
+      "messianisme",
+      "leadership",
+      "psychologie sociale",
+      "religion et psychologie"
+    ],
+    "sources": [
+      {
+        "authors": "Weber, M.",
+        "year": "1922",
+        "title": "Économie et société",
+        "publisher": "Plon"
+      },
+      {
+        "authors": "Schweitzer, A.",
+        "year": "1913",
+        "title": "The Psychiatric Study of Jesus",
+        "publisher": "Beacon Press"
+      },
+      {
+        "authors": "Cohn, N.",
+        "year": "1957",
+        "title": "Les Fanatiques de l'Apocalypse",
+        "publisher": "Payot"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "la-grande-faucheuse-sur-le-divan",
+    "title": "La grande faucheuse sur le divan : psychologie de la mort",
+    "type": "article",
+    "excerpt": "Le seul monstre certain de venir nous chercher. Théorie de la gestion de la terreur, deuil, angoisse existentielle : ce que la psychologie révèle non pas sur la mort, mais sur ce que notre cerveau invente pour ne pas y penser.",
+    "metaDescription": "La psychologie de la mort : gestion de la terreur, cinq étapes du deuil de Kübler-Ross et angoisse existentielle selon Yalom, expliquées avec légèreté.",
     "author": "John Balthazar",
+    "date": "2026-11-03",
+    "date_modified": "2026-11-03",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
     "tags": [
       "mort",
       "deuil",
@@ -22,25 +69,54 @@
       "Kübler-Ross",
       "Yalom"
     ],
-    "metaDescription": "",
+    "sources": [
+      {
+        "authors": "Rosenblatt A., Greenberg J., Solomon S., Pyszczynski T. & Lyon D.",
+        "year": "1989",
+        "title": "Evidence for terror management theory: The effects of mortality salience on reactions to those who violate or uphold cultural values",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.57.4.681"
+      },
+      {
+        "authors": "Burke B. L., Martens A. & Faucher E. H.",
+        "year": "2010",
+        "title": "Two decades of terror management theory: A meta-analysis of mortality salience research",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1177/1088868309352321"
+      },
+      {
+        "authors": "Kübler-Ross E.",
+        "year": "2011",
+        "title": "Les derniers instants de la vie",
+        "publisher": "Labor et Fides",
+        "amazon_asin": "283091841X"
+      },
+      {
+        "authors": "Yalom I. D.",
+        "year": "1980",
+        "title": "Existential Psychotherapy",
+        "publisher": "Basic Books"
+      }
+    ],
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Courtois, cultivé, « sans histoires » : l'ogre des Ardennes ne ressemblait pas au monstre qu'on imagine. Psychopathie, sadisme, couple pervers — ce que la clinique sait vraiment de ce profil, et pourquoi personne ne le repère jamais.",
+    "metaDescription": "Michel Fourniret analysé par la psychologie : psychopathie, sadisme sexuel, couple criminel avec Monique Olivier, et le mythe du monstre détectable.",
+    "author": "La rédaction Oui Psycho!",
     "date": "2026-10-20",
     "date_modified": "2026-10-20",
     "category": "Les monstres sur le divan",
     "image": "",
-    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
     "tags": [
       "tueur en série",
       "psychopathie",
@@ -49,7 +125,33 @@
       "criminologie",
       "emprise"
     ],
-    "metaDescription": "",
+    "sources": [
+      {
+        "authors": "Hare R. D.",
+        "year": "1993",
+        "title": "Without Conscience: The Disturbing World of the Psychopaths Among Us",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Zagury D.",
+        "year": "2018",
+        "title": "La barbarie des hommes ordinaires : ces criminels qui pourraient être nous",
+        "publisher": "Éditions de l'Observatoire"
+      },
+      {
+        "authors": "American Psychiatric Association",
+        "year": "2013",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5) — Trouble sadisme sexuel",
+        "publisher": "American Psychiatric Publishing"
+      },
+      {
+        "authors": "Yardley E., Wilson D. & Lynes A.",
+        "year": "2014",
+        "title": "A Taxonomy of Male British Family Annihilators, 1980-2012",
+        "journal": "The Howard Journal of Criminal Justice",
+        "url": "https://doi.org/10.1111/hojo.12033"
+      }
+    ],
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -191,12 +293,12 @@
   {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le plaisir abrégerait-il la vie ? La science dit l'inverse. Tour d'horizon des études qui relient sexualité, santé et longévité — sans transformer le désir en performance.",
     "date": "2026-10-02",
     "date_modified": "2026-07-05",
     "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ib6iephopzzmx31jabnp",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -211,7 +313,7 @@
       "couple",
       "science"
     ],
-    "metaDescription": "",
+    "metaDescription": "Espérance de vie et sexualité : ce que disent vraiment les études sur le lien entre vie sexuelle, santé et longévité, loin des idées reçues.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -245,12 +347,12 @@
   {
     "id": "ecran-sante-mentale",
     "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "4h11 d'écran par jour pour les 6-17 ans, un smartphone dès 9 ans… Fléau du siècle ou panique morale ? Ce que disent vraiment les chiffres les plus récents.",
     "date": "2026-09-25",
     "date_modified": "2026-07-05",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bsagrlaoi5xke3gxrtir",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -265,19 +367,19 @@
       "sommeil",
       "adolescents"
     ],
-    "metaDescription": "",
+    "metaDescription": "Écrans et santé mentale : 4h11 par jour, sommeil rogné, langage menacé… Ce que disent les chiffres récents, entre consensus net et idées reçues.",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Avant d'être une idéologie, le masculinisme est la rencontre entre une souffrance masculine bien réelle et une réponse aussi séduisante que toxique. Plongée dans ses ressorts psychologiques.",
     "date": "2026-09-24",
     "date_modified": "2026-07-05",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/d5xkqvfkzujmwbrfcjw6",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -292,7 +394,7 @@
       "radicalisation",
       "jeunes-hommes"
     ],
-    "metaDescription": "",
+    "metaDescription": "Le masculinisme séduit en répondant mal à une détresse réelle. Décryptage psychologique de la manosphère, ses ressorts et comment y résister.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -353,12 +455,12 @@
   {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Faut-il être un parent parfait pour bien accompagner son ado ? La psychologie répond non — et c'est tant mieux. Petit voyage au pays du parent « suffisamment bon ».",
     "date": "2026-09-17",
     "date_modified": "2026-07-05",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -373,7 +475,7 @@
       "autonomie",
       "éducation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Être un bon parent d'adolescent : le concept de parent « suffisamment bon », l'autorité bienveillante et le soutien à l'autonomie, expliqués par la psychologie.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -433,12 +535,12 @@
   {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Marilyn, James Dean, Beyonce... Un sexe symbole n'est jamais seulement quelqu'un de joli. Plongee dans la mecanique psychologique et sociale du desir collectif, et test pour decouvrir l'aura que vous projetez.",
     "date": "2026-09-10",
     "date_modified": "2026-07-05",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -453,7 +555,7 @@
       "relations-parasociales",
       "image-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi certaines personnes incarnent-elles le desir de toute une epoque ? Plongee psychologique et sociologique dans le mystere des sexe symboles.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1195,9 +1297,9 @@
   {
     "id": "son-goku-sur-le-divan",
     "title": "Dragon Ball Z : Son Goku sur le divan",
-    "excerpt": "Il meurt, revient et sourit encore. Derrière le combattant increvable de Dragon Ball Z se cache un formidable cas d'école : résilience, quête initiatique et motivation intrinsèque. Son Goku passe sur le divan.",
+    "excerpt": "",
     "date": "2026-07-06",
-    "date_modified": "2026-07-05",
+    "date_modified": "2026-07-03",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zxj5jfrl9zntfpvsabbh",
     "hasImage": true,
@@ -1214,7 +1316,7 @@
       "psychologie-pop-culture",
       "quete-initiatique"
     ],
-    "metaDescription": "Résilience, quête initiatique, motivation : et si Son Goku, le héros de Dragon Ball Z, était un cas d'école de psychologie ? Analyse (et quiz) sur Oui Psycho!",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
