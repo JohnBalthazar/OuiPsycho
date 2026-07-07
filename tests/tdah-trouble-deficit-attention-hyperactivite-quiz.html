@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/tdah-trouble-deficit-attention-hyperactivite/">
+  <title>Avez-vous un TDAH ? — Quiz Oui Psycho!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #F7F9FB;
+      color: #22303C;
+      line-height: 1.55;
+      padding: 8px;
+    }
+    .quiz-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(31,78,107,.10);
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: linear-gradient(135deg, #1F4E6B 0%, #2E7DA6 100%);
+      color: #fff;
+      padding: 26px 24px 22px;
+      text-align: center;
+    }
+    .quiz-header .emoji { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+    .quiz-header h1 { font-size: 1.35rem; font-weight: 700; letter-spacing: .2px; }
+    .quiz-header p { font-size: .9rem; opacity: .9; margin-top: 6px; }
+    .progress-wrap { background: #E4ECF2; height: 8px; }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #E8853D, #F2A65A);
+      transition: width .35s ease;
+    }
+    .quiz-body { padding: 24px 22px 28px; }
+    .q-count { font-size: .8rem; font-weight: 600; color: #E8853D; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
+    .q-text { font-size: 1.08rem; font-weight: 700; margin-bottom: 18px; color: #1F4E6B; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #F2F6F9;
+      border: 2px solid #E4ECF2;
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: .96rem;
+      font-family: inherit;
+      color: #22303C;
+      cursor: pointer;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+    .opt-btn:hover { border-color: #2E7DA6; background: #EAF3F8; }
+    .opt-btn:active { transform: scale(.985); }
+    .hidden { display: none; }
+    /* Résultat */
+    .result { text-align: center; }
+    .result .r-emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+    .result h2 { font-size: 1.3rem; color: #1F4E6B; margin-bottom: 12px; }
+    .result .r-text {
+      text-align: left;
+      font-size: .96rem;
+      background: #F2F6F9;
+      border-left: 4px solid #E8853D;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 0 0 18px;
+    }
+    .disclaimer {
+      font-size: .82rem;
+      color: #57707F;
+      background: #FDF6EE;
+      border: 1px solid #F3E2CC;
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: left;
+      margin-bottom: 18px;
+    }
+    .share { margin-bottom: 16px; }
+    .share p { font-size: .85rem; font-weight: 600; color: #1F4E6B; margin-bottom: 8px; }
+    .share a {
+      display: inline-block;
+      margin: 3px 4px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #EAF3F8;
+      color: #1F4E6B;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      border: 1px solid #D3E2EC;
+      transition: background .15s;
+    }
+    .share a:hover { background: #DCEBF4; }
+    .restart-btn {
+      background: linear-gradient(135deg, #E8853D, #F2A65A);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: .95rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+    }
+    .restart-btn:hover { opacity: .92; }
+    .restart-btn:active { transform: scale(.97); }
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <span class="emoji">🧠</span>
+      <h1>Avez-vous un TDAH ?</h1>
+      <p>10 questions pour explorer votre fonctionnement attentionnel</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="quiz-body">
+      <div id="questionScreen">
+        <div class="q-count" id="qCount"></div>
+        <div class="q-text" id="qText"></div>
+        <div class="options" id="qOptions"></div>
+      </div>
+      <div id="resultScreen" class="result hidden">
+        <span class="r-emoji" id="rEmoji"></span>
+        <h2 id="rTitle"></h2>
+        <div class="r-text" id="rText"></div>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+        <div class="share">
+          <p>Partager ce test :</p>
+          <a id="shareFb" href="#" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shareTw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shareWa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ——— Données ———
+    // Profils : A = peu évocateur | B = versant inattentif | C = versant hyperactif-impulsif | D = tableau mixte
+    var QUESTIONS = [
+      {
+        q: "Face à une tâche longue et peu stimulante (formulaire, dossier administratif, rangement)…",
+        opts: [
+          { t: "Je m'y mets sans y penser, c'est fait dans la journée.", p: "A" },
+          { t: "Je la repousse pendant des jours, puis je la fais dans l'urgence (ou jamais).", p: "B" },
+          { t: "Je commence, mais je me lève dix fois et je finis par faire autre chose de plus actif.", p: "C" },
+          { t: "Je la repousse ET, quand je m'y mets, je m'éparpille sur trois autres choses en route.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos clés, votre téléphone, vos papiers…",
+        opts: [
+          { t: "Ils ont une place attitrée, je les perds très rarement.", p: "A" },
+          { t: "Je les cherche presque tous les jours, c'est un running gag (épuisant).", p: "B" },
+          { t: "Je les pose n'importe où parce que je suis déjà passé à l'action suivante.", p: "C" },
+          { t: "Je les perds ET j'oublie carrément des rendez-vous ou des échéances importantes.", p: "D" }
+        ]
+      },
+      {
+        q: "Pendant une réunion ou une conversation un peu longue…",
+        opts: [
+          { t: "Je reste globalement concentré du début à la fin.", p: "A" },
+          { t: "Mon esprit part ailleurs sans que je m'en rende compte ; on me dit que je suis \"dans la lune\".", p: "B" },
+          { t: "Je gigote, je clique mon stylo, je tape du pied ; rester assis longtemps me coûte physiquement.", p: "C" },
+          { t: "Je décroche mentalement ET je coupe la parole quand une idée me traverse.", p: "D" }
+        ]
+      },
+      {
+        q: "Dans votre tête, en ce moment même, ça ressemble plutôt à…",
+        opts: [
+          { t: "Une radio, un seul programme à la fois.", p: "A" },
+          { t: "Un brouillard : les pensées glissent, difficile d'en tenir une jusqu'au bout.", p: "B" },
+          { t: "Un moteur qui tourne en permanence : agitation intérieure, difficulté à \"me poser\".", p: "C" },
+          { t: "Dix radios allumées en même temps, volume à fond, et le tuner qui change tout seul.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand quelque chose vous passionne vraiment…",
+        opts: [
+          { t: "J'y consacre du temps, mais je sais m'arrêter quand il le faut.", p: "A" },
+          { t: "Je peux y plonger des heures en oubliant tout — alors que je ne tiens pas 10 minutes sur le reste.", p: "B" },
+          { t: "Je m'y jette à fond immédiatement… et je me lasse souvent aussi vite.", p: "C" },
+          { t: "Hyperfocalisation totale : j'oublie de manger, l'heure, les gens — puis retour brutal au chaos.", p: "D" }
+        ]
+      },
+      {
+        q: "Côté impulsivité (achats, paroles, décisions)…",
+        opts: [
+          { t: "Je réfléchis généralement avant d'agir ou de parler.", p: "A" },
+          { t: "Ce n'est pas mon problème principal ; mon souci, c'est plutôt d'oublier ou de remettre à plus tard.", p: "B" },
+          { t: "Je dis ou j'achète d'abord, je réfléchis ensuite — et je le regrette souvent.", p: "C" },
+          { t: "Décisions à chaud, interruptions, impatience dans les files d'attente : le combo complet.", p: "D" }
+        ]
+      },
+      {
+        q: "L'organisation de vos projets (pro ou perso)…",
+        opts: [
+          { t: "Je planifie, je découpe, j'avance étape par étape.", p: "A" },
+          { t: "Je commence plein de choses avec enthousiasme, très peu arrivent au bout.", p: "B" },
+          { t: "Planifier m'ennuie profondément ; j'ai besoin d'action, pas de listes.", p: "C" },
+          { t: "Mes projets démarrent dans le désordre, se multiplient, puis s'entassent inachevés.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand on repense à votre enfance et votre scolarité…",
+        opts: [
+          { t: "Rien de particulier : élève plutôt régulier, sans remarques récurrentes.", p: "A" },
+          { t: "\"Rêveur\", \"dans la lune\", \"peut mieux faire\", \"tellement de potentiel\" : les bulletins se répétaient.", p: "B" },
+          { t: "\"Agité\", \"bavard\", \"ne tient pas en place\" : je passais mon temps à me faire reprendre.", p: "C" },
+          { t: "Les deux : distrait ET agité, avec des résultats en dents de scie incompréhensibles.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos émotions face à la frustration ou à l'ennui…",
+        opts: [
+          { t: "Je gère plutôt bien, ça monte rarement très haut.", p: "A" },
+          { t: "L'ennui me vide littéralement : je m'éteins, je fuis dans mes pensées ou mon téléphone.", p: "B" },
+          { t: "La frustration monte vite et fort ; je peux exploser puis redescendre aussitôt.", p: "C" },
+          { t: "Montagnes russes : irritabilité rapide, découragement brutal, le tout plusieurs fois par jour.", p: "D" }
+        ]
+      },
+      {
+        q: "Et l'impact sur votre vie (travail, relations, administratif, estime de vous) ?",
+        opts: [
+          { t: "Honnêtement, ça ne me handicape pas au quotidien.", p: "A" },
+          { t: "Je compense en silence, mais ça me coûte : retards, oublis, sentiment de sous-performer.", p: "B" },
+          { t: "Mon entourage me le reproche : trop speed, trop brusque, jamais posé.", p: "C" },
+          { t: "Ça déborde partout, depuis toujours, et je me suis longtemps cru \"défaillant\".", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🌤️",
+        title: "Peu évocateur d'un TDAH",
+        text: "<strong>Vos réponses n'évoquent pas particulièrement un TDAH.</strong> Tout le monde connaît des moments de distraction, de procrastination ou d'agitation — c'est le fonctionnement humain normal, surtout en période de fatigue ou de stress. Si certaines difficultés ponctuelles vous pèsent malgré tout, les stratégies d'organisation présentées dans le dossier restent utiles à tout cerveau, TDAH ou non. Et si un doute persiste, notamment parce que ces difficultés durent depuis l'enfance, un professionnel pourra faire le point avec vous."
+      },
+      B: {
+        emoji: "🌫️",
+        title: "Un versant inattentif qui interroge",
+        text: "<strong>Vos réponses dessinent un profil où domine l'inattention :</strong> distractibilité, oublis, projets inachevés, rêverie, procrastination — souvent sans agitation visible. C'est précisément la présentation la plus sous-diagnostiquée du TDAH, notamment chez les femmes, car elle ne \"dérange\" personne d'autre que la personne concernée, qui compense en silence à un coût élevé. Si ces difficultés remontent à l'enfance et pèsent sur plusieurs domaines de votre vie (travail, administratif, relations, estime de soi), parlez-en à un médecin ou un psychiatre formé au TDAH : le repérage vaut la peine, quelle qu'en soit la conclusion."
+      },
+      C: {
+        emoji: "⚡",
+        title: "Un versant hyperactif-impulsif qui interroge",
+        text: "<strong>Vos réponses dessinent un profil où dominent l'agitation et l'impulsivité :</strong> moteur intérieur qui ne s'arrête pas, besoin d'action, paroles ou décisions plus rapides que la réflexion, frustration explosive. Attention toutefois : d'autres réalités peuvent produire un tableau proche (anxiété, stress chronique, manque de sommeil, hyperthyroïdie…). Si cette agitation vous accompagne depuis l'enfance et complique votre travail ou vos relations, une évaluation par un professionnel formé permettra d'y voir clair — et de vous orienter vers des solutions qui existent et fonctionnent."
+      },
+      D: {
+        emoji: "🎢",
+        title: "Un tableau mixte franchement évocateur",
+        text: "<strong>Vos réponses combinent inattention, agitation et impulsivité de façon marquée</strong> — le trio caractéristique de la présentation combinée du TDAH, surtout si ces difficultés remontent à l'enfance et touchent plusieurs sphères de votre vie. Bonne nouvelle : c'est aussi le profil pour lequel les prises en charge sont les mieux documentées, du traitement médicamenteux aux TCC en passant par les aménagements du quotidien détaillés dans le dossier. Prochaine étape concrète : consultez votre médecin traitant ou un psychiatre formé au TDAH adulte pour une évaluation complète. Ce que vous vivez a un nom, et des solutions."
+      }
+    };
+
+    // ——— Logique ———
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var qCount = document.getElementById('qCount');
+    var qText = document.getElementById('qText');
+    var qOptions = document.getElementById('qOptions');
+    var questionScreen = document.getElementById('questionScreen');
+    var resultScreen = document.getElementById('resultScreen');
+    var progressBar = document.getElementById('progressBar');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function showQuestion() {
+      var item = QUESTIONS[current];
+      qCount.textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      qText.textContent = item.q;
+      qOptions.innerHTML = '';
+      item.opts.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.type = 'button';
+        btn.textContent = opt.t;
+        btn.addEventListener('click', function() { answer(opt.p); });
+        qOptions.appendChild(btn);
+      });
+      progressBar.style.width = (current / QUESTIONS.length * 100) + '%';
+      notifyResize();
+    }
+
+    function answer(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function dominantProfile() {
+      // Priorité en cas d'égalité : D > B > C > A (on privilégie l'orientation prudente)
+      var order = ['D', 'B', 'C', 'A'];
+      var best = order[0];
+      for (var i = 0; i < order.length; i++) {
+        if (votes[order[i]] > votes[best]) best = order[i];
+      }
+      return best;
+    }
+
+    function showResult() {
+      var p = PROFILES[dominantProfile()];
+      progressBar.style.width = '100%';
+      questionScreen.classList.add('hidden');
+      resultScreen.classList.remove('hidden');
+      document.getElementById('rEmoji').textContent = p.emoji;
+      document.getElementById('rTitle').textContent = p.title;
+      document.getElementById('rText').innerHTML = p.text;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/tdah-trouble-deficit-attention-hyperactivite/';
+      var shareText = 'J\u2019ai fait le quiz \u00ab Avez-vous un TDAH ? \u00bb sur Oui Psycho! \u2014 mon r\u00e9sultat : ' + p.title;
+      document.getElementById('shareFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('restartBtn').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      resultScreen.classList.add('hidden');
+      questionScreen.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    showQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
