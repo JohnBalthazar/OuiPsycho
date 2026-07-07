@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/tests/depression-ce-nest-pas-une-fatalite-quiz.html">
+<title>Test — Où en êtes-vous de la dépression ?</title>
+<style>
+  :root{
+    --bleu:#1F4E6B; --bleu-fonce:#16394f; --accent:#E8734A;
+    --fond:#FAF7F2; --carte:#FFFFFF; --texte:#2b3440; --gris:#6b7684;
+    --vert:#3E8E62; --jaune:#D9A13B; --orange:#D46A2F; --rouge:#B4433A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:Georgia,'Times New Roman',serif;background:var(--fond);color:var(--texte);padding:8px}
+  .quiz-wrap{max-width:680px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 2px 14px rgba(31,78,107,.10);overflow:hidden}
+  .quiz-head{background:linear-gradient(135deg,var(--bleu),var(--bleu-fonce));color:#fff;padding:26px 24px;text-align:center}
+  .quiz-head h1{font-size:1.45rem;font-weight:700;margin-bottom:8px}
+  .quiz-head p{font-family:Helvetica,Arial,sans-serif;font-size:.9rem;opacity:.92;line-height:1.5}
+  .quiz-body{padding:24px}
+  .consigne{font-family:Helvetica,Arial,sans-serif;font-size:.88rem;color:var(--gris);background:#f2f6f9;border-left:4px solid var(--bleu);border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:20px;line-height:1.55}
+  .progress-track{height:8px;background:#e8edf1;border-radius:99px;margin-bottom:6px;overflow:hidden}
+  .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--bleu),var(--accent));border-radius:99px;transition:width .35s ease}
+  .progress-label{font-family:Helvetica,Arial,sans-serif;font-size:.78rem;color:var(--gris);text-align:right;margin-bottom:16px}
+  .q-title{font-size:1.12rem;font-weight:700;line-height:1.45;margin-bottom:6px;color:var(--bleu-fonce)}
+  .q-sub{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;color:var(--gris);margin-bottom:16px}
+  .opt{display:block;width:100%;text-align:left;font-family:Helvetica,Arial,sans-serif;font-size:.95rem;line-height:1.45;background:#fff;color:var(--texte);border:2px solid #dfe6ec;border-radius:12px;padding:13px 16px;margin-bottom:10px;cursor:pointer;transition:border-color .15s,background .15s,transform .1s}
+  .opt:hover{border-color:var(--bleu);background:#f4f8fb}
+  .opt:active{transform:scale(.985)}
+  .btn{display:inline-block;font-family:Helvetica,Arial,sans-serif;font-weight:700;font-size:.95rem;background:var(--accent);color:#fff;border:none;border-radius:99px;padding:13px 30px;cursor:pointer;transition:background .15s}
+  .btn:hover{background:#cf5f38}
+  .btn.secondaire{background:transparent;color:var(--bleu);border:2px solid var(--bleu)}
+  .btn.secondaire:hover{background:#eef4f8}
+  .centre{text-align:center}
+  .resultat{display:none}
+  .badge{display:inline-block;font-family:Helvetica,Arial,sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#fff;border-radius:99px;padding:6px 16px;margin-bottom:14px}
+  .res-titre{font-size:1.35rem;font-weight:700;color:var(--bleu-fonce);margin-bottom:6px}
+  .res-score{font-family:Helvetica,Arial,sans-serif;font-size:.9rem;color:var(--gris);margin-bottom:16px}
+  .jauge{height:14px;background:#e8edf1;border-radius:99px;overflow:hidden;margin-bottom:22px}
+  .jauge-fill{height:100%;width:0;border-radius:99px;transition:width .8s ease}
+  .res-texte{font-size:1rem;line-height:1.7;margin-bottom:14px}
+  .res-texte strong{color:var(--bleu-fonce)}
+  .conseils{background:#f6f9f7;border:1px solid #dcebe2;border-radius:12px;padding:16px 18px;margin-bottom:18px}
+  .conseils h3{font-size:.98rem;color:var(--vert);margin-bottom:10px}
+  .conseils ul{font-family:Helvetica,Arial,sans-serif;font-size:.9rem;line-height:1.6;padding-left:20px}
+  .conseils li{margin-bottom:6px}
+  .alerte-3114{display:none;background:#fdf1ef;border:2px solid var(--rouge);border-radius:12px;padding:16px 18px;margin-bottom:18px;font-family:Helvetica,Arial,sans-serif;font-size:.92rem;line-height:1.6}
+  .alerte-3114 strong{color:var(--rouge)}
+  .disclaimer{font-family:Helvetica,Arial,sans-serif;font-size:.83rem;line-height:1.6;color:var(--gris);background:#f2f6f9;border-radius:10px;padding:14px 16px;margin-bottom:20px}
+  .partage{border-top:1px solid #e8edf1;padding-top:18px;text-align:center}
+  .partage p{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;color:var(--gris);margin-bottom:10px}
+  .partage a{display:inline-block;font-family:Helvetica,Arial,sans-serif;font-size:.88rem;font-weight:700;text-decoration:none;color:var(--bleu);border:2px solid #dfe6ec;border-radius:99px;padding:8px 16px;margin:4px}
+  .partage a:hover{border-color:var(--bleu);background:#f4f8fb}
+  .actions{margin-top:18px;text-align:center}
+</style>
+</head>
+<body>
+<div class="quiz-wrap">
+  <div class="quiz-head">
+    <h1>🧭 Où en êtes-vous de la dépression ?</h1>
+    <p>10 questions pour faire le point sur votre état émotionnel de ces deux dernières semaines.</p>
+  </div>
+  <div class="quiz-body">
+
+    <div id="ecran-quiz">
+      <div class="consigne" id="consigne">
+        Pour chaque question, indiquez la fréquence à laquelle vous avez été concerné·e <strong>au cours des 14 derniers jours</strong>. Répondez spontanément, sans trop réfléchir : il n'y a ni bonne ni mauvaise réponse.
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="barre"></div></div>
+      <div class="progress-label" id="etiquette">Question 1 / 10</div>
+      <div class="q-title" id="q-titre"></div>
+      <div class="q-sub" id="q-sub"></div>
+      <div id="q-options"></div>
+    </div>
+
+    <div id="ecran-resultat" class="resultat">
+      <div class="centre">
+        <span class="badge" id="res-badge"></span>
+        <div class="res-titre" id="res-titre"></div>
+        <div class="res-score" id="res-score"></div>
+      </div>
+      <div class="jauge"><div class="jauge-fill" id="jauge-fill"></div></div>
+      <div class="alerte-3114" id="alerte-3114">
+        🆘 <strong>Vous avez indiqué des pensées sombres.</strong> Vous n'avez pas à traverser cela seul·e. Le <strong>3114</strong>, numéro national de prévention du suicide, est gratuit, confidentiel et joignable 24h/24, 7j/7. En cas de danger immédiat, appelez le <strong>15</strong>.
+      </div>
+      <div class="res-texte" id="res-texte"></div>
+      <div class="conseils">
+        <h3>🌱 Par où commencer ?</h3>
+        <ul id="res-conseils"></ul>
+      </div>
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+      <div class="partage">
+        <p>Ce test peut aider quelqu'un ? Partagez-le :</p>
+        <a id="share-fb" href="#" target="_blank" rel="noopener">📘 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="actions">
+        <button class="btn secondaire" onclick="recommencer()">↺ Recommencer le test</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var OPTIONS = [
+    { label: "Jamais ou presque jamais", pts: 0 },
+    { label: "Plusieurs jours", pts: 1 },
+    { label: "Plus de la moitié du temps", pts: 2 },
+    { label: "Presque tous les jours", pts: 3 }
+  ];
+
+  var QUESTIONS = [
+    { t: "Vous avez ressenti peu d'intérêt ou de plaisir à faire les choses que vous aimez d'habitude.", s: "Loisirs, sorties, projets, moments avec vos proches…" },
+    { t: "Vous vous êtes senti·e triste, découragé·e, ou avec une sensation de vide intérieur.", s: "Une humeur basse qui colle à la peau, sans raison évidente." },
+    { t: "Votre sommeil s'est déréglé : difficultés d'endormissement, réveils nocturnes ou précoces, ou au contraire besoin de dormir beaucoup plus.", s: "" },
+    { t: "Vous vous êtes senti·e fatigué·e ou sans énergie, même après du repos.", s: "Comme si chaque tâche demandait un effort disproportionné." },
+    { t: "Votre appétit a changé : nettement diminué, ou au contraire des envies de manger pour combler.", s: "" },
+    { t: "Vous avez eu une mauvaise opinion de vous-même : sentiment d'être nul·le, coupable, ou d'avoir déçu votre entourage.", s: "Les reproches que vous vous adressez à vous-même." },
+    { t: "Vous avez eu du mal à vous concentrer : lecture, conversations, travail, écrans.", s: "L'impression que votre attention glisse, que votre tête est dans le brouillard." },
+    { t: "Vous vous êtes senti·e ralenti·e (gestes, parole) ou au contraire agité·e, incapable de tenir en place.", s: "Au point que votre entourage aurait pu le remarquer." },
+    { t: "Vous vous êtes isolé·e : messages sans réponse, invitations déclinées, envie de ne voir personne.", s: "Le retrait social, souvent discret au début." },
+    { t: "Vous avez eu des pensées sombres : l'idée que la vie ne vaut pas la peine, que les autres seraient mieux sans vous, ou des pensées de mort.", s: "Question difficile mais importante — répondez honnêtement." }
+  ];
+
+  var PROFILS = [
+    { min: 0,  max: 6,  badge: "Ciel dégagé", couleur: "#3E8E62", titre: "Pas de signal dépressif marqué",
+      texte: "<strong>Votre état émotionnel des deux dernières semaines ne présente pas les signes caractéristiques d'une dépression.</strong> Des passages à vide ponctuels, tout le monde en connaît — ils font partie de la vie psychique normale. Restez simplement à l'écoute de vous-même : la meilleure prévention, c'est de connaître ses propres signaux d'alerte (sommeil, isolement, perte de plaisir).",
+      conseils: ["Entretenez ce qui vous fait du bien : mouvement, lien social, sommeil régulier.", "Notez vos signaux d'alerte personnels pour les repérer tôt si un jour ça se dérègle.", "Si un proche traverse une période sombre, votre écoute compte plus que vos conseils."] },
+    { min: 7,  max: 13, badge: "Zone de vigilance", couleur: "#D9A13B", titre: "Des signaux à prendre au sérieux",
+      texte: "<strong>Plusieurs symptômes sont présents, sans pour autant dessiner un tableau dépressif complet.</strong> C'est peut-être une période difficile qui passera, ou le début de quelque chose qui s'installe. La différence se joue souvent maintenant : c'est le meilleur moment pour agir, quand les leviers simples fonctionnent encore bien. Si ces signaux persistent au-delà de deux semaines ou s'intensifient, parlez-en à votre médecin.",
+      conseils: ["Réintroduisez chaque jour une activité agréable planifiée — sans attendre l'envie.", "Levez-vous à heure fixe et sortez 15 minutes à la lumière du jour avant midi.", "Tenez un mini-journal d'humeur (note de 0 à 10, matin et soir) pendant 2 semaines.", "Si rien ne s'améliore d'ici 15 jours : prenez rendez-vous avec votre médecin traitant."] },
+    { min: 14, max: 20, badge: "Signaux importants", couleur: "#D46A2F", titre: "Un tableau qui évoque une souffrance dépressive",
+      texte: "<strong>Vos réponses décrivent une souffrance psychique significative, qui mérite l'avis d'un professionnel.</strong> Ce que vous vivez a un nom, des mécanismes connus, et surtout des traitements efficaces — psychothérapie en première ligne, médicaments si nécessaire. Ce n'est ni une faiblesse ni une fatalité : c'est un état qui se soigne, et d'autant mieux qu'on s'en occupe tôt. Ne laissez pas la maladie vous convaincre que « ça ne sert à rien ».",
+      conseils: ["Prenez rendez-vous cette semaine avec votre médecin traitant ou un psychologue.", "Le dispositif Mon soutien psy permet des séances chez le psychologue remboursées.", "Les CMP (centres médico-psychologiques) offrent des consultations gratuites.", "En attendant : un contact humain par jour, une marche quotidienne, pas de grande décision.", "Parlez-en à une personne de confiance — dire les choses à voix haute est déjà un soin."] },
+    { min: 21, max: 30, badge: "Alerte", couleur: "#B4433A", titre: "Une souffrance intense : consultez rapidement",
+      texte: "<strong>Vos réponses décrivent une souffrance sévère qui nécessite une aide professionnelle sans attendre.</strong> Ce que vous traversez est épuisant, et la dépression a cette cruauté particulière de faire croire qu'aucune aide ne fonctionnera. C'est faux : même les dépressions sévères se soignent, et l'amélioration est la règle, pas l'exception. Le pas le plus important est aussi le plus simple : demander de l'aide, aujourd'hui, à un professionnel ou à un proche qui pourra vous accompagner.",
+      conseils: ["Contactez dès aujourd'hui votre médecin traitant en signalant l'urgence de la situation.", "Le 3114 (gratuit, 24h/24) : des professionnels formés, aussi pour la détresse intense.", "Ne restez pas seul·e : prévenez une personne de confiance de ce que vous traversez.", "Si vous vous sentez en danger immédiat : appelez le 15 ou rendez-vous aux urgences."] }
+  ];
+
+  var index = 0;
+  var score = 0;
+  var scoreQ10 = 0;
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function afficherQuestion() {
+    var q = QUESTIONS[index];
+    document.getElementById('consigne').style.display = index === 0 ? 'block' : 'none';
+    document.getElementById('etiquette').textContent = 'Question ' + (index + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('barre').style.width = ((index) / QUESTIONS.length * 100) + '%';
+    document.getElementById('q-titre').textContent = q.t;
+    document.getElementById('q-sub').textContent = q.s;
+    document.getElementById('q-sub').style.display = q.s ? 'block' : 'none';
+    var zone = document.getElementById('q-options');
+    zone.innerHTML = '';
+    OPTIONS.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.label;
+      b.onclick = function() { repondre(opt.pts); };
+      zone.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function repondre(pts) {
+    score += pts;
+    if (index === QUESTIONS.length - 1) { scoreQ10 = pts; }
+    index++;
+    if (index < QUESTIONS.length) {
+      afficherQuestion();
+    } else {
+      afficherResultat();
+    }
+  }
+
+  function afficherResultat() {
+    var profil = PROFILS[0];
+    for (var i = 0; i < PROFILS.length; i++) {
+      if (score >= PROFILS[i].min && score <= PROFILS[i].max) { profil = PROFILS[i]; break; }
+    }
+    document.getElementById('ecran-quiz').style.display = 'none';
+    document.getElementById('ecran-resultat').style.display = 'block';
+    var badge = document.getElementById('res-badge');
+    badge.textContent = profil.badge;
+    badge.style.background = profil.couleur;
+    document.getElementById('res-titre').textContent = profil.titre;
+    document.getElementById('res-score').textContent = 'Votre score : ' + score + ' / 30';
+    var jauge = document.getElementById('jauge-fill');
+    jauge.style.background = profil.couleur;
+    setTimeout(function(){ jauge.style.width = Math.max(4, Math.round(score / 30 * 100)) + '%'; }, 80);
+    document.getElementById('res-texte').innerHTML = profil.texte;
+    var ul = document.getElementById('res-conseils');
+    ul.innerHTML = '';
+    profil.conseils.forEach(function(c) {
+      var li = document.createElement('li');
+      li.textContent = c;
+      ul.appendChild(li);
+    });
+    document.getElementById('alerte-3114').style.display = scoreQ10 > 0 ? 'block' : 'none';
+    var pageUrl = 'https://ouipsycho.fr/articles/depression-ce-nest-pas-une-fatalite/';
+    var texte = 'J\u2019ai fait le point avec le test \u00ab O\u00f9 en \u00eates-vous de la d\u00e9pression ? \u00bb sur Oui Psycho!';
+    document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+    document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(texte) + '&url=' + encodeURIComponent(pageUrl);
+    document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(texte + ' ' + pageUrl);
+    notifyResize();
+  }
+
+  function recommencer() {
+    index = 0;
+    score = 0;
+    scoreQ10 = 0;
+    document.getElementById('ecran-resultat').style.display = 'none';
+    document.getElementById('ecran-quiz').style.display = 'block';
+    document.getElementById('jauge-fill').style.width = '0';
+    afficherQuestion();
+    notifyResize();
+  }
+  window.recommencer = recommencer;
+
+  window.addEventListener('load', notifyResize);
+  afficherQuestion();
+})();
+</script>
+</body>
+</html>
