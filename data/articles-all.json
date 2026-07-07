@@ -1,5 +1,76 @@
 [
   {
+    "id": "tdah-trouble-deficit-attention-hyperactivite",
+    "title": "TDAH : Trouble du Déficit de l'Attention avec ou sans Hyperactivité",
+    "type": "dossier",
+    "excerpt": "Trouble neurodéveloppemental le mieux documenté et pourtant le plus caricaturé, le TDAH concerne des millions d'adultes qui s'ignorent. Ce dossier complet fait le point : comprendre, se faire aider, et reprendre la main sur son quotidien.",
+    "metaDescription": "TDAH adulte et enfant : symptômes, diagnostic, TCC, regard psychanalytique, traitements, routines concrètes et carnet de suivi. Dossier complet + quiz.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2027-01-07",
+    "date_modified": "2027-01-07",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 16,
+    "tags": [
+      "tdah",
+      "attention",
+      "hyperactivite",
+      "troubles-psy",
+      "tcc",
+      "neurodeveloppement"
+    ],
+    "sources": [
+      {
+        "authors": "Faraone S. V. et al.",
+        "year": "2021",
+        "title": "The World Federation of ADHD International Consensus Statement: 208 evidence-based conclusions about the disorder",
+        "journal": "Neuroscience & Biobehavioral Reviews",
+        "url": "https://doi.org/10.1016/j.neubiorev.2021.01.022"
+      },
+      {
+        "authors": "Haute Autorité de Santé",
+        "year": "2024",
+        "title": "Trouble déficit de l'attention avec ou sans hyperactivité (TDAH) : repérage, diagnostic et prise en charge des adultes",
+        "journal": "Recommandation de bonne pratique, HAS",
+        "url": "https://www.has-sante.fr/jcms/p_3302538/fr/trouble-deficit-de-l-attention-avec-ou-sans-hyperactivite-tdah-reperage-diagnostic-et-prise-en-charge-des-adultes"
+      },
+      {
+        "authors": "Kessler R. C. et al.",
+        "year": "2005",
+        "title": "The World Health Organization Adult ADHD Self-Report Scale (ASRS): a short screening scale for use in the general population",
+        "journal": "Psychological Medicine",
+        "url": "https://doi.org/10.1017/S0033291704002892"
+      },
+      {
+        "authors": "Safren S. A. et al.",
+        "year": "2010",
+        "title": "Cognitive behavioral therapy vs relaxation with educational support for medication-treated adults with ADHD and persistent symptoms",
+        "journal": "JAMA",
+        "url": "https://doi.org/10.1001/jama.2010.1192"
+      },
+      {
+        "authors": "Barkley R. A.",
+        "year": "2015",
+        "title": "Attention-Deficit Hyperactivity Disorder: A Handbook for Diagnosis and Treatment (4e éd.)",
+        "journal": "Guilford Press",
+        "url": "https://www.guilford.com/books/Attention-Deficit-Hyperactivity-Disorder/Russell-Barkley/9781462538874"
+      },
+      {
+        "authors": "Cortese S. et al.",
+        "year": "2018",
+        "title": "Comparative efficacy and tolerability of medications for ADHD in children, adolescents, and adults: a systematic review and network meta-analysis",
+        "journal": "The Lancet Psychiatry",
+        "url": "https://doi.org/10.1016/S2215-0366(18)30269-4"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "luffy-sur-le-divan",
     "title": "Monkey D. Luffy sur le divan : psychologie du héros de One Piece",
     "excerpt": "",
