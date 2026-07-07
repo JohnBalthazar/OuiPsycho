@@ -183,6 +183,93 @@
     "status": "scheduled"
   },
   {
+    "id": "depression-ce-nest-pas-une-fatalite",
+    "title": "Dépression : ce n'est pas une fatalité",
+    "type": "article",
+    "excerpt": "La dépression touchera près d'une personne sur cinq en France. Maladie réelle, elle se soigne. TCC, psychanalyse, neurosciences, témoignages et routines concrètes : le dossier complet pour comprendre — et s'en sortir.",
+    "metaDescription": "Dépression : symptômes, regards des TCC et de la psychanalyse, avancées scientifiques, témoignages et solutions concrètes pour s'en sortir. Dossier complet.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-23",
+    "date_modified": "2026-10-23",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 16,
+    "tags": [
+      "depression",
+      "tcc",
+      "psychanalyse",
+      "sante-mentale",
+      "therapies"
+    ],
+    "sources": [
+      {
+        "authors": "Organisation mondiale de la santé",
+        "year": "2023",
+        "title": "Troubles dépressifs (dépression) — Principaux repères",
+        "journal": "OMS",
+        "url": "https://www.who.int/fr/news-room/fact-sheets/detail/depression"
+      },
+      {
+        "authors": "Beck A. T., Rush A. J., Shaw B. F. & Emery G.",
+        "year": "1979",
+        "title": "Cognitive Therapy of Depression",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1917",
+        "title": "Deuil et mélancolie",
+        "publisher": "Presses Universitaires de France (trad. fr.)"
+      },
+      {
+        "authors": "Cuijpers P., Quero S., Noma H. et al.",
+        "year": "2021",
+        "title": "Psychotherapies for depression: a network meta-analysis covering efficacy, acceptability and long-term outcomes",
+        "journal": "World Psychiatry",
+        "url": "https://doi.org/10.1002/wps.20860"
+      },
+      {
+        "authors": "Schuch F. B., Vancampfort D., Richards J. et al.",
+        "year": "2016",
+        "title": "Exercise as a treatment for depression: A meta-analysis adjusting for publication bias",
+        "journal": "Journal of Psychiatric Research",
+        "url": "https://doi.org/10.1016/j.jpsychires.2016.02.023"
+      },
+      {
+        "authors": "Kuyken W., Warren F. C., Taylor R. S. et al.",
+        "year": "2016",
+        "title": "Efficacy of Mindfulness-Based Cognitive Therapy in Prevention of Depressive Relapse",
+        "journal": "JAMA Psychiatry",
+        "url": "https://doi.org/10.1001/jamapsychiatry.2016.0076"
+      },
+      {
+        "authors": "Otte C., Gold S. M., Penninx B. W. et al.",
+        "year": "2016",
+        "title": "Major depressive disorder",
+        "journal": "Nature Reviews Disease Primers",
+        "url": "https://doi.org/10.1038/nrdp.2016.65"
+      },
+      {
+        "authors": "Haute Autorité de Santé",
+        "year": "2017",
+        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en soins de premier recours",
+        "publisher": "HAS"
+      },
+      {
+        "authors": "Inserm",
+        "year": "2019",
+        "title": "Dépression — Mieux la comprendre pour la guérir durablement (dossier d'information)",
+        "publisher": "Inserm"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "stereotypes-nationaux-personnalite",
     "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
     "excerpt": "",
