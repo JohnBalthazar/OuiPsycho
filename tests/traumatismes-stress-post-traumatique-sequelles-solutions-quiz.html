@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/traumatismes-stress-post-traumatique-sequelles-solutions/">
+  <title>Après un événement difficile : où en êtes-vous aujourd'hui ? — Quiz Oui Psycho!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: #F7F9FB;
+      color: #22303C;
+      line-height: 1.55;
+      padding: 8px;
+    }
+    .quiz-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(31,78,107,.10);
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: linear-gradient(135deg, #1F4E6B 0%, #2E7DA6 100%);
+      color: #fff;
+      padding: 26px 24px 22px;
+      text-align: center;
+    }
+    .quiz-header .emoji { font-size: 2.2rem; display: block; margin-bottom: 6px; }
+    .quiz-header h1 { font-size: 1.3rem; font-weight: 700; letter-spacing: .2px; }
+    .quiz-header p { font-size: .88rem; opacity: .9; margin-top: 6px; }
+    .progress-wrap { background: #E4ECF2; height: 8px; }
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #E8853D, #F2A65A);
+      transition: width .35s ease;
+    }
+    .quiz-body { padding: 24px 22px 28px; }
+    .gentle-note {
+      font-size: .82rem;
+      color: #57707F;
+      background: #F2F6F9;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-bottom: 18px;
+    }
+    .q-count { font-size: .8rem; font-weight: 600; color: #E8853D; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
+    .q-text { font-size: 1.06rem; font-weight: 700; margin-bottom: 18px; color: #1F4E6B; }
+    .options { display: flex; flex-direction: column; gap: 10px; }
+    .opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #F2F6F9;
+      border: 2px solid #E4ECF2;
+      border-radius: 12px;
+      padding: 13px 16px;
+      font-size: .95rem;
+      font-family: inherit;
+      color: #22303C;
+      cursor: pointer;
+      transition: border-color .15s, background .15s, transform .1s;
+    }
+    .opt-btn:hover { border-color: #2E7DA6; background: #EAF3F8; }
+    .opt-btn:active { transform: scale(.985); }
+    .hidden { display: none; }
+    .result { text-align: center; }
+    .result .r-emoji { font-size: 3rem; display: block; margin-bottom: 8px; }
+    .result h2 { font-size: 1.25rem; color: #1F4E6B; margin-bottom: 12px; }
+    .result .r-text {
+      text-align: left;
+      font-size: .95rem;
+      background: #F2F6F9;
+      border-left: 4px solid #E8853D;
+      border-radius: 0 10px 10px 0;
+      padding: 14px 16px;
+      margin: 0 0 18px;
+    }
+    .disclaimer {
+      font-size: .82rem;
+      color: #57707F;
+      background: #FDF6EE;
+      border: 1px solid #F3E2CC;
+      border-radius: 10px;
+      padding: 12px 14px;
+      text-align: left;
+      margin-bottom: 18px;
+    }
+    .share { margin-bottom: 16px; }
+    .share p { font-size: .85rem; font-weight: 600; color: #1F4E6B; margin-bottom: 8px; }
+    .share a {
+      display: inline-block;
+      margin: 3px 4px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: #EAF3F8;
+      color: #1F4E6B;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+      border: 1px solid #D3E2EC;
+      transition: background .15s;
+    }
+    .share a:hover { background: #DCEBF4; }
+    .restart-btn {
+      background: linear-gradient(135deg, #E8853D, #F2A65A);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 12px 28px;
+      font-size: .95rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity .15s, transform .1s;
+    }
+    .restart-btn:hover { opacity: .92; }
+    .restart-btn:active { transform: scale(.97); }
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <span class="emoji">🌱</span>
+      <h1>Après un événement difficile : où en êtes-vous aujourd'hui ?</h1>
+      <p>10 questions sur votre présent — jamais sur les détails de ce que vous avez vécu</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="quiz-body">
+      <div id="questionScreen">
+        <div class="gentle-note" id="gentleNote">🤍 Répondez selon les <strong>4 dernières semaines</strong>. Certaines questions peuvent remuer : allez à votre rythme, vous pouvez arrêter à tout moment.</div>
+        <div class="q-count" id="qCount"></div>
+        <div class="q-text" id="qText"></div>
+        <div class="options" id="qOptions"></div>
+      </div>
+      <div id="resultScreen" class="result hidden">
+        <span class="r-emoji" id="rEmoji"></span>
+        <h2 id="rTitle"></h2>
+        <div class="r-text" id="rText"></div>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+          Si des violences sont en cours : <strong>3919</strong> (violences faites aux femmes) et <strong>119</strong> (enfance en danger).
+        </div>
+        <div class="share">
+          <p>Partager ce test :</p>
+          <a id="shareFb" href="#" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shareTw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shareWa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ——— Données ———
+    // Profils : A = peu de traces actuelles | B = reviviscences au premier plan
+    //           C = évitement comme bouclier | D = traces profondes et diffuses
+    var QUESTIONS = [
+      {
+        q: "Des souvenirs, images ou sensations liés à un vécu difficile s'imposent-ils à vous sans que vous les ayez appelés ?",
+        opts: [
+          { t: "Rarement ou jamais ; si j'y pense, c'est parce que je le décide.", p: "A" },
+          { t: "Oui : des images, sons ou sensations reviennent brusquement, comme si c'était maintenant.", p: "B" },
+          { t: "Peu, mais je fais beaucoup d'efforts pour que rien ne puisse me les rappeler.", p: "C" },
+          { t: "C'est plus diffus : pas de scène précise, mais un fond de malaise ou de détresse qui remonte souvent.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos nuits, ces dernières semaines…",
+        opts: [
+          { t: "Un sommeil globalement correct, sans cauchemars marquants.", p: "A" },
+          { t: "Des cauchemars où l'événement (ou son ambiance) revient, parfois au réveil en sueur.", p: "B" },
+          { t: "Je retarde le coucher ou m'assomme d'écrans pour ne pas me retrouver seul avec mes pensées.", p: "C" },
+          { t: "Un sommeil chaotique depuis aussi longtemps que je me souvienne, sans lien évident avec un événement précis.", p: "D" }
+        ]
+      },
+      {
+        q: "Y a-t-il des lieux, personnes, dates ou situations que vous contournez ?",
+        opts: [
+          { t: "Non, je ne réorganise pas ma vie autour de quoi que ce soit.", p: "A" },
+          { t: "Quelques-uns, surtout parce qu'ils déclenchent des images ou des sensations très vives.", p: "B" },
+          { t: "Oui, beaucoup — et je m'en rends compte surtout quand on me le fait remarquer.", p: "C" },
+          { t: "J'évite surtout la proximité : dès qu'une relation devient trop proche, je mets de la distance.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre corps, au quotidien…",
+        opts: [
+          { t: "Plutôt détendu ; je sursaute rarement.", p: "A" },
+          { t: "En alerte : sursauts au moindre bruit, cœur qui s'emballe, tension permanente.", p: "B" },
+          { t: "Ça va tant que je reste dans ma zone maîtrisée ; en dehors, l'angoisse monte vite.", p: "C" },
+          { t: "Souvent absent : comme en pilote automatique, spectateur de ma propre vie, engourdi.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand quelque chose vous rappelle ce vécu difficile…",
+        opts: [
+          { t: "C'est désagréable, mais ça reste un souvenir : je peux y penser puis passer à autre chose.", p: "A" },
+          { t: "C'est une vague : la détresse d'origine revient presque intacte, dans le corps aussi.", p: "B" },
+          { t: "Je coupe immédiatement : je change de sujet, je pars, je m'occupe — surtout ne pas y aller.", p: "C" },
+          { t: "Je ne sais pas trop ce qui me rappelle quoi : mes réactions fortes semblent surgir de nulle part.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre regard sur vous-même…",
+        opts: [
+          { t: "Globalement bienveillant, malgré les hauts et les bas normaux.", p: "A" },
+          { t: "Rongé par des « et si » et des « j'aurais dû » liés à ce qui s'est passé.", p: "B" },
+          { t: "Correct en apparence — mais je sens que je fonctionne en façade, sans trop me poser de questions.", p: "C" },
+          { t: "Une honte ou un sentiment d'être « défectueux » qui me colle à la peau depuis toujours.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos émotions, ces derniers temps…",
+        opts: [
+          { t: "Présentes et variées : joie, tristesse, colère, dans des proportions gérables.", p: "A" },
+          { t: "Des montées brutales — peur, colère, détresse — déclenchées par des rappels de l'événement.", p: "B" },
+          { t: "Plutôt en sourdine : je ressens peu, comme si le volume émotionnel avait été baissé.", p: "C" },
+          { t: "Des montagnes russes difficiles à prévoir et à calmer, depuis des années, dans plein de contextes.", p: "D" }
+        ]
+      },
+      {
+        q: "Dans vos relations proches…",
+        opts: [
+          { t: "Je me sens globalement en confiance avec les personnes qui le méritent.", p: "A" },
+          { t: "Je me sens en décalage depuis l'événement : les autres « ne peuvent pas comprendre ».", p: "B" },
+          { t: "Je garde tout le monde à distance de ce sujet ; on me dit parfois que je suis « fermé ».", p: "C" },
+          { t: "La confiance est le problème de fond : j'oscille entre m'accrocher et tout couper, avec la peur d'être trahi.", p: "D" }
+        ]
+      },
+      {
+        q: "Pour tenir le coup, il vous arrive de…",
+        opts: [
+          { t: "M'appuyer sur des choses qui me font du bien : proches, sport, activités.", p: "A" },
+          { t: "Rester sur le qui-vive : vérifier, anticiper, contrôler — épuisant mais plus fort que moi.", p: "B" },
+          { t: "M'anesthésier : alcool, écrans, travail à outrance, nourriture — tout ce qui fait taire le bruit.", p: "C" },
+          { t: "Un peu tout cela selon les périodes, sans qu'aucune stratégie ne tienne vraiment.", p: "D" }
+        ]
+      },
+      {
+        q: "Et globalement, l'impact sur votre vie actuelle (travail, relations, projets, santé) ?",
+        opts: [
+          { t: "Ce vécu fait partie de mon histoire, mais il ne pilote pas ma vie.", p: "A" },
+          { t: "Il occupe encore beaucoup de place : mes journées s'organisent autour de l'alerte et des rappels.", p: "B" },
+          { t: "Ma vie fonctionne, mais dans un périmètre rétréci que je n'ose pas trop regarder en face.", p: "C" },
+          { t: "J'ai l'impression que ça a façonné qui je suis en profondeur, bien au-delà d'un événement isolé.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🌿",
+        title: "Peu de traces qui pèsent sur votre présent",
+        text: "<strong>Vos réponses évoquent un vécu qui, aussi difficile ait-il été, semble avoir trouvé sa place dans votre histoire :</strong> vous pouvez y penser sans être submergé, votre vie ne s'organise pas autour de l'évitement, et votre système d'alerte vous laisse tranquille. C'est la trajectoire la plus fréquente après un événement éprouvant — la résilience n'est pas l'exception, c'est la règle. Restez simplement à l'écoute de vous-même : si des symptômes apparaissaient plus tard (cela arrive, parfois avec retard), les repères du dossier vous aideront à les reconnaître tôt."
+      },
+      B: {
+        emoji: "🌊",
+        title: "Un passé qui se revit plus qu'il ne se raconte",
+        text: "<strong>Vos réponses évoquent une mémoire encore à vif :</strong> intrusions, cauchemars, corps en alerte, détresse qui revient presque intacte au moindre rappel. Ce ne sont ni une faiblesse ni une folie — ce sont les signes typiques d'une mémoire traumatique qui n'a pas encore été retraitée par votre cerveau. La bonne nouvelle est réelle : c'est précisément le tableau qui répond le mieux aux thérapies centrées sur le trauma (TCC, EMDR), quel que soit le temps écoulé. Parlez-en à un professionnel de santé, ou rapprochez-vous d'un centre régional du psychotraumatisme. Ce que vous vivez a un nom, un mécanisme, et un traitement."
+      },
+      C: {
+        emoji: "🛡️",
+        title: "L'évitement comme bouclier — efficace, mais coûteux",
+        text: "<strong>Vos réponses dessinent une stratégie de protection :</strong> contourner, anesthésier, fonctionner en façade, rétrécir le périmètre pour que rien ne réveille ce qui dort. Ce bouclier a probablement été indispensable — et il a un coût qui grandit avec le temps : une vie qui se referme, des émotions en sourdine, une fatigue de fond. L'évitement soulage aujourd'hui mais entretient le mécanisme, car il prive votre cerveau de l'occasion de retraiter cette mémoire en sécurité. Vous n'avez pas à tout affronter demain matin : en parler à un professionnel formé, à votre rythme, est déjà la première marche — et elle peut être très progressive."
+      },
+      D: {
+        emoji: "🕯️",
+        title: "Des traces profondes, qui méritent une vraie écoute",
+        text: "<strong>Vos réponses évoquent des traces anciennes et diffuses :</strong> régulation émotionnelle difficile, image de soi abîmée, méfiance de fond dans les relations, sentiment que « ça » a façonné qui vous êtes. Ce tableau se rencontre souvent après des expositions répétées ou précoces — ce que les cliniciens appellent aujourd'hui le trauma complexe, désormais reconnu officiellement. Il est fréquent qu'il ait été confondu avec « un caractère », une dépression qui résiste ou de l'anxiété chronique. Une évaluation par un professionnel formé au psychotraumatisme peut changer la lecture de toute une histoire — et ouvrir des prises en charge par phases (stabilisation, puis traitement des mémoires) qui ont fait leurs preuves. Vous méritez cette écoute-là."
+      }
+    };
+
+    // ——— Logique ———
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var qCount = document.getElementById('qCount');
+    var qText = document.getElementById('qText');
+    var qOptions = document.getElementById('qOptions');
+    var questionScreen = document.getElementById('questionScreen');
+    var resultScreen = document.getElementById('resultScreen');
+    var progressBar = document.getElementById('progressBar');
+    var gentleNote = document.getElementById('gentleNote');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function showQuestion() {
+      var item = QUESTIONS[current];
+      gentleNote.style.display = current === 0 ? 'block' : 'none';
+      qCount.textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      qText.textContent = item.q;
+      qOptions.innerHTML = '';
+      item.opts.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'opt-btn';
+        btn.type = 'button';
+        btn.textContent = opt.t;
+        btn.addEventListener('click', function() { answer(opt.p); });
+        qOptions.appendChild(btn);
+      });
+      progressBar.style.width = (current / QUESTIONS.length * 100) + '%';
+      notifyResize();
+    }
+
+    function answer(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function dominantProfile() {
+      // Priorité en cas d'égalité : D > B > C > A (orientation prudente vers l'aide)
+      var order = ['D', 'B', 'C', 'A'];
+      var best = order[0];
+      for (var i = 0; i < order.length; i++) {
+        if (votes[order[i]] > votes[best]) best = order[i];
+      }
+      return best;
+    }
+
+    function showResult() {
+      var p = PROFILES[dominantProfile()];
+      progressBar.style.width = '100%';
+      questionScreen.classList.add('hidden');
+      resultScreen.classList.remove('hidden');
+      document.getElementById('rEmoji').textContent = p.emoji;
+      document.getElementById('rTitle').textContent = p.title;
+      document.getElementById('rText').innerHTML = p.text;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/traumatismes-stress-post-traumatique-sequelles-solutions/';
+      var shareText = 'J\u2019ai fait le test \u00ab Apr\u00e8s un \u00e9v\u00e9nement difficile : o\u00f9 en \u00eates-vous ? \u00bb sur Oui Psycho!';
+      document.getElementById('shareFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('restartBtn').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      resultScreen.classList.add('hidden');
+      questionScreen.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    showQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
