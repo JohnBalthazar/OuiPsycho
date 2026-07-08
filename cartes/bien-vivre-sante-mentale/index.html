@@ -1201,13 +1201,33 @@
   }
 
   function initMap() {
+    var isMobile = L.Browser.mobile;
     leafletMap = L.map('carte-leaflet', {
       center: [46.5, 2.5], zoom: 6,
       maxBounds: [[41.0, -5.5], [51.5, 9.7]],
       maxBoundsViscosity: 1.0,
       minZoom: 5, maxZoom: 10,
-      zoomControl: true, scrollWheelZoom: false
+      zoomControl: true,
+      scrollWheelZoom: false,
+      dragging: !isMobile,   // sur mobile : le doigt fait défiler la page, pas la carte
+      tap: !isMobile
     });
+    // Hint tactile — visible uniquement sur mobile, disparaît au premier tap
+    if (isMobile) {
+      var hint = document.createElement('div');
+      hint.id = 'map-touch-hint';
+      hint.textContent = '👆 Appuyez sur une région pour explorer';
+      hint.style.cssText = 'position:absolute;bottom:12px;left:50%;transform:translateX(-50%);'
+        + 'background:rgba(11,31,56,.82);color:#fff;font-size:.72rem;font-weight:600;'
+        + 'padding:5px 14px;border-radius:20px;pointer-events:none;z-index:800;'
+        + 'white-space:nowrap;transition:opacity .4s';
+      document.getElementById('carte-leaflet').appendChild(hint);
+      // Disparaît après le premier clic/tap sur la carte
+      leafletMap.once('click', function() {
+        hint.style.opacity = '0';
+        setTimeout(function(){ if (hint.parentNode) hint.parentNode.removeChild(hint); }, 450);
+      });
+    }
     // Tuiles OpenStreetMap France — labels en français, libre de droits
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
       attribution: '&copy; Contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &mdash; Rendu <a href="https://openstreetmap.fr/">OSMFR</a>',
