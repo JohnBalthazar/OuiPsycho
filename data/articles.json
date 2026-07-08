@@ -250,6 +250,64 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologie-positive-peut-elle-nous-sauver",
+    "title": "La psychologie positive peut-elle nous sauver ?",
+    "type": "article",
+    "excerpt": "Simple pensée magique ou vrai remède contre un monde anxiogène ? Ce que dit la science de la psychologie positive — et cinq pratiques concrètes à tester dès ce soir.",
+    "metaDescription": "La psychologie positive peut-elle nous sauver ? Définition, preuves scientifiques, modèle PERMA et 5 exercices concrets pour aller mieux au quotidien.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-06",
+    "date_modified": "2026-11-06",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "psychologie-positive",
+      "bien-etre",
+      "gratitude",
+      "resilience",
+      "developpement-personnel"
+    ],
+    "sources": [
+      {
+        "authors": "Seligman M. E. P. & Csikszentmihalyi M.",
+        "year": "2000",
+        "title": "Positive psychology: An introduction",
+        "journal": "American Psychologist"
+      },
+      {
+        "authors": "Seligman M. E. P., Steen T. A., Park N. & Peterson C.",
+        "year": "2005",
+        "title": "Positive psychology progress: Empirical validation of interventions",
+        "journal": "American Psychologist"
+      },
+      {
+        "authors": "Emmons R. A. & McCullough M. E.",
+        "year": "2003",
+        "title": "Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life",
+        "journal": "Journal of Personality and Social Psychology"
+      },
+      {
+        "authors": "Seligman M. E. P.",
+        "year": "2011",
+        "title": "Flourish: A Visionary New Understanding of Happiness and Well-being",
+        "publisher": "Free Press"
+      },
+      {
+        "authors": "Shankland R.",
+        "year": "2019",
+        "title": "La psychologie positive",
+        "publisher": "Dunod"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "se-debarrasser-anxiete-pour-toujours",
     "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
     "type": "article",
