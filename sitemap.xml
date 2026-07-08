@@ -75,7 +75,13 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles (46 publiés — généré automatiquement) -->
+  <!-- Articles (47 publiés — généré automatiquement) -->
+  <url>
+    <loc>https://ouipsycho.fr/articles/signes-sante-mentale-en-declin/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
   <url>
     <loc>https://ouipsycho.fr/articles/du-crush-au-crash-anatomie-histoires-amour/</loc>
     <lastmod>2026-07-07</lastmod>
