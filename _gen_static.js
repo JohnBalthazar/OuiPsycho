@@ -66,10 +66,10 @@ for (const file of jsonFiles) {
   const displayAuthor = (!j.author || RÉDACTION_SET.has(j.author)) ? AUTHOR_NAME : j.author;
   const isJohnB       = displayAuthor === AUTHOR_NAME;
 
-  // Article planifié dont la date n'est pas encore arrivée → on ne génère rien du tout
-  const isFutureScheduled = j.status === 'scheduled' && j.date > TODAY;
-  if (isFutureScheduled) {
-    console.log(`⏳ articles/${j.id}/ ignoré — planifié pour le ${j.date}`);
+  // Article dont la date n'est pas encore arrivée → on ne génère rien du tout
+  // (couvre status=scheduled ET status=published avec date future)
+  if (j.date > TODAY) {
+    console.log(`⏳ articles/${j.id}/ ignoré — date future (${j.date})`);
     continue;
   }
   const robotsMeta = 'index, follow';
@@ -514,9 +514,9 @@ const newIndex = jsonFiles.map(file => {
     status:          j.status           || 'published',
   };
 }).filter(a => {
-  // Exclure les brouillons et les articles planifiés dont la date n'est pas encore arrivée
+  // Exclure les brouillons et tout article dont la date n'est pas encore arrivée
   if (a.status === 'draft') return false;
-  if (a.status === 'scheduled' && a.date > TODAY) return false;
+  if (a.date > TODAY) return false;
   return true;
 }).sort((a, b) => b.date.localeCompare(a.date)); // tri par date décroissante
 

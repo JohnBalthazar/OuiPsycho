@@ -75,9 +75,15 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles (47 publiés — généré automatiquement) -->
+  <!-- Articles (46 publiés — généré automatiquement) -->
   <url>
-    <loc>https://ouipsycho.fr/articles/signes-sante-mentale-en-declin/</loc>
+    <loc>https://ouipsycho.fr/articles/ia-revolution-travail-emploi/</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/syndrome-witzelsucht/</loc>
     <lastmod>2026-07-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -107,12 +113,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ouipsycho.fr/articles/ia-revolution-travail-emploi/</loc>
-    <lastmod>2026-07-04</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ouipsycho.fr/articles/asterix-obelix-psychopathologie-complice/</loc>
     <lastmod>2026-07-04</lastmod>
     <changefreq>monthly</changefreq>
@@ -133,12 +133,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/coloriage-therapie-crayons-meilleur-psy/</loc>
     <lastmod>2026-06-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/syndrome-witzelsucht/</loc>
-    <lastmod>2026-06-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

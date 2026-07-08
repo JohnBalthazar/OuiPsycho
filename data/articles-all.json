@@ -107,19 +107,18 @@
   {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
-    "type": "article",
-    "excerpt": "Il ne crie pas toujours, et pourtant on se sent vidé et coupable. Voici 5 réflexes concrets, éclairés par la recherche, pour repérer l'emprise et reprendre la main sur la relation.",
-    "metaDescription": "Pervers narcissique : 5 réflexes concrets et éclairés par la science pour repérer l'emprise, ancrer la réalité et se protéger de la manipulation.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-12-03",
     "date_modified": "2026-12-03",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "pervers-narcissique",
       "emprise",
@@ -127,59 +126,25 @@
       "violence-psychologique",
       "gray-rock"
     ],
-    "sources": [
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "La Découverte / Syros"
-      },
-      {
-        "authors": "Racamier P.-C.",
-        "year": "2012",
-        "title": "Les perversions narcissiques",
-        "publisher": "Payot"
-      },
-      {
-        "authors": "Green A. & Charles K.",
-        "year": "2019",
-        "title": "Voicing the Victims of Narcissistic Partners: A Qualitative Analysis of Responses to Narcissistic Injury and Self-Esteem Regulation",
-        "journal": "SAGE Open",
-        "url": "https://doi.org/10.1177/2158244019846693"
-      },
-      {
-        "authors": "Oliver E., Coates A., Bennett J. M. & Willis M. L.",
-        "year": "2024",
-        "title": "Narcissism and Intimate Partner Violence: A Systematic Review and Meta-Analysis",
-        "journal": "Trauma, Violence, & Abuse",
-        "url": "https://doi.org/10.1177/15248380231196115"
-      },
-      {
-        "authors": "Sweet P. L.",
-        "year": "2019",
-        "title": "The Sociology of Gaslighting",
-        "journal": "American Sociological Review"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
-    "type": "article",
-    "excerpt": "L'emprise abîme la confiance en soi autant qu'en les autres. Mais elle se reconstruit. Voici les mécanismes en jeu et des repères concrets pour avancer, à votre rythme.",
-    "metaDescription": "Gaslighting, lien traumatique, mémoire traumatique : après un pervers narcissique, comment se refaire confiance, à soi et aux autres ? Nos repères pour avancer.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-26",
     "date_modified": "2026-11-26",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "pervers-narcissique",
       "emprise",
@@ -187,43 +152,7 @@
       "psychotraumatisme",
       "reconstruction"
     ],
-    "sources": [
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "Syros",
-        "url": ""
-      },
-      {
-        "authors": "Dutton D. G. & Painter S.",
-        "year": "1993",
-        "title": "Emotional attachments in abusive relationships: a test of traumatic bonding theory",
-        "journal": "Violence and Victims, 8(2), 105-120",
-        "url": "https://doi.org/10.1891/0886-6708.8.2.105"
-      },
-      {
-        "authors": "Herman J. L.",
-        "year": "1992",
-        "title": "Trauma and Recovery: The Aftermath of Violence",
-        "publisher": "Basic Books",
-        "url": ""
-      },
-      {
-        "authors": "van der Kolk B.",
-        "year": "2014",
-        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
-        "publisher": "Viking",
-        "url": ""
-      },
-      {
-        "authors": "Salmona M.",
-        "year": "2013",
-        "title": "Le livre noir des violences sexuelles",
-        "publisher": "Dunod",
-        "url": ""
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -256,19 +185,18 @@
   {
     "id": "experience-mort-imminente-science",
     "title": "Expérience de mort imminente : que dit la science ?",
-    "type": "article",
-    "excerpt": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on vraiment ?",
-    "metaDescription": "Expériences de mort imminente (EMI) : témoignages, hypothèses neuroscientifiques et débats. Ce que la science sait — et ignore encore — de ce phénomène fascinant.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-19",
     "date_modified": "2026-11-19",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "experience-mort-imminente",
       "neurosciences",
@@ -276,43 +204,7 @@
       "mort",
       "psychologie"
     ],
-    "sources": [
-      {
-        "authors": "van Lommel P., van Wees R., Meyers V. & Elfferich I.",
-        "year": "2001",
-        "title": "Near-death experience in survivors of cardiac arrest: a prospective study in the Netherlands",
-        "journal": "The Lancet, 358(9298), 2039-2045",
-        "url": "https://doi.org/10.1016/S0140-6736(01)07100-8"
-      },
-      {
-        "authors": "Xu G., Mihaylova T., Li D., Tian F., Farrehi P. M., Parent J. M., Mashour G. A., Wang M. M. & Borjigin J.",
-        "year": "2023",
-        "title": "Surge of neurophysiological coupling and connectivity of gamma oscillations in the dying human brain",
-        "journal": "PNAS, 120(19), e2216268120",
-        "url": "https://doi.org/10.1073/pnas.2216268120"
-      },
-      {
-        "authors": "Parnia S., Keshavarz Shirazi T., Patel J. et al.",
-        "year": "2023",
-        "title": "AWAreness during REsuscitation - II: A multi-center study of consciousness and awareness in cardiac arrest",
-        "journal": "Resuscitation, 191, 109903",
-        "url": "https://doi.org/10.1016/j.resuscitation.2023.109903"
-      },
-      {
-        "authors": "Borjigin J., Lee U., Liu T. et al.",
-        "year": "2013",
-        "title": "Surge of neurophysiological coherence and connectivity in the dying brain",
-        "journal": "PNAS, 110(35), 14432-14437",
-        "url": "https://doi.org/10.1073/pnas.1308285110"
-      },
-      {
-        "authors": "Greyson B.",
-        "year": "1983",
-        "title": "The Near-Death Experience Scale: construction, reliability, and validity",
-        "journal": "The Journal of Nervous and Mental Disease, 171(6), 369-375",
-        "url": "https://doi.org/10.1097/00005053-198306000-00007"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -345,19 +237,18 @@
   {
     "id": "comment-survivre-a-une-rupture",
     "title": "Comment survivre à une rupture ?",
-    "type": "article",
-    "excerpt": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du deuil amoureux et des façons concrètes de s'en relever.",
-    "metaDescription": "Pourquoi une rupture fait-elle si mal ? Neurosciences du chagrin d'amour, étapes du deuil amoureux et conseils concrets pour retrouver son équilibre.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-13",
     "date_modified": "2026-11-13",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "rupture",
       "deuil-amoureux",
@@ -365,29 +256,33 @@
       "resilience",
       "neurosciences"
     ],
-    "sources": [
-      {
-        "authors": "Kross, E., Berman, M. G., Mischel, W., Smith, E. E., & Wager, T. D.",
-        "year": "2011",
-        "title": "Social rejection shares somatosensory representations with physical pain",
-        "journal": "Proceedings of the National Academy of Sciences, 108(15), 6270-6275",
-        "url": "https://doi.org/10.1073/pnas.1102693108"
-      },
-      {
-        "authors": "Fisher, H. E., Brown, L. L., Aron, A., Strong, G., & Mashek, D.",
-        "year": "2010",
-        "title": "Reward, addiction, and emotion regulation systems associated with rejection in love",
-        "journal": "Journal of Neurophysiology, 104(1), 51-60",
-        "url": "https://doi.org/10.1152/jn.00784.2009"
-      },
-      {
-        "authors": "Bonanno, G. A.",
-        "year": "2004",
-        "title": "Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?",
-        "journal": "American Psychologist, 59(1), 20-28",
-        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
-      }
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "ia-peut-elle-pousser-au-suicide",
+    "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
+    "excerpt": "",
+    "date": "2026-11-12",
+    "date_modified": "2026-07-08",
+    "category": "Troubles Psy",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "intelligence-artificielle",
+      "prevention-suicide",
+      "sante-mentale",
+      "adolescents",
+      "ecrans-et-numerique"
     ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -420,19 +315,18 @@
   {
     "id": "psychologie-positive-peut-elle-nous-sauver",
     "title": "La psychologie positive peut-elle nous sauver ?",
-    "type": "article",
-    "excerpt": "Simple pensée magique ou vrai remède contre un monde anxiogène ? Ce que dit la science de la psychologie positive — et cinq pratiques concrètes à tester dès ce soir.",
-    "metaDescription": "La psychologie positive peut-elle nous sauver ? Définition, preuves scientifiques, modèle PERMA et 5 exercices concrets pour aller mieux au quotidien.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-06",
     "date_modified": "2026-11-06",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "psychologie-positive",
       "bien-etre",
@@ -440,57 +334,25 @@
       "resilience",
       "developpement-personnel"
     ],
-    "sources": [
-      {
-        "authors": "Seligman M. E. P. & Csikszentmihalyi M.",
-        "year": "2000",
-        "title": "Positive psychology: An introduction",
-        "journal": "American Psychologist"
-      },
-      {
-        "authors": "Seligman M. E. P., Steen T. A., Park N. & Peterson C.",
-        "year": "2005",
-        "title": "Positive psychology progress: Empirical validation of interventions",
-        "journal": "American Psychologist"
-      },
-      {
-        "authors": "Emmons R. A. & McCullough M. E.",
-        "year": "2003",
-        "title": "Counting blessings versus burdens: An experimental investigation of gratitude and subjective well-being in daily life",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Seligman M. E. P.",
-        "year": "2011",
-        "title": "Flourish: A Visionary New Understanding of Happiness and Well-being",
-        "publisher": "Free Press"
-      },
-      {
-        "authors": "Shankland R.",
-        "year": "2019",
-        "title": "La psychologie positive",
-        "publisher": "Dunod"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "se-debarrasser-anxiete-pour-toujours",
     "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
-    "type": "article",
-    "excerpt": "Vivre enfin sans anxiété : le rêve de beaucoup. Mais est-ce possible, et même souhaitable ? La science donne une réponse nuancée — et étonnamment libératrice.",
-    "metaDescription": "Peut-on se débarrasser définitivement de l'anxiété ? Guérison, rémission, traitements efficaces : ce que dit vraiment la psychologie sur les troubles anxieux.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-05",
     "date_modified": "2026-11-05",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "anxiete",
       "troubles-anxieux",
@@ -498,32 +360,7 @@
       "gestion-du-stress",
       "sante-mentale"
     ],
-    "sources": [
-      {
-        "authors": "Haute Autorité de Santé",
-        "year": "2007",
-        "title": "Affections psychiatriques de longue durée : troubles anxieux graves",
-        "journal": "HAS — Guide ALD"
-      },
-      {
-        "authors": "Inserm",
-        "year": "2020",
-        "title": "Troubles anxieux : quand l'anxiété devient pathologique",
-        "journal": "Inserm — Dossier d'information"
-      },
-      {
-        "authors": "American Psychiatric Association",
-        "year": "2022",
-        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5-TR)",
-        "publisher": "American Psychiatric Publishing"
-      },
-      {
-        "authors": "Bandelow B. & Michaelis S.",
-        "year": "2015",
-        "title": "Epidemiology of anxiety disorders in the 21st century",
-        "journal": "Dialogues in Clinical Neuroscience"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -562,6 +399,7 @@
     "date_modified": "2026-10-30",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1610,19 +1448,18 @@
   {
     "id": "survivre-relation-toxique",
     "title": "Survivre à une relation toxique ?",
-    "type": "article",
-    "excerpt": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.",
-    "metaDescription": "Relation toxique : définition, témoignages et ce que dit la science sur le lien traumatique. Repères concrets pour reconnaître l'emprise et s'en protéger.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-07-26",
     "date_modified": "2026-07-26",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "relation-toxique",
       "emprise",
@@ -1630,40 +1467,7 @@
       "violence-psychologique",
       "estime-de-soi"
     ],
-    "sources": [
-      {
-        "authors": "Dutton D. G. & Painter S.",
-        "year": "1993",
-        "title": "Emotional Attachments in Abusive Relationships: A Test of Traumatic Bonding Theory",
-        "journal": "Violence and Victims"
-      },
-      {
-        "authors": "Green A. & Charles K.",
-        "year": "2019",
-        "title": "Voicing the Victims of Narcissistic Partners: A Qualitative Analysis of Responses to Narcissistic Injury and Self-Esteem Regulation",
-        "journal": "SAGE Open",
-        "url": "https://doi.org/10.1177/2158244019846693"
-      },
-      {
-        "authors": "Oliver E., Coates A., Bennett J. M. & Willis M. L.",
-        "year": "2024",
-        "title": "Narcissism and Intimate Partner Violence: A Systematic Review and Meta-Analysis",
-        "journal": "Trauma, Violence, & Abuse",
-        "url": "https://doi.org/10.1177/15248380231196115"
-      },
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "La Découverte / Syros"
-      },
-      {
-        "authors": "Sweet P. L.",
-        "year": "2019",
-        "title": "The Sociology of Gaslighting",
-        "journal": "American Sociological Review"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "cinq-reflexes-se-proteger-pervers-narcissique"
     ],
@@ -1862,12 +1666,12 @@
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
-    "type": "article",
-    "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "excerpt": "",
     "date": "2026-07-09",
     "date_modified": "2026-07-08",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1882,7 +1686,7 @@
       "cinéma",
       "psychologie"
     ],
-    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1968,12 +1772,12 @@
   {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
-    "type": "dossier",
     "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
     "date": "2026-07-04",
     "date_modified": "2026-07-08",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/isglpayxcna2aqobpces",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2081,12 +1885,12 @@
   {
     "id": "syndrome-witzelsucht",
     "title": "Votre collègue enchaine les blagues qui ne font rire que lui : il est peut être atteint du syndrome de Witzelsucht",
-    "type": "article",
     "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
     "date": "2026-06-26",
     "date_modified": "2026-07-08",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y0srxz0uozhsdszhlxhx",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
