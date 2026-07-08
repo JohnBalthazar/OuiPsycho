@@ -105,6 +105,69 @@
     "status": "scheduled"
   },
   {
+    "id": "refaire-confiance-apres-pervers-narcissique",
+    "title": "Comment (se) refaire confiance après un pervers narcissique ?",
+    "type": "article",
+    "excerpt": "L'emprise abîme la confiance en soi autant qu'en les autres. Mais elle se reconstruit. Voici les mécanismes en jeu et des repères concrets pour avancer, à votre rythme.",
+    "metaDescription": "Gaslighting, lien traumatique, mémoire traumatique : après un pervers narcissique, comment se refaire confiance, à soi et aux autres ? Nos repères pour avancer.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-26",
+    "date_modified": "2026-11-26",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "pervers-narcissique",
+      "emprise",
+      "confiance-en-soi",
+      "psychotraumatisme",
+      "reconstruction"
+    ],
+    "sources": [
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral : la violence perverse au quotidien",
+        "publisher": "Syros",
+        "url": ""
+      },
+      {
+        "authors": "Dutton D. G. & Painter S.",
+        "year": "1993",
+        "title": "Emotional attachments in abusive relationships: a test of traumatic bonding theory",
+        "journal": "Violence and Victims, 8(2), 105-120",
+        "url": "https://doi.org/10.1891/0886-6708.8.2.105"
+      },
+      {
+        "authors": "Herman J. L.",
+        "year": "1992",
+        "title": "Trauma and Recovery: The Aftermath of Violence",
+        "publisher": "Basic Books",
+        "url": ""
+      },
+      {
+        "authors": "van der Kolk B.",
+        "year": "2014",
+        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
+        "publisher": "Viking",
+        "url": ""
+      },
+      {
+        "authors": "Salmona M.",
+        "year": "2013",
+        "title": "Le livre noir des violences sexuelles",
+        "publisher": "Dunod",
+        "url": ""
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "inspecteur-gadget-sur-le-divan",
     "title": "Inspecteur Gadget sur le divan : psychologie d'un inspecteur en 2D",
     "excerpt": "",
