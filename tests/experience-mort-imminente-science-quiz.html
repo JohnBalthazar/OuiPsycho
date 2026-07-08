@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/experience-mort-imminente-science/">
+<title>Quel est votre rapport à la mort ?</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  :root{
+    --bg:#ffffff; --ink:#22303c; --muted:#5b6b78;
+    --brand:#1F4E6B; --brand-2:#2f7d9e; --accent:#e08a54;
+    --soft:#f2f6f8; --line:#e2e9ee; --ok:#1F4E6B;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.55;}
+  .wrap{max-width:640px;margin:0 auto;padding:22px 18px;}
+  .card{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 6px 24px rgba(31,78,107,.06);}
+  .kicker{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--brand-2);font-weight:700;margin:0 0 6px;}
+  h1{font-size:1.35rem;margin:0 0 6px;color:var(--brand);}
+  .lede{color:var(--muted);margin:0 0 18px;font-size:.98rem;}
+  .progress{height:7px;background:var(--soft);border-radius:99px;overflow:hidden;margin:0 0 18px;}
+  .bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .35s ease;}
+  .qcount{font-size:.82rem;color:var(--muted);margin:0 0 8px;font-weight:600;}
+  .question{font-size:1.12rem;font-weight:700;margin:0 0 16px;color:var(--ink);}
+  .opt{display:block;width:100%;text-align:left;border:1px solid var(--line);background:var(--bg);border-radius:12px;padding:13px 15px;margin:0 0 10px;font-size:1rem;color:var(--ink);cursor:pointer;transition:border-color .15s,background .15s,transform .05s;}
+  .opt:hover{border-color:var(--brand-2);background:var(--soft);}
+  .opt:active{transform:scale(.995);}
+  .result-emoji{font-size:2.6rem;line-height:1;margin:0 0 6px;}
+  .result-title{font-size:1.35rem;color:var(--brand);margin:0 0 4px;font-weight:800;}
+  .result-tag{display:inline-block;font-size:.8rem;font-weight:700;color:#fff;background:var(--brand);padding:3px 10px;border-radius:99px;margin:0 0 14px;}
+  .result-body p{margin:0 0 12px;}
+  .advice{background:var(--soft);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin:16px 0;}
+  .advice strong{color:var(--brand);}
+  .share{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 6px;}
+  .share a{flex:1;min-width:120px;text-align:center;text-decoration:none;font-size:.9rem;font-weight:700;padding:10px 12px;border-radius:10px;color:#fff;}
+  .fb{background:#1877f2;} .tw{background:#111;} .wa{background:#25d366;}
+  .btn{display:inline-block;background:var(--brand);color:#fff;border:none;border-radius:11px;padding:12px 20px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:8px;}
+  .btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--line);}
+  .disclaimer{font-size:.84rem;color:var(--muted);background:#fff8f2;border:1px solid #f3e0d1;border-radius:10px;padding:12px 14px;margin:18px 0 0;line-height:1.5;}
+  .hidden{display:none;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <!-- ÉCRAN QUIZ -->
+    <div id="quiz">
+      <p class="kicker">Test · Oui Psycho!</p>
+      <h1>Quel est votre rapport à la mort ?</h1>
+      <p class="lede">Sereine, anxieuse, évitée ou apprivoisée : notre relation à la mort en dit long sur notre façon d'habiter la vie. 8 questions pour situer la vôtre.</p>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <p class="qcount" id="qcount"></p>
+      <p class="question" id="question"></p>
+      <div id="options"></div>
+    </div>
+
+    <!-- ÉCRAN RÉSULTAT -->
+    <div id="result" class="hidden">
+      <p class="kicker">Votre profil</p>
+      <div class="result-emoji" id="rEmoji"></div>
+      <div class="result-title" id="rTitle"></div>
+      <span class="result-tag" id="rTag"></span>
+      <div class="result-body" id="rBody"></div>
+      <div class="advice" id="rAdvice"></div>
+
+      <div class="share" id="share"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div style="margin-top:14px">
+        <button class="btn ghost" id="restart">↺ Recommencer le test</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    { q: "Quand le sujet de la mort surgit dans une conversation…", a: [
+      ["Je change de sujet, ça me met mal à l'aise", "A"],
+      ["Je sens une pointe d'angoisse monter", "B"],
+      ["Ça m'intéresse, j'aime comprendre ce qui se passe", "C"],
+      ["J'en parle assez naturellement", "D"] ] },
+    { q: "Penser à votre propre mort, c'est plutôt…", a: [
+      ["Quelque chose que je préfère ne pas faire", "A"],
+      ["Une source d'inquiétude récurrente", "B"],
+      ["Une question philosophique stimulante", "C"],
+      ["Une réalité que j'accepte assez paisiblement", "D"] ] },
+    { q: "Face aux récits d'expériences de mort imminente…", a: [
+      ["Je préfère ne pas trop m'y attarder", "A"],
+      ["Ça me trouble, ça remue mes peurs", "B"],
+      ["Je cherche d'abord les explications scientifiques", "C"],
+      ["Ils m'inspirent une forme de sérénité", "D"] ] },
+    { q: "La perspective de « l'après »…", a: [
+      ["Je n'y réfléchis pas vraiment", "A"],
+      ["L'incertitude m'angoisse", "B"],
+      ["J'aime confronter les hypothèses (néant, conscience…)", "C"],
+      ["Je m'en remets à mes convictions, cela m'apaise", "D"] ] },
+    { q: "Quand un proche évoque ses volontés de fin de vie…", a: [
+      ["Je coupe court, c'est trop tôt pour en parler", "A"],
+      ["Je m'inquiète, pour lui et pour moi", "B"],
+      ["J'aborde le sujet concrètement et posément", "C"],
+      ["Je l'écoute avec calme, c'est une conversation importante", "D"] ] },
+    { q: "Un examen médical un peu inquiétant, et vous…", a: [
+      ["Vous essayez de ne pas y penser", "A"],
+      ["Vous imaginez rapidement le pire", "B"],
+      ["Vous vous renseignez, vous rationalisez", "C"],
+      ["Vous restez plutôt serein en attendant les résultats", "D"] ] },
+    { q: "La finitude de la vie, pour vous…", a: [
+      ["C'est un sujet que j'évite soigneusement", "A"],
+      ["Elle me pèse plus que je ne le voudrais", "B"],
+      ["Elle donne, à mes yeux, sa valeur à l'existence", "C"],
+      ["Elle fait partie du cycle, je m'y suis réconcilié·e", "D"] ] },
+    { q: "Si vous deviez résumer votre rapport à la mort en un mot…", a: [
+      ["« Distance »", "A"],
+      ["« Peur »", "B"],
+      ["« Curiosité »", "C"],
+      ["« Paix »", "D"] ] }
+  ];
+
+  var PROFILES = {
+    A: { emoji:"🚪", title:"L'évitement", tag:"Profil A",
+      body:"<p>Vous préférez tenir la mort à distance : en parler, y penser ou l'imaginer vous met mal à l'aise, alors vous détournez le regard. C'est une stratégie de protection très répandue, et parfaitement humaine.</p>",
+      advice:"<strong>Notre conseil :</strong> l'évitement soulage à court terme mais laisse la peur intacte. Vous n'avez rien à forcer : commencer par de petites approches — un livre, un documentaire, une conversation choisie — suffit souvent à désamorcer progressivement le malaise et à retrouver un peu de liberté face au sujet." },
+    B: { emoji:"🌊", title:"L'anxiété", tag:"Profil B",
+      body:"<p>La mort — la vôtre ou celle de vos proches — occupe une place importante dans vos pensées, souvent teintée d'inquiétude. Cette sensibilité témoigne aussi d'un fort attachement à la vie et aux autres.</p>",
+      advice:"<strong>Notre conseil :</strong> ressentir de l'angoisse face à la mort est normal. Mais si ces pensées deviennent envahissantes ou pèsent sur votre quotidien, en parler à un professionnel (médecin, psychologue) peut vraiment aider. Les approches de respiration, d'ancrage et de mise en sens sont de précieux appuis." },
+    C: { emoji:"🔭", title:"La curiosité rationnelle", tag:"Profil C",
+      body:"<p>Vous apprivoisez la mort en cherchant à la comprendre. Neurosciences, philosophie, hypothèses sur la conscience : le savoir est votre manière d'apaiser l'inconnu et de donner du sens à la finitude.</p>",
+      advice:"<strong>Notre conseil :</strong> c'est une ressource formidable. Veillez simplement à ne pas tout intellectualiser : les émotions, elles aussi, ont besoin d'un espace pour s'exprimer. Comprendre et ressentir ne s'opposent pas, ils se complètent." },
+    D: { emoji:"🕊️", title:"La sérénité", tag:"Profil D",
+      body:"<p>Vous entretenez une relation apaisée avec la mort, que ce soit par la spiritualité, l'expérience de vie ou un travail d'acceptation. Vous en parlez avec calme et pouvez même être un appui pour les autres.</p>",
+      advice:"<strong>Notre conseil :</strong> cette sérénité est précieuse — pour vous comme pour votre entourage. Restez simplement attentif à ce qu'elle reste une vraie paix, et non un évitement qui s'ignore. La sérénité authentique laisse aussi de la place au doute et à l'émotion." }
+  };
+
+  var idx = 0;
+  var votes = { A:0, B:0, C:0, D:0 };
+
+  var elBar = document.getElementById('bar');
+  var elCount = document.getElementById('qcount');
+  var elQ = document.getElementById('question');
+  var elOpts = document.getElementById('options');
+
+  function render() {
+    var item = QUESTIONS[idx];
+    elBar.style.width = (idx / QUESTIONS.length * 100) + '%';
+    elCount.textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    elQ.textContent = item.q;
+    elOpts.innerHTML = '';
+    item.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt[0];
+      b.onclick = function() { choose(opt[1]); };
+      elOpts.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function choose(letter) {
+    votes[letter]++;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      render();
+    } else {
+      showResult();
+    }
+  }
+
+  function dominant() {
+    var best = 'A', max = -1;
+    ['A','B','C','D'].forEach(function(k){ if (votes[k] > max) { max = votes[k]; best = k; } });
+    return best;
+  }
+
+  function showResult() {
+    elBar.style.width = '100%';
+    var p = PROFILES[dominant()];
+    document.getElementById('quiz').classList.add('hidden');
+    var r = document.getElementById('result');
+    r.classList.remove('hidden');
+    document.getElementById('rEmoji').textContent = p.emoji;
+    document.getElementById('rTitle').textContent = p.title;
+    document.getElementById('rTag').textContent = p.tag;
+    document.getElementById('rBody').innerHTML = p.body;
+    document.getElementById('rAdvice').innerHTML = p.advice;
+
+    var url = 'https://ouipsycho.fr/articles/experience-mort-imminente-science/';
+    var txt = 'J\u2019ai fait le test « Quel est votre rapport à la mort ? » sur Oui Psycho!';
+    var eu = encodeURIComponent(url);
+    var et = encodeURIComponent(txt);
+    document.getElementById('share').innerHTML =
+      '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+      '<a class="tw" href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+      '<a class="wa" href="https://wa.me/?text=' + encodeURIComponent(txt + ' ' + url) + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+
+    notifyResize();
+  }
+
+  document.getElementById('restart').onclick = function() {
+    idx = 0; votes = { A:0, B:0, C:0, D:0 };
+    document.getElementById('result').classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');
+    render();
+  };
+
+  render();
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
