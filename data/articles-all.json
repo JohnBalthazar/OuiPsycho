@@ -157,6 +157,55 @@
     "status": "scheduled"
   },
   {
+    "id": "comment-survivre-a-une-rupture",
+    "title": "Comment survivre à une rupture ?",
+    "type": "article",
+    "excerpt": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du deuil amoureux et des façons concrètes de s'en relever.",
+    "metaDescription": "Pourquoi une rupture fait-elle si mal ? Neurosciences du chagrin d'amour, étapes du deuil amoureux et conseils concrets pour retrouver son équilibre.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-13",
+    "date_modified": "2026-11-13",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "rupture",
+      "deuil-amoureux",
+      "chagrin-amour",
+      "resilience",
+      "neurosciences"
+    ],
+    "sources": [
+      {
+        "authors": "Kross, E., Berman, M. G., Mischel, W., Smith, E. E., & Wager, T. D.",
+        "year": "2011",
+        "title": "Social rejection shares somatosensory representations with physical pain",
+        "journal": "Proceedings of the National Academy of Sciences, 108(15), 6270-6275",
+        "url": "https://doi.org/10.1073/pnas.1102693108"
+      },
+      {
+        "authors": "Fisher, H. E., Brown, L. L., Aron, A., Strong, G., & Mashek, D.",
+        "year": "2010",
+        "title": "Reward, addiction, and emotion regulation systems associated with rejection in love",
+        "journal": "Journal of Neurophysiology, 104(1), 51-60",
+        "url": "https://doi.org/10.1152/jn.00784.2009"
+      },
+      {
+        "authors": "Bonanno, G. A.",
+        "year": "2004",
+        "title": "Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?",
+        "journal": "American Psychologist, 59(1), 20-28",
+        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ia-peut-elle-pousser-au-suicide",
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
     "type": "article",
