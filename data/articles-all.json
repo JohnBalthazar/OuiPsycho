@@ -131,6 +131,69 @@
     "status": "scheduled"
   },
   {
+    "id": "experience-mort-imminente-science",
+    "title": "Expérience de mort imminente : que dit la science ?",
+    "type": "article",
+    "excerpt": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on vraiment ?",
+    "metaDescription": "Expériences de mort imminente (EMI) : témoignages, hypothèses neuroscientifiques et débats. Ce que la science sait — et ignore encore — de ce phénomène fascinant.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-19",
+    "date_modified": "2026-11-19",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "experience-mort-imminente",
+      "neurosciences",
+      "conscience",
+      "mort",
+      "psychologie"
+    ],
+    "sources": [
+      {
+        "authors": "van Lommel P., van Wees R., Meyers V. & Elfferich I.",
+        "year": "2001",
+        "title": "Near-death experience in survivors of cardiac arrest: a prospective study in the Netherlands",
+        "journal": "The Lancet, 358(9298), 2039-2045",
+        "url": "https://doi.org/10.1016/S0140-6736(01)07100-8"
+      },
+      {
+        "authors": "Xu G., Mihaylova T., Li D., Tian F., Farrehi P. M., Parent J. M., Mashour G. A., Wang M. M. & Borjigin J.",
+        "year": "2023",
+        "title": "Surge of neurophysiological coupling and connectivity of gamma oscillations in the dying human brain",
+        "journal": "PNAS, 120(19), e2216268120",
+        "url": "https://doi.org/10.1073/pnas.2216268120"
+      },
+      {
+        "authors": "Parnia S., Keshavarz Shirazi T., Patel J. et al.",
+        "year": "2023",
+        "title": "AWAreness during REsuscitation - II: A multi-center study of consciousness and awareness in cardiac arrest",
+        "journal": "Resuscitation, 191, 109903",
+        "url": "https://doi.org/10.1016/j.resuscitation.2023.109903"
+      },
+      {
+        "authors": "Borjigin J., Lee U., Liu T. et al.",
+        "year": "2013",
+        "title": "Surge of neurophysiological coherence and connectivity in the dying brain",
+        "journal": "PNAS, 110(35), 14432-14437",
+        "url": "https://doi.org/10.1073/pnas.1308285110"
+      },
+      {
+        "authors": "Greyson B.",
+        "year": "1983",
+        "title": "The Near-Death Experience Scale: construction, reliability, and validity",
+        "journal": "The Journal of Nervous and Mental Disease, 171(6), 369-375",
+        "url": "https://doi.org/10.1097/00005053-198306000-00007"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "freud-sur-le-divan",
     "title": "Freud sur le divan : psychologie d'un psychanalyste",
     "excerpt": "",
