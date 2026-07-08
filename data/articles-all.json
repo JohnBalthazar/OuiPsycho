@@ -396,10 +396,8 @@
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
     "type": "article",
     "excerpt": "Trois familles endeuillées ont attaqué en justice les créateurs d'IA. Un chatbot peut-il vraiment mener au pire ? Faits, science, psychologie — et comment protéger les siens, à commencer par les enfants.",
-    "metaDescription": "Une IA peut-elle pousser au suicide ? Affaires réelles, mécanismes psychologiques et conseils de prévention pour se protéger et protéger ses enfants.",
-    "author": "La rédaction Oui Psycho!",
     "date": "2026-11-12",
-    "date_modified": "2026-11-12",
+    "date_modified": "2026-07-08",
     "category": "Troubles Psy",
     "image": "",
     "imagePosition": "50% 50%",
@@ -407,6 +405,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "intelligence-artificielle",
       "prevention-suicide",
@@ -414,49 +413,9 @@
       "adolescents",
       "ecrans-et-numerique"
     ],
-    "sources": [
-      {
-        "authors": "Euronews (El Atillah I.)",
-        "year": "2023",
-        "title": "Belgique : un homme poussé au suicide par l'intelligence artificielle",
-        "journal": "Euronews Next",
-        "url": "https://fr.euronews.com/next/2023/04/01/belgique-un-homme-pousse-au-suicide-par-lintelligence-artificielle"
-      },
-      {
-        "authors": "CNN Business",
-        "year": "2025",
-        "title": "Parents of 16-year-old Adam Raine sue OpenAI, claiming ChatGPT advised on his suicide",
-        "journal": "CNN"
-      },
-      {
-        "authors": "CNN Business",
-        "year": "2026",
-        "title": "Character.AI and Google agree to settle lawsuits over teen mental health harms and suicides",
-        "journal": "CNN"
-      },
-      {
-        "authors": "The Conversation France",
-        "year": "2026",
-        "title": "Comment enfants et adolescents grandissent avec l'IA, cette « amie » artificielle",
-        "journal": "The Conversation",
-        "url": "https://theconversation.com/comment-enfants-et-adolescents-grandissent-avec-lia-cette-amie-artificielle-271868"
-      },
-      {
-        "authors": "Wikipédia",
-        "year": "2026",
-        "title": "Effet ELIZA",
-        "journal": "Wikipédia (l'encyclopédie libre)",
-        "url": "https://fr.wikipedia.org/wiki/Effet_ELIZA"
-      },
-      {
-        "authors": "American Psychological Association",
-        "year": "2025",
-        "title": "Using generic AI chatbots for mental health support: A dangerous trend",
-        "journal": "APA — Health Advisory"
-      }
-    ],
+    "metaDescription": "Une IA peut-elle pousser au suicide ? Affaires réelles, mécanismes psychologiques et conseils de prévention pour se protéger et protéger ses enfants.",
     "articles_lies": [],
-    "status": "published"
+    "status": "scheduled"
   },
   {
     "id": "jesus-sur-le-divan",
