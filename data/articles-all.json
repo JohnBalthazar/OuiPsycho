@@ -1702,6 +1702,68 @@
     "status": "scheduled"
   },
   {
+    "id": "survivre-relation-toxique",
+    "title": "Survivre à une relation toxique ?",
+    "type": "article",
+    "excerpt": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.",
+    "metaDescription": "Relation toxique : définition, témoignages et ce que dit la science sur le lien traumatique. Repères concrets pour reconnaître l'emprise et s'en protéger.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-07-26",
+    "date_modified": "2026-07-26",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "relation-toxique",
+      "emprise",
+      "lien-traumatique",
+      "violence-psychologique",
+      "estime-de-soi"
+    ],
+    "sources": [
+      {
+        "authors": "Dutton D. G. & Painter S.",
+        "year": "1993",
+        "title": "Emotional Attachments in Abusive Relationships: A Test of Traumatic Bonding Theory",
+        "journal": "Violence and Victims"
+      },
+      {
+        "authors": "Green A. & Charles K.",
+        "year": "2019",
+        "title": "Voicing the Victims of Narcissistic Partners: A Qualitative Analysis of Responses to Narcissistic Injury and Self-Esteem Regulation",
+        "journal": "SAGE Open",
+        "url": "https://doi.org/10.1177/2158244019846693"
+      },
+      {
+        "authors": "Oliver E., Coates A., Bennett J. M. & Willis M. L.",
+        "year": "2024",
+        "title": "Narcissism and Intimate Partner Violence: A Systematic Review and Meta-Analysis",
+        "journal": "Trauma, Violence, & Abuse",
+        "url": "https://doi.org/10.1177/15248380231196115"
+      },
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral : la violence perverse au quotidien",
+        "publisher": "La Découverte / Syros"
+      },
+      {
+        "authors": "Sweet P. L.",
+        "year": "2019",
+        "title": "The Sociology of Gaslighting",
+        "journal": "American Sociological Review"
+      }
+    ],
+    "articles_lies": [
+      "cinq-reflexes-se-proteger-pervers-narcissique"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
     "excerpt": "",
