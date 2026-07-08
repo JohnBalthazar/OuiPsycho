@@ -788,7 +788,7 @@
     '07':[7,8,4,8,8,5,8,8,7],'15':[6,9,3,9,10,4,7,10,4],
     '26':[7,7,5,7,7,6,8,7,7],'38':[6,7,6,6,6,6,9,6,5],
     '42':[5,6,5,7,6,6,7,6,5],'43':[6,8,3,8,9,5,7,9,4],
-    '63':[6,8,5,7,8,6,8,8,5],'69':[5,4,8,4,4,8,8,4,5],
+    '63':[6,8,5,7,8,6,8,8,5],'69':[5,7,8,6,7,8,9,7,5],
     '73':[7,8,5,5,8,6,10,7,5],'74':[7,7,6,5,7,7,10,6,6],
     // PACA
     '04':[9,8,4,8,10,5,9,9,7],'05':[8,9,4,8,10,5,10,9,6],
@@ -1366,16 +1366,20 @@
       else if (pop < 200000) dens = 1800;
       else                   dens = 5500;
     }
-    // Interpolation continue sur 7 paliers de densité
-    //                      sun  nature  care  cost  air  social  sport  calm  weather
-    if (dens <   20) return {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0};
-    if (dens <   60) return {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0};
-    if (dens <  150) return {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
-    if (dens <  400) return {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0};
-    if (dens < 1200) return {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
-    if (dens < 3500) return {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
-    if (dens < 7000) return {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0};
-    /* très dense */ return {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
+    // Modificateur densité — 8 paliers
+    //                         sun  nature  care  cost  air  social  sport  calm  weather
+    var dm;
+    if      (dens <   20) dm = {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0};
+    else if (dens <   60) dm = {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0};
+    else if (dens <  150) dm = {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
+    else if (dens <  400) dm = {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0};
+    else if (dens < 1200) dm = {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
+    else if (dens < 3500) dm = {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
+    else if (dens < 7000) dm = {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0};
+    else                  dm = {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
+    // Facteur taille absolue : différencie les grandes métropoles (même densité, pression accrue)
+    if (pop >= 500000) { dm.nature -= 1; dm.sport -= 1; }
+    return dm;
   }
 
   // Score commune : base dept + ajustements densité, clampé [1,10]
