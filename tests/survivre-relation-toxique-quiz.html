@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/survivre-relation-toxique/">
+<title>Êtes-vous dans une relation toxique ? — Quiz Oui Psycho!</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #22303c; line-height: 1.55; background: transparent; padding: 4px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf0; border-radius: 16px;
+    padding: 26px 22px; box-shadow: 0 6px 24px rgba(31,78,107,.07);
+  }
+  .kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #1F4E6B; font-weight: 700; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 8px 0 10px; color: #16303f; }
+  .lead { color: #4a5b68; margin-bottom: 18px; }
+  .progress { height: 6px; background: #eef2f5; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .progress > span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#e8894a); transition: width .3s ease; }
+  .step { font-size: .8rem; color: #8091a0; margin-bottom: 8px; }
+  .question { font-size: 1.18rem; font-weight: 650; color: #16303f; margin-bottom: 16px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left; width: 100%; border: 1.5px solid #dce4ea; background: #fbfcfd;
+    border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: #2b3a46;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .opt:hover { border-color: #1F4E6B; background: #f3f8fb; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .btn {
+    display: inline-block; border: none; border-radius: 12px; padding: 13px 22px;
+    font-size: 1rem; font-weight: 650; cursor: pointer; background: #1F4E6B; color: #fff;
+  }
+  .btn:hover { background: #16394f; }
+  .btn.ghost { background: #eef2f5; color: #22303c; }
+  .btn.ghost:hover { background: #e2e9ee; }
+  .result-badge {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .result-emoji { font-size: 2.6rem; display: block; margin-bottom: 4px; }
+  .result-desc { color: #3c4c58; margin: 14px 0 4px; }
+  .result-desc p { margin-bottom: 10px; }
+  .disclaimer {
+    background: #f6f4ef; border-left: 4px solid #c58a1a; border-radius: 8px;
+    padding: 14px 16px; font-size: .92rem; color: #4a4335; margin: 20px 0;
+  }
+  .share { margin: 18px 0 6px; }
+  .share-label { font-size: .85rem; color: #6a7a87; margin-bottom: 8px; }
+  .share-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .share-links a {
+    text-decoration: none; font-size: .9rem; font-weight: 600; padding: 9px 14px;
+    border-radius: 10px; background: #eef2f5; color: #22303c;
+  }
+  .share-links a:hover { background: #e2e9ee; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="kicker">Quiz Oui Psycho!</div>
+      <h1>Êtes-vous dans une relation toxique ?</h1>
+      <p class="lead">Huit questions pour poser des mots sur ce que vous vivez. Répondez spontanément, en pensant à votre relation telle qu'elle est aujourd'hui — pas telle que vous voudriez qu'elle soit.</p>
+      <button class="btn" id="startBtn">Commencer le test →</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="step" id="step"></div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="result-emoji" id="rEmoji"></span>
+      <span class="result-badge" id="rBadge"></span>
+      <div class="result-desc" id="rDesc"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). En cas de violences,
+        le <strong>3919</strong> (Violences Femmes Info) écoute et oriente, anonymement.
+      </div>
+
+      <div class="share">
+        <div class="share-label">Ce test peut aider quelqu'un. Partagez-le :</div>
+        <div class="share-links">
+          <a id="shFb" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shTw" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    {
+      q: "Après un désaccord ou une dispute, comment cela se termine-t-il le plus souvent ?",
+      a: [
+        { t: "On finit par s'écouter, et chacun présente ses excuses si besoin.", p: "A" },
+        { t: "Ça retombe, mais je garde parfois un goût amer sans trop savoir pourquoi.", p: "B" },
+        { t: "C'est presque toujours moi qui cède ou qui m'excuse pour que ça s'arrête.", p: "C" },
+        { t: "J'ai peur de sa réaction, alors j'évite le sujet et je marche sur des œufs.", p: "D" }
+      ]
+    },
+    {
+      q: "Quand vous exprimez un besoin ou un désaccord, votre partenaire…",
+      a: [
+        { t: "En tient compte, même s'il/elle n'est pas d'accord.", p: "A" },
+        { t: "Écoute, mais revient souvent à sa version des choses.", p: "B" },
+        { t: "Minimise, tourne ça en ridicule ou change de sujet.", p: "C" },
+        { t: "Le retourne contre moi : au final, c'est encore ma faute.", p: "D" }
+      ]
+    },
+    {
+      q: "Vos liens avec vos amis et votre famille, depuis cette relation…",
+      a: [
+        { t: "Sont intacts, voire renforcés ; on se voit librement.", p: "A" },
+        { t: "Se sont un peu distendus, faute de temps.", p: "B" },
+        { t: "Se sont réduits : mon partenaire n'aime pas trop que je les voie.", p: "C" },
+        { t: "Ont presque disparu : je me sens isolé·e, il/elle est devenu·e mon seul repère.", p: "D" }
+      ]
+    },
+    {
+      q: "Face à vos réussites ou à vos projets personnels, votre partenaire…",
+      a: [
+        { t: "Se réjouit sincèrement et m'encourage.", p: "A" },
+        { t: "Réagit tièdement, comme si ça le/la concernait peu.", p: "B" },
+        { t: "Trouve toujours quelque chose à critiquer ou à relativiser.", p: "C" },
+        { t: "Le vit comme une menace ; mes succès semblent l'agacer ou le/la blesser.", p: "D" }
+      ]
+    },
+    {
+      q: "Concernant votre téléphone, vos sorties, votre emploi du temps…",
+      a: [
+        { t: "J'ai toute ma liberté ; on se fait confiance.", p: "A" },
+        { t: "On se tient au courant, sans que ce soit pesant.", p: "B" },
+        { t: "On me pose beaucoup de questions ; je me sens surveillé·e par moments.", p: "C" },
+        { t: "Je dois me justifier en permanence ; mes messages ou mes trajets sont contrôlés.", p: "D" }
+      ]
+    },
+    {
+      q: "Après avoir passé du temps ensemble, vous vous sentez le plus souvent…",
+      a: [
+        { t: "Apaisé·e, ressourcé·e.", p: "A" },
+        { t: "Bien, avec parfois un peu de fatigue relationnelle.", p: "B" },
+        { t: "Sur la réserve, comme après avoir désamorcé une bombe.", p: "C" },
+        { t: "Vidé·e, anxieux·se, en doute sur ma propre valeur.", p: "D" }
+      ]
+    },
+    {
+      q: "Quand un problème survient dans le couple, la responsabilité…",
+      a: [
+        { t: "Est partagée : on regarde ce que chacun peut ajuster.", p: "A" },
+        { t: "Penche un peu de mon côté, mais on en discute.", p: "B" },
+        { t: "Me revient presque toujours, d'une manière ou d'une autre.", p: "C" },
+        { t: "M'est systématiquement attribuée, même quand je sais que ce n'est pas le cas.", p: "D" }
+      ]
+    },
+    {
+      q: "Cette phrase vous parle-t-elle : « Il/elle peut être adorable, puis blessant·e, et ça recommence » ?",
+      a: [
+        { t: "Non, notre relation est plutôt stable et prévisible.", p: "A" },
+        { t: "Un peu : il y a des hauts et des bas, comme partout.", p: "B" },
+        { t: "Oui, ces alternances me déstabilisent souvent.", p: "C" },
+        { t: "Totalement : j'espère sans cesse le retour de la « bonne » version.", p: "D" }
+      ]
+    }
+  ];
+
+  var PROFILES = {
+    A: {
+      emoji: "🌿", label: "Une relation globalement saine", color: "#2e7d5b",
+      desc: "<p>Vos réponses dessinent une relation fondée sur le respect mutuel, la liberté et une capacité à réparer après les désaccords. Les conflits existent — c'est normal et même sain — mais ils ne se transforment pas en rapport de force.</p><p>Continuez à cultiver ce qui fonctionne : la communication ouverte, le soutien réciproque et le respect de l'espace de chacun. Aucun couple n'est parfait, mais le vôtre semble reposer sur des bases solides.</p>"
+    },
+    B: {
+      emoji: "🌤️", label: "Des tensions à surveiller", color: "#c58a1a",
+      desc: "<p>La plupart de vos réponses restent rassurantes, mais quelques signaux méritent votre attention : lassitude relationnelle, déséquilibres ponctuels, difficultés à vous sentir pleinement entendu·e.</p><p>Ce n'est pas de la toxicité, mais des points de vigilance. En parler à deux, poser des mots sur ce qui pèse, et parfois consulter à temps suffit souvent à remettre la relation sur de bons rails.</p>"
+    },
+    C: {
+      emoji: "⚠️", label: "Des signaux d'alerte", color: "#d2691e",
+      desc: "<p>Plusieurs de vos réponses évoquent des mécanismes que la recherche associe aux relations à risque : critiques répétées, contrôle, sentiment de céder en permanence, isolement progressif. Ce déséquilibre n'est pas anodin et peut s'installer sans qu'on s'en rende compte.</p><p>Vous n'avez pas à porter cela seul·e. Reconnecter avec vos proches, tenir une trace de ce qui vous heurte, et parler à un professionnel formé sont des premiers pas concrets. Notre article détaille des réflexes protecteurs à activer.</p>"
+    },
+    D: {
+      emoji: "🛟", label: "Votre sécurité d'abord", color: "#b23a48",
+      desc: "<p>Vos réponses décrivent une dynamique d'emprise : peur des réactions, culpabilité systématique, isolement, alternance entre moments doux et moments blessants. Ce que la science nomme le « lien traumatique » rend justement très difficile de partir — ce n'est pas un manque de volonté de votre part.</p><p>Votre ressenti est légitime, et vous méritez du soutien. Entourez-vous, parlez-en à une personne de confiance, et n'hésitez pas à contacter un professionnel ou les numéros ci-dessous. Votre sécurité passe avant tout.</p>"
+    }
+  };
+
+  var idx = 0;
+  var counts = { A:0, B:0, C:0, D:0 };
+  var order = ["A","B","C","D"]; // en cas d'égalité, on retient le profil le plus prudent (dernier)
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function startQuiz() {
+    idx = 0; counts = { A:0, B:0, C:0, D:0 };
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var Q = QUESTIONS[idx];
+    document.getElementById('step').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    document.getElementById('question').textContent = Q.q;
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    Q.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.onclick = function() { answer(opt.p); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(profile) {
+    counts[profile]++;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function dominantProfile() {
+    var best = order[0];
+    order.forEach(function(k) {
+      if (counts[k] >= counts[best]) best = k; // >= => le dernier à égalité l'emporte
+    });
+    return best;
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = '100%';
+    var key = dominantProfile();
+    var P = PROFILES[key];
+
+    document.getElementById('rEmoji').textContent = P.emoji;
+    var badge = document.getElementById('rBadge');
+    badge.textContent = P.label;
+    badge.style.background = P.color + '1a';
+    badge.style.color = P.color;
+    document.getElementById('rDesc').innerHTML = P.desc;
+
+    var url = 'https://ouipsycho.fr/articles/survivre-relation-toxique/';
+    var text = 'Êtes-vous dans une relation toxique ? J\u2019ai fait le test sur Oui Psycho!';
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = startQuiz;
+  document.getElementById('restartBtn').onclick = function() {
+    elResult.classList.add('hidden');
+    startQuiz();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
