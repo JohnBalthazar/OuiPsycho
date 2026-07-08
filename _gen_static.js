@@ -66,9 +66,13 @@ for (const file of jsonFiles) {
   const displayAuthor = (!j.author || RÉDACTION_SET.has(j.author)) ? AUTHOR_NAME : j.author;
   const isJohnB       = displayAuthor === AUTHOR_NAME;
 
-  // Article planifié dont la date n'est pas encore arrivée → noindex pour ne pas être indexé par Google avant publication
+  // Article planifié dont la date n'est pas encore arrivée → on ne génère rien du tout
   const isFutureScheduled = j.status === 'scheduled' && j.date > TODAY;
-  const robotsMeta        = isFutureScheduled ? 'noindex, nofollow' : 'index, follow';
+  if (isFutureScheduled) {
+    console.log(`⏳ articles/${j.id}/ ignoré — planifié pour le ${j.date}`);
+    continue;
+  }
+  const robotsMeta = 'index, follow';
 
   // Keypoints
   let kpHtml = '';
