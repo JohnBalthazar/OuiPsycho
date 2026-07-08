@@ -105,6 +105,66 @@
     "status": "scheduled"
   },
   {
+    "id": "cinq-reflexes-se-proteger-pervers-narcissique",
+    "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
+    "type": "article",
+    "excerpt": "Il ne crie pas toujours, et pourtant on se sent vidé et coupable. Voici 5 réflexes concrets, éclairés par la recherche, pour repérer l'emprise et reprendre la main sur la relation.",
+    "metaDescription": "Pervers narcissique : 5 réflexes concrets et éclairés par la science pour repérer l'emprise, ancrer la réalité et se protéger de la manipulation.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-12-03",
+    "date_modified": "2026-12-03",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "pervers-narcissique",
+      "emprise",
+      "manipulation",
+      "violence-psychologique",
+      "gray-rock"
+    ],
+    "sources": [
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral : la violence perverse au quotidien",
+        "publisher": "La Découverte / Syros"
+      },
+      {
+        "authors": "Racamier P.-C.",
+        "year": "2012",
+        "title": "Les perversions narcissiques",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Green A. & Charles K.",
+        "year": "2019",
+        "title": "Voicing the Victims of Narcissistic Partners: A Qualitative Analysis of Responses to Narcissistic Injury and Self-Esteem Regulation",
+        "journal": "SAGE Open",
+        "url": "https://doi.org/10.1177/2158244019846693"
+      },
+      {
+        "authors": "Oliver E., Coates A., Bennett J. M. & Willis M. L.",
+        "year": "2024",
+        "title": "Narcissism and Intimate Partner Violence: A Systematic Review and Meta-Analysis",
+        "journal": "Trauma, Violence, & Abuse",
+        "url": "https://doi.org/10.1177/15248380231196115"
+      },
+      {
+        "authors": "Sweet P. L.",
+        "year": "2019",
+        "title": "The Sociology of Gaslighting",
+        "journal": "American Sociological Review"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
     "type": "article",
