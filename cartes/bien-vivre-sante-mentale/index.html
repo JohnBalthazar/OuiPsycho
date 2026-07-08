@@ -597,7 +597,7 @@
     <h2>Pourquoi ces 9 crit&egrave;res ?</h2>
     <p>La psychologie environnementale a identifi&eacute; un faisceau de facteurs ext&eacute;rieurs qui influencent durablement l&rsquo;humeur, le stress et la r&eacute;silience :</p>
     <ul>
-      <li><strong>&#x2600;&#xFE0F; Ensoleillement</strong> &mdash; La lumi&egrave;re solaire r&eacute;gule la s&eacute;rotonine et le rythme circadien. Les r&eacute;gions peu enseill&eacute;es pr&eacute;sentent un taux de d&eacute;pression saisonni&egrave;re jusqu&rsquo;&agrave; 3&times; sup&eacute;rieur.</li>
+      <li><strong>&#x2600;&#xFE0F; Ensoleillement</strong> &mdash; La lumi&egrave;re solaire r&eacute;gule la s&eacute;rotonine et le rythme circadien. Les r&eacute;gions peu ensoleill&eacute;es pr&eacute;sentent un taux de d&eacute;pression saisonni&egrave;re jusqu&rsquo;&agrave; 3&times; sup&eacute;rieur.</li>
       <li><strong>&#x1F33F; Espaces verts</strong> &mdash; 20 minutes dans un parc r&eacute;duisent le cortisol de 21 % (Hunter et al., 2019).</li>
       <li><strong>&#x1F3E5; Acc&egrave;s soins psy</strong> &mdash; Densit&eacute; de psychologues et psychiatres lib&eacute;raux pour 100 000 habitants (DREES 2024).</li>
       <li><strong>&#x1F4B0; Co&ucirc;t de la vie</strong> &mdash; Le stress financier est le 1er facteur de d&eacute;tresse psychologique d&eacute;clar&eacute; en France.</li>
@@ -1161,11 +1161,11 @@
     var s = score(k), al = activeList(), tot = 0;
     for (var i = 0; i < al.length; i++) tot += (d[al[i]] || 0);
     var label   = LABELS[k] || geoNom;
-    var verdict = s >= 8.5 ? 'Exceptionnel pour la sante mentale.'
-      : s >= 7.5 ? 'Tres favorable selon vos criteres.'
+    var verdict = s >= 8.5 ? 'Exceptionnel pour la santé mentale.'
+      : s >= 7.5 ? 'Très favorable selon vos critères.'
       : s >= 6.5 ? 'Bonnes conditions globales.'
-      : s >= 5.5 ? 'Conditions mitigees.'
-      : 'Conditions difficiles sur ces criteres.';
+      : s >= 5.5 ? 'Conditions mitigées.'
+      : 'Conditions difficiles sur ces critères.';
     var bars = '';
     for (var i = 0; i < al.length; i++) {
       var ki = al[i], v = d[ki]||0, fc = v>=8?'#22c55e':v>=6?'#f59e0b':'#ef4444';
