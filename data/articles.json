@@ -386,32 +386,6 @@
     "status": "scheduled"
   },
   {
-    "id": "ia-peut-elle-pousser-au-suicide",
-    "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
-    "type": "article",
-    "excerpt": "Trois familles endeuillées ont attaqué en justice les créateurs d'IA. Un chatbot peut-il vraiment mener au pire ? Faits, science, psychologie — et comment protéger les siens, à commencer par les enfants.",
-    "date": "2026-11-12",
-    "date_modified": "2026-07-08",
-    "category": "Troubles Psy",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 11,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "intelligence-artificielle",
-      "prevention-suicide",
-      "sante-mentale",
-      "adolescents",
-      "ecrans-et-numerique"
-    ],
-    "metaDescription": "Une IA peut-elle pousser au suicide ? Affaires réelles, mécanismes psychologiques et conseils de prévention pour se protéger et protéger ses enfants.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "jesus-sur-le-divan",
     "title": "Jésus sur le divan : psychologie d'un messie",
     "excerpt": "",
@@ -571,58 +545,6 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "signes-sante-mentale-en-declin",
-    "title": "Les 7 signes que votre santé mentale est en déclin",
-    "type": "article",
-    "excerpt": "Le déclin de la santé mentale s'installe souvent à bas bruit. Voici sept signaux d'alerte que les cliniciens surveillent — pour mieux les repérer chez soi et chez ses proches.",
-    "metaDescription": "Sommeil, plaisir, isolement, irritabilité… 7 signes que votre santé mentale décline, expliqués par la psychologie, et quoi faire pour réagir à temps.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-10-30",
-    "date_modified": "2026-10-30",
-    "category": "Troubles Psy",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "tags": [
-      "sante-mentale",
-      "depression",
-      "signes-alerte",
-      "prevention",
-      "bien-etre-psychique"
-    ],
-    "sources": [
-      {
-        "authors": "Organisation mondiale de la santé",
-        "year": "2022",
-        "title": "La santé mentale : renforcer notre action",
-        "journal": "OMS — Principaux repères"
-      },
-      {
-        "authors": "American Psychiatric Association",
-        "year": "2022",
-        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5-TR)",
-        "publisher": "American Psychiatric Publishing"
-      },
-      {
-        "authors": "Haute Autorité de Santé",
-        "year": "2017",
-        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en premier recours",
-        "journal": "HAS — Recommandation de bonne pratique"
-      },
-      {
-        "authors": "Santé publique France",
-        "year": "2023",
-        "title": "Santé mentale : état des lieux et dispositifs de prévention",
-        "journal": "Bulletin épidémiologique hebdomadaire"
-      }
-    ],
-    "articles_lies": [],
-    "status": "published"
   },
   {
     "id": "traumatismes-stress-post-traumatique-sequelles-solutions",
