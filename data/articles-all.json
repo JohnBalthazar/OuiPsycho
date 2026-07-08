@@ -183,6 +183,58 @@
     "status": "scheduled"
   },
   {
+    "id": "se-debarrasser-anxiete-pour-toujours",
+    "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
+    "type": "article",
+    "excerpt": "Vivre enfin sans anxiété : le rêve de beaucoup. Mais est-ce possible, et même souhaitable ? La science donne une réponse nuancée — et étonnamment libératrice.",
+    "metaDescription": "Peut-on se débarrasser définitivement de l'anxiété ? Guérison, rémission, traitements efficaces : ce que dit vraiment la psychologie sur les troubles anxieux.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-05",
+    "date_modified": "2026-11-05",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "anxiete",
+      "troubles-anxieux",
+      "tcc",
+      "gestion-du-stress",
+      "sante-mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Haute Autorité de Santé",
+        "year": "2007",
+        "title": "Affections psychiatriques de longue durée : troubles anxieux graves",
+        "journal": "HAS — Guide ALD"
+      },
+      {
+        "authors": "Inserm",
+        "year": "2020",
+        "title": "Troubles anxieux : quand l'anxiété devient pathologique",
+        "journal": "Inserm — Dossier d'information"
+      },
+      {
+        "authors": "American Psychiatric Association",
+        "year": "2022",
+        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5-TR)",
+        "publisher": "American Psychiatric Publishing"
+      },
+      {
+        "authors": "Bandelow B. & Michaelis S.",
+        "year": "2015",
+        "title": "Epidemiology of anxiety disorders in the 21st century",
+        "journal": "Dialogues in Clinical Neuroscience"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "la-grande-faucheuse-sur-le-divan",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
     "excerpt": "",
