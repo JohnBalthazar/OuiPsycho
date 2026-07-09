@@ -131,6 +131,62 @@
     "status": "scheduled"
   },
   {
+    "id": "psy-rembourse-secu-mon-soutien-psy",
+    "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
+    "type": "article",
+    "excerpt": "Douze séances de psychologue par an, 50 € l'unité, remboursées à 100 % dans la plupart des cas, et désormais sans passer par le médecin. On vous explique le dispositif Mon soutien psy — et si ces psys en valent la peine.",
+    "metaDescription": "Séances de psy remboursées par la Sécurité sociale : conditions, démarche, annuaire et qualité des psychologues du dispositif Mon soutien psy expliqués.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-27",
+    "date_modified": "2026-11-27",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "mon-soutien-psy",
+      "remboursement-psychologue",
+      "acces-aux-soins",
+      "psychotherapie",
+      "assurance-maladie"
+    ],
+    "sources": [
+      {
+        "authors": "Assurance Maladie (Cnam)",
+        "year": "2026",
+        "title": "Dossier de presse — Mon soutien psy : un accompagnement psychologique accessible à tous",
+        "journal": "Caisse nationale de l'Assurance Maladie",
+        "url": "https://www.assurance-maladie.ameli.fr/presse/2026-01-16-dp-dispositif-mon-soutien-psy"
+      },
+      {
+        "authors": "Assurance Maladie",
+        "year": "2026",
+        "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
+        "journal": "ameli.fr",
+        "url": "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy"
+      },
+      {
+        "authors": "Haute Autorité de Santé (HAS)",
+        "year": "2017",
+        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en soins de premier recours. Recommandation de bonne pratique",
+        "journal": "Haute Autorité de Santé",
+        "url": ""
+      },
+      {
+        "authors": "National Institute for Health and Care Excellence (NICE)",
+        "year": "2009",
+        "title": "Depression in adults: recognition and management. Clinical guideline",
+        "journal": "NICE",
+        "url": ""
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
     "excerpt": "",
