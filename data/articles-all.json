@@ -105,6 +105,64 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologue-psychiatre-psychotherapeute-differences",
+    "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
+    "type": "article",
+    "excerpt": "Un seul prescrit des médicaments. Un seul fait passer des tests. Et l'un de ces titres n'est même pas protégé par la loi. Le guide clair pour frapper à la bonne porte du premier coup.",
+    "metaDescription": "Psychologue, psychiatre ou psychothérapeute : formations, titres protégés, remboursement et conseils pour savoir lequel consulter selon votre situation.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-12-04",
+    "date_modified": "2026-12-04",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "psychologue",
+      "psychiatre",
+      "psychotherapeute",
+      "choisir-son-psy",
+      "alliance-therapeutique"
+    ],
+    "sources": [
+      {
+        "authors": "République française",
+        "year": "2010",
+        "title": "Décret n° 2010-534 du 20 mai 2010 relatif à l'usage du titre de psychothérapeute",
+        "journal": "Journal officiel de la République française / Légifrance",
+        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
+      },
+      {
+        "authors": "République française",
+        "year": "1985",
+        "title": "Loi n° 85-772 du 25 juillet 1985, article 44 — usage professionnel du titre de psychologue",
+        "journal": "Journal officiel de la République française / Légifrance",
+        "url": ""
+      },
+      {
+        "authors": "Flückiger C., Del Re A. C., Wampold B. E. & Horvath A. O.",
+        "year": "2018",
+        "title": "The alliance in adult psychotherapy: A meta-analytic synthesis",
+        "journal": "Psychotherapy, 55(4), 316-340",
+        "url": "https://doi.org/10.1037/pst0000172"
+      },
+      {
+        "authors": "Haute Autorité de Santé (HAS)",
+        "year": "2017",
+        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en soins de premier recours. Recommandation de bonne pratique",
+        "journal": "Haute Autorité de Santé",
+        "url": ""
+      }
+    ],
+    "articles_lies": [
+      "psy-rembourse-secu-mon-soutien-psy"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
     "excerpt": "",
