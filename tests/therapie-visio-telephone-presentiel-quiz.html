@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/therapie-visio-telephone-presentiel/">
+<title>Visio, téléphone ou cabinet : quel format de thérapie vous correspond ?</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#22303c;line-height:1.6;padding:20px}
+  .wrap{max-width:680px;margin:0 auto}
+  .card{background:#f7f9fb;border:1px solid #e2e9ef;border-radius:16px;padding:28px}
+  h1{font-size:1.5rem;line-height:1.3;color:#1F4E6B;margin-bottom:10px}
+  .sub{color:#5b6b7a;font-size:.95rem;margin-bottom:22px}
+  .bar{height:6px;background:#e2e9ef;border-radius:99px;overflow:hidden;margin-bottom:6px}
+  .bar span{display:block;height:100%;background:#1F4E6B;width:0;transition:width .3s ease}
+  .count{font-size:.8rem;color:#7a8894;margin-bottom:18px;letter-spacing:.03em}
+  .q{font-size:1.15rem;font-weight:600;margin-bottom:18px;color:#16242f}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #dbe3ea;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:1rem;color:#22303c;cursor:pointer;transition:all .15s ease;font-family:inherit;line-height:1.45}
+  .opt:hover{border-color:#1F4E6B;background:#eef4f8;transform:translateY(-1px)}
+  .nav{margin-top:16px}
+  .back{background:none;border:none;color:#7a8894;font-size:.9rem;cursor:pointer;font-family:inherit;padding:6px 0}
+  .back:hover{color:#1F4E6B}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:10px}
+  .rtitle{font-size:1.45rem;color:#1F4E6B;margin-bottom:4px}
+  .rtag{display:inline-block;background:#1F4E6B;color:#fff;font-size:.78rem;padding:4px 12px;border-radius:99px;margin-bottom:16px;letter-spacing:.03em}
+  .rbody p{margin-bottom:14px}
+  .rbody strong{color:#16242f}
+  .tips{background:#fff;border:1px solid #dbe3ea;border-radius:12px;padding:16px 18px;margin:18px 0}
+  .tips h3{font-size:.95rem;color:#1F4E6B;margin-bottom:8px}
+  .tips ul{padding-left:18px}
+  .tips li{margin-bottom:6px;font-size:.95rem}
+  .disc{background:#fdf6e8;border:1px solid #f0dfb8;border-radius:12px;padding:14px 16px;font-size:.88rem;color:#5a4a2a;margin:18px 0}
+  .share{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+  .share a{text-decoration:none;font-size:.88rem;padding:9px 14px;border-radius:99px;border:1.5px solid #dbe3ea;color:#22303c;background:#fff;transition:all .15s ease}
+  .share a:hover{border-color:#1F4E6B;background:#eef4f8}
+  .again{background:#1F4E6B;color:#fff;border:none;border-radius:12px;padding:13px 22px;font-size:1rem;cursor:pointer;font-family:inherit;font-weight:600}
+  .again:hover{background:#163b52}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <div id="quiz">
+      <h1>Visio, téléphone ou cabinet : quel format de thérapie vous correspond ?</h1>
+      <p class="sub">8 questions, 2 minutes. Aucune bonne réponse — seulement la vôtre.</p>
+      <div class="bar"><span id="fill"></span></div>
+      <p class="count" id="count">Question 1 / 8</p>
+      <p class="q" id="qtext"></p>
+      <div id="opts"></div>
+      <div class="nav"><button class="back hidden" id="back" type="button">← Question précédente</button></div>
+    </div>
+
+    <div id="result" class="hidden">
+      <span class="emoji" id="remoji"></span>
+      <span class="rtag">Votre profil</span>
+      <h2 class="rtitle" id="rtitle"></h2>
+      <div class="rbody" id="rbody"></div>
+      <div class="tips" id="rtips"></div>
+
+      <div class="disc">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="share">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fouipsycho.fr%2Ftests%2Ftherapie-visio-telephone-presentiel-quiz.html" target="_blank" rel="noopener">📘 Facebook</a>
+        <a href="https://twitter.com/intent/tweet?text=Visio%2C%20t%C3%A9l%C3%A9phone%20ou%20cabinet%20%3A%20quel%20format%20de%20th%C3%A9rapie%20vous%20correspond%20%3F&url=https%3A%2F%2Fouipsycho.fr%2Ftests%2Ftherapie-visio-telephone-presentiel-quiz.html" target="_blank" rel="noopener">𝕏 Twitter</a>
+        <a href="https://wa.me/?text=Visio%2C%20t%C3%A9l%C3%A9phone%20ou%20cabinet%20%3A%20quel%20format%20de%20th%C3%A9rapie%20vous%20correspond%20%3F%20https%3A%2F%2Fouipsycho.fr%2Ftests%2Ftherapie-visio-telephone-presentiel-quiz.html" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+
+      <button class="again" id="again" type="button">↻ Recommencer le test</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+var QUESTIONS = [
+  {
+    q: "Vous devez prendre le tout premier rendez-vous. Ce qui vous freine le plus :",
+    a: [
+      ["Rien de particulier : je note l'adresse et j'y vais.", "A"],
+      ["Caser une heure de trajet dans une semaine déjà pleine.", "B"],
+      ["L'idée de soutenir un regard pendant cinquante minutes.", "C"],
+      ["M'engager sur un format unique pour plusieurs mois.", "D"]
+    ]
+  },
+  {
+    q: "Chez vous, existe-t-il un endroit où parler à cœur ouvert sans être entendu ?",
+    a: [
+      ["Franchement non. Les murs ont des oreilles.", "A"],
+      ["Oui, une pièce qui ferme, avec une bonne connexion.", "B"],
+      ["Pas vraiment, mais j'ai une voiture, un parc, un bout de trajet.", "C"],
+      ["Ça dépend complètement des jours et des personnes présentes.", "D"]
+    ]
+  },
+  {
+    q: "Une caméra braquée sur votre visage pendant une heure, ça vous fait :",
+    a: [
+      ["Un effet bizarre. Je préfère partager une pièce, pas un cadrage.", "A"],
+      ["Ni chaud ni froid, j'en fais toute la journée au travail.", "B"],
+      ["Franchement, je préférerais éteindre la caméra.", "C"],
+      ["Supportable, mais je sais que je fatiguerais à la longue.", "D"]
+    ]
+  },
+  {
+    q: "Le trajet jusqu'au cabinet, pour vous, c'est :",
+    a: [
+      ["Un sas. J'arrive préparé, je repars en digérant.", "A"],
+      ["Du temps perdu que je préfère investir ailleurs.", "B"],
+      ["Un vrai obstacle : distance, mobilité, ou trop de regards.", "C"],
+      ["Précieux certaines semaines, insurmontable d'autres.", "D"]
+    ]
+  },
+  {
+    q: "Ce que vous venez d'abord travailler, c'est plutôt :",
+    a: [
+      ["Quelque chose d'ancien, de corporel, ou de très douloureux à dire.", "A"],
+      ["Des pensées, des habitudes, des façons de réagir.", "B"],
+      ["Une honte, un secret, un sujet que je n'ai jamais dit à voix haute.", "C"],
+      ["Je ne sais pas encore. C'est un peu tout à la fois.", "D"]
+    ]
+  },
+  {
+    q: "Trente secondes de silence dans une séance, vous les vivez comment ?",
+    a: [
+      ["Comme un moment de travail. Je laisse venir.", "A"],
+      ["Un peu gênant, mais je m'y fais.", "B"],
+      ["Sans image, ça ne me dérange pas du tout : j'écoute la respiration.", "C"],
+      ["Ça dépend entièrement de la confiance déjà installée.", "D"]
+    ]
+  },
+  {
+    q: "Sur les six prochains mois, honnêtement, qu'est-ce qui vous ferait annuler ?",
+    a: [
+      ["Rien. J'ai bloqué le créneau, c'est sacré.", "A"],
+      ["Une réunion qui déborde, un train, un déplacement.", "B"],
+      ["Une mauvaise journée où je ne veux voir personne.", "C"],
+      ["Une période chargée, puis une accalmie, puis rebelote.", "D"]
+    ]
+  },
+  {
+    q: "Si vous deviez choisir aujourd'hui, votre premier réflexe serait :",
+    a: [
+      ["Une vraie pièce, un vrai fauteuil, une vraie personne en face.", "A"],
+      ["Un lien visio, propre et efficace, depuis mon bureau.", "B"],
+      ["Un appel, les yeux fermés, sans avoir à composer un visage.", "C"],
+      ["Commencer d'une façon, et ajuster en cours de route.", "D"]
+    ]
+  }
+];
+
+var PROFILES = {
+  A: {
+    emoji: "🚪",
+    title: "Le cabinet — vous avez besoin du lieu",
+    body: "<p>Pour vous, la thérapie n'est pas seulement une conversation : c'est un <strong>déplacement</strong>. Le trajet fait partie du soin, le fauteuil fait partie du cadre, et le silence partagé dans une pièce ne ressemble à rien d'autre. Vous êtes également plus à l'aise avec ce que le corps dit quand la voix hésite.</p><p>Bonne nouvelle : c'est aussi le format le plus polyvalent. Le présentiel garde un avantage pour l'évaluation initiale, le travail sur le trauma, les approches psychocorporelles et la consolidation des acquis après la fin du suivi. Ne le troquez pas contre un écran par pure commodité.</p>",
+    tips: ["Bloquez un créneau récurrent, toujours le même : la régularité fait la moitié du travail.", "Vérifiez l'accessibilité réelle du cabinet (transports, horaires) avant de vous engager.", "Gardez la visio comme roue de secours pour les semaines impossibles, plutôt que comme mode par défaut."]
+  },
+  B: {
+    emoji: "💻",
+    title: "La visio — le format qui rend le suivi tenable",
+    body: "<p>Vous n'avez rien contre le cabinet ; vous avez surtout une vie qui ne rentre pas dedans. Et sur ce point, les données vous donnent raison : les essais randomisés ne trouvent <strong>aucune différence significative d'efficacité</strong> entre visio et présentiel, ni sur les symptômes, ni sur les abandons. L'alliance thérapeutique se construit très bien à travers un écran.</p><p>La seule vraie condition, c'est le décor : une pièce à vous, une porte qui ferme, une heure protégée. Une visio chuchotée dans une salle de bains n'est pas une visio.</p>",
+    tips: ["Traitez la séance comme un rendez-vous physique : agenda bloqué, notifications coupées, pas de mails après.", "Demandez au praticien s'il a été formé à la téléconsultation — le format demande une compétence propre.", "Prévoyez un plan B (téléphone) en cas de connexion défaillante, décidé à l'avance."]
+  },
+  C: {
+    emoji: "📞",
+    title: "La voix — le téléphone, ce format sous-estimé",
+    body: "<p>Vous parlez mieux quand on ne vous regarde pas. Ce n'est pas une faiblesse : c'est un mécanisme bien documenté. Sans le regard, la parole se désinhibe, et beaucoup de patients abordent plus vite ce qui leur coûte. Le téléphone abolit aussi le trajet, l'attente et la crainte d'être vu — et il <strong>réduit très nettement les abandons en début de suivi</strong>.</p><p>Un bémol honnête : un essai de référence a montré qu'à six mois de la fin du traitement, les patients suivis en présentiel allaient un peu mieux. Le téléphone fait entrer en thérapie ; il consolide peut-être un peu moins bien.</p>",
+    tips: ["Envisagez au minimum un premier entretien en présentiel — c'est d'ailleurs ce que prévoit le dispositif Mon soutien psy.", "Choisissez un lieu stable pour appeler, pas un endroit différent chaque semaine.", "Après la fin du suivi, prévoyez une ou deux séances de rappel en cabinet pour ancrer les acquis."]
+  },
+  D: {
+    emoji: "🔄",
+    title: "L'hybride — votre format, c'est la souplesse",
+    body: "<p>Vous refusez de choisir, et vous avez de bonnes raisons. Vos semaines ne se ressemblent pas, vos besoins non plus. La recherche vous appuie : le format n'est pas une donnée fixe du traitement, c'est un <strong>paramètre renégociable</strong>. Les patients qui fonctionnent le mieux à distance sont souvent ceux qui ont d'abord rencontré leur thérapeute en chair et en os.</p><p>Le risque, pour vous, n'est pas le mauvais format : c'est le flottement. Un cadre qui bouge tout le temps finit par ne plus être un cadre du tout.</p>",
+    tips: ["Posez la règle dès la première séance : « présentiel par défaut, visio si empêchement, prévenu 24 h avant ».", "Commencez en cabinet. Le lien tient ensuite à travers n'importe quel canal.", "Réévaluez le format tous les deux mois avec votre thérapeute, plutôt qu'au coup par coup."]
+  }
+};
+
+var idx = 0;
+var answers = [];
+
+function render() {
+  var q = QUESTIONS[idx];
+  document.getElementById('qtext').textContent = q.q;
+  document.getElementById('count').textContent = "Question " + (idx + 1) + " / " + QUESTIONS.length;
+  document.getElementById('fill').style.width = (idx / QUESTIONS.length * 100) + "%";
+  var box = document.getElementById('opts');
+  box.innerHTML = "";
+  q.a.forEach(function(pair) {
+    var b = document.createElement('button');
+    b.type = "button";
+    b.className = "opt";
+    b.textContent = pair[0];
+    b.addEventListener('click', function() { choose(pair[1]); });
+    box.appendChild(b);
+  });
+  document.getElementById('back').className = idx === 0 ? "back hidden" : "back";
+  notifyResize();
+}
+
+function choose(letter) {
+  answers[idx] = letter;
+  idx++;
+  if (idx >= QUESTIONS.length) { showResult(); } else { render(); }
+}
+
+document.getElementById('back').addEventListener('click', function() {
+  if (idx > 0) { idx--; render(); }
+});
+
+function showResult() {
+  var tally = { A: 0, B: 0, C: 0, D: 0 };
+  answers.forEach(function(l) { tally[l]++; });
+  var best = "A";
+  ["A", "B", "C", "D"].forEach(function(k) { if (tally[k] > tally[best]) best = k; });
+  var p = PROFILES[best];
+
+  document.getElementById('remoji').textContent = p.emoji;
+  document.getElementById('rtitle').textContent = p.title;
+  document.getElementById('rbody').innerHTML = p.body;
+  var t = "<h3>Trois pistes concrètes</h3><ul>";
+  p.tips.forEach(function(x) { t += "<li>" + x + "</li>"; });
+  document.getElementById('rtips').innerHTML = t + "</ul>";
+
+  document.getElementById('quiz').className = "hidden";
+  document.getElementById('result').className = "";
+  if (typeof gtag === 'function') { gtag('event', 'quiz_complete', { quiz_id: 'therapie-visio-telephone-presentiel', profile: best }); }
+  notifyResize();
+}
+
+document.getElementById('again').addEventListener('click', function() {
+  idx = 0;
+  answers = [];
+  document.getElementById('result').className = "hidden";
+  document.getElementById('quiz').className = "";
+  render();
+  notifyResize();
+});
+
+render();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
