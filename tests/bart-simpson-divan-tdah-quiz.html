@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/bart-simpson-divan-tdah/">
+  <title>Quel personnage des Simpsons êtes-vous ? — Oui Psycho!</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #FFF8E7 0%, #FDF3D8 100%);
+      color: #2c3e50;
+      padding: 16px;
+      line-height: 1.6;
+    }
+    .quiz-container {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(31, 78, 107, 0.12);
+      overflow: hidden;
+    }
+    .quiz-header {
+      background: linear-gradient(135deg, #1F4E6B 0%, #2c6e94 100%);
+      color: #fff;
+      padding: 24px 24px 20px;
+      text-align: center;
+    }
+    .quiz-header h1 { font-size: 1.35rem; margin-bottom: 6px; }
+    .quiz-header p { font-size: 0.92rem; opacity: 0.9; }
+    .quiz-body { padding: 24px; }
+    .progress-track {
+      height: 8px; background: #e8eef2; border-radius: 4px; margin-bottom: 20px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #F5C518, #f0a500);
+      border-radius: 4px; transition: width 0.35s ease;
+    }
+    .q-count { font-size: 0.8rem; color: #7a8ca0; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .q-text { font-size: 1.12rem; font-weight: 600; margin-bottom: 18px; color: #1F4E6B; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      padding: 13px 16px;
+      background: #f6f9fb; border: 2px solid #e3ebf1; border-radius: 10px;
+      font-size: 0.97rem; font-family: inherit; color: #2c3e50;
+      cursor: pointer; transition: all 0.15s ease;
+    }
+    .answer-btn:hover { border-color: #F5C518; background: #fffaf0; transform: translateX(3px); }
+    .answer-btn:active { transform: scale(0.99); }
+    .start-btn, .restart-btn {
+      display: inline-block; margin-top: 8px;
+      padding: 13px 32px;
+      background: linear-gradient(135deg, #F5C518, #f0a500);
+      color: #1F4E6B; font-weight: 700; font-size: 1rem; font-family: inherit;
+      border: none; border-radius: 999px; cursor: pointer;
+      box-shadow: 0 3px 10px rgba(240, 165, 0, 0.35);
+      transition: transform 0.15s ease;
+    }
+    .start-btn:hover, .restart-btn:hover { transform: translateY(-2px); }
+    .intro-screen, .result-screen { text-align: center; padding: 8px 0; }
+    .intro-screen p { margin-bottom: 16px; color: #4a5d70; }
+    .result-emoji { font-size: 3.2rem; margin-bottom: 8px; }
+    .result-title { font-size: 1.4rem; color: #1F4E6B; font-weight: 800; margin-bottom: 12px; }
+    .result-desc { text-align: left; color: #3d4f61; font-size: 0.97rem; margin-bottom: 18px; }
+    .result-desc p { margin-bottom: 10px; }
+    .share-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 18px 0; }
+    .share-row a {
+      text-decoration: none; padding: 9px 16px; border-radius: 999px;
+      font-size: 0.88rem; font-weight: 600; color: #fff; transition: opacity 0.15s;
+    }
+    .share-row a:hover { opacity: 0.85; }
+    .share-fb { background: #1877F2; }
+    .share-tw { background: #14171a; }
+    .share-wa { background: #25D366; }
+    .disclaimer {
+      margin-top: 18px; padding: 14px 16px;
+      background: #f0f6fa; border-left: 4px solid #1F4E6B; border-radius: 8px;
+      font-size: 0.84rem; color: #46586a; text-align: left;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1>🍩 Quel personnage des Simpsons êtes-vous ?</h1>
+      <p>8 questions pour découvrir votre profil psychologique façon Springfield</p>
+    </div>
+    <div class="quiz-body">
+
+      <div id="intro" class="intro-screen">
+        <p>Face à l'imprévu, à l'ennui, aux émotions ou aux règles, nous n'avons pas tous le même logiciel intérieur. Répondez spontanément — il n'y a ni bonne ni mauvaise réponse, seulement votre façon d'habiter Springfield.</p>
+        <button class="start-btn" onclick="startQuiz()">Commencer le test</button>
+      </div>
+
+      <div id="quiz" class="hidden">
+        <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+        <div class="q-count" id="qcount"></div>
+        <div class="q-text" id="qtext"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div id="result" class="result-screen hidden">
+        <div class="result-emoji" id="remoji"></div>
+        <div class="result-title" id="rtitle"></div>
+        <div class="result-desc" id="rdesc"></div>
+        <div class="share-row">
+          <a id="share-fb" class="share-fb" href="#" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="share-tw" class="share-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="share-wa" class="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">🔄 Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Dimanche matin, aucune obligation. Votre premier réflexe ?",
+        a: [
+          { t: "Sortir, bouger, improviser — rester immobile me rend dingue", p: "A" },
+          { t: "Enfin du temps pour lire, apprendre, avancer sur mes projets", p: "B" },
+          { t: "Canapé, plaid, quelque chose de bon à grignoter : le bonheur", p: "C" },
+          { t: "Prendre soin de mon cocon et des gens que j'aime", p: "D" }
+        ]
+      },
+      {
+        q: "En réunion (ou en cours), une présentation interminable démarre. Vous…",
+        a: [
+          { t: "Décrochez au bout de 4 minutes et gribouillez / tripotez un stylo", p: "A" },
+          { t: "Prenez des notes structurées et préparez déjà vos questions", p: "B" },
+          { t: "Pensez très fort à ce que vous mangerez ce midi", p: "C" },
+          { t: "Écoutez patiemment — quelqu'un doit bien le faire", p: "D" }
+        ]
+      },
+      {
+        q: "On vous impose une règle qui vous semble absurde.",
+        a: [
+          { t: "Je la contourne, par principe (et un peu pour le sport)", p: "A" },
+          { t: "Je monte un argumentaire solide pour la faire changer", p: "B" },
+          { t: "Je râle cinq minutes puis je fais avec, la vie est courte", p: "C" },
+          { t: "Je la respecte, mais je protège les miens si elle est injuste", p: "D" }
+        ]
+      },
+      {
+        q: "Votre rapport aux émotions fortes ?",
+        a: [
+          { t: "Elles sortent immédiatement — je réfléchis après", p: "A" },
+          { t: "Je les analyse, parfois un peu trop, avant de les exprimer", p: "B" },
+          { t: "Je les vis à fond sur le moment, puis je passe à autre chose", p: "C" },
+          { t: "Je les garde souvent pour moi afin de préserver l'harmonie", p: "D" }
+        ]
+      },
+      {
+        q: "Un projet vous passionne soudainement. Que se passe-t-il ?",
+        a: [
+          { t: "Hyperfocus total : je peux y passer la nuit sans voir le temps filer", p: "A" },
+          { t: "Je planifie, je documente, je vise l'excellence", p: "B" },
+          { t: "Je m'enthousiasme fort… jusqu'à la prochaine distraction", p: "C" },
+          { t: "Je m'y consacre sérieusement, sans jamais négliger le reste", p: "D" }
+        ]
+      },
+      {
+        q: "Face à une critique qui pique un peu :",
+        a: [
+          { t: "Je fanfaronne pour masquer que ça m'a touché plus que prévu", p: "A" },
+          { t: "Je la décortique pour savoir si elle est objectivement fondée", p: "B" },
+          { t: "Je l'oublie en dix minutes — rancune niveau zéro", p: "C" },
+          { t: "Je l'encaisse en silence, mais j'y repense le soir", p: "D" }
+        ]
+      },
+      {
+        q: "Votre pire ennemi au quotidien ?",
+        a: [
+          { t: "L'ennui. Rien n'est pire que l'ennui", p: "A" },
+          { t: "La médiocrité et le sentiment de ne pas être compris(e)", p: "B" },
+          { t: "Les régimes, les lundis et les réunions avant 10h", p: "C" },
+          { t: "La charge mentale de penser à tout pour tout le monde", p: "D" }
+        ]
+      },
+      {
+        q: "Ce que vos proches disent de vous (dans votre dos, avec affection) :",
+        a: [
+          { t: "« Épuisant(e) mais impossible de s'ennuyer avec lui/elle »", p: "A" },
+          { t: "« Brillant(e), exigeant(e), un peu trop dur(e) avec soi-même »", p: "B" },
+          { t: "« Bon vivant, cœur énorme, mémoire de poisson rouge »", p: "C" },
+          { t: "« C'est le pilier. Sans lui/elle, tout s'écroule »", p: "D" }
+        ]
+      }
+    ];
+
+    var profiles = {
+      A: {
+        emoji: "🛹",
+        title: "Bart — le tourbillon créatif",
+        desc: "<p>Impulsif, drôle, allergique à l'ennui : vous fonctionnez à la stimulation et à l'instant présent. Votre cerveau carbure quand ça bouge — et cale net devant la routine. Résultat : une créativité redoutable quand un sujet vous embarque, et un vrai talent pour transformer n'importe quelle situation en aventure.</p><p><strong>Votre force :</strong> l'audace et l'inventivité. <strong>Votre point de vigilance :</strong> l'estime de soi, souvent plus fragile que la façade ne le laisse croire. Entourez-vous de gens qui voient votre moteur, pas seulement vos dérapages.</p>"
+      },
+      B: {
+        emoji: "🎷",
+        title: "Lisa — la tête bien pleine (et bien faite)",
+        desc: "<p>Curieux(se), consciencieux(se), porté(e) par des valeurs fortes : vous êtes du genre à comprendre avant d'agir et à viser juste plutôt que vite. Votre monde intérieur est riche — parfois trop peuplé de doutes et d'autocritique.</p><p><strong>Votre force :</strong> la profondeur et l'intégrité. <strong>Votre point de vigilance :</strong> le perfectionnisme et le sentiment de décalage avec les autres. Rappelez-vous que le saxophone se joue aussi pour le plaisir, pas seulement pour l'excellence.</p>"
+      },
+      C: {
+        emoji: "🍩",
+        title: "Homer — l'épicurien au grand cœur",
+        desc: "<p>Vous vivez ici et maintenant, avec un appétit sincère pour les plaisirs simples et une capacité rare à ne pas ruminer. Votre insouciance apparente cache une loyauté à toute épreuve envers ceux que vous aimez — même si vous l'exprimez maladroitement.</p><p><strong>Votre force :</strong> la résilience émotionnelle et la générosité. <strong>Votre point de vigilance :</strong> la procrastination et l'évitement des sujets qui fâchent. Le canapé est un refuge, pas une stratégie à long terme.</p>"
+      },
+      D: {
+        emoji: "💙",
+        title: "Marge — le pilier tranquille",
+        desc: "<p>Patient(e), fiable, attentif(ve) aux besoins de chacun : vous êtes celui ou celle qui tient la maison — au sens propre comme au figuré. Votre stabilité rassure tout le monde… parfois au prix de vos propres envies, mises en sourdine depuis longtemps.</p><p><strong>Votre force :</strong> la constance et l'intelligence relationnelle. <strong>Votre point de vigilance :</strong> l'oubli de soi. Prendre soin de vous n'est pas un luxe : c'est ce qui permet au pilier de ne pas se fissurer.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function startQuiz() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('quiz').classList.remove('hidden');
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      showQuestion();
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      document.getElementById('qcount').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('qtext').textContent = q.q;
+      document.getElementById('progress').style.width = ((current / questions.length) * 100) + '%';
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      var shuffled = q.a.slice().sort(function(){ return Math.random() - 0.5; });
+      shuffled.forEach(function(ans) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = ans.t;
+        btn.onclick = function() { pick(ans.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz').classList.add('hidden');
+      var best = 'A', max = -1;
+      ['A','B','C','D'].forEach(function(k) {
+        if (votes[k] > max) { max = votes[k]; best = k; }
+      });
+      var prof = profiles[best];
+      document.getElementById('remoji').textContent = prof.emoji;
+      document.getElementById('rtitle').textContent = prof.title;
+      document.getElementById('rdesc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/bart-simpson-divan-tdah/';
+      var shareText = 'Mon profil Simpsons : ' + prof.title + ' — Et vous, quel personnage êtes-vous ? Faites le test sur Oui Psycho!';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      document.getElementById('result').classList.remove('hidden');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      document.getElementById('result').classList.add('hidden');
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
