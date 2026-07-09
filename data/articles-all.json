@@ -105,6 +105,83 @@
     "status": "scheduled"
   },
   {
+    "id": "therapie-visio-telephone-presentiel",
+    "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
+    "type": "article",
+    "excerpt": "Les méta-analyses sont formelles : à distance, la psychothérapie fait jeu égal avec le cabinet. Mais « équivalent en moyenne » ne veut pas dire « équivalent pour vous ». Le comparatif, format par format.",
+    "metaDescription": "Thérapie en visio, par téléphone ou en présentiel : que dit vraiment la science ? Efficacité, alliance, abandon, rechute. Le comparatif complet et un test.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-12-11",
+    "date_modified": "2026-12-11",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "therapie-a-distance",
+      "teleconsultation",
+      "psychotherapie",
+      "alliance-therapeutique",
+      "mon-soutien-psy"
+    ],
+    "sources": [
+      {
+        "authors": "Lin T., Heckman T. G. & Anderson T.",
+        "year": "2022",
+        "title": "The efficacy of synchronous teletherapy versus in-person therapy: A meta-analysis of randomized clinical trials",
+        "journal": "Clinical Psychology: Science and Practice, 29(2), 167-178",
+        "url": "https://doi.org/10.1037/cps0000056"
+      },
+      {
+        "authors": "Giovanetti A. K., Punt S. E. W., Nelson E.-L. & Ilardi S. S.",
+        "year": "2022",
+        "title": "Teletherapy versus in-person psychotherapy for depression: A meta-analysis of randomized controlled trials",
+        "journal": "Telemedicine and e-Health, 28(8)",
+        "url": "https://doi.org/10.1089/tmj.2021.0294"
+      },
+      {
+        "authors": "Mohr D. C., Ho J., Duffecy J., Reifler D., Sokol L., Burns M. N., Jin L. & Siddique J.",
+        "year": "2012",
+        "title": "Effect of telephone-administered vs face-to-face cognitive behavioral therapy on adherence to therapy and depression outcomes among primary care patients: A randomized trial",
+        "journal": "JAMA, 307(21), 2278-2285",
+        "url": "https://doi.org/10.1001/jama.2012.5588"
+      },
+      {
+        "authors": "Fernandez E., Woldgabreal Y., Day A., Pham T., Gleich B. & Aboujaoude E.",
+        "year": "2021",
+        "title": "Live psychotherapy by video versus in-person: A meta-analysis of efficacy and its relationship to types and targets of treatment",
+        "journal": "Clinical Psychology & Psychotherapy, 28(6)",
+        "url": "https://doi.org/10.1002/cpp.2594"
+      },
+      {
+        "authors": "Seuling P. D., Fendel J. C., Spille L., Göritz A. S. & Schmidt S.",
+        "year": "2024",
+        "title": "Therapeutic alliance in videoconferencing psychotherapy compared to psychotherapy in person: A systematic review and meta-analysis",
+        "journal": "Journal of Telemedicine and Telecare",
+        "url": "https://doi.org/10.1177/1357633X231161774"
+      },
+      {
+        "authors": "Aafjes-van Doorn K., Spina D. S., Horne S. J. & Békés V.",
+        "year": "2024",
+        "title": "The association between quality of therapeutic alliance and treatment outcomes in teletherapy: A systematic review and meta-analysis",
+        "journal": "Clinical Psychology Review, 110, 102430",
+        "url": "https://doi.org/10.1016/j.cpr.2024.102430"
+      },
+      {
+        "authors": "Assurance Maladie",
+        "year": "2026",
+        "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
+        "journal": "ameli.fr",
+        "url": "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
     "type": "article",
