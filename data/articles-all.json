@@ -446,6 +446,55 @@
     "status": "scheduled"
   },
   {
+    "id": "arsene-lupin-divan",
+    "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
+    "type": "article",
+    "excerpt": "Charme, déguisements, vengeance élégante : qu'y a-t-il dans la tête d'Arsène Lupin ? Du dandy de Leblanc à l'Assane Diop d'Omar Sy, on allonge le gentleman cambrioleur sur le divan.",
+    "metaDescription": "Arsène Lupin sur le divan : triade noire, sublimation du deuil et invisibilité sociale. Psychologie du gentleman cambrioleur, de Leblanc à la série Lupin.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-10-23",
+    "date_modified": "2026-10-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "arsene-lupin",
+      "psychologie-des-personnages",
+      "omar-sy",
+      "antiheros",
+      "triade-noire"
+    ],
+    "sources": [
+      {
+        "authors": "Paulhus D. L. et Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality, 36(6), 556-563",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      },
+      {
+        "authors": "Goffman E.",
+        "year": "1959",
+        "title": "The Presentation of Self in Everyday Life",
+        "journal": "Doubleday / Anchor Books",
+        "url": ""
+      },
+      {
+        "authors": "Leblanc M.",
+        "year": "1907",
+        "title": "Arsène Lupin, gentleman-cambrioleur",
+        "journal": "Pierre Lafitte (nouvelles parues dans « Je sais tout », 1905-1907)",
+        "url": ""
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
     "excerpt": "",
