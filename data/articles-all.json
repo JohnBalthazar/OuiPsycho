@@ -183,6 +183,62 @@
     "status": "scheduled"
   },
   {
+    "id": "applications-gratuites-sante-mentale",
+    "title": "Les meilleures applis gratuites pour la santé mentale",
+    "type": "article",
+    "excerpt": "Des milliers d'applis promettent la sérénité, peu tiennent parole. Nous avons trié selon trois critères : preuves scientifiques, gratuité réelle et confidentialité. Voici les quatre qui passent le filtre, notées et commentées.",
+    "metaDescription": "Quelles applis gratuites de santé mentale valent vraiment la peine ? Notre sélection notée : preuves scientifiques, avis des pros, liens directs.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-11-20",
+    "date_modified": "2026-11-20",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "applications-sante-mentale",
+      "bien-etre-numerique",
+      "anxiete",
+      "depression",
+      "tcc"
+    ],
+    "sources": [
+      {
+        "authors": "Linardon J., Torous J., Firth J., Cuijpers P., Messer M. & Fuller-Tyszkiewicz M.",
+        "year": "2024",
+        "title": "Current evidence on the efficacy of mental health smartphone apps for symptoms of depression and anxiety. A meta-analysis of 176 randomized controlled trials",
+        "journal": "World Psychiatry, 23(1), 139-149",
+        "url": "https://doi.org/10.1002/wps.21183"
+      },
+      {
+        "authors": "Linardon J., Cuijpers P., Carlbring P., Messer M. & Fuller-Tyszkiewicz M.",
+        "year": "2019",
+        "title": "The efficacy of app-supported smartphone interventions for mental health problems: a meta-analysis of randomized controlled trials",
+        "journal": "World Psychiatry, 18(3), 325-336",
+        "url": "https://doi.org/10.1002/wps.20673"
+      },
+      {
+        "authors": "Torous J., Bucci S., Bell I. H., Kessing L. V., Faurholt-Jepsen M., Whelan P., Carvalho A. F., Keshavan M., Linardon J. & Firth J.",
+        "year": "2021",
+        "title": "The growing field of digital psychiatry: current evidence and the future of apps, social media, chatbots, and virtual reality",
+        "journal": "World Psychiatry, 20(3), 318-335",
+        "url": "https://doi.org/10.1002/wps.20883"
+      },
+      {
+        "authors": "Philip P. et coll. (laboratoire SANPSY, Université de Bordeaux — CNRS)",
+        "year": "2020",
+        "title": "KANOPEE : application de repérage des troubles du sommeil, du stress et des comportements addictifs",
+        "journal": "CHU de Bordeaux / SANPSY",
+        "url": ""
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "experience-mort-imminente-science",
     "title": "Expérience de mort imminente : que dit la science ?",
     "excerpt": "",
@@ -446,6 +502,32 @@
     "status": "scheduled"
   },
   {
+    "id": "depression-ce-nest-pas-une-fatalite",
+    "title": "Dépression : ce n'est pas une fatalité",
+    "excerpt": "",
+    "date": "2026-10-23",
+    "date_modified": "2026-10-23",
+    "category": "Troubles Psy",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 16,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "depression",
+      "tcc",
+      "psychanalyse",
+      "sante-mentale",
+      "therapies"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "arsene-lupin-divan",
     "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
     "type": "article",
@@ -491,32 +573,6 @@
         "url": ""
       }
     ],
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "depression-ce-nest-pas-une-fatalite",
-    "title": "Dépression : ce n'est pas une fatalité",
-    "excerpt": "",
-    "date": "2026-10-23",
-    "date_modified": "2026-10-23",
-    "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 16,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "depression",
-      "tcc",
-      "psychanalyse",
-      "sante-mentale",
-      "therapies"
-    ],
-    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
