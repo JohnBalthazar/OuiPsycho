@@ -1251,6 +1251,47 @@ p:last-child { margin-bottom: 0; }
   border-radius: 0 4px 4px 0;
 }
 
+/* ── Tableaux comparatifs responsive ───────────────────────────────────────── */
+/* Le générateur enveloppe automatiquement chaque <table> dans .table-wrap */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* défilement fluide iOS */
+  margin: 24px 0;
+  border-radius: var(--radius-lg);
+}
+.article-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .95rem;
+  min-width: 520px; /* force le scroll horizontal plutôt que l'écrasement sur mobile */
+}
+.article-body caption {
+  text-align: left;
+  font-size: .85rem;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+.article-body th {
+  background: var(--color-primary); /* #1F4E6B */
+  color: #fff;
+  font-weight: 700;
+  text-align: left;
+}
+.article-body th,
+.article-body td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--color-border-light);
+}
+/* Zébrage : lignes paires très légèrement teintées */
+.article-body tbody tr:nth-child(even) {
+  background: #f4f7f9;
+}
+/* Première colonne en gras pour les tableaux comparatifs */
+.article-body td:first-child,
+.article-body th[scope="row"] {
+  font-weight: 700;
+}
+
 /* Encadré info générique */
 .article-body .info-box {
   background: var(--color-primary-light);

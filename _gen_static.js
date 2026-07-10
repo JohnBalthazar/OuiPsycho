@@ -29,6 +29,28 @@ const RÉDACTION_SET    = new Set(['La rédaction Oui Psycho!', 'La rédaction',
 
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
+// ── Balises autorisées dans j.content (convention rédactionnelle, non enforced) ─
+// Inline : p, h2, h3, ul, li, ol, strong, em, blockquote, a, br
+// Tableaux : table (class), thead, tbody, tr, th (scope), td, caption
+// Exception quiz : <iframe src="tests/…">…</iframe> + <script>…</script> en fin de content
+//
+// Post-traitement : chaque <table>…</table> est automatiquement enveloppé dans
+// <div class="table-wrap"> pour permettre le scroll horizontal sur mobile.
+// L'opération est idempotente : un tableau déjà wrappé n'est pas re-wrappé.
+function wrapTables(html) {
+  // 1. Retire les .table-wrap existants (idempotence entre re-générations)
+  let result = html.replace(
+    /<div class="table-wrap">\s*(<table[\s\S]*?<\/table>)\s*<\/div>/g,
+    '$1'
+  );
+  // 2. Enveloppe chaque <table>…</table> — hypothèse : pas de tables imbriquées
+  result = result.replace(
+    /(<table[\s\S]*?<\/table>)/g,
+    '<div class="table-wrap">$1</div>'
+  );
+  return result;
+}
+
 function fmtDate(d) {
   const [y, m, day] = d.split('-');
   return `${parseInt(day)} ${MONTHS[parseInt(m)]} ${y}`;
@@ -349,7 +371,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${j.content}
+          ${wrapTables(j.content)}
         </div>
 ${sourcesHtml}
         <div class="author-box">

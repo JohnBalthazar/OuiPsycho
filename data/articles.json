@@ -1,5 +1,59 @@
 [
   {
+    "id": "date-tinder-tueur-en-serie",
+    "title": "Votre date Tinder est-il un tueur en série ?",
+    "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
+    "date": "2026-07-10",
+    "date_modified": "2026-07-01",
+    "category": "Sexo",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/aq2gy0sq100txyggqwxi",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "rencontre",
+      "red flags",
+      "love bombing",
+      "sécurité",
+      "emprise",
+      "applications de rencontre"
+    ],
+    "metaDescription": "Votre date cache-t-il un danger ? La psychologie décrypte les vrais red flags d'une rencontre (love bombing, emprise) et les bons réflexes de sécurité.",
+    "articles_lies": [
+      "techniques-drague-science"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
+    "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
+    "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "date": "2026-07-09",
+    "date_modified": "2026-07-08",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "films d'horreur",
+      "émotions",
+      "adrénaline",
+      "peur",
+      "cinéma",
+      "psychologie"
+    ],
+    "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "du-crush-au-crash-anatomie-histoires-amour",
     "title": "Du crush au crash : anatomie d'une histoire d'amour",
     "excerpt": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
