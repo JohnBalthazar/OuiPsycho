@@ -473,12 +473,12 @@
   {
     "id": "ia-peut-elle-pousser-au-suicide",
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Trois familles endeuillées ont attaqué en justice les créateurs d'IA. Un chatbot peut-il vraiment mener au pire ? Faits, science, psychologie — et comment protéger les siens, à commencer par les enfants.",
     "date": "2026-11-12",
-    "date_modified": "2026-07-08",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/am8xyp51zccbjxi5qozc",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -492,7 +492,7 @@
       "adolescents",
       "ecrans-et-numerique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Une IA peut-elle pousser au suicide ? Affaires réelles, mécanismes psychologiques et conseils de prévention pour se protéger et protéger ses enfants.",
     "articles_lies": [],
     "status": "scheduled"
   },
