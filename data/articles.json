@@ -1,6 +1,5 @@
 [
   {
-<<<<<<< HEAD
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
     "excerpt": "",
@@ -381,11 +380,12 @@
   {
     "id": "experience-mort-imminente-science",
     "title": "Expérience de mort imminente : que dit la science ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on vraiment ?",
     "date": "2026-11-19",
-    "date_modified": "2026-11-19",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/skfazrh3nfufrtaeckf9",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -399,7 +399,7 @@
       "mort",
       "psychologie"
     ],
-    "metaDescription": "",
+    "metaDescription": "Expériences de mort imminente (EMI) : témoignages, hypothèses neuroscientifiques et débats. Ce que la science sait — et ignore encore — de ce phénomène fascinant.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1856,8 +1856,6 @@
     "status": "scheduled"
   },
   {
-=======
->>>>>>> 17716c5 (security: renforcement sécu login admin (poulet.html))
     "id": "date-tinder-tueur-en-serie",
     "title": "Votre date Tinder est-il un tueur en série ?",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
