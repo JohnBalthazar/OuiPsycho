@@ -131,6 +131,79 @@
     "status": "scheduled"
   },
   {
+    "id": "loki-sur-le-divan-psychologie-dieu-malice",
+    "title": "Loki sur le divan : psychologie d'un dieu de la malice",
+    "type": "article",
+    "excerpt": "Menteur, manipulateur, insupportable — et pourtant on l'adore. Derrière le sourire en coin du dieu de la malice se cache un tableau clinique d'une cohérence troublante : honte, sensibilité au rejet et sentiment d'imposture.",
+    "metaDescription": "Sensibilité au rejet, honte, triade noire, syndrome de l'imposteur : analyse psychologique de Loki, du mythe nordique au MCU. Un trickster sur le divan.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-12-08",
+    "date_modified": "2026-12-08",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "loki",
+      "trickster",
+      "honte",
+      "sensibilite-au-rejet",
+      "syndrome-de-l-imposteur"
+    ],
+    "sources": [
+      {
+        "authors": "Downey G. & Feldman S. I.",
+        "year": "1996",
+        "title": "Implications of rejection sensitivity for intimate relationships",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.70.6.1327"
+      },
+      {
+        "authors": "Paulhus D. L. & Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      },
+      {
+        "authors": "Clance P. R. & Imes S. A.",
+        "year": "1978",
+        "title": "The impostor phenomenon in high achieving women: Dynamics and therapeutic intervention",
+        "journal": "Psychotherapy: Theory, Research & Practice",
+        "url": "https://doi.org/10.1037/h0086006"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2007",
+        "title": "La honte : psychanalyse d'un lien social",
+        "publisher": "Dunod"
+      },
+      {
+        "authors": "Tangney J. P. & Dearing R. L.",
+        "year": "2002",
+        "title": "Shame and Guilt",
+        "publisher": "The Guilford Press"
+      },
+      {
+        "authors": "Hyde L.",
+        "year": "1998",
+        "title": "Trickster Makes This World: Mischief, Myth, and Art",
+        "publisher": "Farrar, Straus and Giroux"
+      },
+      {
+        "authors": "Neff K. D.",
+        "year": "2003",
+        "title": "Self-compassion: An alternative conceptualization of a healthy attitude toward oneself",
+        "journal": "Self and Identity"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
     "excerpt": "",
