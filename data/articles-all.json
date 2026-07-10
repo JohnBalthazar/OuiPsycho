@@ -159,6 +159,22 @@
     "status": "scheduled"
   },
   {
+    "id": "elisabeth-bennet-sur-le-divan-quiz",
+    "title": "Quel juge des autres êtes-vous ?",
+    "desc": "Premières impressions, biais de confirmation, capacité à changer d'avis : découvrez votre profil parmi quatre figures de Longbourn.",
+    "emoji": "🔍",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "4 min",
+    "testUrl": "tests/elisabeth-bennet-sur-le-divan-quiz.html",
+    "articleUrl": "articles/elisabeth-bennet-sur-le-divan/",
+    "image": "",
+    "isNew": true,
+    "status": "scheduled",
+    "date": "2026-12-03",
+    "date_modified": "2026-12-03"
+  },
+  {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
     "excerpt": "",
