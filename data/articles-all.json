@@ -222,12 +222,12 @@
   {
     "id": "loki-sur-le-divan-psychologie-dieu-malice",
     "title": "Loki sur le divan : psychologie d'un dieu de la malice",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Menteur, manipulateur, insupportable — et pourtant on l'adore. Derrière le sourire en coin du dieu de la malice se cache un tableau clinique d'une cohérence troublante : honte, sensibilité au rejet et sentiment d'imposture.",
     "date": "2026-12-08",
-    "date_modified": "2026-12-08",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/duwn75duv3cfx814ahsi",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -241,7 +241,7 @@
       "sensibilite-au-rejet",
       "syndrome-de-l-imposteur"
     ],
-    "metaDescription": "",
+    "metaDescription": "Sensibilité au rejet, honte, triade noire, syndrome de l'imposteur : analyse psychologique de Loki, du mythe nordique au MCU. Un trickster sur le divan.",
     "articles_lies": [],
     "status": "scheduled"
   },
