@@ -1943,12 +1943,12 @@
   {
     "id": "notre-radar-interieur",
     "title": "Notre radar intérieur : osez vous faire confiance",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement. Encore faut-il savoir l'écouter. Mode d'emploi.",
     "date": "2026-07-17",
-    "date_modified": "2026-07-17",
+    "date_modified": "2026-07-10",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ca3h6mkh8zbg5b32gpel",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1963,7 +1963,7 @@
       "manipulation",
       "bien-etre"
     ],
-    "metaDescription": "",
+    "metaDescription": "Intuition, pressentiment, malaise diffus : la science de votre radar intérieur pour détecter les relations toxiques et enfin oser vous faire confiance.",
     "articles_lies": [],
     "status": "scheduled"
   },
