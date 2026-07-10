@@ -721,12 +721,12 @@
   {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "La dépression touchera près d'une personne sur cinq en France. Maladie réelle, elle se soigne. TCC, psychanalyse, neurosciences, témoignages et routines concrètes : le dossier complet pour comprendre — et s'en sortir.",
     "date": "2026-10-23",
-    "date_modified": "2026-10-23",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/etrpv8ospcqjweg6vlbi",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -740,7 +740,7 @@
       "sante-mentale",
       "therapies"
     ],
-    "metaDescription": "",
+    "metaDescription": "Dépression : symptômes, regards des TCC et de la psychanalyse, avancées scientifiques, témoignages et solutions concrètes pour s'en sortir. Dossier complet.",
     "articles_lies": [],
     "status": "scheduled"
   },
