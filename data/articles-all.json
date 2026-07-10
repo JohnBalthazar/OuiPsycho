@@ -667,12 +667,12 @@
   {
     "id": "traumatismes-stress-post-traumatique-sequelles-solutions",
     "title": "Traumatismes : Post Traumatique, Séquelle et Solutions",
-    "excerpt": "",
+    "type": "dossier",
+    "excerpt": "L'événement est passé, mais quelque chose en vous ne l'a pas quitté ? Le traumatisme psychique est une blessure de la mémoire — réelle, identifiable, et surtout soignable. Dossier complet : comprendre, se stabiliser, se faire aider.",
     "date": "2026-10-29",
-    "date_modified": "2026-10-29",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ddgwnbv0trxatfstgslw",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -688,7 +688,7 @@
       "tcc",
       "memoire-traumatique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Traumatisme et stress post-traumatique : symptômes, mémoire traumatique, TCC, EMDR, regard psychanalytique, routines concrètes et carnet de suivi. Dossier + quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
