@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://ouipsycho.fr/tests/elisabeth-bennet-sur-le-divan-quiz.html">
+<title>Quel juge des autres êtes-vous ? — Oui Psycho!</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#fdfbf7;color:#2b2b2b;line-height:1.6;padding:24px 18px}
+  .wrap{max-width:640px;margin:0 auto}
+  .card{background:#fff;border:1px solid #e7e0d4;border-radius:14px;padding:26px 22px;box-shadow:0 2px 14px rgba(31,78,107,.06)}
+  .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:#9a8f7c;font-weight:700;margin-bottom:10px}
+  h1{font-size:1.5rem;line-height:1.25;color:#1F4E6B;margin-bottom:12px}
+  h2{font-size:1.2rem;color:#1F4E6B;margin-bottom:10px}
+  p{margin-bottom:14px}
+  .lead{color:#5a5a5a;font-size:.97rem}
+  .meta{font-size:.85rem;color:#9a8f7c;margin-bottom:20px}
+  .btn{display:inline-block;background:#1F4E6B;color:#fff;border:none;border-radius:9px;padding:13px 26px;font-size:1rem;font-weight:600;cursor:pointer;transition:background .15s;font-family:inherit}
+  .btn:hover{background:#163a50}
+  .btn-ghost{background:transparent;color:#1F4E6B;border:1.5px solid #1F4E6B}
+  .btn-ghost:hover{background:#1F4E6B;color:#fff}
+  .bar{height:5px;background:#eee6d8;border-radius:99px;overflow:hidden;margin-bottom:8px}
+  .bar span{display:block;height:100%;background:#C8863B;transition:width .3s ease}
+  .count{font-size:.8rem;color:#9a8f7c;margin-bottom:18px}
+  .q{font-size:1.12rem;font-weight:600;color:#1a1a1a;margin-bottom:18px;line-height:1.4}
+  .opt{display:block;width:100%;text-align:left;background:#fdfbf7;border:1.5px solid #e7e0d4;border-radius:10px;padding:14px 16px;margin-bottom:10px;font-size:.96rem;cursor:pointer;transition:all .13s;font-family:inherit;color:#2b2b2b;line-height:1.45}
+  .opt:hover{border-color:#1F4E6B;background:#f4f8fa;transform:translateX(2px)}
+  .emoji{font-size:2.6rem;display:block;margin-bottom:8px}
+  .profile{background:#f4f8fa;border-left:4px solid #1F4E6B;border-radius:0 10px 10px 0;padding:16px 18px;margin:16px 0}
+  .profile h3{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#1F4E6B;margin-bottom:6px}
+  .profile p{margin-bottom:0;font-size:.94rem}
+  .disclaimer{background:#fff6ea;border:1px solid #f0dcc0;border-radius:10px;padding:14px 16px;font-size:.86rem;color:#5c4a33;margin:20px 0}
+  .share{margin-top:22px;padding-top:18px;border-top:1px solid #eee6d8}
+  .share p{font-size:.85rem;color:#9a8f7c;margin-bottom:10px}
+  .share a{display:inline-block;text-decoration:none;background:#fdfbf7;border:1.5px solid #e7e0d4;border-radius:8px;padding:9px 14px;margin:0 6px 6px 0;font-size:.88rem;color:#2b2b2b;transition:all .13s}
+  .share a:hover{border-color:#1F4E6B;background:#f4f8fa}
+  .actions{margin-top:20px}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- INTRO -->
+  <div id="intro" class="card">
+    <div class="kicker">Nos héros sur le divan</div>
+    <h1>Quel juge des autres êtes-vous ?</h1>
+    <p class="lead">Elizabeth Bennet a jugé Darcy en trois secondes, mis deux cents pages à se corriger — et c'est cette correction qui la rend admirable. Et vous, comment fabriquez-vous vos impressions ? Comment les défaites-vous ?</p>
+    <p class="meta">8 questions · environ 4 minutes · aucun résultat n'est enregistré</p>
+    <button class="btn" onclick="start()">Commencer le test</button>
+  </div>
+
+  <!-- QUESTIONS -->
+  <div id="quiz" class="card hidden">
+    <div class="bar"><span id="progress" style="width:0%"></span></div>
+    <div class="count" id="count"></div>
+    <div class="q" id="question"></div>
+    <div id="options"></div>
+  </div>
+
+  <!-- RESULT -->
+  <div id="result" class="card hidden">
+    <div class="kicker">Votre profil</div>
+    <span class="emoji" id="r-emoji"></span>
+    <h2 id="r-title"></h2>
+    <p id="r-text"></p>
+    <div class="profile">
+      <h3>Votre angle mort</h3>
+      <p id="r-blind"></p>
+    </div>
+    <div class="profile">
+      <h3>Un exercice pour cette semaine</h3>
+      <p id="r-tip"></p>
+    </div>
+
+    <div class="disclaimer">
+      ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+      Seul un professionnel de santé peut évaluer votre situation.
+      En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+    </div>
+
+    <div class="share">
+      <p>Partager ce test</p>
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fouipsycho.fr%2Farticles%2Felisabeth-bennet-sur-le-divan%2F" target="_blank" rel="noopener">📘 Facebook</a>
+      <a href="https://twitter.com/intent/tweet?text=Quel%20juge%20des%20autres%20%C3%AAtes-vous%20%3F%20J%27ai%20fait%20le%20test%20Elizabeth%20Bennet%20sur%20Oui%20Psycho%20!&url=https%3A%2F%2Fouipsycho.fr%2Farticles%2Felisabeth-bennet-sur-le-divan%2F" target="_blank" rel="noopener">𝕏 Twitter</a>
+      <a href="https://wa.me/?text=Quel%20juge%20des%20autres%20%C3%AAtes-vous%20%3F%20J%27ai%20fait%20le%20test%20Elizabeth%20Bennet%20sur%20Oui%20Psycho%20!%20https%3A%2F%2Fouipsycho.fr%2Farticles%2Felisabeth-bennet-sur-le-divan%2F" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-ghost" onclick="restart()">↺ Recommencer</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+var QUESTIONS = [
+  {
+    q: "Une nouvelle personne rejoint votre équipe. Elle ne dit presque rien pendant la réunion. Que pensez-vous, sincèrement ?",
+    o: [
+      ["Qu'elle est un peu hautaine — et je me le note.", "A"],
+      ["Rien. Je suis moi-même occupé à ne pas parler.", "B"],
+      ["Qu'il est trop tôt pour savoir. J'attends de la voir travailler.", "C"],
+      ["Qu'elle est sûrement intimidée, la pauvre.", "D"]
+    ]
+  },
+  {
+    q: "Un ami vous raconte que quelqu'un que vous n'aimez pas s'est mal comporté. Votre réaction intérieure ?",
+    o: [
+      ["« Évidemment. » Ça colle parfaitement à ce que je pensais.", "A"],
+      ["Je change de sujet. Ces histoires me mettent mal à l'aise.", "B"],
+      ["Je me demande ce que l'autre version raconterait.", "C"],
+      ["Je cherche une circonstance atténuante, presque malgré moi.", "D"]
+    ]
+  },
+  {
+    q: "On vous apporte une preuve que vous vous êtes trompé sur quelqu'un. Concrètement, il se passe quoi ?",
+    o: [
+      ["Je m'énerve, je rumine — et deux jours plus tard, j'admets.", "A"],
+      ["J'admets en silence, sans jamais le dire à voix haute.", "B"],
+      ["J'ajuste, sans drame. J'avais déjà une hypothèse de rechange.", "C"],
+      ["Je suis soulagé : je préférais avoir tort.", "D"]
+    ]
+  },
+  {
+    q: "Comment décririez-vous votre humour ?",
+    o: [
+      ["Une arme. Bien affûtée, parfois trop.", "A"],
+      ["Discret. Trois personnes au monde savent que j'en ai.", "B"],
+      ["Un lubrifiant social. Ça évite les frictions.", "C"],
+      ["Doux. Je n'aime pas rire aux dépens de quelqu'un.", "D"]
+    ]
+  },
+  {
+    q: "Un proche vous annonce qu'il fait un choix de vie très raisonnable, mais sans amour ni passion.",
+    o: [
+      ["Je le lui dis franchement. Quitte à froisser.", "A"],
+      ["Je garde mon avis pour moi. Ce n'est pas ma vie.", "B"],
+      ["Je comprends parfaitement. La sécurité n'est pas un gros mot.", "C"],
+      ["Je suis triste pour lui, mais je le soutiens.", "D"]
+    ]
+  },
+  {
+    q: "Vous entendez une remarque blessante à votre sujet, prononcée sans vous voir.",
+    o: [
+      ["Je m'en souviendrai. Longtemps. Avec précision.", "A"],
+      ["Je me ferme un peu plus. On ne me reprendra pas.", "B"],
+      ["Je note l'information et je continue ma soirée.", "C"],
+      ["Je me demande ce qui pouvait bien lui arriver ce jour-là.", "D"]
+    ]
+  },
+  {
+    q: "Face à un désaccord sur un sujet qui vous tient à cœur :",
+    o: [
+      ["J'argumente. J'aime ça. Et j'ai souvent raison.", "A"],
+      ["Je me tais, ce qui passe pour du mépris. Ce n'en est pas.", "B"],
+      ["Je cherche le terrain d'entente le plus efficace.", "C"],
+      ["Je cherche surtout à ce que personne ne se sente attaqué.", "D"]
+    ]
+  },
+  {
+    q: "Avec le recul, quelle phrase vous ressemble le plus ?",
+    o: [
+      ["« Je croyais me connaître. Je ne me connaissais pas. »", "A"],
+      ["« Je n'ai jamais su parler aux inconnus. »", "B"],
+      ["« Je ne suis pas romanesque. Je demande une maison confortable. »", "C"],
+      ["« Je pense rarement du mal de quelqu'un avant d'y être forcée. »", "D"]
+    ]
+  }
+];
+
+var PROFILES = {
+  A: {
+    emoji: "🔥",
+    title: "L'Elizabeth — le juge rapide qui sait se déjuger",
+    text: "Vous voyez vite, vous voyez juste — souvent. Votre intelligence est réelle et votre lecture des gens est plus fine que la moyenne. Mais votre vraie force n'est pas là : elle est dans votre capacité, rare, à démonter une conviction que vous aviez défendue avec panache. Peu de gens en sont capables. C'est une compétence, pas une faiblesse.",
+    blind: "Un esprit vif ne protège pas du biais de confirmation : il le rend plus élégant. Vous ne fabriquez pas de faux souvenirs, vous accordez simplement un crédit immédiat à ce qui confirme votre première impression, et une exigence de preuve écrasante à ce qui la contredit.",
+    tip: "Cette semaine, choisissez une personne que vous avez classée définitivement. Cherchez activement trois faits qui contredisent votre verdict. Pas pour changer d'avis — juste pour voir s'ils existent."
+  },
+  B: {
+    emoji: "🕯️",
+    title: "Le Darcy — le réservé qu'on juge mal",
+    text: "Votre silence n'est pas du mépris, c'est de l'inconfort. Vous ne savez pas entrer dans une conversation en cours, vous détestez le bavardage, et vous partez du principe que les gens verront bien qui vous êtes. Ils ne le verront pas. Ils verront une posture, et ils écriront un caractère par-dessus.",
+    blind: "Vous sous-estimez massivement le coût de votre réserve. Ce que vous vivez comme une discrétion élégante est décodé, à l'extérieur, comme de la froideur ou de l'arrogance. Vous laissez aux autres le soin d'écrire votre personnage.",
+    tip: "Une fois cette semaine, expliquez votre silence au lieu de le laisser parler. « Je suis mauvais dans ce genre de conversation » désamorce plus de malentendus que dix ans de bonnes intentions."
+  },
+  C: {
+    emoji: "🗝️",
+    title: "La Charlotte — la pragmatique lucide",
+    text: "Vous regardez les situations avant de regarder les gens. Vous savez qu'un comportement s'explique le plus souvent par un contexte, une contrainte, un intérêt — et vous vous méfiez des grandes théories sur les caractères. Cette lucidité vous économise une quantité impressionnante de déceptions.",
+    blind: "À force de tout comprendre, vous ne vous indignez plus de grand-chose. Le pragmatisme est une excellente boussole cognitive et une mauvaise boussole morale. Certaines choses méritent qu'on refuse de les trouver raisonnables.",
+    tip: "Repérez une situation que vous avez acceptée « parce que c'est comme ça ». Demandez-vous, une seule fois, ce que vous feriez si le calcul n'était pas la seule chose qui comptait."
+  },
+  D: {
+    emoji: "🌿",
+    title: "La Jane — la bienveillance par défaut",
+    text: "Vous cherchez la circonstance atténuante avant même d'avoir entendu le grief. C'est une disposition rare et précieuse : vous accordez d'emblée aux autres le bénéfice du contexte, ce que la psychologie sociale passe son temps à demander au reste de l'humanité.",
+    blind: "La bienveillance systématique est aussi un biais. À toujours expliquer les comportements, vous finissez par excuser ce qui n'a pas à l'être — et vous restez plus longtemps que nécessaire auprès de gens qui abusent précisément de cette générosité de lecture.",
+    tip: "Cette semaine, autorisez-vous une seule fois à ne pas chercher l'excuse. Notez ce que vous ressentez. Le malaise est instructif : il vous dira à qui vous n'osez pas dire non."
+  }
+};
+
+var idx = 0, scores = {A:0, B:0, C:0, D:0};
+
+function start() {
+  document.getElementById('intro').classList.add('hidden');
+  document.getElementById('quiz').classList.remove('hidden');
+  render();
+}
+
+function render() {
+  var q = QUESTIONS[idx];
+  document.getElementById('progress').style.width = ((idx) / QUESTIONS.length * 100) + '%';
+  document.getElementById('count').textContent = 'Question ' + (idx + 1) + ' sur ' + QUESTIONS.length;
+  document.getElementById('question').textContent = q.q;
+  var box = document.getElementById('options');
+  box.innerHTML = '';
+  q.o.forEach(function(pair) {
+    var b = document.createElement('button');
+    b.className = 'opt';
+    b.type = 'button';
+    b.textContent = pair[0];
+    b.onclick = function() { answer(pair[1]); };
+    box.appendChild(b);
+  });
+  notifyResize();
+}
+
+function answer(letter) {
+  scores[letter]++;
+  idx++;
+  if (idx < QUESTIONS.length) {
+    render();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  var order = ['A', 'B', 'C', 'D'];
+  var best = order[0];
+  order.forEach(function(k) { if (scores[k] > scores[best]) best = k; });
+  var p = PROFILES[best];
+  document.getElementById('r-emoji').textContent = p.emoji;
+  document.getElementById('r-title').textContent = p.title;
+  document.getElementById('r-text').textContent = p.text;
+  document.getElementById('r-blind').textContent = p.blind;
+  document.getElementById('r-tip').textContent = p.tip;
+  document.getElementById('quiz').classList.add('hidden');
+  document.getElementById('result').classList.remove('hidden');
+  if (typeof gtag === 'function') {
+    gtag('event', 'quiz_complete', { quiz_id: 'elisabeth-bennet-sur-le-divan', profile: best });
+  }
+  notifyResize();
+}
+
+function restart() {
+  idx = 0;
+  scores = {A:0, B:0, C:0, D:0};
+  document.getElementById('result').classList.add('hidden');
+  document.getElementById('intro').classList.remove('hidden');
+  notifyResize();
+}
+
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

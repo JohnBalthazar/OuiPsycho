@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://ouipsycho.fr/tests/notre-radar-interieur-quiz.html">
+<title>Tester votre radar intérieur !</title>
+<style>
+  :root{
+    --bleu:#1F4E6B; --bleu-clair:#2f6f96; --vert:#1a9e6e;
+    --bg:#f6f9fb; --card:#ffffff; --txt:#1d2b36; --gris:#5b6b76;
+    --bord:#e3ebf1; --ombre:0 10px 30px rgba(31,78,107,.10);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--txt);line-height:1.55;padding:18px}
+  .wrap{max-width:640px;margin:0 auto;background:var(--card);border:1px solid var(--bord);border-radius:18px;box-shadow:var(--ombre);overflow:hidden}
+  .head{background:linear-gradient(135deg,var(--bleu),var(--bleu-clair));color:#fff;padding:26px 24px}
+  .head .emoji{font-size:34px;display:block;margin-bottom:6px}
+  .head h1{font-size:1.35rem;line-height:1.25}
+  .head p{opacity:.9;font-size:.92rem;margin-top:6px}
+  .body{padding:24px}
+  .progress{height:7px;background:var(--bord);border-radius:99px;overflow:hidden;margin-bottom:20px}
+  .progress span{display:block;height:100%;background:var(--vert);width:0;transition:width .35s ease}
+  .qnum{font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--gris);font-weight:700;margin-bottom:8px}
+  .qtext{font-size:1.12rem;font-weight:700;margin-bottom:18px}
+  .opt{display:block;width:100%;text-align:left;background:#fff;border:1.6px solid var(--bord);border-radius:12px;padding:14px 16px;margin-bottom:11px;font-size:.98rem;color:var(--txt);cursor:pointer;transition:.18s}
+  .opt:hover{border-color:var(--bleu-clair);background:#f2f8fc;transform:translateY(-1px)}
+  .opt:active{transform:translateY(0)}
+  .res-emoji{font-size:52px;text-align:center;display:block;margin-bottom:6px}
+  .res-title{text-align:center;font-size:1.4rem;font-weight:800;color:var(--bleu);margin-bottom:14px}
+  .res-desc{font-size:1rem;margin-bottom:14px}
+  .res-desc strong{color:var(--bleu)}
+  .tips{background:#f2f8fc;border-left:4px solid var(--vert);border-radius:8px;padding:14px 16px;margin:16px 0;font-size:.95rem}
+  .tips h3{font-size:.95rem;color:var(--bleu);margin-bottom:8px}
+  .tips ul{padding-left:18px}
+  .tips li{margin-bottom:5px}
+  .disclaimer{background:#fff6f0;border:1px solid #ffd9c2;border-radius:10px;padding:13px 15px;font-size:.86rem;color:#6b4a38;margin:18px 0}
+  .share{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0}
+  .share a{flex:1;min-width:96px;text-align:center;text-decoration:none;color:#fff;padding:10px 8px;border-radius:10px;font-size:.86rem;font-weight:600}
+  .share .fb{background:#1877f2}.share .tw{background:#111}.share .wa{background:#25d366}
+  .restart{display:block;width:100%;background:var(--bleu);color:#fff;border:none;border-radius:12px;padding:14px;font-size:1rem;font-weight:700;cursor:pointer;margin-top:6px}
+  .restart:hover{background:var(--bleu-clair)}
+  .hidden{display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <span class="emoji">📡</span>
+    <h1>Tester votre radar intérieur !</h1>
+    <p>8 situations. Répondez spontanément — c'est votre première réaction qui compte.</p>
+  </div>
+  <div class="body">
+    <div class="progress" id="pgWrap"><span id="pg"></span></div>
+    <div id="quiz"></div>
+    <div id="result" class="hidden"></div>
+  </div>
+</div>
+
+<script>
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+var questions = [
+  { q:"Vous rencontrez quelqu'un pour la première fois et, sans raison claire, un malaise vous prend. Que faites-vous ?",
+    a:[
+      {t:"Je n'y prête pas attention, une impression ne prouve rien.", p:"A"},
+      {t:"Je le remarque mais je me force à rester aimable comme si de rien n'était.", p:"B"},
+      {t:"Je note le signal et j'observe discrètement ce qui a pu le déclencher.", p:"C"},
+      {t:"Je me méfie aussitôt et je garde mes distances pour de bon.", p:"D"}
+    ]},
+  { q:"Après certaines soirées ou réunions, vous rentrez complètement vidé. Votre lecture ?",
+    a:[
+      {t:"Je mets ça sur le compte de la fatigue, sans plus.", p:"A"},
+      {t:"Je sens bien que quelque chose me pèse, mais je n'ose pas creuser.", p:"B"},
+      {t:"Je me demande qui ou quoi, précisément, m'a épuisé — et j'en tiens compte.", p:"C"},
+      {t:"Je rumine longtemps et j'anticipe déjà la prochaine fois avec appréhension.", p:"D"}
+    ]},
+  { q:"Un proche vous répète que vous « exagérez » quand vous exprimez un ressenti. Vous...",
+    a:[
+      {t:"Je finis par penser qu'il a raison et je laisse tomber.", p:"A"},
+      {t:"Je doute de moi et je garde mon ressenti pour moi.", p:"B"},
+      {t:"J'écoute son avis mais je ne renonce pas à ce que j'ai perçu.", p:"C"},
+      {t:"Je me braque : on cherche encore à me faire taire.", p:"D"}
+    ]},
+  { q:"Face à une décision importante qui vous met mal à l'aise, votre boussole c'est...",
+    a:[
+      {t:"La logique et les arguments, uniquement. Le ressenti n'a pas sa place.", p:"A"},
+      {t:"Mon ressenti, mais je n'ose jamais le suivre vraiment.", p:"B"},
+      {t:"Les deux : je croise ce que dit mon corps avec les faits.", p:"C"},
+      {t:"Surtout la peur : au moindre doute, je recule.", p:"D"}
+    ]},
+  { q:"Repérez-vous facilement les tensions dans une pièce (non-dits, ambiance) ?",
+    a:[
+      {t:"Rarement, on me dit souvent que je n'ai rien vu venir.", p:"A"},
+      {t:"Oui, mais je préfère faire comme si je n'avais rien senti.", p:"B"},
+      {t:"Oui, et je m'en sers pour ajuster mon attitude.", p:"C"},
+      {t:"Trop : je capte tout, même ce qui n'existe pas forcément.", p:"D"}
+    ]},
+  { q:"Vos sensations corporelles (nœud au ventre, gorge serrée, épaules qui montent)...",
+    a:[
+      {t:"Je ne les remarque quasiment jamais.", p:"A"},
+      {t:"Je les sens mais je les mets vite de côté.", p:"B"},
+      {t:"Je les repère et je m'en sers comme d'indices.", p:"C"},
+      {t:"Elles sont presque constantes, mon corps est souvent en alerte.", p:"D"}
+    ]},
+  { q:"Avec le recul, vos premières impressions sur les gens se révèlent...",
+    a:[
+      {t:"Je n'y pense jamais assez pour le savoir.", p:"A"},
+      {t:"Souvent justes, mais je les ai ignorées et je l'ai regretté.", p:"B"},
+      {t:"Plutôt fiables, et j'ai appris à leur accorder du crédit.", p:"C"},
+      {t:"Souvent alarmistes : je vois du danger un peu partout.", p:"D"}
+    ]},
+  { q:"Quand votre intuition dit « pars » mais que la situation semble « correcte »...",
+    a:[
+      {t:"Je reste : sans preuve, mon impression ne compte pas.", p:"A"},
+      {t:"Je reste, à contrecœur, en m'en voulant un peu.", p:"B"},
+      {t:"Je m'accorde du temps pour vérifier si le signal tient.", p:"C"},
+      {t:"Je pars immédiatement, quitte à me tromper.", p:"D"}
+    ]}
+];
+
+var profiles = {
+  A:{ emoji:"🔇", title:"Le radar en veille",
+      desc:"Votre détecteur fonctionne, mais vous avez pris l'habitude de couper le son. Éduqué à privilégier la logique sur le ressenti, vous minimisez vos impressions — au risque de ne repérer certaines situations qu'une fois installées.",
+      tips:["Faites plusieurs pauses corporelles de 10 secondes par jour pour reconnecter le canal.","Après une interaction gênante, notez en une phrase ce que votre corps a fait.","Tenez un carnet de vos impressions et vérifiez, plus tard, ce qu'elles annonçaient."] },
+  B:{ emoji:"🤐", title:"Le radar bâillonné",
+      desc:"Vous percevez très bien les signaux — mais vous n'osez pas les suivre. Par politesse, par doute de soi ou par peur de déranger, vous laissez votre tête étouffer ce que votre corps a compris. Vos regrets portent souvent la mention « je le savais ».",
+      tips:["Accordez-vous la règle des 24 h avant une décision inconfortable : l'intuition juste résiste au temps.","Entraînez-vous à formuler un « non » simple, sans vous justifier.","Croisez votre ressenti avec un proche de confiance pour oser lui donner du poids."] },
+  C:{ emoji:"🎯", title:"Le radar bien calibré",
+      desc:"Bel équilibre. Vous captez les signaux de votre corps et vous savez les confronter aux faits sans les rejeter ni les subir. Votre intuition est une alliée que vous écoutez avec discernement — exactement ce vers quoi tend le travail sur soi.",
+      tips:["Continuez à consigner vos pressentiments pour affiner encore votre précision.","Restez attentif aux périodes de stress, qui peuvent temporairement dérégler l'alarme.","Partagez cette écoute : accompagner un proche à retrouver la sienne renforce la vôtre."] },
+  D:{ emoji:"🚨", title:"Le radar en surchauffe",
+      desc:"Votre alarme est réglée au maximum. Elle sonne beaucoup, parfois pour de vrais dangers, parfois pour des menaces qui n'en sont pas. Cette hypervigilance est souvent une protection héritée d'un stress ou d'un vécu difficile : elle a voulu vous garder en sécurité.",
+      tips:["Distinguez l'alarme réelle de la panique : la première résiste au temps, la seconde retombe.","Ancrez-vous dans le présent (respiration lente, contact avec vos pieds au sol) quand l'alerte monte.","Un accompagnement psychologique peut aider à recalibrer un radar longtemps sur-sollicité."] }
+};
+var order = ["C","B","A","D"]; // priorité en cas d'égalité
+
+var idx = 0, scores = {A:0,B:0,C:0,D:0};
+
+function render() {
+  var qz = document.getElementById('quiz');
+  var q = questions[idx];
+  document.getElementById('pg').style.width = (idx/questions.length*100) + '%';
+  var html = '<div class="qnum">Question ' + (idx+1) + ' / ' + questions.length + '</div>';
+  html += '<div class="qtext">' + q.q + '</div>';
+  q.a.forEach(function(opt, i){
+    html += '<button class="opt" data-p="' + opt.p + '">' + opt.t + '</button>';
+  });
+  qz.innerHTML = html;
+  Array.prototype.forEach.call(qz.querySelectorAll('.opt'), function(b){
+    b.addEventListener('click', function(){
+      scores[b.getAttribute('data-p')]++;
+      idx++;
+      if (idx < questions.length) { render(); } else { showResult(); }
+      notifyResize();
+    });
+  });
+  notifyResize();
+}
+
+function showResult() {
+  document.getElementById('pgWrap').classList.add('hidden');
+  document.getElementById('quiz').classList.add('hidden');
+  var best = order[0], max = -1;
+  order.forEach(function(k){ if (scores[k] > max) { max = scores[k]; best = k; } });
+  var p = profiles[best];
+  var url = 'https://ouipsycho.fr/articles/notre-radar-interieur/';
+  var eu = encodeURIComponent(url);
+  var et = encodeURIComponent('Mon profil au test « Radar intérieur » : ' + p.title + ' 📡 Et vous ?');
+  var etu = encodeURIComponent('Mon profil au test « Radar intérieur » : ' + p.title + ' 📡 Testez le vôtre : ' + url);
+  var tipsHtml = p.tips.map(function(t){ return '<li>' + t + '</li>'; }).join('');
+  var r = document.getElementById('result');
+  r.innerHTML =
+    '<span class="res-emoji">' + p.emoji + '</span>' +
+    '<div class="res-title">' + p.title + '</div>' +
+    '<p class="res-desc">' + p.desc + '</p>' +
+    '<div class="tips"><h3>Vos pistes concrètes</h3><ul>' + tipsHtml + '</ul></div>' +
+    '<div class="share">' +
+      '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+      '<a class="tw" href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+      '<a class="wa" href="https://wa.me/?text=' + etu + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+    '</div>' +
+    '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (souffrance psychique, gratuit, 24h/24). Violences au sein du couple : <strong>3919</strong> (gratuit, anonyme).</div>' +
+    '<button class="restart" id="restart">↺ Recommencer le test</button>';
+  r.classList.remove('hidden');
+  document.getElementById('restart').addEventListener('click', function(){
+    idx = 0; scores = {A:0,B:0,C:0,D:0};
+    r.classList.add('hidden');
+    document.getElementById('quiz').classList.remove('hidden');
+    document.getElementById('pgWrap').classList.remove('hidden');
+    document.getElementById('pg').style.width = '0';
+    render();
+    notifyResize();
+  });
+  notifyResize();
+}
+
+render();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

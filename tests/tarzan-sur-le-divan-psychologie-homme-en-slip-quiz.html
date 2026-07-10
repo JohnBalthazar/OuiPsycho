@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <title>Quelle femme ou homme de la jungle êtes-vous ? — Oui Psycho!</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: linear-gradient(160deg, #123524 0%, #1F4E2B 100%);
+      color:#f4efe6;
+      padding:24px 16px;
+    }
+    .quiz-wrap { max-width:640px; margin:0 auto; }
+    .quiz-header { text-align:center; margin-bottom:24px; }
+    .quiz-header .emoji { font-size:2.4rem; }
+    .quiz-header h1 { font-size:1.5rem; margin-top:8px; line-height:1.3; }
+    .quiz-header p { font-family:Arial, Helvetica, sans-serif; font-size:.92rem; color:#cfe3c8; margin-top:8px; line-height:1.5; }
+    .progress { height:8px; background:rgba(255,255,255,.15); border-radius:4px; margin:18px 0; overflow:hidden; }
+    .progress-bar { height:100%; width:0%; background:#f2b134; border-radius:4px; transition:width .3s ease; }
+    .q-count { font-family:Arial, sans-serif; font-size:.8rem; color:#cfe3c8; text-align:right; margin-bottom:6px; }
+    .question { font-size:1.15rem; line-height:1.4; margin-bottom:18px; }
+    .answers button {
+      display:block; width:100%; text-align:left;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.2);
+      color:#f4efe6; padding:14px 16px; margin-bottom:10px;
+      border-radius:10px; cursor:pointer;
+      font-family:Arial, Helvetica, sans-serif; font-size:.95rem; line-height:1.45;
+      transition:background .15s ease, transform .1s ease;
+    }
+    .answers button:hover { background:rgba(242,177,52,.22); transform:translateX(3px); }
+    .btn-start, .btn-restart {
+      display:inline-block; background:#f2b134; color:#123524;
+      border:none; padding:14px 28px; border-radius:30px;
+      font-family:Arial, sans-serif; font-weight:bold; font-size:1rem;
+      cursor:pointer; margin-top:10px;
+    }
+    .btn-start:hover, .btn-restart:hover { background:#ffc75a; }
+    .result-card {
+      background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.2);
+      border-radius:14px; padding:22px; margin-top:12px;
+    }
+    .result-card .emoji { font-size:2.6rem; text-align:center; display:block; }
+    .result-card h2 { text-align:center; font-size:1.35rem; margin:10px 0 14px; color:#f2b134; }
+    .result-card p { font-family:Arial, sans-serif; font-size:.95rem; line-height:1.6; margin-bottom:12px; }
+    .share { text-align:center; margin-top:18px; }
+    .share a {
+      display:inline-block; margin:4px 6px; padding:9px 16px;
+      background:rgba(255,255,255,.12); border-radius:22px;
+      color:#f4efe6; text-decoration:none;
+      font-family:Arial, sans-serif; font-size:.85rem;
+    }
+    .share a:hover { background:rgba(242,177,52,.3); }
+    .disclaimer {
+      margin-top:20px; padding:14px; border-radius:10px;
+      background:rgba(0,0,0,.28); border-left:4px solid #f2b134;
+      font-family:Arial, sans-serif; font-size:.82rem; line-height:1.55; color:#e8e2d5;
+    }
+    .center { text-align:center; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+<div class="quiz-wrap">
+
+  <!-- ÉCRAN INTRO -->
+  <div id="screen-intro">
+    <div class="quiz-header">
+      <span class="emoji">🌿</span>
+      <h1>Quelle femme ou homme de la jungle êtes-vous ?</h1>
+      <p>Face au chaos (de la jungle, de l'open space ou du groupe WhatsApp familial), chacun a sa stratégie de survie. Huit situations, huit choix instinctifs : découvrez votre profil de la canopée.</p>
+    </div>
+    <div class="center">
+      <button class="btn-start" onclick="startQuiz()">Commencer le test 🐒</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN QUIZ -->
+  <div id="screen-quiz" class="hidden">
+    <div class="q-count"><span id="qnum">1</span> / <span id="qtotal">8</span></div>
+    <div class="progress"><div class="progress-bar" id="pbar"></div></div>
+    <div class="question" id="qtext"></div>
+    <div class="answers" id="answers"></div>
+  </div>
+
+  <!-- ÉCRAN RÉSULTAT -->
+  <div id="screen-result" class="hidden">
+    <div class="quiz-header">
+      <span class="emoji">🏆</span>
+      <h1>Votre profil de la jungle</h1>
+    </div>
+    <div class="result-card">
+      <span class="emoji" id="r-emoji"></span>
+      <h2 id="r-title"></h2>
+      <p id="r-desc1"></p>
+      <p id="r-desc2"></p>
+      <p id="r-advice"></p>
+    </div>
+    <div class="share">
+      <a id="share-fb" href="#" target="_blank" rel="noopener">📘 Facebook</a>
+      <a id="share-tw" href="#" target="_blank" rel="noopener">𝕏 Twitter</a>
+      <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+    <div class="disclaimer">
+      ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+      Seul un professionnel de santé peut évaluer votre situation.
+      En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+    </div>
+    <div class="center">
+      <button class="btn-restart" onclick="restartQuiz()">🔄 Recommencer</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+var QUESTIONS = [
+  {
+    q: "Lundi, 7h02. Le réveil sonne. Votre premier réflexe :",
+    a: [
+      { t: "Debout avant la sonnerie. Le corps sait, lui.", p: "A" },
+      { t: "Vous attrapez votre téléphone : trois articles lus avant même d'avoir ouvert le deuxième œil.", p: "B" },
+      { t: "Vous vérifiez d'abord que tout le monde va bien à la maison — le café attendra.", p: "C" },
+      { t: "Snooze. La jungle commencera à 7h20. Ou 7h40.", p: "D" }
+    ]
+  },
+  {
+    q: "Un conflit éclate en réunion (ou au repas de famille). Vous :",
+    a: [
+      { t: "Tranchez vite et fort. Les débats sans fin, très peu pour vous.", p: "A" },
+      { t: "Posez LA question que personne n'avait envisagée — et tout le monde se tait.", p: "B" },
+      { t: "Guettez celui ou celle qui encaisse en silence, et allez le voir après.", p: "C" },
+      { t: "Notez mentalement l'anecdote pour la raconter plus tard. De loin, c'est fascinant.", p: "D" }
+    ]
+  },
+  {
+    q: "On vous propose un week-end « déconnexion totale, sans réseau ». Réaction :",
+    a: [
+      { t: "Enfin. Vous partiriez ce soir si vous pouviez.", p: "A" },
+      { t: "D'accord, mais vous embarquez trois bouquins et une carte IGN.", p: "B" },
+      { t: "Oui — à condition que tout le monde puisse vous joindre en cas de besoin.", p: "C" },
+      { t: "Vous dites oui avec enthousiasme, puis vérifiez discrètement la couverture 4G du coin.", p: "D" }
+    ]
+  },
+  {
+    q: "Votre rapport au sport, honnêtement :",
+    a: [
+      { t: "Vital. Une journée sans bouger et vous devenez infréquentable.", p: "A" },
+      { t: "Vous aimez surtout comprendre : technique, physiologie, progression mesurée.", p: "B" },
+      { t: "Vous y allez surtout quand ça motive quelqu'un d'autre à y aller aussi.", p: "C" },
+      { t: "Vous avez une excellente tenue de sport. Elle est comme neuve.", p: "D" }
+    ]
+  },
+  {
+    q: "Quelqu'un que vous aimez va mal mais dit que « ça va ». Vous :",
+    a: [
+      { t: "Proposez une marche, un truc concret. Les mots viendront en bougeant — ou pas.", p: "A" },
+      { t: "Cherchez à comprendre : questions douces, hypothèses, écoute active.", p: "B" },
+      { t: "Vous vous installez à côté, sans rien exiger. Vous serez là le temps qu'il faudra.", p: "C" },
+      { t: "Envoyez un mème parfaitement choisi. C'est votre langue maternelle.", p: "D" }
+    ]
+  },
+  {
+    q: "Face à un problème inconnu (fuite d'eau, formulaire administratif hostile) :",
+    a: [
+      { t: "Vous attaquez direct. On verra bien. Ça a toujours à peu près marché.", p: "A" },
+      { t: "Vous vous documentez d'abord. Tutoriels, notices, forums : le savoir avant le geste.", p: "B" },
+      { t: "Vous appelez quelqu'un — pas par incompétence, parce qu'à deux c'est mieux.", p: "C" },
+      { t: "Vous fermez la porte de la pièce concernée. Problème géré (géographiquement).", p: "D" }
+    ]
+  },
+  {
+    q: "Ce qu'on dit le plus souvent de vous :",
+    a: [
+      { t: "« Solide. » Vous êtes celui ou celle qu'on veut à côté de soi quand ça tangue.", p: "A" },
+      { t: "« Curieux·se. » Vous posez toujours une question de plus.", p: "B" },
+      { t: "« Fiable. » Les gens se confient à vous sans trop savoir pourquoi.", p: "C" },
+      { t: "« Drôle. » Ce qui vous arrange : pendant qu'on rit, on ne creuse pas.", p: "D" }
+    ]
+  },
+  {
+    q: "Votre définition secrète de la liberté :",
+    a: [
+      { t: "N'avoir de comptes à rendre à personne. Le corps, l'instant, point.", p: "A" },
+      { t: "Pouvoir tout apprendre, tout explorer, sans qu'on vous dise où vous arrêter.", p: "B" },
+      { t: "Savoir les vôtres en sécurité. Le reste est du décor.", p: "C" },
+      { t: "Un canapé, la paix, et personne pour vous demander de prouver quoi que ce soit.", p: "D" }
+    ]
+  }
+];
+
+var PROFILES = {
+  A: {
+    emoji: "🦍",
+    title: "Tarzan — l'instinctif",
+    desc1: "Vous vivez du côté du corps et de l'action : décider vite, bouger, régler les choses de front. Cette énergie rassure tout le monde autour de vous — au point qu'on oublie parfois de vous demander comment VOUS allez.",
+    desc2: "Votre zone de vigilance : la virilité (ou la solidité, version unisexe) vécue comme un examen permanent. À force de prouver, on oublie de ressentir. Un « ça va » automatique n'est pas une émotion, c'est un réflexe.",
+    advice: "Votre défi de la canopée : demander de l'aide une fois, pour de vrai, sur un sujet qui compte. Spoiler : personne ne vous retirera votre liane."
+  },
+  B: {
+    emoji: "🧭",
+    title: "Jane — l'exploratrice / l'explorateur",
+    desc1: "Vous entrez dans la jungle avec un carnet de notes. Comprendre, relier, apprendre la langue de l'autre : c'est votre manière d'aimer le monde. Vous êtes un pont entre des univers qui ne se parleraient pas sans vous.",
+    desc2: "Votre zone de vigilance : l'analyse peut devenir une cachette. À trop observer la vie, on risque de la regarder passer — et de transformer chaque émotion en objet d'étude plutôt qu'en expérience.",
+    advice: "Votre défi de la canopée : une expérience sans prise de notes. Ressentir d'abord, comprendre ensuite. Le carnet survivra."
+  },
+  C: {
+    emoji: "🤲",
+    title: "Kala — le cœur du clan",
+    desc1: "Comme la mère adoptive de Tarzan, vous choisissez les vôtres et vous les défendez, y compris contre l'avis général. C'est autour de personnes comme vous que les autres se construisent : l'attachement sécure a un visage, c'est le vôtre.",
+    desc2: "Votre zone de vigilance : à force de porter le clan, on s'oublie dans l'inventaire. Prendre soin de tout le monde sauf de soi n'est pas de la générosité, c'est une fuite très bien décorée.",
+    advice: "Votre défi de la canopée : un besoin à vous, formulé à voix haute, sans justification. Le clan tiendra debout deux heures sans vous."
+  },
+  D: {
+    emoji: "🛋️",
+    title: "Le lianeur du dimanche",
+    desc1: "Vous rêvez de jungle depuis un excellent canapé, et franchement, qui peut vous en vouloir ? Votre humour et votre recul sont de vraies compétences sociales : vous désamorcez les drames que les Tarzan de ce monde déclenchent.",
+    desc2: "Votre zone de vigilance : l'ironie peut devenir un slip en peau de bête à l'envers — une armure. À force de tout observer de loin, on finit spectateur de sa propre vie, avec de très bons commentaires.",
+    advice: "Votre défi de la canopée : une chose qui vous fait un peu peur ce mois-ci. Pas un saut de liane — un vrai truc à vous. L'inconfort est le seul muscle qui compte."
+  }
+};
+
+var current = 0;
+var votes = { A:0, B:0, C:0, D:0 };
+
+function startQuiz() {
+  document.getElementById('screen-intro').classList.add('hidden');
+  document.getElementById('screen-quiz').classList.remove('hidden');
+  current = 0;
+  votes = { A:0, B:0, C:0, D:0 };
+  showQuestion();
+}
+
+function showQuestion() {
+  var q = QUESTIONS[current];
+  document.getElementById('qnum').textContent = current + 1;
+  document.getElementById('qtotal').textContent = QUESTIONS.length;
+  document.getElementById('pbar').style.width = ((current) / QUESTIONS.length * 100) + '%';
+  document.getElementById('qtext').textContent = q.q;
+  var box = document.getElementById('answers');
+  box.innerHTML = '';
+  // Mélange léger des réponses pour éviter le biais de position
+  var shuffled = q.a.slice().sort(function(){ return Math.random() - 0.5; });
+  shuffled.forEach(function(ans) {
+    var b = document.createElement('button');
+    b.textContent = ans.t;
+    b.onclick = function() { answer(ans.p); };
+    box.appendChild(b);
+  });
+  notifyResize();
+}
+
+function answer(profile) {
+  votes[profile]++;
+  current++;
+  if (current < QUESTIONS.length) {
+    showQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  var best = 'A', max = -1;
+  ['A','B','C','D'].forEach(function(k) {
+    if (votes[k] > max) { max = votes[k]; best = k; }
+  });
+  var p = PROFILES[best];
+  document.getElementById('screen-quiz').classList.add('hidden');
+  document.getElementById('screen-result').classList.remove('hidden');
+  document.getElementById('r-emoji').textContent = p.emoji;
+  document.getElementById('r-title').textContent = p.title;
+  document.getElementById('r-desc1').textContent = p.desc1;
+  document.getElementById('r-desc2').textContent = p.desc2;
+  document.getElementById('r-advice').textContent = p.advice;
+
+  var pageUrl = 'https://ouipsycho.fr/articles/tarzan-sur-le-divan-psychologie-homme-en-slip/';
+  var shareText = 'Mon profil de la jungle : ' + p.title + ' ' + p.emoji + ' — Et vous ? Faites le test sur Oui Psycho!';
+  document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+  document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+  document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+  notifyResize();
+}
+
+function restartQuiz() {
+  document.getElementById('screen-result').classList.add('hidden');
+  document.getElementById('screen-intro').classList.remove('hidden');
+  notifyResize();
+}
+
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

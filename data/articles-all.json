@@ -27,6 +27,32 @@
     "status": "scheduled"
   },
   {
+    "id": "tarzan-sur-le-divan-psychologie-homme-en-slip",
+    "title": "Tarzan sur le divan : psychologie d'un homme en slip",
+    "excerpt": "",
+    "date": "2027-01-05",
+    "date_modified": "2027-01-05",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "tarzan",
+      "virilite",
+      "masculinite",
+      "etat-de-nature",
+      "homme-fort"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "luffy-sur-le-divan",
     "title": "Monkey D. Luffy sur le divan : psychologie du héros de One Piece",
     "excerpt": "",
@@ -105,6 +131,86 @@
     "status": "scheduled"
   },
   {
+    "id": "therapie-visio-telephone-presentiel",
+    "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
+    "excerpt": "",
+    "date": "2026-12-11",
+    "date_modified": "2026-12-11",
+    "category": "Thérapies",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "therapie-a-distance",
+      "teleconsultation",
+      "psychotherapie",
+      "alliance-therapeutique",
+      "mon-soutien-psy"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "loki-sur-le-divan-psychologie-dieu-malice",
+    "title": "Loki sur le divan : psychologie d'un dieu de la malice",
+    "excerpt": "",
+    "date": "2026-12-08",
+    "date_modified": "2026-12-08",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "loki",
+      "trickster",
+      "honte",
+      "sensibilite-au-rejet",
+      "syndrome-de-l-imposteur"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "psychologue-psychiatre-psychotherapeute-differences",
+    "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
+    "excerpt": "",
+    "date": "2026-12-04",
+    "date_modified": "2026-12-04",
+    "category": "Thérapies",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "psychologue",
+      "psychiatre",
+      "psychotherapeute",
+      "choisir-son-psy",
+      "alliance-therapeutique"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "psy-rembourse-secu-mon-soutien-psy"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
     "excerpt": "",
@@ -125,6 +231,58 @@
       "manipulation",
       "violence-psychologique",
       "gray-rock"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "elisabeth-bennet-sur-le-divan",
+    "title": "Elisabeth Bennet sur le divan : Psychologie d'une jeune britannique",
+    "excerpt": "",
+    "date": "2026-12-01",
+    "date_modified": "2026-12-01",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 40%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "orgueil-et-prejuges",
+      "biais-cognitifs",
+      "premiere-impression",
+      "jane-austen",
+      "psychologie-sociale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "psy-rembourse-secu-mon-soutien-psy",
+    "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
+    "excerpt": "",
+    "date": "2026-11-27",
+    "date_modified": "2026-11-27",
+    "category": "Thérapies",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "mon-soutien-psy",
+      "remboursement-psychologue",
+      "acces-aux-soins",
+      "psychotherapie",
+      "assurance-maladie"
     ],
     "metaDescription": "",
     "articles_lies": [],
@@ -177,6 +335,32 @@
       "travail invisible",
       "psychologie du travail",
       "culture pop"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "applications-gratuites-sante-mentale",
+    "title": "Les meilleures applis gratuites pour la santé mentale",
+    "excerpt": "",
+    "date": "2026-11-20",
+    "date_modified": "2026-11-20",
+    "category": "Bien-être",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "applications-sante-mentale",
+      "bien-etre-numerique",
+      "anxiete",
+      "depression",
+      "tcc"
     ],
     "metaDescription": "",
     "articles_lies": [],
@@ -394,9 +578,9 @@
   {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
-    "excerpt": "Le déclin de la santé mentale s'installe souvent à bas bruit. Voici sept signaux d'alerte que les cliniciens surveillent — pour mieux les repérer chez soi et chez ses proches.",
+    "excerpt": "",
     "date": "2026-10-30",
-    "date_modified": "2026-10-30",
+    "date_modified": "2026-07-09",
     "category": "Troubles Psy",
     "image": "",
     "hasImage": false,
@@ -413,9 +597,9 @@
       "prevention",
       "bien-etre-psychique"
     ],
-    "metaDescription": "Sommeil, plaisir, isolement, irritabilité… 7 signes que votre santé mentale décline, expliqués par la psychologie, et quoi faire pour réagir à temps.",
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "published"
+    "status": "scheduled"
   },
   {
     "id": "traumatismes-stress-post-traumatique-sequelles-solutions",
@@ -440,6 +624,32 @@
       "emdr",
       "tcc",
       "memoire-traumatique"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "arsene-lupin-divan",
+    "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
+    "excerpt": "",
+    "date": "2026-10-23",
+    "date_modified": "2026-10-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "arsene-lupin",
+      "psychologie-des-personnages",
+      "omar-sy",
+      "antiheros",
+      "triade-noire"
     ],
     "metaDescription": "",
     "articles_lies": [],
@@ -579,6 +789,33 @@
     "status": "scheduled"
   },
   {
+    "id": "bart-simpson-divan-tdah",
+    "title": "Bart Simpson sur le divan : Psychologie du TDAH",
+    "excerpt": "",
+    "date": "2026-10-13",
+    "date_modified": "2026-10-13",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "tdah",
+      "bart-simpson",
+      "les-simpsons",
+      "attention",
+      "enfance",
+      "pop-culture"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "5-traits-insoupconnes-meilleur-ami",
     "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
     "excerpt": "",
@@ -691,7 +928,7 @@
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
     "excerpt": "",
     "date": "2026-09-29",
-    "date_modified": "2026-06-24",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
     "hasImage": true,
@@ -1555,6 +1792,33 @@
     "status": "scheduled"
   },
   {
+    "id": "notre-radar-interieur",
+    "title": "Notre radar intérieur : osez vous faire confiance",
+    "excerpt": "",
+    "date": "2026-07-17",
+    "date_modified": "2026-07-10",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ca3h6mkh8zbg5b32gpel",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "intuition",
+      "relations-toxiques",
+      "confiance-en-soi",
+      "interoception",
+      "manipulation",
+      "bien-etre"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
     "excerpt": "",
@@ -1639,7 +1903,7 @@
     "title": "Votre date Tinder est-il un tueur en série ?",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
     "date": "2026-07-10",
-    "date_modified": "2026-07-01",
+    "date_modified": "2026-07-09",
     "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/aq2gy0sq100txyggqwxi",
     "hasImage": true,
@@ -1668,7 +1932,7 @@
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
     "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "date": "2026-07-09",
-    "date_modified": "2026-07-08",
+    "date_modified": "2026-07-09",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
     "hasImage": true,
@@ -1688,7 +1952,7 @@
     ],
     "metaDescription": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "du-crush-au-crash-anatomie-histoires-amour",

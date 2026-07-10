@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,follow">
+<link rel="canonical" href="https://ouipsycho.fr/tests/arsene-lupin-divan-quiz.html">
+<title>Quel gentleman cambrioleur êtes-vous ?</title>
+<style>
+  :root{
+    --bg:#f6f3ec; --card:#ffffff; --ink:#1f2a33; --muted:#5c6b73;
+    --brand:#1F4E6B; --brand2:#2f7ca0; --accent:#b5893f; --gold:#c9a24a;
+    --line:#e7e0d3; --shadow:0 8px 30px rgba(20,40,55,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.55;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin:0 auto;padding:22px 18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;
+    box-shadow:var(--shadow);padding:24px 22px}
+  .eyebrow{font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);font-weight:700;margin:0 0 6px}
+  h1{font-size:1.5rem;line-height:1.25;margin:0 0 6px;color:var(--brand)}
+  .lede{color:var(--muted);margin:0 0 18px;font-size:.98rem}
+  .progress{height:8px;background:#eee9dd;border-radius:99px;overflow:hidden;margin:0 0 18px}
+  .bar{height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--gold));transition:width .35s ease}
+  .qcount{font-size:.8rem;color:var(--muted);margin:0 0 10px;font-weight:600}
+  .q{font-size:1.18rem;font-weight:700;margin:0 0 16px;color:var(--ink)}
+  .opts{display:flex;flex-direction:column;gap:10px}
+  .opt{display:block;width:100%;text-align:left;padding:14px 16px;border:1.5px solid var(--line);
+    background:#fcfaf5;border-radius:12px;font-size:1rem;color:var(--ink);cursor:pointer;
+    transition:border-color .15s,background .15s,transform .05s}
+  .opt:hover{border-color:var(--gold);background:#faf5ea}
+  .opt:active{transform:scale(.99)}
+  .btn{display:inline-block;border:none;border-radius:12px;padding:13px 22px;font-size:1rem;
+    font-weight:700;cursor:pointer;background:var(--brand);color:#fff}
+  .btn:hover{background:#183d54}
+  .btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+  .center{text-align:center}
+  .hidden{display:none}
+  .result-emoji{font-size:3rem;line-height:1;margin:2px 0 6px}
+  .result-title{font-size:1.4rem;color:var(--brand);margin:0 0 4px}
+  .result-tag{display:inline-block;font-size:.8rem;font-weight:700;color:#fff;background:var(--accent);
+    padding:4px 12px;border-radius:99px;margin:0 0 14px}
+  .result-body{color:var(--ink);font-size:1rem;text-align:left}
+  .result-body p{margin:0 0 12px}
+  .advice{background:#faf5ea;border:1px solid #ecdcc0;border-radius:12px;padding:14px 16px;margin:14px 0;text-align:left}
+  .advice strong{color:var(--brand)}
+  .share{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px 0 6px}
+  .share a{text-decoration:none;font-size:.9rem;font-weight:700;padding:9px 14px;border-radius:10px;
+    border:1.5px solid var(--line);color:var(--ink);background:#fff}
+  .share a:hover{border-color:var(--gold)}
+  .disclaimer{margin-top:16px;font-size:.85rem;color:var(--muted);background:#fbf6ef;
+    border:1px solid #ecdcc0;border-radius:12px;padding:12px 14px;text-align:left}
+  .disclaimer strong{color:var(--accent)}
+  .restart{margin-top:14px}
+  @media(max-width:420px){h1{font-size:1.3rem}.q{font-size:1.06rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <!-- INTRO -->
+    <div id="intro">
+      <p class="eyebrow">Test · Nos héros sur le divan</p>
+      <h1>Quel gentleman cambrioleur êtes-vous ?</h1>
+      <p class="lede">Le Cerveau, le Caméléon, le Cœur ou le Charmeur ? 8 questions pour révéler le Lupin qui sommeille en vous. Répondez au feeling — c'est plus élégant.</p>
+      <div class="center"><button class="btn" id="startBtn">Ouvrir le coffre</button></div>
+    </div>
+
+    <!-- QUIZ -->
+    <div id="quiz" class="hidden">
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <p class="qcount" id="qcount"></p>
+      <p class="q" id="qtext"></p>
+      <div class="opts" id="opts"></div>
+    </div>
+
+    <!-- RESULT -->
+    <div id="result" class="hidden">
+      <div class="center">
+        <div class="result-emoji" id="rEmoji"></div>
+        <h2 class="result-title" id="rTitle"></h2>
+        <span class="result-tag" id="rTag"></span>
+      </div>
+      <div class="result-body" id="rBody"></div>
+      <div class="advice" id="rAdvice"></div>
+
+      <div class="share" id="share"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> ce questionnaire est un jeu de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="center restart">
+        <button class="btn ghost" id="restartBtn">↺ Rejouer</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({ type:'quiz-resize', height:document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    { q:"Un défi se présente à l'improviste. Votre premier réflexe ?",
+      a:[
+        {t:"J'échafaude aussitôt un plan en trois coups d'avance.", p:"A"},
+        {t:"Je m'adapte : je verrai bien selon la situation et les gens.", p:"B"},
+        {t:"Je me demande d'abord qui pourrait être blessé ou lésé.", p:"C"},
+        {t:"Je fonce avec le sourire, l'aisance fait la moitié du travail.", p:"D"}
+      ]},
+    { q:"En soirée, dans un groupe que vous ne connaissez pas…",
+      a:[
+        {t:"J'observe, j'analyse les dynamiques avant d'agir.", p:"A"},
+        {t:"Je me fonds dans l'ambiance, je m'ajuste à chacun.", p:"B"},
+        {t:"Je repère la personne isolée et je vais lui parler.", p:"C"},
+        {t:"Je lance une vanne : rire brise la glace en trois secondes.", p:"D"}
+      ]},
+    { q:"On vous confie une mission un peu risquée. Ce qui vous excite le plus :",
+      a:[
+        {t:"Résoudre le casse-tête, trouver la faille.", p:"A"},
+        {t:"Endosser un nouveau rôle, me réinventer pour l'occasion.", p:"B"},
+        {t:"La cause : que ça serve à quelqu'un ou répare une injustice.", p:"C"},
+        {t:"Le panache : réussir avec style, et qu'on s'en souvienne.", p:"D"}
+      ]},
+    { q:"Votre plus grande fierté, ce serait qu'on dise de vous :",
+      a:[
+        {t:"« Il a toujours un coup d'avance. »", p:"A"},
+        {t:"« Il sait se rendre à l'aise partout. »", p:"B"},
+        {t:"« On peut compter sur lui, quoi qu'il arrive. »", p:"C"},
+        {t:"« Il a un charme fou. »", p:"D"}
+      ]},
+    { q:"Face à quelqu'un d'arrogant et malhonnête, vous rêvez surtout de :",
+      a:[
+        {t:"Le piéger intelligemment, à son propre jeu.", p:"A"},
+        {t:"Le manœuvrer sans qu'il comprenne ce qui lui arrive.", p:"B"},
+        {t:"Rétablir la justice pour ceux qu'il a écrasés.", p:"C"},
+        {t:"Le désarçonner par une répartie mémorable.", p:"D"}
+      ]},
+    { q:"Comment décririez-vous votre rapport aux règles ?",
+      a:[
+        {t:"Je les étudie pour mieux exploiter leurs angles morts.", p:"A"},
+        {t:"Je m'y plie ou les contourne selon le contexte.", p:"B"},
+        {t:"Je les suis, sauf quand elles sont injustes.", p:"C"},
+        {t:"Je les négocie : tout se plaide avec assez de charme.", p:"D"}
+      ]},
+    { q:"Un proche traverse une épreuve. Vous êtes du genre à…",
+      a:[
+        {t:"Lui proposer un plan d'action concret, étape par étape.", p:"A"},
+        {t:"M'ajuster à ce dont il a besoin sur le moment.", p:"B"},
+        {t:"Rester présent, loyal, coûte que coûte.", p:"C"},
+        {t:"Le faire rire et lui redonner confiance.", p:"D"}
+      ]},
+    { q:"Au fond, ce qui vous fait vibrer chez un Lupin, c'est :",
+      a:[
+        {t:"L'ingéniosité de ses plans.", p:"A"},
+        {t:"Ses mille visages et déguisements.", p:"B"},
+        {t:"Sa fidélité et son sens de la justice.", p:"C"},
+        {t:"Son élégance et sa répartie.", p:"D"}
+      ]}
+  ];
+
+  var PROFILES = {
+    A:{ emoji:"🧠", title:"Le Cerveau", tag:"Le stratège",
+        body:"<p>Vous êtes le cerveau de l'opération. Comme Lupin devant un coffre, vous voyez les mécanismes cachés, anticipez les réactions et gardez toujours un coup d'avance. Votre plaisir : résoudre l'énigme que les autres ne voient même pas.</p><p>Sur le divan : cette maîtrise rassure, mais gare à ne pas tout vouloir contrôler. Toutes les situations (et tous les gens) ne se résolvent pas comme une équation.</p>",
+        advice:"<strong>À cultiver :</strong> laissez parfois une part d'imprévu. Les plus belles improvisations naissent quand on lâche un peu le plan." },
+    B:{ emoji:"🎭", title:"Le Caméléon", tag:"Le maître du déguisement",
+        body:"<p>Vous avez l'art de vous fondre partout, d'endosser le bon rôle au bon moment. Comme Lupin sous ses mille identités, vous vous adaptez avec une aisance déconcertante — un vrai talent social.</p><p>Sur le divan : cette souplesse est une force, tant qu'un « vous » reste stable sous les masques. La question à se poser de temps en temps : qui suis-je quand je ne joue aucun rôle ?</p>",
+        advice:"<strong>À cultiver :</strong> offrez-vous des espaces où vous n'avez rien à incarner. C'est là que l'on se retrouve vraiment." },
+    C:{ emoji:"❤️", title:"Le Cœur", tag:"Le justicier loyal",
+        body:"<p>Sous le costume du cambrioleur bat un cœur d'or. Ce qui vous meut, ce n'est pas l'exploit mais la cause : protéger les vôtres, réparer les injustices, rester fidèle. C'est exactement ce qui fait de Lupin un héros et non un simple voleur.</p><p>Sur le divan : votre loyauté est précieuse. Veillez seulement à ne pas vous oublier à force de porter les autres.</p>",
+        advice:"<strong>À cultiver :</strong> accordez-vous la même protection que celle que vous offrez si généreusement aux autres." },
+    D:{ emoji:"😏", title:"Le Charmeur", tag:"Le panache",
+        body:"<p>Vous avancez avec style, répartie et un charisme qui ouvre bien des portes — parfois plus vite que n'importe quel passe-partout. Comme Lupin, vous transformez le quotidien en petit numéro d'artiste.</p><p>Sur le divan : le charme est un superbe atout social. Rappelez-vous juste qu'on a le droit d'être vu aussi quand on ne « performe » pas.</p>",
+        advice:"<strong>À cultiver :</strong> osez la sincérité sans mise en scène. Elle touche encore plus que le plus beau des numéros." }
+  };
+
+  var idx = 0, scores = {A:0,B:0,C:0,D:0};
+  var intro=document.getElementById('intro'),
+      quiz=document.getElementById('quiz'),
+      result=document.getElementById('result');
+
+  function renderQuestion(){
+    var item = QUESTIONS[idx];
+    document.getElementById('qcount').textContent = "Question " + (idx+1) + " / " + QUESTIONS.length;
+    document.getElementById('bar').style.width = ((idx)/QUESTIONS.length*100) + "%";
+    document.getElementById('qtext').textContent = item.q;
+    var opts = document.getElementById('opts');
+    opts.innerHTML = "";
+    item.a.forEach(function(o){
+      var b = document.createElement('button');
+      b.className = "opt";
+      b.textContent = o.t;
+      b.onclick = function(){ choose(o.p); };
+      opts.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function choose(p){
+    scores[p]++;
+    idx++;
+    if (idx < QUESTIONS.length){ renderQuestion(); }
+    else { showResult(); }
+  }
+
+  function dominant(){
+    var order = ["C","B","A","D"]; // tie-break priority
+    var best = order[0];
+    order.forEach(function(k){ if (scores[k] > scores[best]) best = k; });
+    Object.keys(scores).forEach(function(k){ if (scores[k] > scores[best]) best = k; });
+    return best;
+  }
+
+  function showResult(){
+    document.getElementById('bar').style.width = "100%";
+    var key = dominant();
+    var pr = PROFILES[key];
+    document.getElementById('rEmoji').textContent = pr.emoji;
+    document.getElementById('rTitle').textContent = pr.title;
+    document.getElementById('rTag').textContent = pr.tag;
+    document.getElementById('rBody').innerHTML = pr.body;
+    document.getElementById('rAdvice').innerHTML = pr.advice;
+
+    var pageUrl = "https://ouipsycho.fr/articles/arsene-lupin-divan/";
+    var shareText = "Le Cerveau, le Caméléon, le Cœur ou le Charmeur ? Moi, je suis « " + pr.title + " ». Et vous, quel gentleman cambrioleur êtes-vous ?";
+    var u = encodeURIComponent(pageUrl);
+    var t = encodeURIComponent(shareText);
+    var tu = encodeURIComponent(shareText + " " + pageUrl);
+    document.getElementById('share').innerHTML =
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + tu + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+
+    quiz.classList.add('hidden');
+    intro.classList.add('hidden');
+    result.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = function(){
+    intro.classList.add('hidden');
+    quiz.classList.remove('hidden');
+    renderQuestion();
+  };
+
+  document.getElementById('restartBtn').onclick = function(){
+    idx = 0; scores = {A:0,B:0,C:0,D:0};
+    result.classList.add('hidden');
+    quiz.classList.remove('hidden');
+    renderQuestion();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
