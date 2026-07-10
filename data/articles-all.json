@@ -107,19 +107,18 @@
   {
     "id": "therapie-visio-telephone-presentiel",
     "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
-    "type": "article",
-    "excerpt": "Les méta-analyses sont formelles : à distance, la psychothérapie fait jeu égal avec le cabinet. Mais « équivalent en moyenne » ne veut pas dire « équivalent pour vous ». Le comparatif, format par format.",
-    "metaDescription": "Thérapie en visio, par téléphone ou en présentiel : que dit vraiment la science ? Efficacité, alliance, abandon, rechute. Le comparatif complet et un test.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-12-11",
     "date_modified": "2026-12-11",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "therapie-a-distance",
       "teleconsultation",
@@ -127,76 +126,25 @@
       "alliance-therapeutique",
       "mon-soutien-psy"
     ],
-    "sources": [
-      {
-        "authors": "Lin T., Heckman T. G. & Anderson T.",
-        "year": "2022",
-        "title": "The efficacy of synchronous teletherapy versus in-person therapy: A meta-analysis of randomized clinical trials",
-        "journal": "Clinical Psychology: Science and Practice, 29(2), 167-178",
-        "url": "https://doi.org/10.1037/cps0000056"
-      },
-      {
-        "authors": "Giovanetti A. K., Punt S. E. W., Nelson E.-L. & Ilardi S. S.",
-        "year": "2022",
-        "title": "Teletherapy versus in-person psychotherapy for depression: A meta-analysis of randomized controlled trials",
-        "journal": "Telemedicine and e-Health, 28(8)",
-        "url": "https://doi.org/10.1089/tmj.2021.0294"
-      },
-      {
-        "authors": "Mohr D. C., Ho J., Duffecy J., Reifler D., Sokol L., Burns M. N., Jin L. & Siddique J.",
-        "year": "2012",
-        "title": "Effect of telephone-administered vs face-to-face cognitive behavioral therapy on adherence to therapy and depression outcomes among primary care patients: A randomized trial",
-        "journal": "JAMA, 307(21), 2278-2285",
-        "url": "https://doi.org/10.1001/jama.2012.5588"
-      },
-      {
-        "authors": "Fernandez E., Woldgabreal Y., Day A., Pham T., Gleich B. & Aboujaoude E.",
-        "year": "2021",
-        "title": "Live psychotherapy by video versus in-person: A meta-analysis of efficacy and its relationship to types and targets of treatment",
-        "journal": "Clinical Psychology & Psychotherapy, 28(6)",
-        "url": "https://doi.org/10.1002/cpp.2594"
-      },
-      {
-        "authors": "Seuling P. D., Fendel J. C., Spille L., Göritz A. S. & Schmidt S.",
-        "year": "2024",
-        "title": "Therapeutic alliance in videoconferencing psychotherapy compared to psychotherapy in person: A systematic review and meta-analysis",
-        "journal": "Journal of Telemedicine and Telecare",
-        "url": "https://doi.org/10.1177/1357633X231161774"
-      },
-      {
-        "authors": "Aafjes-van Doorn K., Spina D. S., Horne S. J. & Békés V.",
-        "year": "2024",
-        "title": "The association between quality of therapeutic alliance and treatment outcomes in teletherapy: A systematic review and meta-analysis",
-        "journal": "Clinical Psychology Review, 110, 102430",
-        "url": "https://doi.org/10.1016/j.cpr.2024.102430"
-      },
-      {
-        "authors": "Assurance Maladie",
-        "year": "2026",
-        "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
-        "journal": "ameli.fr",
-        "url": "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
-    "type": "article",
-    "excerpt": "Un seul prescrit des médicaments. Un seul fait passer des tests. Et l'un de ces titres n'est même pas protégé par la loi. Le guide clair pour frapper à la bonne porte du premier coup.",
-    "metaDescription": "Psychologue, psychiatre ou psychothérapeute : formations, titres protégés, remboursement et conseils pour savoir lequel consulter selon votre situation.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-12-04",
     "date_modified": "2026-12-04",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "psychologue",
       "psychiatre",
@@ -204,36 +152,7 @@
       "choisir-son-psy",
       "alliance-therapeutique"
     ],
-    "sources": [
-      {
-        "authors": "République française",
-        "year": "2010",
-        "title": "Décret n° 2010-534 du 20 mai 2010 relatif à l'usage du titre de psychothérapeute",
-        "journal": "Journal officiel de la République française / Légifrance",
-        "url": "https://www.legifrance.gouv.fr/loda/id/JORFTEXT000022244482"
-      },
-      {
-        "authors": "République française",
-        "year": "1985",
-        "title": "Loi n° 85-772 du 25 juillet 1985, article 44 — usage professionnel du titre de psychologue",
-        "journal": "Journal officiel de la République française / Légifrance",
-        "url": ""
-      },
-      {
-        "authors": "Flückiger C., Del Re A. C., Wampold B. E. & Horvath A. O.",
-        "year": "2018",
-        "title": "The alliance in adult psychotherapy: A meta-analytic synthesis",
-        "journal": "Psychotherapy, 55(4), 316-340",
-        "url": "https://doi.org/10.1037/pst0000172"
-      },
-      {
-        "authors": "Haute Autorité de Santé (HAS)",
-        "year": "2017",
-        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en soins de premier recours. Recommandation de bonne pratique",
-        "journal": "Haute Autorité de Santé",
-        "url": ""
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "psy-rembourse-secu-mon-soutien-psy"
     ],
@@ -268,19 +187,18 @@
   {
     "id": "psy-rembourse-secu-mon-soutien-psy",
     "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
-    "type": "article",
-    "excerpt": "Douze séances de psychologue par an, 50 € l'unité, remboursées à 100 % dans la plupart des cas, et désormais sans passer par le médecin. On vous explique le dispositif Mon soutien psy — et si ces psys en valent la peine.",
-    "metaDescription": "Séances de psy remboursées par la Sécurité sociale : conditions, démarche, annuaire et qualité des psychologues du dispositif Mon soutien psy expliqués.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-27",
     "date_modified": "2026-11-27",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "mon-soutien-psy",
       "remboursement-psychologue",
@@ -288,36 +206,7 @@
       "psychotherapie",
       "assurance-maladie"
     ],
-    "sources": [
-      {
-        "authors": "Assurance Maladie (Cnam)",
-        "year": "2026",
-        "title": "Dossier de presse — Mon soutien psy : un accompagnement psychologique accessible à tous",
-        "journal": "Caisse nationale de l'Assurance Maladie",
-        "url": "https://www.assurance-maladie.ameli.fr/presse/2026-01-16-dp-dispositif-mon-soutien-psy"
-      },
-      {
-        "authors": "Assurance Maladie",
-        "year": "2026",
-        "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
-        "journal": "ameli.fr",
-        "url": "https://www.ameli.fr/assure/remboursements/rembourse/remboursement-seance-psychologue-mon-soutien-psy"
-      },
-      {
-        "authors": "Haute Autorité de Santé (HAS)",
-        "year": "2017",
-        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en soins de premier recours. Recommandation de bonne pratique",
-        "journal": "Haute Autorité de Santé",
-        "url": ""
-      },
-      {
-        "authors": "National Institute for Health and Care Excellence (NICE)",
-        "year": "2009",
-        "title": "Depression in adults: recognition and management. Clinical guideline",
-        "journal": "NICE",
-        "url": ""
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -376,19 +265,18 @@
   {
     "id": "applications-gratuites-sante-mentale",
     "title": "Les meilleures applis gratuites pour la santé mentale",
-    "type": "article",
-    "excerpt": "Des milliers d'applis promettent la sérénité, peu tiennent parole. Nous avons trié selon trois critères : preuves scientifiques, gratuité réelle et confidentialité. Voici les quatre qui passent le filtre, notées et commentées.",
-    "metaDescription": "Quelles applis gratuites de santé mentale valent vraiment la peine ? Notre sélection notée : preuves scientifiques, avis des pros, liens directs.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-11-20",
     "date_modified": "2026-11-20",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "applications-sante-mentale",
       "bien-etre-numerique",
@@ -396,36 +284,7 @@
       "depression",
       "tcc"
     ],
-    "sources": [
-      {
-        "authors": "Linardon J., Torous J., Firth J., Cuijpers P., Messer M. & Fuller-Tyszkiewicz M.",
-        "year": "2024",
-        "title": "Current evidence on the efficacy of mental health smartphone apps for symptoms of depression and anxiety. A meta-analysis of 176 randomized controlled trials",
-        "journal": "World Psychiatry, 23(1), 139-149",
-        "url": "https://doi.org/10.1002/wps.21183"
-      },
-      {
-        "authors": "Linardon J., Cuijpers P., Carlbring P., Messer M. & Fuller-Tyszkiewicz M.",
-        "year": "2019",
-        "title": "The efficacy of app-supported smartphone interventions for mental health problems: a meta-analysis of randomized controlled trials",
-        "journal": "World Psychiatry, 18(3), 325-336",
-        "url": "https://doi.org/10.1002/wps.20673"
-      },
-      {
-        "authors": "Torous J., Bucci S., Bell I. H., Kessing L. V., Faurholt-Jepsen M., Whelan P., Carvalho A. F., Keshavan M., Linardon J. & Firth J.",
-        "year": "2021",
-        "title": "The growing field of digital psychiatry: current evidence and the future of apps, social media, chatbots, and virtual reality",
-        "journal": "World Psychiatry, 20(3), 318-335",
-        "url": "https://doi.org/10.1002/wps.20883"
-      },
-      {
-        "authors": "Philip P. et coll. (laboratoire SANPSY, Université de Bordeaux — CNRS)",
-        "year": "2020",
-        "title": "KANOPEE : application de repérage des troubles du sommeil, du stress et des comportements addictifs",
-        "journal": "CHU de Bordeaux / SANPSY",
-        "url": ""
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -641,12 +500,12 @@
   {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
-    "type": "article",
-    "excerpt": "Le déclin de la santé mentale s'installe souvent à bas bruit. Voici sept signaux d'alerte que les cliniciens surveillent — pour mieux les repérer chez soi et chez ses proches.",
+    "excerpt": "",
     "date": "2026-10-30",
     "date_modified": "2026-07-09",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -660,7 +519,7 @@
       "prevention",
       "bien-etre-psychique"
     ],
-    "metaDescription": "Sommeil, plaisir, isolement, irritabilité… 7 signes que votre santé mentale décline, expliqués par la psychologie, et quoi faire pour réagir à temps.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -693,6 +552,32 @@
     "status": "scheduled"
   },
   {
+    "id": "arsene-lupin-divan",
+    "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
+    "excerpt": "",
+    "date": "2026-10-23",
+    "date_modified": "2026-10-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "arsene-lupin",
+      "psychologie-des-personnages",
+      "omar-sy",
+      "antiheros",
+      "triade-noire"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
     "excerpt": "",
@@ -715,55 +600,6 @@
       "therapies"
     ],
     "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "arsene-lupin-divan",
-    "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
-    "type": "article",
-    "excerpt": "Charme, déguisements, vengeance élégante : qu'y a-t-il dans la tête d'Arsène Lupin ? Du dandy de Leblanc à l'Assane Diop d'Omar Sy, on allonge le gentleman cambrioleur sur le divan.",
-    "metaDescription": "Arsène Lupin sur le divan : triade noire, sublimation du deuil et invisibilité sociale. Psychologie du gentleman cambrioleur, de Leblanc à la série Lupin.",
-    "author": "La rédaction Oui Psycho!",
-    "date": "2026-10-23",
-    "date_modified": "2026-10-23",
-    "category": "Nos héros sur le divan",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "tags": [
-      "arsene-lupin",
-      "psychologie-des-personnages",
-      "omar-sy",
-      "antiheros",
-      "triade-noire"
-    ],
-    "sources": [
-      {
-        "authors": "Paulhus D. L. et Williams K. M.",
-        "year": "2002",
-        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
-        "journal": "Journal of Research in Personality, 36(6), 556-563",
-        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
-      },
-      {
-        "authors": "Goffman E.",
-        "year": "1959",
-        "title": "The Presentation of Self in Everyday Life",
-        "journal": "Doubleday / Anchor Books",
-        "url": ""
-      },
-      {
-        "authors": "Leblanc M.",
-        "year": "1907",
-        "title": "Arsène Lupin, gentleman-cambrioleur",
-        "journal": "Pierre Lafitte (nouvelles parues dans « Je sais tout », 1905-1907)",
-        "url": ""
-      }
-    ],
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -877,19 +713,18 @@
   {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
-    "type": "article",
-    "excerpt": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la télévision ? Bart passe sur le divan.",
-    "metaDescription": "Bart Simpson et le TDAH : ce que le garnement de Springfield illustre (et rate) du trouble de l'attention. Analyse psychologique + quiz Simpsons.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-10-13",
     "date_modified": "2026-10-13",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "tdah",
       "bart-simpson",
@@ -898,36 +733,7 @@
       "enfance",
       "pop-culture"
     ],
-    "sources": [
-      {
-        "authors": "Faraone S. V. et al.",
-        "year": "2021",
-        "title": "The World Federation of ADHD International Consensus Statement: 208 Evidence-based conclusions about the disorder",
-        "journal": "Neuroscience & Biobehavioral Reviews",
-        "url": "https://doi.org/10.1016/j.neubiorev.2021.01.022"
-      },
-      {
-        "authors": "Polanczyk G., de Lima M. S., Horta B. L., Biederman J. & Rohde L. A.",
-        "year": "2007",
-        "title": "The worldwide prevalence of ADHD: a systematic review and metaregression analysis",
-        "journal": "American Journal of Psychiatry",
-        "url": "https://doi.org/10.1176/ajp.2007.164.6.942"
-      },
-      {
-        "authors": "Posner J., Polanczyk G. V. & Sonuga-Barke E.",
-        "year": "2020",
-        "title": "Attention-deficit hyperactivity disorder",
-        "journal": "The Lancet",
-        "url": "https://doi.org/10.1016/S0140-6736(19)33004-1"
-      },
-      {
-        "authors": "American Psychiatric Association",
-        "year": "2013",
-        "title": "Diagnostic and Statistical Manual of Mental Disorders (5th ed.)",
-        "journal": "American Psychiatric Publishing",
-        "url": "https://doi.org/10.1176/appi.books.9780890425596"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1910,19 +1716,18 @@
   {
     "id": "notre-radar-interieur",
     "title": "Notre radar intérieur : osez vous faire confiance",
-    "type": "article",
-    "excerpt": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement. Encore faut-il savoir l'écouter. Mode d'emploi.",
-    "metaDescription": "Intuition, pressentiment, malaise diffus : la science de votre radar intérieur pour détecter les relations toxiques et enfin oser vous faire confiance.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2026-07-17",
     "date_modified": "2026-07-17",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "intuition",
       "relations-toxiques",
@@ -1931,36 +1736,7 @@
       "manipulation",
       "bien-etre"
     ],
-    "sources": [
-      {
-        "authors": "Dunn B. D., Galton H. C., Morgan R., Evans D., Oliver C., Meyer M., Cusack R., Lawrence A. D. & Dalgleish T.",
-        "year": "2010",
-        "title": "Listening to your heart: How interoception shapes emotion experience and intuitive decision making",
-        "journal": "Psychological Science, 21(12), 1835-1844",
-        "url": "https://doi.org/10.1177/0956797610389191"
-      },
-      {
-        "authors": "Bechara A., Damasio A. R., Damasio H. & Anderson S. W.",
-        "year": "1994",
-        "title": "Insensitivity to future consequences following damage to human prefrontal cortex",
-        "journal": "Cognition, 50(1-3), 7-15",
-        "url": "https://doi.org/10.1016/0010-0277(94)90018-3"
-      },
-      {
-        "authors": "Remmers C. & Michalak J.",
-        "year": "2016",
-        "title": "Losing your gut feelings: Intuition in depression",
-        "journal": "Frontiers in Psychology, 7, 1291",
-        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4993771/"
-      },
-      {
-        "authors": "van der Kolk B.",
-        "year": "2014",
-        "title": "The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma",
-        "journal": "Viking (trad. fr. Le corps n'oublie rien)",
-        "url": "https://www.penguinrandomhouse.com/books/313183/the-body-keeps-the-score-by-bessel-van-der-kolk-md/"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2047,12 +1823,12 @@
   {
     "id": "date-tinder-tueur-en-serie",
     "title": "Votre date Tinder est-il un tueur en série ?",
-    "type": "article",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
     "date": "2026-07-10",
     "date_modified": "2026-07-09",
     "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/aq2gy0sq100txyggqwxi",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2076,12 +1852,12 @@
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
-    "type": "article",
     "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "date": "2026-07-09",
     "date_modified": "2026-07-09",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tf6orah8pwh6erucu4gy",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
