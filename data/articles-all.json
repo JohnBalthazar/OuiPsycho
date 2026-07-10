@@ -185,6 +185,76 @@
     "status": "scheduled"
   },
   {
+    "id": "elisabeth-bennet-sur-le-divan",
+    "title": "Elisabeth Bennet sur le divan : Psychologie d'une jeune britannique",
+    "type": "article",
+    "excerpt": "Elle a de l'esprit, du caractère, et elle se trompe magistralement. Orgueil et Préjugés est un manuel de psychologie sociale déguisé en roman de mœurs. Décryptage d'une héroïne qui apprend à changer d'avis.",
+    "metaDescription": "Biais de confirmation, erreur de correspondance, humilité intellectuelle : ce qu'Elizabeth Bennet révèle de nos jugements. Analyse psychologique et quiz.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2026-12-01",
+    "date_modified": "2026-12-01",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 40%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "orgueil-et-prejuges",
+      "biais-cognitifs",
+      "premiere-impression",
+      "jane-austen",
+      "psychologie-sociale"
+    ],
+    "sources": [
+      {
+        "authors": "Willis J. & Todorov A.",
+        "year": "2006",
+        "title": "First impressions: Making up your mind after a 100-ms exposure to a face",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1111/j.1467-9280.2006.01750.x"
+      },
+      {
+        "authors": "Nickerson R. S.",
+        "year": "1998",
+        "title": "Confirmation bias: A ubiquitous phenomenon in many guises",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.2.2.175"
+      },
+      {
+        "authors": "Gilbert D. T. & Malone P. S.",
+        "year": "1995",
+        "title": "The correspondence bias",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.117.1.21"
+      },
+      {
+        "authors": "Leary M. R., Diebels K. J., Davisson E. K. et al.",
+        "year": "2017",
+        "title": "Cognitive and interpersonal features of intellectual humility",
+        "journal": "Personality and Social Psychology Bulletin",
+        "url": "https://doi.org/10.1177/0146167217697695"
+      },
+      {
+        "authors": "Kidd D. C. & Castano E.",
+        "year": "2013",
+        "title": "Reading literary fiction improves theory of mind",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1239918"
+      },
+      {
+        "authors": "Panero M. E., Weisberg D. S., Black J. et al.",
+        "year": "2016",
+        "title": "Does reading a single passage of literary fiction really improve theory of mind? An attempt at replication",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/pspa0000064"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "elisabeth-bennet-sur-le-divan-quiz",
     "title": "Quel juge des autres êtes-vous ?",
     "desc": "Premières impressions, biais de confirmation, capacité à changer d'avis : découvrez votre profil parmi quatre figures de Longbourn.",
