@@ -1,5 +1,6 @@
 [
   {
+<<<<<<< HEAD
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
     "excerpt": "",
@@ -1855,6 +1856,8 @@
     "status": "scheduled"
   },
   {
+=======
+>>>>>>> 17716c5 (security: renforcement sécu login admin (poulet.html))
     "id": "date-tinder-tueur-en-serie",
     "title": "Votre date Tinder est-il un tueur en série ?",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
