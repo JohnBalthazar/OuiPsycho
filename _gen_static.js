@@ -974,4 +974,109 @@ injectRubriquePage(
   newIndex.filter(a => a.category === 'Sexo')
 );
 
+// ── Génération de data/tests.json (hub des quizzes) ──────────────────────────
+// Source de vérité : les articles/*.json dont le content contient une iframe
+// <iframe src="tests/{quizId}.html"> (ou src="/tests/...").
+// Les entrées sans article correspondant vivent dans data/tests.manual.json.
+//
+// Règle d'inclusion : même filtre que articles.json
+//   - status !== 'draft'
+//   - date <= TODAY (articles à date future exclus jusqu'au build post-publication)
+//
+// Overrides : champ optionnel "quizCard" à la racine du JSON article.
+//   Chaque clé présente écrase la valeur dérivée (title, desc, emoji, color,
+//   catLabel, duration). Absent → tout est auto-dérivé.
+const TESTS_FILE   = path.join(__dirname, 'data', 'tests.json');
+const TESTS_MANUAL = path.join(__dirname, 'data', 'tests.manual.json');
+
+// Map catégorie → emoji + couleur par défaut
+const QUIZ_CAT_MAP = {
+  'Thérapies':                 { emoji: '⚖️', color: '#1F4E6B' },
+  'Bien-être':                 { emoji: '🌿', color: '#2f86b7' },
+  'Troubles Psy':              { emoji: '🧠', color: '#6b4e9e' },
+  'Relations':                 { emoji: '💬', color: '#b5546a' },
+  'Sexo':                      { emoji: '❤️', color: '#b5546a' },
+  'Sommeil':                   { emoji: '😴', color: '#3d5a80' },
+  'Nos héros sur le divan':    { emoji: '🦸', color: '#1F4E6B' },
+  'Les monstres sur le divan': { emoji: '👹', color: '#7a3b3b' },
+};
+const QUIZ_FALLBACK = { emoji: '🧠', color: '#1F4E6B' };
+
+/** Tronque proprement à ~maxLen caractères sans couper un mot. */
+function truncateDesc(text, maxLen = 140) {
+  if (!text) return '';
+  const plain = text.replace(/<[^>]+>/g, '').trim();
+  if (plain.length <= maxLen) return plain;
+  const cut = plain.slice(0, maxLen);
+  const lastSpace = cut.lastIndexOf(' ');
+  return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + '…';
+}
+
+// Constantes pour le calcul isNew (30 jours)
+const TODAY_MS   = new Date(TODAY + 'T00:00:00').getTime();
+const THIRTY_MS  = 30 * 24 * 60 * 60 * 1000;
+
+// 1. Construire les entrées auto depuis les articles
+const autoTests = [];
+for (const file of jsonFiles) {
+  const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+
+  // Même filtre que articles.json : pas de draft, pas de date future
+  if ((j.status || 'published') === 'draft') continue;
+  if (j.date > TODAY) continue;
+
+  // Détecter le quiz : cherche <iframe src="tests/{quizId}.html">
+  // (accepte src avec ou sans slash initial)
+  const iframeMatch = j.content &&
+    j.content.match(/src=["'](?:\/)?tests\/([^"']+\.html)["']/);
+  if (!iframeMatch) continue;
+
+  const quizFile = iframeMatch[1];                     // ex: "witzelsucht-quiz.html"
+  const quizId   = quizFile.replace(/\.html$/i, '');   // ex: "witzelsucht-quiz"
+
+  // Overrides optionnels (champ quizCard — 100% facultatif)
+  const ov  = j.quizCard || {};
+  const cat = QUIZ_CAT_MAP[j.category] || QUIZ_FALLBACK;
+
+  const artDateMs = new Date(j.date + 'T00:00:00').getTime();
+
+  autoTests.push({
+    id:         quizId,
+    title:      ov.title    || j.title,
+    desc:       ov.desc     || truncateDesc(j.excerpt),
+    emoji:      ov.emoji    || cat.emoji,
+    color:      ov.color    || cat.color,
+    catLabel:   ov.catLabel || j.category,
+    duration:   ov.duration || '5 min',
+    testUrl:    'tests/' + quizFile,
+    articleUrl: 'articles/' + j.id + '/',
+    image:      j.image     || '',
+    isNew:      (TODAY_MS - artDateMs) <= THIRTY_MS,
+    status:     'published',
+    _date:      j.date,     // champ interne pour le tri, retiré à l'écriture
+  });
+}
+
+// 2. Entrées manuelles (quizzes sans article correspondant, ex: savoir-dire-non)
+let manualTests = [];
+try {
+  manualTests = JSON.parse(fs.readFileSync(TESTS_MANUAL, 'utf8'));
+} catch (_) { /* pas de fichier manual → liste vide */ }
+
+// 3. Fusion : auto prioritaires ; manual conservés si l'id n'est pas auto-généré
+const autoIds  = new Set(autoTests.map(t => t.id));
+const merged   = [
+  ...autoTests,
+  ...manualTests.filter(t => !autoIds.has(t.id)),
+];
+
+// 4. Tri par date d'article décroissante (plus récent en tête du hub)
+merged.sort((a, b) => (b._date || '').localeCompare(a._date || ''));
+
+// 5. Retirer le champ interne _date avant écriture (idempotence / pas de bruit git)
+const testsOutput = merged.map(({ _date, ...rest }) => rest);
+
+fs.writeFileSync(TESTS_FILE, JSON.stringify(testsOutput, null, 2), 'utf8');
+console.log(`🧪 data/tests.json mis à jour (${testsOutput.length} tests — ${autoTests.length} auto + ${merged.length - autoTests.length} manuel(s))`);
+
 console.log(`\n✅ ${jsonFiles.length} pages statiques générées avec succès !`);

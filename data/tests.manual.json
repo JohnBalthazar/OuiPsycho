@@ -1,0 +1,17 @@
+[
+  {
+    "id": "savoir-dire-non",
+    "title": "Savez-vous vraiment dire non ?",
+    "desc": "Testez votre assertivité sur 10 situations du quotidien et découvrez votre profil TCC.",
+    "emoji": "🚫",
+    "color": "#1F4E6B",
+    "catLabel": "Développement personnel",
+    "duration": "5 min",
+    "testUrl": "tests/savoir-dire-non.html",
+    "articleUrl": "articles/communication-non-violente/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_600/ouipsycho/articles/ncnxdnamjrzjof0jboeb",
+    "isNew": false,
+    "status": "published",
+    "_date": "2026-03-15"
+  }
+]

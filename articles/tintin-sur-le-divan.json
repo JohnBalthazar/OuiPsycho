@@ -62,5 +62,13 @@
     "asterix-obelix-psychopathologie-complice",
     "harry-potter-psychopathologie-complice"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel personnage de Tintin êtes-vous ?",
+    "desc": "Tintin, Haddock, Tournesol, Castafiore… 7 questions pour découvrir quel habitant de Moulinsart vous ressemble le plus.",
+    "emoji": "🔭",
+    "color": "#1F4E6B",
+    "catLabel": "Pop culture",
+    "duration": "3 min"
+  }
 }

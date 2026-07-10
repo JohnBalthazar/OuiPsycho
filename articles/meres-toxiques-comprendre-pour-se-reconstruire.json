@@ -39,5 +39,13 @@
     "Young J.E., Klosko J.S. & Weishaar M.E. (2003) — Schema Therapy: A Practitioner's Guide Guilford Press ."
   ],
   "articles_lies": [],
-  "status": "scheduled"
+  "status": "scheduled",
+  "quizCard": {
+    "title": "Votre relation maternelle a-t-elle laissé des traces ?",
+    "desc": "Un test clinique pour évaluer l'impact de votre relation maternelle.",
+    "emoji": "🌸",
+    "color": "#BE185D",
+    "catLabel": "Relations",
+    "duration": "5 min"
+  }
 }

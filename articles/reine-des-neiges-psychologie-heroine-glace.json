@@ -74,5 +74,13 @@
     }
   ],
   "articles_lies": [],
-  "status": "scheduled"
+  "status": "scheduled",
+  "quizCard": {
+    "title": "Quel genre de Reine des neiges êtes-vous ?",
+    "desc": "Votre profil émotionnel révélé par la psychologie des personnages.",
+    "emoji": "❄️",
+    "color": "#0EA5E9",
+    "catLabel": "Pop culture",
+    "duration": "3 min"
+  }
 }

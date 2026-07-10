@@ -68,5 +68,13 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Ton collègue a-t-il un profil de pervers ?",
+    "desc": "8 questions pour situer la relation sur l'échelle vert-orange-rouge et repartir avec des conseils adaptés.",
+    "emoji": "⚠️",
+    "color": "#DC2626",
+    "catLabel": "Travail",
+    "duration": "4 min"
+  }
 }

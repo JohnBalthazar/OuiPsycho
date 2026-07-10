@@ -67,5 +67,13 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel personnage Harry Potter êtes-vous ?",
+    "desc": "Découvrez votre profil psychologique à travers les archétypes de Poudlard.",
+    "emoji": "🧙",
+    "color": "#6D28D9",
+    "catLabel": "Pop culture",
+    "duration": "3 min"
+  }
 }

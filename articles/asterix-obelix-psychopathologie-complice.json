@@ -66,5 +66,13 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel Gaulois êtes-vous ?",
+    "desc": "Astérix, Obélix, Abraracourcix, Panoramix, Assurancetourix ou Bonemine — 7 questions pour savoir quel irréductible habitant du village sommeille en vous.",
+    "emoji": "🛡️",
+    "color": "#1A4B8C",
+    "catLabel": "Pop culture",
+    "duration": "3 min"
+  }
 }

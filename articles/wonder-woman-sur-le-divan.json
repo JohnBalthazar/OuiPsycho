@@ -70,5 +70,13 @@
     }
   ],
   "articles_lies": [],
-  "status": "scheduled"
+  "status": "scheduled",
+  "quizCard": {
+    "title": "Quel genre de Wonder Woman êtes-vous ?",
+    "desc": "Empathique, combative ou sage ? Trouvez votre héroïne intérieure.",
+    "emoji": "🦸‍♀️",
+    "color": "#7C3AED",
+    "catLabel": "Pop culture",
+    "duration": "3 min"
+  }
 }
