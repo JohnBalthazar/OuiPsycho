@@ -2,18 +2,19 @@
   {
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Quatre stratégies entrent dans l'arène du bien-être. On les note à armes égales, mesures biologiques et psychologiques à l'appui. Qui remporte le match contre l'anxiété ?",
+    "metaDescription": "Méditation, sport, psychothérapie ou rien : que dit vraiment la science ? Comparatif benchmark des effets sur l'anxiété et le bien-être, chiffres à l'appui.",
+    "author": "John Balthazar",
     "date": "2027-01-08",
     "date_modified": "2027-01-08",
     "category": "Thérapies",
     "image": "",
-    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 10,
-    "author": "John Balthazar",
     "tags": [
       "méditation",
       "sport",
@@ -21,7 +22,43 @@
       "anxiété",
       "bien-être"
     ],
-    "metaDescription": "",
+    "sources": [
+      {
+        "authors": "Goyal M. et coll.",
+        "year": "2014",
+        "title": "Meditation programs for psychological stress and well-being: a systematic review and meta-analysis",
+        "journal": "JAMA Internal Medicine",
+        "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+      },
+      {
+        "authors": "Pascoe M. C. et coll.",
+        "year": "2017",
+        "title": "Mindfulness mediates the physiological markers of stress: systematic review and meta-analysis",
+        "journal": "Journal of Psychiatric Research",
+        "url": "https://doi.org/10.1016/j.jpsychires.2017.08.004"
+      },
+      {
+        "authors": "Stubbs B. et coll.",
+        "year": "2017",
+        "title": "An examination of the anxiolytic effects of exercise for people with anxiety and stress-related disorders: a meta-analysis",
+        "journal": "Psychiatry Research",
+        "url": "https://doi.org/10.1016/j.psychres.2016.12.020"
+      },
+      {
+        "authors": "Noetel M. et coll.",
+        "year": "2024",
+        "title": "Effect of exercise for depression: systematic review and network meta-analysis of randomised controlled trials",
+        "journal": "The BMJ",
+        "url": "https://doi.org/10.1136/bmj-2023-075847"
+      },
+      {
+        "authors": "Cuijpers P. et coll.",
+        "year": "2016",
+        "title": "How effective are cognitive behavior therapies for major depression and anxiety disorders? A meta-analytic update of the evidence",
+        "journal": "World Psychiatry",
+        "url": "https://doi.org/10.1002/wps.20346"
+      }
+    ],
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -55,12 +92,12 @@
   {
     "id": "tarzan-sur-le-divan-psychologie-homme-en-slip",
     "title": "Tarzan sur le divan : psychologie d'un homme en slip",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Roi de la jungle ou prisonnier du mythe de l'homme fort ? Derrière le cri et les tablettes de chocolat, Tarzan raconte la virilité précaire, le fantasme de l'état de nature — et ce qu'il coûte de ne jamais demander d'aide.",
     "date": "2027-01-05",
-    "date_modified": "2027-01-05",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/op5sztzsdnq5vog9wpmc",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -74,7 +111,7 @@
       "etat-de-nature",
       "homme-fort"
     ],
-    "metaDescription": "",
+    "metaDescription": "Virilité précaire, mythe du bon sauvage, masculinité hégémonique : analyse psychologique et sociologique de Tarzan, l'homme qui devait toujours prouver.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -185,12 +222,12 @@
   {
     "id": "loki-sur-le-divan-psychologie-dieu-malice",
     "title": "Loki sur le divan : psychologie d'un dieu de la malice",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Menteur, manipulateur, insupportable — et pourtant on l'adore. Derrière le sourire en coin du dieu de la malice se cache un tableau clinique d'une cohérence troublante : honte, sensibilité au rejet et sentiment d'imposture.",
     "date": "2026-12-08",
     "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/duwn75duv3cfx814ahsi",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -204,7 +241,7 @@
       "sensibilite-au-rejet",
       "syndrome-de-l-imposteur"
     ],
-    "metaDescription": "",
+    "metaDescription": "Sensibilité au rejet, honte, triade noire, syndrome de l'imposteur : analyse psychologique de Loki, du mythe nordique au MCU. Un trickster sur le divan.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -817,12 +854,12 @@
   {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la télévision ? Bart passe sur le divan.",
     "date": "2026-10-13",
     "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uu076razwkpifdteak2o",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -837,7 +874,7 @@
       "enfance",
       "pop-culture"
     ],
-    "metaDescription": "",
+    "metaDescription": "Bart Simpson et le TDAH : ce que le garnement de Springfield illustre (et rate) du trouble de l'attention. Analyse psychologique + quiz Simpsons.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1711,12 +1748,12 @@
   {
     "id": "survivre-relation-toxique",
     "title": "Survivre à une relation toxique ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.",
     "date": "2026-07-26",
     "date_modified": "2026-07-10",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w7i39kp9bde6t5apucsa",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1730,7 +1767,7 @@
       "violence-psychologique",
       "estime-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Relation toxique : définition, témoignages et ce que dit la science sur le lien traumatique. Repères concrets pour reconnaître l'emprise et s'en protéger.",
     "articles_lies": [
       "cinq-reflexes-se-proteger-pervers-narcissique"
     ],
