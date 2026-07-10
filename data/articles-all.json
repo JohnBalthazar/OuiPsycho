@@ -695,12 +695,12 @@
   {
     "id": "arsene-lupin-divan",
     "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Charme, déguisements, vengeance élégante : qu'y a-t-il dans la tête d'Arsène Lupin ? Du dandy de Leblanc à l'Assane Diop d'Omar Sy, on allonge le gentleman cambrioleur sur le divan.",
     "date": "2026-10-23",
-    "date_modified": "2026-10-23",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uxkggmewlia5antsrpzg",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -714,7 +714,7 @@
       "antiheros",
       "triade-noire"
     ],
-    "metaDescription": "",
+    "metaDescription": "Arsène Lupin sur le divan : triade noire, sublimation du deuil et invisibilité sociale. Psychologie du gentleman cambrioleur, de Leblanc à la série Lupin.",
     "articles_lies": [],
     "status": "scheduled"
   },
