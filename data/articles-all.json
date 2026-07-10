@@ -302,13 +302,13 @@
   {
     "id": "elisabeth-bennet-sur-le-divan",
     "title": "Elisabeth Bennet sur le divan : Psychologie d'une jeune britannique",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Elle a de l'esprit, du caractère, et elle se trompe magistralement. Orgueil et Préjugés est un manuel de psychologie sociale déguisé en roman de mœurs. Décryptage d'une héroïne qui apprend à changer d'avis.",
     "date": "2026-12-01",
-    "date_modified": "2026-12-01",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 40%",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/eijqtmrc48zzmay62yji",
+    "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
@@ -321,7 +321,7 @@
       "jane-austen",
       "psychologie-sociale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Biais de confirmation, erreur de correspondance, humilité intellectuelle : ce qu'Elizabeth Bennet révèle de nos jugements. Analyse psychologique et quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
