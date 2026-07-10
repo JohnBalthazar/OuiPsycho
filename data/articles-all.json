@@ -1748,12 +1748,12 @@
   {
     "id": "survivre-relation-toxique",
     "title": "Survivre à une relation toxique ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.",
     "date": "2026-07-26",
-    "date_modified": "2026-07-26",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w7i39kp9bde6t5apucsa",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1767,7 +1767,7 @@
       "violence-psychologique",
       "estime-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Relation toxique : définition, témoignages et ce que dit la science sur le lien traumatique. Repères concrets pour reconnaître l'emprise et s'en protéger.",
     "articles_lies": [
       "cinq-reflexes-se-proteger-pervers-narcissique"
     ],
