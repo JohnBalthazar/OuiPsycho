@@ -546,11 +546,12 @@
   {
     "id": "psychologie-positive-peut-elle-nous-sauver",
     "title": "La psychologie positive peut-elle nous sauver ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Simple pensée magique ou vrai remède contre un monde anxiogène ? Ce que dit la science de la psychologie positive — et cinq pratiques concrètes à tester dès ce soir.",
     "date": "2026-11-06",
-    "date_modified": "2026-11-06",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kq49fi0vsefmqclnfhz2",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -564,7 +565,7 @@
       "resilience",
       "developpement-personnel"
     ],
-    "metaDescription": "",
+    "metaDescription": "La psychologie positive peut-elle nous sauver ? Définition, preuves scientifiques, modèle PERMA et 5 exercices concrets pour aller mieux au quotidien.",
     "articles_lies": [],
     "status": "scheduled"
   },
