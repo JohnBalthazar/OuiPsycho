@@ -641,12 +641,12 @@
   {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le déclin de la santé mentale s'installe souvent à bas bruit. Voici sept signaux d'alerte que les cliniciens surveillent — pour mieux les repérer chez soi et chez ses proches.",
     "date": "2026-10-30",
-    "date_modified": "2026-07-09",
+    "date_modified": "2026-07-10",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/btnpadnuuihg6gbwczbj",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -660,7 +660,7 @@
       "prevention",
       "bien-etre-psychique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Sommeil, plaisir, isolement, irritabilité… 7 signes que votre santé mentale décline, expliqués par la psychologie, et quoi faire pour réagir à temps.",
     "articles_lies": [],
     "status": "scheduled"
   },
