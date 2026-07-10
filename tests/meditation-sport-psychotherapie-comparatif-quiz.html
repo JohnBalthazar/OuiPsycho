@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qu'est-ce qui est le mieux pour vous ?</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/meditation-sport-psychotherapie-comparatif/">
+<meta name="description" content="Méditation, sport, psychothérapie ou approche mixte : découvrez en 6 questions le profil bien-être qui vous ressemble.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #1c2b36; background: #f4f7f9; line-height: 1.6; padding: 20px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; background: #fff; border-radius: 16px; padding: 28px 26px; box-shadow: 0 6px 24px rgba(31,78,107,.10); }
+  .intro h1 { font-size: 1.5rem; color: #1F4E6B; margin-bottom: 10px; line-height: 1.25; }
+  .intro p { color: #4a5b68; margin-bottom: 22px; }
+  .progress { height: 6px; background: #e4ebf0; border-radius: 999px; margin-bottom: 22px; overflow: hidden; }
+  .progress span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#2f86b7); width: 0; transition: width .35s ease; }
+  .q-count { font-size: .82rem; color: #8b9aa6; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 8px; }
+  .q-text { font-size: 1.22rem; font-weight: 600; color: #1F4E6B; margin-bottom: 20px; }
+  .opts { display: flex; flex-direction: column; gap: 12px; }
+  .opt {
+    text-align: left; padding: 15px 18px; border: 2px solid #e4ebf0; background: #fbfdfe;
+    border-radius: 12px; font-size: 1rem; color: #1c2b36; cursor: pointer; transition: all .18s ease;
+  }
+  .opt:hover { border-color: #2f86b7; background: #eef6fb; transform: translateY(-1px); }
+  .btn {
+    display: inline-block; border: none; cursor: pointer; font-size: 1rem; font-weight: 600;
+    padding: 13px 26px; border-radius: 999px; background: #1F4E6B; color: #fff; transition: background .18s;
+  }
+  .btn:hover { background: #163a50; }
+  .btn-start { margin-top: 6px; }
+  .result { text-align: center; }
+  .result .emoji { font-size: 3.4rem; line-height: 1; margin-bottom: 6px; }
+  .result h2 { font-size: 1.5rem; color: #1F4E6B; margin-bottom: 6px; }
+  .result .tag { display: inline-block; background: #eef6fb; color: #1F4E6B; font-weight: 600; font-size: .85rem; padding: 5px 14px; border-radius: 999px; margin-bottom: 16px; }
+  .result p { color: #3d4c58; text-align: left; margin-bottom: 14px; }
+  .result .reco { background: #f4f7f9; border-left: 4px solid #1F4E6B; padding: 14px 16px; border-radius: 8px; text-align: left; margin-bottom: 18px; }
+  .share { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin: 18px 0; }
+  .share a { text-decoration: none; font-size: .92rem; font-weight: 600; padding: 10px 16px; border-radius: 999px; color: #fff; }
+  .share .fb { background: #1877f2; }
+  .share .tw { background: #111; }
+  .share .wa { background: #25d366; }
+  .disclaimer { font-size: .86rem; color: #5a6a76; background: #fff8ec; border: 1px solid #f0e2c4; border-radius: 10px; padding: 13px 15px; text-align: left; margin-top: 6px; }
+  .restart { margin-top: 18px; background: #e4ebf0; color: #1F4E6B; }
+  .restart:hover { background: #d3dee6; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+
+  <div id="screen-intro" class="intro">
+    <h1>Qu'est-ce qui est le mieux pour vous ?</h1>
+    <p>Méditation, sport, psychothérapie ou approche mixte : il n'existe pas de solution universelle, seulement celle qui colle à votre tempérament. Six questions pour découvrir le profil qui vous ressemble.</p>
+    <button class="btn btn-start" onclick="startQuiz()">Commencer le test →</button>
+  </div>
+
+  <div id="screen-quiz" class="hidden">
+    <div class="progress"><span id="bar"></span></div>
+    <div class="q-count" id="qcount"></div>
+    <div class="q-text" id="qtext"></div>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <div id="screen-result" class="hidden result">
+    <div class="emoji" id="r-emoji"></div>
+    <h2 id="r-title"></h2>
+    <div class="tag" id="r-tag"></div>
+    <p id="r-desc"></p>
+    <div class="reco" id="r-reco"></div>
+    <div class="share" id="r-share"></div>
+    <div class="disclaimer">
+      ⚕️ <strong>Rappel important :</strong> ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+    </div>
+    <button class="btn restart" onclick="restart()">↺ Recommencer</button>
+  </div>
+
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var questions = [
+    {
+      q: "Un soir de stress, votre premier réflexe idéal serait…",
+      opts: [
+        { t: "Aller courir ou bouger pour évacuer", p: "S" },
+        { t: "Fermer les yeux et respirer calmement", p: "M" },
+        { t: "Appeler quelqu'un pour en parler longuement", p: "P" },
+        { t: "Un peu de tout, selon l'humeur du moment", p: "X" }
+      ]
+    },
+    {
+      q: "Ce qui vous freine le plus dans la gestion de votre bien-être :",
+      opts: [
+        { t: "Le manque d'énergie pour me mettre en mouvement", p: "M" },
+        { t: "L'agitation mentale, je n'arrive pas à rester en place", p: "S" },
+        { t: "J'ai besoin de comprendre le « pourquoi » de mes émotions", p: "P" },
+        { t: "Je m'ennuie vite avec une seule méthode", p: "X" }
+      ]
+    },
+    {
+      q: "Votre rapport au corps :",
+      opts: [
+        { t: "J'ai besoin de me dépenser physiquement pour aller bien", p: "S" },
+        { t: "J'aime les sensations calmes : souffle, détente, présence", p: "M" },
+        { t: "Le corps compte peu, c'est ma tête que je veux apaiser", p: "P" },
+        { t: "Ça dépend des jours et de la forme", p: "X" }
+      ]
+    },
+    {
+      q: "Face à un problème qui dure, vous préférez :",
+      opts: [
+        { t: "Des résultats rapides et concrets", p: "S" },
+        { t: "Une pratique quotidienne qui m'ancre sur le long terme", p: "M" },
+        { t: "Aller à la racine, quitte à ce que ce soit long", p: "P" },
+        { t: "Combiner plusieurs leviers en même temps", p: "X" }
+      ]
+    },
+    {
+      q: "Votre budget et votre temps disponibles :",
+      opts: [
+        { t: "Peu de budget, mais je peux bloquer 30 min pour bouger", p: "S" },
+        { t: "Peu de budget, quelques minutes par jour maximum", p: "M" },
+        { t: "Je suis prêt·e à investir du temps et de l'argent si ça aide", p: "P" },
+        { t: "Je m'adapte, un peu de chaque selon les semaines", p: "X" }
+      ]
+    },
+    {
+      q: "Ce dont vous auriez le plus besoin en ce moment :",
+      opts: [
+        { t: "Retrouver de l'élan et de la vitalité", p: "S" },
+        { t: "Faire baisser la pression et retrouver du calme", p: "M" },
+        { t: "Être écouté·e et outillé·e en profondeur", p: "P" },
+        { t: "Un équilibre global corps + esprit", p: "X" }
+      ]
+    }
+  ];
+
+  var profiles = {
+    S: {
+      emoji: "🏃",
+      title: "Le sportif qui s'ignore",
+      tag: "Profil « Mouvement »",
+      desc: "Vous fonctionnez à l'énergie et au concret. La science est de votre côté : l'exercice affiche parmi les meilleurs effets sur l'anxiété et fait chuter le cortisol tout en boostant le moral. C'est votre levier le plus rapide et le plus gratuit.",
+      reco: "<strong>À tester :</strong> 30 minutes de marche rapide, jogging, yoga ou renforcement, plusieurs fois par semaine. Commencez petit mais régulier — la constance compte plus que l'intensité au démarrage."
+    },
+    M: {
+      emoji: "🧘",
+      title: "L'âme contemplative",
+      tag: "Profil « Ancrage »",
+      desc: "Vous êtes réceptif·ve au calme intérieur. La méditation de pleine conscience vous conviendrait : effet réel sur l'anxiété et, surtout, une signature biologique impressionnante — baisse du cortisol, de la tension et de l'inflammation.",
+      reco: "<strong>À tester :</strong> 5 à 10 minutes de respiration consciente ou de scan corporel par jour. L'assiduité est la clé : mieux vaut 5 minutes tous les jours qu'une heure une fois par mois."
+    },
+    P: {
+      emoji: "🛋️",
+      title: "Celui ou celle qui a besoin de comprendre",
+      tag: "Profil « Profondeur »",
+      desc: "Vous voulez aller à la racine, pas seulement calmer les symptômes. Si votre mal-être dure ou s'intensifie, la psychothérapie est l'option la plus solide sur le long terme : c'est la championne de la durabilité et de la prévention de la rechute.",
+      reco: "<strong>À tester :</strong> prendre rendez-vous avec un·e psychologue (une thérapie cognitivo-comportementale a de solides preuves d'efficacité). Ce n'est pas un aveu de faiblesse, c'est un investissement durable."
+    },
+    X: {
+      emoji: "⚖️",
+      title: "Le curieux équilibré",
+      tag: "Profil « Approche mixte »",
+      desc: "Vous l'avez compris avant tout le monde : ces méthodes ne sont pas rivales, elles sont complémentaires. Bouger et méditer entretiennent le corps et l'humeur au quotidien, la thérapie répare en profondeur. La combinaison donne souvent les meilleurs résultats.",
+      reco: "<strong>À tester :</strong> associez un peu de mouvement, quelques minutes de respiration, et n'hésitez pas à consulter si besoin. Composez votre propre cocktail selon vos semaines."
+    }
+  };
+
+  var current = 0;
+  var scores = { S: 0, M: 0, P: 0, X: 0 };
+
+  function startQuiz() {
+    document.getElementById('screen-intro').classList.add('hidden');
+    document.getElementById('screen-quiz').classList.remove('hidden');
+    renderQuestion();
+    notifyResize();
+  }
+
+  function renderQuestion() {
+    var q = questions[current];
+    document.getElementById('qcount').textContent = "Question " + (current + 1) + " / " + questions.length;
+    document.getElementById('qtext').textContent = q.q;
+    document.getElementById('bar').style.width = ((current) / questions.length * 100) + "%";
+    var box = document.getElementById('opts');
+    box.innerHTML = "";
+    q.opts.forEach(function(o) {
+      var b = document.createElement('button');
+      b.className = "opt";
+      b.textContent = o.t;
+      b.onclick = function() { answer(o.p); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(p) {
+    scores[p]++;
+    current++;
+    if (current < questions.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = "100%";
+    document.getElementById('screen-quiz').classList.add('hidden');
+    var screen = document.getElementById('screen-result');
+    screen.classList.remove('hidden');
+
+    var best = "X", max = -1;
+    ["S", "M", "P", "X"].forEach(function(k) {
+      if (scores[k] > max) { max = scores[k]; best = k; }
+    });
+    var pr = profiles[best];
+
+    document.getElementById('r-emoji').textContent = pr.emoji;
+    document.getElementById('r-title').textContent = pr.title;
+    document.getElementById('r-tag').textContent = pr.tag;
+    document.getElementById('r-desc').textContent = pr.desc;
+    document.getElementById('r-reco').innerHTML = pr.reco;
+
+    var pageUrl = "https://ouipsycho.fr/articles/meditation-sport-psychotherapie-comparatif/";
+    var shareText = "Mon profil bien-être : « " + pr.title + " ». Et vous ?";
+    var u = encodeURIComponent(pageUrl);
+    var t = encodeURIComponent(shareText);
+    var tu = encodeURIComponent(shareText + " " + pageUrl);
+    document.getElementById('r-share').innerHTML =
+      '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+      '<a class="tw" href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+      '<a class="wa" href="https://wa.me/?text=' + tu + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+
+    notifyResize();
+  }
+
+  function restart() {
+    current = 0;
+    scores = { S: 0, M: 0, P: 0, X: 0 };
+    document.getElementById('screen-result').classList.add('hidden');
+    document.getElementById('screen-intro').classList.remove('hidden');
+    notifyResize();
+  }
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
