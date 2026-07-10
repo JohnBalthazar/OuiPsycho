@@ -1,5 +1,68 @@
 [
   {
+    "id": "meditation-sport-psychotherapie-comparatif",
+    "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
+    "type": "article",
+    "excerpt": "Quatre stratégies entrent dans l'arène du bien-être. On les note à armes égales, mesures biologiques et psychologiques à l'appui. Qui remporte le match contre l'anxiété ?",
+    "metaDescription": "Méditation, sport, psychothérapie ou rien : que dit vraiment la science ? Comparatif benchmark des effets sur l'anxiété et le bien-être, chiffres à l'appui.",
+    "author": "John Balthazar",
+    "date": "2027-01-08",
+    "date_modified": "2027-01-08",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "tags": [
+      "méditation",
+      "sport",
+      "psychothérapie",
+      "anxiété",
+      "bien-être"
+    ],
+    "sources": [
+      {
+        "authors": "Goyal M. et coll.",
+        "year": "2014",
+        "title": "Meditation programs for psychological stress and well-being: a systematic review and meta-analysis",
+        "journal": "JAMA Internal Medicine",
+        "url": "https://doi.org/10.1001/jamainternmed.2013.13018"
+      },
+      {
+        "authors": "Pascoe M. C. et coll.",
+        "year": "2017",
+        "title": "Mindfulness mediates the physiological markers of stress: systematic review and meta-analysis",
+        "journal": "Journal of Psychiatric Research",
+        "url": "https://doi.org/10.1016/j.jpsychires.2017.08.004"
+      },
+      {
+        "authors": "Stubbs B. et coll.",
+        "year": "2017",
+        "title": "An examination of the anxiolytic effects of exercise for people with anxiety and stress-related disorders: a meta-analysis",
+        "journal": "Psychiatry Research",
+        "url": "https://doi.org/10.1016/j.psychres.2016.12.020"
+      },
+      {
+        "authors": "Noetel M. et coll.",
+        "year": "2024",
+        "title": "Effect of exercise for depression: systematic review and network meta-analysis of randomised controlled trials",
+        "journal": "The BMJ",
+        "url": "https://doi.org/10.1136/bmj-2023-075847"
+      },
+      {
+        "authors": "Cuijpers P. et coll.",
+        "year": "2016",
+        "title": "How effective are cognitive behavior therapies for major depression and anxiety disorders? A meta-analytic update of the evidence",
+        "journal": "World Psychiatry",
+        "url": "https://doi.org/10.1002/wps.20346"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "tdah-trouble-deficit-attention-hyperactivite",
     "title": "TDAH : Trouble du Déficit de l'Attention avec ou sans Hyperactivité",
     "excerpt": "",
