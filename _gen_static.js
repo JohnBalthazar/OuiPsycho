@@ -1002,12 +1002,15 @@ const QUIZ_CAT_MAP = {
 };
 const QUIZ_FALLBACK = { emoji: '🧠', color: '#1F4E6B' };
 
-/** Tronque proprement à ~maxLen caractères sans couper un mot. */
+/** Tronque proprement à ~maxLen caractères sans couper un mot ni une paire de substitution UTF-16.
+ *  Utilise [...str] (itération sur les points de code) pour compter les vrais caractères,
+ *  ce qui évite de couper au milieu d'un emoji (ex: 🦸 = 2 code units). */
 function truncateDesc(text, maxLen = 140) {
   if (!text) return '';
   const plain = text.replace(/<[^>]+>/g, '').trim();
-  if (plain.length <= maxLen) return plain;
-  const cut = plain.slice(0, maxLen);
+  const codePoints = [...plain];                          // tableau de vrais caractères Unicode
+  if (codePoints.length <= maxLen) return plain;
+  const cut = codePoints.slice(0, maxLen).join('');
   const lastSpace = cut.lastIndexOf(' ');
   return (lastSpace > 0 ? cut.slice(0, lastSpace) : cut) + '…';
 }
@@ -1060,8 +1063,20 @@ for (const file of jsonFiles) {
 // 2. Entrées manuelles (quizzes sans article correspondant, ex: savoir-dire-non)
 let manualTests = [];
 try {
-  manualTests = JSON.parse(fs.readFileSync(TESTS_MANUAL, 'utf8'));
-} catch (_) { /* pas de fichier manual → liste vide */ }
+  const rawManual = JSON.parse(fs.readFileSync(TESTS_MANUAL, 'utf8'));
+  if (Array.isArray(rawManual)) {
+    manualTests = rawManual;
+  } else {
+    // JSON valide mais pas un tableau → crash silencieux évité, avertissement explicite
+    console.warn(`⚠ ${TESTS_MANUAL} n'est pas un tableau JSON — entrées manuelles ignorées`);
+  }
+} catch (e) {
+  if (e.code !== 'ENOENT') {
+    // Fichier présent mais JSON invalide → ne pas perdre l'entrée en silence
+    console.warn(`⚠ ${TESTS_MANUAL} invalide (${e.message}) — entrées manuelles ignorées`);
+  }
+  /* ENOENT = fichier absent → liste vide, comportement normal */
+}
 
 // 3. Fusion : auto prioritaires ; manual conservés si l'id n'est pas auto-généré
 const autoIds  = new Set(autoTests.map(t => t.id));
