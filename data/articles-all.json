@@ -27,6 +27,74 @@
     "status": "scheduled"
   },
   {
+    "id": "tarzan-sur-le-divan-psychologie-homme-en-slip",
+    "title": "Tarzan sur le divan : psychologie d'un homme en slip",
+    "type": "article",
+    "excerpt": "Roi de la jungle ou prisonnier du mythe de l'homme fort ? Derrière le cri et les tablettes de chocolat, Tarzan raconte la virilité précaire, le fantasme de l'état de nature — et ce qu'il coûte de ne jamais demander d'aide.",
+    "metaDescription": "Virilité précaire, mythe du bon sauvage, masculinité hégémonique : analyse psychologique et sociologique de Tarzan, l'homme qui devait toujours prouver.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2027-01-05",
+    "date_modified": "2027-01-05",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "tarzan",
+      "virilite",
+      "masculinite",
+      "etat-de-nature",
+      "homme-fort"
+    ],
+    "sources": [
+      {
+        "authors": "Vandello J. A., Bosson J. K., Cohen D., Burnaford R. M. & Weaver J. R.",
+        "year": "2008",
+        "title": "Precarious manhood",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0012453"
+      },
+      {
+        "authors": "Connell R. W. & Messerschmidt J. W.",
+        "year": "2005",
+        "title": "Hegemonic masculinity: Rethinking the concept",
+        "journal": "Gender & Society",
+        "url": "https://doi.org/10.1177/0891243205280639"
+      },
+      {
+        "authors": "Mahalik J. R., Locke B. D., Ludlow L. H. et al.",
+        "year": "2003",
+        "title": "Development of the Conformity to Masculine Norms Inventory",
+        "journal": "Psychology of Men & Masculinity",
+        "url": "https://doi.org/10.1037/1524-9220.4.1.3"
+      },
+      {
+        "authors": "Courtenay W. H.",
+        "year": "2000",
+        "title": "Constructions of masculinity and their influence on men's well-being: A theory of gender and health",
+        "journal": "Social Science & Medicine",
+        "url": "https://doi.org/10.1016/S0277-9536(99)00390-1"
+      },
+      {
+        "authors": "Rousseau J.-J.",
+        "year": "1755",
+        "title": "Discours sur l'origine et les fondements de l'inégalité parmi les hommes",
+        "publisher": "Marc-Michel Rey"
+      },
+      {
+        "authors": "Itard J.",
+        "year": "1801",
+        "title": "De l'éducation d'un homme sauvage, ou des premiers développemens physiques et moraux du jeune sauvage de l'Aveyron",
+        "publisher": "Goujon"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "luffy-sur-le-divan",
     "title": "Monkey D. Luffy sur le divan : psychologie du héros de One Piece",
     "excerpt": "",
