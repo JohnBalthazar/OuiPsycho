@@ -854,12 +854,12 @@
   {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la télévision ? Bart passe sur le divan.",
     "date": "2026-10-13",
-    "date_modified": "2026-10-13",
+    "date_modified": "2026-07-10",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tdkxfhffzfiyxeq9ik62",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -874,7 +874,7 @@
       "enfance",
       "pop-culture"
     ],
-    "metaDescription": "",
+    "metaDescription": "Bart Simpson et le TDAH : ce que le garnement de Springfield illustre (et rate) du trouble de l'attention. Analyse psychologique + quiz Simpsons.",
     "articles_lies": [],
     "status": "scheduled"
   },
