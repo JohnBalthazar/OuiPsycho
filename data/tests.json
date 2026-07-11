@@ -122,7 +122,7 @@
     "testUrl": "tests/hp-personnalite.html",
     "articleUrl": "articles/harry-potter-psychopathologie-complice/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/azupq0sabhlok05y80pd",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

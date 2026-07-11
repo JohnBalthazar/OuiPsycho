@@ -395,12 +395,12 @@
   {
     "id": "experience-mort-imminente-science",
     "title": "Expérience de mort imminente : que dit la science ?",
-    "type": "article",
-    "excerpt": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on vraiment ?",
+    "excerpt": "",
     "date": "2026-11-19",
     "date_modified": "2026-07-10",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/skfazrh3nfufrtaeckf9",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -414,7 +414,7 @@
       "mort",
       "psychologie"
     ],
-    "metaDescription": "Expériences de mort imminente (EMI) : témoignages, hypothèses neuroscientifiques et débats. Ce que la science sait — et ignore encore — de ce phénomène fascinant.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -447,12 +447,12 @@
   {
     "id": "comment-survivre-a-une-rupture",
     "title": "Comment survivre à une rupture ?",
-    "type": "article",
-    "excerpt": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du deuil amoureux et des façons concrètes de s'en relever.",
+    "excerpt": "",
     "date": "2026-11-13",
     "date_modified": "2026-07-10",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bzakf1la4sc2lmdxxnah",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -466,19 +466,19 @@
       "resilience",
       "neurosciences"
     ],
-    "metaDescription": "Pourquoi une rupture fait-elle si mal ? Neurosciences du chagrin d'amour, étapes du deuil amoureux et conseils concrets pour retrouver son équilibre.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "ia-peut-elle-pousser-au-suicide",
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
-    "type": "article",
-    "excerpt": "Trois familles endeuillées ont attaqué en justice les créateurs d'IA. Un chatbot peut-il vraiment mener au pire ? Faits, science, psychologie — et comment protéger les siens, à commencer par les enfants.",
+    "excerpt": "",
     "date": "2026-11-12",
     "date_modified": "2026-07-10",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/am8xyp51zccbjxi5qozc",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -492,7 +492,7 @@
       "adolescents",
       "ecrans-et-numerique"
     ],
-    "metaDescription": "Une IA peut-elle pousser au suicide ? Affaires réelles, mécanismes psychologiques et conseils de prévention pour se protéger et protéger ses enfants.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
