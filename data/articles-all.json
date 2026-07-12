@@ -317,12 +317,12 @@
   {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "L'emprise abîme la confiance en soi autant qu'en les autres. Mais elle se reconstruit. Voici les mécanismes en jeu et des repères concrets pour avancer, à votre rythme.",
     "date": "2026-11-26",
-    "date_modified": "2026-11-26",
+    "date_modified": "2026-07-12",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kiskl4riophei5r5qbgh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -336,7 +336,7 @@
       "psychotraumatisme",
       "reconstruction"
     ],
-    "metaDescription": "",
+    "metaDescription": "Gaslighting, lien traumatique, mémoire traumatique : après un pervers narcissique, comment se refaire confiance, à soi et aux autres ? Nos repères pour avancer.",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -369,12 +369,12 @@
   {
     "id": "applications-gratuites-sante-mentale",
     "title": "Les meilleures applis gratuites pour la santé mentale",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Des milliers d'applis promettent la sérénité, peu tiennent parole. Nous avons trié selon trois critères : preuves scientifiques, gratuité réelle et confidentialité. Voici les quatre qui passent le filtre, notées et commentées.",
     "date": "2026-11-20",
     "date_modified": "2026-07-12",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ctqtozrwqslhfq2gyzi8",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -388,7 +388,7 @@
       "depression",
       "tcc"
     ],
-    "metaDescription": "",
+    "metaDescription": "Quelles applis gratuites de santé mentale valent vraiment la peine ? Notre sélection notée : preuves scientifiques, avis des pros, liens directs.",
     "articles_lies": [],
     "status": "scheduled"
   },
