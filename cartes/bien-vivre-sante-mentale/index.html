@@ -478,7 +478,7 @@
   <div class="carte-hero">
     <div class="tag">&#x1F5FA;&#xFE0F; Carte interactive</div>
     <h1>O&ugrave; fait-il bon vivre pour&nbsp;la sant&eacute; mentale en&nbsp;France&nbsp;?</h1>
-    <p>9 indicateurs scientifiques &middot; 13 r&eacute;gions &middot; Activez ou d&eacute;sactivez les crit&egrave;res selon ce qui compte pour vous.</p>
+    <p>9 indicateurs scientifiques &middot; 13 r&eacute;gions &middot; ~35&nbsp;000 communes &mdash; Activez ou d&eacute;sactivez les crit&egrave;res, puis cliquez une r&eacute;gion pour descendre jusqu'&agrave; votre commune.</p>
     <div class="hero-chips">
       <span>27 juin 2026</span>
       <span>Soci&eacute;t&eacute; &amp; bien-&ecirc;tre</span>
@@ -509,10 +509,11 @@
         <div class="city-search">
           <input type="text" class="city-input" id="city-input"
             placeholder="&#x1F50D; Recherchez votre ville&hellip;"
+            aria-label="Rechercher une ville française"
             onkeydown="if(event.key==='Enter')searchCity()">
           <button class="city-btn" id="city-btn" onclick="searchCity()">Localiser</button>
         </div>
-        <span class="city-status" id="city-status"></span>
+        <span class="city-status" id="city-status" role="status" aria-live="polite"></span>
       </div>
 
       <!-- Carte Leaflet — pleine largeur -->
@@ -574,6 +575,7 @@
               <div id="dept-rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Cliquez sur cet onglet pour afficher&hellip;</p></div>
             </div>
             <div class="rank-tab-pane" id="rpane-ville">
+              <p style="font-size:.68rem;color:#94a3b8;margin:0 0 10px;line-height:1.4">Scores individuels calcul&eacute;s selon la densit&eacute; r&eacute;elle &mdash; parmi les 54 plus grandes villes de France m&eacute;tropolitaine.</p>
               <p class="pcity-head">&#x1F3C6; 10 meilleures villes</p>
               <div id="city-top10"></div>
               <p class="pcity-head pcity-head--bad">&#x1F4C9; 10 villes les moins bien class&eacute;es</p>
@@ -1120,7 +1122,16 @@
   function toggleCrit(k) {
     var al = activeList();
     if (active[k]) {
-      if (al.length <= 1) return;
+      if (al.length <= 1) {
+        // Feedback visuel : flash rouge sur le bouton pour signaler qu'on ne peut pas désactiver
+        var btnLast = document.getElementById('cb-' + k);
+        if (btnLast) {
+          btnLast.style.outline = '2px solid #ef4444';
+          btnLast.style.outlineOffset = '2px';
+          setTimeout(function() { btnLast.style.outline = ''; btnLast.style.outlineOffset = ''; }, 700);
+        }
+        return;
+      }
       active[k] = false;
       var b1 = document.getElementById('cb-' + k); if (b1) b1.classList.add('off');
     } else {
@@ -1219,8 +1230,8 @@
       minZoom: 5, maxZoom: 10,
       zoomControl: true,
       scrollWheelZoom: false,
-      dragging: !isMobile,   // sur mobile : le doigt fait défiler la page, pas la carte
-      tap: !isMobile
+      dragging: !isMobile,   // niveau 1 (régions) : le doigt scrolle la page
+      tap: !isMobile         // réactivé aux niveaux dept/communes via showDeptLevel/drillBack
     });
     // Hint tactile — visible uniquement sur mobile, disparaît au premier tap
     if (isMobile) {
@@ -1265,8 +1276,8 @@
     // geo.api.gouv.fr ne retourne plus la géométrie (juste nom+code depuis 2026)
     // → on utilise gregoiredavid/france-geojson qui contient les polygones complets
     var urls = [
-      'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions.geojson',
-      'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions.geojson'
+      'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions-version-simplifiee.geojson',
+      'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson'
     ];
     tryFetch(urls, 0);
   }
@@ -1315,7 +1326,7 @@
           },
           mouseout: function(e) { geojsonLayer.resetStyle(e.target); },
           click:    function()  {
-            showCityResult(nom, k, nom, null, '');
+            showCityResult(nom, k, nom, null, '', null, null, null, true); // noScroll: garde la carte visible
             showDeptLevel(k);
           }
         });
@@ -1421,6 +1432,8 @@
   function showDeptLevel(regionKey) {
     currentRegionKey = regionKey;
     currentLevel = 2;
+    // Mobile : réactiver le pan dès qu'on zoome dans une région (carte plus restreinte)
+    if (L.Browser.mobile && leafletMap) leafletMap.dragging.enable();
     leafletMap.closePopup();
     if (geojsonLayer) geojsonLayer.remove();
     if (communeLayer) { communeLayer.remove(); communeLayer = null; }
@@ -1455,7 +1468,7 @@
                 'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>',
                 deptToObj(code),
                 'Donn&eacute;es au niveau d&eacute;partemental &mdash; cliquez une commune pour affiner',
-                'dept96');
+                'dept96', true); // noScroll: garde la carte visible
               drillToCommunes(code, label);
             }
           });
@@ -1469,8 +1482,8 @@
     else {
       showMapLoading();
       tryFetchDept([
-        'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/departements.geojson',
-        'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements.geojson'
+        'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/departements-version-simplifiee.geojson',
+        'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/departements-version-simplifiee.geojson'
       ], 0, buildDeptLayer);
     }
   }
@@ -1566,6 +1579,8 @@
         geojsonLayer.addTo(leafletMap);
         if (geojsonLayer.getBounds().isValid()) leafletMap.fitBounds(geojsonLayer.getBounds(), {padding:[10,10]});
       }
+      // Mobile : redésactiver le pan au retour au niveau régions (doigt = scroll page)
+      if (L.Browser.mobile && leafletMap) leafletMap.dragging.disable();
       updateBreadcrumb();
     }
   }
@@ -1579,6 +1594,8 @@
       geojsonLayer.addTo(leafletMap);
       if (geojsonLayer.getBounds().isValid()) leafletMap.fitBounds(geojsonLayer.getBounds(), {padding:[10,10]});
     }
+    // Mobile : redésactiver le pan au retour niveau régions
+    if (L.Browser.mobile && leafletMap) leafletMap.dragging.disable();
     updateBreadcrumb();
   }
 
@@ -1659,7 +1676,7 @@
   // subtitleHtml : undefined = "Région : X" par défaut
   //                ''        = pas de sous-titre
   //                string    = HTML personnalisé
-  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote, rankMode) {
+  function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote, rankMode, noScroll) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
@@ -1740,7 +1757,8 @@
       + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
       + subDiv
       + '<div class="cr-rank" style="background:' + rankBg + ';color:' + rankColor + '">'
-      + rank + suf + '&nbsp;/ 13 r&eacute;gions &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10'
+      + rank + suf + '&nbsp;/ 13 r&eacute;gions'
+      + (scoreOverride ? '' : ' &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10')
       + '</div>'
       + commHtml
       + '</div>'
@@ -1748,12 +1766,15 @@
       + noteHtml
       + '</div>';
     el.style.display = 'block';
-    // Scroll fiable : window.scrollTo avec offset header, après un tick pour laisser le DOM se peindre
-    requestAnimationFrame(function() {
-      var rect = el.getBoundingClientRect();
-      var top  = rect.top + window.pageYOffset - 90; // 90 = hauteur header fixe
-      window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-    });
+    // Scroll uniquement pour la recherche ville et le clic commune (fin de drill-down)
+    // Les clics région/département passent noScroll=true pour garder la carte visible
+    if (!noScroll) {
+      requestAnimationFrame(function() {
+        var rect = el.getBoundingClientRect();
+        var top  = rect.top + window.pageYOffset - 90; // 90 = hauteur header fixe
+        window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    }
   }
 
   function searchCity() {
@@ -1763,7 +1784,7 @@
     var q = inp ? inp.value.trim() : '';
     if (!q || !leafletMap) return;
     if (btn) btn.disabled = true;
-    if (status) status.textContent = 'Recherche...';
+    if (status) status.textContent = 'Recherche…';
     var url = 'https://nominatim.openstreetmap.org/search'
       + '?q=' + encodeURIComponent(q)
       + '&countrycodes=fr&format=json&limit=1&accept-language=fr&addressdetails=1';
@@ -1771,7 +1792,7 @@
       .then(function(r){ return r.json(); })
       .then(function(data) {
         if (btn) btn.disabled = false;
-        if (!data || !data.length) { if (status) status.textContent = 'Ville introuvable'; return; }
+        if (!data || !data.length) { if (status) status.textContent = 'Ville introuvable — vérifiez l’orthographe'; return; }
         var lat      = parseFloat(data[0].lat);
         var lng      = parseFloat(data[0].lon);
         var cityName = data[0].display_name.split(',')[0];
@@ -1787,7 +1808,7 @@
         var layer = findRegionByPoint(lng, lat);
         if (!layer) {
           leafletMap.setView([lat, lng], 8);
-          if (status) status.textContent = 'Region non reconnue';
+          if (status) status.textContent = 'Région non reconnue';
           var elR = document.getElementById('city-result');
           if (elR) elR.style.display = 'none';
           return;
@@ -1828,7 +1849,7 @@
       })
       .catch(function() {
         if (btn) btn.disabled = false;
-        if (status) status.textContent = 'Erreur reseau';
+        if (status) status.textContent = 'Erreur réseau';
       });
   }
 
