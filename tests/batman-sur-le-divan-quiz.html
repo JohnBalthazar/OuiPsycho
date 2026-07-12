@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel Batman êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/batman-sur-le-divan/">
+  <meta name="description" content="Détective, sentinelle, stratège ou mentor : 8 questions pour découvrir quel Batman sommeille en vous.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #10151f 0%, #1F4E6B 100%);
+      color: #f2f5f8;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz {
+      max-width: 640px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 28px 22px;
+      backdrop-filter: blur(4px);
+    }
+    h1 { font-size: 1.45rem; text-align: center; margin-bottom: 8px; }
+    .sub { text-align:center; color:#c3d2dd; font-size:.95rem; margin-bottom:22px; }
+    .progress-wrap { background: rgba(255,255,255,0.12); border-radius: 8px; height: 8px; margin-bottom: 20px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #f4b942, #e8843c); border-radius: 8px; transition: width .35s ease; }
+    .qnum { color:#f4b942; font-weight:600; font-size:.85rem; letter-spacing:.05em; text-transform:uppercase; margin-bottom:8px; }
+    .qtext { font-size:1.12rem; font-weight:600; line-height:1.45; margin-bottom:18px; }
+    .answers button {
+      display:block; width:100%; text-align:left;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color:#f2f5f8;
+      padding: 13px 16px;
+      border-radius: 10px;
+      font-size: .98rem;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease;
+      font-family: inherit;
+    }
+    .answers button:hover { background: rgba(244,185,66,0.22); transform: translateY(-1px); }
+    .result { text-align:center; }
+    .result .emoji { font-size: 3rem; margin-bottom: 8px; }
+    .result h2 { font-size: 1.4rem; color:#f4b942; margin-bottom: 14px; }
+    .result p { text-align:left; line-height:1.6; color:#e4ecf2; margin-bottom: 12px; font-size:.98rem; }
+    .disclaimer {
+      background: rgba(244,185,66,0.12);
+      border: 1px solid rgba(244,185,66,0.35);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: .87rem;
+      line-height: 1.5;
+      color:#f2e8d5;
+      text-align:left;
+      margin: 18px 0;
+    }
+    .share { display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin: 16px 0; }
+    .share a {
+      text-decoration:none; color:#f2f5f8;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      padding: 9px 16px;
+      font-size:.9rem;
+      transition: background .15s ease;
+    }
+    .share a:hover { background: rgba(255,255,255,0.22); }
+    .restart {
+      background: linear-gradient(90deg, #f4b942, #e8843c);
+      color:#1a1f2b; border:none; border-radius: 999px;
+      padding: 12px 26px; font-size: 1rem; font-weight: 700;
+      cursor: pointer; font-family: inherit;
+      transition: transform .1s ease;
+    }
+    .restart:hover { transform: scale(1.03); }
+    .intro-start { display:block; margin: 0 auto; }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div id="screen-intro">
+      <h1>🦇 Quel Batman êtes-vous ?</h1>
+      <p class="sub">Détective, sentinelle, stratège ou mentor : chacun porte sa cape à sa façon. 8 questions pour découvrir la vôtre.</p>
+      <button class="restart intro-start" onclick="startQuiz()">Commencer le test</button>
+    </div>
+
+    <div id="screen-quiz" class="hidden">
+      <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+      <div class="qnum" id="qnum"></div>
+      <div class="qtext" id="qtext"></div>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <div id="screen-result" class="hidden result">
+      <div class="emoji" id="r-emoji"></div>
+      <h2 id="r-title"></h2>
+      <div id="r-text"></div>
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+      <div class="share" id="share"></div>
+      <button class="restart" onclick="restart()">↺ Recommencer</button>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Il est 3h du matin, un bruit suspect dans la maison. Votre premier réflexe ?",
+        a: [
+          { t: "J'écoute, j'analyse : origine, distance, nature du bruit. Les faits d'abord.", p: "A" },
+          { t: "Je suis déjà debout. Je dormais à moitié de toute façon.", p: "B" },
+          { t: "Aucun stress : j'ai un plan pour ce scénario depuis 2019.", p: "C" },
+          { t: "Je vérifie d'abord que tout le monde va bien dans la maison.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à un problème compliqué au travail, vous êtes plutôt…",
+        a: [
+          { t: "Celui ou celle qui décortique le dossier jusqu'à trouver l'incohérence.", p: "A" },
+          { t: "Celui ou celle qui reste tard, parce que si je ne le fais pas, qui le fera ?", p: "B" },
+          { t: "Celui ou celle qui a déjà trois solutions de repli et un plan Z.", p: "C" },
+          { t: "Celui ou celle qui forme le nouveau pour qu'il ne galère pas comme moi.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre rapport à vos émotions, honnêtement ?",
+        a: [
+          { t: "Je les observe avec curiosité, comme des indices sur moi-même.", p: "A" },
+          { t: "Je les garde sous la cape. Elles sortent parfois toutes seules, la nuit.", p: "B" },
+          { t: "Je les planifie. Oui, on peut planifier une émotion. Enfin j'essaie.", p: "C" },
+          { t: "J'en parle plus facilement quand il s'agit d'aider quelqu'un d'autre.", p: "D" }
+        ]
+      },
+      {
+        q: "Un ami traverse une période très difficile. Vous…",
+        a: [
+          { t: "Je pose des questions pour comprendre précisément ce qui se passe.", p: "A" },
+          { t: "Je me rends disponible 24h/24, quitte à m'oublier un peu.", p: "B" },
+          { t: "Je lui organise un plan d'action : rendez-vous, contacts, étapes.", p: "C" },
+          { t: "Je l'écoute, je reste là, et je lui rappelle qu'il n'est pas seul.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce qui vous fait le plus peur, au fond ?",
+        a: [
+          { t: "Ne pas comprendre. Le mystère qui reste sans réponse.", p: "A" },
+          { t: "Revivre ce qui m'a déjà fait mal. Alors je surveille. Tout.", p: "B" },
+          { t: "Perdre le contrôle. L'imprévu total, sans plan de secours.", p: "C" },
+          { t: "Ne pas avoir été là pour quelqu'un qui comptait sur moi.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre Batcave idéale ressemble à…",
+        a: [
+          { t: "Un bureau tapissé de notes, de dossiers et d'un tableau à fils rouges.", p: "A" },
+          { t: "Un poste d'observation avec vue sur tout ce qui pourrait mal tourner.", p: "B" },
+          { t: "Un espace millimétré où chaque objet a une place et une fonction.", p: "C" },
+          { t: "Un grand canapé où les gens que j'aime peuvent débarquer sans prévenir.", p: "D" }
+        ]
+      },
+      {
+        q: "On vous reproche parfois…",
+        a: [
+          { t: "De trop intellectualiser au lieu de simplement ressentir.", p: "A" },
+          { t: "De ne jamais vraiment lâcher prise, même en vacances.", p: "B" },
+          { t: "D'être rigide quand les choses ne suivent pas le plan.", p: "C" },
+          { t: "De donner tellement aux autres qu'il ne reste rien pour vous.", p: "D" }
+        ]
+      },
+      {
+        q: "Et si votre pire épreuve passée servait à quelque chose, ce serait…",
+        a: [
+          { t: "À mieux comprendre les humains, moi y compris.", p: "A" },
+          { t: "À protéger les autres de ce que j'ai vécu.", p: "B" },
+          { t: "À ne plus jamais être pris au dépourvu.", p: "C" },
+          { t: "À tendre la main à ceux qui traversent la même chose.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🔍",
+        title: "Le Détective du Manoir",
+        text: "<p>Votre super-pouvoir, c'est la compréhension. Face au chaos, vous cherchez le fil, l'indice, la logique cachée — y compris dans vos propres réactions. Cette lucidité est une vraie force : elle vous protège des conclusions hâtives et fait de vous la personne qu'on consulte quand plus rien n'a de sens.</p><p>Votre zone de vigilance : l'analyse peut devenir une cape d'invisibilité pour les émotions. Comprendre pourquoi on souffre n'est pas la même chose que traverser la souffrance. Parfois, le meilleur des détectives doit accepter de fermer le dossier… et de simplement ressentir.</p>"
+      },
+      B: {
+        emoji: "🌃",
+        title: "La Sentinelle de Gotham",
+        text: "<p>Vous êtes celui ou celle qui veille. Votre radar interne capte tout : les tensions, les dangers, les non-dits. Cette hypervigilance, souvent née d'une épreuve, fait de vous une personne d'une fiabilité rare — on se sent en sécurité à vos côtés, et ce n'est pas un hasard.</p><p>Votre zone de vigilance : un système d'alarme qui ne s'éteint jamais finit par épuiser celui qui le porte. Vous avez le droit de retirer la cape, de dormir sur vos deux oreilles, et de laisser quelqu'un d'autre monter la garde de temps en temps. Gotham tiendra une nuit sans vous.</p>"
+      },
+      C: {
+        emoji: "🗺️",
+        title: "Le Stratège de la Batcave",
+        text: "<p>Un plan pour tout, un plan B derrière, et probablement un plan C plastifié quelque part. Votre besoin de maîtrise fait de vous quelqu'un de redoutablement efficace : vous anticipez, vous organisez, vous sécurisez. Dans la tempête, c'est vers vous que les regards se tournent.</p><p>Votre zone de vigilance : le contrôle est souvent une réponse intelligente à un moment où l'on n'a rien pu contrôler. Mais la vie, comme le Joker, adore l'improvisation. Apprendre à tolérer une petite dose d'imprévu, c'est aussi se libérer d'une garde permanente épuisante.</p>"
+      },
+      D: {
+        emoji: "🐦",
+        title: "Le Mentor de la Bat-famille",
+        text: "<p>Votre force, c'est le lien. Là où d'autres s'isolent, vous recueillez, vous transmettez, vous réparez. Aider ceux qui traversent ce que vous avez traversé donne un sens profond à votre histoire — c'est le plus beau destin possible d'une blessure, et la recherche sur la résilience vous donne raison.</p><p>Votre zone de vigilance : à force de soigner les Robin du monde entier, on oublie parfois son propre pansement. Prendre soin de soi n'est pas une trahison de ceux qu'on aide — c'est la condition pour pouvoir continuer. Même les mentors ont droit à un mentor.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A:0, B:0, C:0, D:0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      for (var i = arr.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+      }
+      return arr;
+    }
+
+    function startQuiz() {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.remove('hidden');
+      current = 0;
+      votes = { A:0, B:0, C:0, D:0 };
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('qnum').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('qtext').textContent = q.q;
+      document.getElementById('progress').style.width = (current / QUESTIONS.length * 100) + '%';
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      var opts = shuffle(q.a.slice());
+      opts.forEach(function(opt) {
+        var b = document.createElement('button');
+        b.textContent = opt.t;
+        b.onclick = function() { answer(opt.p); };
+        box.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function answer(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A';
+      ['B','C','D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = PROFILES[best];
+      document.getElementById('screen-quiz').classList.add('hidden');
+      var r = document.getElementById('screen-result');
+      r.classList.remove('hidden');
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-text').innerHTML = prof.text;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/batman-sur-le-divan/';
+      var shareText = 'Mon résultat au test « Quel Batman êtes-vous ? » : ' + prof.title + ' ' + prof.emoji + ' — et vous ?';
+      var eu = encodeURIComponent(pageUrl);
+      var et = encodeURIComponent(shareText);
+      document.getElementById('share').innerHTML =
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + et + '%20' + eu + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      notifyResize();
+    }
+
+    function restart() {
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById('screen-intro').classList.remove('hidden');
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
