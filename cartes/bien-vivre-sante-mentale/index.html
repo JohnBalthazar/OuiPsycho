@@ -834,47 +834,48 @@
     '93':'Seine-Saint-Denis','94':'Val-de-Marne','95':"Val-d'Oise"
   };
 
-  // Villes de reference — score calcule depuis le departement (scoreDept)
+  // Villes de reference — pop (hab) et surf (ha) issus de geo.api.gouv.fr
+  // Score calculé par communeScore(dept, pop, surf) : tient compte de la densité réelle
   var CITIES_LIST = [
     // IDF
-    {n:'Paris',dept:'75'},{n:'Boulogne-Billancourt',dept:'92'},
-    {n:'Versailles',dept:'78'},{n:'Saint-Denis',dept:'93'},
-    {n:'Argenteuil',dept:'95'},
+    {n:'Paris',dept:'75',pop:2103778,surf:10536},{n:'Boulogne-Billancourt',dept:'92',pop:119019,surf:615},
+    {n:'Versailles',dept:'78',pop:84095,surf:2615},{n:'Saint-Denis',dept:'93',pop:149077,surf:1577},
+    {n:'Argenteuil',dept:'95',pop:106130,surf:1739},
     // NORMANDIE
-    {n:'Le Havre',dept:'76'},{n:'Rouen',dept:'76'},{n:'Caen',dept:'14'},
+    {n:'Le Havre',dept:'76',pop:166687,surf:5308},{n:'Rouen',dept:'76',pop:117662,surf:2138},{n:'Caen',dept:'14',pop:109400,surf:2570},
     // HAUTS-DE-FRANCE
-    {n:'Lille',dept:'59'},{n:'Roubaix',dept:'59'},{n:'Dunkerque',dept:'59'},
-    {n:'Calais',dept:'62'},{n:'Amiens',dept:'80'},
+    {n:'Lille',dept:'59',pop:238246,surf:3475},{n:'Roubaix',dept:'59',pop:98286,surf:1312},{n:'Dunkerque',dept:'59',pop:86263,surf:4196},
+    {n:'Calais',dept:'62',pop:67571,surf:3680},{n:'Amiens',dept:'80',pop:136449,surf:5040},
     // GRAND-EST
-    {n:'Strasbourg',dept:'67'},{n:'Mulhouse',dept:'68'},
-    {n:'Metz',dept:'57'},{n:'Nancy',dept:'54'},
-    {n:'Reims',dept:'51'},{n:'Troyes',dept:'10'},
+    {n:'Strasbourg',dept:'67',pop:293771,surf:7821},{n:'Mulhouse',dept:'68',pop:104978,surf:2240},
+    {n:'Metz',dept:'57',pop:122572,surf:4177},{n:'Nancy',dept:'54',pop:103671,surf:1494},
+    {n:'Reims',dept:'51',pop:177674,surf:4682},{n:'Troyes',dept:'10',pop:62088,surf:1329},
     // BRETAGNE
-    {n:'Rennes',dept:'35'},{n:'Brest',dept:'29'},{n:'Lorient',dept:'56'},
+    {n:'Rennes',dept:'35',pop:230890,surf:5033},{n:'Brest',dept:'29',pop:142346,surf:4919},{n:'Lorient',dept:'56',pop:58329,surf:1500},
     // PAYS-DE-LA-LOIRE
-    {n:'Nantes',dept:'44'},{n:'Le Mans',dept:'72'},{n:'Angers',dept:'49'},
+    {n:'Nantes',dept:'44',pop:327734,surf:6573},{n:'Le Mans',dept:'72',pop:146249,surf:5258},{n:'Angers',dept:'49',pop:159022,surf:4449},
     // CENTRE-VAL-DE-LOIRE
-    {n:'Orléans',dept:'45'},{n:'Tours',dept:'37'},
+    {n:'Orléans',dept:'45',pop:116357,surf:2764},{n:'Tours',dept:'37',pop:139259,surf:3337},
     // BOURGOGNE-FRANCHE-COMTE
-    {n:'Dijon',dept:'21'},{n:'Besançon',dept:'25'},
+    {n:'Dijon',dept:'21',pop:161830,surf:4170},{n:'Besançon',dept:'25',pop:118489,surf:6514},
     // AUVERGNE-RHONE-ALPES
-    {n:'Lyon',dept:'69'},{n:'Grenoble',dept:'38'},
-    {n:'Saint-Étienne',dept:'42'},{n:'Clermont-Ferrand',dept:'63'},
-    {n:'Annecy',dept:'74'},{n:'Chambéry',dept:'73'},
+    {n:'Lyon',dept:'69',pop:519127,surf:4797},{n:'Grenoble',dept:'38',pop:156140,surf:1843},
+    {n:'Saint-Étienne',dept:'42',pop:173136,surf:8003},{n:'Clermont-Ferrand',dept:'63',pop:146351,surf:4311},
+    {n:'Annecy',dept:'74',pop:132117,surf:6987},{n:'Chambéry',dept:'73',pop:59964,surf:2119},
     // NOUVELLE-AQUITAINE
-    {n:'Bordeaux',dept:'33'},{n:'La Rochelle',dept:'17'},
-    {n:'Limoges',dept:'87'},{n:'Poitiers',dept:'86'},
-    {n:'Bayonne',dept:'64'},{n:'Pau',dept:'64'},
+    {n:'Bordeaux',dept:'33',pop:267991,surf:4977},{n:'La Rochelle',dept:'17',pop:79851,surf:3001},
+    {n:'Limoges',dept:'87',pop:129937,surf:7979},{n:'Poitiers',dept:'86',pop:89916,surf:4253},
+    {n:'Bayonne',dept:'64',pop:54306,surf:2579},{n:'Pau',dept:'64',pop:80441,surf:3150},
     // OCCITANIE
-    {n:'Toulouse',dept:'31'},{n:'Montpellier',dept:'34'},
-    {n:'Nîmes',dept:'30'},{n:'Perpignan',dept:'66'},
-    {n:'Montauban',dept:'82'},
+    {n:'Toulouse',dept:'31',pop:514819,surf:11806},{n:'Montpellier',dept:'34',pop:310240,surf:5710},
+    {n:'Nîmes',dept:'30',pop:151839,surf:16118},{n:'Perpignan',dept:'66',pop:121616,surf:6799},
+    {n:'Montauban',dept:'82',pop:62945,surf:13592},
     // PACA
-    {n:'Marseille',dept:'13'},{n:'Nice',dept:'06'},
-    {n:'Toulon',dept:'83'},{n:'Aix-en-Provence',dept:'13'},
-    {n:'Avignon',dept:'84'},{n:'Cannes',dept:'06'},
+    {n:'Marseille',dept:'13',pop:886040,surf:23793},{n:'Nice',dept:'06',pop:357737,surf:7380},
+    {n:'Toulon',dept:'83',pop:179116,surf:4406},{n:'Aix-en-Provence',dept:'13',pop:149695,surf:18750},
+    {n:'Avignon',dept:'84',pop:92188,surf:6506},{n:'Cannes',dept:'06',pop:74350,surf:2077},
     // CORSE
-    {n:'Ajaccio',dept:'2A'},{n:'Bastia',dept:'2B'}
+    {n:'Ajaccio',dept:'2A',pop:76320,surf:8249},{n:'Bastia',dept:'2B',pop:46867,surf:1992}
   ];
 
   // Codes departements par region (cle DATA)
@@ -1047,7 +1048,16 @@
     var ranked = [];
     for (var i = 0; i < CITIES_LIST.length; i++) {
       var c = CITIES_LIST[i];
-      ranked.push({n:c.n, dept:c.dept, s:scoreDept(c.dept)});
+      // Score réel de la ville : tient compte de sa densité, pas juste du département
+      var sc = communeScore(c.dept, c.pop || 0, c.surf || 0);
+      var al = activeList(), tot = 0, s;
+      if (sc) {
+        for (var j = 0; j < al.length; j++) tot += (sc[al[j]] || 0);
+        s = al.length > 0 ? tot / al.length : 0;
+      } else {
+        s = scoreDept(c.dept); // fallback si dept inconnu
+      }
+      ranked.push({n:c.n, dept:c.dept, s:s});
     }
     ranked.sort(function(a,b){ return b.s - a.s; });
 
