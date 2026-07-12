@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel Spider-Man êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/spider-man-sur-le-divan/">
+  <meta name="description" content="Peter, Miles, Gwen ou Miguel ? Découvrez quel Spider-Man sommeille en vous à travers votre rapport à la culpabilité, au secret et à la résilience.">
+  <style>
+    :root{
+      --bg:#ffffff; --ink:#1a2530; --muted:#5c6b7a;
+      --brand:#1F4E6B; --brand-2:#2f6f97; --accent:#c8102e;
+      --card:#f4f7f9; --line:#e2e9ef; --shadow:0 6px 22px rgba(31,78,107,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink); background:var(--bg); line-height:1.55;
+      padding:18px 14px;
+    }
+    .wrap{max-width:640px;margin:0 auto}
+    .card{
+      background:linear-gradient(180deg,#ffffff, #fbfdfe);
+      border:1px solid var(--line); border-radius:16px;
+      box-shadow:var(--shadow); padding:24px 22px;
+    }
+    .kicker{display:inline-block;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;
+      font-weight:700;color:#fff;background:var(--accent);padding:5px 11px;border-radius:999px}
+    h1{font-size:1.5rem;line-height:1.2;margin:14px 0 6px}
+    .sub{color:var(--muted);margin:0 0 18px;font-size:.98rem}
+    .progress{height:7px;background:var(--line);border-radius:999px;overflow:hidden;margin:0 0 20px}
+    .progress > i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .3s ease}
+    .qcount{font-size:.8rem;color:var(--muted);font-weight:600;margin-bottom:8px}
+    .question{font-size:1.18rem;font-weight:700;margin:0 0 16px}
+    .opts{display:flex;flex-direction:column;gap:10px}
+    .opt{
+      text-align:left;width:100%;cursor:pointer;
+      background:var(--card);border:1.5px solid var(--line);border-radius:12px;
+      padding:14px 16px;font-size:1rem;color:var(--ink);
+      transition:border-color .15s ease, transform .08s ease, background .15s ease;
+    }
+    .opt:hover{border-color:var(--brand-2);background:#eef4f8}
+    .opt:active{transform:scale(.99)}
+    .btn{
+      display:inline-block;cursor:pointer;border:none;border-radius:12px;
+      background:var(--brand);color:#fff;font-weight:700;font-size:1rem;
+      padding:13px 22px;transition:background .15s ease;
+    }
+    .btn:hover{background:var(--brand-2)}
+    .btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+    .btn.ghost:hover{background:#eef4f8}
+    .center{text-align:center}
+    .hidden{display:none}
+    /* résultat */
+    .result-emoji{font-size:3rem;line-height:1;margin:2px 0 6px}
+    .result-name{font-size:1.55rem;font-weight:800;color:var(--brand);margin:0 0 4px}
+    .result-tag{font-size:1rem;color:var(--accent);font-weight:700;margin:0 0 14px}
+    .result-text{font-size:1.03rem;margin:0 0 18px}
+    .share{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin:6px 0 18px}
+    .share a{
+      text-decoration:none;font-weight:600;font-size:.92rem;color:#fff;
+      padding:10px 15px;border-radius:10px;
+    }
+    .s-fb{background:#1877f2}.s-tw{background:#111}.s-wa{background:#25d366}
+    .disclaimer{
+      background:#fff7f0;border:1px solid #ffd9bd;border-radius:12px;
+      padding:13px 15px;font-size:.9rem;color:#6b4a2f;margin:14px 0 0
+    }
+    .restart{margin-top:16px}
+    footer{margin-top:16px;text-align:center;font-size:.78rem;color:var(--muted)}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+
+      <!-- INTRO -->
+      <section id="intro">
+        <span class="kicker">🕷️ Test psycho</span>
+        <h1>Quel Spider-Man êtes-vous ?</h1>
+        <p class="sub">Peter le culpabilisé, Miles le lumineux, Gwen la funambule ou Miguel l'intransigeant ? Votre rapport à la responsabilité, au secret et aux épreuves en dit long. 7 questions, 1 minute.</p>
+        <button class="btn" id="startBtn">Commencer le test →</button>
+      </section>
+
+      <!-- QUESTIONS -->
+      <section id="quiz" class="hidden">
+        <div class="qcount" id="qcount"></div>
+        <div class="progress"><i id="bar"></i></div>
+        <p class="question" id="question"></p>
+        <div class="opts" id="opts"></div>
+      </section>
+
+      <!-- RÉSULTAT -->
+      <section id="result" class="hidden center">
+        <div class="result-emoji" id="rEmoji"></div>
+        <p class="result-name" id="rName"></p>
+        <p class="result-tag" id="rTag"></p>
+        <p class="result-text" id="rText"></p>
+
+        <div class="share" id="share"></div>
+
+        <div class="restart">
+          <button class="btn ghost" id="restartBtn">↺ Recommencer le test</button>
+        </div>
+
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </section>
+
+    </div>
+    <footer>Oui Psycho! · Nos héros sur le divan</footer>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      { q:"Un imprévu fait tout basculer dans ta journée. Ta première réaction ?", a:[
+        {t:"« C'est sûrement ma faute. » Tu culpabilises avant même de comprendre.", p:"A"},
+        {t:"« On va trouver une solution. » Tu gardes le moral et tu t'entoures.", p:"B"},
+        {t:"Tu encaisses en silence et tu gères seul·e, comme d'habitude.", p:"C"},
+        {t:"Tu avais anticipé ce scénario. Plan B activé.", p:"D"}
+      ]},
+      { q:"Face à un secret lourd à porter…", a:[
+        {t:"Tu le gardes pour protéger les autres, quitte à t'isoler.", p:"A"},
+        {t:"Tu te confies à un proche de confiance.", p:"B"},
+        {t:"Tu n'en parles à personne : on ne t'y reprendra pas.", p:"C"},
+        {t:"Tu le compartimentes froidement : l'émotion attendra.", p:"D"}
+      ]},
+      { q:"Ta plus grande peur ?", a:[
+        {t:"Décevoir ceux qui comptent sur toi.", p:"A"},
+        {t:"Ne pas être à la hauteur de ceux qui t'ont précédé.", p:"B"},
+        {t:"Revivre une perte que tu as déjà traversée.", p:"C"},
+        {t:"Perdre le contrôle et voir tout s'effondrer.", p:"D"}
+      ]},
+      { q:"Ton humour, c'est plutôt…", a:[
+        {t:"Une soupape : tu blagues pour ne pas craquer.", p:"A"},
+        {t:"Communicatif et chaleureux : tu aimes faire rire.", p:"B"},
+        {t:"Pince-sans-rire, un brin distant.", p:"C"},
+        {t:"Rare. On ne rigole pas avec les enjeux sérieux.", p:"D"}
+      ]},
+      { q:"Comment gères-tu la pression ?", a:[
+        {t:"Tu t'en mets encore plus sur les épaules.", p:"A"},
+        {t:"Tu t'appuies sur ta famille et tes amis.", p:"B"},
+        {t:"Tu t'isoles pour te protéger.", p:"C"},
+        {t:"Tu planifies, tu contrôles, tu verrouilles.", p:"D"}
+      ]},
+      { q:"Ta devise secrète ?", a:[
+        {t:"« Si je peux aider, je le dois. »", p:"A"},
+        {t:"« Je trace ma propre voie. »", p:"B"},
+        {t:"« On ne compte que sur soi. »", p:"C"},
+        {t:"« Mieux vaut prévenir que subir. »", p:"D"}
+      ]},
+      { q:"Un proche traverse une épreuve. Toi, tu…", a:[
+        {t:"Te sens responsable de le sauver, coûte que coûte.", p:"A"},
+        {t:"Es présent·e, à l'écoute, sans jugement.", p:"B"},
+        {t:"Offres un soutien discret, à distance.", p:"C"},
+        {t:"Proposes un plan d'action concret et cadré.", p:"D"}
+      ]}
+    ];
+
+    var PROFILES = {
+      A:{ emoji:"🕸️", name:"Peter Parker", tag:"Le porteur du fardeau",
+          text:"Grand cœur, épaules solides… un peu trop solides. Tu portes le poids du monde et tu confonds parfois responsabilité et culpabilité. Ton défi : t'accorder la même douceur que celle que tu offres si généreusement aux autres." },
+      B:{ emoji:"✨", name:"Miles Morales", tag:"L'héritier lumineux",
+          text:"Optimiste, créatif·ve et bien entouré·e, tu avances en gardant le lien avec les tiens. Tu sais que demander de l'aide n'est pas une faiblesse. Ta force : transformer l'héritage reçu en élan bien à toi." },
+      C:{ emoji:"🎧", name:"Gwen Stacy", tag:"La funambule",
+          text:"Indépendante et résiliente, tu marches sur ton propre fil après avoir traversé des tempêtes. Prudent·e à t'ouvrir, tu gagnerais à laisser entrer quelques personnes de confiance. Ta force : te relever, encore et encore." },
+      D:{ emoji:"⏳", name:"Miguel O'Hara", tag:"Le gardien intransigeant",
+          text:"Intense, structuré·e et tourné·e vers l'anticipation, tu veux éviter la catastrophe à tout prix. Attention à ne pas laisser le contrôle étouffer le lien. Ton défi : accepter que tout ne se planifie pas — et que c'est parfois très bien ainsi." }
+    };
+
+    var SHARE_URL = "https://ouipsycho.fr/articles/spider-man-sur-le-divan/";
+
+    var intro = document.getElementById('intro');
+    var quiz = document.getElementById('quiz');
+    var result = document.getElementById('result');
+    var qEl = document.getElementById('question');
+    var optsEl = document.getElementById('opts');
+    var barEl = document.getElementById('bar');
+    var qcountEl = document.getElementById('qcount');
+
+    var current = 0;
+    var scores = { A:0, B:0, C:0, D:0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function startQuiz() {
+      current = 0;
+      scores = { A:0, B:0, C:0, D:0 };
+      intro.classList.add('hidden');
+      result.classList.add('hidden');
+      quiz.classList.remove('hidden');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var item = QUESTIONS[current];
+      qcountEl.textContent = "Question " + (current + 1) + " / " + QUESTIONS.length;
+      barEl.style.width = ((current) / QUESTIONS.length * 100) + "%";
+      qEl.textContent = item.q;
+      optsEl.innerHTML = "";
+      item.a.forEach(function(opt) {
+        var b = document.createElement('button');
+        b.className = "opt";
+        b.textContent = opt.t;
+        b.addEventListener('click', function() { choose(opt.p); });
+        optsEl.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function choose(profile) {
+      scores[profile] = (scores[profile] || 0) + 1;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function topProfile() {
+      var best = "A", max = -1;
+      ["A","B","C","D"].forEach(function(k){
+        if (scores[k] > max) { max = scores[k]; best = k; }
+      });
+      return best;
+    }
+
+    function showResult() {
+      barEl.style.width = "100%";
+      var key = topProfile();
+      var p = PROFILES[key];
+      document.getElementById('rEmoji').textContent = p.emoji;
+      document.getElementById('rName').textContent = p.name;
+      document.getElementById('rTag').textContent = p.tag;
+      document.getElementById('rText').textContent = p.text;
+
+      var shareText = "Je suis " + p.name + " (" + p.tag + ") ! Et toi, quel Spider-Man es-tu ?";
+      var eUrl = encodeURIComponent(SHARE_URL);
+      var eText = encodeURIComponent(shareText);
+      var eTextUrl = encodeURIComponent(shareText + " " + SHARE_URL);
+      document.getElementById('share').innerHTML =
+        '<a class="s-fb" href="https://www.facebook.com/sharer/sharer.php?u=' + eUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a class="s-tw" href="https://twitter.com/intent/tweet?text=' + eText + '&url=' + eUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a class="s-wa" href="https://wa.me/?text=' + eTextUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+
+      quiz.classList.add('hidden');
+      result.classList.remove('hidden');
+      notifyResize();
+    }
+
+    document.getElementById('startBtn').addEventListener('click', startQuiz);
+    document.getElementById('restartBtn').addEventListener('click', startQuiz);
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
