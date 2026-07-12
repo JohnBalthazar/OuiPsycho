@@ -18,6 +18,9 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    outputs:
+      pushed: ${{ steps.commit-push.outputs.pushed }}
+      urls: ${{ steps.commit-push.outputs.urls }}
 
     steps:
       - name: Checkout du dépôt
@@ -42,12 +45,91 @@ jobs:
           if git diff --staged --quiet; then
             echo "Aucun article à publier aujourd'hui."
             echo "pushed=false" >> $GITHUB_OUTPUT
+            echo "urls=" >> $GITHUB_OUTPUT
           else
+            # URLs canoniques des pages articles/dossiers créées ou modifiées
+            URLS=$(git diff --staged --name-only --diff-filter=AM \
+              | grep -E '^(articles|dossiers)/[^/]+/index\.html$' \
+              | sed -E 's#^(articles|dossiers)/([^/]+)/index\.html$#https://ouipsycho.fr/\1/\2/#' \
+              | sort -u | tr '\n' ' ' || true)
             TODAY=$(date -u +%Y-%m-%d)
             git commit -m "auto: publication articles planifiés $TODAY"
             git push
             echo "pushed=true" >> $GITHUB_OUTPUT
+            echo "urls=$URLS" >> $GITHUB_OUTPUT
           fi
 
       # Note : l'endpoint google.com/ping?sitemap= est désactivé depuis juin 2023.
-      # L'indexation passe par Search Console + lastmod du sitemap.
+      # Côté Google, l'indexation passe par Search Console + lastmod du sitemap.
+      # Côté Bing/Yandex, le job "indexnow" ci-dessous notifie IndexNow.
+
+  # Déploie explicitement le site (Pages en mode "GitHub Actions").
+  # Indispensable : les pushs faits avec GITHUB_TOKEN ne déclenchent pas deploy-pages.yml.
+  deploy:
+    name: Déployer sur GitHub Pages
+    needs: publish
+    if: needs.publish.outputs.pushed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml
+
+  # Vérification post-déploiement : les nouvelles pages répondent bien en HTTP 200
+  verify:
+    name: Vérifier le déploiement
+    needs: [publish, deploy]
+    if: needs.publish.outputs.pushed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérifier que les pages publiées sont en ligne
+        run: |
+          URLS="https://ouipsycho.fr/ https://ouipsycho.fr/sitemap.xml ${{ needs.publish.outputs.urls }}"
+          FAILED=""
+          for url in $URLS; do
+            ok=false
+            for i in $(seq 1 10); do
+              # cache-buster pour contourner le cache CDN de GitHub Pages
+              code=$(curl -s -o /dev/null -w '%{http_code}' "$url?v=${GITHUB_RUN_ID}-$i")
+              if [ "$code" = "200" ]; then
+                echo "✓ $url → HTTP 200"
+                ok=true
+                break
+              fi
+              echo "  $url → HTTP $code (tentative $i/10), nouvel essai dans 30 s…"
+              sleep 30
+            done
+            if [ "$ok" = "false" ]; then
+              FAILED="$FAILED $url"
+            fi
+          done
+          if [ -n "$FAILED" ]; then
+            echo "::error::Pages toujours indisponibles après 5 min :$FAILED"
+            exit 1
+          fi
+          echo "Déploiement vérifié : toutes les pages répondent."
+
+      - name: Vérifier la fraîcheur du sitemap
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          if curl -s "https://ouipsycho.fr/sitemap.xml?v=${GITHUB_RUN_ID}" | grep -q "<lastmod>$TODAY</lastmod>"; then
+            echo "✓ Le sitemap en ligne contient bien un lastmod du $TODAY."
+          else
+            echo "::error::Le sitemap en ligne ne contient aucun lastmod du $TODAY — déploiement obsolète ?"
+            exit 1
+          fi
+
+  # Notification IndexNow (Bing, Yandex…) — seulement après vérification du déploiement
+  indexnow:
+    name: Notifier IndexNow
+    needs: [publish, verify]
+    if: needs.publish.outputs.pushed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Soumettre les URLs publiées à IndexNow
+        run: |
+          URLS="https://ouipsycho.fr/ ${{ needs.publish.outputs.urls }}" \
+            bash .github/scripts/submit-indexnow.sh

@@ -1,0 +1,79 @@
+name: Déploiement GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:     # déclenchement manuel depuis GitHub Actions
+  workflow_call:         # appelé par auto-publish.yml après la publication d'articles
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    name: Déployer le site
+    runs-on: ubuntu-latest
+    # Sérialise les déploiements : jamais deux en parallèle, le plus récent gagne
+    concurrency:
+      group: github-pages-deploy
+      cancel-in-progress: false
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout du dépôt (dernier commit de main)
+        uses: actions/checkout@v4
+        with:
+          ref: main   # toujours déployer l'état le plus récent (inclut le commit d'auto-publication)
+
+      - name: Configuration GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Créer l'artefact du site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .     # .git et .github sont exclus automatiquement par l'action
+
+      - name: Déployer sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  # IndexNow pour les pushs directs (modifications manuelles d'articles / pages)
+  # Les publications automatiques sont notifiées par auto-publish.yml.
+  indexnow:
+    name: Notifier IndexNow (push direct)
+    needs: deploy
+    if: github.event_name == 'push' && github.event.before != '0000000000000000000000000000000000000000'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # nécessaire pour le diff before..after
+
+      - name: Soumettre les URLs modifiées à IndexNow
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.event.after }}"
+          FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" 2>/dev/null || true)
+          if [ -z "$FILES" ]; then
+            echo "Aucun fichier modifié détecté (force-push ?) — rien à soumettre."
+            exit 0
+          fi
+          URLS=$(printf '%s\n' "$FILES" | while read -r f; do
+            case "$f" in
+              articles/*/index.html|dossiers/*/index.html)
+                echo "https://ouipsycho.fr/${f%/index.html}/" ;;
+              index.html)
+                echo "https://ouipsycho.fr/" ;;
+              404.html|poulet.html|admin.html|article.html|article-editor.html|amazon-affiliates.html|google*.html)
+                ;;   # pages non publiques / techniques : ignorées
+              */*)
+                ;;   # autres fichiers en sous-dossiers : ignorés
+              *.html)
+                echo "https://ouipsycho.fr/$f" ;;
+            esac
+          done | sort -u | tr '\n' ' ')
+          URLS="$URLS" bash .github/scripts/submit-indexnow.sh
