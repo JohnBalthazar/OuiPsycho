@@ -40,7 +40,7 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
 
-  # IndexNow pour les pushs directs (modifications manuelles d'articles / pages)
+  # IndexNow + Google Indexing pour les pushs directs (modifications manuelles d'articles / pages)
   # Les publications automatiques sont notifiées par auto-publish.yml.
   indexnow:
     name: Notifier IndexNow (push direct)
@@ -53,13 +53,15 @@ jobs:
         with:
           fetch-depth: 0   # nécessaire pour le diff before..after
 
-      - name: Soumettre les URLs modifiées à IndexNow
+      - name: Calculer les URLs modifiées
+        id: urls
         run: |
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.event.after }}"
           FILES=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" 2>/dev/null || true)
           if [ -z "$FILES" ]; then
             echo "Aucun fichier modifié détecté (force-push ?) — rien à soumettre."
+            echo "urls=" >> $GITHUB_OUTPUT
             exit 0
           fi
           URLS=$(printf '%s\n' "$FILES" | while read -r f; do
@@ -76,4 +78,16 @@ jobs:
                 echo "https://ouipsycho.fr/$f" ;;
             esac
           done | sort -u | tr '\n' ' ')
+          echo "urls=$URLS" >> $GITHUB_OUTPUT
           URLS="$URLS" bash .github/scripts/submit-indexnow.sh
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Soumettre les URLs à la Google Indexing API
+        env:
+          URLS: ${{ steps.urls.outputs.urls }}
+          GOOGLE_INDEXING_SA_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY }}
+        run: node .github/scripts/submit-google-indexing.js

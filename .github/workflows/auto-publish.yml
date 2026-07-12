@@ -133,3 +133,24 @@ jobs:
         run: |
           URLS="https://ouipsycho.fr/ ${{ needs.publish.outputs.urls }}" \
             bash .github/scripts/submit-indexnow.sh
+
+  # Google Indexing API — demande d'indexation automatique après vérification
+  google-indexing:
+    name: Demander l'indexation Google
+    needs: [publish, verify]
+    if: needs.publish.outputs.pushed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Soumettre les URLs à la Google Indexing API
+        env:
+          URLS: ${{ needs.publish.outputs.urls }}
+          GOOGLE_INDEXING_SA_KEY: ${{ secrets.GOOGLE_INDEXING_SA_KEY }}
+        run: node .github/scripts/submit-google-indexing.js
