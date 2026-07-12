@@ -1,5 +1,30 @@
 [
   {
+    "id": "mickey-sur-le-divan",
+    "title": "Mickey sur le divan : psychologie d'une souris qui a réussi",
+    "excerpt": "Pourquoi une souris dessinée déclenche-t-elle autant d'affection chez des milliards d'humains ? Derrière le sourire de Mickey se cachent la néoténie, l'instinct parental, l'anthropomorphisme et la psychologie de la nostalgie. Une réussite qui n'a rien d'un hasard.",
+    "date": "2026-07-12",
+    "date_modified": "2026-07-06",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/naxydftx6stjmkodne3e",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "John Balthazar",
+    "tags": [
+      "mickey",
+      "néoténie",
+      "psychologie de la mignonnerie",
+      "nostalgie",
+      "culture pop"
+    ],
+    "metaDescription": "Néoténie, schéma du bébé, nostalgie : pourquoi Mickey nous attendrit-il autant ? La psychologie et la biologie de la souris la plus célèbre du monde.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "date-tinder-tueur-en-serie",
     "title": "Votre date Tinder est-il un tueur en série ?",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
