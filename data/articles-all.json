@@ -1,5 +1,59 @@
 [
   {
+    "id": "spider-man-sur-le-divan",
+    "title": "Spider-man sur le divan : psychologie d'un homme araignée",
+    "type": "article",
+    "excerpt": "Sous le masque, un ado anxieux, endeuillé et rongé par la culpabilité. Et si le plus humain des super-héros était surtout un formidable cas clinique ?",
+    "metaDescription": "Culpabilité du survivant, masque, angoisse et résilience : et si Spider-Man avait surtout besoin d'un bon thérapeute ? Analyse psy de l'homme-araignée.",
+    "author": "John Balthazar",
+    "date": "2027-01-19",
+    "date_modified": "2027-01-19",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "spider-man",
+      "psychologie",
+      "culpabilite",
+      "resilience",
+      "nos-heros-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Rosenberg, R. S. (dir.)",
+        "year": "2008",
+        "title": "The Psychology of Superheroes: An Unauthorized Exploration",
+        "publisher": "BenBella Books"
+      },
+      {
+        "authors": "Tedeschi, R. G. & Calhoun, L. G.",
+        "year": "1996",
+        "title": "The Posttraumatic Growth Inventory: Measuring the positive legacy of trauma",
+        "journal": "Journal of Traumatic Stress",
+        "url": "https://doi.org/10.1002/jts.2490090305"
+      },
+      {
+        "authors": "Larson, D. G. & Chastain, R. L.",
+        "year": "1990",
+        "title": "Self-concealment: Conceptualization, measurement, and health implications",
+        "journal": "Journal of Social and Clinical Psychology",
+        "url": "https://doi.org/10.1521/jscp.1990.9.4.439"
+      },
+      {
+        "authors": "Erikson, E. H.",
+        "year": "1968",
+        "title": "Identity: Youth and Crisis",
+        "publisher": "W. W. Norton"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
     "type": "article",
