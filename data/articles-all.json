@@ -369,12 +369,12 @@
   {
     "id": "applications-gratuites-sante-mentale",
     "title": "Les meilleures applis gratuites pour la santé mentale",
-    "type": "article",
-    "excerpt": "Des milliers d'applis promettent la sérénité, peu tiennent parole. Nous avons trié selon trois critères : preuves scientifiques, gratuité réelle et confidentialité. Voici les quatre qui passent le filtre, notées et commentées.",
+    "excerpt": "",
     "date": "2026-11-20",
     "date_modified": "2026-07-12",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ctqtozrwqslhfq2gyzi8",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -388,7 +388,7 @@
       "depression",
       "tcc"
     ],
-    "metaDescription": "Quelles applis gratuites de santé mentale valent vraiment la peine ? Notre sélection notée : preuves scientifiques, avis des pros, liens directs.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
