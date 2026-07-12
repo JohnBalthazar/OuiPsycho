@@ -1786,35 +1786,35 @@
         var rk  = toKey(nom);
         leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
 
-        // 2e appel : score de commune précis (population + surface réelle)
-        if (deptCode) {
-          var geoUrl = 'https://geo.api.gouv.fr/communes?lat=' + lat + '&lon=' + lng
-            + '&fields=nom,code,population,surface&format=json';
-          fetch(geoUrl)
-            .then(function(r2){ return r2.json(); })
-            .then(function(cdata) {
-              var comm   = cdata && cdata[0];
-              var cpop   = comm && comm.population || 0;
-              var csurf  = comm && comm.surface    || 0;
-              var cScore = communeScore(deptCode, cpop, csurf);
-              var dLabel = DEPT_LABELS[deptCode] || deptCode;
-              var popStr = cpop && cpop >= 1000
-                ? (cpop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
-                : cpop ? cpop + '&nbsp;hab.' : '';
-              showCityResult(cityName, rk, nom, deptCode,
-                'D&eacute;p.&nbsp;<strong>' + dLabel + '</strong>'
-                + '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + nom + '</strong>'
-                + (popStr ? '&nbsp;&middot; ' + popStr : ''),
-                cScore,
-                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
-            })
-            .catch(function() {
-              // Fallback : score région si l'API commune échoue
-              showCityResult(cityName, rk, nom, deptCode);
-            });
-        } else {
-          showCityResult(cityName, rk, nom, deptCode);
-        }
+        // 2e appel : score de commune précis (pop + surface réelles)
+        // Toujours effectué — Nominatim ne retourne pas toujours de postcode pour les villes
+        // (ex: Lyon → pas de postcode, mais geo.api.gouv.fr retourne codeDepartement directement)
+        var geoUrl = 'https://geo.api.gouv.fr/communes?lat=' + lat + '&lon=' + lng
+          + '&fields=nom,code,codeDepartement,population,surface&format=json';
+        fetch(geoUrl)
+          .then(function(r2){ return r2.json(); })
+          .then(function(cdata) {
+            var comm     = cdata && cdata[0];
+            var cpop     = (comm && comm.population) || 0;
+            var csurf    = (comm && comm.surface)    || 0;
+            // Priorité au codeDepartement retourné par l'API (fiable), sinon fallback postcode Nominatim
+            var realDept = (comm && comm.codeDepartement) || deptCode;
+            var cScore   = realDept ? communeScore(realDept, cpop, csurf) : null;
+            var dLabel   = DEPT_LABELS[realDept] || realDept || '';
+            var popStr   = cpop && cpop >= 1000
+              ? (cpop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
+              : cpop ? cpop + '&nbsp;hab.' : '';
+            showCityResult(cityName, rk, nom, realDept,
+              'D&eacute;p.&nbsp;<strong>' + dLabel + '</strong>'
+              + '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + nom + '</strong>'
+              + (popStr ? '&nbsp;&middot; ' + popStr : ''),
+              cScore,
+              'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
+          })
+          .catch(function() {
+            // Fallback : score région si l'API commune échoue
+            showCityResult(cityName, rk, nom, deptCode);
+          });
       })
       .catch(function() {
         if (btn) btn.disabled = false;
