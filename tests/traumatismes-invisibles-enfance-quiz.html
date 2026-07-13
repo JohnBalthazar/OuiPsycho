@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traumatismes invisibles : quelle empreinte portez-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/traumatismes-invisibles-enfance/">
+  <meta name="description" content="Hyper-responsabilité, vide émotionnel, vigilance permanente ? Explorez en douceur l'empreinte laissée par votre enfance — un point de départ, pas un verdict.">
+  <style>
+    :root{
+      --sauge:#6B8069;
+      --sauge-fonce:#4F6350;
+      --lin:#F8F6F1;
+      --terracotta:#C5866B;
+      --encre:#39423A;
+      --gris:#77817A;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--lin);
+      color:var(--encre);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #E7E3D8;
+      box-shadow:0 4px 18px rgba(79,99,80,.10);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--sauge-fonce),var(--sauge));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+    }
+    .quiz-header .deco{font-size:1.3rem;letter-spacing:.3em;opacity:.9}
+    .quiz-header h1{
+      font-size:1.3rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.92;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{height:6px;background:#EBE7DC}
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--terracotta);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--sauge-fonce);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--lin);
+      border:2px solid #E7E3D8;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.96rem;
+      color:var(--encre);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--terracotta);
+      background:#F9EFE9;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--sauge);
+      color:var(--blanc);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(107,128,105,.4);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.96rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--sauge-fonce);
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+    .result-desc{text-align:left;font-size:.96rem;margin-bottom:20px}
+    .result-desc p{margin-bottom:12px}
+    .result-desc strong{color:var(--sauge-fonce)}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--sauge-fonce);
+      background:var(--lin);
+      border:1px solid #E7E3D8;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--terracotta);background:#F9EFE9}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--lin);
+      border:1px solid #E7E3D8;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.12rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="deco">🌱 ⋅ 🕊️ ⋅ 🌱</div>
+      <h1>Traumatismes invisibles : quelle empreinte portez-vous ?</h1>
+      <p>8 questions pour explorer, en douceur, ce que votre enfance a pu laisser en vous.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez avec ce qui vous ressemble le plus, sans trop réfléchir. Ce questionnaire est une invitation à la réflexion — pas une évaluation clinique, et encore moins un verdict sur votre histoire. Prenez soin de vous en le faisant.</p>
+        <button class="start-btn" id="btn-start">Commencer en douceur</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Enfant, quel était votre « rôle » à la maison ?",
+        a: [
+          { t: "Le pilier : je m'occupais des autres, je gérais, on comptait sur moi.", p: "A" },
+          { t: "L'invisible : sage, autonome, je ne dérangeais personne avec mes états d'âme.", p: "B" },
+          { t: "Le guetteur : j'observais l'humeur des adultes pour anticiper les tempêtes.", p: "C" },
+          { t: "L'enfant, tout simplement : jouer, grandir, être porté par les adultes.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand quelqu'un vous propose de l'aide aujourd'hui :",
+        a: [
+          { t: "Je refuse presque toujours — c'est moi qui aide, pas l'inverse.", p: "A" },
+          { t: "Je ne sais même pas quoi demander : je me débrouille seul·e depuis toujours.", p: "B" },
+          { t: "Je me méfie un peu : qu'attend-on de moi en retour ?", p: "C" },
+          { t: "J'accepte volontiers quand j'en ai besoin.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos émotions, vous diriez que :",
+        a: [
+          { t: "Je connais mieux celles des autres que les miennes — je capte tout chez autrui.", p: "A" },
+          { t: "J'ai souvent du mal à savoir ce que je ressens : c'est flou, ou vide.", p: "B" },
+          { t: "Elles sont intenses et prêtes à bondir : je suis vite en alerte.", p: "C" },
+          { t: "Je les identifie et les exprime plutôt facilement.", p: "D" }
+        ]
+      },
+      {
+        q: "La phrase qui vous traverse le plus souvent :",
+        a: [
+          { t: "« Si je ne le fais pas, personne ne le fera. »", p: "A" },
+          { t: "« Je n'ai pas le droit de me plaindre, d'autres ont eu bien pire. »", p: "B" },
+          { t: "« Je dois rester sur mes gardes, ça peut basculer à tout moment. »", p: "C" },
+          { t: "« Globalement, je peux compter sur les autres et sur moi. »", p: "D" }
+        ]
+      },
+      {
+        q: "Se reposer, ne rien faire, penser à soi :",
+        a: [
+          { t: "Culpabilité immédiate — il y a toujours quelqu'un ou quelque chose qui a besoin de moi.", p: "A" },
+          { t: "Un vide inconfortable : sans occupation, je ne sais pas trop quoi faire de moi.", p: "B" },
+          { t: "Difficile : mon corps reste tendu même quand tout va bien.", p: "C" },
+          { t: "Un plaisir que je m'accorde sans trop de difficulté.", p: "D" }
+        ]
+      },
+      {
+        q: "Dans vos relations proches, vous avez tendance à :",
+        a: [
+          { t: "Devenir le parent de tout le monde : conseils, soutien, logistique, réconfort.", p: "A" },
+          { t: "Garder une distance : on me dit parfois que je suis difficile à atteindre.", p: "B" },
+          { t: "Guetter les signes de rejet ou d'abandon, et réagir fort quand je crois en voir.", p: "C" },
+          { t: "Trouver un équilibre entre donner et recevoir.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand vous repensez à votre enfance :",
+        a: [
+          { t: "Je me souviens surtout des responsabilités — j'ai grandi trop vite.", p: "A" },
+          { t: "C'était « normal »... mais je peine à me souvenir de moments de vraie proximité émotionnelle.", p: "B" },
+          { t: "Je me souviens du climat : imprévisible, tendu, à surveiller.", p: "C" },
+          { t: "Je me souviens de m'être senti·e vu·e, entendu·e et en sécurité, l'essentiel du temps.", p: "D" }
+        ]
+      },
+      {
+        q: "Si votre enfant intérieur pouvait dire une phrase, ce serait :",
+        a: [
+          { t: "« Et moi, qui s'occupe de moi ? »", p: "A" },
+          { t: "« Est-ce que quelqu'un me voit ? »", p: "B" },
+          { t: "« Est-ce que je suis enfin en sécurité ? »", p: "C" },
+          { t: "« Merci — on peut continuer à jouer ? »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🎒",
+        title: "L'empreinte de la parentification",
+        desc: "<p>Vos réponses évoquent un enfant qui a porté tôt des responsabilités d'adulte — matérielles ou émotionnelles — et qui, devenu grand, continue d'occuper le poste : hyper-responsabilité, difficulté à recevoir et à déléguer, culpabilité dès qu'il s'agit de penser à soi. Cette « maturité » précoce était une adaptation courageuse, pas un trait de caractère.</p><p><strong>Une piste :</strong> apprendre à laisser les autres porter leur part n'est pas un abandon de poste — c'est une réparation. Un accompagnement psychothérapeutique peut aider à déposer ce sac à dos ; votre médecin traitant ou un psychologue sont de bons premiers interlocuteurs. Et rappelez-vous : ce résultat éclaire une tendance, il ne raconte pas toute votre histoire.</p>"
+      },
+      B: {
+        emoji: "🌫️",
+        title: "L'empreinte de la négligence émotionnelle",
+        desc: "<p>Vos réponses évoquent une enfance où vos émotions ont peu existé pour les adultes — sans forcément de malveillance. La trace typique : un vide difficile à décrire, du mal à savoir ce qu'on ressent, une autonomie farouche, et cette phrase qui disqualifie la blessure elle-même : « je n'ai pas le droit de me plaindre ». Si, vous avez le droit.</p><p><strong>Une piste :</strong> ce qui n'a pas été appris peut l'être à tout âge — identifier ses émotions, les nommer, les laisser compter. Les thérapies centrées sur les émotions y sont précieuses. Parlez-en à un professionnel si ce vide vous pèse ; ce résultat est une invitation à explorer, pas un verdict sur votre enfance ni sur vos proches.</p>"
+      },
+      C: {
+        emoji: "🕯️",
+        title: "L'empreinte de l'insécurité",
+        desc: "<p>Vos réponses évoquent un climat d'enfance imprévisible ou tendu, qui a réglé votre système d'alarme sur « vigilance permanente » : corps tendu, guet des signes de rejet, difficulté à vous sentir en sécurité même quand tout va bien. C'était une protection intelligente alors ; c'est un poids maintenant.</p><p><strong>Une piste :</strong> le système nerveux peut réapprendre la sécurité — par des relations fiables, des approches psychocorporelles et, si besoin, des thérapies du trauma (EMDR, thérapie des schémas...). Un professionnel formé en psychotraumatologie saura vous accompagner. Si des souvenirs douloureux remontent et vous submergent, n'hésitez pas à en parler rapidement à un soignant — le 3114 est là aussi pour ça.</p>"
+      },
+      D: {
+        emoji: "🌳",
+        title: "Une empreinte plutôt sécure",
+        desc: "<p>Vos réponses dessinent une base plutôt solide : un équilibre entre donner et recevoir, des émotions accessibles, un sentiment de sécurité globalement présent. Cela ne signifie pas une enfance parfaite — cela n'existe pas — mais un socle qui vous porte.</p><p><strong>À retenir :</strong> ce quiz explore quelques tendances, il ne peut rien exclure. Si vous l'avez fait en pensant à un proche, ou si certaines questions ont réveillé quelque chose d'inattendu, l'article ci-dessus peut vous donner des repères — et un professionnel peut toujours approfondir avec vous. Une base sécure, c'est aussi une belle ressource à offrir autour de soi.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      q.a.forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      var best = 'D';
+      ['A', 'B', 'C'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/traumatismes-invisibles-enfance/';
+      var text = "J'ai exploré l'empreinte de mon enfance avec le quiz « Traumatismes invisibles » sur Oui Psycho — instructif.";
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
