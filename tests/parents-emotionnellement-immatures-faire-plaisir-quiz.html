@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Faire plaisir : à quel degré en êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/parents-emotionnellement-immatures-faire-plaisir/">
+  <meta name="description" content="Générosité choisie, réflexe d'adaptation ou effacement systématique ? Mesurez votre rapport au « oui » en 9 questions.">
+  <style>
+    :root{
+      --miel:#B07D2B;
+      --miel-fonce:#8A5F1D;
+      --ivoire:#FBF7EF;
+      --canard:#2F6D73;
+      --encre:#3B3327;
+      --gris:#7C7263;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--ivoire);
+      color:var(--encre);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #EDE4D2;
+      box-shadow:0 4px 18px rgba(176,125,43,.10);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--miel-fonce),var(--miel));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+    }
+    .quiz-header .deco{font-size:1.3rem;letter-spacing:.3em;opacity:.9}
+    .quiz-header h1{
+      font-size:1.3rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.92;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{height:6px;background:#F0E9DA}
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--canard);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--miel-fonce);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--ivoire);
+      border:2px solid #EDE4D2;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.96rem;
+      color:var(--encre);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--canard);
+      background:#EAF2F3;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--canard);
+      color:var(--blanc);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(47,109,115,.4);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.96rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--miel-fonce);
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+    .result-desc{text-align:left;font-size:.96rem;margin-bottom:20px}
+    .result-desc p{margin-bottom:12px}
+    .result-desc strong{color:var(--miel-fonce)}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--miel-fonce);
+      background:var(--ivoire);
+      border:1px solid #EDE4D2;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--canard);background:#EAF2F3}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--ivoire);
+      border:1px solid #EDE4D2;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.12rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="deco">🤝 ⋅ 💛 ⋅ 🤝</div>
+      <h1>Faire plaisir : à quel degré en êtes-vous ?</h1>
+      <p>9 questions pour mesurer votre rapport au « oui » — générosité choisie ou réflexe de survie ?</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez avec honnêteté — personne ne regarde, et il n'y a rien à mériter ici. Pensez à votre fonctionnement habituel, pas à vos meilleures résolutions.</p>
+        <button class="start-btn" id="btn-start">Commencer</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "On vous demande un service qui vous arrange très mal. Vous :",
+        a: [
+          { t: "Je refuse simplement, en proposant parfois une alternative.", p: "A" },
+          { t: "Je refuse, mais je me justifie longuement et je culpabilise un peu.", p: "B" },
+          { t: "Je dis oui en maudissant intérieurement, puis je m'arrange pour tout absorber.", p: "C" },
+          { t: "Dire non ne m'a même pas traversé l'esprit — c'est physiquement impossible.", p: "D" }
+        ]
+      },
+      {
+        q: "Quelqu'un semble contrarié en votre présence, sans lien évident avec vous :",
+        a: [
+          { t: "Je remarque, je demande éventuellement si ça va, et je reprends ma vie.", p: "A" },
+          { t: "Ça m'occupe l'esprit un moment — j'espère que ce n'est pas moi.", p: "B" },
+          { t: "Je passe en mode réparation : blagues, attentions, questions, jusqu'à ce que ça aille mieux.", p: "C" },
+          { t: "Je suis convaincu·e que c'est ma faute et je ne pense plus qu'à ça.", p: "D" }
+        ]
+      },
+      {
+        q: "« Qu'est-ce que TU veux, toi ? » (restaurant, film, destination...) :",
+        a: [
+          { t: "Je le sais et je le dis — quitte à négocier ensuite.", p: "A" },
+          { t: "J'ai un avis, mais je le donne après avoir sondé celui des autres.", p: "B" },
+          { t: "Je réponds « comme tu veux » par réflexe, même quand j'ai une préférence.", p: "C" },
+          { t: "Honnêtement, je ne sais souvent plus ce que je veux — je veux que l'autre soit content.", p: "D" }
+        ]
+      },
+      {
+        q: "Après un désaccord, même mineur :",
+        a: [
+          { t: "Je peux être contrarié·e, mais le lien n'est pas en danger et je le sais.", p: "A" },
+          { t: "Je rumine un peu et je vérifie discrètement que tout va bien.", p: "B" },
+          { t: "Je m'excuse presque toujours en premier, même quand je n'ai pas tort.", p: "C" },
+          { t: "Je vis chaque conflit comme une menace de rupture — j'apaise à n'importe quel prix.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos excuses (« pardon », « désolé·e ») :",
+        a: [
+          { t: "Réservées aux situations où j'ai réellement quelque chose à me faire pardonner.", p: "A" },
+          { t: "Un peu trop fréquentes, on me l'a déjà fait remarquer.", p: "B" },
+          { t: "Automatiques : je m'excuse quand on me bouscule, quand je pose une question, quand j'existe fort.", p: "C" },
+          { t: "Je m'excuse par avance de déranger avant même de formuler une demande.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand quelqu'un ne semble pas vous apprécier :",
+        a: [
+          { t: "Dommage, mais tout le monde ne peut pas m'apprécier — c'est la vie.", p: "A" },
+          { t: "Ça me travaille un peu plus que je ne l'admets.", p: "B" },
+          { t: "Je multiplie les efforts pour le/la conquérir, même si je ne l'apprécie pas particulièrement.", p: "C" },
+          { t: "C'est insupportable : je peux y penser des semaines et me plier en quatre.", p: "D" }
+        ]
+      },
+      {
+        q: "Enfant, dans votre famille, vos émotions :",
+        a: [
+          { t: "Étaient accueillies — imparfaitement, mais on pouvait en parler.", p: "A" },
+          { t: "Passaient après celles des adultes, occupés ou débordés.", p: "B" },
+          { t: "Devaient s'adapter : je surveillais l'humeur de la maison avant de m'exprimer.", p: "C" },
+          { t: "N'avaient pas leur place : mon rôle était d'être facile, sage, ou de consoler les adultes.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand on vous fait un compliment ou qu'on prend soin de vous :",
+        a: [
+          { t: "Je dis merci et j'en profite.", p: "A" },
+          { t: "Je suis touché·e mais un peu gêné·e.", p: "B" },
+          { t: "Je détourne, je minimise, ou je rends la pareille immédiatement pour rééquilibrer.", p: "C" },
+          { t: "Je suis très mal à l'aise : recevoir sans avoir mérité me semble presque suspect.", p: "D" }
+        ]
+      },
+      {
+        q: "En fin de journée très sociale, vous ressentez :",
+        a: [
+          { t: "De la fatigue normale, proportionnelle à la journée.", p: "A" },
+          { t: "Le besoin de repasser quelques conversations dans ma tête.", p: "B" },
+          { t: "Un épuisement particulier — comme après une représentation — et un vague ressentiment.", p: "C" },
+          { t: "Un vide : j'ai été tout le monde sauf moi, et je ne sais plus où je suis là-dedans.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🌿",
+        title: "Générosité choisie — un rapport au oui plutôt libre",
+        desc: "<p>Vos réponses décrivent quelqu'un qui sait faire plaisir... parce qu'il pourrait aussi ne pas le faire. Vos oui sont des choix, vos non existent, et les désaccords ne menacent pas vos liens : c'est la définition même d'une générosité en bonne santé.</p><p><strong>À retenir :</strong> si vous avez fait ce test en pensant à quelqu'un d'autre — ou parce qu'une relation particulière vous pousse plus que les autres à vous suradapter — l'article ci-dessus peut vous aider à comprendre ce qui se joue dans cette relation-là précisément.</p>"
+      },
+      B: {
+        emoji: "🌤️",
+        title: "Tendance à faire plaisir — sous contrôle, mais présente",
+        desc: "<p>Vos réponses montrent une sensibilité réelle au regard des autres : excuses un peu fréquentes, avis donné après sondage, ruminations post-désaccord. Rien d'envahissant, mais un léger surcoût d'énergie dépensée à maintenir l'harmonie.</p><p><strong>Une piste :</strong> entraînez le muscle du « moi d'abord » sur des enjeux minuscules — donner votre préférence de restaurant avant les autres, laisser passer une contrariété sans la réparer. Ces micro-exercices suffisent souvent à empêcher la tendance de s'installer.</p>"
+      },
+      C: {
+        emoji: "🎭",
+        title: "People pleasing marqué — le réflexe a pris le volant",
+        desc: "<p>Vos réponses cochent la plupart des signatures décrites dans l'article : oui automatique, excuses réflexes, mode réparation dès qu'une humeur se gâte, difficulté à recevoir, et cet épuisement de représentation en fin de journée sociale. Ce n'est pas de la gentillesse excessive : c'est une stratégie d'adaptation, probablement ancienne, qui tourne désormais toute seule.</p><p><strong>Une piste :</strong> commencez par observer sans changer — notez pendant une semaine chaque oui non choisi et ce qu'il vous coûte. Puis entraînez le non progressif sur des enjeux faibles. Et si l'origine familiale décrite dans l'article vous parle, un travail psychothérapeutique peut transformer ce réflexe en choix. Vous avez le droit d'être aimé·e au repos.</p>"
+      },
+      D: {
+        emoji: "🕯️",
+        title: "Effacement de soi — il est temps de vous retrouver",
+        desc: "<p>Vos réponses décrivent un effacement profond : impossibilité de dire non, conflits vécus comme des menaces vitales, malaise à recevoir, et surtout cette perte de contact avec vos propres envies — jusqu'à ne plus savoir qui vous êtes hors du regard des autres. Ce fonctionnement a très probablement été, un jour, la meilleure adaptation possible à votre environnement. Il vous coûte aujourd'hui beaucoup trop cher.</p><p><strong>Concrètement :</strong> un accompagnement psychothérapeutique est ici vivement recommandé — non parce que vous êtes « cassé·e », mais parce que réapprendre à exister sans performer se fait difficilement seul·e. Parlez-en à votre médecin traitant ou à un psychologue. Et si un sentiment de vide ou de détresse vous envahit, le <strong>3114</strong> est disponible gratuitement, 24h/24. Votre vrai soi est toujours là ; il attend juste qu'on lui rouvre la porte.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      q.a.forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      // Les degrés les plus marqués priment quand ils sont nettement présents
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      if (votes.D >= 4) best = 'D';
+      else if (best === 'A' && (votes.C + votes.D) >= 5) best = 'C';
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/parents-emotionnellement-immatures-faire-plaisir/';
+      var text = "J'ai mesuré mon degré de people pleasing avec le quiz « Faire plaisir : à quel degré en êtes-vous ? » sur Oui Psycho.";
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
