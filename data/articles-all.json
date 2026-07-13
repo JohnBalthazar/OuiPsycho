@@ -160,6 +160,60 @@
     "status": "scheduled"
   },
   {
+    "id": "fatigue-mentale-epuise-sans-rien-faire",
+    "title": "Fatigue mentale : pourquoi suis-je épuisé alors que je ne fais « rien » ?",
+    "type": "article",
+    "excerpt": "Vidé après une journée assis devant un écran ? La fatigue mentale n'est ni de la paresse ni une illusion : votre cerveau a vraiment travaillé. Ce que dit la science, et comment récupérer.",
+    "metaDescription": "Épuisé sans avoir « rien fait » ? La fatigue mentale expliquée par la science : pourquoi le cerveau s'épuise, la charge invisible et comment vraiment récupérer.",
+    "author": "John Balthazar",
+    "date": "2027-01-15",
+    "date_modified": "2027-01-15",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "fatigue-mentale",
+      "charge-mentale",
+      "burn-out",
+      "controle-cognitif",
+      "recuperation"
+    ],
+    "sources": [
+      {
+        "authors": "Wiehler A., Branzoli F., Adanyeguh I., Mochel F. & Pessiglione M.",
+        "year": "2022",
+        "title": "A neuro-metabolic account of why daylong cognitive work alters the control of economic decisions",
+        "journal": "Current Biology",
+        "url": "https://doi.org/10.1016/j.cub.2022.07.010"
+      },
+      {
+        "authors": "Blain B., Hollard G. & Pessiglione M.",
+        "year": "2016",
+        "title": "Neural mechanisms underlying the impact of daylong cognitive work on economic decisions",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.1520527113"
+      },
+      {
+        "authors": "Kaplan S.",
+        "year": "1995",
+        "title": "The restorative benefits of nature: Toward an integrative framework",
+        "journal": "Journal of Environmental Psychology"
+      },
+      {
+        "authors": "Baumeister R. F., Bratslavsky E., Muraven M. & Tice D. M.",
+        "year": "1998",
+        "title": "Ego depletion: Is the active self a limited resource?",
+        "journal": "Journal of Personality and Social Psychology"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "signes-astrologiques-compatibilite-amoureuse",
     "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
     "type": "article",
