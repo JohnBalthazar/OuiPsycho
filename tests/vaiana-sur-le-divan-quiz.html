@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>L'appel du large : quel navigateur êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/vaiana-sur-le-divan/">
+  <meta name="description" content="Récif rassurant ou horizon qui démange ? 8 questions pour découvrir votre façon de répondre à l'appel du large.">
+  <style>
+    :root{
+      --lagon:#0E6B72; --lagon-fonce:#0a4d53; --corail:#E8734A; --sable:#F3B95F;
+      --fond:#F4F8F8; --carte:#ffffff; --texte:#25393d; --gris:#64787d;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(14,107,114,.13);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--lagon),var(--lagon-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.9;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#e2edee;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--corail);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--lagon-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#eef5f5;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--lagon);background:#e6f0f0}
+    .btn{display:inline-block;background:var(--corail);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--lagon-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#fdf3ec;border-left:4px solid var(--corail);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#eef5f5;border:1px solid #d8e6e7;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#e3eef0}
+    .disclaimer{background:#eef5f5;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>L'appel du large : quel navigateur êtes-vous&nbsp;?</h1>
+      <p>Récif rassurant ou horizon qui démange ? 8 questions sur votre façon de répondre à l'appel. Gilet non fourni.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Une opportunité inattendue se présente (poste, projet, départ). Votre premier mouvement intérieur :",
+        r: [
+          {t: "Un frisson : l'horizon vient de s'ouvrir, il faut y aller voir.", p: "A"},
+          {t: "Un inventaire : qu'est-ce que je risque de perdre, et qui compte sur moi ?", p: "B"},
+          {t: "Une projection : est-ce que ça me fera briller, enfin, à ma juste valeur ?", p: "C"},
+          {t: "Une question : est-ce que ça correspond à ce qui compte vraiment pour moi ?", p: "D"}
+        ]
+      },
+      {
+        q: "Votre rapport au « plan » que votre famille imaginait pour vous :",
+        r: [
+          {t: "Je l'ai questionné tôt — parfois dans les vagues, mais il fallait explorer.", p: "A"},
+          {t: "Je l'ai suivi pour l'essentiel : il était raisonnable, et la loyauté compte.", p: "B"},
+          {t: "Je voulais surtout faire mieux que prévu — qu'ils soient épatés.", p: "C"},
+          {t: "J'en ai gardé ce qui me ressemblait, laissé le reste, sans drame.", p: "D"}
+        ]
+      },
+      {
+        q: "Face à une décision importante, vous écoutez surtout :",
+        r: [
+          {t: "Cette voix intérieure têtue qui revient toujours au même endroit.", p: "A"},
+          {t: "Les personnes qui dépendent de vous et celles qui vous connaissent.", p: "B"},
+          {t: "Ce que ce choix dira de vous aux yeux des autres.", p: "C"},
+          {t: "Un mélange pesé : valeurs, intuition, avis de deux ou trois personnes sûres.", p: "D"}
+        ]
+      },
+      {
+        q: "L'échec en public, pour vous, c'est :",
+        r: [
+          {t: "Le prix du voyage : on répare la voile et on repart.", p: "A"},
+          {t: "La confirmation qu'il ne fallait pas quitter le lagon.", p: "B"},
+          {t: "Une petite mort : sans les applaudissements, qui suis-je ?", p: "C"},
+          {t: "Désagréable mais digestible : ma valeur ne se joue pas là.", p: "D"}
+        ]
+      },
+      {
+        q: "Ce que vous transmettriez en priorité à un plus jeune :",
+        r: [
+          {t: "« Franchis le récif au moins une fois — sinon tu te le demanderas toute ta vie. »", p: "A"},
+          {t: "« Protège ce que tu as : le lagon nourrit tout le monde depuis toujours. »", p: "B"},
+          {t: "« Fais-toi un nom : le monde n'aime que les vainqueurs. »", p: "C"},
+          {t: "« Écoute la voix en toi — et si tu choisis de rester, sois-en fier aussi. »", p: "D"}
+        ]
+      },
+      {
+        q: "Quand un proche traverse un deuil ou une grosse tempête :",
+        r: [
+          {t: "Vous l'embarquez : rien de tel qu'un cap à tenir pour rester debout.", p: "A"},
+          {t: "Vous assurez l'intendance : repas, logistique, présence fiable.", p: "B"},
+          {t: "Vous racontez vos propres tempêtes — pour montrer qu'on peut s'en sortir, bien sûr.", p: "C"},
+          {t: "Vous restez à côté, sans presser : chacun navigue son deuil à son rythme.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre lieu ressource, celui qui vous répare :",
+        r: [
+          {t: "Là où ça bouge : la mer, la route, l'ailleurs.", p: "A"},
+          {t: "Chez vous, portes fermées, avec les vôtres.", p: "B"},
+          {t: "Là où il y a du monde — de préférence un public.", p: "C"},
+          {t: "Un coin d'eau ou de nature, régulier, presque rituel.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre devise secrète ressemblerait à :",
+        r: [
+          {t: "« La ligne d'horizon n'est pas une limite, c'est une invitation. »", p: "A"},
+          {t: "« On ne quitte pas le port par gros temps — ni par beau temps, d'ailleurs. »", p: "B"},
+          {t: "« De rien ! » (avant même qu'on ait dit merci)", p: "C"},
+          {t: "« Je sais qui je suis — le reste est affaire de météo. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "⛵",
+        titre: "L'Appelé du large",
+        texte: "<p>Chez vous, l'appel n'est pas un caprice : c'est une boussole interne insistante — ce que la psychologie appelle la motivation intrinsèque. Vous explorez avant de vous engager, quitte à inquiéter les gardiens de récif de votre entourage. C'est le chemin le plus vivant… et le plus exposé aux tempêtes.</p><p>Votre point de vigilance : partir peut devenir un réflexe. On ne franchit pas un récif pour fuir, on le franchit pour aller quelque part.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> avant chaque grand départ, posez-vous la question de Vaiana dans la caverne : est-ce que je pars vers quelque chose, ou loin de quelque chose ? Et gardez une base de sécurité — une grand-mère Tala, un ami-phare — à qui dire la vérité sur la traversée."
+      },
+      B: {
+        emoji: "🪨",
+        titre: "Le Gardien du lagon",
+        texte: "<p>Loyauté, protection, continuité : vous êtes celui ou celle qui fait tenir le village. C'est une force immense — et souvent invisible. Le risque, comme pour le chef Tui, c'est de confondre protéger et enfermer : le récif qui protège des tempêtes finit parfois par affamer le lagon.</p><p>Petit rappel du film : Tui n'avait pas tort d'avoir peur — il avait perdu un ami en mer. Les prudences excessives ont presque toujours une histoire. La vôtre aussi, peut-être.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> identifiez la peur derrière votre prudence et racontez-la — aux vôtres, ou à un professionnel si elle pèse. Et offrez-vous une micro-traversée par trimestre : un projet légèrement au-delà du récif, juste pour vérifier que vous savez encore naviguer."
+      },
+      C: {
+        emoji: "🪝",
+        titre: "Le Demi-dieu en quête d'applaudissements",
+        texte: "<p>Comme Maui, vous avez du talent, du panache — et un radar ultra-sensible à la reconnaissance. Rien de honteux : le besoin d'être vu est humain, et il a souvent une histoire (Maui, rappelons-le, cherchait à mériter l'amour qu'on ne lui avait pas donné). Le piège, c'est la prothèse : quand toute l'estime repose sur le crochet — l'exploit, le statut, le public — la moindre fissure devient existentielle.</p><p>La bonne nouvelle du film : Maui redevient puissant précisément quand il accepte de valoir quelque chose sans son crochet.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> nourrissez une estime « hors scène » — des liens et des activités où personne n'applaudit et où vous comptez quand même. Et surveillez le réflexe « de rien ! » : demander ce que l'autre ressent avant de raconter votre exploit change beaucoup de conversations."
+      },
+      D: {
+        emoji: "🌺",
+        titre: "Le Sage au bord de l'eau",
+        texte: "<p>Vous savez qui vous êtes — le reste est affaire de météo. Comme Tala, vous écoutez la voix intérieure sans mépriser le village, vous validez l'élan des autres sans le leur imposer, et vous entretenez vos rituels ressource (l'eau, la danse avec les raies, chacun ses méthodes). C'est le profil de l'identité explorée puis choisie : la plus stable de toutes.</p><p>Votre vigilance : la sagesse en surplomb. À force d'accompagner les traversées des autres, on oublie parfois qu'il nous reste, à nous aussi, un ou deux horizons à franchir.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> continuez la transmission — c'est précieux — mais gardez un projet bien à vous, même modeste, qui vous fasse encore un peu peur. Les Tala aussi ont le droit de reprendre la mer."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/vaiana-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['C', 'B', 'A', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "Mon profil navigateur : " + p.titre + " " + p.emoji + " — et vous, l'appel du large ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
