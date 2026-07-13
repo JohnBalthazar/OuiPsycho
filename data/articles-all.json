@@ -241,12 +241,12 @@
   {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Sous le masque, un ado anxieux, endeuillé et rongé par la culpabilité. Et si le plus humain des super-héros était surtout un formidable cas clinique ?",
     "date": "2027-01-19",
-    "date_modified": "2027-01-19",
+    "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/b0nurwl9lbrzgccs5e9l",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -260,7 +260,7 @@
       "resilience",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Culpabilité du survivant, masque, angoisse et résilience : et si Spider-Man avait surtout besoin d'un bon thérapeute ? Analyse psy de l'homme-araignée.",
     "articles_lies": [],
     "status": "scheduled"
   },
