@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel personnage du Petit Prince êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/le-petit-prince-sur-le-divan/">
+  <meta name="description" content="Petit prince, renard, rose ou aviateur ? Découvrez quel habitant de l'astéroïde B 612 sommeille en vous avec ce quiz de personnalité.">
+  <style>
+    :root{
+      --bleu:#1F4E6B;
+      --bleu-fonce:#16394F;
+      --or:#E8A94C;
+      --creme:#FDF9F2;
+      --encre:#2B3A44;
+      --gris:#6B7A85;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--creme);
+      color:var(--encre);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #E9E2D6;
+      box-shadow:0 4px 18px rgba(31,78,107,.08);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--bleu-fonce),var(--bleu));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+      position:relative;
+    }
+    .quiz-header .etoiles{font-size:1.4rem;letter-spacing:.4em;opacity:.85}
+    .quiz-header h1{
+      font-size:1.35rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.9;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{
+      height:6px;
+      background:#EDE6D8;
+    }
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--or);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.12rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--bleu-fonce);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--creme);
+      border:2px solid #E9E2D6;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.98rem;
+      color:var(--encre);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--or);
+      background:#FFF7E8;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--or);
+      color:var(--bleu-fonce);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(232,169,76,.45);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.98rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--bleu-fonce);
+      font-size:1.35rem;
+      margin-bottom:12px;
+    }
+    .result-desc{
+      text-align:left;
+      font-size:.98rem;
+      margin-bottom:20px;
+    }
+    .result-desc p{margin-bottom:12px}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--bleu-fonce);
+      background:var(--creme);
+      border:1px solid #E9E2D6;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--or);background:#FFF7E8}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--creme);
+      border:1px solid #E9E2D6;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.15rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="etoiles">✦ ✧ ✦</div>
+      <h1>Quel personnage du Petit Prince êtes-vous ?</h1>
+      <p>8 questions pour savoir qui, du petit prince, du renard, de la rose ou de l'aviateur, vous ressemble le plus.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez spontanément : il n'y a ni bonne ni mauvaise réponse, seulement des façons différentes d'habiter son astéroïde.</p>
+        <button class="start-btn" id="btn-start">Commencer le voyage ✈️</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer 🌹</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Vous atterrissez sur une planète inconnue. Votre premier réflexe ?",
+        a: [
+          { t: "Poser mille questions à son habitant, sans jamais renoncer à obtenir une réponse.", p: "A" },
+          { t: "Observer de loin, m'approcher un peu chaque jour, à la même heure.", p: "B" },
+          { t: "Attendre qu'on vienne me trouver — on finit toujours par me remarquer.", p: "C" },
+          { t: "Vérifier le moteur, l'eau, les vivres. On rêvera après.", p: "D" }
+        ]
+      },
+      {
+        q: "En amitié, ce qui compte le plus pour vous :",
+        a: [
+          { t: "La curiosité partagée : découvrir le monde ensemble.", p: "A" },
+          { t: "Les rituels : le rendez-vous du jeudi, le café de 8h, les habitudes qui rassurent.", p: "B" },
+          { t: "Être choisi·e, préféré·e, unique aux yeux de l'autre.", p: "C" },
+          { t: "Pouvoir compter l'un sur l'autre quand tout tombe en panne.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce qui vous blesse le plus profondément :",
+        a: [
+          { t: "Qu'on refuse de répondre à mes questions ou qu'on me prenne de haut.", p: "A" },
+          { t: "Qu'on parte sans dire au revoir, après m'avoir apprivoisé·e.", p: "B" },
+          { t: "Qu'on ne remarque pas mes efforts — alors que je fais tout pour être remarquable.", p: "C" },
+          { t: "Sentir que j'ai trahi l'enfant que j'étais.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à une contrariété, vous avez plutôt tendance à :",
+        a: [
+          { t: "Partir voir ailleurs : le voyage est ma façon de réfléchir.", p: "A" },
+          { t: "En parler, doucement, à quelqu'un que j'ai apprivoisé.", p: "B" },
+          { t: "Sortir mes épines — quitte à regretter après.", p: "C" },
+          { t: "Serrer les dents et réparer ce qui peut l'être.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre dimanche idéal :",
+        a: [
+          { t: "Regarder quarante-trois couchers de soleil, ou au moins un très beau.", p: "A" },
+          { t: "Un long moment avec les miens, sans écran, à laisser le temps s'installer.", p: "B" },
+          { t: "Être au centre d'une jolie attention : un bouquet, un mot, un regard.", p: "C" },
+          { t: "Bricoler, jardiner, réparer — et rêvasser en travaillant des mains.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand une relation se termine :",
+        a: [
+          { t: "Je repars explorer : chaque adieu m'apprend quelque chose.", p: "A" },
+          { t: "Je garde la couleur du blé : le souvenir devient un cadeau, même s'il pique.", p: "B" },
+          { t: "Je fais celle ou celui que ça n'atteint pas... et je pleure en secret.", p: "C" },
+          { t: "Je continue ma route, mais je regarde les étoiles autrement.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre plus grande force, honnêtement :",
+        a: [
+          { t: "Je vois l'essentiel là où les grandes personnes voient des chiffres.", p: "A" },
+          { t: "Je sais créer des liens qui durent, patiemment.", p: "B" },
+          { t: "J'ai un cœur immense — juste un peu bien défendu.", p: "C" },
+          { t: "Je garde les pieds sur terre sans avoir tout à fait quitté le ciel.", p: "D" }
+        ]
+      },
+      {
+        q: "La phrase qui vous ressemble le plus :",
+        a: [
+          { t: "« Droit devant soi, on ne peut pas aller bien loin... alors je fais des détours. »", p: "A" },
+          { t: "« On devient responsable, pour toujours, de ce qu'on a apprivoisé. »", p: "B" },
+          { t: "« Je suis plus fragile que j'en ai l'air — mais ne le répétez pas. »", p: "C" },
+          { t: "« J'ai été un enfant, et je fais tout pour ne pas l'oublier. »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "👑",
+        title: "Le Petit Prince — l'explorateur du cœur",
+        desc: "<p>Curieux·se, entier·ère, un brin têtu·e : vous ne lâchez jamais une question tant qu'elle n'a pas obtenu sa réponse. Vous voyez très vite ce qui est essentiel — et donc invisible pour les yeux — là où d'autres comptent, classent et administrent.</p><p><strong>Votre force :</strong> une fraîcheur de regard qui désamorce le sérieux inutile.</p><p><strong>Votre point de vigilance :</strong> la tentation de partir quand la relation devient compliquée. Parfois, rester et parler vaut mieux qu'un nouveau voyage.</p>"
+      },
+      B: {
+        emoji: "🦊",
+        title: "Le Renard — le sage de l'attachement",
+        desc: "<p>Vous savez ce que beaucoup ignorent : les liens se construisent avec du temps, des rites et de la patience. Vous n'apprivoisez pas vite, mais vous apprivoisez pour de bon — et votre fidélité transforme les champs de blé en souvenirs dorés.</p><p><strong>Votre force :</strong> une intelligence relationnelle rare, faite de constance et de délicatesse.</p><p><strong>Votre point de vigilance :</strong> les adieux vous coûtent cher. Accordez-vous le droit de pleurer le blé, pas seulement d'en garder la couleur.</p>"
+      },
+      C: {
+        emoji: "🌹",
+        title: "La Rose — le cœur tendre sous les épines",
+        desc: "<p>Vous aimez fort, mais vous le dites mal — ou trop tard. Derrière la coquetterie, les exigences et les quatre épines, il y a une sensibilité immense et une vraie peur d'être quitté·e. Ceux qui savent regarder vos actes plutôt que vos mots le comprennent.</p><p><strong>Votre force :</strong> une profondeur affective que peu soupçonnent.</p><p><strong>Votre point de vigilance :</strong> l'amour non communiqué ressemble, de l'extérieur, à de l'indifférence. Dites-le avant le départ, pas au moment des adieux.</p>"
+      },
+      D: {
+        emoji: "✈️",
+        title: "L'Aviateur — l'adulte réconcilié",
+        desc: "<p>Vous avez un métier sérieux, des responsabilités, un moteur à réparer — mais vous n'avez jamais tout à fait rangé la boîte où dort le mouton. Vous êtes de ces grandes personnes qui savent encore reconnaître un chapeau d'un boa qui digère un éléphant.</p><p><strong>Votre force :</strong> l'équilibre entre les pieds sur terre et la tête dans les étoiles.</p><p><strong>Votre point de vigilance :</strong> ne laissez pas les pannes de la vie décider seules du moment où vous écoutez votre enfant intérieur. Offrez-lui des rendez-vous réguliers.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/le-petit-prince-sur-le-divan/';
+      var text = 'Mon résultat au quiz « Quel personnage du Petit Prince êtes-vous ? » : ' + prof.title + ' — à faire sur Oui Psycho !';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
