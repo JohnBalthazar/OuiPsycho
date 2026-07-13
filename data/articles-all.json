@@ -78,6 +78,59 @@
     "status": "scheduled"
   },
   {
+    "id": "traumatismes-invisibles-enfance",
+    "title": "Traumatismes invisibles : parentification, négligence émotionnelle et blessures d'enfance",
+    "type": "article",
+    "excerpt": "Pas de coups, pas de drame visible — et pourtant quelque chose ne va pas. Parentification, négligence émotionnelle : ces blessures d'enfance faites d'absence, que la science prend enfin au sérieux.",
+    "metaDescription": "Parentification, négligence émotionnelle : comprendre les traumatismes invisibles de l'enfance, leurs traces à l'âge adulte et comment les réparer. Avec quiz.",
+    "author": "John Balthazar",
+    "date": "2027-01-21",
+    "date_modified": "2027-01-21",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "tags": [
+      "traumatisme",
+      "parentification",
+      "negligence-emotionnelle",
+      "enfance",
+      "psychotraumatologie"
+    ],
+    "sources": [
+      {
+        "authors": "Felitti V. J., Anda R. F., Nordenberg D. et al.",
+        "year": "1998",
+        "title": "Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study",
+        "journal": "American Journal of Preventive Medicine",
+        "url": "https://doi.org/10.1016/S0749-3797(98)00017-8"
+      },
+      {
+        "authors": "Teicher M. H. & Samson J. A.",
+        "year": "2016",
+        "title": "Annual Research Review: Enduring neurobiological effects of childhood abuse and neglect",
+        "journal": "Journal of Child Psychology and Psychiatry"
+      },
+      {
+        "authors": "Jurkovic G. J.",
+        "year": "1997",
+        "title": "Lost Childhoods: The Plight of the Parentified Child",
+        "publisher": "Brunner/Mazel"
+      },
+      {
+        "authors": "Webb J.",
+        "year": "2012",
+        "title": "Running on Empty: Overcome Your Childhood Emotional Neglect",
+        "publisher": "Morgan James Publishing"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
     "excerpt": "",
