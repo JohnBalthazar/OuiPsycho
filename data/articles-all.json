@@ -2,12 +2,12 @@
   {
     "id": "le-petit-prince-sur-le-divan",
     "title": "Le petit prince sur le divan : psychologie d'un souvenir d'enfant",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Un conte pour enfants ? Plutôt une séance de thérapie en aquarelles. Attachement, deuil, enfant intérieur : ce que le petit bonhomme blond de Saint-Exupéry sait de nous.",
     "date": "2027-02-02",
-    "date_modified": "2027-02-02",
+    "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/olcffcrgz5u4zbmsj93m",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -21,7 +21,7 @@
       "nostalgie",
       "deuil"
     ],
-    "metaDescription": "",
+    "metaDescription": "Attachement, deuil, enfant intérieur : ce que Le Petit Prince de Saint-Exupéry révèle de notre psychologie d'adulte. Analyse clinique et tendre, avec quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
