@@ -2,19 +2,18 @@
   {
     "id": "le-petit-prince-sur-le-divan",
     "title": "Le petit prince sur le divan : psychologie d'un souvenir d'enfant",
-    "type": "article",
-    "excerpt": "Un conte pour enfants ? Plutôt une séance de thérapie en aquarelles. Attachement, deuil, enfant intérieur : ce que le petit bonhomme blond de Saint-Exupéry sait de nous.",
-    "metaDescription": "Attachement, deuil, enfant intérieur : ce que Le Petit Prince de Saint-Exupéry révèle de notre psychologie d'adulte. Analyse clinique et tendre, avec quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-02",
     "date_modified": "2027-02-02",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "petit-prince",
       "attachement",
@@ -22,46 +21,19 @@
       "nostalgie",
       "deuil"
     ],
-    "sources": [
-      {
-        "authors": "Wildschut T., Sedikides C., Arndt J. & Routledge C.",
-        "year": "2006",
-        "title": "Nostalgia: Content, triggers, functions",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.91.5.975"
-      },
-      {
-        "authors": "Sedikides C., Wildschut T., Arndt J. & Routledge C.",
-        "year": "2008",
-        "title": "Nostalgia: Past, present, and future",
-        "journal": "Current Directions in Psychological Science",
-        "url": "https://doi.org/10.1111/j.1467-8721.2008.00595.x"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Winnicott D. W.",
-        "year": "1953",
-        "title": "Transitional objects and transitional phenomena",
-        "journal": "International Journal of Psycho-Analysis"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "tdah-adulte-la-revelation",
     "title": "TDAH adulte : la révélation",
-    "type": "article",
-    "excerpt": "Diagnostiqué·e à 30, 40, 50 ans : pourquoi les diagnostics de TDAH explosent chez les adultes, ce que cette révélation change vraiment, et par où commencer.",
+    "excerpt": "",
     "date": "2027-01-29",
     "date_modified": "2026-07-13",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -75,26 +47,25 @@
       "attention",
       "neurodeveloppement"
     ],
-    "metaDescription": "TDAH chez l'adulte : définition, pourquoi les diagnostics tardifs explosent, ce que la révélation change et les solutions concrètes. Avec quiz de réflexion.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
-    "type": "article",
-    "excerpt": "Solitude choisie ou évitement du lien ? Expertise, sevrage tabagique et récidive des Dalton : le cowboy qui tire plus vite que son ombre passe sur le divan.",
-    "metaDescription": "Solitude du cowboy, expertise du tireur, brin d'herbe et sevrage tabagique, récidive des Dalton : ce que Lucky Luke révèle de notre psychologie. Avec quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-26",
     "date_modified": "2027-01-26",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "lucky-luke",
       "solitude",
@@ -102,34 +73,7 @@
       "expertise",
       "sevrage-tabagique"
     ],
-    "sources": [
-      {
-        "authors": "Cacioppo J. T. & Hawkley L. C.",
-        "year": "2009",
-        "title": "Perceived social isolation and cognition",
-        "journal": "Trends in Cognitive Sciences",
-        "url": "https://doi.org/10.1016/j.tics.2009.06.005"
-      },
-      {
-        "authors": "Ericsson K. A., Krampe R. T. & Tesch-Römer C.",
-        "year": "1993",
-        "title": "The role of deliberate practice in the acquisition of expert performance",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.100.3.363"
-      },
-      {
-        "authors": "Hartmann-Boyce J. et al.",
-        "year": "2018",
-        "title": "Nicotine replacement therapy versus control for smoking cessation",
-        "journal": "Cochrane Database of Systematic Reviews"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -162,19 +106,18 @@
   {
     "id": "fatigue-mentale-epuise-sans-rien-faire",
     "title": "Fatigue mentale : pourquoi suis-je épuisé alors que je ne fais « rien » ?",
-    "type": "article",
-    "excerpt": "Vidé après une journée assis devant un écran ? La fatigue mentale n'est ni de la paresse ni une illusion : votre cerveau a vraiment travaillé. Ce que dit la science, et comment récupérer.",
-    "metaDescription": "Épuisé sans avoir « rien fait » ? La fatigue mentale expliquée par la science : pourquoi le cerveau s'épuise, la charge invisible et comment vraiment récupérer.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-15",
     "date_modified": "2027-01-15",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "fatigue-mentale",
       "charge-mentale",
@@ -182,53 +125,25 @@
       "controle-cognitif",
       "recuperation"
     ],
-    "sources": [
-      {
-        "authors": "Wiehler A., Branzoli F., Adanyeguh I., Mochel F. & Pessiglione M.",
-        "year": "2022",
-        "title": "A neuro-metabolic account of why daylong cognitive work alters the control of economic decisions",
-        "journal": "Current Biology",
-        "url": "https://doi.org/10.1016/j.cub.2022.07.010"
-      },
-      {
-        "authors": "Blain B., Hollard G. & Pessiglione M.",
-        "year": "2016",
-        "title": "Neural mechanisms underlying the impact of daylong cognitive work on economic decisions",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.1520527113"
-      },
-      {
-        "authors": "Kaplan S.",
-        "year": "1995",
-        "title": "The restorative benefits of nature: Toward an integrative framework",
-        "journal": "Journal of Environmental Psychology"
-      },
-      {
-        "authors": "Baumeister R. F., Bratslavsky E., Muraven M. & Tice D. M.",
-        "year": "1998",
-        "title": "Ego depletion: Is the active self a limited resource?",
-        "journal": "Journal of Personality and Social Psychology"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "signes-astrologiques-compatibilite-amoureuse",
     "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
-    "type": "article",
-    "excerpt": "Dix millions de mariages analysés, zéro effet des signes. Pourquoi l'astrologie amoureuse semble pourtant « marcher », et ce qui prédit réellement qu'un couple dure.",
-    "metaDescription": "Les signes astrologiques influencent-ils vraiment les couples ? Ce que montrent les études, pourquoi on y croit, et ce qui prédit réellement l'amour durable.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-14",
     "date_modified": "2027-01-14",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "astrologie",
       "compatibilite-amoureuse",
@@ -236,39 +151,7 @@
       "effet-barnum",
       "croyances"
     ],
-    "sources": [
-      {
-        "authors": "Carlson S.",
-        "year": "1985",
-        "title": "A double-blind test of astrology",
-        "journal": "Nature",
-        "url": "https://doi.org/10.1038/318419a0"
-      },
-      {
-        "authors": "Voas D.",
-        "year": "2008",
-        "title": "Ten million marriages: An astrological detective story",
-        "journal": "Skeptical Inquirer"
-      },
-      {
-        "authors": "Forer B. R.",
-        "year": "1949",
-        "title": "The fallacy of personal validation: A classroom demonstration of gullibility",
-        "journal": "Journal of Abnormal and Social Psychology"
-      },
-      {
-        "authors": "Knee C. R.",
-        "year": "1998",
-        "title": "Implicit theories of relationships: Assessment and prediction of romantic relationship initiation, coping, and longevity",
-        "journal": "Journal of Personality and Social Psychology"
-      },
-      {
-        "authors": "Karney B. R. & Bradbury T. N.",
-        "year": "1995",
-        "title": "The longitudinal course of marital quality and stability: A review of theory, method, and research",
-        "journal": "Psychological Bulletin"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -458,12 +341,12 @@
   {
     "id": "therapie-visio-telephone-presentiel",
     "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
-    "type": "article",
-    "excerpt": "Les méta-analyses sont formelles : à distance, la psychothérapie fait jeu égal avec le cabinet. Mais « équivalent en moyenne » ne veut pas dire « équivalent pour vous ». Le comparatif, format par format.",
+    "excerpt": "",
     "date": "2026-12-11",
     "date_modified": "2026-07-13",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zawlvwusngzwnsviggs6",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -477,7 +360,7 @@
       "alliance-therapeutique",
       "mon-soutien-psy"
     ],
-    "metaDescription": "Thérapie en visio, par téléphone ou en présentiel : que dit vraiment la science ? Efficacité, alliance, abandon, rechute. Le comparatif complet et un test.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -510,12 +393,12 @@
   {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
-    "type": "article",
-    "excerpt": "Un seul prescrit des médicaments. Un seul fait passer des tests. Et l'un de ces titres n'est même pas protégé par la loi. Le guide clair pour frapper à la bonne porte du premier coup.",
+    "excerpt": "",
     "date": "2026-12-04",
     "date_modified": "2026-07-13",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bytjnbivlde5w6r4ctbv",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -529,7 +412,7 @@
       "choisir-son-psy",
       "alliance-therapeutique"
     ],
-    "metaDescription": "Psychologue, psychiatre ou psychothérapeute : formations, titres protégés, remboursement et conseils pour savoir lequel consulter selon votre situation.",
+    "metaDescription": "",
     "articles_lies": [
       "psy-rembourse-secu-mon-soutien-psy"
     ],
@@ -538,12 +421,12 @@
   {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
-    "type": "article",
-    "excerpt": "Il ne crie pas toujours, et pourtant on se sent vidé et coupable. Voici 5 réflexes concrets, éclairés par la recherche, pour repérer l'emprise et reprendre la main sur la relation.",
+    "excerpt": "",
     "date": "2026-12-03",
     "date_modified": "2026-07-13",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/akic5jnevqmzh3pgmp3l",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -557,7 +440,7 @@
       "violence-psychologique",
       "gray-rock"
     ],
-    "metaDescription": "Pervers narcissique : 5 réflexes concrets et éclairés par la science pour repérer l'emprise, ancrer la réalité et se protéger de la manipulation.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -590,12 +473,12 @@
   {
     "id": "psy-rembourse-secu-mon-soutien-psy",
     "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
-    "type": "article",
-    "excerpt": "Douze séances de psychologue par an, 50 € l'unité, remboursées à 100 % dans la plupart des cas, et désormais sans passer par le médecin. On vous explique le dispositif Mon soutien psy — et si ces psys en valent la peine.",
+    "excerpt": "",
     "date": "2026-11-27",
     "date_modified": "2026-07-13",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bqszsynmlgarm6qwcolf",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -609,7 +492,7 @@
       "psychotherapie",
       "assurance-maladie"
     ],
-    "metaDescription": "Séances de psy remboursées par la Sécurité sociale : conditions, démarche, annuaire et qualité des psychologues du dispositif Mon soutien psy expliqués.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
