@@ -5,12 +5,8 @@ on:
     # 02:00 UTC = 04:00 heure Paris (CEST, UTC+2) → la date UTC == date Paris
     - cron: '0 2 * * *'
   workflow_dispatch:   # déclenchement manuel possible depuis GitHub Actions
-  push:
-    paths:
-      - 'articles/**/*.json'   # nouvel article ou mise à jour d'un article existant
-      - 'dossiers/**/*.json'   # nouveau dossier
-      - '_gen_static.js'       # changement du générateur → regénère tout
-      - 'data/about.json'      # données site modifiées
+  # NB : le trigger push a été supprimé — les scripts locaux génèrent et poussent
+  # le HTML immédiatement, ce qui rendait le workflow concurrent et le faisait échouer.
 
 permissions:
   contents: write      # nécessaire pour le push de retour
@@ -54,8 +50,6 @@ jobs:
               | sort -u | tr '\n' ' ' || true)
             TODAY=$(date -u +%Y-%m-%d)
             git commit -m "auto: publication articles planifiés $TODAY"
-            # Rebase sur les éventuels commits locaux poussés pendant que le workflow tournait
-            git pull --rebase origin main
             git push
             echo "pushed=true" >> $GITHUB_OUTPUT
             echo "urls=$URLS" >> $GITHUB_OUTPUT
