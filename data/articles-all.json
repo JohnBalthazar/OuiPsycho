@@ -1,5 +1,31 @@
 [
   {
+    "id": "tdah-adulte-la-revelation",
+    "title": "TDAH adulte : la révélation",
+    "type": "article",
+    "excerpt": "Diagnostiqué·e à 30, 40, 50 ans : pourquoi les diagnostics de TDAH explosent chez les adultes, ce que cette révélation change vraiment, et par où commencer.",
+    "date": "2027-01-29",
+    "date_modified": "2026-07-13",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "tdah",
+      "tdah-adulte",
+      "diagnostic-tardif",
+      "attention",
+      "neurodeveloppement"
+    ],
+    "metaDescription": "TDAH chez l'adulte : définition, pourquoi les diagnostics tardifs explosent, ce que la révélation change et les solutions concrètes. Avec quiz de réflexion.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
     "excerpt": "",
@@ -22,60 +48,6 @@
       "nos-heros-sur-le-divan"
     ],
     "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "tdah-adulte-la-revelation",
-    "title": "TDAH adulte : la révélation",
-    "type": "article",
-    "excerpt": "Diagnostiqué·e à 30, 40, 50 ans : pourquoi les diagnostics de TDAH explosent chez les adultes, ce que cette révélation change vraiment, et par où commencer.",
-    "metaDescription": "TDAH chez l'adulte : définition, pourquoi les diagnostics tardifs explosent, ce que la révélation change et les solutions concrètes. Avec quiz de réflexion.",
-    "author": "John Balthazar",
-    "date": "2027-01-14",
-    "date_modified": "2027-01-14",
-    "category": "Troubles Psy",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "tags": [
-      "tdah",
-      "tdah-adulte",
-      "diagnostic-tardif",
-      "attention",
-      "neurodeveloppement"
-    ],
-    "sources": [
-      {
-        "authors": "Faraone S. V. et al.",
-        "year": "2021",
-        "title": "The World Federation of ADHD International Consensus Statement: 208 evidence-based conclusions about the disorder",
-        "journal": "Neuroscience & Biobehavioral Reviews",
-        "url": "https://doi.org/10.1016/j.neubiorev.2021.01.022"
-      },
-      {
-        "authors": "Song P., Zha M., Yang Q., Zhang Y., Li X. & Rudan I.",
-        "year": "2021",
-        "title": "The prevalence of adult attention-deficit hyperactivity disorder: A global systematic review and meta-analysis",
-        "journal": "Journal of Global Health",
-        "url": "https://doi.org/10.7189/jogh.11.04009"
-      },
-      {
-        "authors": "Kessler R. C. et al.",
-        "year": "2005",
-        "title": "The World Health Organization Adult ADHD Self-Report Scale (ASRS): a short screening scale for use in the general population",
-        "journal": "Psychological Medicine"
-      },
-      {
-        "authors": "Haute Autorité de santé",
-        "year": "2024",
-        "title": "Trouble déficit de l'attention avec ou sans hyperactivité (TDAH) chez l'adulte : repérage, diagnostic et prise en charge",
-        "publisher": "HAS"
-      }
-    ],
     "articles_lies": [],
     "status": "scheduled"
   },
