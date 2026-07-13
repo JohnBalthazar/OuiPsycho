@@ -315,11 +315,12 @@
   {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Orphelin à huit ans, hypervigilant, déguisé en chauve-souris : Bruce Wayne aurait de quoi occuper un psy pendant des années. Analyse d'un deuil traumatique devenu mythe moderne.",
     "date": "2027-01-12",
-    "date_modified": "2027-01-12",
+    "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tetuw8jxlbjqvorbvwny",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -333,7 +334,7 @@
       "resilience",
       "heros"
     ],
-    "metaDescription": "",
+    "metaDescription": "Deuil traumatique, hypervigilance, croissance post-traumatique : Batman passe sur le divan. Analyse psy du Chevalier noir, quiz de profil inclus.",
     "articles_lies": [],
     "status": "scheduled"
   },
