@@ -52,6 +52,60 @@
     "status": "scheduled"
   },
   {
+    "id": "parents-emotionnellement-immatures-faire-plaisir",
+    "title": "Parents émotionnellement immatures : pourquoi leurs enfants veulent toujours faire plaisir",
+    "type": "article",
+    "excerpt": "Dire oui quand on pense non, s'excuser d'exister, deviner l'humeur des autres avant la sienne : le people pleasing n'est pas de la gentillesse — c'est souvent l'héritage d'une enfance passée à réguler un parent.",
+    "metaDescription": "Parents émotionnellement immatures et people pleasing : pourquoi leurs enfants deviennent des adultes qui disent toujours oui, et comment s'en libérer.",
+    "author": "John Balthazar",
+    "date": "2027-01-28",
+    "date_modified": "2027-01-28",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "people-pleasing",
+      "parents-immatures",
+      "attachement",
+      "limites",
+      "enfant-interieur"
+    ],
+    "sources": [
+      {
+        "authors": "Gibson L. C.",
+        "year": "2015",
+        "title": "Adult Children of Emotionally Immature Parents: How to Heal from Distant, Rejecting, or Self-Involved Parents",
+        "publisher": "New Harbinger Publications"
+      },
+      {
+        "authors": "Walker P.",
+        "year": "2013",
+        "title": "Complex PTSD: From Surviving to Thriving",
+        "publisher": "Azure Coyote Publishing"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Winnicott D. W.",
+        "year": "1960",
+        "title": "Ego distortion in terms of true and false self",
+        "journal": "The Maturational Processes and the Facilitating Environment"
+      }
+    ],
+    "articles_lies": [
+      "traumatismes-invisibles-enfance"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
     "excerpt": "",
