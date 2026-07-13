@@ -1,5 +1,67 @@
 [
   {
+    "id": "piege-du-perfectionnisme",
+    "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
+    "type": "article",
+    "excerpt": "Chaque réussite devrait vous apaiser. Elle ne fait que déplacer la ligne d'arrivée. Plongée dans les mécanismes du perfectionnisme — et les moyens d'en sortir.",
+    "metaDescription": "Pourquoi le perfectionnisme ne rassure jamais : mécanismes psychologiques, risques pour la santé mentale et pistes concrètes pour en sortir. Avec un quiz.",
+    "author": "John Balthazar",
+    "date": "2027-02-04",
+    "date_modified": "2027-02-04",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "perfectionnisme",
+      "anxiete",
+      "estime-de-soi",
+      "autocompassion"
+    ],
+    "sources": [
+      {
+        "authors": "Frost R. O., Marten P., Lahart C. & Rosenblate R.",
+        "year": "1990",
+        "title": "The dimensions of perfectionism",
+        "journal": "Cognitive Therapy and Research",
+        "url": "https://doi.org/10.1007/BF01172967"
+      },
+      {
+        "authors": "Hewitt P. L. & Flett G. L.",
+        "year": "1991",
+        "title": "Perfectionism in the self and social contexts: Conceptualization, assessment, and association with psychopathology",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.60.3.456"
+      },
+      {
+        "authors": "Shafran R., Cooper Z. & Fairburn C. G.",
+        "year": "2002",
+        "title": "Clinical perfectionism: a cognitive-behavioural analysis",
+        "journal": "Behaviour Research and Therapy",
+        "url": "https://doi.org/10.1016/S0005-7967(01)00059-6"
+      },
+      {
+        "authors": "Egan S. J., Wade T. D. & Shafran R.",
+        "year": "2011",
+        "title": "Perfectionism as a transdiagnostic process: A clinical review",
+        "journal": "Clinical Psychology Review",
+        "url": "https://doi.org/10.1016/j.cpr.2010.04.009"
+      },
+      {
+        "authors": "Curran T. & Hill A. P.",
+        "year": "2019",
+        "title": "Perfectionism is increasing over time: A meta-analysis of birth cohort differences from 1989 to 2016",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/bul0000138"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "le-petit-prince-sur-le-divan",
     "title": "Le petit prince sur le divan : psychologie d'un souvenir d'enfant",
     "type": "article",
