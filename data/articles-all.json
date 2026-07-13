@@ -345,12 +345,12 @@
   {
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Quatre stratégies entrent dans l'arène du bien-être. On les note à armes égales, mesures biologiques et psychologiques à l'appui. Qui remporte le match contre l'anxiété ?",
     "date": "2027-01-08",
-    "date_modified": "2027-01-08",
+    "date_modified": "2026-07-13",
     "category": "Thérapies",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/f1ll40xyexp3yuoeea8o",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -364,7 +364,7 @@
       "anxiété",
       "bien-être"
     ],
-    "metaDescription": "",
+    "metaDescription": "Méditation, sport, psychothérapie ou rien : que dit vraiment la science ? Comparatif benchmark des effets sur l'anxiété et le bien-être, chiffres à l'appui.",
     "articles_lies": [],
     "status": "scheduled"
   },
