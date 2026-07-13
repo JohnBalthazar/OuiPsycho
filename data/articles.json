@@ -500,11 +500,12 @@
   {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Un seul prescrit des médicaments. Un seul fait passer des tests. Et l'un de ces titres n'est même pas protégé par la loi. Le guide clair pour frapper à la bonne porte du premier coup.",
     "date": "2026-12-04",
-    "date_modified": "2026-12-04",
+    "date_modified": "2026-07-13",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bytjnbivlde5w6r4ctbv",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -518,7 +519,7 @@
       "choisir-son-psy",
       "alliance-therapeutique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Psychologue, psychiatre ou psychothérapeute : formations, titres protégés, remboursement et conseils pour savoir lequel consulter selon votre situation.",
     "articles_lies": [
       "psy-rembourse-secu-mon-soutien-psy"
     ],
