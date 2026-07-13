@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel personnage de Lucky Luke êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/lucky-luke-sur-le-divan/">
+  <meta name="description" content="Cowboy imperturbable, cheval philosophe, boule de colère ou grand rêveur ? Découvrez qui vous seriez dans l'Ouest avec ce quiz de personnalité.">
+  <style>
+    :root{
+      --ocre:#B4652A;
+      --ocre-fonce:#8A4517;
+      --sable:#FBF5EA;
+      --nuit:#3C2E23;
+      --cactus:#5F7C4E;
+      --gris:#7A6C5E;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--sable);
+      color:var(--nuit);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #EADFC9;
+      box-shadow:0 4px 18px rgba(138,69,23,.10);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--ocre-fonce),var(--ocre));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+    }
+    .quiz-header .deco{font-size:1.4rem;letter-spacing:.35em;opacity:.9}
+    .quiz-header h1{
+      font-size:1.35rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.92;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{height:6px;background:#EFE6D2}
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--cactus);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.12rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--ocre-fonce);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--sable);
+      border:2px solid #EADFC9;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.98rem;
+      color:var(--nuit);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--ocre);
+      background:#FDF0DF;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--cactus);
+      color:var(--blanc);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(95,124,78,.45);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.98rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--ocre-fonce);
+      font-size:1.35rem;
+      margin-bottom:12px;
+    }
+    .result-desc{text-align:left;font-size:.98rem;margin-bottom:20px}
+    .result-desc p{margin-bottom:12px}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--ocre-fonce);
+      background:var(--sable);
+      border:1px solid #EADFC9;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--ocre);background:#FDF0DF}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--sable);
+      border:1px solid #EADFC9;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.15rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="deco">🌵 ⭐ 🌵</div>
+      <h1>Quel personnage de Lucky Luke êtes-vous ?</h1>
+      <p>8 questions pour savoir qui, du cowboy, du cheval, de Joe ou d'Averell, vous ressemble le plus.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez spontanément : il n'y a ni bonne ni mauvaise réponse, seulement des façons différentes de traverser l'Ouest.</p>
+        <button class="start-btn" id="btn-start">En selle 🐎</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer 🤠</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Une crise éclate au travail (ou au saloon). Votre réaction ?",
+        a: [
+          { t: "Je garde mon calme, j'observe, et j'agis au bon moment — sans un mot de trop.", p: "A" },
+          { t: "Je commente la situation avec ironie, puis je souffle la solution à qui veut l'entendre.", p: "B" },
+          { t: "J'explose d'abord, je réfléchis ensuite. Parfois dans cet ordre-là seulement.", p: "C" },
+          { t: "Une crise ? Je n'avais pas remarqué. C'est bientôt l'heure de manger ?", p: "D" }
+        ]
+      },
+      {
+        q: "Votre rapport aux liens et aux attaches :",
+        a: [
+          { t: "J'aime les gens... de passage. Trop d'attaches me donne envie de reprendre la route.", p: "A" },
+          { t: "Un lien fidèle, solide, de longue date : voilà ce qui compte. Je suis d'une loyauté totale.", p: "B" },
+          { t: "Le clan avant tout ! Même si le clan me tape sur les nerfs en permanence.", p: "C" },
+          { t: "J'aime tout le monde, surtout les gens qui cuisinent bien.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre plus grand talent, honnêtement :",
+        a: [
+          { t: "Le sang-froid : plus ça chauffe, plus je suis calme.", p: "A" },
+          { t: "La lucidité : je vois les erreurs des autres avant qu'ils ne les commettent.", p: "B" },
+          { t: "L'énergie : quand je veux quelque chose, rien ne m'arrête. Rien ne me freine non plus, hélas.", p: "C" },
+          { t: "La simplicité : je sais profiter des plaisirs simples, sans me compliquer la vie.", p: "D" }
+        ]
+      },
+      {
+        q: "Quelqu'un vous critique injustement. Vous :",
+        a: [
+          { t: "Un léger sourire, une réplique sèche, et je passe à autre chose.", p: "A" },
+          { t: "Je laisse dire — je sais ce que je vaux, et l'avenir me donnera raison.", p: "B" },
+          { t: "QUOI ?! QUI A DIT ÇA ?!", p: "C" },
+          { t: "Je n'ai pas bien compris la critique, mais j'ai souri poliment.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre routine du soir idéale :",
+        a: [
+          { t: "Un feu de camp, le silence, les étoiles. Seul·e et parfaitement bien.", p: "A" },
+          { t: "Une partie d'échecs, un bon livre, et le plaisir d'avoir raison tranquillement.", p: "B" },
+          { t: "Ruminer mes projets et refaire mentalement toutes les disputes de la journée.", p: "C" },
+          { t: "Dîner. Puis un petit encas. Puis dormir en rêvant du petit-déjeuner.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à un échec, vous avez tendance à :",
+        a: [
+          { t: "Repartir aussitôt vers autre chose — pas le temps de m'apitoyer.", p: "A" },
+          { t: "Analyser froidement ce qui n'a pas marché, avec un brin de sarcasme.", p: "B" },
+          { t: "Recommencer exactement la même chose, mais plus fort et plus énervé·e.", p: "C" },
+          { t: "Me consoler avec un bon repas. Ça marche à tous les coups.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce que votre entourage vous reproche le plus souvent :",
+        a: [
+          { t: "De partir toujours trop tôt, de ne jamais vraiment me poser.", p: "A" },
+          { t: "Mon petit air de supériorité quand j'avais prévu le problème depuis le début.", p: "B" },
+          { t: "Mes colères. Mais franchement, ce sont les autres qui exagèrent.", p: "C" },
+          { t: "D'être un peu à côté de la plaque. Pardon, vous disiez ?", p: "D" }
+        ]
+      },
+      {
+        q: "La devise qui vous ressemble le plus :",
+        a: [
+          { t: "« Fais ce que tu as à faire, puis va-t'en avant les discours. »", p: "A" },
+          { t: "« Je vous l'avais bien dit. »", p: "B" },
+          { t: "« Un jour, je leur montrerai à tous. »", p: "C" },
+          { t: "« Quand est-ce qu'on mange ? »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🤠",
+        title: "Lucky Luke — le solitaire serein",
+        desc: "<p>Calme sous pression, efficace sans bruit, allergique aux discours : vous réglez les problèmes pendant que les autres en parlent encore. Votre solitude n'est pas une souffrance, c'est un choix — vous savez être bien avec vous-même.</p><p><strong>Votre force :</strong> un sang-froid et une autonomie que tout le monde vous envie.</p><p><strong>Votre point de vigilance :</strong> partir vers le soleil couchant à chaque fois qu'un lien s'approfondit finit par ressembler à de l'évitement. Certaines attaches méritent qu'on descende de cheval.</p>"
+      },
+      B: {
+        emoji: "🐎",
+        title: "Jolly Jumper — le complice lucide",
+        desc: "<p>Fidèle, intelligent·e, observateur·rice : vous êtes celui ou celle qui voit tout, comprend tout, et le fait remarquer avec une pointe d'ironie. Votre loyauté est totale — même envers ceux qui n'écoutent pas vos excellents conseils.</p><p><strong>Votre force :</strong> une constance affective rare, doublée d'une lucidité redoutable.</p><p><strong>Votre point de vigilance :</strong> à toujours veiller sur les autres avec esprit, on oublie parfois d'exprimer ses propres besoins. Même les bases de sécurité ont besoin de soutien.</p>"
+      },
+      C: {
+        emoji: "😤",
+        title: "Joe Dalton — la boule d'énergie mal canalisée",
+        desc: "<p>Volontaire, tenace, entier·ère : quand vous voulez quelque chose, l'univers est prévenu. Le revers de la médaille, c'est l'impulsivité — la colère part avant la réflexion, et vous rejouez parfois le même scénario en espérant un résultat différent.</p><p><strong>Votre force :</strong> une détermination hors norme, capable de soulever des montagnes.</p><p><strong>Votre point de vigilance :</strong> apprendre à faire une pause entre l'émotion et l'action change tout. Respirer n'a jamais fait perdre un duel — au contraire.</p>"
+      },
+      D: {
+        emoji: "🍗",
+        title: "Averell Dalton — l'épicurien tranquille",
+        desc: "<p>Bienveillant·e, sans malice, solidement ancré·e dans les plaisirs simples : là où les autres s'agitent, vous savourez. Votre candeur désarme les conflits, et votre bonne humeur est contagieuse — surtout à table.</p><p><strong>Votre force :</strong> une capacité rare à vivre l'instant présent sans le gâcher par l'inquiétude.</p><p><strong>Votre point de vigilance :</strong> la douceur n'empêche pas d'affirmer ses choix. Suivre le clan par habitude peut mener dans des tunnels qu'on n'aurait jamais creusés seul·e.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/lucky-luke-sur-le-divan/';
+      var text = 'Mon résultat au quiz « Quel personnage de Lucky Luke êtes-vous ? » : ' + prof.title + ' — à faire sur Oui Psycho !';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
