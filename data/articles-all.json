@@ -160,6 +160,65 @@
     "status": "scheduled"
   },
   {
+    "id": "signes-astrologiques-compatibilite-amoureuse",
+    "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
+    "type": "article",
+    "excerpt": "Dix millions de mariages analysés, zéro effet des signes. Pourquoi l'astrologie amoureuse semble pourtant « marcher », et ce qui prédit réellement qu'un couple dure.",
+    "metaDescription": "Les signes astrologiques influencent-ils vraiment les couples ? Ce que montrent les études, pourquoi on y croit, et ce qui prédit réellement l'amour durable.",
+    "author": "John Balthazar",
+    "date": "2027-01-14",
+    "date_modified": "2027-01-14",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "astrologie",
+      "compatibilite-amoureuse",
+      "couple",
+      "effet-barnum",
+      "croyances"
+    ],
+    "sources": [
+      {
+        "authors": "Carlson S.",
+        "year": "1985",
+        "title": "A double-blind test of astrology",
+        "journal": "Nature",
+        "url": "https://doi.org/10.1038/318419a0"
+      },
+      {
+        "authors": "Voas D.",
+        "year": "2008",
+        "title": "Ten million marriages: An astrological detective story",
+        "journal": "Skeptical Inquirer"
+      },
+      {
+        "authors": "Forer B. R.",
+        "year": "1949",
+        "title": "The fallacy of personal validation: A classroom demonstration of gullibility",
+        "journal": "Journal of Abnormal and Social Psychology"
+      },
+      {
+        "authors": "Knee C. R.",
+        "year": "1998",
+        "title": "Implicit theories of relationships: Assessment and prediction of romantic relationship initiation, coping, and longevity",
+        "journal": "Journal of Personality and Social Psychology"
+      },
+      {
+        "authors": "Karney B. R. & Bradbury T. N.",
+        "year": "1995",
+        "title": "The longitudinal course of marital quality and stability: A review of theory, method, and research",
+        "journal": "Psychological Bulletin"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
     "excerpt": "",
