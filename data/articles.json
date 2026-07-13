@@ -450,11 +450,12 @@
   {
     "id": "therapie-visio-telephone-presentiel",
     "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Les méta-analyses sont formelles : à distance, la psychothérapie fait jeu égal avec le cabinet. Mais « équivalent en moyenne » ne veut pas dire « équivalent pour vous ». Le comparatif, format par format.",
     "date": "2026-12-11",
-    "date_modified": "2026-12-11",
+    "date_modified": "2026-07-13",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zawlvwusngzwnsviggs6",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -468,7 +469,7 @@
       "alliance-therapeutique",
       "mon-soutien-psy"
     ],
-    "metaDescription": "",
+    "metaDescription": "Thérapie en visio, par téléphone ou en présentiel : que dit vraiment la science ? Efficacité, alliance, abandon, rechute. Le comparatif complet et un test.",
     "articles_lies": [],
     "status": "scheduled"
   },
