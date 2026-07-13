@@ -1,5 +1,67 @@
 [
   {
+    "id": "joker-sur-le-divan",
+    "title": "Le Joker sur le divan : psychologie d'un clown dérangé",
+    "type": "article",
+    "excerpt": "Psychopathe de manuel, malade imaginaire ou produit d'une société qui humilie ? Le clown le plus célèbre de Gotham s'allonge sur le divan — et c'est notre reflet qui apparaît.",
+    "metaDescription": "Psychopathie, rire pathologique, fabrique sociale de la violence : ce que le Joker révèle de nos préjugés sur la santé mentale. Analyse et quiz.",
+    "author": "John Balthazar",
+    "date": "2027-02-16",
+    "date_modified": "2027-02-16",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "joker",
+      "psychopathie",
+      "stigmatisation",
+      "monstres-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Fazel S., Gulati G., Linsell L., Geddes J. R. & Grann M.",
+        "year": "2009",
+        "title": "Schizophrenia and violence: systematic review and meta-analysis",
+        "journal": "PLoS Medicine",
+        "url": "https://doi.org/10.1371/journal.pmed.1000120"
+      },
+      {
+        "authors": "Scarf D., Zimmerman H., Winter T., Boden H., Graham S., Riordan B. C. & Hunter J. A.",
+        "year": "2020",
+        "title": "Association of viewing the film Joker with prejudice toward individuals with mental illness",
+        "journal": "JAMA Network Open",
+        "url": "https://doi.org/10.1001/jamanetworkopen.2020.3423"
+      },
+      {
+        "authors": "Hare R. D.",
+        "year": "1996",
+        "title": "Psychopathy: A clinical construct whose time has come",
+        "journal": "Criminal Justice and Behavior",
+        "url": "https://doi.org/10.1177/0093854896023001004"
+      },
+      {
+        "authors": "Paulhus D. L. & Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      },
+      {
+        "authors": "Leistedt S. J. & Linkowski P.",
+        "year": "2014",
+        "title": "Psychopathy and the cinema: Fact or fiction?",
+        "journal": "Journal of Forensic Sciences",
+        "url": "https://doi.org/10.1111/1556-4029.12359"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "piege-du-perfectionnisme",
     "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
     "type": "article",
