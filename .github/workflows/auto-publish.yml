@@ -54,6 +54,8 @@ jobs:
               | sort -u | tr '\n' ' ' || true)
             TODAY=$(date -u +%Y-%m-%d)
             git commit -m "auto: publication articles planifiés $TODAY"
+            # Rebase sur les éventuels commits locaux poussés pendant que le workflow tournait
+            git pull --rebase origin main
             git push
             echo "pushed=true" >> $GITHUB_OUTPUT
             echo "urls=$URLS" >> $GITHUB_OUTPUT
