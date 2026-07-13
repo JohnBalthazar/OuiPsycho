@@ -1,5 +1,67 @@
 [
   {
+    "id": "dark-vador-sur-le-divan",
+    "title": "Dark Vador sur le divan : psychologie d'un seigneur des ténèbres",
+    "type": "article",
+    "excerpt": "Enfant esclave, héros de guerre, bourreau galactique, père in extremis. Sous le casque le plus célèbre du cinéma : une peur de l'abandon jamais soignée — et un manuel d'emprise.",
+    "metaDescription": "Trouble borderline, emprise de Palpatine, blessure morale, dissociation : la psychologie de Dark Vador décryptée par la science. Avec un quiz.",
+    "author": "John Balthazar",
+    "date": "2027-02-23",
+    "date_modified": "2027-02-23",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "dark-vador",
+      "attachement",
+      "emprise",
+      "monstres-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Bui E., Rodgers R., Chabrol H., Birmes P. & Schmitt L.",
+        "year": "2010",
+        "title": "Is Anakin Skywalker suffering from borderline personality disorder?",
+        "journal": "Psychiatry Research",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/20537716/"
+      },
+      {
+        "authors": "Gross J. J.",
+        "year": "1998",
+        "title": "The emerging field of emotion regulation: An integrative review",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.2.3.271"
+      },
+      {
+        "authors": "Moghaddam F. M.",
+        "year": "2005",
+        "title": "The staircase to terrorism: A psychological exploration",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.60.2.161"
+      },
+      {
+        "authors": "Litz B. T., Stein N., Delaney E., Lebowitz L., Nash W. P., Silva C. & Maguen S.",
+        "year": "2009",
+        "title": "Moral injury and moral repair in war veterans: A preliminary model and intervention strategy",
+        "journal": "Clinical Psychology Review",
+        "url": "https://doi.org/10.1016/j.cpr.2009.07.003"
+      },
+      {
+        "authors": "Tedeschi R. G. & Calhoun L. G.",
+        "year": "2004",
+        "title": "Posttraumatic growth: Conceptual foundations and empirical evidence",
+        "journal": "Psychological Inquiry",
+        "url": "https://doi.org/10.1207/s15327965pli1501_01"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "joker-sur-le-divan",
     "title": "Le Joker sur le divan : psychologie d'un clown dérangé",
     "type": "article",
