@@ -26,6 +26,60 @@
     "status": "scheduled"
   },
   {
+    "id": "lucky-luke-sur-le-divan",
+    "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
+    "type": "article",
+    "excerpt": "Solitude choisie ou évitement du lien ? Expertise, sevrage tabagique et récidive des Dalton : le cowboy qui tire plus vite que son ombre passe sur le divan.",
+    "metaDescription": "Solitude du cowboy, expertise du tireur, brin d'herbe et sevrage tabagique, récidive des Dalton : ce que Lucky Luke révèle de notre psychologie. Avec quiz.",
+    "author": "John Balthazar",
+    "date": "2027-01-26",
+    "date_modified": "2027-01-26",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "lucky-luke",
+      "solitude",
+      "attachement",
+      "expertise",
+      "sevrage-tabagique"
+    ],
+    "sources": [
+      {
+        "authors": "Cacioppo J. T. & Hawkley L. C.",
+        "year": "2009",
+        "title": "Perceived social isolation and cognition",
+        "journal": "Trends in Cognitive Sciences",
+        "url": "https://doi.org/10.1016/j.tics.2009.06.005"
+      },
+      {
+        "authors": "Ericsson K. A., Krampe R. T. & Tesch-Römer C.",
+        "year": "1993",
+        "title": "The role of deliberate practice in the acquisition of expert performance",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.100.3.363"
+      },
+      {
+        "authors": "Hartmann-Boyce J. et al.",
+        "year": "2018",
+        "title": "Nicotine replacement therapy versus control for smoking cessation",
+        "journal": "Cochrane Database of Systematic Reviews"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, Vol. 1: Attachment",
+        "publisher": "Basic Books"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
     "excerpt": "",
