@@ -288,11 +288,12 @@
   {
     "id": "signes-astrologiques-compatibilite-amoureuse",
     "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Dix millions de mariages analysés, zéro effet des signes. Pourquoi l'astrologie amoureuse semble pourtant « marcher », et ce qui prédit réellement qu'un couple dure.",
     "date": "2027-01-14",
-    "date_modified": "2027-01-14",
+    "date_modified": "2026-07-13",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urdlzxidsxy9tpg13p78",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -306,7 +307,7 @@
       "effet-barnum",
       "croyances"
     ],
-    "metaDescription": "",
+    "metaDescription": "Les signes astrologiques influencent-ils vraiment les couples ? Ce que montrent les études, pourquoi on y croit, et ce qui prédit réellement l'amour durable.",
     "articles_lies": [],
     "status": "scheduled"
   },
