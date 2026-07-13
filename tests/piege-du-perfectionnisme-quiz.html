@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel perfectionniste êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/piege-du-perfectionnisme/">
+  <meta name="description" content="Exigence choisie ou tyrannie intérieure ? Identifiez votre profil de perfectionniste en 8 questions.">
+  <style>
+    :root{
+      --bleu:#1F4E6B; --bleu-fonce:#16394f; --accent:#E8734A;
+      --fond:#F7F9FA; --carte:#ffffff; --texte:#2b3a42; --gris:#6b7c86;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(31,78,107,.10);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--bleu),var(--bleu-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.45rem;margin-bottom:6px}
+    .entete p{opacity:.9;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#e3ebef;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--accent);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--bleu-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f2f6f8;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--bleu);background:#eaf1f5}
+    .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .btn-sec{background:transparent;color:var(--bleu);border:2px solid var(--bleu);margin-left:8px}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--bleu-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#fdf1ec;border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f2f6f8;border:1px solid #dbe6ec;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#e7eff3}
+    .disclaimer{background:#f2f6f8;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.25rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Quel perfectionniste êtes-vous&nbsp;?</h1>
+      <p>8 questions pour repérer votre profil dominant — et vos leviers de changement.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Vous venez de terminer un projet important. Votre première pensée :",
+        r: [
+          {t: "« Bon. Voyons ce que je peux améliorer pour la prochaine fois. »", p: "A"},
+          {t: "« J'espère que personne ne remarquera les défauts. »", p: "B"},
+          {t: "« Qu'est-ce qu'ils vont en penser ? »", p: "C"},
+          {t: "« C'est du bon travail, je peux passer à autre chose. »", p: "D"}
+        ]
+      },
+      {
+        q: "On vous fait remarquer une erreur dans votre travail. Vous ressentez :",
+        r: [
+          {t: "De l'agacement contre vous-même : vous auriez dû la voir.", p: "A"},
+          {t: "Une vague de honte disproportionnée qui dure des heures.", p: "B"},
+          {t: "La peur d'avoir déçu, de perdre l'estime de la personne.", p: "C"},
+          {t: "Un léger inconfort, puis vous corrigez et passez à autre chose.", p: "D"}
+        ]
+      },
+      {
+        q: "Face à une nouvelle tâche exigeante, vous avez plutôt tendance à :",
+        r: [
+          {t: "Foncer avec un plan détaillé et des objectifs très ambitieux.", p: "A"},
+          {t: "Repousser le démarrage : tant que ce n'est pas commencé, ce n'est pas raté.", p: "B"},
+          {t: "Demander beaucoup d'avis pour être sûr·e de répondre aux attentes.", p: "C"},
+          {t: "Définir ce qui serait « suffisant » et vous y tenir.", p: "D"}
+        ]
+      },
+      {
+        q: "Déléguer une tâche importante, pour vous, c'est :",
+        r: [
+          {t: "Difficile : personne ne le fera aussi bien que vous.", p: "A"},
+          {t: "Angoissant : si c'est mal fait, c'est vous qui serez jugé·e.", p: "B"},
+          {t: "Risqué : on pourrait penser que vous n'êtes pas à la hauteur.", p: "C"},
+          {t: "Normal : à condition de clarifier les attentes, ça libère du temps.", p: "D"}
+        ]
+      },
+      {
+        q: "Quand vous réussissez quelque chose, le sentiment qui domine :",
+        r: [
+          {t: "Une satisfaction brève — la barre monte aussitôt d'un cran.", p: "A"},
+          {t: "Du soulagement surtout : vous avez échappé à l'échec.", p: "B"},
+          {t: "De la fierté… si les autres le remarquent et le valident.", p: "C"},
+          {t: "Une vraie satisfaction, que vous prenez le temps de savourer.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre petit commentateur intérieur ressemble plutôt à :",
+        r: [
+          {t: "Un coach exigeant : « tu peux faire mieux, allez ! »", p: "A"},
+          {t: "Un juge sévère : « tu vois, tu n'y arrives jamais vraiment. »", p: "B"},
+          {t: "Un porte-parole des autres : « qu'est-ce qu'ils vont dire ? »", p: "C"},
+          {t: "Un allié plutôt bienveillant, ferme mais juste.", p: "D"}
+        ]
+      },
+      {
+        q: "Le soir, il vous arrive de rejouer mentalement vos journées :",
+        r: [
+          {t: "Oui, pour planifier comment optimiser la suivante.", p: "A"},
+          {t: "Oui, en boucle sur les moments où vous avez été « nul·le ».", p: "B"},
+          {t: "Oui, sur les réactions des autres : ce regard, ce silence…", p: "C"},
+          {t: "Rarement : ce qui est fait est fait.", p: "D"}
+        ]
+      },
+      {
+        q: "Si vous deviez rendre demain un travail « très bien » mais pas parfait :",
+        r: [
+          {t: "Impossible : vous y passeriez la nuit pour le peaufiner.", p: "A"},
+          {t: "Vous le rendriez… en vous excusant d'avance de sa qualité.", p: "B"},
+          {t: "Vous scruteriez la réaction du destinataire pendant des jours.", p: "C"},
+          {t: "Vous le rendriez : « très bien », c'est déjà très bien.", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🎯",
+        titre: "L'Exigeant envers soi-même",
+        texte: "<p>Votre perfectionnisme est <strong>auto-orienté</strong> : la barre est haute, et c'est vous qui la placez. Cette exigence vous fait souvent accomplir de belles choses… mais elle a un coût : la satisfaction ne dure jamais, car chaque réussite relève automatiquement le standard. Vous êtes dans la course dont la ligne d'arrivée recule.</p><p>Le risque principal : l'épuisement à bas bruit, et une motivation qui repose sur la pression plus que sur le plaisir.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> fixez à l'avance, par écrit, ce qui sera « suffisant » (temps, critères, nombre de relectures) — et arrêtez-vous là. Entraînez-vous aussi à savourer une réussite 24 h avant de penser à la suivante."
+      },
+      B: {
+        emoji: "🌧️",
+        titre: "L'Autocritique anxieux",
+        texte: "<p>Chez vous, le cœur du perfectionnisme est la <strong>peur de l'erreur</strong>. L'échec n'est jamais local : il semble dire quelque chose de votre valeur tout entière. D'où les ruminations, les vérifications, parfois la procrastination — commencer, c'est déjà risquer de rater.</p><p>C'est la forme de perfectionnisme la plus coûteuse émotionnellement, et celle qui répond le mieux à un travail thérapeutique ciblé.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> l'exposition à l'imperfection délibérée. Commettez volontairement de petites imperfections sans gravité (un mail relu une seule fois, une tâche rendue « bien » et non « parfaite ») et observez : la catastrophe ne survient pas. Si l'autocritique est envahissante, un accompagnement en TCC peut réellement changer la donne."
+      },
+      C: {
+        emoji: "👀",
+        titre: "Le Perfectionniste sous le regard des autres",
+        texte: "<p>Votre exigence est <strong>socialement prescrite</strong> : vous avez le sentiment que les autres — famille, hiérarchie, réseaux — attendent de vous la perfection, et que leur estime en dépend. C'est la forme de perfectionnisme qui progresse le plus depuis trente ans, et la plus associée à l'anxiété.</p><p>Le piège : vous vivez en représentation permanente, et même vos réussites appartiennent un peu au public.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> vérifiez les attentes réelles plutôt que supposées — demandez explicitement ce qui est attendu, vous serez souvent surpris·e que ce soit moins que ce que vous imaginiez. Et réduisez l'exposition aux vitrines de comparaison (réseaux sociaux) pendant quelques semaines : l'effet est mesurable."
+      },
+      D: {
+        emoji: "🌿",
+        titre: "L'Équilibriste de l'excellence",
+        texte: "<p>Vous visez haut, mais votre estime de vous ne se joue pas à chaque tâche : c'est la <strong>recherche d'excellence flexible</strong>, la version adaptative de l'exigence. Vous savez définir « suffisant », déléguer, encaisser une erreur sans qu'elle contamine votre identité — et, luxe suprême, savourer vos réussites.</p><p>Restez attentif·ve aux périodes de forte pression : c'est là que l'équilibriste peut glisser vers l'un des trois autres profils.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> entretenez ce qui fonctionne — des critères de réussite définis à l'avance, de vraies pauses, et cette petite voix intérieure ferme mais bienveillante. Vous pouvez aussi devenir un allié précieux pour les perfectionnistes épuisés de votre entourage."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/piege-du-perfectionnisme/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['B', 'C', 'A', 'D']; // en cas d'égalité, priorité au profil le plus à accompagner
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "J'ai découvert mon profil de perfectionniste : " + p.titre + " " + p.emoji + " — et vous ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
