@@ -78,6 +78,60 @@
     "status": "scheduled"
   },
   {
+    "id": "amie-toxique-10-signes-manipulation",
+    "title": "Amie toxique : 10 signes qu'elle vous manipule (et comment réagir)",
+    "type": "article",
+    "excerpt": "Compliments qui piquent, culpabilisation, chaud et froid permanent... Parce que le mot « amie » désarme la méfiance, la manipulation amicale avance masquée. Les 10 signes qui doivent alerter.",
+    "metaDescription": "Amie toxique : 10 signes de manipulation à repérer — gaslighting, culpabilisation, compétition — pourquoi on reste, et comment réagir. Avec quiz.",
+    "author": "John Balthazar",
+    "date": "2027-01-22",
+    "date_modified": "2027-01-22",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "amitie-toxique",
+      "manipulation",
+      "gaslighting",
+      "emprise",
+      "relations"
+    ],
+    "sources": [
+      {
+        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
+        "year": "2010",
+        "title": "Social relationships and mortality risk: A meta-analytic review",
+        "journal": "PLoS Medicine",
+        "url": "https://doi.org/10.1371/journal.pmed.1000316"
+      },
+      {
+        "authors": "Sweet P. L.",
+        "year": "2019",
+        "title": "The sociology of gaslighting",
+        "journal": "American Sociological Review",
+        "url": "https://doi.org/10.1177/0003122419874843"
+      },
+      {
+        "authors": "Holt-Lunstad J., Uchino B. N., Smith T. W. & Hicks A.",
+        "year": "2007",
+        "title": "On the importance of relationship quality: The impact of ambivalence in friendships on cardiovascular functioning",
+        "journal": "Annals of Behavioral Medicine"
+      },
+      {
+        "authors": "Forward S. & Frazier D.",
+        "year": "1997",
+        "title": "Emotional Blackmail: When the People in Your Life Use Fear, Obligation, and Guilt to Manipulate You",
+        "publisher": "HarperCollins"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "traumatismes-invisibles-enfance",
     "title": "Traumatismes invisibles : parentification, négligence émotionnelle et blessures d'enfance",
     "type": "article",
