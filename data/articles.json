@@ -527,11 +527,12 @@
   {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Il ne crie pas toujours, et pourtant on se sent vidé et coupable. Voici 5 réflexes concrets, éclairés par la recherche, pour repérer l'emprise et reprendre la main sur la relation.",
     "date": "2026-12-03",
-    "date_modified": "2026-12-03",
-    "category": "Troubles Psy",
-    "image": "",
+    "date_modified": "2026-07-13",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/akic5jnevqmzh3pgmp3l",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -545,7 +546,7 @@
       "violence-psychologique",
       "gray-rock"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pervers narcissique : 5 réflexes concrets et éclairés par la science pour repérer l'emprise, ancrer la réalité et se protéger de la manipulation.",
     "articles_lies": [],
     "status": "scheduled"
   },
