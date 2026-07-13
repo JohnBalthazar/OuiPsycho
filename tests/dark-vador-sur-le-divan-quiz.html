@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>De quel côté de la Force penchez-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/dark-vador-sur-le-divan/">
+  <meta name="description" content="Peur de perdre, colère, contrôle : 8 questions pour explorer votre gestion des émotions — sans sabre laser.">
+  <style>
+    :root{
+      --nuit:#2B2B33; --nuit-fonce:#1c1c22; --rouge:#A3282A; --accent:#C0392B;
+      --fond:#F5F4F6; --carte:#ffffff; --texte:#2b2b33; --gris:#71707c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(43,43,51,.16);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--nuit),var(--nuit-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.85;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#e8e7ec;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--rouge);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--nuit-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f2f1f4;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--rouge);background:#f6ecec}
+    .btn{display:inline-block;background:var(--rouge);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--nuit-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#f6ecec;border-left:4px solid var(--rouge);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f2f1f4;border:1px solid #dfdee5;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#e9e8ee}
+    .disclaimer{background:#f2f1f4;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>De quel côté de la Force penchez-vous&nbsp;?</h1>
+      <p>Peur de perdre, colère, contrôle : 8 questions pour explorer votre météo intérieure. Aucun sabre requis.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Un proche ne répond pas à vos messages depuis hier. Votre première pensée :",
+        r: [
+          {t: "« Il lui est arrivé quelque chose » — et vous rappelez. Trois fois.", p: "A"},
+          {t: "« Noté. » Vous rangez l'information et attendez de voir qui craque le premier.", p: "B"},
+          {t: "Rien de spécial en surface — mais vous dormez mal sans savoir pourquoi.", p: "C"},
+          {t: "« Il doit être occupé. » Vous relancez tranquillement le lendemain.", p: "D"}
+        ]
+      },
+      {
+        q: "Quand la colère monte en vous, elle ressemble plutôt à :",
+        r: [
+          {t: "Un orage : explosion rapide, regrets rapides.", p: "A"},
+          {t: "Un dossier : elle attend son heure, avec pièces à l'appui.", p: "B"},
+          {t: "Un sous-marin : personne ne la voit, vous à peine.", p: "C"},
+          {t: "Une vague : elle monte, vous la nommez, elle redescend.", p: "D"}
+        ]
+      },
+      {
+        q: "On vous refuse une promotion ou un projet qui vous tenait à cœur :",
+        r: [
+          {t: "C'est une injustice, et elle vous obsède pendant des semaines.", p: "A"},
+          {t: "Très bien. Vous préparez patiemment votre revanche — légale, précisons.", p: "B"},
+          {t: "« Pas grave », dites-vous. Votre dos, lui, dit autre chose.", p: "C"},
+          {t: "Ça pique, vous le dites, puis vous demandez ce qui a manqué.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre rapport au contrôle :",
+        r: [
+          {t: "Vous contrôlez pour protéger ceux que vous aimez — parfois un peu trop.", p: "A"},
+          {t: "Vous contrôlez l'échiquier : anticiper, c'est gagner.", p: "B"},
+          {t: "Vous vous contrôlez, vous. Le reste peut bien brûler dignement.", p: "C"},
+          {t: "Vous contrôlez ce qui dépend de vous, et lâchez le reste — la plupart du temps.", p: "D"}
+        ]
+      },
+      {
+        q: "Quelqu'un critique une personne que vous aimez. Vous :",
+        r: [
+          {t: "Montez au créneau immédiatement, quitte à dépasser les bornes.", p: "A"},
+          {t: "Souriez — et retenez le nom, la date et la phrase exacte.", p: "B"},
+          {t: "Ne dites rien sur le moment, ruminez la répartie parfaite à 3h du matin.", p: "C"},
+          {t: "Recadrez calmement, puis passez à autre chose.", p: "D"}
+        ]
+      },
+      {
+        q: "Ce qui vous fait le plus peur, honnêtement :",
+        r: [
+          {t: "Perdre les gens que vous aimez.", p: "A"},
+          {t: "Perdre la maîtrise de la situation.", p: "B"},
+          {t: "Que quelqu'un voie ce qui se passe vraiment sous l'armure.", p: "C"},
+          {t: "Rien d'obsédant — les peurs passent si on les regarde.", p: "D"}
+        ]
+      },
+      {
+        q: "Un mentor charismatique vous promet monts et merveilles, à condition de couper avec vos proches « qui vous tirent vers le bas » :",
+        r: [
+          {t: "S'il comprend vraiment vos blessures, vous pourriez l'écouter…", p: "A"},
+          {t: "Intéressant. Vous l'écoutez — en vous demandant ce que LUI y gagne.", p: "B"},
+          {t: "Vous hochez la tête poliment et n'en pensez pas moins.", p: "C"},
+          {t: "Isoler quelqu'un de ses proches, c'est le premier chapitre du manuel de l'emprise. Fuite.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre devise secrète ressemblerait à :",
+        r: [
+          {t: "« Je préfère tout perdre que de LES perdre. »", p: "A"},
+          {t: "« Le pouvoir n'est pas un gros mot, c'est un outil. »", p: "B"},
+          {t: "« Tout va bien. » (répéter jusqu'à extinction de la voix)", p: "C"},
+          {t: "« Nommer sa peur, c'est déjà la désarmer. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🔥",
+        titre: "Le Protecteur incandescent",
+        texte: "<p>Comme Anakin, votre côté obscur s'appelle <strong>la peur de perdre</strong>. Vous aimez fort, vous protégez fort — et quand l'attachement est menacé, la colère jaillit avant la réflexion. C'est le profil des grands loyaux : personne ne veillera sur les vôtres comme vous. Mais l'amour qui contrôle finit par étouffer ce qu'il voulait protéger.</p><p>La bonne nouvelle : contrairement à Anakin, vous avez accès à mieux qu'un empereur ricanant — des mots, des proches, et au besoin un psychologue.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> quand l'angoisse de perte monte, nommez-la à voix haute (« j'ai peur de te perdre ») plutôt que de la convertir en contrôle ou en colère. La peur nommée cesse de commander. Et rappelez-vous la leçon de la saga : ce sont les rêves de catastrophe qu'on garde pour soi qui se réalisent."
+      },
+      B: {
+        emoji: "♟️",
+        titre: "Le Stratège de l'ombre",
+        texte: "<p>Votre tentation obscure n'est pas la colère : c'est <strong>le contrôle froid</strong>. Anticiper, cartographier, garder un coup d'avance — vous êtes redoutablement efficace, et l'échiquier vous rassure bien plus que les émotions. Le risque : traiter les relations comme des positions à tenir, et confondre être en sécurité avec être en maîtrise.</p><p>Rassurez-vous, il y a un océan entre vous et Palpatine : lui instrumentalise les gens, vous vous protégez d'eux. Nuance importante — mais à surveiller.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> introduisez de la vulnérabilité choisie — partager un doute, demander de l'aide, laisser quelqu'un décider à votre place sur un sujet mineur. La confiance ne se calcule pas, elle se pratique. Et elle protège mieux qu'un plan B."
+      },
+      C: {
+        emoji: "🖤",
+        titre: "Le Cuirassé silencieux",
+        texte: "<p>Votre armure à vous ne fait pas de bruit de respirateur, mais elle est bien là : <strong>la suppression émotionnelle</strong>. Tout va toujours « bien », la colère plonge en sous-marin, et personne — vous y compris, parfois — ne sait ce qui se passe dessous. C'est exactement la stratégie que l'ordre Jedi enseignait, et la recherche est formelle : elle coûte cher, au corps comme aux liens.</p><p>Ce qui est enfermé ne meurt pas. Mais l'inverse est vrai aussi : ce qui est nommé cesse de pousser sur les parois.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> remplacez la suppression par la réévaluation — non pas « je ne ressens rien », mais « qu'est-ce que cette situation signifie pour moi, et comment la relire autrement ? ». Commencez petit : une émotion nommée par jour, à quelqu'un de confiance ou dans un carnet. L'armure s'enlève pièce par pièce."
+      },
+      D: {
+        emoji: "🌌",
+        titre: "Le Jedi que l'ordre aurait dû écouter",
+        texte: "<p>Vous ressentez, vous nommez, vous régulez : peur, colère et attachement sont chez vous des informations, pas des maîtres. Vous incarnez ce que l'ordre Jedi prêchait sans jamais l'enseigner — la sérénité qui passe <em>par</em> les émotions, pas contre elles. Bonus appréciable : vous repérez un manipulateur au chapitre un du manuel de l'emprise.</p><p>Votre seul point de vigilance : l'équilibre peut devenir un rôle. Même les mieux régulés ont le droit à un jour sans.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> continuez à cultiver ce qui marche — et mettez votre stabilité au service des Protecteurs incandescents et des Cuirassés silencieux de votre entourage. C'est un lien qui refuse de céder qui a ramené Vador : ce super-pouvoir-là, vous l'avez."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/dark-vador-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['A', 'C', 'B', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "Mon côté de la Force : " + p.titre + " " + p.emoji + " — et vous ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
