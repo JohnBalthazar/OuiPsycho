@@ -363,11 +363,12 @@
   {
     "id": "tdah-trouble-deficit-attention-hyperactivite",
     "title": "TDAH : Trouble du Déficit de l'Attention avec ou sans Hyperactivité",
-    "excerpt": "",
+    "type": "dossier",
+    "excerpt": "Trouble neurodéveloppemental le mieux documenté et pourtant le plus caricaturé, le TDAH concerne des millions d'adultes qui s'ignorent. Ce dossier complet fait le point : comprendre, se faire aider, et reprendre la main sur son quotidien.",
     "date": "2027-01-07",
-    "date_modified": "2027-01-07",
+    "date_modified": "2026-07-13",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cx1yyr2y3g16tyanxjik",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -382,7 +383,7 @@
       "tcc",
       "neurodeveloppement"
     ],
-    "metaDescription": "",
+    "metaDescription": "TDAH adulte et enfant : symptômes, diagnostic, TCC, regard psychanalytique, traitements, routines concrètes et carnet de suivi. Dossier complet + quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
