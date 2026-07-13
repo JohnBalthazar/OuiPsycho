@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feu, Terre, Air ou Eau : quel élément relationnel êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/signes-astrologiques-compatibilite-amoureuse/">
+  <meta name="description" content="Découvrez votre élément relationnel — Feu, Terre, Air ou Eau — à partir de votre vraie façon d'aimer, pas de votre date de naissance.">
+  <style>
+    :root{
+      --indigo:#2E2A5C;
+      --indigo-clair:#413B7A;
+      --dore:#D9A441;
+      --nuit:#F6F4FA;
+      --encre:#2C2840;
+      --gris:#6E6885;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--nuit);
+      color:var(--encre);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #E5E1F0;
+      box-shadow:0 4px 18px rgba(46,42,92,.10);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--indigo),var(--indigo-clair));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+    }
+    .quiz-header .deco{font-size:1.3rem;letter-spacing:.35em;opacity:.9}
+    .quiz-header h1{
+      font-size:1.3rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.92;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{height:6px;background:#ECE8F5}
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--dore);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--indigo);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--nuit);
+      border:2px solid #E5E1F0;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.96rem;
+      color:var(--encre);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--dore);
+      background:#FBF4E4;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--dore);
+      color:var(--indigo);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(217,164,65,.45);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.96rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--indigo);
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+    .result-desc{text-align:left;font-size:.96rem;margin-bottom:20px}
+    .result-desc p{margin-bottom:12px}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--indigo);
+      background:var(--nuit);
+      border:1px solid #E5E1F0;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--dore);background:#FBF4E4}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--nuit);
+      border:1px solid #E5E1F0;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.12rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="deco">🔥 🌍 💨 💧</div>
+      <h1>Feu, Terre, Air ou Eau : quel élément relationnel êtes-vous ?</h1>
+      <p>8 questions sur votre vraie façon d'aimer — les astres n'ont pas leur mot à dire.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez en pensant à votre manière habituelle de vivre vos relations amoureuses — pas à ce que votre horoscope prétend savoir de vous.</p>
+        <button class="start-btn" id="btn-start">Découvrir mon élément ✨</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer ✨</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Au début d'une relation, vous êtes plutôt :",
+        a: [
+          { t: "Tout feu tout flamme : messages enflammés, projets fous, intensité maximale dès la deuxième semaine.", p: "A" },
+          { t: "Prudent·e et régulier·ère : je construis pas à pas, je veux du solide avant de m'emballer.", p: "B" },
+          { t: "Léger·ère et curieux·se : de longues conversations, de la complicité, et pas de pression.", p: "C" },
+          { t: "Très vite fusionnel·le : je ressens tout intensément et j'ai besoin de proximité émotionnelle.", p: "D" }
+        ]
+      },
+      {
+        q: "Une dispute éclate avec votre partenaire. Votre réflexe :",
+        a: [
+          { t: "Ça explose sur le moment... et c'est oublié une heure après. Je ne garde rien.", p: "A" },
+          { t: "Je reste calme, je cherche une solution concrète et un compromis applicable.", p: "B" },
+          { t: "Je prends de la distance pour analyser, quitte à en reparler à froid le lendemain.", p: "C" },
+          { t: "Je suis submergé·e par l'émotion — j'ai surtout besoin qu'on se réconcilie vite.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre façon de dire « je t'aime » ressemble plutôt à :",
+        a: [
+          { t: "Des grandes déclarations, des surprises, des gestes spectaculaires.", p: "A" },
+          { t: "Des actes : réparer, prévoir, m'occuper des choses, être là chaque jour.", p: "B" },
+          { t: "De l'humour complice, des conversations infinies, une liberté offerte.", p: "C" },
+          { t: "Une attention permanente à ce que l'autre ressent, des mots doux, du soin.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce dont vous avez le plus besoin dans un couple :",
+        a: [
+          { t: "De l'intensité et de la passion — l'ennui est mon pire ennemi.", p: "A" },
+          { t: "De la fiabilité — savoir que je peux compter sur l'autre, point.", p: "B" },
+          { t: "De l'espace — un couple, oui, une fusion, non merci.", p: "C" },
+          { t: "De la connexion émotionnelle — me sentir compris·e en profondeur.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre partenaire annule votre soirée au dernier moment :",
+        a: [
+          { t: "Je le vis comme un affront et je le fais savoir — puis je propose mieux pour demain.", p: "A" },
+          { t: "C'est contrariant, mais s'il y a une bonne raison, on reprogramme et voilà.", p: "B" },
+          { t: "Parfait, une soirée pour moi ! Je ne vais pas en faire un drame.", p: "C" },
+          { t: "Je dis que ce n'est pas grave... mais je me demande toute la soirée si quelque chose ne va pas.", p: "D" }
+        ]
+      },
+      {
+        q: "En vacances de couple, votre programme idéal :",
+        a: [
+          { t: "Aventure, imprévu, adrénaline — les vacances doivent se raconter après.", p: "A" },
+          { t: "Un lieu bien choisi, un bon planning, du repos mérité : l'organisation, c'est l'amour.", p: "B" },
+          { t: "Explorer chacun de son côté le matin, se retrouver pour tout se raconter le soir.", p: "C" },
+          { t: "Peu importe l'endroit : ce qui compte, c'est d'être ensemble, vraiment ensemble.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce qui pourrait vous faire quitter une relation :",
+        a: [
+          { t: "La routine qui s'installe et l'impression que la flamme est morte.", p: "A" },
+          { t: "La trahison de la confiance — c'est le socle, sans lui rien ne tient.", p: "B" },
+          { t: "Me sentir enfermé·e, surveillé·e, privé·e de ma liberté.", p: "C" },
+          { t: "L'indifférence émotionnelle — aimer quelqu'un qui ne me « sent » pas.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre entourage dit de vous, en amour :",
+        a: [
+          { t: "« Avec toi, c'est tout ou rien. »", p: "A" },
+          { t: "« Toi, au moins, on sait où on va. »", p: "B" },
+          { t: "« On ne sait jamais vraiment ce que tu ressens. »", p: "C" },
+          { t: "« Tu donnes tellement... parfois trop. »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🔥",
+        title: "Feu — l'amoureux·se de l'intensité",
+        desc: "<p>Vous aimez fort, vite et sans demi-mesure. Passion, spontanéité, grandes déclarations : avec vous, la relation est vivante — parfois volcanique. Votre défi n'est pas d'allumer la flamme, mais de découvrir que la braise a autant de valeur : les recherches sur les couples durables montrent que la passion initiale se transforme, et que c'est la qualité du lien au quotidien qui fait durer l'amour.</p><p><strong>Votre point de croissance :</strong> apprendre à traverser l'ordinaire sans le confondre avec la fin de l'amour, et à laisser les conflits refroidir avant d'y répondre.</p><p><em>Rappel amical : cet élément vient de vos réponses, pas de votre date de naissance — et il peut évoluer, contrairement à un thème astral.</em></p>"
+      },
+      B: {
+        emoji: "🌍",
+        title: "Terre — l'amoureux·se de la fiabilité",
+        desc: "<p>Chez vous, aimer c'est faire : être présent·e, tenir parole, construire du solide. Vous offrez ce que la psychologie du couple identifie comme un trésor — la sécurité et la prévisibilité, terreau de l'attachement serein. Votre relation est une maison bien bâtie.</p><p><strong>Votre point de croissance :</strong> la solidité peut glisser vers la routine ou le silence émotionnel. Pensez à dire ce que vous ressentez, pas seulement à le prouver — votre partenaire a parfois besoin d'entendre les fondations.</p><p><em>Rappel amical : cet élément vient de vos réponses, pas de votre date de naissance — et il peut évoluer, contrairement à un thème astral.</em></p>"
+      },
+      C: {
+        emoji: "💨",
+        title: "Air — l'amoureux·se de la liberté",
+        desc: "<p>Vous aimez avec de l'espace : complicité intellectuelle, humour, indépendance préservée. Vous savez qu'un couple est fait de deux personnes entières, pas de deux moitiés — une intuition que la recherche sur l'autonomie dans le couple confirme volontiers.</p><p><strong>Votre point de croissance :</strong> la distance peut devenir une armure. S'autoriser à montrer sa vulnérabilité et à dépendre — un peu — de l'autre n'est pas une perte de liberté : c'est même le cœur de l'intimité.</p><p><em>Rappel amical : cet élément vient de vos réponses, pas de votre date de naissance — et il peut évoluer, contrairement à un thème astral.</em></p>"
+      },
+      D: {
+        emoji: "💧",
+        title: "Eau — l'amoureux·se de la profondeur",
+        desc: "<p>Vous aimez avec tout votre être : empathie, intuition, attention constante à ce que vit l'autre. Vous offrez une qualité de connexion émotionnelle rare, celle qui fait qu'on se sent réellement vu·e et compris·e à vos côtés.</p><p><strong>Votre point de croissance :</strong> à force de ressentir pour deux, on peut s'oublier, ou lire de l'orage dans chaque silence. Garder un ancrage à soi — ses amis, ses projets, ses limites — protège autant la relation que vous-même.</p><p><em>Rappel amical : cet élément vient de vos réponses, pas de votre date de naissance — et il peut évoluer, contrairement à un thème astral.</em></p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/signes-astrologiques-compatibilite-amoureuse/';
+      var text = 'Mon élément relationnel au quiz « Feu, Terre, Air ou Eau » : ' + prof.title + ' — à découvrir sur Oui Psycho !';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
