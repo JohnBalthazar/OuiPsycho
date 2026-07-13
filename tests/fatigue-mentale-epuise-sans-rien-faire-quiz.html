@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fatigue mentale : quel type d'épuisement est le vôtre ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/fatigue-mentale-epuise-sans-rien-faire/">
+  <meta name="description" content="Surcharge de contrôle, charge invisible ou hypervigilance ? Identifiez ce qui vide vos batteries mentales et vers quel repos vous tourner.">
+  <style>
+    :root{
+      --sarcelle:#1E6F6B;
+      --sarcelle-fonce:#155450;
+      --brume:#F2F7F6;
+      --ambre:#E8956B;
+      --encre:#26383A;
+      --gris:#647476;
+      --blanc:#FFFFFF;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--brume);
+      color:var(--encre);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--blanc);
+      border-radius:16px;
+      border:1px solid #DBE8E6;
+      box-shadow:0 4px 18px rgba(30,111,107,.10);
+      overflow:hidden;
+    }
+    .quiz-header{
+      background:linear-gradient(135deg,var(--sarcelle-fonce),var(--sarcelle));
+      color:var(--blanc);
+      padding:26px 24px 22px;
+      text-align:center;
+    }
+    .quiz-header .deco{font-size:1.3rem;letter-spacing:.3em;opacity:.9}
+    .quiz-header h1{
+      font-size:1.3rem;
+      font-weight:700;
+      margin-top:8px;
+      line-height:1.35;
+    }
+    .quiz-header p{
+      font-size:.92rem;
+      opacity:.92;
+      margin-top:8px;
+      font-family:'Segoe UI',system-ui,sans-serif;
+    }
+    .progress-wrap{height:6px;background:#E4EEEC}
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:var(--ambre);
+      transition:width .3s ease;
+    }
+    .quiz-body{padding:24px}
+    .q-count{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.8rem;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      color:var(--gris);
+      margin-bottom:8px;
+    }
+    .q-text{
+      font-size:1.1rem;
+      font-weight:700;
+      margin-bottom:18px;
+      color:var(--sarcelle-fonce);
+    }
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--brume);
+      border:2px solid #DBE8E6;
+      border-radius:12px;
+      padding:13px 16px;
+      font-family:inherit;
+      font-size:.96rem;
+      color:var(--encre);
+      cursor:pointer;
+      transition:border-color .15s,background .15s,transform .1s;
+    }
+    .answer:hover,.answer:focus-visible{
+      border-color:var(--ambre);
+      background:#FBF0E8;
+      outline:none;
+    }
+    .answer:active{transform:scale(.99)}
+    .start-btn,.restart-btn{
+      display:inline-block;
+      background:var(--sarcelle);
+      color:var(--blanc);
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-weight:700;
+      font-size:1rem;
+      border:none;
+      border-radius:999px;
+      padding:13px 32px;
+      cursor:pointer;
+      transition:transform .12s,box-shadow .12s;
+    }
+    .start-btn:hover,.restart-btn:hover{
+      transform:translateY(-1px);
+      box-shadow:0 4px 12px rgba(30,111,107,.4);
+    }
+    .intro,.result{text-align:center;padding:8px 4px}
+    .intro p{margin-bottom:20px;color:var(--gris);font-size:.96rem}
+    .result-emoji{font-size:3rem;line-height:1;margin-bottom:10px}
+    .result h2{
+      color:var(--sarcelle-fonce);
+      font-size:1.3rem;
+      margin-bottom:12px;
+    }
+    .result-desc{text-align:left;font-size:.96rem;margin-bottom:20px}
+    .result-desc p{margin-bottom:12px}
+    .result-desc strong{color:var(--sarcelle-fonce)}
+    .share{
+      display:flex;
+      justify-content:center;
+      gap:10px;
+      flex-wrap:wrap;
+      margin:18px 0;
+    }
+    .share a{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.88rem;
+      text-decoration:none;
+      color:var(--sarcelle-fonce);
+      background:var(--brume);
+      border:1px solid #DBE8E6;
+      border-radius:999px;
+      padding:8px 15px;
+      transition:border-color .15s,background .15s;
+    }
+    .share a:hover{border-color:var(--ambre);background:#FBF0E8}
+    .disclaimer{
+      font-family:'Segoe UI',system-ui,sans-serif;
+      font-size:.82rem;
+      color:var(--gris);
+      background:var(--brume);
+      border:1px solid #DBE8E6;
+      border-radius:12px;
+      padding:12px 14px;
+      text-align:left;
+      margin-top:16px;
+    }
+    .hidden{display:none}
+    @media (max-width:480px){
+      body{padding:8px}
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.12rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="quiz-header">
+      <div class="deco">🔋 ◔ ◑ ◕</div>
+      <h1>Fatigue mentale : quel type d'épuisement est le vôtre ?</h1>
+      <p>8 questions pour comprendre ce qui vide vos batteries — et vers quel repos vous tourner.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+    <div class="quiz-body">
+
+      <div class="intro" id="screen-intro">
+        <p>Répondez en pensant à vos journées habituelles de ces dernières semaines. Ce test aide à réfléchir, il ne remplace pas l'avis d'un professionnel.</p>
+        <button class="start-btn" id="btn-start">Commencer</button>
+      </div>
+
+      <div class="hidden" id="screen-question">
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div class="result hidden" id="screen-result">
+        <div class="result-emoji" id="r-emoji"></div>
+        <h2 id="r-title"></h2>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "En fin de journée de travail, vous vous sentez surtout :",
+        a: [
+          { t: "Le cerveau en surchauffe d'avoir dû me concentrer et me retenir toute la journée.", p: "A" },
+          { t: "Débordé·e par tout ce que je dois encore penser à gérer après le travail.", p: "B" },
+          { t: "Tendu·e, sur le qui-vive, incapable de vraiment me détendre.", p: "C" },
+          { t: "Vidé·e d'une façon qui ne passe pas, même après une bonne nuit ou un week-end.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce qui vous épuise le plus dans une journée type :",
+        a: [
+          { t: "Rester concentré·e, enchaîner les tâches, résister aux distractions.", p: "A" },
+          { t: "La liste sans fin de choses à ne pas oublier : rendez-vous, courses, logistique.", p: "B" },
+          { t: "Gérer les émotions — les miennes, celles des autres, l'ambiance.", p: "C" },
+          { t: "Tout, en ce moment. Même les petites choses me semblent insurmontables.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre rapport aux notifications et au multitâche :",
+        a: [
+          { t: "Je jongle en permanence entre onglets, messages et tâches — c'est mon quotidien.", p: "A" },
+          { t: "Je suis souvent interrompu·e par des choses à régler pour les autres ou le foyer.", p: "B" },
+          { t: "Je sursaute à chaque notification, comme si c'était une alerte.", p: "C" },
+          { t: "Je n'arrive même plus à me mettre à une tâche, interruption ou pas.", p: "D" }
+        ]
+      },
+      {
+        q: "Le soir, quand vous voulez « décompresser » :",
+        a: [
+          { t: "Je m'affale devant un écran... mais je ne me sens pas vraiment reposé·e après.", p: "A" },
+          { t: "Mon cerveau continue de dérouler la to-do list du lendemain.", p: "B" },
+          { t: "Je rumine, je repasse les tensions de la journée, je n'éteins pas.", p: "C" },
+          { t: "Rien ne me fait envie, même les choses que j'aimais avant.", p: "D" }
+        ]
+      },
+      {
+        q: "La charge invisible (penser à tout, anticiper, organiser pour les autres) :",
+        a: [
+          { t: "Existe, mais c'est surtout la concentration au travail qui me lessive.", p: "A" },
+          { t: "C'est ÇA, mon épuisement principal : je suis la tour de contrôle de tout.", p: "B" },
+          { t: "Elle se mêle à une inquiétude de fond que je n'arrive pas à couper.", p: "C" },
+          { t: "Je n'ai même plus la tête pour l'assumer, et ça me culpabilise.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre concentration en ce moment :",
+        a: [
+          { t: "Correcte, mais elle s'effondre en fin de journée après trop de sollicitations.", p: "A" },
+          { t: "Fragmentée : trop de choses en tête pour me poser sur une seule.", p: "B" },
+          { t: "Parasitée par l'anxiété — je relis dix fois la même ligne.", p: "C" },
+          { t: "En berne depuis des semaines, avec l'impression de ne plus être efficace nulle part.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre humeur et votre irritabilité :",
+        a: [
+          { t: "Je deviens irritable le soir, quand mes réserves de patience sont à sec.", p: "A" },
+          { t: "Je m'agace de devoir tout porter, de ne jamais pouvoir déléguer ni lâcher.", p: "B" },
+          { t: "Je suis à fleur de peau, tendu·e, facilement débordé·e par un rien.", p: "C" },
+          { t: "Je me sens surtout triste, à plat, vidé·e de l'intérieur.", p: "D" }
+        ]
+      },
+      {
+        q: "Depuis combien de temps ça dure ?",
+        a: [
+          { t: "Ça va et vient selon les périodes de rush, puis je récupère.", p: "A" },
+          { t: "Depuis que ma charge d'organisation a augmenté (travail, famille, les deux).", p: "B" },
+          { t: "Depuis une période de stress ou d'anxiété particulière.", p: "C" },
+          { t: "Depuis plusieurs semaines sans amélioration, même en levant le pied.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🧠",
+        title: "Surcharge de contrôle cognitif",
+        desc: "<p>Votre épuisement vient d'abord de l'effort de concentration soutenu : se focaliser, résister aux distractions, jongler entre les tâches. C'est la fatigue mentale « classique » décrite par les neurosciences — un cortex préfrontal qui a beaucoup travaillé et réclame le bon type de repos.</p><p><strong>Vos leviers :</strong> réduire le multitâche (travailler par blocs, couper les notifications), ménager de vraies pauses sans écran, et privilégier une récupération active — nature, marche, mouvement — plutôt qu'une soirée devant un autre écran.</p>"
+      },
+      B: {
+        emoji: "🗂️",
+        title: "Charge invisible saturée",
+        desc: "<p>Ce qui vous vide, c'est la charge mentale de fond : penser à tout, anticiper, organiser, ne rien oublier — pour vous et souvent pour les autres. Cette activité permanente occupe votre mémoire de travail même quand vous êtes « au repos ».</p><p><strong>Vos leviers :</strong> externaliser ce qui peut l'être (listes, agendas partagés), rendre visible et répartir explicitement la charge domestique et familiale, et vous autoriser à déposer des tâches plutôt qu'à tout garder en tête. Décharger le cerveau, c'est lui rendre de l'espace.</p>"
+      },
+      C: {
+        emoji: "⚡",
+        title: "Hypervigilance et charge émotionnelle",
+        desc: "<p>Votre fatigue est teintée de tension : un cerveau qui reste sur le qui-vive, qui scanne les menaces et absorbe les émotions, dépense énormément — même immobile. L'anxiété de fond est une grande consommatrice d'énergie mentale.</p><p><strong>Vos leviers :</strong> les approches qui apaisent le système nerveux (respiration, cohérence cardiaque, activité physique, temps dans la nature) et, si cette tension est envahissante ou durable, un accompagnement psychologique. Ce n'est pas une faiblesse : c'est le bon outil pour le bon problème.</p>"
+      },
+      D: {
+        emoji: "🩺",
+        title: "Un signal qui mérite d'être écouté",
+        desc: "<p>Vos réponses décrivent un épuisement profond, durable, qui ne se répare pas au repos et s'accompagne d'une perte d'élan. Ce tableau dépasse la simple fatigue mentale passagère : il peut évoquer un épuisement professionnel, une dépression ou une cause physique (sommeil, thyroïde, carences).</p><p><strong>La bonne démarche n'est pas de « tenir » davantage,</strong> mais d'en parler à votre médecin traitant, qui pourra faire le point et vous orienter. Vous n'êtes pas seul·e, et ce type d'épuisement se soigne. Si vous ressentez une détresse importante, le <strong>3114</strong> est joignable gratuitement, 24h/24.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    var screenIntro = document.getElementById('screen-intro');
+    var screenQuestion = document.getElementById('screen-question');
+    var screenResult = document.getElementById('screen-result');
+    var progress = document.getElementById('progress');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      q.a.forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() { pick(ans.p); });
+        box.appendChild(b);
+      });
+      progress.style.width = Math.round((current / QUESTIONS.length) * 100) + '%';
+      notifyResize();
+    }
+
+    function pick(p) {
+      votes[p]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      screenQuestion.classList.add('hidden');
+      screenResult.classList.remove('hidden');
+      progress.style.width = '100%';
+
+      // Le profil D (signal d'alarme) prime dès qu'il est nettement présent
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      if (votes.D >= 3) best = 'D';
+      var prof = PROFILES[best];
+
+      document.getElementById('r-emoji').textContent = prof.emoji;
+      document.getElementById('r-title').textContent = prof.title;
+      document.getElementById('r-desc').innerHTML = prof.desc;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/fatigue-mentale-epuise-sans-rien-faire/';
+      var text = 'J\u2019ai identifié mon type de fatigue mentale sur Oui Psycho : ' + prof.title + '.';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      screenIntro.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      screenResult.classList.add('hidden');
+      screenQuestion.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
