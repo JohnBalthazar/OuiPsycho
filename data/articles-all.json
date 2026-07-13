@@ -108,12 +108,12 @@
   {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Solitude choisie ou évitement du lien ? Expertise, sevrage tabagique et récidive des Dalton : le cowboy qui tire plus vite que son ombre passe sur le divan.",
     "date": "2027-01-26",
-    "date_modified": "2027-01-26",
+    "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yxz6dnfjailowldi9my0",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -127,7 +127,7 @@
       "expertise",
       "sevrage-tabagique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Solitude du cowboy, expertise du tireur, brin d'herbe et sevrage tabagique, récidive des Dalton : ce que Lucky Luke révèle de notre psychologie. Avec quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
