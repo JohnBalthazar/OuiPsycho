@@ -263,11 +263,12 @@
   {
     "id": "fatigue-mentale-epuise-sans-rien-faire",
     "title": "Fatigue mentale : pourquoi suis-je épuisé alors que je ne fais « rien » ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Vidé après une journée assis devant un écran ? La fatigue mentale n'est ni de la paresse ni une illusion : votre cerveau a vraiment travaillé. Ce que dit la science, et comment récupérer.",
     "date": "2027-01-15",
-    "date_modified": "2027-01-15",
+    "date_modified": "2026-07-13",
     "category": "Bien-être",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/doov8dwsbbogqtapxmtw",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -281,7 +282,7 @@
       "controle-cognitif",
       "recuperation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Épuisé sans avoir « rien fait » ? La fatigue mentale expliquée par la science : pourquoi le cerveau s'épuise, la charge invisible et comment vraiment récupérer.",
     "articles_lies": [],
     "status": "scheduled"
   },
