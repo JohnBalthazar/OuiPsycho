@@ -2,19 +2,18 @@
   {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
-    "type": "article",
-    "excerpt": "Sous le masque, un ado anxieux, endeuillé et rongé par la culpabilité. Et si le plus humain des super-héros était surtout un formidable cas clinique ?",
-    "metaDescription": "Culpabilité du survivant, masque, angoisse et résilience : et si Spider-Man avait surtout besoin d'un bon thérapeute ? Analyse psy de l'homme-araignée.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-19",
     "date_modified": "2027-01-19",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "spider-man",
       "psychologie",
@@ -22,53 +21,25 @@
       "resilience",
       "nos-heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Rosenberg, R. S. (dir.)",
-        "year": "2008",
-        "title": "The Psychology of Superheroes: An Unauthorized Exploration",
-        "publisher": "BenBella Books"
-      },
-      {
-        "authors": "Tedeschi, R. G. & Calhoun, L. G.",
-        "year": "1996",
-        "title": "The Posttraumatic Growth Inventory: Measuring the positive legacy of trauma",
-        "journal": "Journal of Traumatic Stress",
-        "url": "https://doi.org/10.1002/jts.2490090305"
-      },
-      {
-        "authors": "Larson, D. G. & Chastain, R. L.",
-        "year": "1990",
-        "title": "Self-concealment: Conceptualization, measurement, and health implications",
-        "journal": "Journal of Social and Clinical Psychology",
-        "url": "https://doi.org/10.1521/jscp.1990.9.4.439"
-      },
-      {
-        "authors": "Erikson, E. H.",
-        "year": "1968",
-        "title": "Identity: Youth and Crisis",
-        "publisher": "W. W. Norton"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
-    "type": "article",
-    "excerpt": "Orphelin à huit ans, hypervigilant, déguisé en chauve-souris : Bruce Wayne aurait de quoi occuper un psy pendant des années. Analyse d'un deuil traumatique devenu mythe moderne.",
-    "metaDescription": "Deuil traumatique, hypervigilance, croissance post-traumatique : Batman passe sur le divan. Analyse psy du Chevalier noir, quiz de profil inclus.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-12",
     "date_modified": "2027-01-12",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "batman",
       "trauma",
@@ -76,28 +47,7 @@
       "resilience",
       "heros"
     ],
-    "sources": [
-      {
-        "authors": "Langley T.",
-        "year": "2012",
-        "title": "Batman and Psychology: A Dark and Stormy Knight",
-        "publisher": "John Wiley & Sons"
-      },
-      {
-        "authors": "Tedeschi R. G. & Calhoun L. G.",
-        "year": "2004",
-        "title": "Posttraumatic Growth: Conceptual Foundations and Empirical Evidence",
-        "journal": "Psychological Inquiry",
-        "url": "https://doi.org/10.1207/s15327965pli1501_01"
-      },
-      {
-        "authors": "Bonanno G. A.",
-        "year": "2004",
-        "title": "Loss, Trauma, and Human Resilience: Have We Underestimated the Human Capacity to Thrive After Extremely Aversive Events?",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -419,12 +369,12 @@
   {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
-    "type": "article",
-    "excerpt": "L'emprise abîme la confiance en soi autant qu'en les autres. Mais elle se reconstruit. Voici les mécanismes en jeu et des repères concrets pour avancer, à votre rythme.",
+    "excerpt": "",
     "date": "2026-11-26",
     "date_modified": "2026-07-12",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kiskl4riophei5r5qbgh",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -438,7 +388,7 @@
       "psychotraumatisme",
       "reconstruction"
     ],
-    "metaDescription": "Gaslighting, lien traumatique, mémoire traumatique : après un pervers narcissique, comment se refaire confiance, à soi et aux autres ? Nos repères pour avancer.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -471,12 +421,12 @@
   {
     "id": "applications-gratuites-sante-mentale",
     "title": "Les meilleures applis gratuites pour la santé mentale",
-    "type": "article",
-    "excerpt": "Des milliers d'applis promettent la sérénité, peu tiennent parole. Nous avons trié selon trois critères : preuves scientifiques, gratuité réelle et confidentialité. Voici les quatre qui passent le filtre, notées et commentées.",
+    "excerpt": "",
     "date": "2026-11-20",
     "date_modified": "2026-07-12",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ctqtozrwqslhfq2gyzi8",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -490,7 +440,7 @@
       "depression",
       "tcc"
     ],
-    "metaDescription": "Quelles applis gratuites de santé mentale valent vraiment la peine ? Notre sélection notée : preuves scientifiques, avis des pros, liens directs.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
