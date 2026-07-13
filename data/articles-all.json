@@ -1,5 +1,69 @@
 [
   {
+    "id": "vaiana-sur-le-divan",
+    "title": "Vaiana sur le divan : psychologie d'une navigatrice héroïque",
+    "type": "article",
+    "excerpt": "Elle a franchi le récif, embarqué son deuil et désarmé une déesse en colère — à seize ans. Ce que la navigatrice de Motunui enseigne sur l'identité, la vocation et la résilience.",
+    "metaDescription": "Identité, appel de la vocation, deuil et résilience : la psychologie de Vaiana décryptée par la science du développement. Avec un quiz navigateur.",
+    "author": "John Balthazar",
+    "date": "2027-03-02",
+    "date_modified": "2027-03-02",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "vaiana",
+      "identite",
+      "resilience",
+      "heros-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Marcia J. E.",
+        "year": "1966",
+        "title": "Development and validation of ego-identity status",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/h0023281"
+      },
+      {
+        "authors": "Ryan R. M. & Deci E. L.",
+        "year": "2000",
+        "title": "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.55.1.68"
+      },
+      {
+        "authors": "Phinney J. S.",
+        "year": "1990",
+        "title": "Ethnic identity in adolescents and adults: Review of research",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.108.3.499"
+      },
+      {
+        "authors": "Bonanno G. A.",
+        "year": "2004",
+        "title": "Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
+      },
+      {
+        "authors": "Gascon M., Zijlema W., Vert C., White M. P. & Nieuwenhuijsen M. J.",
+        "year": "2017",
+        "title": "Outdoor blue spaces, human health and well-being: A systematic review of quantitative studies",
+        "journal": "International Journal of Hygiene and Environmental Health",
+        "url": "https://doi.org/10.1016/j.ijheh.2017.08.004"
+      }
+    ],
+    "articles_lies": [
+      "piege-du-perfectionnisme"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "dark-vador-sur-le-divan",
     "title": "Dark Vador sur le divan : psychologie d'un seigneur des ténèbres",
     "type": "article",
