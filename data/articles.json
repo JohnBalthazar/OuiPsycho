@@ -577,11 +577,12 @@
   {
     "id": "psy-rembourse-secu-mon-soutien-psy",
     "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Douze séances de psychologue par an, 50 € l'unité, remboursées à 100 % dans la plupart des cas, et désormais sans passer par le médecin. On vous explique le dispositif Mon soutien psy — et si ces psys en valent la peine.",
     "date": "2026-11-27",
-    "date_modified": "2026-11-27",
+    "date_modified": "2026-07-13",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bqszsynmlgarm6qwcolf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -595,7 +596,7 @@
       "psychotherapie",
       "assurance-maladie"
     ],
-    "metaDescription": "",
+    "metaDescription": "Séances de psy remboursées par la Sécurité sociale : conditions, démarche, annuaire et qualité des psychologues du dispositif Mon soutien psy expliqués.",
     "articles_lies": [],
     "status": "scheduled"
   },
