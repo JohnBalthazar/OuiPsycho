@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ordre ou chaos : quel habitant de Gotham êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/joker-sur-le-divan/">
+  <meta name="description" content="Règles, contrôle, provocation, humour-bouclier : 8 questions pour découvrir votre rapport à l'ordre et au chaos.">
+  <style>
+    :root{
+      --violet:#4A2E6B; --violet-fonce:#32204a; --vert:#3E8E5A; --accent:#8E44AD;
+      --fond:#F6F4F9; --carte:#ffffff; --texte:#2e2a38; --gris:#6f6a7c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(74,46,107,.14);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--violet),var(--violet-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.9;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#eae5f1;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--vert);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--violet-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f4f0f8;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--accent);background:#efe8f5}
+    .btn{display:inline-block;background:var(--vert);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--violet-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#eef6f0;border-left:4px solid var(--vert);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f4f0f8;border:1px solid #e0d7ea;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#ece4f3}
+    .disclaimer{background:#f4f0f8;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Ordre ou chaos : quel habitant de Gotham êtes-vous&nbsp;?</h1>
+      <p>8 questions sur votre rapport aux règles, au contrôle et à l'humour qui protège. Aucun maquillage requis.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Une réunion s'enlise dans des débats de procédure. Vous :",
+        r: [
+          {t: "Lâchez une remarque ironique qui fait rire tout le monde… et dérailler l'ordre du jour.", p: "A"},
+          {t: "Reprenez la main : ordre du jour, chrono, décisions. Quelqu'un doit tenir la barre.", p: "B"},
+          {t: "Glissez une blague discrète à votre voisin pour survivre — l'humour est votre oxygène.", p: "C"},
+          {t: "Proposez un compromis pragmatique pour que chacun reparte avec quelque chose.", p: "D"}
+        ]
+      },
+      {
+        q: "Une règle vous semble absurde (au travail, à la mairie, dans l'immeuble). Votre réflexe :",
+        r: [
+          {t: "La contourner ostensiblement — rien de tel pour montrer qu'elle est absurde.", p: "A"},
+          {t: "La respecter en attendant de la faire changer par la voie officielle.", p: "B"},
+          {t: "La tourner en dérision : un bon mot vaut mieux qu'une pétition.", p: "C"},
+          {t: "Évaluer : si le coût de la règle est faible, vous laissez couler.", p: "D"}
+        ]
+      },
+      {
+        q: "Panne d'électricité générale dans votre ville, un soir. Vous pensez d'abord :",
+        r: [
+          {t: "« Enfin un peu d'imprévu ! Voyons ce que la soirée réserve. »", p: "A"},
+          {t: "« Bougies, radio, points de rassemblement : organisons-nous. »", p: "B"},
+          {t: "« Parfait, personne ne verra que je ris nerveusement. »", p: "C"},
+          {t: "« Ça arrive. On dîne froid et on se couche tôt. »", p: "D"}
+        ]
+      },
+      {
+        q: "On vous décrit le plus souvent comme :",
+        r: [
+          {t: "Imprévisible — dans le bon sens du terme. Enfin, la plupart du temps.", p: "A"},
+          {t: "Fiable, structuré·e, un peu control freak sur les bords.", p: "B"},
+          {t: "Drôle — même quand, franchement, ça ne va pas si bien que ça.", p: "C"},
+          {t: "Posé·e, difficile à déstabiliser.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre rapport à la provocation :",
+        r: [
+          {t: "C'est un art. Bousculer les gens, c'est les réveiller.", p: "A"},
+          {t: "Inutile et coûteuse : on obtient plus par la constance.", p: "B"},
+          {t: "Seulement en autodérision — la cible la plus sûre, c'est soi.", p: "C"},
+          {t: "À petites doses, quand la situation le mérite vraiment.", p: "D"}
+        ]
+      },
+      {
+        q: "Quand quelque chose vous blesse profondément :",
+        r: [
+          {t: "Vous montez le volume : provocation, panache, contre-attaque.", p: "A"},
+          {t: "Vous serrez les dents et reprenez le contrôle de ce qui peut l'être.", p: "B"},
+          {t: "Vous en faites une histoire drôle — le rire arrive avant les larmes.", p: "C"},
+          {t: "Vous en parlez à quelqu'un de confiance, puis vous digérez.", p: "D"}
+        ]
+      },
+      {
+        q: "Face à quelqu'un qui « veut juste voir le monde brûler », vous ressentez :",
+        r: [
+          {t: "Une pointe de fascination — au moins, il ne s'ennuie pas.", p: "A"},
+          {t: "Le besoin immédiat de l'arrêter. Les limites existent pour une raison.", p: "B"},
+          {t: "L'envie de désamorcer avec une pirouette : « attends, j'ai des chamallows ».", p: "C"},
+          {t: "De la distance : comprendre d'où ça vient, sans se laisser embarquer.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre devise secrète ressemblerait à :",
+        r: [
+          {t: "« Les règles sont des suggestions énergiques. »", p: "A"},
+          {t: "« Le chaos gagne quand les gens bien ne font rien. »", p: "B"},
+          {t: "« Si je ris, c'est que je tiens encore debout. »", p: "C"},
+          {t: "« Tout passe — surtout si on dort assez. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🃏",
+        titre: "L'Agent du chaos (version fréquentable)",
+        texte: "<p>Vous aimez bousculer : les règles figées vous démangent, l'imprévu vous stimule, la provocation est votre langue maternelle. Rassurez-vous, rien de pathologique — la psychologie parlerait d'un fort besoin de sensations et d'une allergie assumée au conformisme. Bien canalisé, ce profil fait les créatifs, les lanceurs d'alerte et les meilleurs invités de dîner.</p><p>Le point de vigilance : la transgression pour la transgression finit par tourner à vide — et par user votre entourage.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> choisissez vos batailles. Bousculer une règle absurde est utile ; bousculer pour exister l'est moins. Demandez-vous avant chaque provocation : « qu'est-ce que je veux vraiment obtenir ? »"
+      },
+      B: {
+        emoji: "🦇",
+        titre: "Le Gardien de l'ordre",
+        texte: "<p>Structure, principes, fiabilité : quand tout vacille, c'est vous qui tenez la lampe torche. Ce besoin de contrôle est une force précieuse — jusqu'au moment où il devient une armure. Le Gardien dort peu, délègue mal, et confond parfois « tenir » et « tout porter seul ».</p><p>Petit clin d'œil gothamien : le justicier masqué aussi aurait bien besoin d'une psychothérapie. Le contrôle permanent est souvent la réponse à une peur ancienne du désordre.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> entraînez-vous au lâcher-prise dosé — déléguer une tâche par semaine, tolérer un imprévu sans plan B. Le monde tient debout même quand vous relâchez la barre cinq minutes."
+      },
+      C: {
+        emoji: "🎭",
+        titre: "Le Rieur bouclier",
+        texte: "<p>Chez vous, l'humour est une armure de haute qualité : autodérision, pirouettes, punchlines qui arrivent juste avant l'émotion. C'est un mécanisme de défense parmi les plus élégants — la psychanalyse le classe d'ailleurs parmi les défenses « matures ». Mais un bouclier trop constant finit par cacher aussi ce qui aurait besoin d'être entendu.</p><p>Arthur Fleck distribue une carte : « mon rire est une maladie ». Le vôtre n'en est pas une — mais demandez-vous parfois ce qu'il recouvre.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> une fois de temps en temps, essayez la phrase sans la blague. Dire « en fait, ça m'a touché » à une personne de confiance ne fait pas s'effondrer le décor — promis."
+      },
+      D: {
+        emoji: "🌆",
+        titre: "Le Citoyen tranquille de Gotham",
+        texte: "<p>Ni fasciné par le chaos, ni crispé sur le contrôle : vous naviguez. Vous savez respecter une règle utile, contourner une règle absurde, rire quand c'est drôle et parler quand ça fait mal. C'est le profil le plus discret du quiz — et, statistiquement, celui qui traverse le mieux les pannes générales, au propre comme au figuré.</p><p>Votre seul risque : la tranquillité qui glisse vers l'évitement. Ne pas faire de vagues, c'est bien ; ne jamais rien remettre en question, c'est autre chose.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> gardez un petit domaine où vous acceptez de déranger — une cause, un désaccord assumé, une limite non négociable. L'équilibre n'est pas la neutralité."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/joker-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['C', 'B', 'A', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "Mon profil gothamien : " + p.titre + " " + p.emoji + " — et vous, ordre ou chaos ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
