@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sexe et couple : où en êtes-vous vraiment ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/couple-heureux-sans-faire-lamour/">
+  <meta name="description" content="Accord serein, décalage silencieux, poids de la norme ou transition ? Identifiez la dynamique de votre couple face à la sexualité.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: transparent;
+      color: #2c3e50;
+      line-height: 1.6;
+      padding: 8px;
+    }
+    .quiz-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid #e3e9ee;
+      border-radius: 14px;
+      padding: 26px 22px;
+      box-shadow: 0 2px 10px rgba(31,78,107,.07);
+    }
+    .quiz-head { text-align:center; margin-bottom: 18px; }
+    .quiz-head .emoji { font-size: 2.2rem; }
+    .quiz-head h1 { font-size: 1.3rem; color:#1F4E6B; margin-top: 6px; }
+    .quiz-head p { font-size:.92rem; color:#5a6b78; margin-top:6px; }
+    .progress-wrap { background:#e9eef2; border-radius:99px; height:8px; margin: 14px 0 20px; overflow:hidden; }
+    .progress-bar { height:100%; width:0%; background: linear-gradient(90deg,#1F4E6B,#3d7ea6); border-radius:99px; transition: width .3s ease; }
+    .q-count { font-size:.8rem; color:#7a8a96; text-align:center; margin-bottom:8px; letter-spacing:.4px; text-transform:uppercase; }
+    .q-text { font-size:1.08rem; font-weight:600; color:#233; margin-bottom:16px; text-align:center; }
+    .answers { display:flex; flex-direction:column; gap:10px; }
+    .answers button {
+      width:100%; text-align:left;
+      background:#f6f9fb; border:2px solid #e3e9ee; border-radius:10px;
+      padding:13px 15px; font-size:.97rem; color:#2c3e50;
+      cursor:pointer; transition: border-color .15s, background .15s, transform .1s;
+      font-family: inherit; line-height:1.45;
+    }
+    .answers button:hover { border-color:#1F4E6B; background:#eef4f8; }
+    .answers button:active { transform: scale(.99); }
+    .answers button:focus-visible { outline:3px solid #3d7ea6; outline-offset:2px; }
+    .btn-main {
+      display:inline-block; background:#1F4E6B; color:#fff; border:none;
+      padding:13px 28px; border-radius:99px; font-size:1rem; font-weight:600;
+      cursor:pointer; font-family:inherit; transition: background .15s;
+    }
+    .btn-main:hover { background:#173d55; }
+    .hidden { display:none; }
+    .result-emoji { font-size:2.6rem; text-align:center; }
+    .result-title { font-size:1.25rem; color:#1F4E6B; text-align:center; margin:8px 0 4px; }
+    .result-sub { text-align:center; color:#5a6b78; font-size:.9rem; margin-bottom:14px; }
+    .result-text { font-size:.98rem; color:#34495e; }
+    .result-text p { margin-bottom:10px; }
+    .share-box { text-align:center; margin-top:18px; padding-top:16px; border-top:1px solid #e9eef2; }
+    .share-box .share-label { font-size:.85rem; color:#7a8a96; margin-bottom:10px; }
+    .share-box a {
+      display:inline-block; margin:4px; padding:9px 16px; border-radius:99px;
+      text-decoration:none; font-size:.88rem; font-weight:600; color:#fff;
+    }
+    .share-fb { background:#1877F2; }
+    .share-tw { background:#111; }
+    .share-wa { background:#25D366; }
+    .disclaimer {
+      margin-top:16px; background:#f4f8fa; border-left:4px solid #1F4E6B;
+      border-radius:0 8px 8px 0; padding:12px 14px; font-size:.84rem; color:#4a5a66;
+    }
+    .restart-wrap { text-align:center; margin-top:16px; }
+    .btn-restart {
+      background:none; border:2px solid #1F4E6B; color:#1F4E6B;
+      padding:10px 24px; border-radius:99px; font-size:.92rem; font-weight:600;
+      cursor:pointer; font-family:inherit; transition: background .15s, color .15s;
+    }
+    .btn-restart:hover { background:#1F4E6B; color:#fff; }
+    .start-center { text-align:center; }
+    @media (prefers-reduced-motion: reduce) {
+      .progress-bar, .answers button { transition:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <!-- Écran d'accueil -->
+    <div id="screen-start">
+      <div class="quiz-head">
+        <div class="emoji">💞</div>
+        <h1>Sexe et couple : où en êtes-vous vraiment ?</h1>
+        <p>8 questions pour identifier la dynamique actuelle de votre couple face à la sexualité — sans jugement, sans norme à atteindre.</p>
+      </div>
+      <div class="start-center">
+        <button class="btn-main" id="btn-start">Commencer le quiz</button>
+      </div>
+    </div>
+
+    <!-- Écran question -->
+    <div id="screen-quiz" class="hidden">
+      <div class="q-count" id="q-count"></div>
+      <div class="progress-wrap"><div class="progress-bar" id="progress"></div></div>
+      <div class="q-text" id="q-text"></div>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <!-- Écran résultat -->
+    <div id="screen-result" class="hidden">
+      <div class="result-emoji" id="r-emoji"></div>
+      <div class="result-title" id="r-title"></div>
+      <div class="result-sub">Votre profil dominant</div>
+      <div class="result-text" id="r-text"></div>
+
+      <div class="share-box">
+        <div class="share-label">Ce quiz vous a parlé ? Partagez-le :</div>
+        <a class="share-fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a class="share-tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a class="share-wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="restart-wrap">
+        <button class="btn-restart" id="btn-restart">↻ Recommencer</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Quand vous pensez à la place du sexe dans votre couple aujourd'hui, la première chose qui vous vient est…",
+        a: [
+          { t: "« On a trouvé notre rythme, et il nous convient à tous les deux. »", p: "A" },
+          { t: "« Il y a un écart entre nous, mais on n'en parle jamais vraiment. »", p: "B" },
+          { t: "« On devrait faire l'amour plus souvent, c'est ce qu'un couple normal fait. »", p: "C" },
+          { t: "« Honnêtement, je ne sais plus trop ce que je veux — ça bouge en moi. »", p: "D" }
+        ]
+      },
+      {
+        q: "La dernière fois que vous avez parlé de sexualité ensemble…",
+        a: [
+          { t: "C'était détendu : on peut aborder le sujet sans drame.", p: "A" },
+          { t: "Ça remonte à loin. Le sujet est devenu une zone à éviter.", p: "B" },
+          { t: "C'était pour se comparer à « ce que font les autres couples ».", p: "C" },
+          { t: "C'était moi qui essayais de mettre des mots sur quelque chose de nouveau.", p: "D" }
+        ]
+      },
+      {
+        q: "Un magazine titre : « Les couples heureux font l'amour deux fois par semaine. » Votre réaction ?",
+        a: [
+          { t: "Je hausse les épaules : chaque couple a sa propre équation.", p: "A" },
+          { t: "Ça me pince un peu, parce que ça pointe ce qu'on ne se dit pas.", p: "B" },
+          { t: "Je fais le calcul mentalement… et je culpabilise.", p: "C" },
+          { t: "Ça m'interroge : est-ce que cette norme me correspond, à moi ?", p: "D" }
+        ]
+      },
+      {
+        q: "Les gestes tendres au quotidien (câlins, baisers, mains qui se cherchent)…",
+        a: [
+          { t: "Sont bien vivants : on est très tactiles, avec ou sans sexe.", p: "A" },
+          { t: "Se sont raréfiés en même temps que le reste, sans qu'on en parle.", p: "B" },
+          { t: "Existent, mais j'ai parfois peur qu'ils soient interprétés comme une invitation.", p: "C" },
+          { t: "Sont en train de changer de sens pour moi — je les redécouvre autrement.", p: "D" }
+        ]
+      },
+      {
+        q: "Si votre partenaire initie un rapprochement ce soir…",
+        a: [
+          { t: "J'accueille ou je décline librement : les deux sont OK entre nous.", p: "A" },
+          { t: "Je ressens surtout le poids de tout ce qu'on ne s'est pas dit.", p: "B" },
+          { t: "Je risque de dire oui « pour avoir la paix » ou pour ne pas décevoir.", p: "C" },
+          { t: "Je ne sais pas d'avance ce que je ressentirai — je m'observe encore.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand vous croisez le regard de votre partenaire sur ce sujet, vous devinez…",
+        a: [
+          { t: "Qu'on est alignés : ni frustration cachée, ni comptes à régler.", p: "A" },
+          { t: "Une frustration ou une tristesse qu'il ou elle n'ose pas formuler.", p: "B" },
+          { t: "Une attente à laquelle je me sens obligé·e de répondre.", p: "C" },
+          { t: "De la curiosité : lui ou elle aussi sent que quelque chose évolue.", p: "D" }
+        ]
+      },
+      {
+        q: "« Êtes-vous heureux·se dans votre couple ? » Votre réponse spontanée :",
+        a: [
+          { t: "Oui — et notre intimité, sexuelle ou non, y contribue.", p: "A" },
+          { t: "Oui… avec un astérisque dont on ne parle jamais.", p: "B" },
+          { t: "Je crois, mais je me demande toujours si on est « dans les clous ».", p: "C" },
+          { t: "Je suis en train de redéfinir ce que « heureux » veut dire pour moi.", p: "D" }
+        ]
+      },
+      {
+        q: "Si vous pouviez changer une seule chose d'un coup de baguette magique…",
+        a: [
+          { t: "Rien d'essentiel : peut-être juste plus de temps à deux.", p: "A" },
+          { t: "Que la conversation qu'on repousse ait enfin lieu, sans blessure.", p: "B" },
+          { t: "Ne plus jamais me comparer aux statistiques et aux autres couples.", p: "C" },
+          { t: "Avoir le droit d'explorer notre propre définition de l'intimité.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🌿",
+        title: "Les complices sereins",
+        text: "<p>Votre couple a fait ce que la recherche décrit comme la condition n°1 du bonheur conjugal : il a défini <strong>sa propre norme</strong>, plutôt que de subir celle des magazines. Que votre sexualité soit fréquente, rare ou absente, elle semble <strong>choisie et accordée</strong> — et la tendresse, elle, circule.</p><p>C'est précisément ce que montrent les études : ce n'est pas la fréquence qui prédit le bien-être, mais l'affection partagée et la liberté de chacun. Continuez à protéger deux choses : le contact physique au quotidien, et la possibilité de reparler du sujet si l'un de vous évolue. Un accord n'est jamais signé pour la vie — il se renouvelle.</p>"
+      },
+      B: {
+        emoji: "🌫️",
+        title: "Le décalage silencieux",
+        text: "<p>Quelque chose se joue dans votre couple autour de la sexualité — un écart de désir, une frustration, une tristesse — mais le sujet est devenu <strong>une pièce fermée de la maison</strong>. Or la recherche est claire : ce n'est pas l'absence de sexe qui abîme les couples, c'est <strong>l'absence de parole</strong> sur le sujet.</p><p>La bonne nouvelle : un décalage de désir est banal, fréquent, et n'est la faute de personne. La conversation que vous repoussez sera probablement moins terrible que le silence qui l'entoure. Commencez petit : « Comment tu vis notre intimité en ce moment, toi ? » Si la discussion patine, un·e sexologue ou une thérapie de couple peut servir de tiers sécurisant.</p>"
+      },
+      C: {
+        emoji: "⚖️",
+        title: "Sous le poids de la norme",
+        text: "<p>Votre boussole intime semble déréglée par une question extérieure : « Que font les couples normaux ? » Comparaisons, culpabilité, rapports acceptés « pour avoir la paix »… Vous portez ce que l'on peut appeler une <strong>charge sexuelle</strong> — l'impression de devoir une performance à votre couple.</p><p>Rappel utile : le « devoir conjugal » n'existe pas, ni en droit ni en psychologie. Le consentement ne se présume jamais, même après des années de vie commune. La question qui libère n'est pas « combien de fois faudrait-il ? » mais <strong>« de quoi ai-je envie, moi ? »</strong>. Si la culpabilité est tenace, en parler à un·e professionnel·le peut aider à démêler votre désir réel des injonctions héritées.</p>"
+      },
+      D: {
+        emoji: "🧭",
+        title: "En pleine redéfinition",
+        text: "<p>Vous êtes dans une phase de <strong>questionnement actif</strong> : votre rapport au désir, à l'intimité, peut-être à votre orientation (l'asexualité est une orientation reconnue, pas un trouble) est en train de bouger. C'est parfois inconfortable, mais c'est un travail précieux — celui de définir votre propre équation plutôt que d'appliquer celle des autres.</p><p>Deux appuis pour traverser cette période : d'abord, associer votre partenaire à votre exploration, pour qu'il ou elle ne l'interprète pas comme un rejet ; ensuite, vous documenter auprès de sources fiables plutôt que de forums anxiogènes. Prenez votre temps : un couple peut être heureux sous bien des formes, à condition que la sienne soit choisie à deux.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A:0, B:0, C:0, D:0 };
+    var PAGE_URL = "https://ouipsycho.fr/articles/couple-heureux-sans-faire-lamour/";
+
+    var elStart = document.getElementById('screen-start');
+    var elQuiz = document.getElementById('screen-quiz');
+    var elResult = document.getElementById('screen-result');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = "Question " + (current + 1) + " / " + QUESTIONS.length;
+      document.getElementById('progress').style.width = (current / QUESTIONS.length * 100) + "%";
+      document.getElementById('q-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = "";
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.type = "button";
+        b.textContent = ans.t;
+        b.addEventListener('click', function() {
+          votes[ans.p]++;
+          current++;
+          if (current < QUESTIONS.length) {
+            showQuestion();
+          } else {
+            showResult();
+          }
+        });
+        box.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function showResult() {
+      var best = "A", order = ["A","B","C","D"];
+      order.forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var p = PROFILES[best];
+      elQuiz.classList.add('hidden');
+      elResult.classList.remove('hidden');
+      document.getElementById('r-emoji').textContent = p.emoji;
+      document.getElementById('r-title').textContent = p.title;
+      document.getElementById('r-text').innerHTML = p.text;
+
+      var shareText = "J'ai fait le quiz « Sexe et couple : où en êtes-vous vraiment ? » sur Oui Psycho! Mon profil : " + p.title + ".";
+      document.getElementById('share-fb').href = "https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(PAGE_URL);
+      document.getElementById('share-tw').href = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(shareText) + "&url=" + encodeURIComponent(PAGE_URL);
+      document.getElementById('share-wa').href = "https://wa.me/?text=" + encodeURIComponent(shareText + " " + PAGE_URL);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_complete', { quiz_id: 'couple-heureux-sans-faire-lamour-quiz', profile: best });
+      }
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      elStart.classList.add('hidden');
+      elQuiz.classList.remove('hidden');
+      showQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A:0, B:0, C:0, D:0 };
+      elResult.classList.add('hidden');
+      elQuiz.classList.remove('hidden');
+      showQuestion();
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
