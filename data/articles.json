@@ -210,66 +210,23 @@
     "title": "Kurt Cobain sur le divan : psychologie d'une icône",
     "type": "article",
     "excerpt": "Enfance fracturée, douleur, addiction, gloire toxique — et un mythe du « club des 27 » qui ne résiste pas aux données. Trente ans après, ce que l'icône du grunge apprend à la santé mentale.",
-    "metaDescription": "Enfance, addiction, gloire et mythe du club des 27 : la trajectoire de Kurt Cobain éclairée par la recherche en santé mentale. Avec un quiz créatif.",
-    "author": "John Balthazar",
     "date": "2027-02-09",
-    "date_modified": "2027-02-09",
+    "date_modified": "2026-07-14",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ycirq823rdnpbkdylvsp",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "kurt-cobain",
       "addiction",
       "depression",
       "heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Felitti V. J., Anda R. F., Nordenberg D., Williamson D. F., Spitz A. M., Edwards V., Koss M. P. & Marks J. S.",
-        "year": "1998",
-        "title": "Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study",
-        "journal": "American Journal of Preventive Medicine",
-        "url": "https://doi.org/10.1016/S0749-3797(98)00017-8"
-      },
-      {
-        "authors": "Khantzian E. J.",
-        "year": "1997",
-        "title": "The self-medication hypothesis of substance use disorders: A reconsideration and recent applications",
-        "journal": "Harvard Review of Psychiatry",
-        "url": "https://doi.org/10.3109/10673229709030550"
-      },
-      {
-        "authors": "Kyaga S., Landén M., Boman M., Hultman C. M., Långström N. & Lichtenstein P.",
-        "year": "2013",
-        "title": "Mental illness, suicide and creativity: 40-year prospective total population study",
-        "journal": "Journal of Psychiatric Research",
-        "url": "https://doi.org/10.1016/j.jpsychires.2012.09.010"
-      },
-      {
-        "authors": "Wolkewitz M., Allignol A., Graves N. & Barnett A. G.",
-        "year": "2011",
-        "title": "Is 27 really a dangerous age for famous musicians? Retrospective cohort study",
-        "journal": "BMJ",
-        "url": "https://doi.org/10.1136/bmj.d7799"
-      },
-      {
-        "authors": "Bellis M. A., Hennell T., Lushey C., Hughes K., Tocque K. & Ashton J. R.",
-        "year": "2007",
-        "title": "Elvis to Eminem: quantifying the price of fame through early mortality of European and North American rock and pop stars",
-        "journal": "Journal of Epidemiology and Community Health",
-        "url": "https://doi.org/10.1136/jech.2007.059915"
-      },
-      {
-        "authors": "Jobes D. A., Berman A. L., O'Carroll P. W., Eastgard S. & Knickmeyer S.",
-        "year": "1996",
-        "title": "The Kurt Cobain suicide crisis: Perspectives from research, public health, and the news media",
-        "journal": "Suicide and Life-Threatening Behavior"
-      }
-    ],
+    "metaDescription": "Enfance, addiction, gloire et mythe du club des 27 : la trajectoire de Kurt Cobain éclairée par la recherche en santé mentale. Avec un quiz créatif.",
     "articles_lies": [],
     "status": "scheduled"
   },
