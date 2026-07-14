@@ -106,12 +106,12 @@
   {
     "id": "joker-sur-le-divan",
     "title": "Le Joker sur le divan : psychologie d'un clown dérangé",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Psychopathe de manuel, malade imaginaire ou produit d'une société qui humilie ? Le clown le plus célèbre de Gotham s'allonge sur le divan — et c'est notre reflet qui apparaît.",
     "date": "2027-02-16",
-    "date_modified": "2027-02-16",
+    "date_modified": "2026-07-14",
     "category": "Les monstres sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzew2igdfzmryuqnatek",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -124,7 +124,7 @@
       "stigmatisation",
       "monstres-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Psychopathie, rire pathologique, fabrique sociale de la violence : ce que le Joker révèle de nos préjugés sur la santé mentale. Analyse et quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
