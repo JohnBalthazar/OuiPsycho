@@ -966,17 +966,16 @@
     "title": "Peut-on vraiment être heureux en couple sans faire l'amour ?",
     "type": "article",
     "excerpt": "La norme voudrait qu'un couple heureux soit un couple qui fait l'amour. La recherche raconte une histoire plus subtile — où la tendresse, le consentement et l'accord mutuel pèsent bien plus lourd que la fréquence des rapports.",
-    "metaDescription": "Peut-on être heureux en couple sans sexualité ? Ce que dit la science du désir, de l'asexualité et de l'injonction à faire l'amour. Avec un quiz.",
-    "author": "John Balthazar",
     "date": "2026-12-18",
-    "date_modified": "2026-12-18",
+    "date_modified": "2026-07-14",
     "category": "Sexo",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/su4ve4msvz0aei4u4gzy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "couple",
       "sexualite",
@@ -984,43 +983,7 @@
       "asexualite",
       "intimite"
     ],
-    "sources": [
-      {
-        "authors": "Muise A., Schimmack U. & Impett E. A.",
-        "year": "2016",
-        "title": "Sexual Frequency Predicts Greater Well-Being, But More Is Not Always Better",
-        "journal": "Social Psychological and Personality Science",
-        "url": "https://doi.org/10.1177/1948550615616462"
-      },
-      {
-        "authors": "Debrot A., Meuwly N., Muise A., Impett E. A. & Schoebi D.",
-        "year": "2017",
-        "title": "More Than Just Sex: Affection Mediates the Association Between Sexual Activity and Well-Being",
-        "journal": "Personality and Social Psychology Bulletin",
-        "url": "https://doi.org/10.1177/0146167216684124"
-      },
-      {
-        "authors": "Bogaert A. F.",
-        "year": "2004",
-        "title": "Asexuality: Prevalence and Associated Factors in a National Probability Sample",
-        "journal": "Journal of Sex Research",
-        "url": "https://doi.org/10.1080/00224490409552235"
-      },
-      {
-        "authors": "Brotto L. A. & Yule M.",
-        "year": "2017",
-        "title": "Asexuality: Sexual Orientation, Paraphilia, Sexual Dysfunction, or None of the Above?",
-        "journal": "Archives of Sexual Behavior",
-        "url": "https://doi.org/10.1007/s10508-016-0802-7"
-      },
-      {
-        "authors": "Donnelly D. A.",
-        "year": "1993",
-        "title": "Sexually Inactive Marriages",
-        "journal": "Journal of Sex Research",
-        "url": "https://doi.org/10.1080/00224499309551683"
-      }
-    ],
+    "metaDescription": "Peut-on être heureux en couple sans sexualité ? Ce que dit la science du désir, de l'asexualité et de l'injonction à faire l'amour. Avec un quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
