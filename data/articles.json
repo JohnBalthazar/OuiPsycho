@@ -160,17 +160,16 @@
     "title": "Pourquoi certaines personnes prennent peur dès qu'une relation devient sérieuse : ce que révèle la psychologie",
     "type": "article",
     "excerpt": "Tout va bien, puis quelqu'un prononce « officialiser » — et l'autre recule. Attachement évitant, peur d'être vraiment connu, stratégies de désactivation : la science explique ce paradoxe de ceux qui fuient ce qu'ils désirent.",
-    "metaDescription": "Attachement évitant, peur de l'intimité, stratégies de désactivation : pourquoi certains fuient dès qu'une relation devient sérieuse, et comment en sortir.",
-    "author": "John Balthazar",
     "date": "2027-02-18",
     "date_modified": "2026-07-14",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kn4qzsbfulwsenvsm0ql",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "peur-de-l-engagement",
       "attachement-evitant",
@@ -178,42 +177,7 @@
       "couple",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "Hazan C. & Shaver P.",
-        "year": "1987",
-        "title": "Romantic love conceptualized as an attachment process",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.52.3.511"
-      },
-      {
-        "authors": "Mikulincer M. & Shaver P. R.",
-        "year": "2016",
-        "title": "Attachment in Adulthood: Structure, Dynamics, and Change (2nd ed.)",
-        "publisher": "Guilford Press"
-      },
-      {
-        "authors": "Descutner C. J. & Thelen M. H.",
-        "year": "1991",
-        "title": "Development and validation of a Fear-of-Intimacy Scale",
-        "journal": "Psychological Assessment",
-        "url": "https://doi.org/10.1037/1040-3590.3.2.218"
-      },
-      {
-        "authors": "Birnie C., McClure M. J., Lydon J. E. & Holmberg D.",
-        "year": "2009",
-        "title": "Attachment avoidance and commitment aversion: A script for relationship failure",
-        "journal": "Personal Relationships",
-        "url": "https://doi.org/10.1111/j.1475-6811.2008.01211.x"
-      },
-      {
-        "authors": "Fraley R. C. & Shaver P. R.",
-        "year": "2000",
-        "title": "Adult romantic attachment: Theoretical developments, emerging controversies, and unanswered questions",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.4.2.132"
-      }
-    ],
+    "metaDescription": "Attachement évitant, peur de l'intimité, stratégies de désactivation : pourquoi certains fuient dès qu'une relation devient sérieuse, et comment en sortir.",
     "articles_lies": [],
     "status": "scheduled"
   },
