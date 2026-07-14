@@ -712,11 +712,12 @@
   {
     "id": "traumatismes-invisibles-enfance",
     "title": "Traumatismes invisibles : parentification, négligence émotionnelle et blessures d'enfance",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Pas de coups, pas de drame visible — et pourtant quelque chose ne va pas. Parentification, négligence émotionnelle : ces blessures d'enfance faites d'absence, que la science prend enfin au sérieux.",
     "date": "2027-01-21",
-    "date_modified": "2027-01-21",
+    "date_modified": "2026-07-14",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/v9urdfnbjqjkmjtj85jd",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -730,7 +731,7 @@
       "enfance",
       "psychotraumatologie"
     ],
-    "metaDescription": "",
+    "metaDescription": "Parentification, négligence émotionnelle : comprendre les traumatismes invisibles de l'enfance, leurs traces à l'âge adulte et comment les réparer. Avec quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
