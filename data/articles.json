@@ -124,11 +124,12 @@
   {
     "id": "dark-vador-sur-le-divan",
     "title": "Dark Vador sur le divan : psychologie d'un seigneur des ténèbres",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Enfant esclave, héros de guerre, bourreau galactique, père in extremis. Sous le casque le plus célèbre du cinéma : une peur de l'abandon jamais soignée — et un manuel d'emprise.",
     "date": "2027-02-23",
-    "date_modified": "2027-02-23",
+    "date_modified": "2026-07-14",
     "category": "Les monstres sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpgvnzcodlfce1a3ejqb",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -141,7 +142,7 @@
       "emprise",
       "monstres-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Trouble borderline, emprise de Palpatine, blessure morale, dissociation : la psychologie de Dark Vador décryptée par la science. Avec un quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
