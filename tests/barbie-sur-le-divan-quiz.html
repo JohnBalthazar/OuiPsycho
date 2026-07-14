@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barbie Land ou monde réel : où en êtes-vous avec la perfection ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/barbie-sur-le-divan/">
+  <meta name="description" content="Façade impeccable, quête de regard ou imperfection assumée ? 8 questions pour situer votre rapport à la perfection.">
+  <style>
+    :root{
+      --rose:#C2447E; --rose-fonce:#8f2f5c; --menthe:#3E9E8C; --accent:#E06AA3;
+      --fond:#FBF5F8; --carte:#ffffff; --texte:#3a2b33; --gris:#7d6b75;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(194,68,126,.13);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--rose),var(--rose-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.35rem;margin-bottom:6px}
+    .entete p{opacity:.92;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#f3e4ec;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--menthe);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--rose-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#faf1f6;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--rose);background:#f7e9f0}
+    .btn{display:inline-block;background:var(--rose);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--rose-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#ecf6f3;border-left:4px solid var(--menthe);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#faf1f6;border:1px solid #eedbe6;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#f4e5ee}
+    .disclaimer{background:#faf1f6;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.15rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Barbie Land ou monde réel : où en êtes-vous avec la perfection&nbsp;?</h1>
+      <p>8 questions sur la façade, le regard des autres et l'imperfection assumée. Pieds plats bienvenus.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "On vous demande « ça va ? » alors que, justement, ça ne va pas. Vous répondez :",
+        r: [
+          {t: "« Super, et toi ?! » — le sourire est déjà en place avant la fin de la question.", p: "A"},
+          {t: "Ça dépend de qui demande : si la personne compte, vous soignez la réponse.", p: "B"},
+          {t: "« Bof, comme un mardi. » Vous dites la vérité, quitte à surprendre.", p: "C"},
+          {t: "« Pas terrible, en fait. » Et vous précisez, si l'autre a cinq minutes.", p: "D"}
+        ]
+      },
+      {
+        q: "Une photo de vous peu flatteuse circule dans le groupe. Réaction :",
+        r: [
+          {t: "Vous demandez sa suppression dans la minute — l'image, c'est sérieux.", p: "A"},
+          {t: "Vous scrutez les réactions : tant que ça rit AVEC vous, ça va.", p: "B"},
+          {t: "Vous la mettez en photo de profil, pour prendre tout le monde de vitesse.", p: "C"},
+          {t: "Vous grimacez deux secondes, puis franchement, il y a plus grave.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre rapport au miroir, honnêtement :",
+        r: [
+          {t: "Un contrôle qualité quotidien — plusieurs fois par jour, même.", p: "A"},
+          {t: "Variable : les jours de forte exposition sociale, il devient très bavard.", p: "B"},
+          {t: "Un partenaire de jeu : vous y testez des looks que personne n'a demandés.", p: "C"},
+          {t: "Un outil : coiffure, dents, c'est bon, on y va.", p: "D"}
+        ]
+      },
+      {
+        q: "Une pensée du genre « à quoi bon tout ça ? » vous traverse en pleine fête. Vous :",
+        r: [
+          {t: "La chassez immédiatement — surtout ne pas fissurer la soirée.", p: "A"},
+          {t: "Cherchez quelqu'un à qui plaire : rien de tel qu'un regard pour se sentir exister.", p: "B"},
+          {t: "La trouvez intéressante et la partagez à voix haute, au milieu de la piste.", p: "C"},
+          {t: "La notez pour plus tard : ces questions méritent mieux qu'un fond de musique.", p: "D"}
+        ]
+      },
+      {
+        q: "Ce qui vous blesse le plus profondément :",
+        r: [
+          {t: "Qu'on voie la fissure derrière la façade.", p: "A"},
+          {t: "Être invisible — qu'on ne vous remarque même pas.", p: "B"},
+          {t: "Qu'on essaie de vous normaliser « pour votre bien ».", p: "C"},
+          {t: "Trahir vos propres valeurs, même si personne ne le sait.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre réussite, elle compte surtout quand :",
+        r: [
+          {t: "Elle est visible, propre, sans bavure — présentable en toutes circonstances.", p: "A"},
+          {t: "Quelqu'un d'important la remarque et le dit.", p: "B"},
+          {t: "Elle vous ressemble, même si personne ne comprend le projet.", p: "C"},
+          {t: "Elle est alignée avec ce qui compte pour vous — applaudie ou non.", p: "D"}
+        ]
+      },
+      {
+        q: "On vous propose une vie parfaite, mais figée : même journée idéale, pour toujours. Vous :",
+        r: [
+          {t: "Demandez à voir le contrat — la stabilité parfaite, ça se réfléchit.", p: "A"},
+          {t: "Acceptez si tout le monde vous y admire. Sinon, quel intérêt ?", p: "B"},
+          {t: "Refusez en riant : vous sabotiez déjà la journée idéale au bout d'une semaine.", p: "C"},
+          {t: "Refusez : sans imprévu, sans fin, rien n'a de valeur ni de goût.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre devise secrète ressemblerait à :",
+        r: [
+          {t: "« Tout va bien, tout est sous contrôle, tout est... très bien. »", p: "A"},
+          {t: "« Regardez-moi — s'il vous plaît. »", p: "B"},
+          {t: "« Le grand écart permanent, c'est un choix de vie. »", p: "C"},
+          {t: "« Plutôt vraie avec des pieds plats que parfaite en vitrine. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "✨",
+        titre: "La Façade stéréotypée (en cours de fissuration)",
+        texte: "<p>Comme la Barbie du début du film, vous excellez dans l'art de la journée parfaite : sourire en place, vernis sans accroc, émotions rangées par ordre alphabétique. Le problème des façades parfaites, c'est leur coût d'entretien — et ce qui se passe derrière quand personne ne regarde. La pensée intruse en pleine fête, les « pieds plats » symboliques : ce ne sont pas des pannes, ce sont des messages.</p><p>La bonne nouvelle du film : c'est la fissure qui lance l'aventure, jamais le vernis.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> pratiquez l'imperfection visible à petites doses — dire « je ne sais pas », montrer une fatigue, laisser une imperfection en ligne. Vous constaterez que le monde tient. Et si l'angoisse derrière la façade prend de la place, en parler à un professionnel n'abîme pas l'image : ça libère celle ou celui qui la porte."
+      },
+      B: {
+        emoji: "🕶️",
+        titre: "Le Ken en quête de Kenough",
+        texte: "<p>Votre baromètre intérieur est branché sur le regard des autres : remarqué, vous rayonnez ; invisible, vous doutez d'exister. C'est l'équation de Ken — « et Ken », dit l'emballage — et elle est épuisante, car elle sous-traite l'estime de soi à un public qui a d'autres choses à faire. La surenchère (le Kendom, les chevaux, la veste en fourrure) n'est jamais loin quand la reconnaissance manque.</p><p>Mais le film vous offre la sortie : Ken devient intéressant précisément quand il cesse de se définir par le regard de Barbie.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> construisez du « Kenough » — des activités et des liens où vous avez de la valeur sans spectateur : un savoir-faire, un engagement, une relation où l'on vous aime hors performance. Et notez chaque soir une chose faite pour vous, pas pour être vu. L'estime interne se muscle exactement comme ça."
+      },
+      C: {
+        emoji: "🌀",
+        titre: "La Barbie Bizarre (lucide et assumée)",
+        texte: "<p>Cheveux coupés au ciseau à ongles, grand écart permanent, franchise déconcertante : comme la Barbie Bizarre du film, vous avez renoncé tôt au concours de conformité — et c'est souvent vous qui voyez le plus clair. Dans le film, c'est elle que l'on consulte quand tout déraille ; dans la vraie vie, les « bizarres » assumés sont souvent les vigies du groupe.</p><p>Votre vigilance : la marge peut devenir une forteresse. Être hors norme par choix est une liberté ; l'être par peur d'être rejeté en tentant d'appartenir, c'est une autre histoire — et elle mérite d'être regardée.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> vérifiez de temps en temps que votre excentricité est bien un choix et pas seulement une protection. Et acceptez un rôle officiel dans la tribu — les Barbie Bizarres du film finissent consultées par tout Barbie Land. Votre lucidité vaut mieux qu'un poste d'observatrice."
+      },
+      D: {
+        emoji: "🌱",
+        titre: "L'Humain·e des pieds plats",
+        texte: "<p>Vous avez fait le choix final de Barbie : l'imperfection vivante plutôt que la perfection en vitrine. Vos réussites se mesurent à vos valeurs, vos émotions ont droit de cité, et une photo ratée ne déclenche pas de cellule de crise. C'est la position la plus solide du quiz — celle où l'estime de soi ne dépend ni du vernis ni du public.</p><p>Votre vigilance : l'authenticité peut devenir un confort. Choisir le réel, c'est aussi accepter d'y être bousculé — par les questions existentielles comme par les rendez-vous médicaux qu'on repousse.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> continuez — et mettez cette solidité au service des Façades et des Ken de votre entourage : votre permission d'être imparfait est contagieuse. Petit clin d'œil à la dernière scène du film : c'est aussi vous qui prenez vos rendez-vous de santé sans les repousser. N'est-ce pas ?"
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/barbie-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['A', 'B', 'C', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "Mon profil Barbie Land : " + p.titre + " " + p.emoji + " — et vous, où en êtes-vous avec la perfection ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
