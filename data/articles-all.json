@@ -154,6 +154,67 @@
     "status": "scheduled"
   },
   {
+    "id": "comment-fonctionnent-les-hommes-conseils-aux-femmes",
+    "title": "Comment fonctionnent les hommes ? Leurs conseils adressés aux femmes",
+    "type": "article",
+    "excerpt": "« Laissez-le venir », « les hommes ne parlent pas de leurs émotions »… Que valent vraiment ces conseils ? La psychologie scientifique démonte, étude après étude, le mythe du mode d'emploi masculin.",
+    "metaDescription": "« Les hommes sont comme ça » : que valent ces conseils adressés aux femmes ? La psychologie démonte les mythes du décodage masculin, études à l'appui.",
+    "author": "John Balthazar",
+    "date": "2027-02-05",
+    "date_modified": "2026-07-14",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "couple",
+      "stereotypes-de-genre",
+      "communication",
+      "psychologie-feministe"
+    ],
+    "sources": [
+      {
+        "authors": "Hyde J. S.",
+        "year": "2005",
+        "title": "The gender similarities hypothesis",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.60.6.581"
+      },
+      {
+        "authors": "Carothers B. J. & Reis H. T.",
+        "year": "2013",
+        "title": "Men and women are from Earth: Examining the latent structure of gender",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0030437"
+      },
+      {
+        "authors": "Petersen J. L. & Hyde J. S.",
+        "year": "2010",
+        "title": "A meta-analytic review of research on gender differences in sexuality, 1993–2007",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/a0017504"
+      },
+      {
+        "authors": "Zell E., Krizan Z. & Teeter S. R.",
+        "year": "2015",
+        "title": "Evaluating gender similarities and differences using metasynthesis",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/a0038208"
+      },
+      {
+        "authors": "Fine C.",
+        "year": "2010",
+        "title": "Delusions of Gender: How Our Minds, Society, and Neurosexism Create Difference",
+        "publisher": "W. W. Norton & Company"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "piege-du-perfectionnisme",
     "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
     "excerpt": "",
