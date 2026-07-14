@@ -612,12 +612,12 @@
   {
     "id": "tdah-adulte-la-revelation",
     "title": "TDAH adulte : la révélation",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Diagnostiqué·e à 30, 40, 50 ans : pourquoi les diagnostics de TDAH explosent chez les adultes, ce que cette révélation change vraiment, et par où commencer.",
     "date": "2027-01-29",
-    "date_modified": "2026-07-13",
+    "date_modified": "2026-07-14",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/e2wm1bxyvgowma3cnuxs",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -631,7 +631,7 @@
       "attention",
       "neurodeveloppement"
     ],
-    "metaDescription": "",
+    "metaDescription": "TDAH chez l'adulte : définition, pourquoi les diagnostics tardifs explosent, ce que la révélation change et les solutions concrètes. Avec quiz de réflexion.",
     "articles_lies": [],
     "status": "scheduled"
   },
