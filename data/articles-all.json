@@ -692,12 +692,12 @@
   {
     "id": "amie-toxique-10-signes-manipulation",
     "title": "Amie toxique : 10 signes qu'elle vous manipule (et comment réagir)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Compliments qui piquent, culpabilisation, chaud et froid permanent... Parce que le mot « amie » désarme la méfiance, la manipulation amicale avance masquée. Les 10 signes qui doivent alerter.",
     "date": "2027-01-22",
-    "date_modified": "2027-01-22",
+    "date_modified": "2026-07-14",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/t8wppcuo4sjxd4pzhchq",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -711,7 +711,7 @@
       "emprise",
       "relations"
     ],
-    "metaDescription": "",
+    "metaDescription": "Amie toxique : 10 signes de manipulation à repérer — gaslighting, culpabilisation, compétition — pourquoi on reste, et comment réagir. Avec quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
