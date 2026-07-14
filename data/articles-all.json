@@ -1,5 +1,73 @@
 [
   {
+    "id": "dieu-sur-le-divan",
+    "title": "Dieu sur le divan : psychologie d'un vieux barbu vivant au-dessus des nuages",
+    "type": "article",
+    "excerpt": "Il habite au-dessus des nuages, porte la barbe depuis l'aube des temps et n'a jamais consulté. Il était temps de l'allonger sur le divan — avec tout le respect (ou presque) qu'on lui doit.",
+    "metaDescription": "Anthropomorphisme, attachement, colères bibliques et patriarcat : la psychologie installe le vieux barbu des nuages sur le divan. Analyse impertinente.",
+    "author": "John Balthazar",
+    "date": "2027-03-23",
+    "date_modified": "2026-07-14",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "psychologie-de-la-religion",
+      "anthropomorphisme",
+      "attachement",
+      "feminisme",
+      "dieu"
+    ],
+    "sources": [
+      {
+        "authors": "Barrett J. L. & Keil F. C.",
+        "year": "1996",
+        "title": "Conceptualizing a nonnatural entity: Anthropomorphism in God concepts",
+        "journal": "Cognitive Psychology",
+        "url": "https://doi.org/10.1006/cogp.1996.0017"
+      },
+      {
+        "authors": "Epley N., Waytz A. & Cacioppo J. T.",
+        "year": "2007",
+        "title": "On seeing human: A three-factor theory of anthropomorphism",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.114.4.864"
+      },
+      {
+        "authors": "Kirkpatrick L. A. & Shaver P. R.",
+        "year": "1990",
+        "title": "Attachment theory and religion: Childhood attachments, religious beliefs, and conversion",
+        "journal": "Journal for the Scientific Study of Religion",
+        "url": "https://doi.org/10.2307/1386461"
+      },
+      {
+        "authors": "Vail K. E., Rothschild Z. K., Weise D. R., Solomon S., Pyszczynski T. & Greenberg J.",
+        "year": "2010",
+        "title": "A terror management analysis of the psychological functions of religion",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1177/1088868309351165"
+      },
+      {
+        "authors": "Daly M.",
+        "year": "1973",
+        "title": "Beyond God the Father: Toward a Philosophy of Women's Liberation",
+        "publisher": "Beacon Press"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1927",
+        "title": "L'Avenir d'une illusion",
+        "publisher": "PUF"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "abbe-pierre-sur-le-divan",
     "title": "L'abbé Pierre sur le divan : anatomie d'une impunité",
     "type": "article",
