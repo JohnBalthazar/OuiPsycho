@@ -1,0 +1,12 @@
+{
+  "name": "ouipsycho-tools",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Outils de génération statique pour ouipsycho.fr",
+  "scripts": {
+    "gen-pins": "node _gen_pins.js"
+  },
+  "dependencies": {
+    "puppeteer": "^25.3.0"
+  }
+}
