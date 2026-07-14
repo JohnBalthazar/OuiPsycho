@@ -409,17 +409,16 @@
     "title": "Les 7 signes qui révèlent une personne narcissique (et que beaucoup ignorent)",
     "type": "article",
     "excerpt": "Le mot « narcissique » est devenu l'insulte psychologique préférée des réseaux sociaux. Derrière l'inflation, des signes bien réels que la recherche documente — et des pièges à éviter avant de coller l'étiquette.",
-    "metaDescription": "Grandiosité, absence d'empathie, love bombing, DARVO : 7 signes documentés par la recherche pour reconnaître un fonctionnement narcissique. Et ses limites.",
-    "author": "John Balthazar",
     "date": "2027-02-11",
     "date_modified": "2026-07-14",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fx3pniyouxq8t39jts2k",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "narcissisme",
       "relations-toxiques",
@@ -427,48 +426,7 @@
       "violences-psychologiques",
       "couple"
     ],
-    "sources": [
-      {
-        "authors": "American Psychiatric Association",
-        "year": "2013",
-        "title": "Diagnostic and Statistical Manual of Mental Disorders (DSM-5)",
-        "publisher": "American Psychiatric Publishing"
-      },
-      {
-        "authors": "Miller J. D., Lynam D. R., Hyatt C. S. & Campbell W. K.",
-        "year": "2017",
-        "title": "Controversies in narcissism",
-        "journal": "Annual Review of Clinical Psychology",
-        "url": "https://doi.org/10.1146/annurev-clinpsy-032816-045244"
-      },
-      {
-        "authors": "Wurst S. N., Gerlach T. M., Dufner M., Rauthmann J. F., Grosz M. P., Küfner A. C. P., Denissen J. J. A. & Back M. D.",
-        "year": "2017",
-        "title": "Narcissism and romantic relationships: The differential impact of narcissistic admiration and rivalry",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/pspp0000113"
-      },
-      {
-        "authors": "Grijalva E., Newman D. A., Tay L., Donnellan M. B., Harms P. D., Robins R. W. & Yan T.",
-        "year": "2015",
-        "title": "Gender differences in narcissism: A meta-analytic review",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/a0038231"
-      },
-      {
-        "authors": "Freyd J. J.",
-        "year": "1997",
-        "title": "Violations of power, adaptive strategies, and betrayal trauma theory",
-        "journal": "Feminism & Psychology",
-        "url": "https://doi.org/10.1177/0959353597071004"
-      },
-      {
-        "authors": "Racamier P.-C.",
-        "year": "1992",
-        "title": "Le génie des origines : psychanalyse et psychoses",
-        "publisher": "Payot"
-      }
-    ],
+    "metaDescription": "Grandiosité, absence d'empathie, love bombing, DARVO : 7 signes documentés par la recherche pour reconnaître un fonctionnement narcissique. Et ses limites.",
     "articles_lies": [],
     "status": "scheduled"
   },
