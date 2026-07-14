@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Où en êtes-vous avec les modes d'emploi masculins ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/comment-fonctionnent-les-hommes-conseils-aux-femmes/">
+  <meta name="description" content="Recettes miracles, décodage permanent ou regard libre : faites le point sur votre rapport aux conseils « spécial hommes ».">
+  <style>
+    :root{
+      --bleu:#1F4E6B;
+      --bleu-fonce:#16394F;
+      --corail:#E07A5F;
+      --fond:#F7F5F0;
+      --carte:#FFFFFF;
+      --texte:#2B2B2B;
+      --texte-doux:#5C6B76;
+      --bordure:#E3E0D8;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--fond);
+      color:var(--texte);
+      line-height:1.6;
+      padding:16px;
+    }
+    .quiz-box{
+      max-width:640px;
+      margin:0 auto;
+      background:var(--carte);
+      border:1px solid var(--bordure);
+      border-radius:16px;
+      padding:28px 24px;
+      box-shadow:0 2px 12px rgba(31,78,107,.08);
+    }
+    h1{
+      font-size:1.35rem;
+      color:var(--bleu);
+      margin-bottom:8px;
+      line-height:1.3;
+    }
+    .intro{color:var(--texte-doux);font-size:.95rem;margin-bottom:20px;}
+    .progress-wrap{
+      background:#EDEAE2;
+      border-radius:99px;
+      height:8px;
+      margin-bottom:6px;
+      overflow:hidden;
+    }
+    .progress-bar{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--bleu),var(--corail));
+      border-radius:99px;
+      transition:width .35s ease;
+    }
+    .progress-label{font-size:.8rem;color:var(--texte-doux);margin-bottom:18px;}
+    .question{
+      font-size:1.08rem;
+      font-weight:600;
+      color:var(--bleu-fonce);
+      margin-bottom:16px;
+    }
+    .answers{display:flex;flex-direction:column;gap:10px;}
+    .answer-btn{
+      display:block;
+      width:100%;
+      text-align:left;
+      background:var(--fond);
+      border:2px solid var(--bordure);
+      border-radius:12px;
+      padding:13px 15px;
+      font-size:.97rem;
+      font-family:inherit;
+      color:var(--texte);
+      cursor:pointer;
+      transition:border-color .15s ease,background .15s ease,transform .1s ease;
+    }
+    .answer-btn:hover,.answer-btn:focus-visible{
+      border-color:var(--bleu);
+      background:#EEF4F8;
+      outline:none;
+    }
+    .answer-btn:active{transform:scale(.99);}
+    .result{display:none;}
+    .result-emoji{font-size:2.4rem;text-align:center;margin-bottom:8px;}
+    .result-title{
+      font-size:1.25rem;
+      color:var(--bleu);
+      text-align:center;
+      margin-bottom:14px;
+    }
+    .result-text{font-size:.98rem;margin-bottom:18px;}
+    .result-text p{margin-bottom:10px;}
+    .share{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:center;
+      margin:18px 0;
+    }
+    .share a{
+      text-decoration:none;
+      font-size:.9rem;
+      padding:9px 14px;
+      border-radius:99px;
+      border:1px solid var(--bordure);
+      color:var(--bleu-fonce);
+      background:var(--fond);
+      transition:background .15s ease;
+    }
+    .share a:hover{background:#EEF4F8;}
+    .disclaimer{
+      font-size:.85rem;
+      color:var(--texte-doux);
+      background:#F2EFE8;
+      border-radius:10px;
+      padding:12px 14px;
+      margin-top:14px;
+    }
+    .restart-btn{
+      display:block;
+      margin:18px auto 0;
+      background:var(--bleu);
+      color:#fff;
+      border:none;
+      border-radius:99px;
+      padding:12px 26px;
+      font-size:.95rem;
+      font-family:inherit;
+      cursor:pointer;
+      transition:background .15s ease;
+    }
+    .restart-btn:hover{background:var(--bleu-fonce);}
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none !important;}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-box">
+    <h1>Où en êtes-vous avec les modes d'emploi masculins ?</h1>
+    <p class="intro" id="intro">8 situations pour faire le point sur votre rapport aux conseils « spécial hommes ». Répondez spontanément, sans réfléchir à la « bonne » réponse.</p>
+
+    <div class="progress-wrap" id="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+    <p class="progress-label" id="progress-label"></p>
+
+    <div id="quiz-area">
+      <p class="question" id="question-text"></p>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <div class="result" id="result">
+      <div class="result-emoji" id="result-emoji"></div>
+      <h2 class="result-title" id="result-title"></h2>
+      <div class="result-text" id="result-text"></div>
+      <div class="share">
+        <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+      <button class="restart-btn" id="restart">↻ Recommencer le quiz</button>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Il n'a pas répondu à votre message depuis hier soir. Votre premier réflexe ?",
+        a: [
+          { t: "Je me dis qu'il est occupé — comme moi quand je ne réponds pas.", p: "A" },
+          { t: "Je sais que ça ne veut rien dire… mais une petite voix me souffle « laisse-le venir ».", p: "B" },
+          { t: "Surtout ne pas relancer : un homme a besoin de chasser.", p: "C" },
+          { t: "Je calcule le délai idéal avant de répondre, pour ne pas paraître trop disponible.", p: "D" }
+        ]
+      },
+      {
+        q: "Une amie vous conseille : « Ne montre pas trop que tu tiens à lui. » Vous pensez :",
+        a: [
+          { t: "Pourquoi jouer un rôle ? Si ma sincérité le fait fuir, le problème n'est pas ma sincérité.", p: "A" },
+          { t: "C'est absurde… mais je l'ai déjà appliqué, je l'avoue.", p: "B" },
+          { t: "Elle a raison, c'est la règle numéro un avec les hommes.", p: "C" },
+          { t: "Encore une règle à ajouter à ma longue liste de choses à surveiller.", p: "D" }
+        ]
+      },
+      {
+        q: "Vous tombez sur un article « 7 choses que les hommes attendent d'une femme ». Vous…",
+        a: [
+          { t: "Passez votre chemin : les hommes ne sont pas une espèce à documenter.", p: "A" },
+          { t: "Le lisez « pour rire »… et en retenez quand même deux ou trois points.", p: "B" },
+          { t: "Le lisez attentivement et l'envoyez à vos copines.", p: "C" },
+          { t: "Le lisez en soupirant : encore 7 choses que vous devrez gérer.", p: "D" }
+        ]
+      },
+      {
+        q: "Il semble distant depuis quelques jours. Vous…",
+        a: [
+          { t: "Lui demandez simplement comment il va. C'est fou, mais ça marche.", p: "A" },
+          { t: "Hésitez entre lui parler et « respecter sa caverne », comme dit le magazine.", p: "B" },
+          { t: "Le laissez tranquille : un homme qui se retire ne doit jamais être dérangé.", p: "C" },
+          { t: "Analysez tous ses messages récents pour trouver ce que VOUS avez fait de travers.", p: "D" }
+        ]
+      },
+      {
+        q: "Vous devez aborder un sujet délicat (argent, engagement, avenir). Votre stratégie ?",
+        a: [
+          { t: "Aucune stratégie : je choisis un moment calme et je dis ce que j'ai à dire.", p: "A" },
+          { t: "Je prépare le terrain en suivant à moitié les conseils lus ici et là.", p: "B" },
+          { t: "J'attends le moment parfait : après le sport, jamais le soir, ventre plein.", p: "C" },
+          { t: "Je répète mon texte, minimise mes demandes et prévois ses objections.", p: "D" }
+        ]
+      },
+      {
+        q: "Dans votre couple (ou vos relations passées), qui « gère » l'émotionnel ?",
+        a: [
+          { t: "On s'y met à deux — c'est une compétence, pas un chromosome.", p: "A" },
+          { t: "Plutôt moi, mais je commence à trouver ça injuste.", p: "B" },
+          { t: "Moi, forcément : les hommes ne savent pas faire, c'est comme ça.", p: "C" },
+          { t: "Moi, à 100 %. Je suis la DRH, la psy et la médiatrice du couple.", p: "D" }
+        ]
+      },
+      {
+        q: "« Les hommes ne parlent pas de leurs sentiments. » Votre réaction ?",
+        a: [
+          { t: "Certains hommes. D'autres si. Comme les femmes, en fait.", p: "A" },
+          { t: "C'est cliché… mais avouons que ça se vérifie souvent autour de moi.", p: "B" },
+          { t: "C'est biologique, il faut l'accepter et ne pas les brusquer.", p: "C" },
+          { t: "Raison de plus pour que je devine tout à sa place, comme d'habitude.", p: "D" }
+        ]
+      },
+      {
+        q: "Pour vous, une relation qui fonctionne, c'est avant tout…",
+        a: [
+          { t: "Deux personnes qui se parlent franchement et réparent après les conflits.", p: "A" },
+          { t: "Un équilibre entre spontanéité et quelques « règles du jeu » bien connues.", p: "B" },
+          { t: "Une femme qui a compris comment fonctionnent les hommes.", p: "C" },
+          { t: "Beaucoup de travail invisible — le mien, essentiellement.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🕊️",
+        title: "L'esprit libre",
+        text: "<p>Vous avez fait le tri : pour vous, votre partenaire est une personne, pas le représentant d'une planète lointaine. Vous misez sur ce que la recherche identifie comme les vrais prédicteurs d'une relation solide : dire les choses, écouter, réparer.</p><p>Continuez à faire confiance à votre boussole. Et si un conseil « spécial hommes » vous fait douter, appliquez le test de l'article : remplacez « les hommes » par « les êtres humains » — vous verrez vite ce qu'il vaut.</p>"
+      },
+      B: {
+        emoji: "🌗",
+        title: "La sceptique sous influence",
+        text: "<p>Votre esprit critique est bien là : vous savez que ces recettes sentent le réchauffé. Mais les stéréotypes sont tenaces — ils reviennent par la petite porte, dans un doute, une hésitation avant d'envoyer un message.</p><p>C'est normal : nous baignons toutes et tous dans ces discours depuis l'enfance. La bonne nouvelle, c'est que les repérer est déjà la moitié du chemin. La prochaine fois qu'une « règle » vous traverse l'esprit, demandez-vous : est-ce que je pense à LUI, ou à une catégorie ?</p>"
+      },
+      C: {
+        emoji: "📖",
+        title: "L'abonnée aux recettes",
+        text: "<p>Les modes d'emploi masculins font partie de votre boîte à outils relationnelle. C'est compréhensible : ils promettent du contrôle dans un domaine — l'amour — où l'incertitude est angoissante.</p><p>Mais la science est claire : il n'existe pas de « psychologie masculine » homogène à décoder. En suivant ces règles, vous vous adaptez à un homme théorique… au risque de passer à côté de l'homme réel en face de vous. Essayez une expérience : la prochaine fois, remplacez la recette par une question directe. Vous pourriez être surprise.</p>"
+      },
+      D: {
+        emoji: "🎭",
+        title: "La stratège épuisée",
+        text: "<p>Vous calculez, anticipez, dosez, décodez — bref, vous portez seule la charge mentale relationnelle. Et si vous êtes fatiguée, c'est normal : ce travail invisible est épuisant, et il repose sur une idée fausse — celle qu'il vous revient de vous adapter à « comment fonctionnent les hommes ».</p><p>Une relation ne devrait pas exiger une stratégie permanente. Vous avez le droit d'être directe, spontanée, et d'attendre de l'autre qu'il fasse sa part du travail émotionnel. Si ce n'est pas le cas, la question à poser n'est pas « comment mieux le décoder ? » mais « cette relation me convient-elle ? ».</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+    var quizArea = document.getElementById('quiz-area');
+    var resultBox = document.getElementById('result');
+    var progressBar = document.getElementById('progress-bar');
+    var progressLabel = document.getElementById('progress-label');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('question-text').textContent = (current + 1) + '. ' + q.q;
+      var answersDiv = document.getElementById('answers');
+      answersDiv.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.type = 'button';
+        btn.textContent = ans.t;
+        btn.addEventListener('click', function() { selectAnswer(ans.p); });
+        answersDiv.appendChild(btn);
+      });
+      progressBar.style.width = ((current) / QUESTIONS.length * 100) + '%';
+      progressLabel.textContent = 'Question ' + (current + 1) + ' sur ' + QUESTIONS.length;
+      notifyResize();
+    }
+
+    function selectAnswer(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A', max = -1;
+      ['A', 'B', 'C', 'D'].forEach(function(k) {
+        if (votes[k] > max) { max = votes[k]; best = k; }
+      });
+      var p = PROFILES[best];
+      quizArea.style.display = 'none';
+      document.getElementById('intro').style.display = 'none';
+      progressBar.style.width = '100%';
+      progressLabel.textContent = 'Quiz terminé !';
+      document.getElementById('result-emoji').textContent = p.emoji;
+      document.getElementById('result-title').textContent = p.title;
+      document.getElementById('result-text').innerHTML = p.text;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/comment-fonctionnent-les-hommes-conseils-aux-femmes/';
+      var shareText = 'Mon résultat au quiz « Où en êtes-vous avec les modes d\'emploi masculins ? » : ' + p.title + ' — et vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      resultBox.style.display = 'block';
+      notifyResize();
+    }
+
+    document.getElementById('restart').addEventListener('click', function() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      resultBox.style.display = 'none';
+      document.getElementById('intro').style.display = 'block';
+      quizArea.style.display = 'block';
+      renderQuestion();
+      notifyResize();
+    });
+
+    renderQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
