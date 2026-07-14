@@ -266,6 +266,83 @@
     "status": "scheduled"
   },
   {
+    "id": "confiance-en-soi-science",
+    "title": "Confiance en soi : ce que dit vraiment la science (et ce qui ne marche pas)",
+    "type": "article",
+    "excerpt": "Répéter « je suis formidable » devant le miroir peut aggraver les choses, et la confiance ne précède presque jamais l'action. Tour d'horizon des leviers réellement validés par la recherche — et des recettes à jeter.",
+    "metaDescription": "Auto-efficacité, autocompassion, pièges des affirmations positives : ce que la science dit vraiment de la confiance en soi, et comment la construire.",
+    "author": "John Balthazar",
+    "date": "2027-02-12",
+    "date_modified": "2026-07-14",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "confiance-en-soi",
+      "estime-de-soi",
+      "auto-efficacite",
+      "autocompassion",
+      "developpement-personnel"
+    ],
+    "sources": [
+      {
+        "authors": "Bandura A.",
+        "year": "1977",
+        "title": "Self-efficacy: Toward a unifying theory of behavioral change",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.84.2.191"
+      },
+      {
+        "authors": "Wood J. V., Perunovic W. Q. E. & Lee J. W.",
+        "year": "2009",
+        "title": "Positive self-statements: Power for some, peril for others",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1111/j.1467-9280.2009.02370.x"
+      },
+      {
+        "authors": "Neff K. D.",
+        "year": "2003",
+        "title": "Self-compassion: An alternative conceptualization of a healthy attitude toward oneself",
+        "journal": "Self and Identity",
+        "url": "https://doi.org/10.1080/15298860309032"
+      },
+      {
+        "authors": "Brooks A. W.",
+        "year": "2014",
+        "title": "Get excited: Reappraising pre-performance anxiety as excitement",
+        "journal": "Journal of Experimental Psychology: General",
+        "url": "https://doi.org/10.1037/a0035325"
+      },
+      {
+        "authors": "Orth U. & Robins R. W.",
+        "year": "2014",
+        "title": "The development of self-esteem",
+        "journal": "Current Directions in Psychological Science",
+        "url": "https://doi.org/10.1177/0963721414547414"
+      },
+      {
+        "authors": "Vogel E. A., Rose J. P., Roberts L. R. & Eckles K.",
+        "year": "2014",
+        "title": "Social comparison, social media, and self-esteem",
+        "journal": "Psychology of Popular Media Culture",
+        "url": "https://doi.org/10.1037/ppm0000047"
+      },
+      {
+        "authors": "Clance P. R. & Imes S. A.",
+        "year": "1978",
+        "title": "The imposter phenomenon in high achieving women: Dynamics and therapeutic intervention",
+        "journal": "Psychotherapy: Theory, Research & Practice",
+        "url": "https://doi.org/10.1037/h0086006"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "7-signes-personne-narcissique",
     "title": "Les 7 signes qui révèlent une personne narcissique (et que beaucoup ignorent)",
     "type": "article",
