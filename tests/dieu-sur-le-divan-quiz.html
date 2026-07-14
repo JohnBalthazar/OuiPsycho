@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel Dieu seriez-vous ? Vengeur, miséricordieux ou en burn-out cosmique ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/dieu-sur-le-divan/">
+  <meta name="description" content="Vengeur, miséricordieux, micro-manageur ou en sabbatique éternelle : si on vous confiait les clés de l'univers, quel style de Dieu seriez-vous ?">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #16243a 0%, #1F4E6B 55%, #2c6a8f 100%);
+      color: #f4f6f9;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz-container { max-width: 620px; margin: 0 auto; }
+    .quiz-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.14);
+      border-radius: 16px;
+      padding: 28px 24px;
+      backdrop-filter: blur(4px);
+    }
+    h1 { font-size: 1.35rem; line-height: 1.35; margin-bottom: 10px; color: #ffd98a; }
+    .intro { font-size: 0.98rem; line-height: 1.55; color: #dde6ef; margin-bottom: 20px; }
+    .btn {
+      display: inline-block;
+      background: #ffd98a;
+      color: #1a2c42;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 26px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.3); }
+    .progress-wrap { background: rgba(255,255,255,0.12); border-radius: 99px; height: 8px; margin-bottom: 18px; overflow: hidden; }
+    .progress-bar { background: linear-gradient(90deg, #ffd98a, #ffb84d); height: 100%; width: 0; border-radius: 99px; transition: width .3s ease; }
+    .q-count { font-size: 0.82rem; color: #b9c8d6; margin-bottom: 8px; letter-spacing: .04em; text-transform: uppercase; }
+    .question { font-size: 1.12rem; font-weight: 700; line-height: 1.45; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.97rem;
+      line-height: 1.45;
+      color: #f4f6f9;
+      text-align: left;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, transform .1s ease;
+      width: 100%;
+    }
+    .answer:hover { background: rgba(255,217,138,0.18); border-color: #ffd98a; transform: translateX(3px); }
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 6px; }
+    .result-title { font-size: 1.4rem; font-weight: 800; text-align: center; color: #ffd98a; margin-bottom: 14px; }
+    .result-text { font-size: 0.99rem; line-height: 1.6; color: #e8eef5; margin-bottom: 20px; }
+    .share { text-align: center; margin: 18px 0 8px; }
+    .share p { font-size: .9rem; color: #b9c8d6; margin-bottom: 10px; }
+    .share a {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #f4f6f9;
+      text-decoration: none;
+      border-radius: 10px;
+      padding: 9px 14px;
+      margin: 0 4px 8px;
+      font-size: .9rem;
+      transition: background .15s ease;
+    }
+    .share a:hover { background: rgba(255,217,138,0.22); }
+    .disclaimer {
+      background: rgba(0,0,0,0.25);
+      border-left: 4px solid #ffd98a;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: #cfdbe6;
+      margin-top: 18px;
+    }
+    .restart { text-align: center; margin-top: 18px; }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-card" id="app"></div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Lundi matin. L'humanité a encore fait n'importe quoi pendant le week-end. Votre réaction ?",
+        a: [
+          { t: "Un petit déluge local, histoire de marquer le coup.", p: "A" },
+          { t: "Vous pardonnez : ils ne savent pas ce qu'ils font.", p: "B" },
+          { t: "Vous rédigez un mémo correctif en 613 points.", p: "C" },
+          { t: "Vous coupez les notifications jusqu'à jeudi.", p: "D" }
+        ]
+      },
+      {
+        q: "Un prophète autoproclamé raconte n'importe quoi en votre nom.",
+        a: [
+          { t: "Foudre. Immédiatement. Question de crédibilité.", p: "A" },
+          { t: "Chacun exprime sa spiritualité comme il peut.", p: "B" },
+          { t: "Vous lui dictez un erratum officiel, virgule par virgule.", p: "C" },
+          { t: "Ah bon ? Vous n'étiez même pas au courant.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre politique de réponse aux prières ?",
+        a: [
+          { t: "Priorité aux demandes de justice. Les autres attendront.", p: "A" },
+          { t: "Vous écoutez tout, même les demandes de place de parking.", p: "B" },
+          { t: "Formulaire en trois exemplaires, délai de traitement variable.", p: "C" },
+          { t: "Boîte vocale pleine depuis le septième jour.", p: "D" }
+        ]
+      },
+      {
+        q: "On vous représente en vieil homme barbu depuis des siècles. Votre avis ?",
+        a: [
+          { t: "Qu'ils osent me repeindre autrement, et ils verront.", p: "A" },
+          { t: "L'important, c'est l'intention de l'artiste.", p: "B" },
+          { t: "J'avais transmis un cahier des charges précis. Personne ne le lit.", p: "C" },
+          { t: "Je ne me reconnais pas du tout, mais bon, ça occupe les plafonds.", p: "D" }
+        ]
+      },
+      {
+        q: "Le libre arbitre, c'est quoi pour vous ?",
+        a: [
+          { t: "Une liberté surveillée, avec sanctions exemplaires.", p: "A" },
+          { t: "Une confiance totale, quoi qu'il en coûte.", p: "B" },
+          { t: "Une liberté encadrée par 12 000 pages de conditions générales.", p: "C" },
+          { t: "Je leur ai laissé les clés. Qu'ils se débrouillent.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre création préférée, honnêtement ?",
+        a: [
+          { t: "L'orage. Efficace, spectaculaire, pédagogique.", p: "A" },
+          { t: "Le câlin. Très sous-coté.", p: "B" },
+          { t: "La fourmi : organisée, ponctuelle, silencieuse.", p: "C" },
+          { t: "La sieste. Ma plus belle œuvre.", p: "D" }
+        ]
+      },
+      {
+        q: "Un humain doute publiquement de votre existence.",
+        a: [
+          { t: "Il va très vite réviser sa position.", p: "A" },
+          { t: "Le doute fait partie du chemin, je respecte.", p: "B" },
+          { t: "Je lui envoie trois signes documentés avec accusé de réception.", p: "C" },
+          { t: "Honnêtement ? Moi aussi, parfois.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre devise de management céleste ?",
+        a: [
+          { t: "« La crainte est le commencement de la sagesse. »", p: "A" },
+          { t: "« L'amour d'abord, on verra le reste ensuite. »", p: "B" },
+          { t: "« Tout ce qui n'est pas tracé n'existe pas. »", p: "C" },
+          { t: "« Ça finira bien par se réguler tout seul. »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "⚡",
+        title: "Le Dieu vengeur",
+        text: "Style Ancien Testament assumé : votre colère est olympique, votre déluge facile et votre foudre toujours chargée. Chez vous, la justice passe avant la diplomatie — et tant pis pour les dommages collatéraux. Derrière ce tonnerre se cache souvent une exigence très haute envers les autres… et envers vous-même. Les psychologues y verraient un besoin de contrôle face à un monde perçu comme menaçant. Bonne nouvelle : même les textes anciens montrent qu'on peut évoluer vers plus de miséricorde. Respirez avant de foudroyer : la plupart des humains font de leur mieux, si, si."
+      },
+      B: {
+        emoji: "🕊️",
+        title: "Le Dieu miséricordieux",
+        text: "Vous pardonnez tout, tout le temps, à tout le monde — y compris à ceux qui abusent visiblement du système. Votre amour est inconditionnel, votre patience infinie, et vos limites… disons, en cours de construction. C'est magnifique, mais attention : la bienveillance sans frontières mène tout droit au burn-out, même céleste. Les psychologues parleraient d'un attachement sécure généreux, à condition de ne pas s'oublier soi-même. Vous avez le droit de dire non. Même le septième jour, surtout le septième jour."
+      },
+      C: {
+        emoji: "📋",
+        title: "Le Dieu micro-manageur",
+        text: "Pas un moineau ne tombe sans que vous l'ayez consigné dans un tableur. Vous comptez les cheveux, tracez les prières, archivez les péchés en trois exemplaires. Votre univers tourne comme une horloge — la vôtre. Ce besoin de tout contrôler est très humain : il apaise l'angoisse de l'imprévisible. Mais à force de gérer chaque détail, on finit par ne plus profiter de sa propre création. Déléguez un continent ou deux, laissez le chaos improviser un peu : c'est souvent là que naissent les plus belles choses. L'évolution, par exemple."
+      },
+      D: {
+        emoji: "🌴",
+        title: "Le Dieu en sabbatique",
+        text: "Vous avez créé le monde, constaté que c'était bon, puis activé le répondeur — définitivement. Les philosophes vous appellent le deus otiosus, le dieu qui s'est retiré des affaires. Votre confiance dans l'autonomie de vos créatures est totale… ou est-ce une élégante façon d'éviter les conflits ? Ce détachement protège votre tranquillité, mais l'absence prolongée a un coût relationnel : vos fidèles vous écrivent depuis des millénaires sans accusé de réception. Un petit signe de temps en temps — un arc-en-ciel, un buisson qui grésille — entretiendrait le lien."
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+    var app = document.getElementById('app');
+    var PAGE_URL = "https://ouipsycho.fr/articles/dieu-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function esc(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderStart() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      app.innerHTML =
+        '<h1>⛅ Quel Dieu seriez-vous ?</h1>' +
+        '<p class="intro">Vengeur, miséricordieux, micro-manageur ou en sabbatique éternelle : si demain on vous confiait les clés de l\'univers, quel style de management céleste adopteriez-vous ? 8 questions pour le découvrir — sans foudre, promis.</p>' +
+        '<div class="center"><button class="btn" onclick="renderQuestion()">Monter sur le trône ☁️</button></div>';
+      notifyResize();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      var answers = shuffle(q.a);
+      var pct = Math.round((current / QUESTIONS.length) * 100);
+      var html =
+        '<div class="progress-wrap"><div class="progress-bar" style="width:' + pct + '%"></div></div>' +
+        '<div class="q-count">Question ' + (current + 1) + ' / ' + QUESTIONS.length + '</div>' +
+        '<div class="question">' + esc(q.q) + '</div>' +
+        '<div class="answers">';
+      answers.forEach(function(ans) {
+        html += '<button class="answer" onclick="pick(\'' + ans.p + '\')">' + esc(ans.t) + '</button>';
+      });
+      html += '</div>';
+      app.innerHTML = html;
+      notifyResize();
+    }
+
+    function pick(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        renderResult();
+      }
+    }
+
+    function renderResult() {
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var p = PROFILES[best];
+      var shareText = 'J\'ai fait le test « Quel Dieu seriez-vous ? » sur Oui Psycho! et je suis… ' + p.title + ' ' + p.emoji;
+      var encodedUrl = encodeURIComponent(PAGE_URL);
+      var encodedText = encodeURIComponent(shareText);
+      var encodedTextUrl = encodeURIComponent(shareText + ' ' + PAGE_URL);
+
+      app.innerHTML =
+        '<div class="progress-wrap"><div class="progress-bar" style="width:100%"></div></div>' +
+        '<div class="result-emoji">' + p.emoji + '</div>' +
+        '<div class="result-title">' + esc(p.title) + '</div>' +
+        '<p class="result-text">' + esc(p.text) + '</p>' +
+        '<div class="share">' +
+          '<p>Partagez votre profil divin :</p>' +
+          '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+          '<a href="https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+          '<a href="https://wa.me/?text=' + encodedTextUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+        '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+        '<div class="restart"><button class="btn" onclick="renderStart()">🔄 Recommencer</button></div>';
+      notifyResize();
+    }
+
+    renderStart();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
