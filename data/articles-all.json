@@ -72,60 +72,23 @@
     "title": "Barbie sur le divan : quand la poupée parfaite pense à la mort",
     "type": "article",
     "excerpt": "Une pensée de mort, des pieds plats, et tout Barbie Land vacille. Objectivation, angoisse existentielle, masculinité précaire : la poupée la plus célèbre du monde passe sur le divan.",
-    "metaDescription": "Image du corps, auto-objectivation, angoisse existentielle et « Kenough » : la psychologie de Barbie décryptée par la science. Avec un quiz.",
-    "author": "John Balthazar",
     "date": "2027-03-09",
-    "date_modified": "2027-03-09",
+    "date_modified": "2026-07-14",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rrajcwpb0twwpa83gxdy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "barbie",
       "image-du-corps",
       "perfectionnisme",
       "heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Dittmar H., Halliwell E. & Ive S.",
-        "year": "2006",
-        "title": "Does Barbie make girls want to be thin? The effect of experimental exposure to images of dolls on the body image of 5- to 8-year-old girls",
-        "journal": "Developmental Psychology",
-        "url": "https://doi.org/10.1037/0012-1649.42.2.283"
-      },
-      {
-        "authors": "Fredrickson B. L. & Roberts T.-A.",
-        "year": "1997",
-        "title": "Objectification theory: Toward understanding women's lived experiences and mental health risks",
-        "journal": "Psychology of Women Quarterly",
-        "url": "https://doi.org/10.1111/j.1471-6402.1997.tb00108.x"
-      },
-      {
-        "authors": "Burke B. L., Martens A. & Faucher E. H.",
-        "year": "2010",
-        "title": "Two decades of terror management theory: A meta-analysis of mortality salience research",
-        "journal": "Personality and Social Psychology Review",
-        "url": "https://doi.org/10.1177/1088868309352321"
-      },
-      {
-        "authors": "Vandello J. A., Bosson J. K., Cohen D., Burnaford R. M. & Weaver J. R.",
-        "year": "2008",
-        "title": "Precarious manhood",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.95.6.1325"
-      },
-      {
-        "authors": "Higgins E. T.",
-        "year": "1987",
-        "title": "Self-discrepancy: A theory relating self and affect",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.94.3.319"
-      }
-    ],
+    "metaDescription": "Image du corps, auto-objectivation, angoisse existentielle et « Kenough » : la psychologie de Barbie décryptée par la science. Avec un quiz.",
     "articles_lies": [
       "piege-du-perfectionnisme"
     ],
