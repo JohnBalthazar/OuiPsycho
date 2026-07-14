@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel artiste sommeille en vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/kurt-cobain-sur-le-divan/">
+  <meta name="description" content="Écorché authentique, bête de scène, artisan de l'ombre ou mélomane ancré ? 8 questions sur votre rapport à la création.">
+  <style>
+    :root{
+      --olive:#5B6236; --olive-fonce:#3f452a; --anthracite:#33322E; --accent:#C58A3C;
+      --fond:#F6F6F2; --carte:#ffffff; --texte:#33322e; --gris:#75746c;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(51,50,46,.14);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--olive),var(--olive-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.9;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#e9e9e2;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--accent);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--olive-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f2f2ec;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--olive);background:#eef0e6}
+    .btn{display:inline-block;background:var(--accent);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--olive-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#f8f1e6;border-left:4px solid var(--accent);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f2f2ec;border:1px solid #e0e0d6;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#eaeae2}
+    .disclaimer{background:#f2f2ec;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Quel artiste sommeille en vous&nbsp;?</h1>
+      <p>Création, authenticité, regard du public : 8 questions pour trouver votre place dans le groupe. Guitare non requise.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Une émotion forte vous traverse. Votre premier réflexe :",
+        r: [
+          {t: "La transformer : écrire, dessiner, jouer — il faut qu'elle sorte sous une forme.", p: "A"},
+          {t: "La partager : raconter, faire rire, embarquer du monde avec.", p: "B"},
+          {t: "La travailler en silence : elle finira dans un projet, un jour, peut-être.", p: "C"},
+          {t: "La vivre, tout simplement — avec la bande-son appropriée.", p: "D"}
+        ]
+      },
+      {
+        q: "On vous propose de présenter votre travail devant deux cents personnes :",
+        r: [
+          {t: "L'idée vous attire ET vous terrifie — vous irez, en détestant la promo.", p: "A"},
+          {t: "Enfin ! Vous pensiez qu'on ne demanderait jamais.", p: "B"},
+          {t: "Vous préféreriez qu'on présente le travail sans vous.", p: "C"},
+          {t: "Vous déclinez poliment et prenez une place au premier rang.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre rapport aux compromis (commercial, hiérarchique, familial) :",
+        r: [
+          {t: "Allergie : trahir le fond pour plaire, c'est se perdre.", p: "A"},
+          {t: "Pragmatique : un compromis qui agrandit la scène est un bon compromis.", p: "B"},
+          {t: "Sélectif : vous cédez sur la forme, jamais sur le geste bien fait.", p: "C"},
+          {t: "Serein : vous n'avez rien à vendre, ça simplifie.", p: "D"}
+        ]
+      },
+      {
+        q: "Ce qui vous touche le plus dans une chanson :",
+        r: [
+          {t: "La fêlure dans la voix — ce moment où c'est vrai.", p: "A"},
+          {t: "L'énergie : ce qu'elle fait à une salle entière.", p: "B"},
+          {t: "La construction : cet accord-là, précisément là.", p: "C"},
+          {t: "Le souvenir qu'elle transporte : où vous étiez, avec qui.", p: "D"}
+        ]
+      },
+      {
+        q: "Le succès, dans l'idéal :",
+        r: [
+          {t: "Toucher exactement les bonnes personnes — pas forcément beaucoup.", p: "A"},
+          {t: "Grand, assumé, avec du monde qui chante les refrains.", p: "B"},
+          {t: "Que l'œuvre circule ; vous, vous restez à l'atelier.", p: "C"},
+          {t: "Une vie qui vous plaît, applaudie ou non.", p: "D"}
+        ]
+      },
+      {
+        q: "Quand quelqu'un vous complimente pour de mauvaises raisons (le vernis, pas le fond) :",
+        r: [
+          {t: "Ça vous abîme plus qu'une critique — c'est être aimé pour un malentendu.", p: "A"},
+          {t: "Vous prenez : un applaudissement reste un applaudissement.", p: "B"},
+          {t: "Vous corrigez gentiment : « en fait, le plus intéressant, c'est... »", p: "C"},
+          {t: "Vous souriez : les gens aiment ce qu'ils peuvent, c'est déjà bien.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre chambre d'ado, honnêtement :",
+        r: [
+          {t: "Murs couverts, carnets pleins, monde intérieur en expansion.", p: "A"},
+          {t: "Quartier général : c'est chez vous que la bande se retrouvait.", p: "B"},
+          {t: "Un établi : maquettes, code, couture, légos — peu importe, ça fabriquait.", p: "C"},
+          {t: "Une discothèque/vidéothèque classée avec un soin suspect.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre devise secrète ressemblerait à :",
+        r: [
+          {t: "« Plutôt être détesté pour ce que je suis qu'aimé pour ce que je ne suis pas. »", p: "A"},
+          {t: "« La scène est le seul endroit où tout devient simple. »", p: "B"},
+          {t: "« Le travail bien fait n'a pas besoin de micro. »", p: "C"},
+          {t: "« Je ne joue d'aucun instrument, mais sans public, pas de concert. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🎸",
+        titre: "L'Écorché authentique",
+        texte: "<p>Sensibilité haute fidélité, radar à faux-semblants, besoin viscéral que les choses soient vraies : vous créez comme on respire — pour transformer ce qui déborde. C'est un profil précieux (ce sont souvent les vôtres qui font les œuvres qui comptent) et exigeant à vivre : le monde est rarement à la hauteur de votre détecteur d'authenticité.</p><p>Rappel important, façon dossier Cobain : la sensibilité n'est pas une pathologie, et la souffrance n'est PAS le carburant de la création — elle est ce qui finit par l'éteindre. Un écorché qui va bien crée plus, mieux, et plus longtemps.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> protégez le canal de sortie (créer régulièrement, même mal, même petit) et le canal d'entrée (des personnes à qui dire les choses sans les mettre en musique). Et si l'intérieur déborde trop souvent, demander de l'aide n'a jamais abîmé une œuvre — c'est l'inverse."
+      },
+      B: {
+        emoji: "🎤",
+        titre: "La Bête de scène",
+        texte: "<p>L'énergie circule de vous vers les autres et revient amplifiée : la scène — au sens large, réunion comprise — est votre élément. Vous embarquez, vous fédérez, vous transformez une salle morne en concert. Ce profil carbure au lien, et c'est une force réelle.</p><p>Le point de vigilance : quand toute l'estime transite par le public, les soirs sans rappel deviennent des gouffres. Les meilleures bêtes de scène ont une loge intérieure — un endroit où elles valent quelque chose sans micro.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> cultivez une activité et deux ou trois liens où vous êtes aimé·e sans performance — c'est votre filet. Et apprenez à repérer la fatigue derrière l'adrénaline : l'applaudimètre est un très mauvais indicateur de santé."
+      },
+      C: {
+        emoji: "🔧",
+        titre: "L'Artisan de l'ombre",
+        texte: "<p>Vous êtes le producteur, le bassiste fondamental, l'ingé son sans qui rien ne sonne : la création vous intéresse plus que la lumière. Votre satisfaction vient du geste juste, de la chose bien faite — que le monde regarde ou non. C'est probablement le profil créatif le plus durable : pas de dissonance entre ce que vous faites et ce qu'on attend de vous.</p><p>Votre vigilance : l'ombre choisie peut devenir une cachette. Il y a une différence entre ne pas chercher la lumière et se saboter dès qu'elle approche.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> acceptez, une fois de temps en temps, que votre travail soit vu ET attribué — signer, présenter, dire « c'est moi ». Non pour la gloire : pour vérifier que vous n'avez pas confondu discrétion et conviction de ne pas mériter mieux."
+      },
+      D: {
+        emoji: "🎧",
+        titre: "Le Mélomane bien ancré",
+        texte: "<p>Vous n'avez pas besoin de monter sur scène pour vivre intensément la musique — ou le cinéma, ou les livres : vous êtes le public, et pas n'importe lequel. Celui qui écoute vraiment, transmet, fait découvrir. Rappelons une évidence oubliée : sans vous, pas de concert. Votre équilibre — vivre les émotions des œuvres sans avoir besoin d'y brûler — est une position enviable.</p><p>Votre vigilance : la procuration confortable. Vibrer par les œuvres des autres, c'est riche ; ne vibrer QUE par elles, c'est parfois une façon élégante de rester spectateur de sa propre vie.</p>",
+        conseil: "💡 <strong>Votre levier :</strong> offrez-vous un petit territoire de création sans enjeu — playlist commentée, photo, carnet, cuisine. Non pour devenir artiste : pour vérifier régulièrement que vous êtes aussi l'auteur de quelque chose. Et continuez à faire découvrir : les passeurs sont les héros discrets de la culture."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/kurt-cobain-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['A', 'B', 'C', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "Mon profil créatif : " + p.titre + " " + p.emoji + " — et vous, quel artiste sommeille en vous ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
