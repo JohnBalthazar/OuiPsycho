@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sauriez-vous repérer ces mécanismes ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/abbe-pierre-sur-le-divan/">
+  <meta name="description" content="Halo, licence morale, trahison institutionnelle : 8 questions pour tester votre capacité à repérer les mécanismes de l'impunité.">
+  <style>
+    :root{
+      --bleu:#3A4A5A; --bleu-fonce:#2a3642; --ocre:#B07C3C; --vert:#4E7D62;
+      --fond:#F5F6F7; --carte:#ffffff; --texte:#2e353c; --gris:#707880;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(58,74,90,.14);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--bleu),var(--bleu-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.9;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#e7eaec;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--ocre);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.1rem;font-weight:700;margin-bottom:18px;color:var(--bleu-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f0f2f4;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.97rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--bleu);background:#eaeef1}
+    .feedback{border-radius:10px;padding:12px 14px;font-size:.93rem;margin-bottom:14px}
+    .feedback.ok{background:#ecf4ef;border-left:4px solid var(--vert)}
+    .feedback.ko{background:#f7efe4;border-left:4px solid var(--ocre)}
+    .btn{display:inline-block;background:var(--bleu);color:#fff;border:none;border-radius:999px;padding:12px 28px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.3rem;font-weight:800;color:var(--bleu-fonce);margin-bottom:6px}
+    .resultat-score{font-size:1rem;color:var(--gris);margin-bottom:12px;font-weight:600}
+    .resultat-texte{font-size:.97rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f0f2f4;border:1px solid #dde2e6;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#e8ecef}
+    .disclaimer{background:#f0f2f4;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Sauriez-vous repérer ces mécanismes&nbsp;?</h1>
+      <p>Halo, licence morale, trahison institutionnelle : 8 questions pour tester une compétence de protection.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Une personne unanimement admirée fait l'objet d'un témoignage d'agression. La réaction la plus fréquente du public est :",
+        r: [
+          {t: "L'ouverture d'une vérification sérieuse des faits.", ok: false},
+          {t: "L'incrédulité immédiate : « impossible, pas lui/elle ».", ok: true},
+          {t: "La suspension du jugement en attendant d'en savoir plus.", ok: false}
+        ],
+        exp: "C'est l'effet de halo : une impression globale positive contamine tous nos jugements — et nous ne nous en rendons pas compte. Le premier réflexe protège l'idole, pas la victime."
+      },
+      {
+        q: "Vrai ou faux : il existe un profil-type reconnaissable de l'agresseur sexuel.",
+        r: [
+          {t: "Vrai — certains signes physiques ou sociaux ne trompent pas.", ok: false},
+          {t: "Faux — les agresseurs se recrutent dans tous les milieux, y compris les plus respectés.", ok: true}
+        ],
+        exp: "Faux, et c'est capital : chercher des « monstres » reconnaissables fait baisser la garde partout ailleurs. Ce qui prédit l'impunité n'est pas un profil, c'est une situation : pouvoir, opportunité, silence garanti."
+      },
+      {
+        q: "Le pouvoir prolongé et sans contre-pouvoir a tendance à :",
+        r: [
+          {t: "Rendre plus prudent, car on a plus à perdre.", ok: false},
+          {t: "Désinhiber : plus d'impulsions suivies, moins de prise en compte d'autrui.", ok: true},
+          {t: "N'avoir aucun effet documenté sur le comportement.", ok: false}
+        ],
+        exp: "La recherche (Keltner et coll.) montre que le pouvoir active les circuits de l'approche et affaiblit l'inhibition et la prise de perspective. D'où l'importance vitale des contre-pouvoirs — partout."
+      },
+      {
+        q: "La « licence morale », c'est l'idée que :",
+        r: [
+          {t: "Les personnes très engagées dans le bien deviennent incapables de mal agir.", ok: false},
+          {t: "Un capital de bonnes actions peut servir de permis psychologique pour transgresser.", ok: true},
+          {t: "La morale est une affaire de licence universitaire.", ok: false}
+        ],
+        exp: "Documenté expérimentalement : après avoir fait ou affiché le bien, on s'autorise plus facilement des écarts. À grande échelle, une œuvre immense peut nourrir la conviction que « l'œuvre absout l'homme »."
+      },
+      {
+        q: "Une victime rapporte des faits ; on lui répond qu'elle a « tout imaginé ». Quel est l'effet le plus probable ?",
+        r: [
+          {t: "Elle insistera auprès d'autres interlocuteurs jusqu'à être entendue.", ok: false},
+          {t: "Elle risque de ne plus jamais en parler, parfois pendant des décennies.", ok: true},
+          {t: "Aucun effet durable : l'important est d'avoir parlé une fois.", ok: false}
+        ],
+        exp: "Les réactions négatives au dévoilement (incrédulité, minimisation) font durablement taire : beaucoup de victimes « réduites au silence » ne reparlent plus jamais (Ahrens, 2006). Croire est la première protection."
+      },
+      {
+        q: "La « trahison institutionnelle » désigne :",
+        r: [
+          {t: "Le fait qu'une institution protège sa réputation plutôt que les personnes qu'elle devait protéger.", ok: true},
+          {t: "La trahison d'un secret professionnel par un salarié.", ok: false},
+          {t: "Le sentiment d'être déçu par une administration lente.", ok: false}
+        ],
+        exp: "Smith et Freyd ont montré que ces actions et omissions institutionnelles ajoutent une couche traumatique propre, distincte de l'agression elle-même : blessé par l'individu, puis abandonné par le système."
+      },
+      {
+        q: "« Pourquoi les victimes n'ont-elles pas parlé plus tôt ? » Cette question est :",
+        r: [
+          {t: "Légitime : un long silence affaiblit un témoignage.", ok: false},
+          {t: "Mal posée : le dévoilement tardif est la norme, surtout face à un agresseur puissant et admiré.", ok: true},
+          {t: "Sans réponse connue de la recherche.", ok: false}
+        ],
+        exp: "Le dévoilement tardif — parfois après des décennies — est le schéma le plus fréquent, en particulier quand l'agresseur est admiré et la victime dépendante ou précaire. La bonne question est : « qui aurait pu les croire ? »"
+      },
+      {
+        q: "La vigilance la plus efficace contre ce type d'impunité consiste à :",
+        r: [
+          {t: "Mieux repérer les individus « suspects » autour de nous.", ok: false},
+          {t: "Refuser les zones sans contrôle ni contre-pouvoir, y compris autour des figures les plus admirées.", ok: true},
+          {t: "Éviter d'admirer qui que ce soit.", ok: false}
+        ],
+        exp: "La leçon centrale du dossier : ne pas chasser des monstres, mais fermer les zones d'impunité. Procédures de signalement indépendantes, écoute des alertes, protection de la parole — surtout là où l'admiration est la plus forte."
+      }
+    ];
+
+    var index = 0;
+    var score = 0;
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/abbe-pierre-sur-le-divan/";
+
+    var paliers = [
+      {min: 0, max: 3, emoji: "🌱", titre: "Vigilance à construire",
+       texte: "<p>Plusieurs de ces mécanismes vous ont surpris — et c'est précisément leur force : ils opèrent parce qu'ils sont contre-intuitifs. Rien d'étonnant à cela : l'effet de halo, la licence morale ou la trahison institutionnelle contredisent notre envie de croire que le bien est d'un bloc et que le mal se voit.</p><p>La bonne nouvelle : cette lucidité s'apprend vite. Relisez l'article associé — chaque mécanisme y est illustré — et retenez une seule règle : quand quelqu'un semble au-dessus de tout soupçon, c'est exactement là que les soupçons doivent pouvoir exister.</p>"},
+      {min: 4, max: 6, emoji: "🔍", titre: "Vigilance en éveil",
+       texte: "<p>Vous repérez déjà l'essentiel : le halo qui protège les idoles, le silence imposé aux victimes, le rôle des institutions. Quelques mécanismes plus contre-intuitifs — la licence morale, la désinhibition par le pouvoir — méritent encore un cran de familiarité.</p><p>Un exercice utile : la prochaine fois qu'une affaire de ce type fait l'actualité, observez les premières réactions publiques (« impossible, pas lui ») et nommez le mécanisme à l'œuvre. Nommer, c'est déjà désamorcer — chez soi comme autour de soi.</p>"},
+      {min: 7, max: 8, emoji: "🛡️", titre: "Sentinelle",
+       texte: "<p>Halo, pouvoir, licence morale, trahison institutionnelle, silenciation : vous identifiez les mécanismes qui fabriquent l'impunité — une compétence rare et précieuse, car elle protège concrètement : c'est elle qui fait qu'une alerte est écoutée au lieu d'être balayée.</p><p>Mettez-la au service du collectif : dans une association, une entreprise, une institution, soyez la personne qui demande « et si le signalement visait quelqu'un d'intouchable, que se passerait-il ? ». Les systèmes sûrs sont ceux qui ont répondu à cette question avant d'en avoir besoin.</p>"}
+    ];
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-ok="' + (reponses[i].ok ? '1' : '0') + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          var bon = this.getAttribute('data-ok') === '1';
+          if (bon) score++;
+          afficherFeedback(bon, questions[index].exp);
+        });
+      }
+      notifyResize();
+    }
+
+    function afficherFeedback(bon, exp) {
+      var pct = Math.round(((index + 1) / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="feedback ' + (bon ? 'ok' : 'ko') + '"><strong>' + (bon ? '✔ Exact.' : '✘ Pas tout à fait.') + '</strong> ' + exp + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="suivant">' + (index + 1 < questions.length ? 'Question suivante →' : 'Voir mon résultat') + '</button></div>';
+      corps.innerHTML = html;
+      document.getElementById('suivant').addEventListener('click', function() {
+        index++;
+        if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+      });
+      notifyResize();
+    }
+
+    function afficherResultat() {
+      var p = paliers[0];
+      for (var i = 0; i < paliers.length; i++) {
+        if (score >= paliers[i].min && score <= paliers[i].max) { p = paliers[i]; }
+      }
+      var texte = "J'ai testé ma capacité à repérer les mécanismes de l'impunité : " + score + "/8. Et vous ?";
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '<div class="resultat-score">Votre score : ' + score + ' / ' + questions.length + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). Si vous êtes ou avez été victime de violences sexuelles, même anciennes : <strong>3919</strong> (violences faites aux femmes) et <strong>116 006</strong> (France Victimes), gratuits et anonymes.</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        score = 0;
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
