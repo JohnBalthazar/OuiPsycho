@@ -4,17 +4,16 @@
     "title": "Mercredi Addams sur le divan : psychologie d'une petite fille hors norme",
     "type": "article",
     "excerpt": "Elle ne sourit jamais, collectionne les araignées et considère la couleur comme une agression. Mercredi Addams s'allonge (à contrecœur) sur le divan — et c'est notre normalité qui va passer un mauvais quart d'heure.",
-    "metaDescription": "Refus de sourire, fascination pour le macabre, famille excentrique : que dit la psychologie de Mercredi Addams ? Portrait d'une anti-héroïne féministe.",
-    "author": "John Balthazar",
     "date": "2027-03-30",
     "date_modified": "2026-07-14",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kpxv7in90wkknqvr2f2f",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "mercredi-addams",
       "normes-de-genre",
@@ -22,49 +21,7 @@
       "famille",
       "feminisme"
     ],
-    "sources": [
-      {
-        "authors": "LaFrance M., Hecht M. A. & Paluck E. L.",
-        "year": "2003",
-        "title": "The contingent smile: A meta-analysis of sex differences in smiling",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.129.2.305"
-      },
-      {
-        "authors": "Scrivner C.",
-        "year": "2021",
-        "title": "The psychology of morbid curiosity: Development and initial validation of the morbid curiosity scale",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2021.110974"
-      },
-      {
-        "authors": "Speece M. W. & Brent S. B.",
-        "year": "1984",
-        "title": "Children's understanding of death: A review of three components of a death concept",
-        "journal": "Child Development",
-        "url": "https://doi.org/10.2307/1129915"
-      },
-      {
-        "authors": "Rohner R. P.",
-        "year": "2004",
-        "title": "The parental “acceptance-rejection syndrome”: Universal correlates of perceived rejection",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.59.8.830"
-      },
-      {
-        "authors": "Mahalik J. R., Morray E. B., Coonerty-Femiano A., Ludlow L. H., Slattery S. M. & Smiler A.",
-        "year": "2005",
-        "title": "Development of the Conformity to Feminine Norms Inventory",
-        "journal": "Sex Roles",
-        "url": "https://doi.org/10.1007/s11199-005-3709-7"
-      },
-      {
-        "authors": "Cain S.",
-        "year": "2012",
-        "title": "Quiet: The Power of Introverts in a World That Can't Stop Talking",
-        "publisher": "Crown"
-      }
-    ],
+    "metaDescription": "Refus de sourire, fascination pour le macabre, famille excentrique : que dit la psychologie de Mercredi Addams ? Portrait d'une anti-héroïne féministe.",
     "articles_lies": [],
     "status": "scheduled"
   },
