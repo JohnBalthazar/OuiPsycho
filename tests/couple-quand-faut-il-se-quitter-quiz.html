@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rester, partir : où en êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/couple-quand-faut-il-se-quitter/">
+  <meta name="description" content="Crise traversable, usure silencieuse, ambivalence ou lien vivant ? 8 questions pour situer honnêtement votre relation.">
+  <style>
+    :root{
+      --terra:#B0574F; --terra-fonce:#8a413b; --sauge:#5F8D6E; --accent:#C96B62;
+      --fond:#FAF6F4; --carte:#ffffff; --texte:#39302d; --gris:#7c6f6a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(176,87,79,.13);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--terra),var(--terra-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.92;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#f1e6e3;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--sauge);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--terra-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f8f1ef;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--terra);background:#f5ebe8}
+    .btn{display:inline-block;background:var(--terra);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--terra-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#eef4ef;border-left:4px solid var(--sauge);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f8f1ef;border:1px solid #ecdcd8;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#f2e6e2}
+    .disclaimer{background:#f8f1ef;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Rester, partir : où en êtes-vous&nbsp;?</h1>
+      <p>Ce quiz ne décidera pas à votre place — il vous aide à situer votre relation, honnêtement. 8 questions.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Quand vous vous disputez, ces derniers temps, ça ressemble à :",
+        r: [
+          {t: "Des étincelles fréquentes, mais on finit toujours par se retrouver.", p: "A"},
+          {t: "On ne se dispute plus. On n'échange plus assez pour ça.", p: "B"},
+          {t: "Des cycles épuisants : mêmes sujets, mêmes impasses, plus de sarcasmes qu'avant.", p: "C"},
+          {t: "Des désaccords normaux, réglés sans blessure durable.", p: "D"}
+        ]
+      },
+      {
+        q: "Après une blessure ou une tension, les tentatives de réparation (un mot, un geste, un « pardon ») :",
+        r: [
+          {t: "Fonctionnent encore, même si c'est plus laborieux qu'avant.", p: "A"},
+          {t: "N'ont plus lieu : on passe à autre chose sans réparer, chacun de son côté.", p: "B"},
+          {t: "Échouent souvent : l'un tend la main, l'autre ne la prend plus.", p: "C"},
+          {t: "Fonctionnent bien : on sait se rattraper.", p: "D"}
+        ]
+      },
+      {
+        q: "Quand votre partenaire parle de vous à d'autres, vous sentez :",
+        r: [
+          {t: "De la fierté, même si en ce moment on se frotte.", p: "A"},
+          {t: "De l'indifférence polie — il/elle parle de vous comme d'un fait.", p: "B"},
+          {t: "Des piques, de l'ironie, parfois du dénigrement à peine voilé.", p: "C"},
+          {t: "De l'admiration et de la tendresse, franchement.", p: "D"}
+        ]
+      },
+      {
+        q: "Imaginez-vous dans cinq ans, ensemble. Qu'est-ce que ça produit ?",
+        r: [
+          {t: "Une image encore floue en ce moment, mais l'envie est là.", p: "A"},
+          {t: "Rien. Ni envie ni refus — juste une continuation par défaut.", p: "B"},
+          {t: "Une fatigue immédiate, parfois un serrement.", p: "C"},
+          {t: "Une image nette et plutôt réjouissante.", p: "D"}
+        ]
+      },
+      {
+        q: "Qu'est-ce qui vous retient le plus dans cette relation aujourd'hui ?",
+        r: [
+          {t: "Le lien lui-même : malgré la crise, c'est cette personne que je veux.", p: "A"},
+          {t: "L'habitude, le confort, l'organisation commune.", p: "B"},
+          {t: "Ce que ça coûterait de partir : les années investies, les enfants, la peur du vide.", p: "C"},
+          {t: "Le plaisir d'être ensemble, tout simplement.", p: "D"}
+        ]
+      },
+      {
+        q: "La personne que vous devenez au contact de ce couple :",
+        r: [
+          {t: "Un peu cabossée en ce moment, mais fondamentalement vous-même.", p: "A"},
+          {t: "En veille : ni épanouie ni malheureuse, en économie d'énergie.", p: "B"},
+          {t: "Une version rétrécie : plus anxieuse, plus amère ou plus éteinte qu'avant.", p: "C"},
+          {t: "Une version plutôt meilleure de vous-même.", p: "D"}
+        ]
+      },
+      {
+        q: "Vous partagez encore, à deux, des moments qui comptent (rires, projets, intimité, conversations vraies) :",
+        r: [
+          {t: "Moins qu'avant à cause de la période, mais ça existe encore.", p: "A"},
+          {t: "Rarement : on cohabite bien, on partage peu.", p: "B"},
+          {t: "Presque plus — et quand ça arrive, ça sonne un peu faux.", p: "C"},
+          {t: "Oui, régulièrement.", p: "D"}
+        ]
+      },
+      {
+        q: "Si un ami vivait exactement votre relation et vous la décrivait, vous lui diriez :",
+        r: [
+          {t: "« Vous traversez une vraie crise — mais il y a de quoi se battre. »", p: "A"},
+          {t: "« Vous êtes devenus colocataires. La question est : est-ce que ça vous suffit ? »", p: "B"},
+          {t: "« Tu mérites mieux que ce que tu me décris là. »", p: "C"},
+          {t: "« Franchement ? Vous allez bien. Arrête de comparer avec Instagram. »", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🌊",
+        titre: "La crise traversable",
+        texte: "<p>Votre couple est secoué, mais les fondations répondent encore : les réparations fonctionnent, l'estime mutuelle tient, et ce qui vous retient est le lien lui-même — pas seulement la peur de partir. C'est le tableau typique d'une crise circonscrite (période chargée, transition de vie, usure passagère) plus que d'une relation en fin de course.</p><p>La recherche est claire : ce n'est pas le conflit qui menace les couples, c'est le mépris et le retrait. Chez vous, ni l'un ni l'autre ne semble installé.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> traitez la crise comme une crise — nommez-la à deux, identifiez ce qui l'alimente (fatigue, enfant, travail, non-dits) et protégez des moments à deux non négociables. Si les mêmes impasses reviennent en boucle, quelques séances de thérapie de couple valent mieux qu'un an d'érosion."
+      },
+      B: {
+        emoji: "🕯️",
+        titre: "L'usure silencieuse",
+        texte: "<p>Pas de cris, pas de drames — et c'est peut-être ça, le sujet. Votre relation ressemble à une colocation courtoise : l'organisation fonctionne, le lien s'est mis en veille. C'est la deuxième route décrite par Gottman, la plus discrète : les couples qui se séparent tard, non par explosion, mais par extinction progressive de l'échange émotionnel.</p><p>La bonne nouvelle : à ce stade, rien n'est joué. Le retrait est réversible tant qu'il n'est pas devenu de l'indifférence assumée — mais il ne se soigne pas tout seul.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> rallumez volontairement ce qui s'est éteint : une vraie conversation par semaine (pas de logistique), une activité à deux qui sorte du quotidien, et la question honnête posée à voix haute : « est-ce qu'on se suffit encore, ou est-ce qu'on se supporte ? ». Si la réponse fait peur, c'est précisément celle qu'un thérapeute de couple peut aider à travailler."
+      },
+      C: {
+        emoji: "⚖️",
+        titre: "L'ambivalence à trancher",
+        texte: "<p>Votre tableau cumule des signaux sérieux : réparations qui échouent, ironie ou dénigrement, projection difficile, et surtout — critère trop souvent négligé — une version de vous-même qui rétrécit. Vous restez peut-être davantage par coûts investis et peur du vide que par élan : c'est humain, documenté, et ça mérite d'être regardé en face.</p><p>Rappel important : être déchiré ne signifie pas être incapable de décider. La plupart des personnes dans votre situation ont de vraies raisons de rester ET de partir. La décision ne consistera pas à découvrir une évidence — elle consistera à trancher, puis à se donner les moyens de la vivre.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> ne restez pas seul·e avec cette balance. Un travail individuel (pour démêler ce qui vous appartient) ou un accompagnement de couple orienté discernement peut transformer une érosion en décision. Et si votre relation comporte de la peur, du contrôle ou des violences : la question ne se pose plus — appelez le <strong>3919</strong> (anonyme, gratuit), ou le <strong>17</strong> en cas de danger."
+      },
+      D: {
+        emoji: "🌿",
+        titre: "Le lien vivant",
+        texte: "<p>Désaccords réglés sans blessures durables, admiration intacte, moments partagés, projection réjouissante : votre relation coche les cases que la recherche associe aux couples qui durent. Votre questionnement ressemble moins à un signal d'alarme qu'à une saine vérification — voire à un effet de comparaison avec des couples idéalisés qui n'existent que sur les écrans.</p><p>Un couple vivant n'est pas un couple sans frottements : c'est un couple qui répare. Le vôtre semble savoir faire.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> entretenez ce qui fonctionne — la gratitude exprimée, les réparations rapides, les moments protégés. Et gardez cette habitude de vous poser la question de temps en temps : les couples qui durent ne sont pas ceux qui ne doutent jamais, ce sont ceux qui vérifient l'état du lien avant que le doute ne s'installe."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/couple-quand-faut-il-se-quitter/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['C', 'B', 'A', 'D'];
+      var max = -1, gagnant = 'D';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "J'ai fait le point sur ma relation avec ce quiz — " + p.titre + " " + p.emoji;
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). En cas de violences au sein du couple, appelez le <strong>3919</strong>, ou le <strong>17</strong> en cas de danger immédiat.</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
