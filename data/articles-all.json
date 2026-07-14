@@ -1,5 +1,73 @@
 [
   {
+    "id": "abbe-pierre-sur-le-divan",
+    "title": "L'abbé Pierre sur le divan : anatomie d'une impunité",
+    "type": "article",
+    "excerpt": "45 témoignages, cinquante ans de violences, un saint national jamais inquiété. Comment ? Quatre mécanismes psychologiques documentés — et aucun n'est une excuse.",
+    "metaDescription": "Effet de halo, pouvoir, licence morale, trahison institutionnelle : comment l'abbé Pierre a pu agresser impunément pendant 50 ans. Analyse et quiz.",
+    "author": "John Balthazar",
+    "date": "2027-03-16",
+    "date_modified": "2027-03-16",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "abbe-pierre",
+      "violences-sexuelles",
+      "emprise",
+      "monstres-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Nisbett R. E. & Wilson T. D.",
+        "year": "1977",
+        "title": "The halo effect: Evidence for unconscious alteration of judgments",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.35.4.250"
+      },
+      {
+        "authors": "Keltner D., Gruenfeld D. H. & Anderson C.",
+        "year": "2003",
+        "title": "Power, approach, and inhibition",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.110.2.265"
+      },
+      {
+        "authors": "Merritt A. C., Effron D. A. & Monin B.",
+        "year": "2010",
+        "title": "Moral self-licensing: When being good frees us to be bad",
+        "journal": "Social and Personality Psychology Compass",
+        "url": "https://doi.org/10.1111/j.1751-9004.2010.00263.x"
+      },
+      {
+        "authors": "Smith C. P. & Freyd J. J.",
+        "year": "2014",
+        "title": "Institutional betrayal",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/a0037564"
+      },
+      {
+        "authors": "Ahrens C. E.",
+        "year": "2006",
+        "title": "Being silenced: The impact of negative social reactions on the disclosure of rape",
+        "journal": "American Journal of Community Psychology",
+        "url": "https://doi.org/10.1007/s10464-006-9069-9"
+      },
+      {
+        "authors": "Groupe Egaé",
+        "year": "2024-2025",
+        "title": "Rapports sur les violences sexuelles commises par l'abbé Pierre (quatre rapports successifs)",
+        "publisher": "Emmaüs International, Emmaüs France & Fondation Abbé Pierre"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "barbie-sur-le-divan",
     "title": "Barbie sur le divan : quand la poupée parfaite pense à la mort",
     "type": "article",
