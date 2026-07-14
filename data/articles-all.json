@@ -1044,60 +1044,23 @@
     "title": "Couple : quand faut-il se quitter ?",
     "type": "article",
     "excerpt": "Les disputes ne sont pas le signal. Le mépris, la solitude à deux et les réparations qui échouent, si. Ce que la science du couple dit vraiment — et les faux signaux à écarter.",
-    "metaDescription": "Quand faut-il se séparer ? Les vrais signaux selon la recherche (Gottman, modèle de l'investissement), les faux signaux, et comment décider. Avec un quiz.",
-    "author": "John Balthazar",
     "date": "2026-12-17",
-    "date_modified": "2026-12-17",
+    "date_modified": "2026-07-14",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sdk3p3l8e6wjptalq6fq",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "couple",
       "rupture",
       "separation",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "Gottman J. M. & Levenson R. W.",
-        "year": "2000",
-        "title": "The timing of divorce: Predicting when a couple will divorce over a 14-year period",
-        "journal": "Journal of Marriage and Family",
-        "url": "https://doi.org/10.1111/j.1741-3737.2000.00737.x"
-      },
-      {
-        "authors": "Le B. & Agnew C. R.",
-        "year": "2003",
-        "title": "Commitment and its theorized determinants: A meta-analysis of the Investment Model",
-        "journal": "Personal Relationships",
-        "url": "https://doi.org/10.1111/1475-6811.00035"
-      },
-      {
-        "authors": "Joel S., MacDonald G. & Page-Gould E.",
-        "year": "2018",
-        "title": "Wanting to stay and wanting to go: Unpacking the content and structure of relationship stay/leave decision processes",
-        "journal": "Social Psychological and Personality Science",
-        "url": "https://doi.org/10.1177/1948550617722834"
-      },
-      {
-        "authors": "Robles T. F., Slatcher R. B., Trombello J. M. & McGinn M. M.",
-        "year": "2014",
-        "title": "Marital quality and health: A meta-analytic review",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/a0031859"
-      },
-      {
-        "authors": "Sbarra D. A., Law R. W. & Portley R. M.",
-        "year": "2011",
-        "title": "Divorce and death: A meta-analysis and research agenda for clinical, social, and health psychology",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691611414724"
-      }
-    ],
+    "metaDescription": "Quand faut-il se séparer ? Les vrais signaux selon la recherche (Gottman, modèle de l'investissement), les faux signaux, et comment décider. Avec un quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
