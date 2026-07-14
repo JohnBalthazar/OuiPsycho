@@ -635,11 +635,12 @@
   {
     "id": "parents-emotionnellement-immatures-faire-plaisir",
     "title": "Parents émotionnellement immatures : pourquoi leurs enfants veulent toujours faire plaisir",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Dire oui quand on pense non, s'excuser d'exister, deviner l'humeur des autres avant la sienne : le people pleasing n'est pas de la gentillesse — c'est souvent l'héritage d'une enfance passée à réguler un parent.",
     "date": "2027-01-28",
-    "date_modified": "2027-01-28",
+    "date_modified": "2026-07-14",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/imagiun7chyiqjhj8gwu",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -653,7 +654,7 @@
       "limites",
       "enfant-interieur"
     ],
-    "metaDescription": "",
+    "metaDescription": "Parents émotionnellement immatures et people pleasing : pourquoi leurs enfants deviennent des adultes qui disent toujours oui, et comment s'en libérer.",
     "articles_lies": [
       "traumatismes-invisibles-enfance"
     ],
