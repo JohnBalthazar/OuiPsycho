@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Et votre relation, comment vous fait-elle vous sentir ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/7-signes-personne-narcissique/">
+  <meta name="description" content="Un quiz pour faire le point sur ce que vous vivez dans votre relation : énergie, doutes, liberté d'être vous-même.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(165deg, #2b2430 0%, #43323f 60%, #59414a 100%);
+      color: #f6f1f2;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz-container { max-width: 620px; margin: 0 auto; }
+    .quiz-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(232,180,184,0.28);
+      border-radius: 14px;
+      padding: 28px 24px;
+    }
+    h1 { font-size: 1.3rem; line-height: 1.4; margin-bottom: 10px; color: #e8b4b8; }
+    .intro { font-size: 0.97rem; line-height: 1.55; color: #e3d8da; margin-bottom: 20px; }
+    .btn {
+      display: inline-block;
+      background: #e8b4b8;
+      color: #2b2028;
+      border: none;
+      border-radius: 10px;
+      padding: 13px 26px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(0,0,0,.35); }
+    .progress-wrap { background: rgba(255,255,255,0.1); border-radius: 99px; height: 8px; margin-bottom: 18px; overflow: hidden; }
+    .progress-bar { background: linear-gradient(90deg, #e8b4b8, #c98a92); height: 100%; width: 0; border-radius: 99px; transition: width .3s ease; }
+    .q-count { font-size: 0.8rem; color: #c4b3b8; margin-bottom: 8px; letter-spacing: .06em; text-transform: uppercase; }
+    .question { font-size: 1.1rem; font-weight: 700; line-height: 1.45; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(232,180,184,0.3);
+      border-radius: 11px;
+      padding: 13px 16px;
+      font-size: 0.96rem;
+      line-height: 1.45;
+      color: #f6f1f2;
+      text-align: left;
+      cursor: pointer;
+      transition: background .15s ease, border-color .15s ease, transform .1s ease;
+      width: 100%;
+    }
+    .answer:hover { background: rgba(232,180,184,0.2); border-color: #e8b4b8; transform: translateX(3px); }
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 6px; }
+    .result-title { font-size: 1.35rem; font-weight: 800; text-align: center; color: #e8b4b8; margin-bottom: 14px; }
+    .result-text { font-size: 0.98rem; line-height: 1.6; color: #efe5e7; margin-bottom: 20px; }
+    .helpbox {
+      background: rgba(232,180,184,0.12);
+      border: 1px solid rgba(232,180,184,0.35);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: #f2e8ea;
+      margin-bottom: 16px;
+    }
+    .share { text-align: center; margin: 18px 0 8px; }
+    .share p { font-size: .9rem; color: #c4b3b8; margin-bottom: 10px; }
+    .share a {
+      display: inline-block;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(232,180,184,0.3);
+      color: #f6f1f2;
+      text-decoration: none;
+      border-radius: 9px;
+      padding: 9px 14px;
+      margin: 0 4px 8px;
+      font-size: .9rem;
+      transition: background .15s ease;
+    }
+    .share a:hover { background: rgba(232,180,184,0.22); }
+    .disclaimer {
+      background: rgba(0,0,0,0.3);
+      border-left: 4px solid #e8b4b8;
+      border-radius: 7px;
+      padding: 12px 14px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+      color: #ddd0d3;
+      margin-top: 18px;
+    }
+    .restart { text-align: center; margin-top: 18px; }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-card" id="app"></div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Après un moment passé avec cette personne, vous vous sentez le plus souvent…",
+        a: [
+          { t: "Ressourcé·e, léger·ère, content·e de la retrouver bientôt.", p: "A" },
+          { t: "Un peu vidé·e : c'est souvent vous qui donnez, écoutez, portez.", p: "B" },
+          { t: "Confus·e : vous rejouez la conversation en vous demandant ce que vous avez mal fait.", p: "C" },
+          { t: "Soulagé·e que ce soit fini, ou anxieux·se à l'idée de la prochaine fois.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand vous exprimez un désaccord ou un reproche…",
+        a: [
+          { t: "On vous écoute, on en discute, parfois on s'excuse. Des deux côtés.", p: "A" },
+          { t: "C'est entendu, mais rien ne change vraiment dans la durée.", p: "B" },
+          { t: "La conversation se retourne : vous finissez par vous excuser, sans trop savoir comment.", p: "C" },
+          { t: "Vous avez arrêté d'essayer : le prix à payer est trop élevé.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos réussites (travail, projets, amitiés)…",
+        a: [
+          { t: "Sont célébrées sincèrement, parfois plus fort que par vous-même.", p: "A" },
+          { t: "Passent un peu inaperçues, la conversation revient vite à l'autre.", p: "B" },
+          { t: "Déclenchent des piques, des comparaisons ou une froideur inexpliquée.", p: "C" },
+          { t: "Vous avez appris à les minimiser, voire à les cacher.", p: "D" }
+        ]
+      },
+      {
+        q: "Vos proches (amis, famille) et cette relation…",
+        a: [
+          { t: "Tout le monde se mélange bien, vous voyez qui vous voulez.", p: "A" },
+          { t: "Vous les voyez moins, par manque de temps ou d'énergie.", p: "B" },
+          { t: "Cette personne critique souvent vos proches ou fait la tête quand vous les voyez.", p: "C" },
+          { t: "Vous vous êtes éloigné·e de la plupart d'entre eux depuis cette relation.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à vos émotions (tristesse, fatigue, besoin de soutien)…",
+        a: [
+          { t: "Vous êtes accueilli·e, même maladroitement. On fait de la place.", p: "A" },
+          { t: "On vous écoute, mais la conversation glisse vite vers les problèmes de l'autre.", p: "B" },
+          { t: "On vous renvoie que vous êtes « trop sensible » ou que vous dramatisez.", p: "C" },
+          { t: "Vous ne les montrez plus : elles ont déjà été utilisées contre vous.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand vous repensez au début de la relation…",
+        a: [
+          { t: "C'était chouette, et c'est devenu plus profond avec le temps.", p: "A" },
+          { t: "C'était plus équilibré qu'aujourd'hui, vous ne savez pas trop quand ça a glissé.", p: "B" },
+          { t: "C'était incroyablement intense — presque trop — puis tout a changé.", p: "C" },
+          { t: "Vous vous accrochez à ce souvenir en espérant que « cette personne-là » revienne.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre confiance en vous, depuis cette relation…",
+        a: [
+          { t: "Elle a plutôt grandi : on croit en vous, ça aide.", p: "A" },
+          { t: "Stable, mais vous doutez plus qu'avant sur certains sujets.", p: "B" },
+          { t: "Vous doutez de vos perceptions : « c'est peut-être moi qui exagère ».", p: "C" },
+          { t: "Vous ne vous reconnaissez plus. Des proches vous l'ont dit aussi.", p: "D" }
+        ]
+      },
+      {
+        q: "Si votre meilleur·e ami·e vivait exactement la même relation, vous lui diriez…",
+        a: [
+          { t: "« Tu as trouvé quelqu'un de bien, prends-en soin. »", p: "A" },
+          { t: "« Fixe tes limites et vois si l'autre les respecte. »", p: "B" },
+          { t: "« Ce que tu décris m'inquiète, tu devrais en parler à quelqu'un. »", p: "C" },
+          { t: "« Il faut que tu partes. » — et vous le penseriez vraiment.", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🌱",
+        title: "Une relation qui vous nourrit",
+        text: "Ce que vous décrivez ressemble à une relation sécurisante : vos émotions ont leur place, vos réussites sont célébrées, les désaccords se règlent sans casse et votre monde social reste le vôtre. Aucune relation n'est parfaite, mais la vôtre semble remplir sa fonction première : vous donner de l'énergie plus qu'elle n'en prend. Continuez à entretenir ce qui marche — la réciprocité, la parole libre — et gardez ce quiz en tête comme un point de repère : c'est ça, une base saine.",
+        help: ""
+      },
+      B: {
+        emoji: "⚖️",
+        title: "Une relation à rééquilibrer",
+        text: "Votre relation n'a rien d'alarmant, mais l'asymétrie s'installe : vous donnez plus que vous ne recevez, vos besoins passent après, et votre énergie s'érode doucement. Bonne nouvelle : à ce stade, les choses se disent et se rééquilibrent souvent bien. Exprimez des demandes concrètes (pas des reproches globaux), observez ce qui change dans la durée — pas seulement dans les promesses — et recommencez à nourrir ce qui vous fait du bien en dehors de cette relation : amis, projets, temps pour vous.",
+        help: ""
+      },
+      C: {
+        emoji: "🌫️",
+        title: "Un brouillard qui mérite attention",
+        text: "Plusieurs de vos réponses décrivent une expérience troublante : vous doutez de vos perceptions, vous vous excusez sans comprendre comment la conversation s'est retournée, vos émotions sont disqualifiées. Ce brouillard n'est pas un détail — c'est souvent le signe qu'une dynamique relationnelle déséquilibrée s'est installée, quelle qu'en soit la cause. Le réflexe le plus important maintenant : sortir du huis clos. Racontez des scènes précises à une personne de confiance ou à un professionnel, et observez sa réaction. Le regard extérieur est l'antidote du doute fabriqué.",
+        help: "💬 En parler : un·e psychologue, votre médecin traitant, ou une personne de confiance. Vous n'avez pas besoin d'être certain·e que « c'est grave » pour demander un avis."
+      },
+      D: {
+        emoji: "🚨",
+        title: "Des signaux sérieux : ne restez pas seul·e",
+        text: "Vos réponses décrivent une relation qui vous coûte beaucoup : isolement, peur ou soulagement en fin d'interaction, émotions retournées contre vous, perte du sentiment d'être vous-même. Nous ne pouvons pas dire à distance ce que vit votre relation — mais ce que VOUS vivez suffit largement à justifier de l'aide, maintenant. Ce n'est ni de la faiblesse ni de l'exagération : les dynamiques d'emprise se renforcent dans le silence et l'isolement. La première étape n'est pas de tout quitter du jour au lendemain, c'est d'ouvrir une porte vers l'extérieur.",
+        help: "📞 <strong>3919</strong> — Violences Femmes Info : gratuit, anonyme, n'apparaît pas sur les factures détaillées. Aussi ouvert aux hommes victimes et à l'entourage. En cas de danger immédiat : <strong>17</strong> ou <strong>114</strong> (SMS)."
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+    var app = document.getElementById('app');
+    var PAGE_URL = "https://ouipsycho.fr/articles/7-signes-personne-narcissique/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function esc(s) {
+      return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
+    function renderStart() {
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      app.innerHTML =
+        '<h1>🧭 Et votre relation, comment vous fait-elle vous sentir ?</h1>' +
+        '<p class="intro">Pas de diagnostic de l\'autre ici — c\'est impossible et ce n\'est pas le sujet. Ces 8 questions vous invitent à faire le point sur le seul terrain où vous êtes l\'expert·e : ce que vous vivez, vous. Pensez à une relation précise (couple, ami·e, famille, collègue) et répondez le plus honnêtement possible.</p>' +
+        '<div class="center"><button class="btn" onclick="renderQuestion()">Faire le point 🧭</button></div>';
+      notifyResize();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      var answers = shuffle(q.a);
+      var pct = Math.round((current / QUESTIONS.length) * 100);
+      var html =
+        '<div class="progress-wrap"><div class="progress-bar" style="width:' + pct + '%"></div></div>' +
+        '<div class="q-count">Question ' + (current + 1) + ' / ' + QUESTIONS.length + '</div>' +
+        '<div class="question">' + esc(q.q) + '</div>' +
+        '<div class="answers">';
+      answers.forEach(function(ans) {
+        html += '<button class="answer" onclick="pick(\'' + ans.p + '\')">' + esc(ans.t) + '</button>';
+      });
+      html += '</div>';
+      app.innerHTML = html;
+      notifyResize();
+    }
+
+    function pick(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        renderResult();
+      }
+    }
+
+    function renderResult() {
+      var best = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var p = PROFILES[best];
+      var shareText = 'J\'ai fait le point sur ma relation avec le quiz de Oui Psycho!';
+      var encodedUrl = encodeURIComponent(PAGE_URL);
+      var encodedText = encodeURIComponent(shareText);
+      var encodedTextUrl = encodeURIComponent(shareText + ' ' + PAGE_URL);
+      var helpHtml = p.help ? '<div class="helpbox">' + p.help + '</div>' : '';
+
+      app.innerHTML =
+        '<div class="progress-wrap"><div class="progress-bar" style="width:100%"></div></div>' +
+        '<div class="result-emoji">' + p.emoji + '</div>' +
+        '<div class="result-title">' + esc(p.title) + '</div>' +
+        '<p class="result-text">' + esc(p.text) + '</p>' +
+        helpHtml +
+        '<div class="share">' +
+          '<p>Ce quiz peut aider quelqu\'un que vous connaissez :</p>' +
+          '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+          '<a href="https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+          '<a href="https://wa.me/?text=' + encodedTextUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+        '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+        '<div class="restart"><button class="btn" onclick="renderStart()">🔄 Recommencer</button></div>';
+      notifyResize();
+    }
+
+    renderStart();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
