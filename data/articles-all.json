@@ -97,12 +97,12 @@
   {
     "id": "vaiana-sur-le-divan",
     "title": "Vaiana sur le divan : psychologie d'une navigatrice héroïque",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Elle a franchi le récif, embarqué son deuil et désarmé une déesse en colère — à seize ans. Ce que la navigatrice de Motunui enseigne sur l'identité, la vocation et la résilience.",
     "date": "2027-03-02",
-    "date_modified": "2027-03-02",
+    "date_modified": "2026-07-14",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y7zzidaq5t9xyzbujqer",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -115,7 +115,7 @@
       "resilience",
       "heros-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Identité, appel de la vocation, deuil et résilience : la psychologie de Vaiana décryptée par la science du développement. Avec un quiz navigateur.",
     "articles_lies": [
       "piege-du-perfectionnisme"
     ],
