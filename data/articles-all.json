@@ -561,12 +561,12 @@
   {
     "id": "piege-du-perfectionnisme",
     "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Chaque réussite devrait vous apaiser. Elle ne fait que déplacer la ligne d'arrivée. Plongée dans les mécanismes du perfectionnisme — et les moyens d'en sortir.",
     "date": "2027-02-04",
-    "date_modified": "2027-02-04",
+    "date_modified": "2026-07-14",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wwho6opl4is9jv9eixrh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -579,7 +579,7 @@
       "estime-de-soi",
       "autocompassion"
     ],
-    "metaDescription": "",
+    "metaDescription": "Pourquoi le perfectionnisme ne rassure jamais : mécanismes psychologiques, risques pour la santé mentale et pistes concrètes pour en sortir. Avec un quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
