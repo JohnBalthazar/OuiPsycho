@@ -2,62 +2,25 @@
   {
     "id": "vaiana-sur-le-divan",
     "title": "Vaiana sur le divan : psychologie d'une navigatrice héroïque",
-    "type": "article",
-    "excerpt": "Elle a franchi le récif, embarqué son deuil et désarmé une déesse en colère — à seize ans. Ce que la navigatrice de Motunui enseigne sur l'identité, la vocation et la résilience.",
-    "metaDescription": "Identité, appel de la vocation, deuil et résilience : la psychologie de Vaiana décryptée par la science du développement. Avec un quiz navigateur.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-02",
     "date_modified": "2027-03-02",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "vaiana",
       "identite",
       "resilience",
       "heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Marcia J. E.",
-        "year": "1966",
-        "title": "Development and validation of ego-identity status",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/h0023281"
-      },
-      {
-        "authors": "Ryan R. M. & Deci E. L.",
-        "year": "2000",
-        "title": "Self-determination theory and the facilitation of intrinsic motivation, social development, and well-being",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.55.1.68"
-      },
-      {
-        "authors": "Phinney J. S.",
-        "year": "1990",
-        "title": "Ethnic identity in adolescents and adults: Review of research",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.108.3.499"
-      },
-      {
-        "authors": "Bonanno G. A.",
-        "year": "2004",
-        "title": "Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
-      },
-      {
-        "authors": "Gascon M., Zijlema W., Vert C., White M. P. & Nieuwenhuijsen M. J.",
-        "year": "2017",
-        "title": "Outdoor blue spaces, human health and well-being: A systematic review of quantitative studies",
-        "journal": "International Journal of Hygiene and Environmental Health",
-        "url": "https://doi.org/10.1016/j.ijheh.2017.08.004"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "piege-du-perfectionnisme"
     ],
@@ -66,198 +29,87 @@
   {
     "id": "dark-vador-sur-le-divan",
     "title": "Dark Vador sur le divan : psychologie d'un seigneur des ténèbres",
-    "type": "article",
-    "excerpt": "Enfant esclave, héros de guerre, bourreau galactique, père in extremis. Sous le casque le plus célèbre du cinéma : une peur de l'abandon jamais soignée — et un manuel d'emprise.",
-    "metaDescription": "Trouble borderline, emprise de Palpatine, blessure morale, dissociation : la psychologie de Dark Vador décryptée par la science. Avec un quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-23",
     "date_modified": "2027-02-23",
     "category": "Les monstres sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "dark-vador",
       "attachement",
       "emprise",
       "monstres-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Bui E., Rodgers R., Chabrol H., Birmes P. & Schmitt L.",
-        "year": "2010",
-        "title": "Is Anakin Skywalker suffering from borderline personality disorder?",
-        "journal": "Psychiatry Research",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/20537716/"
-      },
-      {
-        "authors": "Gross J. J.",
-        "year": "1998",
-        "title": "The emerging field of emotion regulation: An integrative review",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.2.3.271"
-      },
-      {
-        "authors": "Moghaddam F. M.",
-        "year": "2005",
-        "title": "The staircase to terrorism: A psychological exploration",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.60.2.161"
-      },
-      {
-        "authors": "Litz B. T., Stein N., Delaney E., Lebowitz L., Nash W. P., Silva C. & Maguen S.",
-        "year": "2009",
-        "title": "Moral injury and moral repair in war veterans: A preliminary model and intervention strategy",
-        "journal": "Clinical Psychology Review",
-        "url": "https://doi.org/10.1016/j.cpr.2009.07.003"
-      },
-      {
-        "authors": "Tedeschi R. G. & Calhoun L. G.",
-        "year": "2004",
-        "title": "Posttraumatic growth: Conceptual foundations and empirical evidence",
-        "journal": "Psychological Inquiry",
-        "url": "https://doi.org/10.1207/s15327965pli1501_01"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "joker-sur-le-divan",
     "title": "Le Joker sur le divan : psychologie d'un clown dérangé",
-    "type": "article",
-    "excerpt": "Psychopathe de manuel, malade imaginaire ou produit d'une société qui humilie ? Le clown le plus célèbre de Gotham s'allonge sur le divan — et c'est notre reflet qui apparaît.",
-    "metaDescription": "Psychopathie, rire pathologique, fabrique sociale de la violence : ce que le Joker révèle de nos préjugés sur la santé mentale. Analyse et quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-16",
     "date_modified": "2027-02-16",
     "category": "Les monstres sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "joker",
       "psychopathie",
       "stigmatisation",
       "monstres-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Fazel S., Gulati G., Linsell L., Geddes J. R. & Grann M.",
-        "year": "2009",
-        "title": "Schizophrenia and violence: systematic review and meta-analysis",
-        "journal": "PLoS Medicine",
-        "url": "https://doi.org/10.1371/journal.pmed.1000120"
-      },
-      {
-        "authors": "Scarf D., Zimmerman H., Winter T., Boden H., Graham S., Riordan B. C. & Hunter J. A.",
-        "year": "2020",
-        "title": "Association of viewing the film Joker with prejudice toward individuals with mental illness",
-        "journal": "JAMA Network Open",
-        "url": "https://doi.org/10.1001/jamanetworkopen.2020.3423"
-      },
-      {
-        "authors": "Hare R. D.",
-        "year": "1996",
-        "title": "Psychopathy: A clinical construct whose time has come",
-        "journal": "Criminal Justice and Behavior",
-        "url": "https://doi.org/10.1177/0093854896023001004"
-      },
-      {
-        "authors": "Paulhus D. L. & Williams K. M.",
-        "year": "2002",
-        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
-        "journal": "Journal of Research in Personality",
-        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
-      },
-      {
-        "authors": "Leistedt S. J. & Linkowski P.",
-        "year": "2014",
-        "title": "Psychopathy and the cinema: Fact or fiction?",
-        "journal": "Journal of Forensic Sciences",
-        "url": "https://doi.org/10.1111/1556-4029.12359"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "piege-du-perfectionnisme",
     "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
-    "type": "article",
-    "excerpt": "Chaque réussite devrait vous apaiser. Elle ne fait que déplacer la ligne d'arrivée. Plongée dans les mécanismes du perfectionnisme — et les moyens d'en sortir.",
-    "metaDescription": "Pourquoi le perfectionnisme ne rassure jamais : mécanismes psychologiques, risques pour la santé mentale et pistes concrètes pour en sortir. Avec un quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-04",
     "date_modified": "2027-02-04",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "perfectionnisme",
       "anxiete",
       "estime-de-soi",
       "autocompassion"
     ],
-    "sources": [
-      {
-        "authors": "Frost R. O., Marten P., Lahart C. & Rosenblate R.",
-        "year": "1990",
-        "title": "The dimensions of perfectionism",
-        "journal": "Cognitive Therapy and Research",
-        "url": "https://doi.org/10.1007/BF01172967"
-      },
-      {
-        "authors": "Hewitt P. L. & Flett G. L.",
-        "year": "1991",
-        "title": "Perfectionism in the self and social contexts: Conceptualization, assessment, and association with psychopathology",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.60.3.456"
-      },
-      {
-        "authors": "Shafran R., Cooper Z. & Fairburn C. G.",
-        "year": "2002",
-        "title": "Clinical perfectionism: a cognitive-behavioural analysis",
-        "journal": "Behaviour Research and Therapy",
-        "url": "https://doi.org/10.1016/S0005-7967(01)00059-6"
-      },
-      {
-        "authors": "Egan S. J., Wade T. D. & Shafran R.",
-        "year": "2011",
-        "title": "Perfectionism as a transdiagnostic process: A clinical review",
-        "journal": "Clinical Psychology Review",
-        "url": "https://doi.org/10.1016/j.cpr.2010.04.009"
-      },
-      {
-        "authors": "Curran T. & Hill A. P.",
-        "year": "2019",
-        "title": "Perfectionism is increasing over time: A meta-analysis of birth cohort differences from 1989 to 2016",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/bul0000138"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "le-petit-prince-sur-le-divan",
     "title": "Le petit prince sur le divan : psychologie d'un souvenir d'enfant",
-    "type": "article",
-    "excerpt": "Un conte pour enfants ? Plutôt une séance de thérapie en aquarelles. Attachement, deuil, enfant intérieur : ce que le petit bonhomme blond de Saint-Exupéry sait de nous.",
+    "excerpt": "",
     "date": "2027-02-02",
     "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/olcffcrgz5u4zbmsj93m",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -271,7 +123,7 @@
       "nostalgie",
       "deuil"
     ],
-    "metaDescription": "Attachement, deuil, enfant intérieur : ce que Le Petit Prince de Saint-Exupéry révèle de notre psychologie d'adulte. Analyse clinique et tendre, avec quiz.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -304,19 +156,18 @@
   {
     "id": "parents-emotionnellement-immatures-faire-plaisir",
     "title": "Parents émotionnellement immatures : pourquoi leurs enfants veulent toujours faire plaisir",
-    "type": "article",
-    "excerpt": "Dire oui quand on pense non, s'excuser d'exister, deviner l'humeur des autres avant la sienne : le people pleasing n'est pas de la gentillesse — c'est souvent l'héritage d'une enfance passée à réguler un parent.",
-    "metaDescription": "Parents émotionnellement immatures et people pleasing : pourquoi leurs enfants deviennent des adultes qui disent toujours oui, et comment s'en libérer.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-28",
     "date_modified": "2027-01-28",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "people-pleasing",
       "parents-immatures",
@@ -324,32 +175,7 @@
       "limites",
       "enfant-interieur"
     ],
-    "sources": [
-      {
-        "authors": "Gibson L. C.",
-        "year": "2015",
-        "title": "Adult Children of Emotionally Immature Parents: How to Heal from Distant, Rejecting, or Self-Involved Parents",
-        "publisher": "New Harbinger Publications"
-      },
-      {
-        "authors": "Walker P.",
-        "year": "2013",
-        "title": "Complex PTSD: From Surviving to Thriving",
-        "publisher": "Azure Coyote Publishing"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1969",
-        "title": "Attachment and Loss, Vol. 1: Attachment",
-        "publisher": "Basic Books"
-      },
-      {
-        "authors": "Winnicott D. W.",
-        "year": "1960",
-        "title": "Ego distortion in terms of true and false self",
-        "journal": "The Maturational Processes and the Facilitating Environment"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "traumatismes-invisibles-enfance"
     ],
@@ -358,12 +184,12 @@
   {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
-    "type": "article",
-    "excerpt": "Solitude choisie ou évitement du lien ? Expertise, sevrage tabagique et récidive des Dalton : le cowboy qui tire plus vite que son ombre passe sur le divan.",
+    "excerpt": "",
     "date": "2027-01-26",
     "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yxz6dnfjailowldi9my0",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -377,26 +203,25 @@
       "expertise",
       "sevrage-tabagique"
     ],
-    "metaDescription": "Solitude du cowboy, expertise du tireur, brin d'herbe et sevrage tabagique, récidive des Dalton : ce que Lucky Luke révèle de notre psychologie. Avec quiz.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "amie-toxique-10-signes-manipulation",
     "title": "Amie toxique : 10 signes qu'elle vous manipule (et comment réagir)",
-    "type": "article",
-    "excerpt": "Compliments qui piquent, culpabilisation, chaud et froid permanent... Parce que le mot « amie » désarme la méfiance, la manipulation amicale avance masquée. Les 10 signes qui doivent alerter.",
-    "metaDescription": "Amie toxique : 10 signes de manipulation à repérer — gaslighting, culpabilisation, compétition — pourquoi on reste, et comment réagir. Avec quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-22",
     "date_modified": "2027-01-22",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "amitie-toxique",
       "manipulation",
@@ -404,53 +229,25 @@
       "emprise",
       "relations"
     ],
-    "sources": [
-      {
-        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
-        "year": "2010",
-        "title": "Social relationships and mortality risk: A meta-analytic review",
-        "journal": "PLoS Medicine",
-        "url": "https://doi.org/10.1371/journal.pmed.1000316"
-      },
-      {
-        "authors": "Sweet P. L.",
-        "year": "2019",
-        "title": "The sociology of gaslighting",
-        "journal": "American Sociological Review",
-        "url": "https://doi.org/10.1177/0003122419874843"
-      },
-      {
-        "authors": "Holt-Lunstad J., Uchino B. N., Smith T. W. & Hicks A.",
-        "year": "2007",
-        "title": "On the importance of relationship quality: The impact of ambivalence in friendships on cardiovascular functioning",
-        "journal": "Annals of Behavioral Medicine"
-      },
-      {
-        "authors": "Forward S. & Frazier D.",
-        "year": "1997",
-        "title": "Emotional Blackmail: When the People in Your Life Use Fear, Obligation, and Guilt to Manipulate You",
-        "publisher": "HarperCollins"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "traumatismes-invisibles-enfance",
     "title": "Traumatismes invisibles : parentification, négligence émotionnelle et blessures d'enfance",
-    "type": "article",
-    "excerpt": "Pas de coups, pas de drame visible — et pourtant quelque chose ne va pas. Parentification, négligence émotionnelle : ces blessures d'enfance faites d'absence, que la science prend enfin au sérieux.",
-    "metaDescription": "Parentification, négligence émotionnelle : comprendre les traumatismes invisibles de l'enfance, leurs traces à l'âge adulte et comment les réparer. Avec quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-01-21",
     "date_modified": "2027-01-21",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "traumatisme",
       "parentification",
@@ -458,45 +255,19 @@
       "enfance",
       "psychotraumatologie"
     ],
-    "sources": [
-      {
-        "authors": "Felitti V. J., Anda R. F., Nordenberg D. et al.",
-        "year": "1998",
-        "title": "Relationship of childhood abuse and household dysfunction to many of the leading causes of death in adults: The Adverse Childhood Experiences (ACE) Study",
-        "journal": "American Journal of Preventive Medicine",
-        "url": "https://doi.org/10.1016/S0749-3797(98)00017-8"
-      },
-      {
-        "authors": "Teicher M. H. & Samson J. A.",
-        "year": "2016",
-        "title": "Annual Research Review: Enduring neurobiological effects of childhood abuse and neglect",
-        "journal": "Journal of Child Psychology and Psychiatry"
-      },
-      {
-        "authors": "Jurkovic G. J.",
-        "year": "1997",
-        "title": "Lost Childhoods: The Plight of the Parentified Child",
-        "publisher": "Brunner/Mazel"
-      },
-      {
-        "authors": "Webb J.",
-        "year": "2012",
-        "title": "Running on Empty: Overcome Your Childhood Emotional Neglect",
-        "publisher": "Morgan James Publishing"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
-    "type": "article",
-    "excerpt": "Sous le masque, un ado anxieux, endeuillé et rongé par la culpabilité. Et si le plus humain des super-héros était surtout un formidable cas clinique ?",
+    "excerpt": "",
     "date": "2027-01-19",
     "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/b0nurwl9lbrzgccs5e9l",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -510,19 +281,19 @@
       "resilience",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "Culpabilité du survivant, masque, angoisse et résilience : et si Spider-Man avait surtout besoin d'un bon thérapeute ? Analyse psy de l'homme-araignée.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "fatigue-mentale-epuise-sans-rien-faire",
     "title": "Fatigue mentale : pourquoi suis-je épuisé alors que je ne fais « rien » ?",
-    "type": "article",
-    "excerpt": "Vidé après une journée assis devant un écran ? La fatigue mentale n'est ni de la paresse ni une illusion : votre cerveau a vraiment travaillé. Ce que dit la science, et comment récupérer.",
+    "excerpt": "",
     "date": "2027-01-15",
     "date_modified": "2026-07-13",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/doov8dwsbbogqtapxmtw",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -536,19 +307,19 @@
       "controle-cognitif",
       "recuperation"
     ],
-    "metaDescription": "Épuisé sans avoir « rien fait » ? La fatigue mentale expliquée par la science : pourquoi le cerveau s'épuise, la charge invisible et comment vraiment récupérer.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "signes-astrologiques-compatibilite-amoureuse",
     "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
-    "type": "article",
-    "excerpt": "Dix millions de mariages analysés, zéro effet des signes. Pourquoi l'astrologie amoureuse semble pourtant « marcher », et ce qui prédit réellement qu'un couple dure.",
+    "excerpt": "",
     "date": "2027-01-14",
     "date_modified": "2026-07-13",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urdlzxidsxy9tpg13p78",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -562,19 +333,19 @@
       "effet-barnum",
       "croyances"
     ],
-    "metaDescription": "Les signes astrologiques influencent-ils vraiment les couples ? Ce que montrent les études, pourquoi on y croit, et ce qui prédit réellement l'amour durable.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
-    "type": "article",
-    "excerpt": "Orphelin à huit ans, hypervigilant, déguisé en chauve-souris : Bruce Wayne aurait de quoi occuper un psy pendant des années. Analyse d'un deuil traumatique devenu mythe moderne.",
+    "excerpt": "",
     "date": "2027-01-12",
     "date_modified": "2026-07-13",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tetuw8jxlbjqvorbvwny",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -588,19 +359,19 @@
       "resilience",
       "heros"
     ],
-    "metaDescription": "Deuil traumatique, hypervigilance, croissance post-traumatique : Batman passe sur le divan. Analyse psy du Chevalier noir, quiz de profil inclus.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
-    "type": "article",
-    "excerpt": "Quatre stratégies entrent dans l'arène du bien-être. On les note à armes égales, mesures biologiques et psychologiques à l'appui. Qui remporte le match contre l'anxiété ?",
+    "excerpt": "",
     "date": "2027-01-08",
     "date_modified": "2026-07-13",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/f1ll40xyexp3yuoeea8o",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -614,19 +385,19 @@
       "anxiété",
       "bien-être"
     ],
-    "metaDescription": "Méditation, sport, psychothérapie ou rien : que dit vraiment la science ? Comparatif benchmark des effets sur l'anxiété et le bien-être, chiffres à l'appui.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "tdah-trouble-deficit-attention-hyperactivite",
     "title": "TDAH : Trouble du Déficit de l'Attention avec ou sans Hyperactivité",
-    "type": "dossier",
-    "excerpt": "Trouble neurodéveloppemental le mieux documenté et pourtant le plus caricaturé, le TDAH concerne des millions d'adultes qui s'ignorent. Ce dossier complet fait le point : comprendre, se faire aider, et reprendre la main sur son quotidien.",
+    "excerpt": "",
     "date": "2027-01-07",
     "date_modified": "2026-07-13",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cx1yyr2y3g16tyanxjik",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -641,7 +412,7 @@
       "tcc",
       "neurodeveloppement"
     ],
-    "metaDescription": "TDAH adulte et enfant : symptômes, diagnostic, TCC, regard psychanalytique, traitements, routines concrètes et carnet de suivi. Dossier complet + quiz.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2467,7 +2238,7 @@
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce qu'en dit la science",
-    "excerpt": "",
+    "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
     "date": "2026-07-14",
     "date_modified": "2026-06-30",
     "category": "Relations",
@@ -2487,7 +2258,7 @@
       "attractivite",
       "societe"
     ],
-    "metaDescription": "",
+    "metaDescription": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
     "articles_lies": [],
     "status": "scheduled"
   },
