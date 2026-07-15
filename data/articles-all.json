@@ -121,6 +121,90 @@
     "status": "scheduled"
   },
   {
+    "id": "analyser-une-personnalite-en-7-points-cles",
+    "title": "Analyser une personnalité en 7 points clés",
+    "type": "article",
+    "excerpt": "Traits, attachement, valeurs, défenses, contexte, récit : la psychologie dispose d'outils bien plus fins que les étiquettes. Voici sept points d'observation pour lire une personnalité sans l'enfermer.",
+    "metaDescription": "Traits, attachement, valeurs, défenses, contexte, récit : 7 points clés validés par la recherche pour analyser une personnalité sans l'enfermer.",
+    "author": "John Balthazar",
+    "date": "2027-03-18",
+    "date_modified": "2027-03-18",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "personnalite",
+      "big-five",
+      "attachement",
+      "psychologie-des-traits",
+      "connaissance-de-soi"
+    ],
+    "sources": [
+      {
+        "authors": "McCrae R. R. & Costa P. T.",
+        "year": "1997",
+        "title": "Personality trait structure as a human universal",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.52.5.509"
+      },
+      {
+        "authors": "Roberts B. W., Walton K. E. & Viechtbauer W.",
+        "year": "2006",
+        "title": "Patterns of mean-level change in personality traits across the life course: a meta-analysis of longitudinal studies",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.132.1.1"
+      },
+      {
+        "authors": "Mischel W. & Shoda Y.",
+        "year": "1995",
+        "title": "A cognitive-affective system theory of personality: reconceptualizing situations, dispositions, dynamics, and invariance in personality structure",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.102.2.246"
+      },
+      {
+        "authors": "Hazan C. & Shaver P.",
+        "year": "1987",
+        "title": "Romantic love conceptualized as an attachment process",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.52.3.511"
+      },
+      {
+        "authors": "Schwartz S. H.",
+        "year": "1992",
+        "title": "Universals in the content and structure of values: theoretical advances and empirical tests in 20 countries",
+        "journal": "Advances in Experimental Social Psychology",
+        "url": "https://doi.org/10.1016/S0065-2601(08)60281-6"
+      },
+      {
+        "authors": "McAdams D. P. & Pals J. L.",
+        "year": "2006",
+        "title": "A new Big Five: fundamental principles for an integrative science of personality",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.61.3.204"
+      },
+      {
+        "authors": "Vazire S.",
+        "year": "2010",
+        "title": "Who knows what about a person? The self-other knowledge asymmetry (SOKA) model",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0017908"
+      },
+      {
+        "authors": "Soto C. J.",
+        "year": "2019",
+        "title": "How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1177/0956797619831612"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "abbe-pierre-sur-le-divan",
     "title": "L'abbé Pierre sur le divan : anatomie d'une impunité",
     "excerpt": "",
