@@ -243,6 +243,76 @@
     "status": "scheduled"
   },
   {
+    "id": "sept-secrets-jamais-partages",
+    "title": "Les 7 secrets que les gens ne partagent (presque) jamais",
+    "type": "article",
+    "excerpt": "97 % d'entre nous gardent au moins un secret, et une douzaine en moyenne. Voici les sept que l'on confie le moins — et la découverte contre-intuitive de la recherche : ce n'est pas de le cacher qui fait mal.",
+    "metaDescription": "Argent, désir, honte, santé mentale : les 7 secrets que personne ne confie. Témoignages et ce que dit la science de leur poids réel — et comment s'en alléger.",
+    "author": "John Balthazar",
+    "date": "2027-03-05",
+    "date_modified": "2027-03-05",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "secrets",
+      "honte",
+      "rumination",
+      "confiance",
+      "emotions"
+    ],
+    "sources": [
+      {
+        "authors": "Slepian M. L., Chun J. S. & Mason M. F.",
+        "year": "2017",
+        "title": "The experience of secrecy",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/pspa0000085"
+      },
+      {
+        "authors": "Slepian M. L. & Moulton-Tetlock E.",
+        "year": "2019",
+        "title": "Confiding secrets and well-being",
+        "journal": "Social Psychological and Personality Science",
+        "url": "https://doi.org/10.1177/1948550618765069"
+      },
+      {
+        "authors": "Slepian M. L.",
+        "year": "2022",
+        "title": "A process model of having and keeping secrets",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/rev0000282"
+      },
+      {
+        "authors": "Pennebaker J. W. & Beall S. K.",
+        "year": "1986",
+        "title": "Confronting a traumatic event: Toward an understanding of inhibition and disease",
+        "journal": "Journal of Abnormal Psychology",
+        "url": "https://doi.org/10.1037/0021-843X.95.3.274"
+      },
+      {
+        "authors": "Tangney J. P., Stuewig J. & Mashek D. J.",
+        "year": "2007",
+        "title": "Moral emotions and moral behavior",
+        "journal": "Annual Review of Psychology",
+        "url": "https://doi.org/10.1146/annurev.psych.56.091103.070145"
+      },
+      {
+        "authors": "Frattaroli J.",
+        "year": "2006",
+        "title": "Experimental disclosure and its moderators: A meta-analysis",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.132.6.823"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "phrases-cultes-developpement-personnel-science",
     "title": "Les meilleures phrases des livres de développement personnel, passées au crible de la science",
     "type": "article",
