@@ -1,5 +1,74 @@
 [
   {
+    "id": "sherlock-holmes-divan-detective-addict",
+    "title": "Sherlock Holmes sur le divan : psychologie d'un détective addict",
+    "type": "article",
+    "excerpt": "Cocaïne à 7 %, émotions au placard et solitude revendiquée (en colocation) : le plus grand détective du monde est aussi un cas d'école du mythe de l'homme fort. Cette fois, c'est lui qu'on passe à la loupe.",
+    "metaDescription": "Addiction, émotions réprimées, mythe de l'homme fort : ce que la psychologie révèle de Sherlock Holmes — et de la virilité qui abîme. Avec quiz détective.",
+    "author": "John Balthazar",
+    "date": "2027-04-06",
+    "date_modified": "2027-04-06",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "sherlock-holmes",
+      "virilite",
+      "addiction",
+      "masculinite",
+      "heros-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Conan Doyle A.",
+        "year": "1890",
+        "title": "Le Signe des quatre",
+        "publisher": "Spencer Blackett"
+      },
+      {
+        "authors": "Levant R. F., Hall R. J., Williams C. M. & Hasan N. T.",
+        "year": "2009",
+        "title": "Gender differences in alexithymia",
+        "journal": "Psychology of Men & Masculinity",
+        "url": "https://doi.org/10.1037/a0015652"
+      },
+      {
+        "authors": "Vandello J. A. & Bosson J. K.",
+        "year": "2013",
+        "title": "Hard won and easily lost: A review and synthesis of theory and research on precarious manhood",
+        "journal": "Psychology of Men & Masculinity",
+        "url": "https://doi.org/10.1037/a0029826"
+      },
+      {
+        "authors": "Addis M. E. & Mahalik J. R.",
+        "year": "2003",
+        "title": "Men, masculinity, and the contexts of help seeking",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.58.1.5"
+      },
+      {
+        "authors": "Koob G. F. & Volkow N. D.",
+        "year": "2016",
+        "title": "Neurobiology of addiction: a neurocircuitry analysis",
+        "journal": "The Lancet Psychiatry",
+        "url": "https://doi.org/10.1016/S2215-0366(16)00104-8"
+      },
+      {
+        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
+        "year": "2010",
+        "title": "Social relationships and mortality risk: a meta-analytic review",
+        "journal": "PLoS Medicine",
+        "url": "https://doi.org/10.1371/journal.pmed.1000316"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "mercredi-addams-sur-le-divan",
     "title": "Mercredi Addams sur le divan : psychologie d'une petite fille hors norme",
     "excerpt": "",
