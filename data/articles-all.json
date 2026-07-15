@@ -215,10 +215,8 @@
     "title": "Dans la vie, a-t-on vraiment ce que l'on mérite ? Pourquoi notre cerveau adore croire que oui",
     "type": "article",
     "excerpt": "« Il l'a bien cherché », « elle l'a bien mérité »… Notre cerveau adore croire que le monde est juste. Cette croyance nous rassure — et nous pousse à blâmer les victimes. Enquête sur l'un des biais les plus puissants de la psychologie sociale.",
-    "metaDescription": "Croire que chacun a ce qu'il mérite nous rassure, mais pousse à blâmer les victimes. Ce que disent la psychologie et les neurosciences de ce biais puissant.",
-    "author": "John Balthazar",
     "date": "2027-02-19",
-    "date_modified": "2027-02-19",
+    "date_modified": "2026-07-15",
     "category": "Société & psychologie politique",
     "image": "",
     "imagePosition": "50% 50%",
@@ -226,6 +224,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "monde-juste",
       "biais-cognitifs",
@@ -233,58 +232,9 @@
       "psychologie-sociale",
       "locus-de-controle"
     ],
-    "sources": [
-      {
-        "authors": "Lerner M. J. & Simmons C. H.",
-        "year": "1966",
-        "title": "Observer's reaction to the « innocent victim » : Compassion or rejection?",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/h0023562"
-      },
-      {
-        "authors": "Lerner M. J.",
-        "year": "1980",
-        "title": "The Belief in a Just World: A Fundamental Delusion",
-        "publisher": "Plenum Press"
-      },
-      {
-        "authors": "Hafer C. L. & Bègue L.",
-        "year": "2005",
-        "title": "Experimental research on just-world theory: Problems, developments, and future challenges",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.131.1.128"
-      },
-      {
-        "authors": "Ross L.",
-        "year": "1977",
-        "title": "The intuitive psychologist and his shortcomings: Distortions in the attribution process",
-        "journal": "Advances in Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/S0065-2601(08)60357-3"
-      },
-      {
-        "authors": "Rotter J. B.",
-        "year": "1966",
-        "title": "Generalized expectancies for internal versus external control of reinforcement",
-        "journal": "Psychological Monographs: General and Applied",
-        "url": "https://doi.org/10.1037/h0092976"
-      },
-      {
-        "authors": "Whitson J. A. & Galinsky A. D.",
-        "year": "2008",
-        "title": "Lacking control increases illusory pattern perception",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1159845"
-      },
-      {
-        "authors": "Pluchino A., Biondo A. E. & Rapisarda A.",
-        "year": "2018",
-        "title": "Talent versus luck: The role of randomness in success and failure",
-        "journal": "Advances in Complex Systems",
-        "url": "https://doi.org/10.1142/S0219525918500145"
-      }
-    ],
+    "metaDescription": "Croire que chacun a ce qu'il mérite nous rassure, mais pousse à blâmer les victimes. Ce que disent la psychologie et les neurosciences de ce biais puissant.",
     "articles_lies": [],
-    "status": "published"
+    "status": "scheduled"
   },
   {
     "id": "peur-engagement-relation-serieuse",
