@@ -146,6 +146,76 @@
     "status": "scheduled"
   },
   {
+    "id": "plus-grands-psychologues-histoire",
+    "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
+    "type": "article",
+    "excerpt": "Skinner, Piaget, Freud, Bandura, Rogers : cinq esprits qui ne se seraient entendus sur rien, et qui façonnent pourtant la façon dont vous vous comprenez vous-même. Surprise : le plus célèbre n'est que troisième.",
+    "metaDescription": "Skinner, Piaget, Freud, Bandura, Rogers : découvrez les 5 psychologues qui ont le plus marqué l'histoire, leurs idées, leurs limites et leur héritage actuel.",
+    "author": "John Balthazar",
+    "date": "2027-03-11",
+    "date_modified": "2027-03-11",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "histoire-de-la-psychologie",
+      "freud",
+      "skinner",
+      "piaget",
+      "rogers"
+    ],
+    "sources": [
+      {
+        "authors": "Haggbloom S. J. et al.",
+        "year": "2002",
+        "title": "The 100 most eminent psychologists of the 20th century",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.6.2.139"
+      },
+      {
+        "authors": "Bandura A., Ross D. & Ross S. A.",
+        "year": "1961",
+        "title": "Transmission of aggression through imitation of aggressive models",
+        "journal": "Journal of Abnormal and Social Psychology",
+        "url": "https://doi.org/10.1037/h0045925"
+      },
+      {
+        "authors": "Bandura A.",
+        "year": "1977",
+        "title": "Self-efficacy: Toward a unifying theory of behavioral change",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.84.2.191"
+      },
+      {
+        "authors": "Rogers C. R.",
+        "year": "1957",
+        "title": "The necessary and sufficient conditions of therapeutic personality change",
+        "journal": "Journal of Consulting Psychology",
+        "url": "https://doi.org/10.1037/h0045357"
+      },
+      {
+        "authors": "Flückiger C., Del Re A. C., Wampold B. E. & Horvath A. O.",
+        "year": "2018",
+        "title": "The alliance in adult psychotherapy: A meta-analytic synthesis",
+        "journal": "Psychotherapy",
+        "url": "https://doi.org/10.1037/pst0000172"
+      },
+      {
+        "authors": "Loftus E. F. & Palmer J. C.",
+        "year": "1974",
+        "title": "Reconstruction of automobile destruction: An example of the interaction between language and memory",
+        "journal": "Journal of Verbal Learning and Verbal Behavior",
+        "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "barbie-sur-le-divan",
     "title": "Barbie sur le divan : quand la poupée parfaite pense à la mort",
     "excerpt": "",
