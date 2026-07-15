@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz : quel détective êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/sherlock-holmes-divan-detective-addict/">
+  <meta name="description" content="Cerveau, cœur, œil ou ténacité : sept questions pour découvrir quel détective sommeille en vous, façon psychologie magazine.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: linear-gradient(135deg, #f8f5f0 0%, #eef3f6 100%);
+      color: #2c3e50;
+      padding: 20px 12px;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(31,78,107,.10);
+      padding: 28px 24px;
+    }
+    .quiz-header { text-align: center; margin-bottom: 20px; }
+    .quiz-header .emoji { font-size: 2.2rem; }
+    .quiz-header h1 { font-size: 1.25rem; color: #1F4E6B; margin-top: 8px; line-height: 1.35; }
+    .progress-track { background: #e8eef2; border-radius: 99px; height: 8px; margin: 18px 0 22px; overflow: hidden; }
+    .progress-fill {
+      background: linear-gradient(90deg, #1F4E6B, #3a7ca5);
+      height: 100%; width: 0%; border-radius: 99px; transition: width .35s ease;
+    }
+    .q-count { font-size: .85rem; color: #7f8c9b; text-align: center; margin-bottom: 10px; }
+    .question { font-size: 1.08rem; font-weight: 600; line-height: 1.45; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      background: #f5f8fa; border: 2px solid #e2e9ee; border-radius: 12px;
+      padding: 13px 16px; font-size: .98rem; color: #2c3e50;
+      cursor: pointer; transition: all .18s ease; line-height: 1.4;
+      font-family: inherit;
+    }
+    .answer-btn:hover { border-color: #1F4E6B; background: #eef4f8; transform: translateY(-1px); }
+    .answer-btn:active { transform: translateY(0); }
+    .result { text-align: center; }
+    .result .emoji { font-size: 3rem; }
+    .result h2 { color: #1F4E6B; font-size: 1.3rem; margin: 12px 0 12px; }
+    .result p.desc { text-align: left; font-size: .97rem; line-height: 1.6; margin-bottom: 12px; }
+    .result .tip {
+      background: #eef4f8; border-left: 4px solid #1F4E6B; border-radius: 8px;
+      padding: 12px 14px; text-align: left; font-size: .93rem; line-height: 1.55; margin: 14px 0;
+    }
+    .share { margin: 18px 0 6px; }
+    .share p { font-size: .9rem; color: #7f8c9b; margin-bottom: 10px; }
+    .share a {
+      display: inline-block; margin: 4px; padding: 9px 15px; border-radius: 99px;
+      text-decoration: none; font-size: .88rem; font-weight: 600; color: #fff;
+    }
+    .share a.fb { background: #1877f2; }
+    .share a.tw { background: #14171a; }
+    .share a.wa { background: #25d366; }
+    .restart-btn {
+      margin-top: 14px; background: #1F4E6B; color: #fff; border: none;
+      border-radius: 99px; padding: 12px 26px; font-size: .95rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: background .18s;
+    }
+    .restart-btn:hover { background: #16394f; }
+    .disclaimer {
+      margin-top: 18px; padding: 12px 14px; background: #fdf6ec;
+      border-radius: 10px; font-size: .82rem; line-height: 1.55; color: #6b5d45; text-align: left;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-card">
+      <div id="intro-screen">
+        <div class="quiz-header">
+          <div class="emoji">🔎🕰️</div>
+          <h1>Quel détective êtes-vous ?</h1>
+        </div>
+        <p style="font-size:.97rem;line-height:1.6;text-align:center;margin-bottom:20px;">
+          Face à un mystère — ou à un lundi matin — chacun enquête à sa manière.
+          Sept questions pour découvrir votre profil d'enquêteur intérieur.
+        </p>
+        <div style="text-align:center;">
+          <button class="restart-btn" onclick="startQuiz()">Commencer le quiz →</button>
+        </div>
+      </div>
+
+      <div id="quiz-screen" class="hidden">
+        <div class="q-count" id="q-count"></div>
+        <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+        <div class="question" id="question-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div id="result-screen" class="hidden result">
+        <div class="emoji" id="result-emoji"></div>
+        <h2 id="result-title"></h2>
+        <p class="desc" id="result-desc"></p>
+        <div class="tip" id="result-tip"></div>
+        <div class="share">
+          <p>Partagez votre résultat :</p>
+          <a class="fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a class="tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Profils : A = Sherlock (cérébral), B = Watson (cœur loyal), C = Miss Marple (observatrice sociale), D = Columbo (ténacité modeste)
+    var questions = [
+      {
+        q: "Un problème épineux vous tombe dessus. Votre premier réflexe :",
+        answers: [
+          { t: "Je m'isole, je réfléchis, je ne ressors qu'avec la solution.", p: "A" },
+          { t: "J'en parle : à deux cerveaux, on voit plus clair.", p: "B" },
+          { t: "J'observe qui est impliqué — les problèmes sont rarement techniques, souvent humains.", p: "C" },
+          { t: "Je pose des questions faussement naïves et je laisse mijoter.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce que vos proches disent de vous (dans votre dos) :",
+        answers: [
+          { t: "« Brillant(e), mais épuisant(e). »", p: "A" },
+          { t: "« On peut toujours compter dessus. »", p: "B" },
+          { t: "« Rien ne lui échappe, c'est presque inquiétant. »", p: "C" },
+          { t: "« On le/la sous-estime toujours. Grave erreur. »", p: "D" }
+        ]
+      },
+      {
+        q: "Votre rapport aux émotions :",
+        answers: [
+          { t: "Du bruit dans les données. Je les mets de côté (elles reviennent la nuit).", p: "A" },
+          { t: "Ma boussole : je ressens d'abord, j'analyse ensuite.", p: "B" },
+          { t: "Mon matériel d'enquête : celles des autres m'apprennent tout.", p: "C" },
+          { t: "Je les garde sous l'imperméable, mais elles guident mes intuitions.", p: "D" }
+        ]
+      },
+      {
+        q: "En réunion (de famille ou de travail), vous êtes plutôt :",
+        answers: [
+          { t: "Celui/celle qui a déjà compris et attend que les autres rattrapent.", p: "A" },
+          { t: "Celui/celle qui recolle les morceaux quand le ton monte.", p: "B" },
+          { t: "Celui/celle qui remarque le détail que tout le monde a raté.", p: "C" },
+          { t: "Celui/celle qui pose « juste une dernière petite question ».", p: "D" }
+        ]
+      },
+      {
+        q: "Votre pire ennemi intérieur :",
+        answers: [
+          { t: "L'ennui. Le vide me ronge plus que n'importe quel échec.", p: "A" },
+          { t: "Le trop-plein : je porte les problèmes de tout le monde.", p: "B" },
+          { t: "Le cynisme : à force de voir clair, on peut perdre confiance en l'humain.", p: "C" },
+          { t: "L'obstination : je ne sais pas lâcher une affaire… ni un grief.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à quelqu'un qui vous ment, vous :",
+        answers: [
+          { t: "Le démontez point par point, pièces à l'appui, séance tenante.", p: "A" },
+          { t: "Cherchez d'abord pourquoi il ment — la peur, souvent.", p: "B" },
+          { t: "Ne dites rien. Vous savez. Ça vous suffit (pour l'instant).", p: "C" },
+          { t: "Faites semblant d'y croire… et revenez le lendemain.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre définition de la force :",
+        answers: [
+          { t: "Ne dépendre de personne. (Bon, d'accord, presque personne.)", p: "A" },
+          { t: "Être là, encore, quand tout le monde est parti.", p: "B" },
+          { t: "Comprendre les gens mieux qu'ils ne se comprennent.", p: "C" },
+          { t: "Encaisser, sourire, et finir par avoir raison.", p: "D" }
+        ]
+      }
+    ];
+
+    var results = {
+      A: {
+        emoji: "🎻", title: "Sherlock : le cerveau sous pression",
+        desc: "Rapide, brillant(e), allergique à l'ennui : vous résolvez ce que les autres n'ont pas encore vu. Votre moteur est puissant mais il chauffe : quand l'intensité retombe, le vide vous pèse, et vous avez tendance à traiter vos émotions comme des dossiers non urgents — elles finissent toujours par rouvrir le dossier elles-mêmes. Votre défi n'est pas d'être plus fort(e), c'est d'appliquer votre talent d'enquêteur à votre propre monde intérieur.",
+        tip: "💡 <strong>Votre Watson vous attend :</strong> la science est formelle, le lien social est le meilleur facteur de protection connu. Même les génies vivent mieux en colocation."
+      },
+      B: {
+        emoji: "🩺", title: "Watson : le cœur loyal",
+        desc: "Fiable, empathique, courageux(se) : vous êtes la personne qu'on appelle à 3 heures du matin — et vous répondez. Vous voyez la valeur des gens avant leurs défauts, et c'est une force d'enquêteur redoutable : on se confie à vous. Le risque du profil : porter les charges des autres jusqu'à oublier les vôtres, et rester dans l'ombre de personnalités plus bruyantes qui, sans vous, s'effondreraient.",
+        tip: "💡 <strong>Rappel de terrain :</strong> le soignant a aussi droit aux soins. Votre loyauté mérite d'être aussi tournée vers vous-même."
+      },
+      C: {
+        emoji: "🫖", title: "Miss Marple : l'œil qui voit tout",
+        desc: "On vous croit inoffensif(ve), c'est votre meilleur atout. Vous lisez les dynamiques humaines comme d'autres lisent le journal : un silence, un regard, une chaise déplacée, et vous avez compris la moitié de l'histoire. Votre intelligence est sociale et patiente. Le revers : à force de voir les coulisses, on peut devenir un peu désenchanté(e) — et garder pour soi des vérités qui mériteraient d'être dites.",
+        tip: "💡 <strong>Votre superpouvoir a un nom :</strong> la cognition sociale. Utilisez-la aussi pour créer du lien, pas seulement pour l'analyser."
+      },
+      D: {
+        emoji: "🧥", title: "Columbo : la ténacité en imperméable",
+        desc: "Sous-estimé(e) ? Tant mieux : c'est votre stratégie. Vous avancez sans éclat, vous posez « juste une dernière question », et vous ne lâchez jamais. Votre humilité apparente cache une persévérance hors norme et une excellente mémoire des détails — et des vexations. Le défi du profil : savoir clore les affaires, y compris émotionnelles, au lieu de les rouvrir indéfiniment à la recherche du mobile parfait.",
+        tip: "💡 <strong>Une dernière petite chose :</strong> la persévérance prédit la réussite mieux que le talent… à condition de savoir aussi classer certains dossiers sans suite."
+      }
+    };
+
+    var current = 0;
+    var counts = { A:0, B:0, C:0, D:0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      current = 0;
+      counts = { A:0, B:0, C:0, D:0 };
+      document.getElementById('intro-screen').classList.add('hidden');
+      document.getElementById('result-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('hidden');
+      showQuestion();
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('progress').style.width = ((current / questions.length) * 100) + '%';
+      document.getElementById('question-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.answers).forEach(function(a) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = a.t;
+        btn.onclick = function() { selectAnswer(a.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(p) {
+      counts[p]++;
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-screen').classList.add('hidden');
+      var best = 'A';
+      ['A','B','C','D'].forEach(function(k) { if (counts[k] > counts[best]) best = k; });
+      var r = results[best];
+      document.getElementById('result-emoji').textContent = r.emoji;
+      document.getElementById('result-title').textContent = r.title;
+      document.getElementById('result-desc').textContent = r.desc;
+      document.getElementById('result-tip').innerHTML = r.tip;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/sherlock-holmes-divan-detective-addict/';
+      var shareText = 'Mon résultat au quiz Oui Psycho! : « ' + r.title + ' » — Et vous, quel détective êtes-vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      document.getElementById('result-screen').classList.remove('hidden');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
