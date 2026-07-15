@@ -146,6 +146,87 @@
     "status": "scheduled"
   },
   {
+    "id": "enseignements-psychologie-histoires-disney",
+    "title": "Ce que les histoires Disney nous apprennent vraiment : 6 leçons de psychologie",
+    "type": "article",
+    "excerpt": "Derrière les chansons et les couleurs saturées, les contes Disney déposent en nous des scénarios psychiques très précis. Deuil, ombre, faux self, attachement : six enseignements décryptés à la lumière de la recherche.",
+    "metaDescription": "Deuil, ombre, faux self, persévérance : ce que les histoires Disney nous apprennent vraiment sur nous, décrypté par la psychologie contemporaine.",
+    "author": "John Balthazar",
+    "date": "2027-03-12",
+    "date_modified": "2027-03-12",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "disney",
+      "psychologie-de-la-fiction",
+      "contes",
+      "developpement-personnel",
+      "enfance"
+    ],
+    "sources": [
+      {
+        "authors": "Mar R. A. & Oatley K.",
+        "year": "2008",
+        "title": "The Function of Fiction is the Abstraction and Simulation of Social Experience",
+        "journal": "Perspectives on Psychological Science",
+        "url": "https://doi.org/10.1111/j.1745-6924.2008.00073.x"
+      },
+      {
+        "authors": "Coyne S. M., Linder J. R., Rasmussen E. E., Nelson D. A. & Birkbeck V.",
+        "year": "2016",
+        "title": "Pretty as a Princess: Longitudinal Effects of Engagement With Disney Princesses on Gender Stereotypes, Body Esteem, and Prosocial Behavior in Children",
+        "journal": "Child Development",
+        "url": "https://doi.org/10.1111/cdev.12569"
+      },
+      {
+        "authors": "Duckworth A. L., Peterson C., Matthews M. D. & Kelly D. R.",
+        "year": "2007",
+        "title": "Grit: Perseverance and Passion for Long-Term Goals",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.92.6.1087"
+      },
+      {
+        "authors": "Snyder C. R., Harris C., Anderson J. R. et al.",
+        "year": "1991",
+        "title": "The Will and the Ways: Development and Validation of an Individual-Differences Measure of Hope",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.60.4.570"
+      },
+      {
+        "authors": "Green M. C. & Brock T. C.",
+        "year": "2000",
+        "title": "The Role of Transportation in the Persuasiveness of Public Narratives",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.79.5.701"
+      },
+      {
+        "authors": "Bettelheim B.",
+        "year": "1976",
+        "title": "Psychanalyse des contes de fées",
+        "publisher": "Robert Laffont"
+      },
+      {
+        "authors": "Winnicott D. W.",
+        "year": "1960",
+        "title": "Ego Distortion in Terms of True and False Self",
+        "publisher": "Hogarth Press"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1988",
+        "title": "A Secure Base: Parent-Child Attachment and Healthy Human Development",
+        "publisher": "Basic Books"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "plus-grands-psychologues-histoire",
     "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
     "type": "article",
