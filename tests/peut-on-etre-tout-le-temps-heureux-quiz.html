@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz : quelle est votre relation au bonheur ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/peut-on-etre-tout-le-temps-heureux/">
+  <meta name="description" content="En 10 questions, repérez le rapport que vous entretenez avec votre propre bonheur : injonction intériorisée, culpabilité d'aller mal ou équilibre apaisé.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#1F2933;line-height:1.6;padding:20px 16px}
+    .wrap{max-width:640px;margin:0 auto}
+    .card{background:#F7FAFC;border:1px solid #E2E8F0;border-radius:16px;padding:24px}
+    .bar{height:6px;background:#E2E8F0;border-radius:99px;overflow:hidden;margin-bottom:18px}
+    .bar span{display:block;height:100%;background:#1F4E6B;border-radius:99px;transition:width .3s ease}
+    .step{font-size:13px;color:#64748B;margin-bottom:8px;letter-spacing:.02em}
+    h1{font-size:22px;line-height:1.3;margin-bottom:8px;color:#1F4E6B}
+    h2{font-size:19px;line-height:1.35;margin-bottom:18px;color:#1F2933}
+    .intro p{color:#475569;margin-bottom:16px;font-size:15px}
+    button.opt{display:block;width:100%;text-align:left;background:#fff;border:1.5px solid #E2E8F0;border-radius:12px;padding:13px 16px;margin-bottom:10px;font-size:15px;color:#1F2933;cursor:pointer;font-family:inherit;line-height:1.45;transition:border-color .15s,background .15s}
+    button.opt:hover{border-color:#1F4E6B;background:#EEF4F8}
+    .btn{display:inline-block;background:#1F4E6B;color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+    .btn:hover{background:#163b52}
+    .btn.ghost{background:transparent;color:#1F4E6B;border:1.5px solid #1F4E6B}
+    .score{text-align:center;font-size:14px;color:#64748B;margin-bottom:6px}
+    .emoji{font-size:44px;text-align:center;display:block;margin-bottom:10px}
+    .res h2{text-align:center;color:#1F4E6B}
+    .res p{margin-bottom:14px;font-size:15px;color:#334155}
+    .res ul{margin:0 0 16px 20px}
+    .res li{margin-bottom:7px;font-size:15px;color:#334155}
+    .share{display:flex;gap:8px;flex-wrap:wrap;margin:20px 0 16px}
+    .share a{flex:1;min-width:110px;text-align:center;text-decoration:none;font-size:14px;font-weight:600;padding:10px 8px;border-radius:10px;background:#fff;border:1.5px solid #E2E8F0;color:#1F2933}
+    .share a:hover{border-color:#1F4E6B}
+    .disc{background:#FFF7ED;border:1px solid #FED7AA;border-radius:12px;padding:14px;font-size:13.5px;color:#7C2D12;line-height:1.55}
+    .center{text-align:center;margin-top:8px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+(function(){
+  var QUESTIONS = [
+    { q: "Vous passez une soirée agréable entre amis. Que fait votre tête, en arrière-plan ?",
+      a: [
+        {t:"Rien de particulier, je suis dans la conversation.", v:0},
+        {t:"Je note vaguement que c'est un bon moment.", v:1},
+        {t:"Je me demande si j'en profite assez.", v:2},
+        {t:"J'évalue en direct : est-ce que je suis vraiment heureux, là ?", v:3}
+      ]},
+    { q: "Une journée où vous vous sentez plat, sans raison identifiable.",
+      a: [
+        {t:"Ça arrive, ça passera. Je fais avec.", v:0},
+        {t:"Je me demande brièvement d'où ça vient.", v:1},
+        {t:"Ça m'agace : je n'ai aucune raison objective d'aller mal.", v:2},
+        {t:"Je m'en veux. Avec la vie que j'ai, c'est presque indécent.", v:3}
+      ]},
+    { q: "Pour vous, une vie réussie, c'est avant tout…",
+      a: [
+        {t:"Une vie qui a du sens, avec ses hauts et ses bas.", v:0},
+        {t:"Une vie où l'on est plus souvent bien que mal.", v:1},
+        {t:"Une vie où l'on a réussi à éliminer les sources de mal-être.", v:2},
+        {t:"Une vie heureuse en permanence. C'est l'objectif.", v:3}
+      ]},
+    { q: "Un proche vous dit qu'il traverse une période triste. Votre premier réflexe ?",
+      a: [
+        {t:"Je l'écoute et je le laisse être triste.", v:0},
+        {t:"Je l'écoute, puis je cherche à comprendre pourquoi.", v:1},
+        {t:"Je cherche assez vite comment lui remonter le moral.", v:2},
+        {t:"Je lui rappelle tout ce qu'il a et qui devrait le rendre heureux.", v:3}
+      ]},
+    { q: "Le contenu \"développement personnel\" (livres, réseaux, podcasts) dans votre vie :",
+      a: [
+        {t:"Je n'en consomme quasiment pas.", v:0},
+        {t:"De temps en temps, avec du recul.", v:1},
+        {t:"Régulièrement, j'y cherche des méthodes.", v:2},
+        {t:"Beaucoup, et j'en ressors souvent en retard sur ma propre vie.", v:3}
+      ]},
+    { q: "Vous obtenez enfin quelque chose que vous vouliez depuis longtemps.",
+      a: [
+        {t:"J'en profite, en sachant que l'effet s'estompera.", v:0},
+        {t:"Je suis content un moment, puis je passe à autre chose.", v:1},
+        {t:"Je suis déçu que l'effet retombe si vite.", v:2},
+        {t:"Je fixe aussitôt l'objectif suivant, qui lui sera le bon.", v:3}
+      ]},
+    { q: "Quand vous imaginez le bonheur, l'image qui vient est plutôt…",
+      a: [
+        {t:"Un calme, une sérénité, quelque chose de posé.", v:0},
+        {t:"Un contentement tranquille.", v:1},
+        {t:"Un enthousiasme, une énergie forte.", v:2},
+        {t:"Une euphorie, une intensité maximale.", v:3}
+      ]},
+    { q: "Face à quelqu'un, vous montrez que ça ne va pas :",
+      a: [
+        {t:"Assez facilement, avec les bonnes personnes.", v:0},
+        {t:"Ça dépend du contexte, mais ça m'arrive.", v:1},
+        {t:"Rarement. Je préfère régler ça seul.", v:2},
+        {t:"Presque jamais. Se plaindre, ça ne se fait pas.", v:3}
+      ]},
+    { q: "L'idée qu'une émotion désagréable puisse être utile…",
+      a: [
+        {t:"Me paraît évidente : c'est un signal.", v:0},
+        {t:"Me parle, même si sur le moment j'oublie.", v:1},
+        {t:"Me semble être une jolie théorie, pas plus.", v:2},
+        {t:"Me paraît absurde. La tristesse, c'est du temps perdu.", v:3}
+      ]},
+    { q: "Sur les six derniers mois, la phrase \"je devrais être plus heureux\" :",
+      a: [
+        {t:"Ne m'a pas traversé l'esprit.", v:0},
+        {t:"M'a traversé une ou deux fois.", v:1},
+        {t:"Revient assez régulièrement.", v:2},
+        {t:"Est un bruit de fond quasi permanent.", v:3}
+      ]}
+  ];
+
+  var PROFILES = [
+    { max: 8, emoji: "🌿", t: "Le rapport apaisé",
+      p: ["Vous avez, semble-t-il, désamorcé l'essentiel du piège. Le bonheur n'est pas pour vous un examen à réussir mais un état qui va et vient, comme la météo. Vous encaissez les creux sans en faire une affaire personnelle, et c'est précisément ce que la recherche identifie comme le meilleur prédicteur de bien-être durable — bien plus que la fréquence des émotions positives elle-même.",
+           "Un point de vigilance quand même : cette tranquillité peut, chez certains, être moins de la sérénité que de la résignation ou un évitement discret. La différence est simple à repérer — la sérénité laisse de la place au désir, la résignation l'éteint."],
+      l: ["Continuez à traiter vos émotions comme des informations, pas comme des verdicts.",
+          "Vérifiez que votre calme s'accompagne encore d'envies, de projets, de choses qui comptent."] },
+    { max: 16, emoji: "⚖️", t: "L'équilibriste",
+      p: ["Vous naviguez entre les deux rives. La plupart du temps, vous vivez vos moments plutôt que vous ne les notez. Mais l'injonction au bonheur trouve régulièrement une prise : ce petit calcul en arrière-plan, cette déception quand l'effet d'un événement heureux retombe plus vite que prévu.",
+           "C'est le profil le plus répandu, et le plus perméable au contexte. Fatigue, réseaux sociaux, comparaison sociale : quelques facteurs suffisent à faire glisser le curseur vers la performance."],
+      l: ["Repérez les situations qui déclenchent l'auto-évaluation — elles sont souvent très identifiables.",
+          "Quand un creux arrive, essayez la question \"qu'est-ce que ça m'indique ?\" plutôt que \"comment je le supprime ?\"."] },
+    { max: 23, emoji: "🎯", t: "Le poursuivant",
+      p: ["Le bonheur est chez vous un objectif, avec des méthodes et des indicateurs. C'est cohérent, sérieux — et c'est exactement le mécanisme que les travaux de Berkeley ont identifié comme contre-productif : plus on valorise explicitement le bonheur comme but, plus on rapporte de solitude et de symptômes dépressifs.",
+           "La raison est presque mécanique. Faire du bonheur un objectif, c'est en faire un étalon de mesure. Vous n'êtes plus dans le moment : vous le notez. Et un moment noté est presque toujours en dessous de l'attente."],
+      l: ["Essayez de remplacer l'objectif \"être heureux\" par des objectifs concrets et externes (voir untel, finir ce projet).",
+          "Méfiez-vous de l'idée que le bonheur ressemble forcément à une émotion intense.",
+          "Observez ce qui se passe quand vous cessez, une journée, de mesurer."] },
+    { max: 30, emoji: "🔥", t: "L'injonction intériorisée",
+      p: ["Vous ne vous contentez pas de vouloir être heureux : vous vous reprochez de ne pas l'être. C'est la double peine que la recherche documente bien — la tristesse, plus la honte d'être triste. Cette seconde couche est associée à davantage de symptômes dépressifs que l'émotion initiale.",
+           "La phrase révélatrice est souvent \"je n'ai pourtant aucune raison de me plaindre\". Elle part d'une bonne intention et elle fait beaucoup de dégâts : elle interdit d'écouter le signal, donc elle interdit de le traiter.",
+           "Si cette lecture vous parle et que la période dure depuis plusieurs semaines, en parler à un professionnel n'est pas un aveu de faiblesse : c'est exactement le geste que cette injonction cherche à vous empêcher de faire."],
+      l: ["Retirez le mot \"devrais\" de vos phrases sur vos émotions, pendant une semaine, pour voir.",
+          "Une émotion n'a pas besoin d'une raison objective valable pour exister.",
+          "Testez : dire à une personne de confiance que ça ne va pas, sans justification ni excuse."] }
+  ];
+
+  var URL_ART = "https://ouipsycho.fr/articles/peut-on-etre-tout-le-temps-heureux/";
+  var TXT = "Peut-on être tout le temps heureux ? J'ai fait le test sur Oui Psycho !";
+  var idx = 0, score = 0, order = [];
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  var app = document.getElementById('app');
+
+  function renderIntro() {
+    app.innerHTML = '<div class="intro">' +
+      '<span class="emoji">🎈</span>' +
+      '<h1>Quelle est votre relation au bonheur ?</h1>' +
+      '<p>Injonction intériorisée, culpabilité d\'aller mal, course à l\'intensité : 10 questions pour repérer le rapport que vous entretenez avec votre propre bonheur.</p>' +
+      '<p style="font-size:13.5px;color:#64748B">Environ 3 minutes. Aucune réponse n\'est enregistrée.</p>' +
+      '<div class="center"><button class="btn" id="go">Commencer le test</button></div>' +
+      '</div>';
+    document.getElementById('go').onclick = function(){ idx = 0; score = 0; order = shuffle(QUESTIONS.map(function(_,i){return i;})); renderQ(); };
+    notifyResize();
+  }
+
+  function renderQ() {
+    var q = QUESTIONS[order[idx]];
+    var opts = shuffle(q.a);
+    var pct = Math.round((idx / QUESTIONS.length) * 100);
+    var html = '<div class="bar"><span style="width:' + pct + '%"></span></div>' +
+      '<div class="step">Question ' + (idx + 1) + ' sur ' + QUESTIONS.length + '</div>' +
+      '<h2>' + esc(q.q) + '</h2>';
+    opts.forEach(function(o, i) {
+      html += '<button class="opt" data-v="' + o.v + '">' + esc(o.t) + '</button>';
+    });
+    app.innerHTML = html;
+    var btns = app.querySelectorAll('.opt');
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].onclick = function() {
+        score += parseInt(this.getAttribute('data-v'), 10);
+        idx++;
+        if (idx < QUESTIONS.length) { renderQ(); } else { renderResult(); }
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult() {
+    var pr = PROFILES[PROFILES.length - 1];
+    for (var i = 0; i < PROFILES.length; i++) {
+      if (score <= PROFILES[i].max) { pr = PROFILES[i]; break; }
+    }
+    var html = '<div class="res">' +
+      '<div class="bar"><span style="width:100%"></span></div>' +
+      '<div class="score">Votre score : ' + score + ' / 30</div>' +
+      '<span class="emoji">' + pr.emoji + '</span>' +
+      '<h2>' + esc(pr.t) + '</h2>';
+    pr.p.forEach(function(p){ html += '<p>' + p + '</p>'; });
+    html += '<ul>';
+    pr.l.forEach(function(l){ html += '<li>' + l + '</li>'; });
+    html += '</ul>' +
+      '<div class="share">' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(URL_ART) + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + encodeURIComponent(TXT) + '&url=' + encodeURIComponent(URL_ART) + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + encodeURIComponent(TXT + ' ' + URL_ART) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<div class="disc">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+      '<div class="center" style="margin-top:16px"><button class="btn ghost" id="again">↺ Recommencer</button></div>' +
+      '</div>';
+    app.innerHTML = html;
+    document.getElementById('again').onclick = function(){ idx = 0; score = 0; order = shuffle(QUESTIONS.map(function(_,i){return i;})); renderQ(); notifyResize(); };
+    if (typeof gtag === 'function') { gtag('event', 'quiz_complete', { quiz_id: 'peut-on-etre-tout-le-temps-heureux-quiz', score: score, profile: pr.t }); }
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
