@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz : quelle solution de psy en ligne est faite pour vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/plateformes-psy-en-ligne-comparatif/">
+  <meta name="description" content="Six questions pour identifier la solution de psy en ligne adaptée à votre situation : dispositif remboursé, séance à la carte, abonnement ou annuaire.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: linear-gradient(135deg, #f8f5f0 0%, #eef3f6 100%);
+      color: #2c3e50;
+      padding: 20px 12px;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(31,78,107,.10);
+      padding: 28px 24px;
+    }
+    .quiz-header { text-align: center; margin-bottom: 20px; }
+    .quiz-header .emoji { font-size: 2.2rem; }
+    .quiz-header h1 { font-size: 1.25rem; color: #1F4E6B; margin-top: 8px; line-height: 1.35; }
+    .progress-track { background: #e8eef2; border-radius: 99px; height: 8px; margin: 18px 0 22px; overflow: hidden; }
+    .progress-fill {
+      background: linear-gradient(90deg, #1F4E6B, #3a7ca5);
+      height: 100%; width: 0%; border-radius: 99px; transition: width .35s ease;
+    }
+    .q-count { font-size: .85rem; color: #7f8c9b; text-align: center; margin-bottom: 10px; }
+    .question { font-size: 1.08rem; font-weight: 600; line-height: 1.45; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      background: #f5f8fa; border: 2px solid #e2e9ee; border-radius: 12px;
+      padding: 13px 16px; font-size: .98rem; color: #2c3e50;
+      cursor: pointer; transition: all .18s ease; line-height: 1.4;
+      font-family: inherit;
+    }
+    .answer-btn:hover { border-color: #1F4E6B; background: #eef4f8; transform: translateY(-1px); }
+    .answer-btn:active { transform: translateY(0); }
+    .result { text-align: center; }
+    .result .emoji { font-size: 3rem; }
+    .result h2 { color: #1F4E6B; font-size: 1.3rem; margin: 12px 0 12px; }
+    .result p.desc { text-align: left; font-size: .97rem; line-height: 1.6; margin-bottom: 12px; }
+    .result .tip {
+      background: #eef4f8; border-left: 4px solid #1F4E6B; border-radius: 8px;
+      padding: 12px 14px; text-align: left; font-size: .93rem; line-height: 1.55; margin: 14px 0;
+    }
+    .share { margin: 18px 0 6px; }
+    .share p { font-size: .9rem; color: #7f8c9b; margin-bottom: 10px; }
+    .share a {
+      display: inline-block; margin: 4px; padding: 9px 15px; border-radius: 99px;
+      text-decoration: none; font-size: .88rem; font-weight: 600; color: #fff;
+    }
+    .share a.fb { background: #1877f2; }
+    .share a.tw { background: #14171a; }
+    .share a.wa { background: #25d366; }
+    .restart-btn {
+      margin-top: 14px; background: #1F4E6B; color: #fff; border: none;
+      border-radius: 99px; padding: 12px 26px; font-size: .95rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: background .18s;
+    }
+    .restart-btn:hover { background: #16394f; }
+    .disclaimer {
+      margin-top: 18px; padding: 12px 14px; background: #fdf6ec;
+      border-radius: 10px; font-size: .82rem; line-height: 1.55; color: #6b5d45; text-align: left;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-card">
+      <div id="intro-screen">
+        <div class="quiz-header">
+          <div class="emoji">💻🛋️</div>
+          <h1>Quelle solution de psy en ligne est faite pour vous ?</h1>
+        </div>
+        <p style="font-size:.97rem;line-height:1.6;text-align:center;margin-bottom:20px;">
+          Budget, fréquence, attentes : six questions pour identifier la famille de solutions
+          la plus adaptée à votre situation.
+        </p>
+        <div style="text-align:center;">
+          <button class="restart-btn" onclick="startQuiz()">Commencer le quiz →</button>
+        </div>
+      </div>
+
+      <div id="quiz-screen" class="hidden">
+        <div class="q-count" id="q-count"></div>
+        <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+        <div class="question" id="question-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div id="result-screen" class="hidden result">
+        <div class="emoji" id="result-emoji"></div>
+        <h2 id="result-title"></h2>
+        <p class="desc" id="result-desc"></p>
+        <div class="tip" id="result-tip"></div>
+        <div class="share">
+          <p>Partagez votre résultat :</p>
+          <a class="fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a class="tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Profils : A = Mon soutien psy, B = à la séance, C = abonnement, D = annuaire
+    var questions = [
+      {
+        q: "Quel budget mensuel pouvez-vous consacrer à votre suivi psychologique ?",
+        answers: [
+          { t: "Le moins possible — idéalement remboursé.", p: "A" },
+          { t: "50 à 150 € : une à deux séances par mois, ça passe.", p: "B" },
+          { t: "150 à 300 € si le service est vraiment complet.", p: "C" },
+          { t: "Le budget compte moins que de trouver LE bon thérapeute.", p: "D" }
+        ]
+      },
+      {
+        q: "Comment décririez-vous ce qui vous amène à consulter ?",
+        answers: [
+          { t: "Un mal-être, du stress ou une déprime qui s'installe — sans être écrasant.", p: "A" },
+          { t: "Un événement précis à traverser : rupture, deuil, période difficile au travail.", p: "B" },
+          { t: "Un besoin de soutien fréquent, presque au quotidien en ce moment.", p: "C" },
+          { t: "Une démarche de fond : je veux entamer un vrai travail sur moi, dans la durée.", p: "D" }
+        ]
+      },
+      {
+        q: "Quelle fréquence de contact vous semble idéale ?",
+        answers: [
+          { t: "Une séance de temps en temps, selon les besoins.", p: "A" },
+          { t: "Une séance par semaine ou par quinzaine, cadrée.", p: "B" },
+          { t: "Pouvoir écrire ou parler à mon thérapeute très souvent, entre les séances.", p: "C" },
+          { t: "Le rythme que le thérapeute et moi déciderons ensemble.", p: "D" }
+        ]
+      },
+      {
+        q: "Face au choix du thérapeute, vous êtes plutôt :",
+        answers: [
+          { t: "Peu importe, du moment qu'il est diplômé et remboursé.", p: "A" },
+          { t: "Je fais confiance à une plateforme sérieuse pour me proposer quelqu'un rapidement.", p: "B" },
+          { t: "J'aime l'idée d'un questionnaire qui me « matche » avec le bon profil.", p: "C" },
+          { t: "Je veux comparer moi-même les profils, les approches, les avis.", p: "D" }
+        ]
+      },
+      {
+        q: "Quel délai d'accès est acceptable pour vous ?",
+        answers: [
+          { t: "Je peux attendre un peu si c'est remboursé.", p: "A" },
+          { t: "Moins de 72 h : quand je me décide, je veux avancer.", p: "B" },
+          { t: "Immédiat : je veux un canal ouvert en permanence.", p: "C" },
+          { t: "Le temps qu'il faudra pour trouver la bonne personne.", p: "D" }
+        ]
+      },
+      {
+        q: "Et côté données personnelles et cadre ?",
+        answers: [
+          { t: "Je veux le cadre le plus officiel possible : dispositif public, tarifs encadrés.", p: "A" },
+          { t: "Une plateforme française conforme RGPD me suffit.", p: "B" },
+          { t: "Je privilégie la praticité, tant que le service reste sécurisé.", p: "C" },
+          { t: "Je préfère une relation directe avec un praticien indépendant.", p: "D" }
+        ]
+      }
+    ];
+
+    var results = {
+      A: {
+        emoji: "🇫🇷", title: "Votre profil : Mon soutien psy",
+        desc: "Souffrance légère à modérée, budget maîtrisé, envie d'un cadre officiel : le dispositif public Mon soutien psy est fait pour vous. 12 séances par an à 50 € (remboursées à 60 % par l'Assurance Maladie, le reste par votre mutuelle), sans ordonnance, y compris en visio avec les psychologues partenaires qui la proposent.",
+        tip: "💡 <strong>Premier pas :</strong> consultez l'annuaire officiel des psychologues partenaires sur ameli.fr et filtrez ceux qui proposent la téléconsultation."
+      },
+      B: {
+        emoji: "⚡", title: "Votre profil : la téléconsultation à la séance",
+        desc: "Vous voulez avancer vite, avec un cadre souple et sans engagement : les plateformes françaises à la séance (Serenis, Qare, Psy n You…) correspondent à votre besoin. Comptez 39 à 90 € la séance, un premier rendez-vous souvent sous 72 h, et des praticiens dont les diplômes sont vérifiés.",
+        tip: "💡 <strong>Premier pas :</strong> vérifiez le numéro ADELI ou RPPS du praticien et son approche (TCC, EMDR, soutien…) avant de réserver — et pensez au forfait « psy » de votre mutuelle."
+      },
+      C: {
+        emoji: "📱", title: "Votre profil : l'accompagnement intensif",
+        desc: "Vous cherchez un contact très fréquent, presque continu : les formules par abonnement avec messagerie illimitée peuvent répondre à ce besoin — à condition d'en accepter le coût (150 à 360 € par mois) et de lire attentivement les conditions de prélèvement et de résiliation. Gardez en tête que la messagerie complète les séances, elle ne les remplace pas.",
+        tip: "💡 <strong>Premier pas :</strong> avant de vous abonner, comparez : à ce budget, un suivi hebdomadaire chez un excellent psychologue libéral en visio est souvent moins cher — et privilégiez les plateformes hébergeant vos données en Europe."
+      },
+      D: {
+        emoji: "🧭", title: "Votre profil : le choix en toute autonomie",
+        desc: "Vous voulez choisir vous-même votre thérapeute et construire un travail de fond : passez par un annuaire (Doctolib, annuaires spécialisés) ou par le bouche-à-oreille, et prenez le temps de comparer les approches. La plateforme n'est qu'un canal : ce qui soigne, c'est l'alliance avec un professionnel compétent qui vous convient.",
+        tip: "💡 <strong>Premier pas :</strong> présélectionnez deux ou trois psychologues dont l'approche vous parle, testez une première séance — et n'hésitez pas à changer si le courant ne passe pas : c'est une démarche normale, pas un échec."
+      }
+    };
+
+    var current = 0;
+    var counts = { A:0, B:0, C:0, D:0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      current = 0;
+      counts = { A:0, B:0, C:0, D:0 };
+      document.getElementById('intro-screen').classList.add('hidden');
+      document.getElementById('result-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('hidden');
+      showQuestion();
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('progress').style.width = ((current / questions.length) * 100) + '%';
+      document.getElementById('question-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.answers).forEach(function(a) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = a.t;
+        btn.onclick = function() { selectAnswer(a.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(p) {
+      counts[p]++;
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-screen').classList.add('hidden');
+      var best = 'A';
+      ['A','B','C','D'].forEach(function(k) { if (counts[k] > counts[best]) best = k; });
+      var r = results[best];
+      document.getElementById('result-emoji').textContent = r.emoji;
+      document.getElementById('result-title').textContent = r.title;
+      document.getElementById('result-desc').textContent = r.desc;
+      document.getElementById('result-tip').innerHTML = r.tip;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/plateformes-psy-en-ligne-comparatif/';
+      var shareText = 'Mon résultat au quiz Oui Psycho! : « ' + r.title.replace('Votre profil : ', '') + ' » — Et vous, quelle solution de psy en ligne est faite pour vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      document.getElementById('result-screen').classList.remove('hidden');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
