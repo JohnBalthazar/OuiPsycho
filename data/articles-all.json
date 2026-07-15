@@ -200,6 +200,75 @@
     "status": "scheduled"
   },
   {
+    "id": "loto-pourquoi-croire-gagner",
+    "title": "Loto : pourquoi croit-on toujours que l'on peut gagner ?",
+    "type": "article",
+    "excerpt": "« 100 % des gagnants ont tenté leur chance » : le slogan est exact et pourtant totalement trompeur. Illusion de contrôle, biais du survivant, dopamine de l'attente — voici pourquoi votre cerveau refuse de comprendre une chance sur 19 millions.",
+    "metaDescription": "Une chance sur 19 millions et pourtant on y croit : illusion de contrôle, biais du survivant, dopamine… La psychologie de notre rapport au Loto et au hasard.",
+    "author": "John Balthazar",
+    "date": "2027-02-26",
+    "date_modified": "2027-02-26",
+    "category": "Société",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "loto",
+      "biais-cognitifs",
+      "hasard",
+      "jeu",
+      "dopamine"
+    ],
+    "sources": [
+      {
+        "authors": "Langer E. J.",
+        "year": "1975",
+        "title": "The illusion of control",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.32.2.311"
+      },
+      {
+        "authors": "Tversky A. & Kahneman D.",
+        "year": "1973",
+        "title": "Availability: A heuristic for judging frequency and probability",
+        "journal": "Cognitive Psychology",
+        "url": "https://doi.org/10.1016/0010-0285(73)90033-9"
+      },
+      {
+        "authors": "Kahneman D. & Tversky A.",
+        "year": "1979",
+        "title": "Prospect Theory: An Analysis of Decision under Risk",
+        "journal": "Econometrica",
+        "url": "https://doi.org/10.2307/1914185"
+      },
+      {
+        "authors": "Fiorillo C. D., Tobler P. N. & Schultz W.",
+        "year": "2003",
+        "title": "Discrete coding of reward probability and uncertainty by dopamine neurons",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1077349"
+      },
+      {
+        "authors": "Clark L., Lawrence A. J., Astley-Jones F. & Gray N.",
+        "year": "2009",
+        "title": "Gambling near-misses enhance motivation to gamble and recruit win-related brain circuitry",
+        "journal": "Neuron",
+        "url": "https://doi.org/10.1016/j.neuron.2009.04.031"
+      },
+      {
+        "authors": "Kahneman D.",
+        "year": "2012",
+        "title": "Système 1 / Système 2 : les deux vitesses de la pensée",
+        "publisher": "Flammarion"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "plateformes-psy-en-ligne-comparatif",
     "title": "Que valent les plateformes de psy en ligne ?",
     "type": "article",
