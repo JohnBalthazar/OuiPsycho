@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz : quel livre TDAH est fait pour vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/meilleurs-livres-tdah-comparatif/">
+  <meta name="description" content="Six questions pour trouver le livre TDAH par lequel commencer : guide médical, manuel pratique, témoignage ou lecture en famille.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      background: linear-gradient(135deg, #f8f5f0 0%, #eef3f6 100%);
+      color: #2c3e50;
+      padding: 20px 12px;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-card {
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(31,78,107,.10);
+      padding: 28px 24px;
+    }
+    .quiz-header { text-align: center; margin-bottom: 20px; }
+    .quiz-header .emoji { font-size: 2.2rem; }
+    .quiz-header h1 { font-size: 1.25rem; color: #1F4E6B; margin-top: 8px; line-height: 1.35; }
+    .progress-track { background: #e8eef2; border-radius: 99px; height: 8px; margin: 18px 0 22px; overflow: hidden; }
+    .progress-fill {
+      background: linear-gradient(90deg, #1F4E6B, #3a7ca5);
+      height: 100%; width: 0%; border-radius: 99px; transition: width .35s ease;
+    }
+    .q-count { font-size: .85rem; color: #7f8c9b; text-align: center; margin-bottom: 10px; }
+    .question { font-size: 1.08rem; font-weight: 600; line-height: 1.45; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      background: #f5f8fa; border: 2px solid #e2e9ee; border-radius: 12px;
+      padding: 13px 16px; font-size: .98rem; color: #2c3e50;
+      cursor: pointer; transition: all .18s ease; line-height: 1.4;
+      font-family: inherit;
+    }
+    .answer-btn:hover { border-color: #1F4E6B; background: #eef4f8; transform: translateY(-1px); }
+    .answer-btn:active { transform: translateY(0); }
+    .result { text-align: center; }
+    .result .emoji { font-size: 3rem; }
+    .result h2 { color: #1F4E6B; font-size: 1.3rem; margin: 12px 0 12px; }
+    .result p.desc { text-align: left; font-size: .97rem; line-height: 1.6; margin-bottom: 12px; }
+    .result .tip {
+      background: #eef4f8; border-left: 4px solid #1F4E6B; border-radius: 8px;
+      padding: 12px 14px; text-align: left; font-size: .93rem; line-height: 1.55; margin: 14px 0;
+    }
+    .share { margin: 18px 0 6px; }
+    .share p { font-size: .9rem; color: #7f8c9b; margin-bottom: 10px; }
+    .share a {
+      display: inline-block; margin: 4px; padding: 9px 15px; border-radius: 99px;
+      text-decoration: none; font-size: .88rem; font-weight: 600; color: #fff;
+    }
+    .share a.fb { background: #1877f2; }
+    .share a.tw { background: #14171a; }
+    .share a.wa { background: #25d366; }
+    .restart-btn {
+      margin-top: 14px; background: #1F4E6B; color: #fff; border: none;
+      border-radius: 99px; padding: 12px 26px; font-size: .95rem; font-weight: 600;
+      cursor: pointer; font-family: inherit; transition: background .18s;
+    }
+    .restart-btn:hover { background: #16394f; }
+    .disclaimer {
+      margin-top: 18px; padding: 12px 14px; background: #fdf6ec;
+      border-radius: 10px; font-size: .82rem; line-height: 1.55; color: #6b5d45; text-align: left;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-card">
+      <div id="intro-screen">
+        <div class="quiz-header">
+          <div class="emoji">📚🧠</div>
+          <h1>Quel livre TDAH est fait pour vous ?</h1>
+        </div>
+        <p style="font-size:.97rem;line-height:1.6;text-align:center;margin-bottom:20px;">
+          Guides, témoignages, formats illustrés : six questions pour identifier
+          l'ouvrage par lequel commencer, selon votre situation et votre façon de lire.
+        </p>
+        <div style="text-align:center;">
+          <button class="restart-btn" onclick="startQuiz()">Commencer le quiz →</button>
+        </div>
+      </div>
+
+      <div id="quiz-screen" class="hidden">
+        <div class="q-count" id="q-count"></div>
+        <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+        <div class="question" id="question-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <div id="result-screen" class="hidden result">
+        <div class="emoji" id="result-emoji"></div>
+        <h2 id="result-title"></h2>
+        <p class="desc" id="result-desc"></p>
+        <div class="tip" id="result-tip"></div>
+        <div class="share">
+          <p>Partagez votre résultat :</p>
+          <a class="fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a class="tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" onclick="restartQuiz()">↺ Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Profils : A = guide médical (Vincent), B = manuel pratique (McCabe), C = témoignage (Testa), D = famille/enfant (Vincent enfant + Lussier)
+    var questions = [
+      {
+        q: "Quelle est votre situation par rapport au TDAH ?",
+        answers: [
+          { t: "Je viens d'être diagnostiqué(e), ou je me pose sérieusement la question.", p: "A" },
+          { t: "Je connais mon TDAH : je cherche des stratégies concrètes.", p: "B" },
+          { t: "Je me sens seul(e) avec ça : j'ai besoin de me sentir compris(e).", p: "C" },
+          { t: "C'est mon enfant qui est concerné (ou en cours de diagnostic).", p: "D" }
+        ]
+      },
+      {
+        q: "Qu'attendez-vous en priorité d'un livre ?",
+        answers: [
+          { t: "Comprendre : symptômes, diagnostic, traitements — du solide.", p: "A" },
+          { t: "Agir : des outils applicables dès demain matin.", p: "B" },
+          { t: "Me reconnaître : du vécu, des histoires vraies.", p: "C" },
+          { t: "Expliquer : mettre des mots dessus en famille.", p: "D" }
+        ]
+      },
+      {
+        q: "Soyons honnêtes : votre relation avec la lecture ?",
+        answers: [
+          { t: "Aucun souci, je peux lire un guide complet.", p: "A" },
+          { t: "Ça va si c'est bien découpé : chapitres courts, encadrés, résumés.", p: "B" },
+          { t: "Il me faut du ton, de l'émotion, sinon je décroche.", p: "C" },
+          { t: "On lira à plusieurs, ou par petites touches selon les besoins.", p: "D" }
+        ]
+      },
+      {
+        q: "Le sujet qui vous préoccupe le plus en ce moment :",
+        answers: [
+          { t: "Le parcours diagnostic et les options de traitement.", p: "A" },
+          { t: "L'organisation au quotidien : temps, tâches, oublis.", p: "B" },
+          { t: "L'estime de soi et des années d'incompréhension.", p: "C" },
+          { t: "L'école, les devoirs, l'ambiance à la maison.", p: "D" }
+        ]
+      },
+      {
+        q: "Quel format vous attire le plus en librairie ?",
+        answers: [
+          { t: "Le guide de référence écrit par un médecin.", p: "A" },
+          { t: "Le manuel épais mais malin, pensé pour les cerveaux qui zappent.", p: "B" },
+          { t: "Le récit qu'on dévore en deux soirées.", p: "C" },
+          { t: "Le livre illustré ou la boîte à outils à piocher.", p: "D" }
+        ]
+      },
+      {
+        q: "Si vous ne deviez retenir qu'un objectif :",
+        answers: [
+          { t: "Prendre de bonnes décisions pour ma santé.", p: "A" },
+          { t: "Reprendre la main sur mon quotidien.", p: "B" },
+          { t: "Faire la paix avec mon parcours.", p: "C" },
+          { t: "Aider mon enfant à s'épanouir avec son fonctionnement.", p: "D" }
+        ]
+      }
+    ];
+
+    var results = {
+      A: {
+        emoji: "🩺", title: "Votre livre : « Mon cerveau a encore besoin de lunettes » (Annick Vincent)",
+        desc: "Vous cherchez un socle fiable : la référence médicale francophone est faite pour vous. La psychiatre Annick Vincent y explique symptômes, démarche diagnostique et traitements avec humour et témoignages — le livre que les professionnels recommandent le plus souvent en consultation. En format plus léger et illustré, le « Petit Guide illustré du TDAH » d'Alice Gendron est une excellente porte d'entrée.",
+        tip: "💡 <strong>Ensuite :</strong> si vous vous reconnaissez, parlez-en à votre médecin — un livre éclaire, seul un professionnel diagnostique."
+      },
+      B: {
+        emoji: "🧰", title: "Votre livre : « Cher TDAH » (Jessica McCabe)",
+        desc: "Vous voulez des outils : le manuel de la créatrice de How to ADHD synthétise des années d'entretiens avec les meilleurs chercheurs, dans un format conçu pour les lecteurs qui décrochent — chapitres autonomes, résumés, encadrés. C'est aujourd'hui le meilleur rapport profondeur/accessibilité du rayon.",
+        tip: "💡 <strong>Astuce TDAH-compatible :</strong> ne le lisez pas dans l'ordre. Choisissez le chapitre qui correspond à votre galère du moment, appliquez, revenez plus tard."
+      },
+      C: {
+        emoji: "💛", title: "Votre livre : « TDAH, et alors ? » (Catherine Testa)",
+        desc: "Vous avez d'abord besoin de vous sentir compris(e) : ce témoignage direct et optimiste — diagnostic tardif, illogismes qui prennent enfin sens — produit un puissant effet « c'est moi ! », en particulier chez les femmes dont le TDAH est passé inaperçu pendant des années. Et c'est l'un des prix les plus doux du rayon.",
+        tip: "💡 <strong>Ensuite :</strong> une fois la reconnaissance passée, complétez avec un guide pratique (Vincent ou McCabe) pour transformer le déclic en stratégies."
+      },
+      D: {
+        emoji: "👨‍👩‍👧", title: "Vos livres : « Mon cerveau a besoin de lunettes » + « 100 idées » (Lussier)",
+        desc: "C'est votre enfant qui est concerné : commencez par le journal fictif de Tom, 8 ans, signé Annick Vincent — LE support pour mettre des mots sur le diagnostic, à lire ensemble. Puis gardez sous la main les « 100 idées pour mieux gérer les troubles de l'attention » de la neuropsychologue Francine Lussier : cent stratégies à piocher selon le contexte, maison, école ou devoirs.",
+        tip: "💡 <strong>Et vous ?</strong> Si vous vous êtes reconnu(e) dans les questions… le TDAH est fortement héritable. Le livre adulte d'Annick Vincent pourrait aussi vous concerner."
+      }
+    };
+
+    var current = 0;
+    var counts = { A:0, B:0, C:0, D:0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      current = 0;
+      counts = { A:0, B:0, C:0, D:0 };
+      document.getElementById('intro-screen').classList.add('hidden');
+      document.getElementById('result-screen').classList.add('hidden');
+      document.getElementById('quiz-screen').classList.remove('hidden');
+      showQuestion();
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('progress').style.width = ((current / questions.length) * 100) + '%';
+      document.getElementById('question-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.answers).forEach(function(a) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = a.t;
+        btn.onclick = function() { selectAnswer(a.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(p) {
+      counts[p]++;
+      current++;
+      if (current < questions.length) {
+        showQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      document.getElementById('quiz-screen').classList.add('hidden');
+      var best = 'A';
+      ['A','B','C','D'].forEach(function(k) { if (counts[k] > counts[best]) best = k; });
+      var r = results[best];
+      document.getElementById('result-emoji').textContent = r.emoji;
+      document.getElementById('result-title').textContent = r.title;
+      document.getElementById('result-desc').textContent = r.desc;
+      document.getElementById('result-tip').innerHTML = r.tip;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/meilleurs-livres-tdah-comparatif/';
+      var shareText = 'Mon résultat au quiz Oui Psycho! : « ' + r.title.replace('Votre livre : ', '').replace('Vos livres : ', '') + ' » — Et vous, quel livre TDAH est fait pour vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      document.getElementById('result-screen').classList.remove('hidden');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
