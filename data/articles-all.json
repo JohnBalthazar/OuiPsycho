@@ -991,6 +991,71 @@
     "status": "scheduled"
   },
   {
+    "id": "meilleurs-livres-tdah-comparatif",
+    "title": "Comparatif exhaustif des meilleurs livres TDAH",
+    "type": "article",
+    "excerpt": "Guides médicaux, témoignages, BD illustrées, boîtes à outils pour parents : les rayons débordent de livres sur le TDAH. Lequel choisir selon votre situation ? Comparatif complet avec prix, avis de lecteurs, regard de professionnel — et notes.",
+    "metaDescription": "Meilleurs livres TDAH en français : Annick Vincent, Jessica McCabe, Alice Gendron… Comparatif complet avec tableau, prix, avis lecteurs et pros, et notes.",
+    "author": "John Balthazar",
+    "date": "2026-12-02",
+    "date_modified": "2026-12-02",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "tdah",
+      "livres",
+      "comparatif",
+      "psychoeducation",
+      "neurodeveloppement"
+    ],
+    "sources": [
+      {
+        "authors": "Faraone S. V. et al.",
+        "year": "2021",
+        "title": "The World Federation of ADHD International Consensus Statement: 208 evidence-based conclusions about the disorder",
+        "journal": "Neuroscience & Biobehavioral Reviews",
+        "url": "https://doi.org/10.1016/j.neubiorev.2021.01.022"
+      },
+      {
+        "authors": "Haute Autorité de santé",
+        "year": "2024",
+        "title": "Trouble déficit de l'attention avec ou sans hyperactivité (TDAH) chez l'adulte : repérage, diagnostic et prise en charge",
+        "publisher": "HAS"
+      },
+      {
+        "authors": "Vincent A.",
+        "year": "2022",
+        "title": "Mon cerveau a encore besoin de lunettes : le TDAH chez l'adulte",
+        "publisher": "Les Éditions de l'Homme"
+      },
+      {
+        "authors": "Vincent A.",
+        "year": "2022",
+        "title": "Mon cerveau a besoin de lunettes : le TDAH expliqué aux enfants",
+        "publisher": "Les Éditions de l'Homme"
+      },
+      {
+        "authors": "De Coster P.",
+        "year": "2022",
+        "title": "Le TDA/H chez l'adulte : apprendre à vivre sereinement avec son trouble de l'attention",
+        "publisher": "Mardaga"
+      },
+      {
+        "authors": "Lussier F.",
+        "year": "2018",
+        "title": "100 idées pour mieux gérer les troubles de l'attention",
+        "publisher": "Tom Pousse"
+      }
+    ],
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "elisabeth-bennet-sur-le-divan",
     "title": "Elisabeth Bennet sur le divan : Psychologie d'une jeune britannique",
     "excerpt": "",
