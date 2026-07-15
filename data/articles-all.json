@@ -205,6 +205,90 @@
     "status": "scheduled"
   },
   {
+    "id": "peut-on-etre-tout-le-temps-heureux",
+    "title": "Peut-on être tout le temps heureux ?",
+    "type": "article",
+    "excerpt": "Le bonheur est devenu un objectif de performance. Or la recherche est formelle : un bonheur permanent est impossible — et surtout, le poursuivre comme un but rend statistiquement plus malheureux.",
+    "metaDescription": "Non, on ne peut pas être heureux en permanence. Adaptation hédonique, utilité des émotions négatives, paradoxe de la quête du bonheur : ce que dit la science.",
+    "author": "John Balthazar",
+    "date": "2027-03-18",
+    "date_modified": "2027-03-18",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "bonheur",
+      "emotions",
+      "psychologie-positive",
+      "bien-etre",
+      "adaptation-hedonique"
+    ],
+    "sources": [
+      {
+        "authors": "Brickman P., Coates D. & Janoff-Bulman R.",
+        "year": "1978",
+        "title": "Lottery winners and accident victims: Is happiness relative?",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.36.8.917"
+      },
+      {
+        "authors": "Diener E., Lucas R. E. & Scollon C. N.",
+        "year": "2006",
+        "title": "Beyond the hedonic treadmill: Revising the adaptation theory of well-being",
+        "journal": "American Psychologist",
+        "url": "https://doi.org/10.1037/0003-066X.61.4.305"
+      },
+      {
+        "authors": "Mauss I. B., Tamir M., Anderson C. L. & Savino N. S.",
+        "year": "2011",
+        "title": "Can seeking happiness make people unhappy? Paradoxical effects of valuing happiness",
+        "journal": "Emotion",
+        "url": "https://doi.org/10.1037/a0022010"
+      },
+      {
+        "authors": "Gruber J., Mauss I. B. & Tamir M.",
+        "year": "2011",
+        "title": "A dark side of happiness? How, when, and why happiness is not always good",
+        "journal": "Perspectives on Psychological Science",
+        "url": "https://doi.org/10.1177/1745691611406927"
+      },
+      {
+        "authors": "Bastian B., Kuppens P., Hornsey M. J., Park J., Koval P. & Uchida Y.",
+        "year": "2012",
+        "title": "Feeling bad about being sad: The role of social expectancies in amplifying negative mood",
+        "journal": "Emotion",
+        "url": "https://doi.org/10.1037/a0024755"
+      },
+      {
+        "authors": "Forgas J. P.",
+        "year": "2013",
+        "title": "Don't worry, be sad! On the cognitive, motivational, and interpersonal benefits of negative mood",
+        "journal": "Current Directions in Psychological Science",
+        "url": "https://doi.org/10.1177/0963721412474458"
+      },
+      {
+        "authors": "Killingsworth M. A. & Gilbert D. T.",
+        "year": "2010",
+        "title": "A wandering mind is an unhappy mind",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1192439"
+      },
+      {
+        "authors": "Lyubomirsky S., Sheldon K. M. & Schkade D.",
+        "year": "2005",
+        "title": "Pursuing happiness: The architecture of sustainable change",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.9.2.111"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "abbe-pierre-sur-le-divan",
     "title": "L'abbé Pierre sur le divan : anatomie d'une impunité",
     "excerpt": "",
