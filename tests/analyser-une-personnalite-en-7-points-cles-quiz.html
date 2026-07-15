@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel lecteur de personnalité êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/analyser-une-personnalite-en-7-points-cles/">
+  <meta name="description" content="Traits, liens, contexte ou récit : découvrez avec quelle grille vous décodez spontanément la personnalité des autres, et celle qui vous manque.">
+  <style>
+    :root{
+      --bleu:#1F4E6B;
+      --bleu-clair:#2E6E93;
+      --fond:#F7F9FB;
+      --texte:#1D2B33;
+      --gris:#6B7B85;
+      --bord:#DDE5EA;
+      --accent:#E4744A;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--fond);color:var(--texte);line-height:1.6;padding:20px;
+    }
+    .wrap{max-width:640px;margin:0 auto}
+    .card{background:#fff;border:1px solid var(--bord);border-radius:14px;padding:24px}
+    .eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);font-weight:700}
+    h1{font-size:1.5rem;line-height:1.25;margin:8px 0 10px;color:var(--bleu)}
+    h2{font-size:1.25rem;line-height:1.3;margin:0 0 8px;color:var(--bleu)}
+    .lede{color:var(--gris);font-size:.95rem;margin-bottom:20px}
+    .btn{
+      display:inline-block;background:var(--bleu);color:#fff;border:none;border-radius:999px;
+      padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;
+      transition:background .2s;
+    }
+    .btn:hover{background:var(--bleu-clair)}
+    .btn.ghost{background:transparent;color:var(--bleu);border:1.5px solid var(--bord)}
+    .btn.ghost:hover{background:var(--fond)}
+    .progress{height:6px;background:var(--bord);border-radius:999px;overflow:hidden;margin-bottom:6px}
+    .progress span{display:block;height:100%;background:var(--bleu);border-radius:999px;transition:width .3s}
+    .count{font-size:.78rem;color:var(--gris);margin-bottom:16px}
+    .q{font-size:1.12rem;font-weight:600;margin-bottom:16px;line-height:1.4}
+    .opt{
+      display:block;width:100%;text-align:left;background:#fff;border:1.5px solid var(--bord);
+      border-radius:10px;padding:14px 16px;margin-bottom:10px;font-size:.95rem;font-family:inherit;
+      color:var(--texte);cursor:pointer;line-height:1.45;transition:border-color .15s,background .15s;
+    }
+    .opt:hover{border-color:var(--bleu);background:#F2F7FA}
+    .nav{margin-top:8px}
+    .badge{
+      display:inline-block;background:#F2F7FA;color:var(--bleu);border-radius:999px;
+      padding:6px 14px;font-size:.8rem;font-weight:700;margin-bottom:10px;
+    }
+    .emoji{font-size:2.4rem;line-height:1;margin-bottom:6px}
+    .res p{margin-bottom:12px}
+    .res h3{font-size:.95rem;color:var(--bleu);margin:18px 0 6px}
+    .res ul{margin:0 0 12px 20px}
+    .res li{margin-bottom:6px;font-size:.94rem}
+    .bars{margin:18px 0 4px}
+    .bar-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;font-size:.82rem}
+    .bar-lab{width:88px;color:var(--gris);flex-shrink:0}
+    .bar-track{flex:1;height:8px;background:var(--bord);border-radius:999px;overflow:hidden}
+    .bar-fill{height:100%;background:var(--bleu-clair);border-radius:999px}
+    .share{margin:20px 0 4px;padding-top:16px;border-top:1px solid var(--bord)}
+    .share p{font-size:.85rem;color:var(--gris);margin-bottom:10px}
+    .share a{
+      display:inline-block;text-decoration:none;background:#F2F7FA;color:var(--bleu);
+      border:1px solid var(--bord);border-radius:999px;padding:8px 14px;font-size:.85rem;
+      font-weight:600;margin:0 6px 8px 0;
+    }
+    .share a:hover{background:#E8F1F6}
+    .disclaimer{
+      margin-top:18px;background:#FFF6F2;border:1px solid #F5D9CC;border-radius:10px;
+      padding:14px 16px;font-size:.82rem;color:#6A4738;line-height:1.5;
+    }
+    .hidden{display:none}
+    @media(max-width:480px){.card{padding:18px}h1{font-size:1.3rem}}
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- INTRO -->
+  <div class="card" id="intro">
+    <div class="eyebrow">Test · 3 min</div>
+    <h1>Quel lecteur de personnalité êtes-vous ?</h1>
+    <p class="lede">Face à quelqu'un, nous ne regardons pas tous la même chose : certains repèrent les traits, d'autres la façon d'aimer, d'autres le contexte ou l'histoire racontée. 12 situations pour découvrir votre grille de lecture spontanée — et celle qu'il vous reste à développer.</p>
+    <button class="btn" id="start">Commencer le test</button>
+  </div>
+
+  <!-- QUIZ -->
+  <div class="card hidden" id="quiz">
+    <div class="progress"><span id="bar" style="width:0%"></span></div>
+    <div class="count" id="count"></div>
+    <div class="q" id="question"></div>
+    <div id="options"></div>
+    <div class="nav"><button class="btn ghost" id="back">← Précédent</button></div>
+  </div>
+
+  <!-- RESULTAT -->
+  <div class="card hidden res" id="result">
+    <div class="emoji" id="r-emoji"></div>
+    <div class="badge">Votre grille dominante</div>
+    <h2 id="r-title"></h2>
+    <div id="r-body"></div>
+
+    <div class="bars" id="r-bars"></div>
+
+    <div class="share">
+      <p>Partagez votre résultat :</p>
+      <a id="sh-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+      <a id="sh-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+      <a id="sh-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+    </div>
+
+    <div class="disclaimer">
+      ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+      Seul un professionnel de santé peut évaluer votre situation.
+      En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+    </div>
+
+    <div style="margin-top:18px">
+      <button class="btn ghost" id="restart">↺ Recommencer</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var URL_ART = "https://ouipsycho.fr/articles/analyser-une-personnalite-en-7-points-cles/";
+
+  var QUESTIONS = [
+    { q: "Un collègue habituellement affable vous répond sèchement. Votre première pensée :",
+      a: [
+        { t: "« Ça ne lui ressemble pas — il doit se passer quelque chose aujourd'hui. »", p: "C" },
+        { t: "« Sous le vernis, il est plus irritable qu'il n'en a l'air. »", p: "T" },
+        { t: "« Il a dû se sentir attaqué, il se protège. »", p: "L" },
+        { t: "« Avec ce qu'il a vécu cette année, ça a du sens. »", p: "R" }
+      ] },
+    { q: "Vous rencontrez quelqu'un à un dîner. Ce que vous retenez le plus :",
+      a: [
+        { t: "Le portrait global : bavard, curieux, un peu anxieux.", p: "T" },
+        { t: "La façon dont il parlait de ses proches.", p: "L" },
+        { t: "Le fait qu'il ne connaissait personne et s'accrochait au buffet.", p: "C" },
+        { t: "L'histoire qu'il a racontée sur son parcours.", p: "R" }
+      ] },
+    { q: "Un ami vous dit : « Je suis quelqu'un de froid, c'est comme ça. » Vous répondez plutôt :",
+      a: [
+        { t: "« Froid avec qui, exactement ? Pas avec moi. »", p: "C" },
+        { t: "« Tu es surtout prudent quand on s'approche trop. »", p: "L" },
+        { t: "« Tu es réservé, ce n'est pas la même chose que froid. »", p: "T" },
+        { t: "« Tu dis ça depuis quand ? Ça vient d'où, cette phrase ? »", p: "R" }
+      ] },
+    { q: "Pour comprendre vraiment quelqu'un, l'information qui vous manque le plus est :",
+      a: [
+        { t: "Comment il réagit quand il a peur de perdre l'autre.", p: "L" },
+        { t: "Comment il se comporte dans un autre milieu que celui où je le vois.", p: "C" },
+        { t: "Ce qu'il a traversé avant que je le rencontre.", p: "R" },
+        { t: "Ses tendances de fond : organisé ? sociable ? émotif ?", p: "T" }
+      ] },
+    { q: "Au cinéma, ce qui vous accroche dans un personnage :",
+      a: [
+        { t: "Son évolution du début à la fin du film.", p: "R" },
+        { t: "Sa cohérence : on sait toujours comment il va réagir.", p: "T" },
+        { t: "Sa relation centrale, ce qu'il cherche chez l'autre.", p: "L" },
+        { t: "Le monde dans lequel il est coincé, qui explique tout.", p: "C" }
+      ] },
+    { q: "Quelqu'un annule un rendez-vous à la dernière minute pour la deuxième fois. Vous vous dites :",
+      a: [
+        { t: "« Deux fois, ce n'est pas encore une tendance. »", p: "T" },
+        { t: "« Il annule dès que ça devient un peu intime. »", p: "L" },
+        { t: "« Sa période est chargée, ce n'est pas contre moi. »", p: "C" },
+        { t: "« Il a toujours eu du mal à s'engager, depuis toujours. »", p: "R" }
+      ] },
+    { q: "En entretien de recrutement, la question que vous auriez envie de poser :",
+      a: [
+        { t: "« Racontez-moi comment vous en êtes arrivé là. »", p: "R" },
+        { t: "« Décrivez-vous en trois adjectifs — et donnez un contre-exemple. »", p: "T" },
+        { t: "« Parlez-moi de votre dernier conflit avec un supérieur. »", p: "L" },
+        { t: "« Dans quel type d'environnement travaillez-vous le mieux ? »", p: "C" }
+      ] },
+    { q: "Une amie enchaîne les relations qui finissent mal. Votre lecture spontanée :",
+      a: [
+        { t: "Elle reproduit un schéma affectif hérité de son histoire.", p: "L" },
+        { t: "Elle choisit ses partenaires dans des contextes qui filtrent mal.", p: "C" },
+        { t: "Elle est impulsive et cela se paie dans la durée.", p: "T" },
+        { t: "Elle se raconte une histoire d'amour qu'elle rejoue à chaque fois.", p: "R" }
+      ] },
+    { q: "Ce qui vous agace le plus dans les tests de personnalité grand public :",
+      a: [
+        { t: "Ils enferment dans quatre lettres alors que tout est continuum.", p: "T" },
+        { t: "Ils ignorent complètement les relations et l'histoire affective.", p: "L" },
+        { t: "Ils oublient que les gens changent selon la situation.", p: "C" },
+        { t: "Ils ne laissent aucune place à ce que la personne a vécu.", p: "R" }
+      ] },
+    { q: "Vous voulez mieux vous connaître. Vous commenceriez par :",
+      a: [
+        { t: "Un inventaire de personnalité sérieux, type Big Five.", p: "T" },
+        { t: "Relire vos ruptures et vos amitiés durables.", p: "L" },
+        { t: "Noter, pendant un mois, dans quelles situations vous êtes au meilleur.", p: "C" },
+        { t: "Écrire votre autobiographie en dix chapitres.", p: "R" }
+      ] },
+    { q: "Un proche explose de colère. Une semaine après, ce que vous voulez savoir :",
+      a: [
+        { t: "Si cela lui arrive souvent, ou si c'était une première.", p: "T" },
+        { t: "Ce qu'il attendait de vous à ce moment-là.", p: "L" },
+        { t: "Ce qui s'était passé dans sa journée juste avant.", p: "C" },
+        { t: "Ce que cette colère rejouait de plus ancien.", p: "R" }
+      ] },
+    { q: "Selon vous, une personnalité, c'est avant tout :",
+      a: [
+        { t: "Une signature « si telle situation, alors telle réaction ».", p: "C" },
+        { t: "Un ensemble de tendances stables mesurables.", p: "T" },
+        { t: "Une manière singulière d'entrer en lien.", p: "L" },
+        { t: "Une histoire qu'on se raconte et qui nous tient debout.", p: "R" }
+      ] }
+  ];
+
+  var PROFILS = {
+    T: {
+      emoji: "🧭",
+      titre: "L'analyste des traits",
+      intro: "Vous lisez les gens comme des cartes : vous cherchez les régularités, les tendances de fond, ce qui se répète. Face à un comportement isolé, votre réflexe est de le comparer à une ligne de base — et c'est une excellente hygiène mentale, car c'est exactement ce qui distingue un trait d'un état passager.",
+      forces: ["Vous ne concluez pas sur un épisode isolé.", "Vous pensez naturellement en continuums plutôt qu'en cases.", "Vous prédisez plutôt bien les comportements sur le long terme."],
+      angle: "Votre angle mort : la situation. Un profil de traits dit qui est quelqu'un « en moyenne », jamais ce qu'il fera mardi soir. Entraînez-vous à formuler des signatures « si… alors » plutôt que des adjectifs, et demandez-vous ce que la personne ressent, pas seulement ce qu'elle fait."
+    },
+    L: {
+      emoji: "🔗",
+      titre: "Le décodeur des liens",
+      intro: "Vous regardez d'abord ce que quelqu'un fait du lien : comment il s'approche, comment il se retire, ce qu'il craint de perdre. C'est une lecture profonde, proche de celle des cliniciens, car la manière de gérer une menace relationnelle est l'une des signatures les plus révélatrices d'un fonctionnement psychique.",
+      forces: ["Vous repérez vite les schémas affectifs qui se répètent.", "Vous distinguez le comportement de la peur qui le produit.", "Vous êtes rarement dupe des façades."],
+      angle: "Votre angle mort : tout n'est pas de l'attachement. Certaines personnes sont simplement fatiguées, débordées ou peu intéressées — et vos hypothèses relationnelles, très séduisantes, sont difficiles à réfuter. Ajoutez à votre grille les données ennuyeuses : les traits, le contexte, l'agenda."
+    },
+    C: {
+      emoji: "🌍",
+      titre: "L'enquêteur du contexte",
+      intro: "Vous êtes naturellement immunisé contre l'erreur fondamentale d'attribution : là où la plupart voient un caractère, vous voyez une situation. Vous savez qu'une même personne peut être douce au travail et explosive à la maison sans être incohérente — elle est cohérente par contexte.",
+      forces: ["Vous jugez peu et enquêtez beaucoup.", "Vous repérez les environnements qui abîment ou révèlent les gens.", "Vous laissez aux autres la possibilité de changer de cadre."],
+      angle: "Votre angle mort : à force de tout expliquer par la situation, vous risquez de dissoudre la personne. Certaines tendances traversent bel et bien les contextes, et certaines responsabilités ne s'expliquent pas seulement par les circonstances. Autorisez-vous à nommer un trait quand il se répète partout."
+    },
+    R: {
+      emoji: "📖",
+      titre: "L'écoutant du récit",
+      intro: "Pour vous, une personnalité est d'abord une histoire : d'où l'on vient, ce qui a marqué, où l'on va. C'est le niveau le plus humain de l'analyse — et le mieux corrélé au sens qu'une vie prend pour celui qui la vit. Les récits où les épreuves deviennent des passages, et non des impasses, sont d'ailleurs associés à un meilleur bien-être.",
+      forces: ["Vous entendez ce que les autres ne racontent qu'à demi-mot.", "Vous voyez les gens comme révisables, jamais figés.", "Vous saisissez les motivations profondes derrière les actes."],
+      angle: "Votre angle mort : un beau récit n'est pas une preuve. Une histoire cohérente peut être fausse, reconstruite ou flatteuse — et vous êtes sensible à l'effet Barnum, ce sentiment que « tout colle ». Confrontez le récit aux faits observables : que fait la personne, à quoi renonce-t-elle réellement ?"
+    }
+  };
+
+  var ORDRE = ["T", "L", "C", "R"];
+  var NOMS = { T: "Traits", L: "Liens", C: "Contexte", R: "Récit" };
+
+  var deck = [], idx = 0, reponses = [];
+
+  var elIntro = document.getElementById("intro");
+  var elQuiz = document.getElementById("quiz");
+  var elRes = document.getElementById("result");
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function build() {
+    deck = QUESTIONS.map(function(q) {
+      return { q: q.q, a: shuffle(q.a) };
+    });
+    idx = 0;
+    reponses = [];
+  }
+
+  function render() {
+    var item = deck[idx];
+    document.getElementById("bar").style.width = ((idx) / deck.length * 100) + "%";
+    document.getElementById("count").textContent = "Question " + (idx + 1) + " sur " + deck.length;
+    document.getElementById("question").textContent = item.q;
+
+    var box = document.getElementById("options");
+    box.innerHTML = "";
+    item.a.forEach(function(opt) {
+      var b = document.createElement("button");
+      b.className = "opt";
+      b.type = "button";
+      b.textContent = opt.t;
+      b.addEventListener("click", function() { choisir(opt.p); });
+      box.appendChild(b);
+    });
+
+    document.getElementById("back").style.visibility = idx === 0 ? "hidden" : "visible";
+    notifyResize();
+  }
+
+  function choisir(p) {
+    reponses[idx] = p;
+    idx++;
+    if (idx >= deck.length) { afficherResultat(); }
+    else { render(); }
+  }
+
+  function afficherResultat() {
+    var scores = { T: 0, L: 0, C: 0, R: 0 };
+    reponses.forEach(function(p) { scores[p]++; });
+
+    var best = ORDRE[0];
+    ORDRE.forEach(function(k) { if (scores[k] > scores[best]) best = k; });
+
+    var pr = PROFILS[best];
+    document.getElementById("r-emoji").textContent = pr.emoji;
+    document.getElementById("r-title").textContent = pr.titre;
+
+    var html = "<p>" + pr.intro + "</p>";
+    html += "<h3>Ce que vous voyez mieux que les autres</h3><ul>";
+    pr.forces.forEach(function(f) { html += "<li>" + f + "</li>"; });
+    html += "</ul>";
+    html += "<h3>Ce qu'il vous reste à développer</h3><p>" + pr.angle + "</p>";
+    document.getElementById("r-body").innerHTML = html;
+
+    var bars = "";
+    ORDRE.forEach(function(k) {
+      var pct = Math.round(scores[k] / deck.length * 100);
+      bars += '<div class="bar-row"><span class="bar-lab">' + NOMS[k] + '</span>'
+           + '<span class="bar-track"><span class="bar-fill" style="width:' + pct + '%"></span></span>'
+           + '<span>' + pct + '%</span></div>';
+    });
+    document.getElementById("r-bars").innerHTML = bars;
+
+    var texte = "Je suis « " + pr.titre + " ». Et vous, quelle est votre grille de lecture des personnalités ?";
+    var u = encodeURIComponent(URL_ART);
+    var t = encodeURIComponent(texte);
+    document.getElementById("sh-fb").href = "https://www.facebook.com/sharer/sharer.php?u=" + u;
+    document.getElementById("sh-tw").href = "https://twitter.com/intent/tweet?text=" + t + "&url=" + u;
+    document.getElementById("sh-wa").href = "https://wa.me/?text=" + encodeURIComponent(texte + " " + URL_ART);
+
+    elQuiz.classList.add("hidden");
+    elRes.classList.remove("hidden");
+
+    if (typeof gtag === "function") {
+      gtag("event", "quiz_complete", { quiz_id: "analyser-une-personnalite-en-7-points-cles-quiz", resultat: pr.titre });
+    }
+    notifyResize();
+  }
+
+  document.getElementById("start").addEventListener("click", function() {
+    build();
+    elIntro.classList.add("hidden");
+    elQuiz.classList.remove("hidden");
+    render();
+    notifyResize();
+  });
+
+  document.getElementById("back").addEventListener("click", function() {
+    if (idx > 0) { idx--; render(); }
+  });
+
+  document.getElementById("restart").addEventListener("click", function() {
+    build();
+    elRes.classList.add("hidden");
+    elIntro.classList.remove("hidden");
+    notifyResize();
+  });
+
+  window.addEventListener("load", notifyResize);
+  notifyResize();
+})();
+</script>
+</body>
+</html>
