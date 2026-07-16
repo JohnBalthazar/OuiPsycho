@@ -2,19 +2,18 @@
   {
     "id": "sherlock-holmes-divan-detective-addict",
     "title": "Sherlock Holmes sur le divan : psychologie d'un détective addict",
-    "type": "article",
-    "excerpt": "Cocaïne à 7 %, émotions au placard et solitude revendiquée (en colocation) : le plus grand détective du monde est aussi un cas d'école du mythe de l'homme fort. Cette fois, c'est lui qu'on passe à la loupe.",
-    "metaDescription": "Addiction, émotions réprimées, mythe de l'homme fort : ce que la psychologie révèle de Sherlock Holmes — et de la virilité qui abîme. Avec quiz détective.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-06",
     "date_modified": "2027-04-06",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "sherlock-holmes",
       "virilite",
@@ -22,49 +21,7 @@
       "masculinite",
       "heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Conan Doyle A.",
-        "year": "1890",
-        "title": "Le Signe des quatre",
-        "publisher": "Spencer Blackett"
-      },
-      {
-        "authors": "Levant R. F., Hall R. J., Williams C. M. & Hasan N. T.",
-        "year": "2009",
-        "title": "Gender differences in alexithymia",
-        "journal": "Psychology of Men & Masculinity",
-        "url": "https://doi.org/10.1037/a0015652"
-      },
-      {
-        "authors": "Vandello J. A. & Bosson J. K.",
-        "year": "2013",
-        "title": "Hard won and easily lost: A review and synthesis of theory and research on precarious manhood",
-        "journal": "Psychology of Men & Masculinity",
-        "url": "https://doi.org/10.1037/a0029826"
-      },
-      {
-        "authors": "Addis M. E. & Mahalik J. R.",
-        "year": "2003",
-        "title": "Men, masculinity, and the contexts of help seeking",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.58.1.5"
-      },
-      {
-        "authors": "Koob G. F. & Volkow N. D.",
-        "year": "2016",
-        "title": "Neurobiology of addiction: a neurocircuitry analysis",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(16)00104-8"
-      },
-      {
-        "authors": "Holt-Lunstad J., Smith T. B. & Layton J. B.",
-        "year": "2010",
-        "title": "Social relationships and mortality risk: a meta-analytic review",
-        "journal": "PLoS Medicine",
-        "url": "https://doi.org/10.1371/journal.pmed.1000316"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -123,19 +80,18 @@
   {
     "id": "analyser-une-personnalite-en-7-points-cles",
     "title": "Analyser une personnalité en 7 points clés",
-    "type": "article",
-    "excerpt": "Traits, attachement, valeurs, défenses, contexte, récit : la psychologie dispose d'outils bien plus fins que les étiquettes. Voici sept points d'observation pour lire une personnalité sans l'enfermer.",
-    "metaDescription": "Traits, attachement, valeurs, défenses, contexte, récit : 7 points clés validés par la recherche pour analyser une personnalité sans l'enfermer.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-19",
     "date_modified": "2027-03-19",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "personnalite",
       "big-five",
@@ -143,83 +99,25 @@
       "psychologie-des-traits",
       "connaissance-de-soi"
     ],
-    "sources": [
-      {
-        "authors": "McCrae R. R. & Costa P. T.",
-        "year": "1997",
-        "title": "Personality trait structure as a human universal",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.52.5.509"
-      },
-      {
-        "authors": "Roberts B. W., Walton K. E. & Viechtbauer W.",
-        "year": "2006",
-        "title": "Patterns of mean-level change in personality traits across the life course: a meta-analysis of longitudinal studies",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.132.1.1"
-      },
-      {
-        "authors": "Mischel W. & Shoda Y.",
-        "year": "1995",
-        "title": "A cognitive-affective system theory of personality: reconceptualizing situations, dispositions, dynamics, and invariance in personality structure",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.102.2.246"
-      },
-      {
-        "authors": "Hazan C. & Shaver P.",
-        "year": "1987",
-        "title": "Romantic love conceptualized as an attachment process",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.52.3.511"
-      },
-      {
-        "authors": "Schwartz S. H.",
-        "year": "1992",
-        "title": "Universals in the content and structure of values: theoretical advances and empirical tests in 20 countries",
-        "journal": "Advances in Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/S0065-2601(08)60281-6"
-      },
-      {
-        "authors": "McAdams D. P. & Pals J. L.",
-        "year": "2006",
-        "title": "A new Big Five: fundamental principles for an integrative science of personality",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.61.3.204"
-      },
-      {
-        "authors": "Vazire S.",
-        "year": "2010",
-        "title": "Who knows what about a person? The self-other knowledge asymmetry (SOKA) model",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/a0017908"
-      },
-      {
-        "authors": "Soto C. J.",
-        "year": "2019",
-        "title": "How replicable are links between personality traits and consequential life outcomes? The Life Outcomes of Personality Replication Project",
-        "journal": "Psychological Science",
-        "url": "https://doi.org/10.1177/0956797619831612"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "peut-on-etre-tout-le-temps-heureux",
     "title": "Peut-on être tout le temps heureux ?",
-    "type": "article",
-    "excerpt": "Le bonheur est devenu un objectif de performance. Or la recherche est formelle : un bonheur permanent est impossible — et surtout, le poursuivre comme un but rend statistiquement plus malheureux.",
-    "metaDescription": "Non, on ne peut pas être heureux en permanence. Adaptation hédonique, utilité des émotions négatives, paradoxe de la quête du bonheur : ce que dit la science.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-18",
     "date_modified": "2027-03-18",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "bonheur",
       "emotions",
@@ -227,64 +125,7 @@
       "bien-etre",
       "adaptation-hedonique"
     ],
-    "sources": [
-      {
-        "authors": "Brickman P., Coates D. & Janoff-Bulman R.",
-        "year": "1978",
-        "title": "Lottery winners and accident victims: Is happiness relative?",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.36.8.917"
-      },
-      {
-        "authors": "Diener E., Lucas R. E. & Scollon C. N.",
-        "year": "2006",
-        "title": "Beyond the hedonic treadmill: Revising the adaptation theory of well-being",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.61.4.305"
-      },
-      {
-        "authors": "Mauss I. B., Tamir M., Anderson C. L. & Savino N. S.",
-        "year": "2011",
-        "title": "Can seeking happiness make people unhappy? Paradoxical effects of valuing happiness",
-        "journal": "Emotion",
-        "url": "https://doi.org/10.1037/a0022010"
-      },
-      {
-        "authors": "Gruber J., Mauss I. B. & Tamir M.",
-        "year": "2011",
-        "title": "A dark side of happiness? How, when, and why happiness is not always good",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691611406927"
-      },
-      {
-        "authors": "Bastian B., Kuppens P., Hornsey M. J., Park J., Koval P. & Uchida Y.",
-        "year": "2012",
-        "title": "Feeling bad about being sad: The role of social expectancies in amplifying negative mood",
-        "journal": "Emotion",
-        "url": "https://doi.org/10.1037/a0024755"
-      },
-      {
-        "authors": "Forgas J. P.",
-        "year": "2013",
-        "title": "Don't worry, be sad! On the cognitive, motivational, and interpersonal benefits of negative mood",
-        "journal": "Current Directions in Psychological Science",
-        "url": "https://doi.org/10.1177/0963721412474458"
-      },
-      {
-        "authors": "Killingsworth M. A. & Gilbert D. T.",
-        "year": "2010",
-        "title": "A wandering mind is an unhappy mind",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1192439"
-      },
-      {
-        "authors": "Lyubomirsky S., Sheldon K. M. & Schkade D.",
-        "year": "2005",
-        "title": "Pursuing happiness: The architecture of sustainable change",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.9.2.111"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -316,19 +157,18 @@
   {
     "id": "enseignements-psychologie-histoires-disney",
     "title": "Ce que les histoires Disney nous apprennent vraiment : 6 leçons de psychologie",
-    "type": "article",
-    "excerpt": "Derrière les chansons et les couleurs saturées, les contes Disney déposent en nous des scénarios psychiques très précis. Deuil, ombre, faux self, attachement : six enseignements décryptés à la lumière de la recherche.",
-    "metaDescription": "Deuil, ombre, faux self, persévérance : ce que les histoires Disney nous apprennent vraiment sur nous, décrypté par la psychologie contemporaine.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-12",
     "date_modified": "2027-03-12",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "disney",
       "psychologie-de-la-fiction",
@@ -336,80 +176,25 @@
       "developpement-personnel",
       "enfance"
     ],
-    "sources": [
-      {
-        "authors": "Mar R. A. & Oatley K.",
-        "year": "2008",
-        "title": "The Function of Fiction is the Abstraction and Simulation of Social Experience",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1111/j.1745-6924.2008.00073.x"
-      },
-      {
-        "authors": "Coyne S. M., Linder J. R., Rasmussen E. E., Nelson D. A. & Birkbeck V.",
-        "year": "2016",
-        "title": "Pretty as a Princess: Longitudinal Effects of Engagement With Disney Princesses on Gender Stereotypes, Body Esteem, and Prosocial Behavior in Children",
-        "journal": "Child Development",
-        "url": "https://doi.org/10.1111/cdev.12569"
-      },
-      {
-        "authors": "Duckworth A. L., Peterson C., Matthews M. D. & Kelly D. R.",
-        "year": "2007",
-        "title": "Grit: Perseverance and Passion for Long-Term Goals",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.92.6.1087"
-      },
-      {
-        "authors": "Snyder C. R., Harris C., Anderson J. R. et al.",
-        "year": "1991",
-        "title": "The Will and the Ways: Development and Validation of an Individual-Differences Measure of Hope",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.60.4.570"
-      },
-      {
-        "authors": "Green M. C. & Brock T. C.",
-        "year": "2000",
-        "title": "The Role of Transportation in the Persuasiveness of Public Narratives",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.79.5.701"
-      },
-      {
-        "authors": "Bettelheim B.",
-        "year": "1976",
-        "title": "Psychanalyse des contes de fées",
-        "publisher": "Robert Laffont"
-      },
-      {
-        "authors": "Winnicott D. W.",
-        "year": "1960",
-        "title": "Ego Distortion in Terms of True and False Self",
-        "publisher": "Hogarth Press"
-      },
-      {
-        "authors": "Bowlby J.",
-        "year": "1988",
-        "title": "A Secure Base: Parent-Child Attachment and Healthy Human Development",
-        "publisher": "Basic Books"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "plus-grands-psychologues-histoire",
     "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
-    "type": "article",
-    "excerpt": "Skinner, Piaget, Freud, Bandura, Rogers : cinq esprits qui ne se seraient entendus sur rien, et qui façonnent pourtant la façon dont vous vous comprenez vous-même. Surprise : le plus célèbre n'est que troisième.",
-    "metaDescription": "Skinner, Piaget, Freud, Bandura, Rogers : découvrez les 5 psychologues qui ont le plus marqué l'histoire, leurs idées, leurs limites et leur héritage actuel.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-11",
     "date_modified": "2027-03-11",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "histoire-de-la-psychologie",
       "freud",
@@ -417,50 +202,7 @@
       "piaget",
       "rogers"
     ],
-    "sources": [
-      {
-        "authors": "Haggbloom S. J. et al.",
-        "year": "2002",
-        "title": "The 100 most eminent psychologists of the 20th century",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.6.2.139"
-      },
-      {
-        "authors": "Bandura A., Ross D. & Ross S. A.",
-        "year": "1961",
-        "title": "Transmission of aggression through imitation of aggressive models",
-        "journal": "Journal of Abnormal and Social Psychology",
-        "url": "https://doi.org/10.1037/h0045925"
-      },
-      {
-        "authors": "Bandura A.",
-        "year": "1977",
-        "title": "Self-efficacy: Toward a unifying theory of behavioral change",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.84.2.191"
-      },
-      {
-        "authors": "Rogers C. R.",
-        "year": "1957",
-        "title": "The necessary and sufficient conditions of therapeutic personality change",
-        "journal": "Journal of Consulting Psychology",
-        "url": "https://doi.org/10.1037/h0045357"
-      },
-      {
-        "authors": "Flückiger C., Del Re A. C., Wampold B. E. & Horvath A. O.",
-        "year": "2018",
-        "title": "The alliance in adult psychotherapy: A meta-analytic synthesis",
-        "journal": "Psychotherapy",
-        "url": "https://doi.org/10.1037/pst0000172"
-      },
-      {
-        "authors": "Loftus E. F. & Palmer J. C.",
-        "year": "1974",
-        "title": "Reconstruction of automobile destruction: An example of the interaction between language and memory",
-        "journal": "Journal of Verbal Learning and Verbal Behavior",
-        "url": "https://doi.org/10.1016/S0022-5371(74)80011-3"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -494,19 +236,18 @@
   {
     "id": "sept-secrets-jamais-partages",
     "title": "Les 7 secrets que les gens ne partagent (presque) jamais",
-    "type": "article",
-    "excerpt": "97 % d'entre nous gardent au moins un secret, et une douzaine en moyenne. Voici les sept que l'on confie le moins — et la découverte contre-intuitive de la recherche : ce n'est pas de le cacher qui fait mal.",
-    "metaDescription": "Argent, désir, honte, santé mentale : les 7 secrets que personne ne confie. Témoignages et ce que dit la science de leur poids réel — et comment s'en alléger.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-05",
     "date_modified": "2027-03-05",
     "category": "Émotions & identité",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "secrets",
       "honte",
@@ -514,69 +255,25 @@
       "confiance",
       "emotions"
     ],
-    "sources": [
-      {
-        "authors": "Slepian M. L., Chun J. S. & Mason M. F.",
-        "year": "2017",
-        "title": "The experience of secrecy",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/pspa0000085"
-      },
-      {
-        "authors": "Slepian M. L. & Moulton-Tetlock E.",
-        "year": "2019",
-        "title": "Confiding secrets and well-being",
-        "journal": "Social Psychological and Personality Science",
-        "url": "https://doi.org/10.1177/1948550618765069"
-      },
-      {
-        "authors": "Slepian M. L.",
-        "year": "2022",
-        "title": "A process model of having and keeping secrets",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/rev0000282"
-      },
-      {
-        "authors": "Pennebaker J. W. & Beall S. K.",
-        "year": "1986",
-        "title": "Confronting a traumatic event: Toward an understanding of inhibition and disease",
-        "journal": "Journal of Abnormal Psychology",
-        "url": "https://doi.org/10.1037/0021-843X.95.3.274"
-      },
-      {
-        "authors": "Tangney J. P., Stuewig J. & Mashek D. J.",
-        "year": "2007",
-        "title": "Moral emotions and moral behavior",
-        "journal": "Annual Review of Psychology",
-        "url": "https://doi.org/10.1146/annurev.psych.56.091103.070145"
-      },
-      {
-        "authors": "Frattaroli J.",
-        "year": "2006",
-        "title": "Experimental disclosure and its moderators: A meta-analysis",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.132.6.823"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "phrases-cultes-developpement-personnel-science",
     "title": "Les meilleures phrases des livres de développement personnel, passées au crible de la science",
-    "type": "article",
-    "excerpt": "Elles sont sur tous les mugs et semblent profondément vraies en quatre secondes. Mais que valent les grandes maximes du développement personnel face à la recherche ? Certaines sont excellentes. D'autres vous nuisent activement.",
-    "metaDescription": "Loi de l'attraction, moment présent, état d'esprit de développement : ce que la science dit vraiment des phrases cultes du développement personnel.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-04",
     "date_modified": "2027-03-04",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "developpement-personnel",
       "motivation",
@@ -584,63 +281,7 @@
       "biais-cognitifs",
       "pleine-conscience"
     ],
-    "sources": [
-      {
-        "authors": "Gollwitzer P. M. & Sheeran P.",
-        "year": "2006",
-        "title": "Implementation Intentions and Goal Achievement: A Meta-Analysis of Effects and Processes",
-        "journal": "Advances in Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
-      },
-      {
-        "authors": "Kappes H. B. & Oettingen G.",
-        "year": "2011",
-        "title": "Positive fantasies about idealized futures sap energy",
-        "journal": "Journal of Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/j.jesp.2011.02.003"
-      },
-      {
-        "authors": "Macnamara B. N. & Burgoyne A. P.",
-        "year": "2023",
-        "title": "Do growth mindset interventions impact students' academic achievement? A systematic review and meta-analysis with recommendations for best practices",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/bul0000352"
-      },
-      {
-        "authors": "Lally P., van Jaarsveld C. H. M., Potts H. W. W. & Wardle J.",
-        "year": "2010",
-        "title": "How are habits formed: Modelling habit formation in the real world",
-        "journal": "European Journal of Social Psychology",
-        "url": "https://doi.org/10.1002/ejsp.674"
-      },
-      {
-        "authors": "Killingsworth M. A. & Gilbert D. T.",
-        "year": "2010",
-        "title": "A wandering mind is an unhappy mind",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1192439"
-      },
-      {
-        "authors": "Huang K., Yeomans M., Brooks A. W., Minson J. & Gino F.",
-        "year": "2017",
-        "title": "It doesn't hurt to ask: Question-asking increases liking",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/pspi0000097"
-      },
-      {
-        "authors": "Goldberg S. B. et al.",
-        "year": "2018",
-        "title": "Mindfulness-based interventions for psychiatric disorders: A systematic review and meta-analysis",
-        "journal": "Clinical Psychology Review",
-        "url": "https://doi.org/10.1016/j.cpr.2017.10.011"
-      },
-      {
-        "authors": "Frankl V.",
-        "year": "1946",
-        "title": "Découvrir un sens à sa vie avec la logothérapie",
-        "publisher": "Éditions de l'Homme"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -674,19 +315,18 @@
   {
     "id": "loto-pourquoi-croire-gagner",
     "title": "Loto : pourquoi croit-on toujours que l'on peut gagner ?",
-    "type": "article",
-    "excerpt": "« 100 % des gagnants ont tenté leur chance » : le slogan est exact et pourtant totalement trompeur. Illusion de contrôle, biais du survivant, dopamine de l'attente — voici pourquoi votre cerveau refuse de comprendre une chance sur 19 millions.",
-    "metaDescription": "Une chance sur 19 millions et pourtant on y croit : illusion de contrôle, biais du survivant, dopamine… La psychologie de notre rapport au Loto et au hasard.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-26",
     "date_modified": "2027-02-26",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "loto",
       "biais-cognitifs",
@@ -694,68 +334,25 @@
       "jeu",
       "dopamine"
     ],
-    "sources": [
-      {
-        "authors": "Langer E. J.",
-        "year": "1975",
-        "title": "The illusion of control",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.32.2.311"
-      },
-      {
-        "authors": "Tversky A. & Kahneman D.",
-        "year": "1973",
-        "title": "Availability: A heuristic for judging frequency and probability",
-        "journal": "Cognitive Psychology",
-        "url": "https://doi.org/10.1016/0010-0285(73)90033-9"
-      },
-      {
-        "authors": "Kahneman D. & Tversky A.",
-        "year": "1979",
-        "title": "Prospect Theory: An Analysis of Decision under Risk",
-        "journal": "Econometrica",
-        "url": "https://doi.org/10.2307/1914185"
-      },
-      {
-        "authors": "Fiorillo C. D., Tobler P. N. & Schultz W.",
-        "year": "2003",
-        "title": "Discrete coding of reward probability and uncertainty by dopamine neurons",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1077349"
-      },
-      {
-        "authors": "Clark L., Lawrence A. J., Astley-Jones F. & Gray N.",
-        "year": "2009",
-        "title": "Gambling near-misses enhance motivation to gamble and recruit win-related brain circuitry",
-        "journal": "Neuron",
-        "url": "https://doi.org/10.1016/j.neuron.2009.04.031"
-      },
-      {
-        "authors": "Kahneman D.",
-        "year": "2012",
-        "title": "Système 1 / Système 2 : les deux vitesses de la pensée",
-        "publisher": "Flammarion"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "plateformes-psy-en-ligne-comparatif",
     "title": "Que valent les plateformes de psy en ligne ?",
-    "type": "article",
-    "excerpt": "De 0 € avec Mon soutien psy à plus de 300 € par mois chez BetterHelp : le marché du psy en ligne est devenu une jungle. Comparatif complet 2026 — prix, remboursement, ergonomie, avis des usagers et notes de la rédaction.",
-    "metaDescription": "Psy en ligne : Mon soutien psy, Qare, Serenis, BetterHelp… Comparatif 2026 des plateformes : prix, remboursement, ergonomie, avis et notes de la rédaction.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-02-25",
     "date_modified": "2027-02-25",
     "category": "Thérapies",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "psy-en-ligne",
       "teleconsultation",
@@ -763,35 +360,7 @@
       "therapie",
       "comparatif"
     ],
-    "sources": [
-      {
-        "authors": "Fernandez E., Woldgabreal Y., Day A., Pham T., Gleich B. & Aboujaoude E.",
-        "year": "2021",
-        "title": "Live psychotherapy by video versus in-person: A meta-analysis of efficacy and its relationship to types and targets of treatment",
-        "journal": "Clinical Psychology & Psychotherapy",
-        "url": "https://doi.org/10.1002/cpp.2594"
-      },
-      {
-        "authors": "Carlbring P., Andersson G., Cuijpers P., Riper H. & Hedman-Lagerlöf E.",
-        "year": "2018",
-        "title": "Internet-based vs. face-to-face cognitive behavior therapy for psychiatric and somatic disorders: an updated systematic review and meta-analysis",
-        "journal": "Cognitive Behaviour Therapy",
-        "url": "https://doi.org/10.1080/16506073.2017.1401115"
-      },
-      {
-        "authors": "Berryhill M. B., Culmer N., Williams N., Halli-Tierney A., Betancourt A., Roberts H. & King M.",
-        "year": "2019",
-        "title": "Videoconferencing Psychotherapy and Depression: A Systematic Review",
-        "journal": "Telemedicine and e-Health",
-        "url": "https://doi.org/10.1089/tmj.2018.0058"
-      },
-      {
-        "authors": "Assurance Maladie",
-        "year": "2026",
-        "title": "Remboursement de séances chez le psychologue : dispositif Mon soutien psy",
-        "publisher": "Ameli.fr"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -823,12 +392,12 @@
   {
     "id": "monde-juste-merite-cerveau",
     "title": "Dans la vie, a-t-on vraiment ce que l'on mérite ? Pourquoi notre cerveau adore croire que oui",
-    "type": "article",
-    "excerpt": "« Il l'a bien cherché », « elle l'a bien mérité »… Notre cerveau adore croire que le monde est juste. Cette croyance nous rassure — et nous pousse à blâmer les victimes. Enquête sur l'un des biais les plus puissants de la psychologie sociale.",
+    "excerpt": "",
     "date": "2027-02-19",
     "date_modified": "2026-07-15",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/g9zsuhcrenhvdrbvqddu",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -842,7 +411,7 @@
       "psychologie-sociale",
       "locus-de-controle"
     ],
-    "metaDescription": "Croire que chacun a ce qu'il mérite nous rassure, mais pousse à blâmer les victimes. Ce que disent la psychologie et les neurosciences de ce biais puissant.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1603,12 +1172,12 @@
   {
     "id": "meilleurs-livres-tdah-comparatif",
     "title": "Comparatif exhaustif des meilleurs livres TDAH",
-    "type": "article",
-    "excerpt": "Guides médicaux, témoignages, BD illustrées, boîtes à outils pour parents : les rayons débordent de livres sur le TDAH. Lequel choisir selon votre situation ? Comparatif complet avec prix, avis de lecteurs, regard de professionnel — et notes.",
+    "excerpt": "",
     "date": "2026-12-02",
     "date_modified": "2026-07-15",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lgrrrcpsv7qmevef3gb5",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1622,7 +1191,7 @@
       "psychoeducation",
       "neurodeveloppement"
     ],
-    "metaDescription": "Meilleurs livres TDAH en français : Annick Vincent, Jessica McCabe, Alice Gendron… Comparatif complet avec tableau, prix, avis lecteurs et pros, et notes.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3211,7 +2780,7 @@
   {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
-    "excerpt": "",
+    "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
     "date": "2026-07-16",
     "date_modified": "2026-06-15",
     "category": "Bien-être",
@@ -3231,7 +2800,7 @@
       "alexithymie",
       "psychologie-personnage"
     ],
-    "metaDescription": "",
+    "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
     "articles_lies": [],
     "status": "scheduled"
   },
