@@ -54,13 +54,15 @@
       "authors": "Fromm E.",
       "year": "1975",
       "title": "La Passion de détruire : anatomie de la destructivité humaine",
-      "publisher": "Robert Laffont"
+      "publisher": "Robert Laffont",
+      "amazon_asin": "2221094875"
     },
     {
       "authors": "Miller A.",
       "year": "1984",
       "title": "C'est pour ton bien : racines de la violence dans l'éducation de l'enfant",
-      "publisher": "Aubier"
+      "publisher": "Aubier",
+      "amazon_asin": "2700703723"
     },
     {
       "authors": "Coolidge F.L., Davis F.L. & Segal D.L.",
@@ -72,13 +74,15 @@
       "authors": "Ohler N.",
       "year": "2016",
       "title": "L'Extase totale : le IIIe Reich, les Allemands et la drogue",
-      "publisher": "La Découverte"
+      "publisher": "La Découverte",
+      "amazon_asin": "2707190721"
     },
     {
       "authors": "Kershaw I.",
       "year": "1999",
       "title": "Hitler 1889-1936 : Hubris",
-      "publisher": "Flammarion"
+      "publisher": "Flammarion",
+      "amazon_asin": "2082125289"
     }
   ],
   "articles_lies": [],
