@@ -2681,7 +2681,7 @@
     "date_modified": "2026-07-16",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wjvkmwbiegoh8msitbvr",
-    "imagePosition": "50% 50%",
+    "imagePosition": "71% 43%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
@@ -2697,7 +2697,7 @@
     ],
     "metaDescription": "James Bond analysé par la psychologie : attachement évitant, PTSD, narcissisme, alexithymie. Le portrait clinique de l'agent le plus célèbre du cinéma.",
     "articles_lies": [],
-    "status": "published"
+    "status": "scheduled"
   },
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
