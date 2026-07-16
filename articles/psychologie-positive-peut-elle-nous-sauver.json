@@ -52,13 +52,15 @@
       "authors": "Seligman M. E. P.",
       "year": "2011",
       "title": "Flourish: A Visionary New Understanding of Happiness and Well-being",
-      "publisher": "Free Press"
+      "publisher": "Free Press",
+      "amazon_asin": "2266244868"
     },
     {
       "authors": "Shankland R.",
       "year": "2019",
       "title": "La psychologie positive",
-      "publisher": "Dunod"
+      "publisher": "Dunod",
+      "amazon_asin": "2100793233"
     }
   ],
   "articles_lies": [],
