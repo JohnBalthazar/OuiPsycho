@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quelle icône maternelle sommeille en vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/vierge-marie-sur-le-divan/">
+  <meta name="description" content="Sacrifice silencieux, perfection Instagram, révolte ou pragmatisme : découvrez quelle icône maternelle vous habite et ce qu'elle dit de votre rapport aux attentes.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #1F4E6B 0%, #2C6E8F 100%);
+      color:#22303c; padding:16px;
+    }
+    .card {
+      max-width:640px; margin:0 auto; background:#fdfcf9;
+      border-radius:16px; padding:28px 24px; box-shadow:0 8px 28px rgba(0,0,0,.25);
+    }
+    h1 { font-size:1.35rem; color:#1F4E6B; margin-bottom:8px; line-height:1.3; }
+    .sub { color:#5a6a76; font-size:.95rem; margin-bottom:20px; }
+    .progress { height:8px; background:#e4e0d6; border-radius:4px; margin-bottom:20px; overflow:hidden; }
+    .progress-bar { height:100%; width:0; background:linear-gradient(90deg,#C98A2B,#E4B04A); border-radius:4px; transition:width .3s ease; }
+    .qnum { font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:#C98A2B; font-weight:700; margin-bottom:6px; }
+    .question { font-size:1.1rem; font-weight:600; color:#22303c; margin-bottom:16px; line-height:1.4; }
+    .answers { display:flex; flex-direction:column; gap:10px; }
+    .answer {
+      display:block; width:100%; text-align:left; padding:13px 16px;
+      background:#fff; border:2px solid #e4e0d6; border-radius:10px;
+      font-size:.98rem; line-height:1.4; cursor:pointer; color:#22303c;
+      transition:border-color .15s, background .15s, transform .1s;
+      font-family:inherit;
+    }
+    .answer:hover { border-color:#C98A2B; background:#fbf6ec; }
+    .answer:active { transform:scale(.99); }
+    .btn {
+      display:inline-block; margin-top:18px; padding:13px 26px;
+      background:#1F4E6B; color:#fff; border:none; border-radius:10px;
+      font-size:1rem; font-weight:600; cursor:pointer; font-family:inherit;
+    }
+    .btn:hover { background:#2C6E8F; }
+    .result-emoji { font-size:2.6rem; margin-bottom:8px; }
+    .result-title { font-size:1.3rem; color:#1F4E6B; font-weight:700; margin-bottom:12px; }
+    .result-text { font-size:.98rem; line-height:1.6; color:#3a4750; margin-bottom:10px; }
+    .result-text strong { color:#1F4E6B; }
+    .share { margin-top:20px; display:flex; gap:10px; flex-wrap:wrap; }
+    .share a {
+      text-decoration:none; padding:9px 14px; border-radius:8px;
+      font-size:.88rem; font-weight:600; color:#fff;
+    }
+    .share a.fb { background:#1877F2; }
+    .share a.tw { background:#0f1419; }
+    .share a.wa { background:#25D366; }
+    .disclaimer {
+      margin-top:22px; padding:14px 16px; background:#f2ede2;
+      border-left:4px solid #C98A2B; border-radius:8px;
+      font-size:.85rem; line-height:1.5; color:#5a5140;
+    }
+    .hidden { display:none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <!-- Écran d'intro -->
+    <div id="intro">
+      <h1>✨ Quelle icône maternelle sommeille en vous ?</h1>
+      <p class="sub">Sacrifice silencieux, perfection photogénique, révolte de Magnificat ou pragmatisme assumé : 7 questions pour découvrir la figure qui vous habite — que vous soyez parent ou non.</p>
+      <button class="btn" onclick="startQuiz()">Commencer le test</button>
+    </div>
+
+    <!-- Écran quiz -->
+    <div id="quiz" class="hidden">
+      <div class="progress"><div class="progress-bar" id="bar"></div></div>
+      <div class="qnum" id="qnum"></div>
+      <div class="question" id="qtext"></div>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <!-- Écran résultat -->
+    <div id="result" class="hidden">
+      <div class="result-emoji" id="remoji"></div>
+      <div class="result-title" id="rtitle"></div>
+      <div class="result-text" id="rtext"></div>
+      <div class="result-text" id="rtip"></div>
+      <div class="share">
+        <a class="fb" id="share-fb" target="_blank" rel="noopener">👍 Facebook</a>
+        <a class="tw" id="share-tw" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a class="wa" id="share-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <button class="btn" onclick="restart()">↺ Recommencer</button>
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "On vous demande un service impossible au dernier moment. Vous…",
+        a: [
+          { t: "Acceptez, évidemment. Vous dormirez plus tard. Ou jamais.", p: "A" },
+          { t: "Acceptez, mais vous le documenterez joliment en story.", p: "B" },
+          { t: "Demandez pourquoi c'est toujours à vous qu'on demande.", p: "C" },
+          { t: "Répondez : « Non, mais voilà qui peut le faire. »", p: "D" }
+        ]
+      },
+      {
+        q: "Votre relation avec la culpabilité ?",
+        a: [
+          { t: "Fusionnelle. Elle a sa brosse à dents chez vous.", p: "A" },
+          { t: "Elle surgit dès que la réalité ne ressemble pas à l'image prévue.", p: "B" },
+          { t: "Vous l'avez renvoyée à l'expéditeur : c'est le système, le problème.", p: "C" },
+          { t: "Cordiale mais distante. Vous triez ce qui vous appartient vraiment.", p: "D" }
+        ]
+      },
+      {
+        q: "Sur les réseaux sociaux, vous êtes plutôt…",
+        a: [
+          { t: "Spectatrice discrète : votre vie passe après celle des autres.", p: "A" },
+          { t: "Lumière dorée, lin beige, légende inspirante. Tout est sous contrôle.", p: "B" },
+          { t: "Partage d'articles qui dénoncent, avec un commentaire bien senti.", p: "C" },
+          { t: "Trois posts par an, dont un pour vendre une armoire.", p: "D" }
+        ]
+      },
+      {
+        q: "Face à une injustice flagrante, votre premier réflexe ?",
+        a: [
+          { t: "Encaisser en silence. Quelqu'un doit bien tenir la maison.", p: "A" },
+          { t: "Rester digne : s'énerver, ça fait désordre.", p: "B" },
+          { t: "Renverser les puissants de leurs trônes. Au moins verbalement.", p: "C" },
+          { t: "Évaluer le rapport coût/bénéfice avant de choisir votre bataille.", p: "D" }
+        ]
+      },
+      {
+        q: "Pour vous, le dévouement, c'est…",
+        a: [
+          { t: "S'oublier soi-même. C'est comme ça qu'on prouve qu'on aime.", p: "A" },
+          { t: "Tout donner, mais que ça se voie un minimum quand même.", p: "B" },
+          { t: "Un beau mot qu'on n'exige curieusement que de la moitié de l'humanité.", p: "C" },
+          { t: "Précieux, à condition de garder un réservoir pour soi.", p: "D" }
+        ]
+      },
+      {
+        q: "Quand on vous fait un compliment…",
+        a: [
+          { t: "Vous le déviez immédiatement : « Oh, ce n'est rien. »", p: "A" },
+          { t: "Vous remerciez avec grâce. Vous aviez un peu tout calculé pour.", p: "B" },
+          { t: "Vous en profitez pour rappeler que d'autres méritent d'être vues.", p: "C" },
+          { t: "Vous dites merci. Point. C'était le but d'un compliment, non ?", p: "D" }
+        ]
+      },
+      {
+        q: "Votre devise secrète ?",
+        a: [
+          { t: "« Ça ira, ne vous inquiétez pas pour moi. »", p: "A" },
+          { t: "« Tout est une question de présentation. »", p: "B" },
+          { t: "« Le silence est une opinion, et ce n'est pas la mienne. »", p: "C" },
+          { t: "« Une auréole, ça se rend. »", p: "D" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "🕯️",
+        title: "La Mater Dolorosa — le sacrifice comme langue maternelle",
+        text: "Vous portez le monde, en silence, et vous passez systématiquement en dernier. Votre générosité est réelle et précieuse — mais quelque part, on vous a appris que souffrir sans rien demander était la preuve suprême de l'amour. <strong>Votre force :</strong> une capacité de don hors norme. <strong>Votre vigilance :</strong> le burn-out adore les gens comme vous. S'occuper de soi n'est pas une trahison, c'est de la maintenance.",
+        tip: "Petit exercice : cette semaine, demandez une chose pour vous. Une seule. Le monde tiendra debout, promis."
+      },
+      B: {
+        emoji: "📸",
+        title: "La Madone 2.0 — l'auréole en golden hour",
+        text: "Vous excellez dans l'art de faire tenir le chaos dans un cadre harmonieux. Rien à redire : c'est du travail, et du beau. Mais l'écart entre l'image et les coulisses vous coûte parfois cher, car le standard que vous poursuivez est, littéralement, miraculeux. <strong>Votre force :</strong> l'exigence et le sens esthétique. <strong>Votre vigilance :</strong> la perfection est une dette à taux variable. L'imperfection montrée est souvent plus reposante — et plus aimée.",
+        tip: "Petit exercice : racontez à quelqu'un une vraie journée ratée, sans filtre. Observez : personne ne vous aime moins."
+      },
+      C: {
+        emoji: "✊",
+        title: "L'Esprit Magnificat — la parole qui renverse",
+        text: "Chez vous, l'icône silencieuse a rendu son tablier : vous prenez la parole, vous nommez les injustices, vous refusez que le dévouement soit un devoir genré. C'est la Marie qu'on n'affiche jamais dans les chambres d'enfants — celle du Magnificat. <strong>Votre force :</strong> la lucidité et le courage de dire. <strong>Votre vigilance :</strong> la colère juste épuise aussi. Toutes les batailles ne se gagnent pas le même jour, et le repos est un acte de résistance.",
+        tip: "Petit exercice : identifiez UNE bataille prioritaire ce mois-ci. Les autres attendront — elles savent faire."
+      },
+      D: {
+        emoji: "🧭",
+        title: "La Sainte Pragmatique — l'auréole rendue, la boussole gardée",
+        text: "Vous avez rendu l'auréole depuis longtemps : vous aimez, vous donnez, mais avec des limites claires et un réservoir personnel non négociable. Ce que certains prennent pour de la froideur est en réalité de l'hygiène psychique. <strong>Votre force :</strong> des frontières saines et une culpabilité bien dressée. <strong>Votre vigilance :</strong> veillez à ce que la protection ne devienne pas une forteresse — la vulnérabilité choisie reste le meilleur ciment des liens.",
+        tip: "Petit exercice : offrez une aide non sollicitée à quelqu'un cette semaine. Juste pour le plaisir, sans dette ni bilan."
+      }
+    };
+
+    var current = 0;
+    var votes = { A:0, B:0, C:0, D:0 };
+    var PAGE_URL = "https://ouipsycho.fr/articles/vierge-marie-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      document.getElementById('intro').classList.add('hidden');
+      document.getElementById('quiz').classList.remove('hidden');
+      current = 0;
+      votes = { A:0, B:0, C:0, D:0 };
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('qnum').textContent = 'Question ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('qtext').textContent = q.q;
+      document.getElementById('bar').style.width = ((current) / QUESTIONS.length * 100) + '%';
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer';
+        b.textContent = ans.t;
+        b.onclick = function() { pick(ans.p); };
+        box.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function pick(profile) {
+      votes[profile]++;
+      current++;
+      if (current < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A', max = -1;
+      ['A','B','C','D'].forEach(function(k) {
+        if (votes[k] > max) { max = votes[k]; best = k; }
+      });
+      var p = PROFILES[best];
+      document.getElementById('quiz').classList.add('hidden');
+      document.getElementById('result').classList.remove('hidden');
+      document.getElementById('remoji').textContent = p.emoji;
+      document.getElementById('rtitle').textContent = p.title;
+      document.getElementById('rtext').innerHTML = p.text;
+      document.getElementById('rtip').innerHTML = '💡 ' + p.tip;
+
+      var shareText = 'Mon résultat au test « Quelle icône maternelle sommeille en vous ? » : ' + p.title + ' — à faire sur Oui Psycho !';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(PAGE_URL);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(PAGE_URL);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + PAGE_URL);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'quiz_complete', { quiz_id: 'vierge-marie-sur-le-divan-quiz', profile: best });
+      }
+      notifyResize();
+    }
+
+    function restart() {
+      document.getElementById('result').classList.add('hidden');
+      document.getElementById('intro').classList.remove('hidden');
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
