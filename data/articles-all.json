@@ -203,6 +203,62 @@
     "status": "scheduled"
   },
   {
+    "id": "difficulte-prendre-decisions-pas-manque-confiance",
+    "title": "Vous avez du mal à prendre des décisions ? Ce n'est pas toujours un manque de confiance en soi",
+    "type": "article",
+    "excerpt": "Sept minutes devant le rayon des pâtes, une soirée entière à choisir un film : et si votre indécision n'avait rien à voir avec l'estime de soi ? Maximisation, surcharge de choix, fatigue décisionnelle : la science raconte une tout autre histoire.",
+    "metaDescription": "Maximisation, surcharge de choix, fatigue décisionnelle, aversion au regret : pourquoi vous hésitez tant — et pourquoi la confiance n'y est souvent pour rien.",
+    "author": "John Balthazar",
+    "date": "2027-04-02",
+    "date_modified": "2027-04-02",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "prise-de-decision",
+      "indecision",
+      "fatigue-decisionnelle",
+      "surcharge-de-choix",
+      "confiance-en-soi"
+    ],
+    "sources": [
+      {
+        "authors": "Schwartz B., Ward A., Monterosso J., Lyubomirsky S., White K. & Lehman D. R.",
+        "year": "2002",
+        "title": "Maximizing versus satisficing: Happiness is a matter of choice",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.83.5.1178"
+      },
+      {
+        "authors": "Iyengar S. S. & Lepper M. R.",
+        "year": "2000",
+        "title": "When choice is demotivating: Can one desire too much of a good thing?",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.79.6.995"
+      },
+      {
+        "authors": "Vohs K. D., Baumeister R. F., Schmeichel B. J., Twenge J. M., Nelson N. M. & Tice D. M.",
+        "year": "2008",
+        "title": "Making choices impairs subsequent self-control: A limited-resource account of decision making",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.94.5.883"
+      },
+      {
+        "authors": "Anderson C. J.",
+        "year": "2003",
+        "title": "The psychology of doing nothing: Forms of decision avoidance result from reason and emotion",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.129.1.139"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "mercredi-addams-sur-le-divan",
     "title": "Mercredi Addams sur le divan : psychologie d'une petite fille hors norme",
     "excerpt": "",
