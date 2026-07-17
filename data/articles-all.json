@@ -229,6 +229,62 @@
     "status": "scheduled"
   },
   {
+    "id": "hpi-invisible-identification-tardive-adulte",
+    "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
+    "type": "article",
+    "excerpt": "Ils découvrent leur haut potentiel à 35, 45 ou 60 ans, souvent par hasard. Camouflage social, angles morts du repérage, masquages croisés : voici pourquoi un HPI peut rester invisible si longtemps — et pourquoi une identification tardive n'a rien d'une vie gâchée.",
+    "metaDescription": "Camouflage social, biais de repérage, profils masqués : pourquoi tant de HPI sont identifiés tardivement, et pourquoi ce n'est ni un drame ni un échec.",
+    "author": "John Balthazar",
+    "date": "2027-03-25",
+    "date_modified": "2027-03-25",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "hpi",
+      "haut-potentiel",
+      "identification-tardive",
+      "douance",
+      "adulte-surdoue"
+    ],
+    "sources": [
+      {
+        "authors": "Rinn A. N. & Bishop J.",
+        "year": "2015",
+        "title": "Gifted adults: A systematic review and analysis of the literature",
+        "journal": "Gifted Child Quarterly",
+        "url": "https://doi.org/10.1177/0016986215600795"
+      },
+      {
+        "authors": "Peyre H., Ramus F., Melchior M., Forhan A., Heude B. & Gauvrit N.",
+        "year": "2016",
+        "title": "Emotional, behavioral and social difficulties among high-IQ children during the preschool period",
+        "journal": "Personality and Individual Differences",
+        "url": "https://doi.org/10.1016/j.paid.2016.02.014"
+      },
+      {
+        "authors": "McAdams D. P.",
+        "year": "2001",
+        "title": "The psychology of life stories",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.5.2.100"
+      },
+      {
+        "authors": "Vaivre-Douret L.",
+        "year": "2011",
+        "title": "Developmental and cognitive characteristics of high-level potentialities (highly gifted) children",
+        "journal": "International Journal of Pediatrics",
+        "url": "https://doi.org/10.1155/2011/420297"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "dieu-sur-le-divan",
     "title": "Dieu sur le divan : psychologie d'un vieux barbu vivant au-dessus des nuages",
     "excerpt": "",
