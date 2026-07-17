@@ -2753,7 +2753,7 @@
   {
     "id": "notre-radar-interieur",
     "title": "Notre radar intérieur : osez vous faire confiance",
-    "excerpt": "",
+    "excerpt": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement. Encore faut-il savoir l'écouter. Mode d'emploi.",
     "date": "2026-07-17",
     "date_modified": "2026-07-10",
     "category": "Bien-être",
@@ -2773,19 +2773,19 @@
       "manipulation",
       "bien-etre"
     ],
-    "metaDescription": "",
+    "metaDescription": "Intuition, pressentiment, malaise diffus : la science de votre radar intérieur pour détecter les relations toxiques et enfin oser vous faire confiance.",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
-    "type": "article",
     "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
     "date": "2026-07-16",
     "date_modified": "2026-07-16",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wjvkmwbiegoh8msitbvr",
+    "hasImage": true,
     "imagePosition": "71% 43%",
     "imageZoom": 1,
     "imageGravity": "none",
