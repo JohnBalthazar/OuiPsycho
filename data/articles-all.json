@@ -1,5 +1,61 @@
 [
   {
+    "id": "draco-malfoy-sur-le-divan",
+    "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
+    "type": "article",
+    "excerpt": "Arrogant, lâche, insupportable ? Trop facile. Derrière le rictus de Draco Malfoy se cache un adolescent broyé entre l'héritage familial et sa propre conscience. Séance d'analyse pour le plus célèbre des Serpentard.",
+    "metaDescription": "Mépris de façade, loyautés toxiques et rédemption : plongée dans la psychologie de Draco Malfoy, entre pression familiale et quête d'identité.",
+    "author": "La rédaction Oui Psycho!",
+    "date": "2027-04-20",
+    "date_modified": "2027-04-20",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "draco-malfoy",
+      "harry-potter",
+      "psychologie-des-personnages",
+      "adolescence",
+      "pression-familiale"
+    ],
+    "sources": [
+      {
+        "authors": "Darling N. & Steinberg L.",
+        "year": "1993",
+        "title": "Parenting style as context: An integrative model",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.113.3.487"
+      },
+      {
+        "authors": "Bandura A.",
+        "year": "1999",
+        "title": "Moral disengagement in the perpetration of inhumanities",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1207/s15327957pspr0303_3"
+      },
+      {
+        "authors": "Steinberg L. & Monahan K. C.",
+        "year": "2007",
+        "title": "Age differences in resistance to peer influence",
+        "journal": "Developmental Psychology",
+        "url": "https://doi.org/10.1037/0012-1649.43.6.1531"
+      },
+      {
+        "authors": "Crocetti E.",
+        "year": "2017",
+        "title": "Identity formation in adolescence: The dynamic of forming and consolidating identity commitments",
+        "journal": "Child Development Perspectives",
+        "url": "https://doi.org/10.1111/cdep.12226"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
     "type": "article",
