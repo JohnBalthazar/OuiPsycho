@@ -229,6 +229,62 @@
     "status": "scheduled"
   },
   {
+    "id": "rumination-mentale-cerveau-ne-sarrete-jamais",
+    "title": "Pourquoi votre cerveau ne s'arrête jamais de penser : les mécanismes cachés de la rumination mentale",
+    "type": "article",
+    "excerpt": "Il est minuit et votre cerveau rejoue la réunion de mardi pour la quatorzième fois. Réseau du mode par défaut, effet Zeigarnik, croyances métacognitives : voici pourquoi la machine à penser ne se coupe jamais — et comment cesser de la laisser tourner à vide.",
+    "metaDescription": "Réseau du mode par défaut, effet Zeigarnik, pensée abstraite : les mécanismes cachés de la rumination mentale, et les stratégies validées pour en sortir.",
+    "author": "John Balthazar",
+    "date": "2027-03-26",
+    "date_modified": "2027-03-26",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "rumination-mentale",
+      "pensees-intrusives",
+      "reseau-mode-par-defaut",
+      "anxiete",
+      "pleine-conscience"
+    ],
+    "sources": [
+      {
+        "authors": "Raichle M. E., MacLeod A. M., Snyder A. Z., Powers W. J., Gusnard D. A. & Shulman G. L.",
+        "year": "2001",
+        "title": "A default mode of brain function",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.98.2.676"
+      },
+      {
+        "authors": "Killingsworth M. A. & Gilbert D. T.",
+        "year": "2010",
+        "title": "A wandering mind is an unhappy mind",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1192439"
+      },
+      {
+        "authors": "Nolen-Hoeksema S., Wisco B. E. & Lyubomirsky S.",
+        "year": "2008",
+        "title": "Rethinking rumination",
+        "journal": "Perspectives on Psychological Science",
+        "url": "https://doi.org/10.1111/j.1745-6924.2008.00088.x"
+      },
+      {
+        "authors": "Watkins E. R.",
+        "year": "2008",
+        "title": "Constructive and unconstructive repetitive thought",
+        "journal": "Psychological Bulletin",
+        "url": "https://doi.org/10.1037/0033-2909.134.2.163"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "hpi-invisible-identification-tardive-adulte",
     "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
     "type": "article",
