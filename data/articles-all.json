@@ -1,5 +1,69 @@
 [
   {
+    "id": "vierge-marie-sur-le-divan",
+    "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
+    "type": "article",
+    "excerpt": "Deux mille ans de projections, quatre phrases dans les Évangiles. De la Mater Dolorosa à la madone d'Instagram, que dit la Vierge Marie de l'image des femmes aujourd'hui ? Séance d'analyse d'une icône — auréole comprise.",
+    "metaDescription": "De la Vierge Marie à la mère parfaite d'Instagram : comment une icône vieille de 2000 ans façonne encore l'image des femmes. Analyse psy et quiz.",
+    "author": "John Balthazar",
+    "date": "2027-04-13",
+    "date_modified": "2027-04-13",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "vierge-marie",
+      "maternite",
+      "charge-mentale",
+      "feminisme",
+      "icones-culturelles"
+    ],
+    "sources": [
+      {
+        "authors": "Warner M.",
+        "year": "1976",
+        "title": "Alone of All Her Sex: The Myth and the Cult of the Virgin Mary",
+        "publisher": "Alfred A. Knopf"
+      },
+      {
+        "authors": "Kristeva J.",
+        "year": "1983",
+        "title": "Histoires d'amour (chapitre « Stabat Mater »)",
+        "publisher": "Denoël"
+      },
+      {
+        "authors": "Beauvoir S. de",
+        "year": "1949",
+        "title": "Le Deuxième Sexe",
+        "publisher": "Gallimard"
+      },
+      {
+        "authors": "Badinter É.",
+        "year": "1980",
+        "title": "L'Amour en plus : histoire de l'amour maternel (XVIIe-XXe siècle)",
+        "publisher": "Flammarion"
+      },
+      {
+        "authors": "Hays S.",
+        "year": "1996",
+        "title": "The Cultural Contradictions of Motherhood",
+        "publisher": "Yale University Press"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1912",
+        "title": "Sur le plus général des rabaissements de la vie amoureuse (in La Vie sexuelle)",
+        "publisher": "PUF"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "sherlock-holmes-divan-detective-addict",
     "title": "Sherlock Holmes sur le divan : psychologie d'un détective addict",
     "excerpt": "",
