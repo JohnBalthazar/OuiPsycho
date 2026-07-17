@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Êtes-vous une éponge émotionnelle ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/absorber-emotions-des-autres-eponge-emotionnelle/">
+  <meta name="description" content="Radar finement réglé ou serpillière en fin de service ? 8 questions pour découvrir votre profil de perméabilité émotionnelle.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #16303c 0%, #1F4E6B 100%);
+      color: #f4f7fa;
+      padding: 24px 16px;
+      min-height: 100%;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-header { text-align: center; margin-bottom: 24px; }
+    .quiz-header h1 { font-size: 1.45rem; line-height: 1.3; margin-bottom: 8px; }
+    .quiz-header p { font-size: 0.95rem; opacity: 0.85; }
+    .progress-wrap { background: rgba(255,255,255,0.15); border-radius: 99px; height: 8px; margin-bottom: 24px; overflow: hidden; }
+    .progress-bar { height: 100%; background: #6fc7b2; border-radius: 99px; width: 0%; transition: width 0.3s ease; }
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+    .q-number { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #6fc7b2; margin-bottom: 8px; }
+    .q-text { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 18px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f4f7fa;
+      padding: 14px 16px; margin-bottom: 10px;
+      border-radius: 12px; font-size: 1rem; line-height: 1.4;
+      cursor: pointer; transition: background 0.2s, transform 0.1s;
+      font-family: inherit;
+    }
+    .answer-btn:hover { background: rgba(111,199,178,0.25); transform: translateY(-1px); }
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 8px; }
+    .result-title { font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 14px; color: #6fc7b2; }
+    .result-text { font-size: 1rem; line-height: 1.6; margin-bottom: 18px; }
+    .restart-btn {
+      display: block; margin: 0 auto 20px;
+      background: #6fc7b2; color: #16303c; border: none;
+      padding: 12px 26px; border-radius: 99px;
+      font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .restart-btn:hover { filter: brightness(1.08); }
+    .share-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .share-row a {
+      text-decoration: none; color: #f4f7fa;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 9px 14px; border-radius: 99px; font-size: 0.9rem;
+    }
+    .share-row a:hover { background: rgba(255,255,255,0.2); }
+    .disclaimer {
+      font-size: 0.85rem; line-height: 1.5;
+      background: rgba(255,255,255,0.08);
+      border-left: 3px solid #6fc7b2;
+      padding: 12px 14px; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1>🧽 Êtes-vous une éponge émotionnelle ?</h1>
+      <p>8 questions pour découvrir votre profil de perméabilité émotionnelle.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="card" id="quizCard"></div>
+  </div>
+
+  <script>
+    var questions = [
+      { q: "Un collègue arrive stressé au bureau. Dix minutes plus tard…", a: [
+        { t: "Je suis tendu aussi, sans trop savoir pourquoi.", p: "E" },
+        { t: "Je remarque son stress, je m'enquiers de lui, puis je reprends mon travail.", p: "F" },
+        { t: "Je remarque à peine — chacun gère ses affaires.", p: "T" },
+        { t: "Je suis envahi ET je culpabilise de ne pas réussir à l'aider.", p: "S" }
+      ]},
+      { q: "Après une soirée où un ami vous a raconté ses problèmes…", a: [
+        { t: "Je rumine ses soucis une partie de la nuit.", p: "E" },
+        { t: "J'y repense un moment, puis je passe à autre chose.", p: "F" },
+        { t: "J'ai écouté sur le moment, c'est déjà derrière moi.", p: "T" },
+        { t: "Je suis vidé, comme si j'avais vécu ses problèmes moi-même.", p: "S" }
+      ]},
+      { q: "Vous entrez dans une pièce où deux personnes viennent de se disputer. Vous…", a: [
+        { t: "Le sens immédiatement et ça me met mal à l'aise.", p: "E" },
+        { t: "Le perçois, j'en tiens compte, sans que ça me déstabilise.", p: "F" },
+        { t: "Ne remarque rien de spécial tant qu'on ne me dit rien.", p: "T" },
+        { t: "Le sens physiquement — gorge serrée, tension — et j'ai envie de fuir ou de réparer.", p: "S" }
+      ]},
+      { q: "Quand quelqu'un pleure devant vous…", a: [
+        { t: "Les larmes me montent aussi, presque systématiquement.", p: "E" },
+        { t: "Je suis touché, je réconforte, en restant ancré.", p: "F" },
+        { t: "Je suis un peu embarrassé, je ne sais pas trop quoi faire.", p: "T" },
+        { t: "Je souffre tellement avec la personne que j'en oublie de l'aider concrètement.", p: "S" }
+      ]},
+      { q: "En fin de journée bien remplie de contacts humains…", a: [
+        { t: "J'ai besoin d'un vrai moment seul pour redevenir moi.", p: "E" },
+        { t: "Je suis fatigué normalement, un bon repas et ça repart.", p: "F" },
+        { t: "Ça va — les interactions ne me coûtent pas grand-chose.", p: "T" },
+        { t: "Je suis épuisé au point de ne plus savoir ce que je ressens, moi.", p: "S" }
+      ]},
+      { q: "On vous décrit souvent comme…", a: [
+        { t: "Quelqu'un de très (trop ?) sensible.", p: "E" },
+        { t: "Quelqu'un d'à l'écoute mais solide.", p: "F" },
+        { t: "Quelqu'un de calme, pas facilement atteint.", p: "T" },
+        { t: "Le confident officiel — celui à qui tout le monde déverse tout.", p: "S" }
+      ]},
+      { q: "Les infos tragiques (guerres, catastrophes)…", a: [
+        { t: "Peuvent plomber mon humeur pour la journée.", p: "E" },
+        { t: "Me touchent, mais je sais doser mon exposition.", p: "F" },
+        { t: "M'informent sans vraiment m'affecter émotionnellement.", p: "T" },
+        { t: "Me hantent — je me sens presque coupable d'aller bien.", p: "S" }
+      ]},
+      { q: "Savoir ce que VOUS ressentez, indépendamment des autres…", a: [
+        { t: "Demande un effort : je capte tout le monde, moi y compris.", p: "E" },
+        { t: "Est plutôt facile : je fais bien la différence entre eux et moi.", p: "F" },
+        { t: "Ne me pose aucun problème — c'est capter les autres qui est dur.", p: "T" },
+        { t: "Est devenu très difficile : mes émotions et celles des autres se mélangent.", p: "S" }
+      ]}
+    ];
+
+    var results = {
+      T: { emoji: "🛡️", title: "Le Téflon — perméabilité basse", text: "Chez vous, la contagion émotionnelle tourne à bas volume : les états d'âme des autres glissent sans imprégner. C'est un vrai confort — pas de nuits ruinées par les soucis d'autrui — et une force dans les situations de crise, où votre calme est précieux. Le point de vigilance est l'inverse de celui des éponges : votre entourage peut parfois vous percevoir comme distant ou indifférent alors que vous ne l'êtes pas. Pensez à compenser par des signaux explicites d'attention (demander des nouvelles, verbaliser votre soutien) : ce que votre système ne fait pas automatiquement, vous pouvez le faire volontairement — et c'est tout aussi valable." },
+      F: { emoji: "🪟", title: "Le Filtre — perméabilité régulée", text: "Vous êtes ce que la recherche décrit comme le profil compassionnel : vous percevez finement les émotions d'autrui, vous en tenez compte, mais la frontière soi-autrui reste étanche. Vous aidez depuis la berge au lieu de plonger — exactement le mode qui, selon les neurosciences de l'empathie, permet d'être utile durablement sans s'épuiser. Continuez à entretenir ce réglage : sommeil, sas de décompression après les interactions lourdes, et vigilance dans les périodes de fatigue, où même les meilleurs filtres deviennent poreux. Vous êtes la preuve vivante qu'on peut être profondément à l'écoute sans finir essoré." },
+      E: { emoji: "🧽", title: "L'Éponge — perméabilité haute", text: "Vous absorbez : les ambiances, les tensions, les joies et les peines de votre entourage traversent votre frontière émotionnelle presque sans résistance. Cette sensibilité est un radar social remarquable — vous voyez ce que les autres ratent — mais elle a un coût énergétique réel. Vos priorités : la question magique « à qui appartient cette émotion ? » pour retracer la frontière, des sas de décompression après chaque interaction chargée, et un dosage assumé de votre exposition aux personnes qui déversent sans réciprocité. Votre sensibilité n'est pas à guérir ; votre bouton de volume, lui, se travaille." },
+      S: { emoji: "💧", title: "L'Éponge saturée — perméabilité en surchauffe", text: "Vos réponses dessinent une absorption qui déborde : émotions d'autrui et émotions personnelles se mélangent, l'épuisement s'installe, et vous vous oubliez peut-être dans les relations. Ce n'est ni une fatalité ni un trait de caractère — c'est un réglage, souvent appris tôt, et un réglage se modifie. Les leviers de l'article (nommer, décompresser, doser) vous aideront, mais soyons directs : quand la saturation est là, un accompagnement psychologique est le raccourci le plus efficace pour comprendre d'où vient cette porosité et reconstruire la frontière. Prendre soin de vous n'est pas abandonner les autres : c'est la condition pour pouvoir encore être là." }
+    };
+
+    var current = 0;
+    var votes = { T: 0, F: 0, E: 0, S: 0 };
+    var card = document.getElementById('quizCard');
+    var bar = document.getElementById('progressBar');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      bar.style.width = (current / questions.length * 100) + '%';
+      var html = '<div class="q-number">Question ' + (current + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="q-text">' + q.q + '</div>';
+      var answers = shuffle(q.a);
+      for (var i = 0; i < answers.length; i++) {
+        html += '<button class="answer-btn" data-p="' + answers[i].p + '">' + answers[i].t + '</button>';
+      }
+      card.innerHTML = html;
+      var btns = card.querySelectorAll('.answer-btn');
+      for (var b = 0; b < btns.length; b++) {
+        btns[b].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          current++;
+          if (current < questions.length) { showQuestion(); } else { showResult(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function showResult() {
+      bar.style.width = '100%';
+      var order = ['S', 'E', 'F', 'T'];
+      var best = order[0];
+      for (var i = 1; i < order.length; i++) {
+        if (votes[order[i]] > votes[best]) best = order[i];
+      }
+      var r = results[best];
+      var pageUrl = 'https://ouipsycho.fr/articles/absorber-emotions-des-autres-eponge-emotionnelle/';
+      var shareText = 'Mon profil au test : ' + r.title + ' — Et vous, êtes-vous une éponge émotionnelle ?';
+      var encodedUrl = encodeURIComponent(pageUrl);
+      var encodedText = encodeURIComponent(shareText);
+      var html = '<div class="result-emoji">' + r.emoji + '</div>';
+      html += '<div class="result-title">' + r.title + '</div>';
+      html += '<div class="result-text">' + r.text + '</div>';
+      html += '<button class="restart-btn" id="restartBtn">🔄 Recommencer</button>';
+      html += '<div class="share-row">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encodedText + '%20' + encodedUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      card.innerHTML = html;
+      document.getElementById('restartBtn').addEventListener('click', function() {
+        current = 0;
+        votes = { T: 0, F: 0, E: 0, S: 0 };
+        showQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    showQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
