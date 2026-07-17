@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex,follow">
+  <link rel="canonical" href="https://ouipsycho.fr/tests/draco-malfoy-sur-le-divan-quiz.html">
+  <title>Quelle maison de Poudlard correspond à votre psychologie ?</title>
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #14212e 0%, #1F4E6B 100%);
+      color: #f4f7fa;
+      padding: 24px 16px;
+      min-height: 100%;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-header { text-align: center; margin-bottom: 24px; }
+    .quiz-header h1 { font-size: 1.45rem; line-height: 1.3; margin-bottom: 8px; }
+    .quiz-header p { font-size: 0.95rem; opacity: 0.85; }
+    .progress-wrap { background: rgba(255,255,255,0.15); border-radius: 99px; height: 8px; margin-bottom: 24px; overflow: hidden; }
+    .progress-bar { height: 100%; background: #f0b429; border-radius: 99px; width: 0%; transition: width 0.3s ease; }
+    .card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 24px 20px;
+    }
+    .q-number { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: #f0b429; margin-bottom: 8px; }
+    .q-text { font-size: 1.15rem; font-weight: 600; line-height: 1.4; margin-bottom: 18px; }
+    .answer-btn {
+      display: block; width: 100%; text-align: left;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.18);
+      color: #f4f7fa;
+      padding: 14px 16px; margin-bottom: 10px;
+      border-radius: 12px; font-size: 1rem; line-height: 1.4;
+      cursor: pointer; transition: background 0.2s, transform 0.1s;
+      font-family: inherit;
+    }
+    .answer-btn:hover { background: rgba(240,180,41,0.22); transform: translateY(-1px); }
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 8px; }
+    .result-title { font-size: 1.4rem; font-weight: 700; text-align: center; margin-bottom: 14px; color: #f0b429; }
+    .result-text { font-size: 1rem; line-height: 1.6; margin-bottom: 18px; }
+    .restart-btn {
+      display: block; margin: 0 auto 20px;
+      background: #f0b429; color: #14212e; border: none;
+      padding: 12px 26px; border-radius: 99px;
+      font-size: 1rem; font-weight: 700; cursor: pointer; font-family: inherit;
+    }
+    .restart-btn:hover { filter: brightness(1.08); }
+    .share-row { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-bottom: 20px; }
+    .share-row a {
+      text-decoration: none; color: #f4f7fa;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      padding: 9px 14px; border-radius: 99px; font-size: 0.9rem;
+    }
+    .share-row a:hover { background: rgba(255,255,255,0.2); }
+    .disclaimer {
+      font-size: 0.85rem; line-height: 1.5;
+      background: rgba(255,255,255,0.08);
+      border-left: 3px solid #f0b429;
+      padding: 12px 14px; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <div class="quiz-header">
+      <h1>🎩 Quelle maison de Poudlard correspond à votre psychologie ?</h1>
+      <p>8 questions pour découvrir votre moteur profond : courage, ambition, curiosité ou loyauté.</p>
+    </div>
+    <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="card" id="quizCard"></div>
+  </div>
+
+  <script>
+    var questions = [
+      { q: "Face à un problème épineux, votre premier réflexe ?", a: [
+        { t: "Foncer : on verra bien, l'action débloque tout.", p: "G" },
+        { t: "Évaluer les enjeux et identifier qui peut m'aider.", p: "S" },
+        { t: "Rassembler un maximum d'informations avant de bouger.", p: "R" },
+        { t: "En parler autour de moi : à plusieurs, on est plus forts.", p: "P" }
+      ]},
+      { q: "Ce qui vous blesse le plus profondément ?", a: [
+        { t: "L'injustice, surtout quand elle touche les plus faibles.", p: "G" },
+        { t: "L'humiliation publique, être rabaissé devant les autres.", p: "S" },
+        { t: "Qu'on refuse d'écouter des arguments pourtant solides.", p: "R" },
+        { t: "La trahison d'une personne en qui j'avais confiance.", p: "P" }
+      ]},
+      { q: "Vos proches diraient que votre plus grande force, c'est…", a: [
+        { t: "Mon courage : je ne me défile jamais.", p: "G" },
+        { t: "Ma détermination : quand je veux quelque chose, je l'obtiens.", p: "S" },
+        { t: "Ma curiosité : je veux toujours comprendre.", p: "R" },
+        { t: "Ma fiabilité : on peut compter sur moi, toujours.", p: "P" }
+      ]},
+      { q: "Un ami commet une grosse erreur. Vous…", a: [
+        { t: "Le lui dites franchement, quitte à le froisser.", p: "G" },
+        { t: "L'aidez à élaborer une stratégie pour limiter les dégâts.", p: "S" },
+        { t: "Cherchez avec lui à comprendre ce qui l'a mené là.", p: "R" },
+        { t: "Le soutenez d'abord — les leçons viendront après.", p: "P" }
+      ]},
+      { q: "Votre rapport aux règles ?", a: [
+        { t: "Je les enfreins sans hésiter si elles sont injustes.", p: "G" },
+        { t: "Je les contourne intelligemment quand elles me freinent.", p: "S" },
+        { t: "Je veux comprendre leur logique avant de les suivre.", p: "R" },
+        { t: "Je les respecte : elles protègent le collectif.", p: "P" }
+      ]},
+      { q: "Ce qui vous fait vous lever le matin ?", a: [
+        { t: "Un nouveau défi à relever.", p: "G" },
+        { t: "Un objectif ambitieux qui se rapproche.", p: "S" },
+        { t: "Quelque chose de nouveau à apprendre ou explorer.", p: "R" },
+        { t: "Retrouver les gens que j'aime.", p: "P" }
+      ]},
+      { q: "En situation de conflit, vous êtes plutôt…", a: [
+        { t: "Confrontation directe : on met les choses à plat, tout de suite.", p: "G" },
+        { t: "Négociation : chaque concession doit rapporter quelque chose.", p: "S" },
+        { t: "Argumentation : les faits finiront par trancher.", p: "R" },
+        { t: "Apaisement : je cherche le compromis qui préserve le lien.", p: "P" }
+      ]},
+      { q: "Votre pire cauchemar existentiel ?", a: [
+        { t: "Rester passif devant quelque chose d'inacceptable.", p: "G" },
+        { t: "Passer ma vie dans l'anonymat, sans rien accomplir.", p: "S" },
+        { t: "Cesser d'apprendre, tourner en rond intellectuellement.", p: "R" },
+        { t: "Finir seul, coupé de ceux qui comptent.", p: "P" }
+      ]}
+    ];
+
+    var results = {
+      G: { emoji: "🦁", title: "Gryffondor — le moteur : le courage", text: "Votre psychologie repose sur ce que les chercheurs appellent l'orientation à l'approche : face à la menace, vous avancez au lieu de fuir. Votre boussole est morale avant d'être sociale — l'injustice vous est physiquement insupportable. Votre force : une authenticité qui inspire. Votre point de vigilance : l'impulsivité, et cette tendance à confondre courage et précipitation. Draco vous détesterait cordialement… tout en vous enviant en secret cette liberté d'agir selon votre conscience." },
+      S: { emoji: "🐍", title: "Serpentard — le moteur : l'ambition", text: "Comme Draco (la pression familiale toxique en moins, espérons-le), vous fonctionnez à l'objectif. Votre psychologie est stratégique : vous lisez les rapports de force, anticipez, optimisez. Contrairement au cliché, l'ambition n'est pas un défaut — c'est un puissant facteur de motivation et d'accomplissement. Votre point de vigilance : ne pas indexer toute votre estime de vous sur la réussite, car c'est le piège exact dans lequel Draco est tombé. Votre valeur ne dépend pas de vos trophées." },
+      R: { emoji: "🦅", title: "Serdaigle — le moteur : la curiosité", text: "Votre psychologie s'organise autour du besoin de cognition : comprendre est chez vous un besoin, pas un loisir. Vous tolérez mal les réponses toutes faites — là où Draco récitait l'idéologie paternelle, vous auriez exigé des preuves. Votre force : une pensée autonome qui vous protège des embrigadements. Votre point de vigilance : l'analyse infinie qui repousse la décision, et une tendance à intellectualiser vos émotions plutôt que les ressentir." },
+      P: { emoji: "🦡", title: "Poufsouffle — le moteur : la loyauté", text: "Votre psychologie repose sur l'attachement sécure et la coopération : vous créez du lien là où d'autres créent de la compétition. La recherche est formelle — la qualité des relations est le meilleur prédicteur du bien-être à long terme. Vous détenez donc le vrai trésor. Votre point de vigilance : la loyauté ne doit jamais devenir sacrifice de soi. Draco a suivi son clan jusqu'au bord du gouffre par loyauté mal placée ; la vôtre, elle, doit rester réciproque." }
+    };
+
+    var current = 0;
+    var votes = { G: 0, S: 0, P: 0, R: 0 };
+    var card = document.getElementById('quizCard');
+    var bar = document.getElementById('progressBar');
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function showQuestion() {
+      var q = questions[current];
+      bar.style.width = (current / questions.length * 100) + '%';
+      var html = '<div class="q-number">Question ' + (current + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="q-text">' + q.q + '</div>';
+      var answers = shuffle(q.a);
+      for (var i = 0; i < answers.length; i++) {
+        html += '<button class="answer-btn" data-p="' + answers[i].p + '">' + answers[i].t + '</button>';
+      }
+      card.innerHTML = html;
+      var btns = card.querySelectorAll('.answer-btn');
+      for (var b = 0; b < btns.length; b++) {
+        btns[b].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          current++;
+          if (current < questions.length) { showQuestion(); } else { showResult(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function showResult() {
+      bar.style.width = '100%';
+      var best = 'G';
+      var order = ['G', 'S', 'R', 'P'];
+      for (var i = 0; i < order.length; i++) {
+        if (votes[order[i]] > votes[best]) best = order[i];
+      }
+      var r = results[best];
+      var pageUrl = 'https://ouipsycho.fr/articles/draco-malfoy-sur-le-divan/';
+      var shareText = 'Mon résultat au test : ' + r.title + ' — Et vous, quelle maison correspond à votre psychologie ?';
+      var encodedUrl = encodeURIComponent(pageUrl);
+      var encodedText = encodeURIComponent(shareText);
+      var html = '<div class="result-emoji">' + r.emoji + '</div>';
+      html += '<div class="result-title">' + r.title + '</div>';
+      html += '<div class="result-text">' + r.text + '</div>';
+      html += '<button class="restart-btn" id="restartBtn">🔄 Recommencer</button>';
+      html += '<div class="share-row">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener">📘 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl + '" target="_blank" rel="noopener">𝕏 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encodedText + '%20' + encodedUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+      card.innerHTML = html;
+      document.getElementById('restartBtn').addEventListener('click', function() {
+        current = 0;
+        votes = { G: 0, S: 0, P: 0, R: 0 };
+        showQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    showQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
