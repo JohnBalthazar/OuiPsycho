@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel dieu êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/zeus-sur-le-divan/">
+  <meta name="description" content="Zeus, Athéna, Hadès, Dionysos ou Aphrodite ? Découvrez quelle divinité grecque correspond à votre personnalité.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: linear-gradient(160deg, #10243a 0%, #1F4E6B 100%);
+      color: #eef4f8;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 28px 24px;
+      backdrop-filter: blur(6px);
+    }
+    h1 { font-size: 1.45rem; margin-bottom: 8px; text-align: center; }
+    .subtitle { text-align: center; font-size: 0.95rem; color: #c8d8e4; margin-bottom: 20px; }
+    .progress-wrap { background: rgba(255,255,255,0.12); border-radius: 99px; height: 8px; margin-bottom: 20px; overflow: hidden; }
+    .progress-bar { height: 100%; width: 0; background: linear-gradient(90deg, #f0b429, #f6d365); border-radius: 99px; transition: width .3s ease; }
+    .q-count { font-size: 0.8rem; color: #a9bfd0; text-align: center; margin-bottom: 12px; letter-spacing: .04em; text-transform: uppercase; }
+    .question { font-size: 1.12rem; font-weight: 600; margin-bottom: 18px; line-height: 1.45; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      width: 100%;
+      text-align: left;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.16);
+      color: #eef4f8;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: 0.98rem;
+      line-height: 1.4;
+      cursor: pointer;
+      transition: background .15s ease, transform .1s ease, border-color .15s ease;
+      font-family: inherit;
+    }
+    .answer-btn:hover { background: rgba(240,180,41,0.18); border-color: #f0b429; transform: translateY(-1px); }
+    .answer-btn:active { transform: translateY(0); }
+    .start-btn, .restart-btn {
+      display: block;
+      margin: 22px auto 0;
+      background: linear-gradient(90deg, #f0b429, #f6d365);
+      color: #10243a;
+      font-weight: 700;
+      font-size: 1.02rem;
+      border: none;
+      border-radius: 99px;
+      padding: 14px 34px;
+      cursor: pointer;
+      transition: transform .12s ease, box-shadow .12s ease;
+      font-family: inherit;
+    }
+    .start-btn:hover, .restart-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(240,180,41,0.35); }
+    .intro-text { font-size: 0.98rem; line-height: 1.55; color: #dbe7ef; text-align: center; }
+    .result-emoji { font-size: 3rem; text-align: center; margin-bottom: 8px; }
+    .result-title { font-size: 1.35rem; font-weight: 700; text-align: center; margin-bottom: 14px; color: #f6d365; }
+    .result-text { font-size: 0.99rem; line-height: 1.6; color: #e6eef4; margin-bottom: 18px; }
+    .share-box { text-align: center; margin: 18px 0 6px; }
+    .share-box p { font-size: 0.9rem; color: #c8d8e4; margin-bottom: 10px; }
+    .share-box a {
+      display: inline-block;
+      margin: 4px 6px;
+      padding: 9px 16px;
+      border-radius: 99px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #eef4f8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: background .15s ease;
+    }
+    .share-box a:hover { background: rgba(255,255,255,0.2); }
+    .disclaimer {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.07);
+      border-left: 3px solid #f0b429;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      color: #d5e2ec;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <!-- Écran d'intro -->
+    <div id="screen-intro">
+      <h1>⚡ Quel dieu êtes-vous ?</h1>
+      <p class="subtitle">Zeus, Athéna, Hadès, Dionysos ou Aphrodite ?</p>
+      <p class="intro-text">L'Olympe est une galerie de personnalités : le chef qui veut tout contrôler, la stratège qui pense trois coups à l'avance, l'introverti fidèle, le créatif dionysiaque, la diplomate du cœur. Répondez spontanément à ces 8 questions pour découvrir quelle divinité grecque vous ressemble — et ce que cela dit de votre rapport au pouvoir et aux autres.</p>
+      <button class="start-btn" onclick="startQuiz()">Commencer le test</button>
+    </div>
+
+    <!-- Écran questions -->
+    <div id="screen-quiz" class="hidden">
+      <div class="q-count" id="qCount"></div>
+      <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="question" id="questionText"></div>
+      <div class="answers" id="answersBox"></div>
+    </div>
+
+    <!-- Écran résultat -->
+    <div id="screen-result" class="hidden">
+      <div class="result-emoji" id="resultEmoji"></div>
+      <div class="result-title" id="resultTitle"></div>
+      <div class="result-text" id="resultText"></div>
+
+      <div class="share-box">
+        <p>Partagez votre résultat :</p>
+        <a id="shareFb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="shareTw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="shareWa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <button class="restart-btn" onclick="restartQuiz()">↻ Recommencer</button>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Au travail, un gros projet démarre. Votre premier réflexe :",
+        a: [
+          { t: "Prendre la tête des opérations — quelqu'un doit décider, autant que ce soit moi.", p: "A" },
+          { t: "Analyser le dossier à fond avant de dire un mot : la préparation gagne les guerres.", p: "B" },
+          { t: "Proposer un brainstorming décalé — les meilleures idées naissent dans le désordre.", p: "C" },
+          { t: "Travailler dans mon coin sur la partie complexe que personne ne veut faire.", p: "D" },
+          { t: "M'assurer d'abord que l'équipe s'entend bien : sans lien, rien ne marche.", p: "E" }
+        ]
+      },
+      {
+        q: "Face à un conflit, vous avez plutôt tendance à :",
+        a: [
+          { t: "Trancher fermement — les discussions sans fin m'exaspèrent.", p: "A" },
+          { t: "Chercher la solution la plus juste, arguments à l'appui.", p: "B" },
+          { t: "Détendre l'atmosphère avec humour avant que ça n'explose.", p: "C" },
+          { t: "Me retirer et laisser retomber la pression avant de reparler.", p: "D" },
+          { t: "Écouter chaque partie et chercher ce qui répare la relation.", p: "E" }
+        ]
+      },
+      {
+        q: "Votre week-end idéal ressemble à :",
+        a: [
+          { t: "Organiser quelque chose de grand — et être au centre, évidemment.", p: "A" },
+          { t: "Un musée, un bon essai, un jeu de stratégie : nourrir mon esprit.", p: "B" },
+          { t: "Une fête improvisée, de la musique, des rencontres imprévues.", p: "C" },
+          { t: "La paix. Un lieu calme, peu de monde, de la profondeur.", p: "D" },
+          { t: "Un long moment avec les gens que j'aime, à parler de tout.", p: "E" }
+        ]
+      },
+      {
+        q: "Ce qui vous fait le plus peur, honnêtement :",
+        a: [
+          { t: "Perdre le contrôle de la situation — ou pire, être remplacé·e.", p: "A" },
+          { t: "Me tromper alors que j'aurais pu prévoir.", p: "B" },
+          { t: "L'ennui. Une vie plate est une vie perdue.", p: "C" },
+          { t: "Être forcé·e de m'exposer, de jouer un rôle social permanent.", p: "D" },
+          { t: "La rupture du lien : être rejeté·e ou mal aimé·e.", p: "E" }
+        ]
+      },
+      {
+        q: "Vos proches diraient de vous que vous êtes :",
+        a: [
+          { t: "Charismatique, sûr·e de vous, parfois un peu trop autoritaire.", p: "A" },
+          { t: "Brillant·e, lucide, parfois un peu trop dans la tête.", p: "B" },
+          { t: "Solaire, créatif·ve, parfois un peu excessif·ve.", p: "C" },
+          { t: "Loyal·e, profond·e, parfois un peu trop secret·ète.", p: "D" },
+          { t: "Chaleureux·se, à l'écoute, parfois un peu trop dévoué·e aux autres.", p: "E" }
+        ]
+      },
+      {
+        q: "On critique publiquement votre travail. Réaction intérieure :",
+        a: [
+          { t: "L'orage gronde. Qui ose ? (Puis je reprends la main.)", p: "A" },
+          { t: "Je vérifie point par point si la critique est fondée.", p: "B" },
+          { t: "Je réponds par une pirouette — le second degré désarme tout.", p: "C" },
+          { t: "Je ne dis rien sur le moment, mais je n'oublierai pas.", p: "D" },
+          { t: "Ça me blesse plus que je ne le montre ; j'irai en parler à la personne.", p: "E" }
+        ]
+      },
+      {
+        q: "En amour, votre style, c'est plutôt :",
+        a: [
+          { t: "Intense et conquérant — quand je veux, je veux.", p: "A" },
+          { t: "Sélectif et exigeant : j'ai besoin d'admirer l'autre.", p: "B" },
+          { t: "Passionné et imprévisible, avec des étincelles partout.", p: "C" },
+          { t: "Rare mais absolu : quand je m'attache, c'est pour de bon.", p: "D" },
+          { t: "Tendre et attentif : le lien se cultive tous les jours.", p: "E" }
+        ]
+      },
+      {
+        q: "Si vous pouviez choisir un seul pouvoir divin :",
+        a: [
+          { t: "La foudre. Le respect immédiat, sans discussion.", p: "A" },
+          { t: "La sagesse absolue : comprendre avant tout le monde.", p: "B" },
+          { t: "Transformer chaque instant en célébration.", p: "C" },
+          { t: "Voir ce que les autres cachent — l'invisible ne me fait pas peur.", p: "D" },
+          { t: "Faire naître l'amour et apaiser les cœurs.", p: "E" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      A: {
+        emoji: "⚡",
+        title: "Zeus — le·la leader qui veut tout diriger",
+        text: "Charisme naturel, autorité, énergie de décision : quand vous entrez quelque part, on le remarque. Vous détestez l'immobilisme et savez porter un groupe. Point de vigilance (l'article ci-dessus vous concerne un peu) : le pouvoir désinhibe et isole. Votre grand chantier, c'est d'apprendre à partager les décisions, à entendre le désaccord sans le vivre comme une trahison, et à vérifier que votre entourage vous suit par envie — pas par crainte de l'orage."
+      },
+      B: {
+        emoji: "🦉",
+        title: "Athéna — la stratège lucide",
+        text: "Vous pensez avant d'agir, et vous pensez loin. Analyse, sang-froid, sens de la justice : on vient vous chercher quand la situation est compliquée. Née de la tête de Zeus, Athéna a aussi hérité d'un piège : tout intellectualiser. Votre chantier, c'est de laisser un peu de place au ressenti — le vôtre en particulier — et d'accepter que certaines décisions se prennent avec le cœur, sans dossier complet."
+      },
+      C: {
+        emoji: "🍇",
+        title: "Dionysos — l'âme créative et libre",
+        text: "Vous êtes l'énergie vitale du groupe : fantaisie, intensité, refus des cadres trop étroits. Là où vous passez, la vie reprend des couleurs. Dionysos est aussi le dieu des excès : votre chantier, c'est la régulation — apprendre que l'intensité n'a pas besoin d'être permanente pour être réelle, et que le calme n'est pas l'ennemi de la créativité, mais son atelier."
+      },
+      D: {
+        emoji: "🖤",
+        title: "Hadès — la profondeur discrète",
+        text: "Injustement caricaturé, Hadès est le dieu le plus fiable de l'Olympe : il tient son royaume, sa parole et ses engagements. Comme lui, vous préférez la profondeur au paraître, les liens rares mais solides. Votre chantier : ne pas confondre discrétion et invisibilité. Le monde d'en haut a besoin de votre lucidité — accepter de remonter à la surface de temps en temps n'est pas une trahison de vous-même."
+      },
+      E: {
+        emoji: "🌹",
+        title: "Aphrodite — l'intelligence du lien",
+        text: "Votre boussole, c'est la relation : vous sentez les ambiances, réparez les tensions, faites exister les autres. C'est une force considérable — l'intelligence émotionnelle est une compétence, pas un supplément d'âme. Votre chantier : ne pas vous dissoudre dans le soin des autres. Aphrodite l'a appris à ses dépens : on peut être la déesse de l'amour et s'oublier soi-même. Vos besoins comptent autant que ceux que vous devinez chez autrui."
+      }
+    };
+
+    var currentQ = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.remove('hidden');
+      currentQ = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[currentQ];
+      document.getElementById('qCount').textContent = 'Question ' + (currentQ + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('progressBar').style.width = ((currentQ / QUESTIONS.length) * 100) + '%';
+      document.getElementById('questionText').textContent = q.q;
+
+      var box = document.getElementById('answersBox');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = ans.t;
+        btn.onclick = function() { selectAnswer(ans.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(profile) {
+      votes[profile]++;
+      currentQ++;
+      if (currentQ < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A', max = -1;
+      ['A','B','C','D','E'].forEach(function(k) {
+        if (votes[k] > max) { max = votes[k]; best = k; }
+      });
+      var p = PROFILES[best];
+
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-result').classList.remove('hidden');
+      document.getElementById('resultEmoji').textContent = p.emoji;
+      document.getElementById('resultTitle').textContent = p.title;
+      document.getElementById('resultText').textContent = p.text;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/zeus-sur-le-divan/';
+      var shareText = 'Mon résultat au test « Quel dieu êtes-vous ? » : ' + p.title + ' — et vous ?';
+      document.getElementById('shareFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(pageUrl);
+      document.getElementById('shareWa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + pageUrl);
+
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById('screen-intro').classList.remove('hidden');
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
