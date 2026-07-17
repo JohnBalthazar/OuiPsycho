@@ -1,5 +1,62 @@
 [
   {
+    "id": "zeus-sur-le-divan",
+    "title": "Zeus sur le divan : psychologie d'un dieu grec",
+    "type": "article",
+    "excerpt": "Roi de l'Olympe, foudre à la main et ego en fusion : Zeus s'allonge sur le divan. Pouvoir sans limites, narcissisme grandiose et « séductions » qui n'en sont pas — analyse psychologique (et féministe) du patriarche des dieux.",
+    "metaDescription": "Zeus sur le divan : narcissisme grandiose, abus de pouvoir et mythe du « séducteur ». Analyse psychologique et féministe du roi des dieux grecs.",
+    "author": "John Balthazar",
+    "date": "2027-04-27",
+    "date_modified": "2027-04-27",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "zeus",
+      "mythologie",
+      "narcissisme",
+      "pouvoir",
+      "consentement",
+      "nos-heros-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Keltner D., Gruenfeld D. H. & Anderson C.",
+        "year": "2003",
+        "title": "Power, approach, and inhibition",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.110.2.265"
+      },
+      {
+        "authors": "Bushman B. J. & Baumeister R. F.",
+        "year": "1998",
+        "title": "Threatened egotism, narcissism, self-esteem, and direct and displaced aggression",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.75.1.219"
+      },
+      {
+        "authors": "Paulhus D. L. & Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      },
+      {
+        "authors": "Caligor E., Levy K. N. & Yeomans F. E.",
+        "year": "2015",
+        "title": "Narcissistic personality disorder: diagnostic and clinical challenges",
+        "journal": "American Journal of Psychiatry",
+        "url": "https://doi.org/10.1176/appi.ajp.2014.14060723"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
     "type": "article",
