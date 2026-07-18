@@ -201,6 +201,68 @@
     "status": "scheduled"
   },
   {
+    "id": "trouble-dissociatif-identite",
+    "title": "« Nous sommes plusieurs » : ces personnes qui partagent un même corps",
+    "type": "article",
+    "excerpt": "Alters, système, hôte, amnésies : le trouble dissociatif de l'identité fascine Hollywood et déroute le grand public. Entre mythe et clinique, plongée chez celles et ceux qui vivent, littéralement, en colocation avec eux-mêmes.",
+    "metaDescription": "Alters, système, hôte : qu'est-ce que le trouble dissociatif de l'identité ? Origines traumatiques, témoignages, controverses et traitements expliqués.",
+    "author": "John Balthazar",
+    "date": "2027-04-09",
+    "date_modified": "2027-04-09",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "trouble-dissociatif-identite",
+      "tdi",
+      "dissociation",
+      "psychotraumatisme",
+      "troubles-psy"
+    ],
+    "sources": [
+      {
+        "authors": "Dorahy M. J., Brand B. L., Şar V., Krüger C., Stavropoulos P., Martínez-Taboas A., Lewis-Fernández R. & Middleton W.",
+        "year": "2014",
+        "title": "Dissociative identity disorder: An empirical overview",
+        "journal": "Australian & New Zealand Journal of Psychiatry",
+        "url": "https://doi.org/10.1177/0004867414527523"
+      },
+      {
+        "authors": "Brand B. L., Sar V., Stavropoulos P., Krüger C., Korzekwa M., Martínez-Taboas A. & Middleton W.",
+        "year": "2016",
+        "title": "Separating fact from fiction: An empirical examination of six myths about dissociative identity disorder",
+        "journal": "Harvard Review of Psychiatry",
+        "url": "https://doi.org/10.1097/HRP.0000000000000100"
+      },
+      {
+        "authors": "Reinders A. A. T. S., Marquand A. F., Schlumpf Y. R., Chalavi S., Vissia E. M., Nijenhuis E. R. S., Dazzan P., Jäncke L. & Veltman D. J.",
+        "year": "2019",
+        "title": "Aiding the diagnosis of dissociative identity disorder: pattern recognition study of brain biomarkers",
+        "journal": "British Journal of Psychiatry",
+        "url": "https://doi.org/10.1192/bjp.2018.255"
+      },
+      {
+        "authors": "International Society for the Study of Trauma and Dissociation (ISSTD)",
+        "year": "2011",
+        "title": "Guidelines for treating dissociative identity disorder in adults, third revision",
+        "journal": "Journal of Trauma & Dissociation",
+        "url": "https://doi.org/10.1080/15299732.2011.537247"
+      },
+      {
+        "authors": "van der Hart O., Nijenhuis E. R. S. & Steele K.",
+        "year": "2006",
+        "title": "The Haunted Self: Structural Dissociation and the Treatment of Chronic Traumatization",
+        "publisher": "W. W. Norton"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "absorber-emotions-des-autres-eponge-emotionnelle",
     "title": "Pourquoi certaines personnes absorbent les émotions des autres (et comment s'en protéger)",
     "excerpt": "",
