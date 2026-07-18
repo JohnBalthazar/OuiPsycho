@@ -2,19 +2,18 @@
   {
     "id": "zeus-sur-le-divan",
     "title": "Zeus sur le divan : psychologie d'un dieu grec",
-    "type": "article",
-    "excerpt": "Roi de l'Olympe, foudre à la main et ego en fusion : Zeus s'allonge sur le divan. Pouvoir sans limites, narcissisme grandiose et « séductions » qui n'en sont pas — analyse psychologique (et féministe) du patriarche des dieux.",
-    "metaDescription": "Zeus sur le divan : narcissisme grandiose, abus de pouvoir et mythe du « séducteur ». Analyse psychologique et féministe du roi des dieux grecs.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-27",
     "date_modified": "2027-04-27",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "zeus",
       "mythologie",
@@ -23,55 +22,25 @@
       "consentement",
       "nos-heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Keltner D., Gruenfeld D. H. & Anderson C.",
-        "year": "2003",
-        "title": "Power, approach, and inhibition",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.110.2.265"
-      },
-      {
-        "authors": "Bushman B. J. & Baumeister R. F.",
-        "year": "1998",
-        "title": "Threatened egotism, narcissism, self-esteem, and direct and displaced aggression",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.75.1.219"
-      },
-      {
-        "authors": "Paulhus D. L. & Williams K. M.",
-        "year": "2002",
-        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
-        "journal": "Journal of Research in Personality",
-        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
-      },
-      {
-        "authors": "Caligor E., Levy K. N. & Yeomans F. E.",
-        "year": "2015",
-        "title": "Narcissistic personality disorder: diagnostic and clinical challenges",
-        "journal": "American Journal of Psychiatry",
-        "url": "https://doi.org/10.1176/appi.ajp.2014.14060723"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
-    "type": "article",
-    "excerpt": "Arrogant, lâche, insupportable ? Trop facile. Derrière le rictus de Draco Malfoy se cache un adolescent broyé entre l'héritage familial et sa propre conscience. Séance d'analyse pour le plus célèbre des Serpentard.",
-    "metaDescription": "Mépris de façade, loyautés toxiques et rédemption : plongée dans la psychologie de Draco Malfoy, entre pression familiale et quête d'identité.",
-    "author": "La rédaction Oui Psycho!",
+    "excerpt": "",
     "date": "2027-04-20",
     "date_modified": "2027-04-20",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
     "tags": [
       "draco-malfoy",
       "harry-potter",
@@ -79,55 +48,25 @@
       "adolescence",
       "pression-familiale"
     ],
-    "sources": [
-      {
-        "authors": "Darling N. & Steinberg L.",
-        "year": "1993",
-        "title": "Parenting style as context: An integrative model",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.113.3.487"
-      },
-      {
-        "authors": "Bandura A.",
-        "year": "1999",
-        "title": "Moral disengagement in the perpetration of inhumanities",
-        "journal": "Personality and Social Psychology Review",
-        "url": "https://doi.org/10.1207/s15327957pspr0303_3"
-      },
-      {
-        "authors": "Steinberg L. & Monahan K. C.",
-        "year": "2007",
-        "title": "Age differences in resistance to peer influence",
-        "journal": "Developmental Psychology",
-        "url": "https://doi.org/10.1037/0012-1649.43.6.1531"
-      },
-      {
-        "authors": "Crocetti E.",
-        "year": "2017",
-        "title": "Identity formation in adolescence: The dynamic of forming and consolidating identity commitments",
-        "journal": "Child Development Perspectives",
-        "url": "https://doi.org/10.1111/cdep.12226"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
-    "type": "article",
-    "excerpt": "Deux mille ans de projections, quatre phrases dans les Évangiles. De la Mater Dolorosa à la madone d'Instagram, que dit la Vierge Marie de l'image des femmes aujourd'hui ? Séance d'analyse d'une icône — auréole comprise.",
-    "metaDescription": "De la Vierge Marie à la mère parfaite d'Instagram : comment une icône vieille de 2000 ans façonne encore l'image des femmes. Analyse psy et quiz.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-13",
     "date_modified": "2027-04-13",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "vierge-marie",
       "maternite",
@@ -135,63 +74,25 @@
       "feminisme",
       "icones-culturelles"
     ],
-    "sources": [
-      {
-        "authors": "Warner M.",
-        "year": "1976",
-        "title": "Alone of All Her Sex: The Myth and the Cult of the Virgin Mary",
-        "publisher": "Alfred A. Knopf"
-      },
-      {
-        "authors": "Kristeva J.",
-        "year": "1983",
-        "title": "Histoires d'amour (chapitre « Stabat Mater »)",
-        "publisher": "Denoël"
-      },
-      {
-        "authors": "Beauvoir S. de",
-        "year": "1949",
-        "title": "Le Deuxième Sexe",
-        "publisher": "Gallimard"
-      },
-      {
-        "authors": "Badinter É.",
-        "year": "1980",
-        "title": "L'Amour en plus : histoire de l'amour maternel (XVIIe-XXe siècle)",
-        "publisher": "Flammarion"
-      },
-      {
-        "authors": "Hays S.",
-        "year": "1996",
-        "title": "The Cultural Contradictions of Motherhood",
-        "publisher": "Yale University Press"
-      },
-      {
-        "authors": "Freud S.",
-        "year": "1912",
-        "title": "Sur le plus général des rabaissements de la vie amoureuse (in La Vie sexuelle)",
-        "publisher": "PUF"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "absorber-emotions-des-autres-eponge-emotionnelle",
     "title": "Pourquoi certaines personnes absorbent les émotions des autres (et comment s'en protéger)",
-    "type": "article",
-    "excerpt": "Le stress d'un collègue vous noue l'estomac, la tristesse d'un ami plombe votre soirée ? La contagion émotionnelle est un mécanisme universel — mais chez certains, le récepteur n'a pas de bouton de volume. Explications scientifiques et mode d'emploi pour rester connecté sans finir essoré.",
-    "metaDescription": "Contagion émotionnelle, haute sensibilité, frontière soi-autrui : pourquoi certains absorbent les émotions des autres, et comment s'en protéger sans se fermer.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-08",
     "date_modified": "2027-04-08",
     "category": "Émotions & identité",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "contagion-emotionnelle",
       "hypersensibilite",
@@ -199,36 +100,7 @@
       "eponge-emotionnelle",
       "limites-emotionnelles"
     ],
-    "sources": [
-      {
-        "authors": "Hatfield E., Cacioppo J. T. & Rapson R. L.",
-        "year": "1993",
-        "title": "Emotional contagion",
-        "journal": "Current Directions in Psychological Science",
-        "url": "https://doi.org/10.1111/1467-8721.ep10770953"
-      },
-      {
-        "authors": "Aron E. N. & Aron A.",
-        "year": "1997",
-        "title": "Sensory-processing sensitivity and its relation to introversion and emotionality",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.73.2.345"
-      },
-      {
-        "authors": "Singer T. & Klimecki O. M.",
-        "year": "2014",
-        "title": "Empathy and compassion",
-        "journal": "Current Biology",
-        "url": "https://doi.org/10.1016/j.cub.2014.06.054"
-      },
-      {
-        "authors": "Waters S. F., West T. V. & Mendes W. B.",
-        "year": "2014",
-        "title": "Stress contagion: Physiological covariation between mothers and infants",
-        "journal": "Psychological Science",
-        "url": "https://doi.org/10.1177/0956797613518352"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -261,19 +133,18 @@
   {
     "id": "difficulte-prendre-decisions-pas-manque-confiance",
     "title": "Vous avez du mal à prendre des décisions ? Ce n'est pas toujours un manque de confiance en soi",
-    "type": "article",
-    "excerpt": "Sept minutes devant le rayon des pâtes, une soirée entière à choisir un film : et si votre indécision n'avait rien à voir avec l'estime de soi ? Maximisation, surcharge de choix, fatigue décisionnelle : la science raconte une tout autre histoire.",
-    "metaDescription": "Maximisation, surcharge de choix, fatigue décisionnelle, aversion au regret : pourquoi vous hésitez tant — et pourquoi la confiance n'y est souvent pour rien.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-02",
     "date_modified": "2027-04-02",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "prise-de-decision",
       "indecision",
@@ -281,36 +152,7 @@
       "surcharge-de-choix",
       "confiance-en-soi"
     ],
-    "sources": [
-      {
-        "authors": "Schwartz B., Ward A., Monterosso J., Lyubomirsky S., White K. & Lehman D. R.",
-        "year": "2002",
-        "title": "Maximizing versus satisficing: Happiness is a matter of choice",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.83.5.1178"
-      },
-      {
-        "authors": "Iyengar S. S. & Lepper M. R.",
-        "year": "2000",
-        "title": "When choice is demotivating: Can one desire too much of a good thing?",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.79.6.995"
-      },
-      {
-        "authors": "Vohs K. D., Baumeister R. F., Schmeichel B. J., Twenge J. M., Nelson N. M. & Tice D. M.",
-        "year": "2008",
-        "title": "Making choices impairs subsequent self-control: A limited-resource account of decision making",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.94.5.883"
-      },
-      {
-        "authors": "Anderson C. J.",
-        "year": "2003",
-        "title": "The psychology of doing nothing: Forms of decision avoidance result from reason and emotion",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.129.1.139"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -343,19 +185,18 @@
   {
     "id": "rumination-mentale-cerveau-ne-sarrete-jamais",
     "title": "Pourquoi votre cerveau ne s'arrête jamais de penser : les mécanismes cachés de la rumination mentale",
-    "type": "article",
-    "excerpt": "Il est minuit et votre cerveau rejoue la réunion de mardi pour la quatorzième fois. Réseau du mode par défaut, effet Zeigarnik, croyances métacognitives : voici pourquoi la machine à penser ne se coupe jamais — et comment cesser de la laisser tourner à vide.",
-    "metaDescription": "Réseau du mode par défaut, effet Zeigarnik, pensée abstraite : les mécanismes cachés de la rumination mentale, et les stratégies validées pour en sortir.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-26",
     "date_modified": "2027-03-26",
     "category": "Bien-être",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "rumination-mentale",
       "pensees-intrusives",
@@ -363,55 +204,25 @@
       "anxiete",
       "pleine-conscience"
     ],
-    "sources": [
-      {
-        "authors": "Raichle M. E., MacLeod A. M., Snyder A. Z., Powers W. J., Gusnard D. A. & Shulman G. L.",
-        "year": "2001",
-        "title": "A default mode of brain function",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.98.2.676"
-      },
-      {
-        "authors": "Killingsworth M. A. & Gilbert D. T.",
-        "year": "2010",
-        "title": "A wandering mind is an unhappy mind",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1192439"
-      },
-      {
-        "authors": "Nolen-Hoeksema S., Wisco B. E. & Lyubomirsky S.",
-        "year": "2008",
-        "title": "Rethinking rumination",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1111/j.1745-6924.2008.00088.x"
-      },
-      {
-        "authors": "Watkins E. R.",
-        "year": "2008",
-        "title": "Constructive and unconstructive repetitive thought",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.134.2.163"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "hpi-invisible-identification-tardive-adulte",
     "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
-    "type": "article",
-    "excerpt": "Ils découvrent leur haut potentiel à 35, 45 ou 60 ans, souvent par hasard. Camouflage social, angles morts du repérage, masquages croisés : voici pourquoi un HPI peut rester invisible si longtemps — et pourquoi une identification tardive n'a rien d'une vie gâchée.",
-    "metaDescription": "Camouflage social, biais de repérage, profils masqués : pourquoi tant de HPI sont identifiés tardivement, et pourquoi ce n'est ni un drame ni un échec.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-03-25",
     "date_modified": "2027-03-25",
     "category": "Émotions & identité",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "hpi",
       "haut-potentiel",
@@ -419,36 +230,7 @@
       "douance",
       "adulte-surdoue"
     ],
-    "sources": [
-      {
-        "authors": "Rinn A. N. & Bishop J.",
-        "year": "2015",
-        "title": "Gifted adults: A systematic review and analysis of the literature",
-        "journal": "Gifted Child Quarterly",
-        "url": "https://doi.org/10.1177/0016986215600795"
-      },
-      {
-        "authors": "Peyre H., Ramus F., Melchior M., Forhan A., Heude B. & Gauvrit N.",
-        "year": "2016",
-        "title": "Emotional, behavioral and social difficulties among high-IQ children during the preschool period",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2016.02.014"
-      },
-      {
-        "authors": "McAdams D. P.",
-        "year": "2001",
-        "title": "The psychology of life stories",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.5.2.100"
-      },
-      {
-        "authors": "Vaivre-Douret L.",
-        "year": "2011",
-        "title": "Developmental and cognitive characteristics of high-level potentialities (highly gifted) children",
-        "journal": "International Journal of Pediatrics",
-        "url": "https://doi.org/10.1155/2011/420297"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
