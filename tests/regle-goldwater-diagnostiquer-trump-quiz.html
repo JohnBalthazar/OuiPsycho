@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diagnostiqueriez-vous à distance ? Testez votre éthique clinique</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/regle-goldwater-diagnostiquer-trump/">
+  <meta name="description" content="Devoir d'alerter ou devoir de se taire ? Découvrez quel profil éthique vous adopteriez face au dilemme de la règle Goldwater.">
+  <style>
+    :root{--bleu:#1F4E6B;--bleu-clair:#2E6E96;--fond:#F6F9FB;--texte:#22333F;--accent:#E8A13B;--vert:#3E8E6E;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:16px;}
+    .quiz-card{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(31,78,107,.10);padding:28px 24px;}
+    h1{font-size:1.35rem;color:var(--bleu);margin-bottom:8px;line-height:1.3;}
+    .intro-txt{font-size:.98rem;line-height:1.55;margin-bottom:18px;color:#41525E;}
+    .progress-wrap{background:#E3ECF2;border-radius:99px;height:8px;margin:14px 0 20px;overflow:hidden;}
+    .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--bleu),var(--bleu-clair));border-radius:99px;transition:width .35s ease;}
+    .q-count{font-size:.82rem;color:var(--bleu-clair);font-weight:600;letter-spacing:.03em;text-transform:uppercase;margin-bottom:6px;}
+    .q-text{font-size:1.08rem;font-weight:600;line-height:1.45;margin-bottom:16px;}
+    .answers{display:flex;flex-direction:column;gap:10px;}
+    .answer-btn{display:block;width:100%;text-align:left;background:#F2F7FA;border:2px solid transparent;border-radius:10px;padding:13px 15px;font-size:.95rem;line-height:1.45;color:var(--texte);cursor:pointer;transition:all .18s ease;font-family:inherit;}
+    .answer-btn:hover{border-color:var(--bleu-clair);background:#EAF2F7;transform:translateY(-1px);}
+    .btn-main{display:inline-block;background:var(--bleu);color:#fff;border:none;border-radius:10px;padding:13px 26px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;transition:background .18s ease;}
+    .btn-main:hover{background:var(--bleu-clair);}
+    .result-emoji{font-size:2.6rem;text-align:center;margin-bottom:8px;}
+    .result-title{font-size:1.3rem;color:var(--bleu);text-align:center;font-weight:700;margin-bottom:14px;}
+    .result-desc{font-size:.98rem;line-height:1.6;margin-bottom:18px;}
+    .share-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:18px 0;}
+    .share-row a{text-decoration:none;font-size:.9rem;font-weight:600;padding:9px 15px;border-radius:99px;color:#fff;transition:opacity .15s;}
+    .share-row a:hover{opacity:.85;}
+    .share-fb{background:#1877F2;}
+    .share-tw{background:#111;}
+    .share-wa{background:#25D366;}
+    .disclaimer{background:#FDF6EA;border-left:4px solid var(--accent);border-radius:8px;padding:13px 15px;font-size:.86rem;line-height:1.55;margin-top:18px;color:#5B4A2E;}
+    .restart-wrap{text-align:center;margin-top:18px;}
+    .hidden{display:none;}
+    @media (max-width:480px){.quiz-card{padding:20px 16px;}h1{font-size:1.18rem;}}
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <div id="screen-intro">
+      <h1>🧑‍⚕️ Diagnostiqueriez-vous à distance ?</h1>
+      <p class="intro-txt">Vous êtes psy. Un président inquiète, les micros se tendent, votre code de déontologie vous ordonne le silence. Parleriez-vous ? 8 dilemmes pour découvrir votre profil éthique face à la règle Goldwater.</p>
+      <button class="btn-main" onclick="startQuiz()">Commencer le test</button>
+    </div>
+
+    <div id="screen-quiz" class="hidden">
+      <div class="q-count" id="q-count"></div>
+      <div class="progress-wrap"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="q-text" id="q-text"></div>
+      <div class="answers" id="answers"></div>
+    </div>
+
+    <div id="screen-result" class="hidden">
+      <div class="result-emoji" id="result-emoji"></div>
+      <div class="result-title" id="result-title"></div>
+      <div class="result-desc" id="result-desc"></div>
+      <div class="share-row">
+        <a class="share-fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a class="share-tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a class="share-wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+      <div class="restart-wrap"><button class="btn-main" onclick="restartQuiz()">🔄 Recommencer</button></div>
+    </div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Un journaliste vous tend un micro en direct : « Docteur, le président souffre-t-il d'un trouble narcissique ? » Vous répondez :",
+        a: [
+          { t: "« Je ne l'ai jamais examiné, je ne diagnostiquerai donc personne. Je peux en revanche vous expliquer ce qu'est ce trouble. »", p: "A" },
+          { t: "« Quand la sécurité de millions de gens est en jeu, oui, je vous donne mon avis clinique. »", p: "B" },
+          { t: "« Je ne pose pas de diagnostic, mais certains comportements publics méritent objectivement l'inquiétude. »", p: "C" },
+          { t: "« Franchement ? Il coche toutes les cases. Vous voulez la liste ? »", p: "D" }
+        ]
+      },
+      {
+        q: "Sur les réseaux, un thread viral « diagnostique » une célébrité à partir de trois interviews. Votre réaction :",
+        a: [
+          { t: "Vous rappelez en commentaire qu'un diagnostic sans examen n'a aucune valeur — et stigmatise les vrais patients.", p: "A" },
+          { t: "Si les comportements décrits sont dangereux, tant mieux que quelqu'un alerte, même maladroitement.", p: "B" },
+          { t: "Vous partagez un article de vulgarisation : parler du trouble en général, oui ; étiqueter la personne, non.", p: "C" },
+          { t: "Vous likez. C'était bien vu, et c'est ce qui rend la psycho fun.", p: "D" }
+        ]
+      },
+      {
+        q: "Un collègue signe une tribune alarmante sur la santé mentale d'un dirigeant. Vous pensez :",
+        a: [
+          { t: "Il franchit une ligne rouge. La déontologie n'est pas une option quand ça nous arrange.", p: "A" },
+          { t: "Il fait preuve de courage : se taire face au danger serait la vraie faute.", p: "B" },
+          { t: "Tout dépend de la formulation : décrire des comportements observables, oui ; poser un diagnostic, non.", p: "C" },
+          { t: "Il a surtout compris comment vendre des livres. Respect.", p: "D" }
+        ]
+      },
+      {
+        q: "Au repas de famille, votre beau-frère lance : « De toute façon, tous les politiques sont des psychopathes. » Vous :",
+        a: [
+          { t: "Corrigez gentiment : la psychopathie est un concept clinique précis, pas une insulte de dessert.", p: "A" },
+          { t: "Nuancez : certains traits sont surreprésentés au pouvoir, et c'est un vrai enjeu démocratique.", p: "B" },
+          { t: "Recentrez le débat sur les comportements : mensonges, impulsivité… jugeables sans vocabulaire médical.", p: "C" },
+          { t: "Renchérissez avec trois anecdotes et un pronostic pour la prochaine élection.", p: "D" }
+        ]
+      },
+      {
+        q: "On vous propose de contribuer à un livre collectif analysant la psychologie d'un président en exercice. Vous :",
+        a: [
+          { t: "Refusez. Votre signature de clinicien n'ira jamais sous un diagnostic sans patient.", p: "A" },
+          { t: "Acceptez, en assumant : le devoir d'alerter le public prime sur la règle corporatiste.", p: "B" },
+          { t: "Acceptez, à condition d'écrire sur le pouvoir et l'hubris en général, sans diagnostiquer la personne.", p: "C" },
+          { t: "Acceptez, et négociez votre nom en couverture.", p: "D" }
+        ]
+      },
+      {
+        q: "Pour vous, la différence entre « alerter » et « diagnostiquer », c'est :",
+        a: [
+          { t: "Fondamentale : l'une est un droit citoyen, l'autre un acte médical qui exige un examen.", p: "A" },
+          { t: "Théorique : quand le danger est réel, la distinction devient un luxe sémantique.", p: "B" },
+          { t: "Une question de formulation : on peut tout dire, à condition de choisir ses mots.", p: "C" },
+          { t: "Du pinaillage. Le public n'entend de toute façon que « il est fou ».", p: "D" }
+        ]
+      },
+      {
+        q: "Un politique multiplie publiquement les comportements inquiétants. Votre position :",
+        a: [
+          { t: "Les électeurs et les institutions doivent juger. Les psys, eux, doivent se taire sur son cas.", p: "A" },
+          { t: "Les professionnels ont une expertise unique : la garder pour eux serait de la non-assistance.", p: "B" },
+          { t: "Décrire les faits observables, expliquer les mécanismes psychologiques généraux — sans étiquette.", p: "C" },
+          { t: "Sortir le DSM-5 en direct à la télé. L'audimat adorera.", p: "D" }
+        ]
+      },
+      {
+        q: "Au fond, la règle Goldwater est pour vous :",
+        a: [
+          { t: "Un garde-fou indispensable qui protège les patients, les personnes publiques et la crédibilité de la profession.", p: "A" },
+          { t: "Une règle d'un autre temps, pensée avant les réseaux sociaux et les dirigeants imprévisibles.", p: "B" },
+          { t: "Un bon principe qui mérite d'être assoupli : interdire le diagnostic, autoriser l'analyse des comportements.", p: "C" },
+          { t: "Un détail administratif entre deux plateaux télé.", p: "D" }
+        ]
+      }
+    ];
+
+    var profiles = {
+      A: {
+        emoji: "🛡️",
+        title: "Le Gardien du serment",
+        desc: "<p>Pour vous, la déontologie n'est pas négociable, surtout quand elle dérange. Vous incarnez l'esprit originel de la règle Goldwater : un diagnostic sans examen n'est pas un acte médical, c'est une opinion déguisée en science. Votre force : vous protégez la crédibilité de la psychiatrie et la dignité des personnes — publiques ou non. Votre point de vigilance : à force de rigueur, veillez à ne pas laisser le champ médiatique aux seuls commentateurs sans scrupules. Se taire sur un cas n'interdit pas d'éclairer le débat.</p>"
+      },
+      B: {
+        emoji: "📢",
+        title: "Le Lanceur d'alerte",
+        desc: "<p>Vous êtes du côté de Bandy Lee et des signataires de 2017 : quand le danger est réel, le devoir de protéger le public prime sur l'étiquette professionnelle. Vous assumez la controverse et refusez qu'une règle corporatiste serve de bâillon. Votre force : le courage moral et le sens des responsabilités collectives. Votre point de vigilance : l'histoire de 1964 le montre, l'alerte psychiatrique se retourne facilement contre ses auteurs — et contre les patients, que chaque diagnostic sauvage stigmatise un peu plus.</p>"
+      },
+      C: {
+        emoji: "⚖️",
+        title: "Le Diplomate clinique",
+        desc: "<p>Vous avez trouvé la voie de crête : décrire les comportements observables, expliquer les mécanismes psychologiques généraux, mais ne jamais coller d'étiquette diagnostique sur une personne non examinée. C'est peu ou prou la position de Lilienfeld et de nombreux chercheurs : la règle a raison sur l'éthique, même si son argument scientifique mérite d'être nuancé. Votre force : la précision du langage, qui permet de tout dire sans rien trahir. Votre point de vigilance : la nuance est fragile en direct à la télévision — préparez vos formulations à l'avance.</p>"
+      },
+      D: {
+        emoji: "🎤",
+        title: "L'Éditorialiste du dimanche",
+        desc: "<p>Le vocabulaire psy est pour vous un formidable outil de conversation — et tant pis pour les précautions d'usage. Rassurez-vous : vous êtes en excellente compagnie, celle des 1 189 psychiatres de 1964… qui ont valu à leur profession son plus grand scandale déontologique. Votre force : vous rendez la psychologie vivante et accessible. Votre point de vigilance : chaque « narcissique » ou « psychopathe » lancé sans examen banalise des troubles réels et blesse ceux qui en souffrent vraiment. La psycho mérite mieux que le café du commerce — même très bien servi.</p>"
+      }
+    };
+
+    var current = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+    var articleUrl = "https://ouipsycho.fr/articles/regle-goldwater-diagnostiquer-trump/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function startQuiz() {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.remove('hidden');
+      current = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = questions[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('progress-bar').style.width = ((current) / questions.length * 100) + '%';
+      document.getElementById('q-text').textContent = q.q;
+      var wrap = document.getElementById('answers');
+      wrap.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = ans.t;
+        btn.onclick = function() { selectAnswer(ans.p); };
+        wrap.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(p) {
+      votes[p]++;
+      current++;
+      if (current < questions.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A', max = -1;
+      ['A', 'B', 'C', 'D'].forEach(function(k) {
+        if (votes[k] > max) { max = votes[k]; best = k; }
+      });
+      var prof = profiles[best];
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-result').classList.remove('hidden');
+      document.getElementById('result-emoji').textContent = prof.emoji;
+      document.getElementById('result-title').textContent = prof.title;
+      document.getElementById('result-desc').innerHTML = prof.desc;
+
+      var shareText = 'Diagnostiqueriez-vous à distance ? Mon profil éthique : ' + prof.title + ' — faites le test sur Oui Psycho !';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(articleUrl);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareText) + '&url=' + encodeURIComponent(articleUrl);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + articleUrl);
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById('screen-intro').classList.remove('hidden');
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
