@@ -1,5 +1,66 @@
 [
   {
+    "id": "le-diable-sur-le-divan",
+    "title": "Le diable sur le divan : psychologie d'un ange déchu",
+    "type": "article",
+    "excerpt": "Narcissisme céleste, esprit de contradiction pathologique et carrière entière bâtie sur la tentation : que dirait un psy du plus célèbre des anges déchus ? Consultation infernale, dossier ouvert.",
+    "metaDescription": "Narcissisme grandiose, réactance et effet Lucifer : ce que la psychologie moderne dit du diable, cet ange déchu devenu bouc émissaire préféré de l'humanité.",
+    "author": "John Balthazar",
+    "date": "2027-05-04",
+    "date_modified": "2027-05-04",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "diable",
+      "narcissisme",
+      "psychologie-sociale",
+      "effet-lucifer",
+      "monstres-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Paulhus D. L. & Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      },
+      {
+        "authors": "Bandura A.",
+        "year": "1999",
+        "title": "Moral disengagement in the perpetration of inhumanities",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1207/s15327957pspr0303_3"
+      },
+      {
+        "authors": "Steindl C., Jonas E., Sittenthaler S., Traut-Mattausch E. & Greenberg J.",
+        "year": "2015",
+        "title": "Understanding psychological reactance: New developments and findings",
+        "journal": "Zeitschrift für Psychologie",
+        "url": "https://doi.org/10.1027/2151-2604/a000222"
+      },
+      {
+        "authors": "Baumeister R. F.",
+        "year": "1997",
+        "title": "Evil: Inside Human Violence and Cruelty",
+        "publisher": "W. H. Freeman"
+      },
+      {
+        "authors": "Zimbardo P.",
+        "year": "2007",
+        "title": "The Lucifer Effect: Understanding How Good People Turn Evil",
+        "publisher": "Random House"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "zeus-sur-le-divan",
     "title": "Zeus sur le divan : psychologie d'un dieu grec",
     "excerpt": "",
