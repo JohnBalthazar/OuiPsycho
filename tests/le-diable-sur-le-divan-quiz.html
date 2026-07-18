@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel diable sommeille en vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/le-diable-sur-le-divan/">
+  <meta name="description" content="Lucifer orgueilleux, Méphisto négociateur, diablotin chaotique ou avocat du diable ? Découvrez quel démon intérieur vous héberge.">
+  <style>
+    :root{
+      --rouge:#8C1D18; --rouge-fonce:#5C0E0B; --braise:#E25822; --or:#E8A33D;
+      --fond:#1C1214; --carte:#2A1A1C; --texte:#F3E7E4; --texte-doux:#C9B3AE;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,var(--fond) 0%,#31171a 100%);color:var(--texte);padding:16px;min-height:100vh}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border:1px solid rgba(232,163,61,.25);border-radius:16px;padding:28px 24px;box-shadow:0 8px 32px rgba(0,0,0,.45)}
+    h1{font-size:1.45rem;color:var(--or);text-align:center;margin-bottom:6px}
+    .sous-titre{text-align:center;color:var(--texte-doux);font-size:.95rem;margin-bottom:20px}
+    .progress{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-bottom:22px}
+    .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--rouge),var(--braise),var(--or));transition:width .35s ease}
+    .compteur{text-align:center;font-size:.85rem;color:var(--texte-doux);margin-bottom:10px}
+    .question{font-size:1.12rem;font-weight:600;margin-bottom:18px;line-height:1.45}
+    .reponses{display:flex;flex-direction:column;gap:10px}
+    .reponse{background:rgba(255,255,255,.05);border:1px solid rgba(232,163,61,.2);color:var(--texte);border-radius:12px;padding:14px 16px;font-size:.98rem;text-align:left;cursor:pointer;transition:all .18s ease;line-height:1.4}
+    .reponse:hover{background:rgba(226,88,34,.18);border-color:var(--braise);transform:translateY(-1px)}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--rouge),var(--braise));color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .btn:hover{opacity:.88}
+    .intro,.resultat{text-align:center}
+    .intro p{color:var(--texte-doux);margin-bottom:18px;line-height:1.55}
+    .resultat .emoji{font-size:3.2rem;margin-bottom:8px}
+    .resultat h2{color:var(--or);font-size:1.35rem;margin-bottom:12px}
+    .resultat .desc{text-align:left;color:var(--texte);line-height:1.6;margin-bottom:18px;font-size:.97rem}
+    .resultat .desc p{margin-bottom:10px}
+    .partage{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .partage a{background:rgba(255,255,255,.07);border:1px solid rgba(232,163,61,.25);color:var(--texte);text-decoration:none;border-radius:99px;padding:9px 16px;font-size:.88rem;transition:background .2s}
+    .partage a:hover{background:rgba(226,88,34,.2)}
+    .disclaimer{background:rgba(232,163,61,.1);border:1px solid rgba(232,163,61,.3);border-radius:12px;padding:13px 15px;font-size:.85rem;color:var(--texte-doux);line-height:1.5;text-align:left;margin-top:14px}
+    .disclaimer strong{color:var(--or)}
+    .recommencer{margin-top:16px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <h1>😈 Quel diable sommeille en vous ?</h1>
+    <p class="sous-titre">8 questions pour identifier votre démon intérieur — sans rien signer.</p>
+
+    <div id="ecran-intro" class="intro">
+      <p>Lucifer flamboyant, Méphisto beau parleur, diablotin ingérable ou avocat du diable professionnel : nous hébergeons tous une petite part d'ombre. Ce quiz (parfaitement non contractuel) vous dit laquelle domine chez vous.</p>
+      <button class="btn" onclick="demarrer()">Commencer le quiz 🔥</button>
+    </div>
+
+    <div id="ecran-question" class="hidden">
+      <div class="compteur" id="compteur"></div>
+      <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="question" id="question"></div>
+      <div class="reponses" id="reponses"></div>
+    </div>
+
+    <div id="ecran-resultat" class="resultat hidden">
+      <div class="emoji" id="res-emoji"></div>
+      <h2 id="res-titre"></h2>
+      <div class="desc" id="res-desc"></div>
+      <div class="partage">
+        <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+      <div class="recommencer"><button class="btn" onclick="recommencer()">↻ Recommencer</button></div>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      { q: "Une figure d'autorité vous donne un ordre que vous trouvez discutable. Première pensée ?", r: [
+        { t: "« À sa place, je ferais ça tellement mieux. »", p: "A" },
+        { t: "« Intéressant… et qu'est-ce que j'y gagne, moi ? »", p: "B" },
+        { t: "« Je vais faire exactement l'inverse. Par principe. »", p: "C" },
+        { t: "« Sur quelles données repose cette décision, exactement ? »", p: "D" }
+      ]},
+      { q: "Votre péché mignon assumé ?", r: [
+        { t: "L'orgueil. Mais un orgueil de très grande qualité.", p: "A" },
+        { t: "Tenter les autres, juste pour voir s'ils craquent.", p: "B" },
+        { t: "Le grain de sable dans la machine, gratuit et joyeux.", p: "C" },
+        { t: "Le doute systématique, même quand tout va bien.", p: "D" }
+      ]},
+      { q: "On vous refuse une promotion que vous estimiez méritée…", r: [
+        { t: "Blessure secrète, sourire public, plan de revanche à long terme.", p: "A" },
+        { t: "Je déjeune avec le décideur. On va « trouver un arrangement ».", p: "B" },
+        { t: "La machine à café tombe mystérieusement en panne. Coïncidence.", p: "C" },
+        { t: "Je monte un dossier argumenté démontrant l'erreur, pièce par pièce.", p: "D" }
+      ]},
+      { q: "Votre devise officieuse ?", r: [
+        { t: "« Mieux vaut régner en enfer que servir au ciel. »", p: "A" },
+        { t: "« Tout a un prix. Absolument tout. »", p: "B" },
+        { t: "« Non. Pourquoi ? Juste non. »", p: "C" },
+        { t: "« Et si, par hypothèse, on avait tous tort ? »", p: "D" }
+      ]},
+      { q: "En soirée, vous êtes plutôt…", r: [
+        { t: "Celui ou celle qui trône, observe et jauge la pièce.", p: "A" },
+        { t: "Celui ou celle qui murmure la phrase qui change la soirée.", p: "B" },
+        { t: "Celui ou celle qui lance le jeu que tout le monde regrettera.", p: "C" },
+        { t: "Celui ou celle qui démonte gentiment les certitudes du groupe.", p: "D" }
+      ]},
+      { q: "Face à une tentation…", r: [
+        { t: "Je ne cède qu'aux grandes. Les petites sont indignes de moi.", p: "A" },
+        { t: "Céder ? C'est moi qui les fabrique, les tentations.", p: "B" },
+        { t: "J'y cède immédiatement, pour la science.", p: "C" },
+        { t: "Je l'analyse sous tous les angles jusqu'à ce qu'elle se lasse.", p: "D" }
+      ]},
+      { q: "Ce qui vous blesse le plus profondément ?", r: [
+        { t: "Être ignoré·e. Détesté·e, passe encore. Mais ignoré·e…", p: "A" },
+        { t: "Qu'on rompe un accord. La parole donnée, c'est sacré (surtout la vôtre).", p: "B" },
+        { t: "Qu'on me trouve prévisible.", p: "C" },
+        { t: "Avoir raison trop tard, quand plus personne n'écoute.", p: "D" }
+      ]},
+      { q: "Votre enfer personnel ressemblerait à…", r: [
+        { t: "Une éternité en poste de numéro deux.", p: "A" },
+        { t: "Un monde où plus personne ne désire rien.", p: "B" },
+        { t: "Une routine parfaite, réglée à la minute, pour toujours.", p: "C" },
+        { t: "Une réunion sans fin où tout le monde est d'accord.", p: "D" }
+      ]}
+    ];
+
+    var PROFILS = {
+      A: { emoji: "👑", titre: "Lucifer, le magnifique blessé",
+        desc: "<p>Vous êtes l'ange déchu première génération : brillant·e, exigeant·e, allergique à la seconde place. Votre moteur n'est pas la méchanceté mais la grandeur — et votre talon d'Achille, c'est la blessure d'orgueil, celle qui transforme une vexation en croisade personnelle.</p><p><strong>Votre superpouvoir :</strong> une ambition et un niveau d'exigence qui tirent tout le monde vers le haut.</p><p><strong>Votre piste de travail :</strong> apprendre que la valeur personnelle peut survivre à une critique — voire à un « non ». C'est contre-intuitif, mais étonnamment reposant.</p>" },
+      B: { emoji: "🍎", titre: "Méphisto, le fin négociateur",
+        desc: "<p>Vous êtes le diable des contrats : charmeur·se, stratège, toujours trois coups d'avance. Vous ne forcez jamais rien — vous vous contentez de présenter la pomme sous son meilleur angle et de laisser les autres se convaincre eux-mêmes. Redoutable en négociation, précieux·se en diplomatie.</p><p><strong>Votre superpouvoir :</strong> lire les désirs des autres mieux qu'eux-mêmes.</p><p><strong>Votre piste de travail :</strong> vérifier de temps en temps que vos relations reposent sur autre chose que des clauses. La confiance gratuite, ça existe, et c'est même assez agréable.</p>" },
+      C: { emoji: "🔥", titre: "Le diablotin chaotique",
+        desc: "<p>Vous êtes la réactance incarnée : dites-vous « interdit » et vous voilà déjà en train de le faire. Votre chaos n'est pas de la malveillance, c'est un test permanent des limites du réel — et, accessoirement, des nerfs de votre entourage. Là où vous passez, l'ennui trépasse.</p><p><strong>Votre superpouvoir :</strong> une créativité et une liberté intérieure que les règles n'atteignent pas.</p><p><strong>Votre piste de travail :</strong> distinguer les règles absurdes (à bousculer) des règles utiles (à tolérer). Transgresser par choix, c'est de la liberté ; transgresser par réflexe, c'est juste une autre laisse.</p>" },
+      D: { emoji: "⚖️", titre: "L'avocat du diable",
+        desc: "<p>Vous êtes le diable le plus fréquentable : celui qui défend la position que personne ne veut défendre, pour la beauté de l'argument et l'hygiène du débat. Vous ne cherchez pas à avoir raison — vous cherchez à vérifier que les autres ne se trompent pas trop confortablement.</p><p><strong>Votre superpouvoir :</strong> protéger les groupes de la pensée unique et des consensus paresseux.</p><p><strong>Votre piste de travail :</strong> doser. Un contradicteur, c'est un trésor ; un contradicteur permanent, c'est une alarme incendie qui sonne à chaque toast. Choisissez vos batailles — elles n'en seront que plus efficaces.</p>" }
+    };
+
+    var index = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function demarrer() {
+      index = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      document.getElementById('ecran-intro').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.add('hidden');
+      document.getElementById('ecran-question').classList.remove('hidden');
+      afficherQuestion();
+    }
+
+    function afficherQuestion() {
+      var q = QUESTIONS[index];
+      document.getElementById('compteur').textContent = 'Question ' + (index + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('progress-bar').style.width = ((index) / QUESTIONS.length * 100) + '%';
+      document.getElementById('question').textContent = q.q;
+      var cont = document.getElementById('reponses');
+      cont.innerHTML = '';
+      melanger(q.r).forEach(function(rep) {
+        var b = document.createElement('button');
+        b.className = 'reponse';
+        b.textContent = rep.t;
+        b.onclick = function() { repondre(rep.p); };
+        cont.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function repondre(p) {
+      votes[p]++;
+      index++;
+      if (index < QUESTIONS.length) {
+        afficherQuestion();
+      } else {
+        afficherResultat();
+      }
+    }
+
+    function afficherResultat() {
+      var meilleur = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[meilleur]) meilleur = k; });
+      var prof = PROFILS[meilleur];
+      document.getElementById('ecran-question').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.remove('hidden');
+      document.getElementById('res-emoji').textContent = prof.emoji;
+      document.getElementById('res-titre').textContent = prof.titre;
+      document.getElementById('res-desc').innerHTML = prof.desc;
+
+      var url = 'https://ouipsycho.fr/articles/le-diable-sur-le-divan/';
+      var texte = 'Mon résultat au quiz « Quel diable sommeille en vous ? » : ' + prof.titre + ' ' + prof.emoji + ' — et vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(texte) + '&url=' + encodeURIComponent(url);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(texte + ' ' + url);
+      notifyResize();
+    }
+
+    function recommencer() {
+      demarrer();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
