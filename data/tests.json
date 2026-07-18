@@ -1,5 +1,19 @@
 [
   {
+    "id": "notre-radar-interieur-quiz",
+    "title": "Notre radar intérieur : osez vous faire confiance",
+    "desc": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement.…",
+    "emoji": "🌿",
+    "color": "#2f86b7",
+    "catLabel": "Bien-être",
+    "duration": "5 min",
+    "testUrl": "tests/notre-radar-interieur-quiz.html",
+    "articleUrl": "articles/notre-radar-interieur/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ca3h6mkh8zbg5b32gpel",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "date-tinder-tueur-en-serie-quiz",
     "title": "Votre date Tinder est-il un tueur en série ?",
     "desc": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut…",
@@ -108,7 +122,7 @@
     "testUrl": "tests/collegue-pervers-sortir-zone-rouge-quiz.html",
     "articleUrl": "articles/collegue-pervers-sortir-zone-rouge/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vf8ewz5n6cwqp1viyvzx",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
