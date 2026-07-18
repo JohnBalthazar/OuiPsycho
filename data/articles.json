@@ -2827,17 +2827,16 @@
     "title": "Pourquoi les psys refusent de diagnostiquer Trump : la règle Goldwater sur le divan",
     "type": "article",
     "excerpt": "Des milliers de cliniciens voudraient parler, leur code de déontologie leur ordonne de se taire. Retour sur la règle Goldwater, née d’un scandale de 1964 et dynamitée par l’ère Trump.",
-    "metaDescription": "Pourquoi les psychiatres refusent de diagnostiquer Trump ? Origines, scandale et débats de la règle Goldwater, l'interdit le plus discuté de la psychiatrie.",
-    "author": "John Balthazar",
     "date": "2026-07-19",
-    "date_modified": "2026-07-19",
+    "date_modified": "2026-07-18",
     "category": "Société & psychologie politique",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uwtoywcjaedaj35lyejl",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "règle-goldwater",
       "psychiatrie",
@@ -2846,34 +2845,7 @@
       "psychologie-politique",
       "diagnostic"
     ],
-    "sources": [
-      {
-        "authors": "Lilienfeld S. O., Miller J. D. & Lynam D. R.",
-        "year": "2018",
-        "title": "The Goldwater Rule: Perspectives From, and Implications for, Psychological Science",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691617727864"
-      },
-      {
-        "authors": "Owen D. & Davidson J.",
-        "year": "2009",
-        "title": "Hubris syndrome: An acquired personality disorder? A study of US Presidents and UK Prime Ministers over the last 100 years",
-        "journal": "Brain",
-        "url": "https://doi.org/10.1093/brain/awp008"
-      },
-      {
-        "authors": "Kroll J. & Pouncey C.",
-        "year": "2016",
-        "title": "The Ethics of APA’s Goldwater Rule",
-        "journal": "Journal of the American Academy of Psychiatry and the Law"
-      },
-      {
-        "authors": "Lee B. X. (dir.)",
-        "year": "2017",
-        "title": "The Dangerous Case of Donald Trump: 27 Psychiatrists and Mental Health Experts Assess a President",
-        "publisher": "Thomas Dunne Books"
-      }
-    ],
+    "metaDescription": "Pourquoi les psychiatres refusent de diagnostiquer Trump ? Origines, scandale et débats de la règle Goldwater, l'interdit le plus discuté de la psychiatrie.",
     "articles_lies": [],
     "status": "scheduled"
   },
