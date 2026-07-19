@@ -681,12 +681,12 @@
   {
     "id": "sept-secrets-jamais-partages",
     "title": "Les 7 secrets que les gens ne partagent (presque) jamais",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "97 % d'entre nous gardent au moins un secret, et une douzaine en moyenne. Voici les sept que l'on confie le moins — et la découverte contre-intuitive de la recherche : ce n'est pas de le cacher qui fait mal.",
     "date": "2027-03-05",
-    "date_modified": "2027-03-05",
+    "date_modified": "2026-07-19",
     "category": "Émotions & identité",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tkvttlhwl57b3vp7me8p",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -700,7 +700,7 @@
       "confiance",
       "emotions"
     ],
-    "metaDescription": "",
+    "metaDescription": "Argent, désir, honte, santé mentale : les 7 secrets que personne ne confie. Témoignages et ce que dit la science de leur poids réel — et comment s'en alléger.",
     "articles_lies": [],
     "status": "scheduled"
   },
