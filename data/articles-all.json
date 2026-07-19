@@ -760,12 +760,12 @@
   {
     "id": "loto-pourquoi-croire-gagner",
     "title": "Loto : pourquoi croit-on toujours que l'on peut gagner ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "« 100 % des gagnants ont tenté leur chance » : le slogan est exact et pourtant totalement trompeur. Illusion de contrôle, biais du survivant, dopamine de l'attente — voici pourquoi votre cerveau refuse de comprendre une chance sur 19 millions.",
     "date": "2027-02-26",
-    "date_modified": "2027-02-26",
-    "category": "Société",
-    "image": "",
-    "hasImage": false,
+    "date_modified": "2026-07-19",
+    "category": "Émotions & identité",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fr7nzg8v1jjay3jpafhk",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -779,7 +779,7 @@
       "jeu",
       "dopamine"
     ],
-    "metaDescription": "",
+    "metaDescription": "Une chance sur 19 millions et pourtant on y croit : illusion de contrôle, biais du survivant, dopamine… La psychologie de notre rapport au Loto et au hasard.",
     "articles_lies": [],
     "status": "scheduled"
   },
