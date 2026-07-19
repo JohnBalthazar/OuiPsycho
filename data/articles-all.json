@@ -2,19 +2,18 @@
   {
     "id": "leonard-de-vinci-sur-le-divan",
     "title": "Léonard de Vinci sur le divan : psychologie d'un génie",
-    "type": "article",
-    "excerpt": "Curiosité insatiable, carnets écrits à l'envers, chefs-d'œuvre abandonnés en série : que dirait la psychologie moderne du plus célèbre des génies ? Freud a ouvert le dossier en 1910 — les neurosciences l'ont rouvert en 2019.",
-    "metaDescription": "TDAH possible, ouverture à l'expérience extrême, procrastination créative : ce que la psychologie et les neurosciences disent du génie de Léonard de Vinci.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-12",
     "date_modified": "2027-05-12",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "leonard-de-vinci",
       "tdah",
@@ -22,60 +21,25 @@
       "psychobiographie",
       "nos-heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Catani M. & Mazzarello P.",
-        "year": "2019",
-        "title": "Leonardo da Vinci: a genius driven to distraction",
-        "journal": "Brain",
-        "url": "https://doi.org/10.1093/brain/awz131"
-      },
-      {
-        "authors": "White H. A. & Shah P.",
-        "year": "2011",
-        "title": "Creative style and achievement in adults with attention-deficit/hyperactivity disorder",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2010.11.015"
-      },
-      {
-        "authors": "Kaufman S. B., Quilty L. C., Grazioplene R. G., Hirsh J. B., Gray J. R., Peterson J. B. & DeYoung C. G.",
-        "year": "2016",
-        "title": "Openness to experience and intellect differentially predict creative achievement in the arts and sciences",
-        "journal": "Journal of Personality",
-        "url": "https://doi.org/10.1111/jopy.12156"
-      },
-      {
-        "authors": "Freud S.",
-        "year": "1910",
-        "title": "Un souvenir d'enfance de Léonard de Vinci",
-        "publisher": "Gallimard (trad. fr.)"
-      },
-      {
-        "authors": "Isaacson W.",
-        "year": "2017",
-        "title": "Leonardo da Vinci",
-        "publisher": "Simon & Schuster"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "le-diable-sur-le-divan",
     "title": "Le diable sur le divan : psychologie d'un ange déchu",
-    "type": "article",
-    "excerpt": "Narcissisme céleste, esprit de contradiction pathologique et carrière entière bâtie sur la tentation : que dirait un psy du plus célèbre des anges déchus ? Consultation infernale, dossier ouvert.",
-    "metaDescription": "Narcissisme grandiose, réactance et effet Lucifer : ce que la psychologie moderne dit du diable, cet ange déchu devenu bouc émissaire préféré de l'humanité.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-04",
     "date_modified": "2027-05-04",
     "category": "Les monstres sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "diable",
       "narcissisme",
@@ -83,41 +47,7 @@
       "effet-lucifer",
       "monstres-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Paulhus D. L. & Williams K. M.",
-        "year": "2002",
-        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
-        "journal": "Journal of Research in Personality",
-        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
-      },
-      {
-        "authors": "Bandura A.",
-        "year": "1999",
-        "title": "Moral disengagement in the perpetration of inhumanities",
-        "journal": "Personality and Social Psychology Review",
-        "url": "https://doi.org/10.1207/s15327957pspr0303_3"
-      },
-      {
-        "authors": "Steindl C., Jonas E., Sittenthaler S., Traut-Mattausch E. & Greenberg J.",
-        "year": "2015",
-        "title": "Understanding psychological reactance: New developments and findings",
-        "journal": "Zeitschrift für Psychologie",
-        "url": "https://doi.org/10.1027/2151-2604/a000222"
-      },
-      {
-        "authors": "Baumeister R. F.",
-        "year": "1997",
-        "title": "Evil: Inside Human Violence and Cruelty",
-        "publisher": "W. H. Freeman"
-      },
-      {
-        "authors": "Zimbardo P.",
-        "year": "2007",
-        "title": "The Lucifer Effect: Understanding How Good People Turn Evil",
-        "publisher": "Random House"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -203,19 +133,18 @@
   {
     "id": "trouble-dissociatif-identite",
     "title": "« Nous sommes plusieurs » : ces personnes qui partagent un même corps",
-    "type": "article",
-    "excerpt": "Alters, système, hôte, amnésies : le trouble dissociatif de l'identité fascine Hollywood et déroute le grand public. Entre mythe et clinique, plongée chez celles et ceux qui vivent, littéralement, en colocation avec eux-mêmes.",
-    "metaDescription": "Alters, système, hôte : qu'est-ce que le trouble dissociatif de l'identité ? Origines traumatiques, témoignages, controverses et traitements expliqués.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-09",
     "date_modified": "2027-04-09",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "trouble-dissociatif-identite",
       "tdi",
@@ -223,42 +152,7 @@
       "psychotraumatisme",
       "troubles-psy"
     ],
-    "sources": [
-      {
-        "authors": "Dorahy M. J., Brand B. L., Şar V., Krüger C., Stavropoulos P., Martínez-Taboas A., Lewis-Fernández R. & Middleton W.",
-        "year": "2014",
-        "title": "Dissociative identity disorder: An empirical overview",
-        "journal": "Australian & New Zealand Journal of Psychiatry",
-        "url": "https://doi.org/10.1177/0004867414527523"
-      },
-      {
-        "authors": "Brand B. L., Sar V., Stavropoulos P., Krüger C., Korzekwa M., Martínez-Taboas A. & Middleton W.",
-        "year": "2016",
-        "title": "Separating fact from fiction: An empirical examination of six myths about dissociative identity disorder",
-        "journal": "Harvard Review of Psychiatry",
-        "url": "https://doi.org/10.1097/HRP.0000000000000100"
-      },
-      {
-        "authors": "Reinders A. A. T. S., Marquand A. F., Schlumpf Y. R., Chalavi S., Vissia E. M., Nijenhuis E. R. S., Dazzan P., Jäncke L. & Veltman D. J.",
-        "year": "2019",
-        "title": "Aiding the diagnosis of dissociative identity disorder: pattern recognition study of brain biomarkers",
-        "journal": "British Journal of Psychiatry",
-        "url": "https://doi.org/10.1192/bjp.2018.255"
-      },
-      {
-        "authors": "International Society for the Study of Trauma and Dissociation (ISSTD)",
-        "year": "2011",
-        "title": "Guidelines for treating dissociative identity disorder in adults, third revision",
-        "journal": "Journal of Trauma & Dissociation",
-        "url": "https://doi.org/10.1080/15299732.2011.537247"
-      },
-      {
-        "authors": "van der Hart O., Nijenhuis E. R. S. & Steele K.",
-        "year": "2006",
-        "title": "The Haunted Self: Structural Dissociation and the Treatment of Chronic Traumatization",
-        "publisher": "W. W. Norton"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3120,12 +3014,12 @@
   {
     "id": "regle-goldwater-diagnostiquer-trump",
     "title": "Pourquoi les psys refusent de diagnostiquer Trump : la règle Goldwater sur le divan",
-    "type": "article",
     "excerpt": "Des milliers de cliniciens voudraient parler, leur code de déontologie leur ordonne de se taire. Retour sur la règle Goldwater, née d’un scandale de 1964 et dynamitée par l’ère Trump.",
     "date": "2026-07-19",
     "date_modified": "2026-07-18",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uwtoywcjaedaj35lyejl",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",

@@ -1,5 +1,19 @@
 [
   {
+    "id": "regle-goldwater-diagnostiquer-trump-quiz",
+    "title": "Pourquoi les psys refusent de diagnostiquer Trump : la règle Goldwater sur le divan",
+    "desc": "Des milliers de cliniciens voudraient parler, leur code de déontologie leur ordonne de se taire. Retour sur la règle Goldwater, née d’un…",
+    "emoji": "🧠",
+    "color": "#1F4E6B",
+    "catLabel": "Société & psychologie politique",
+    "duration": "5 min",
+    "testUrl": "tests/regle-goldwater-diagnostiquer-trump-quiz.html",
+    "articleUrl": "articles/regle-goldwater-diagnostiquer-trump/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uwtoywcjaedaj35lyejl",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "notre-radar-interieur-quiz",
     "title": "Notre radar intérieur : osez vous faire confiance",
     "desc": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement.…",
