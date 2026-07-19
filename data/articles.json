@@ -687,11 +687,12 @@
   {
     "id": "phrases-cultes-developpement-personnel-science",
     "title": "Les meilleures phrases des livres de développement personnel, passées au crible de la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Elles sont sur tous les mugs et semblent profondément vraies en quatre secondes. Mais que valent les grandes maximes du développement personnel face à la recherche ? Certaines sont excellentes. D'autres vous nuisent activement.",
     "date": "2027-03-04",
-    "date_modified": "2027-03-04",
+    "date_modified": "2026-07-19",
     "category": "Développement personnel",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lr2e05wefih8jyerrxyy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -705,7 +706,7 @@
       "biais-cognitifs",
       "pleine-conscience"
     ],
-    "metaDescription": "",
+    "metaDescription": "Loi de l'attraction, moment présent, état d'esprit de développement : ce que la science dit vraiment des phrases cultes du développement personnel.",
     "articles_lies": [],
     "status": "scheduled"
   },
