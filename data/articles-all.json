@@ -140,6 +140,67 @@
     "status": "scheduled"
   },
   {
+    "id": "kairos-science-hasard",
+    "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
+    "type": "article",
+    "excerpt": "Vous pensez à quelqu'un, il vous appelle. Signe de l'univers ou tour de passe-passe neuronal ? Enquête sur le kaïros, la synchronicité et l'art très scientifique du bon timing.",
+    "metaDescription": "Kaïros, synchronicité, coïncidences troublantes : ce que la psychologie et les neurosciences disent vraiment des moments où tout « sonne juste ».",
+    "author": "John Balthazar",
+    "date": "2027-04-22",
+    "date_modified": "2027-04-22",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "kairos",
+      "synchronicite",
+      "hasard",
+      "coincidences",
+      "attention"
+    ],
+    "sources": [
+      {
+        "authors": "Whitson J. A. & Galinsky A. D.",
+        "year": "2008",
+        "title": "Lacking control increases illusory pattern perception",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1159845"
+      },
+      {
+        "authors": "Diaconis P. & Mosteller F.",
+        "year": "1989",
+        "title": "Methods for studying coincidences",
+        "journal": "Journal of the American Statistical Association",
+        "url": "https://doi.org/10.1080/01621459.1989.10478847"
+      },
+      {
+        "authors": "Fyfe S., Williams C., Mason O. J. & Pickup G. J.",
+        "year": "2008",
+        "title": "Apophenia, theory of mind and schizotypy: Perceiving meaning and intentionality in randomness",
+        "journal": "Cortex",
+        "url": "https://doi.org/10.1016/j.cortex.2007.07.009"
+      },
+      {
+        "authors": "Csíkszentmihályi M.",
+        "year": "1990",
+        "title": "Flow: The Psychology of Optimal Experience",
+        "publisher": "Harper & Row"
+      },
+      {
+        "authors": "Wiseman R.",
+        "year": "2003",
+        "title": "The Luck Factor: The Scientific Study of the Lucky Mind",
+        "publisher": "Century"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
     "excerpt": "",
