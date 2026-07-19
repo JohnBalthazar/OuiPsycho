@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quiz : kaïros ou chaos, quel est votre rapport aux coïncidences ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/kairos-science-hasard/">
+  <meta name="description" content="Scarabée doré ou biais de confirmation ? Découvrez votre profil face aux clins d'œil du hasard avec ce quiz en 8 questions.">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(150deg, #1b1035 0%, #2c1a4d 55%, #3d2361 100%);
+      color: #f2ecff;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz-wrap { max-width: 640px; margin: 0 auto; }
+    .card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(245,184,65,0.25);
+      border-radius: 16px;
+      padding: 28px 24px;
+      backdrop-filter: blur(6px);
+    }
+    h1 { font-size: 1.35rem; color: #f5b841; margin-bottom: 10px; line-height: 1.3; }
+    .intro-text { font-size: 0.95rem; line-height: 1.55; color: #d9cff0; margin-bottom: 20px; }
+    .progress {
+      height: 8px; background: rgba(255,255,255,0.12);
+      border-radius: 99px; overflow: hidden; margin-bottom: 20px;
+    }
+    .progress-bar {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, #f5b841, #ff8f5e);
+      border-radius: 99px; transition: width .35s ease;
+    }
+    .q-count { font-size: 0.8rem; color: #b8a8dd; margin-bottom: 8px; letter-spacing: .05em; text-transform: uppercase; }
+    .question { font-size: 1.1rem; font-weight: 600; line-height: 1.4; margin-bottom: 18px; }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer-btn {
+      text-align: left; font-size: 0.95rem; line-height: 1.4;
+      padding: 13px 16px; border-radius: 12px; cursor: pointer;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #f2ecff; transition: all .15s ease;
+      font-family: inherit;
+    }
+    .answer-btn:hover { background: rgba(245,184,65,0.18); border-color: #f5b841; transform: translateX(4px); }
+    .btn {
+      display: inline-block; margin-top: 18px; padding: 13px 26px;
+      background: linear-gradient(90deg, #f5b841, #ff8f5e);
+      color: #241242; font-weight: 700; font-size: 1rem;
+      border: none; border-radius: 99px; cursor: pointer;
+      font-family: inherit; transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(245,184,65,0.35); }
+    .result-emoji { font-size: 3rem; margin-bottom: 8px; }
+    .result-title { font-size: 1.4rem; color: #f5b841; margin-bottom: 6px; }
+    .result-sub { font-size: 0.85rem; color: #b8a8dd; margin-bottom: 14px; }
+    .result-desc { font-size: 0.97rem; line-height: 1.6; color: #e8e0fa; margin-bottom: 18px; }
+    .tips {
+      background: rgba(245,184,65,0.1); border-left: 3px solid #f5b841;
+      border-radius: 0 10px 10px 0; padding: 14px 16px; margin-bottom: 18px;
+      font-size: 0.92rem; line-height: 1.55; color: #efe6ff;
+    }
+    .tips strong { color: #f5b841; }
+    .share { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 18px; }
+    .share a {
+      text-decoration: none; font-size: 0.85rem; padding: 9px 14px;
+      border-radius: 99px; background: rgba(255,255,255,0.1);
+      color: #f2ecff; border: 1px solid rgba(255,255,255,0.2); transition: background .15s;
+    }
+    .share a:hover { background: rgba(245,184,65,0.25); }
+    .disclaimer {
+      font-size: 0.8rem; line-height: 1.5; color: #c9bce4;
+      background: rgba(0,0,0,0.25); border-radius: 10px; padding: 12px 14px;
+    }
+    .disclaimer strong { color: #f5b841; }
+    .restart {
+      margin-top: 14px; background: none; border: 1px solid rgba(255,255,255,0.3);
+      color: #d9cff0; padding: 10px 20px; border-radius: 99px; cursor: pointer;
+      font-size: 0.9rem; font-family: inherit; transition: all .15s;
+    }
+    .restart:hover { border-color: #f5b841; color: #f5b841; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-wrap">
+    <div class="card">
+
+      <!-- Écran intro -->
+      <div id="screen-intro">
+        <h1>⏳ Kaïros ou chaos : quel est votre rapport aux coïncidences ?</h1>
+        <p class="intro-text">Vous pensez à quelqu'un et il vous écrit. Coup de fil de l'univers ou coup de théâtre statistique ? En 8 questions, découvrez comment votre cerveau négocie avec le hasard — et quel « surfeur de kaïros » sommeille en vous.</p>
+        <button class="btn" onclick="startQuiz()">Commencer le quiz ✨</button>
+      </div>
+
+      <!-- Écran question -->
+      <div id="screen-quiz" class="hidden">
+        <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+        <div class="q-count" id="q-count"></div>
+        <div class="question" id="q-text"></div>
+        <div class="answers" id="q-answers"></div>
+      </div>
+
+      <!-- Écran résultat -->
+      <div id="screen-result" class="hidden">
+        <div class="result-emoji" id="r-emoji"></div>
+        <div class="result-title" id="r-title"></div>
+        <div class="result-sub" id="r-sub"></div>
+        <div class="result-desc" id="r-desc"></div>
+        <div class="tips" id="r-tips"></div>
+        <div class="share">
+          <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+        <button class="restart" onclick="restartQuiz()">↺ Recommencer</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var ARTICLE_URL = 'https://ouipsycho.fr/articles/kairos-science-hasard/';
+
+    var questions = [
+      {
+        text: "Vous pensez à un vieil ami… et il vous écrit dans la minute. Votre réaction ?",
+        answers: [
+          { label: "« Probabilités + biais de confirmation. Affaire classée. »", pts: 0 },
+          { label: "« Amusant ! Mais on a dû voir le même truc qui nous a fait penser l'un à l'autre. »", pts: 1 },
+          { label: "« C'est troublant quand même, ces connexions entre les gens… »", pts: 2 },
+          { label: "« ÉVIDEMMENT. Nos énergies sont alignées, je le savais. »", pts: 3 }
+        ]
+      },
+      {
+        text: "Une place de parking se libère pile devant votre destination. Vous vous dites :",
+        answers: [
+          { label: "« Quelqu'un partait. C'est le concept même du parking. »", pts: 0 },
+          { label: "« Petit coup de bol, ça fait plaisir. »", pts: 1 },
+          { label: "« La journée commence bien, c'est bon signe. »", pts: 2 },
+          { label: "« Merci l'univers, je note ce clin d'œil dans mon carnet. »", pts: 3 }
+        ]
+      },
+      {
+        text: "Un livre tombe d'une étagère, ouvert sur une phrase qui répond pile à votre question du moment.",
+        answers: [
+          { label: "« Un livre ouvert au hasard parle toujours à qui veut l'entendre. »", pts: 0 },
+          { label: "« Jolie coïncidence, je la garde comme anecdote. »", pts: 1 },
+          { label: "« Je prends la phrase comme matière à réflexion, on ne sait jamais. »", pts: 2 },
+          { label: "« C'était un message. Je réorganise ma semaine en conséquence. »", pts: 3 }
+        ]
+      },
+      {
+        text: "« Tout arrive pour une raison. » Cette phrase vous inspire :",
+        answers: [
+          { label: "Une envie polie de changer de conversation.", pts: 0 },
+          { label: "Un « mouais » : les raisons, on les fabrique souvent après coup.", pts: 1 },
+          { label: "Une certaine sympathie : chercher du sens, ça aide à avancer.", pts: 2 },
+          { label: "Une adhésion totale. C'est ma devise, brodée sur un coussin.", pts: 3 }
+        ]
+      },
+      {
+        text: "Avant une décision importante, vous…",
+        answers: [
+          { label: "Listez le pour et le contre dans un tableur. Avec pondération.", pts: 0 },
+          { label: "Réfléchissez, puis tranchez en acceptant l'incertitude.", pts: 1 },
+          { label: "Écoutez votre intuition et guettez ce que « la vie » semble suggérer.", pts: 2 },
+          { label: "Attendez un signe. Il finit toujours par arriver.", pts: 3 }
+        ]
+      },
+      {
+        text: "Il est 11 h 11 quand vous regardez votre téléphone. Encore.",
+        answers: [
+          { label: "« Je regarde mon téléphone 150 fois par jour, la vraie surprise serait l'inverse. »", pts: 0 },
+          { label: "« Tiens, marrant. » Et j'oublie dans les dix secondes.", pts: 1 },
+          { label: "« Ça m'arrive souvent en ce moment, c'est curieux… »", pts: 2 },
+          { label: "« Les anges me parlent. Je vérifie la signification en ligne. »", pts: 3 }
+        ]
+      },
+      {
+        text: "Une opportunité inattendue se présente (projet, rencontre, proposition). Vous…",
+        answers: [
+          { label: "L'analysez froidement : timing ne veut pas dire pertinence.", pts: 0 },
+          { label: "L'étudiez sérieusement : les bonnes occasions ne préviennent pas.", pts: 1 },
+          { label: "Sentez que « ce n'est pas un hasard » et creusez avec enthousiasme.", pts: 2 },
+          { label: "Foncez : quand le destin frappe, on n'inspecte pas la porte.", pts: 3 }
+        ]
+      },
+      {
+        text: "Pour vous, le « bon timing », c'est…",
+        answers: [
+          { label: "De la préparation qui rencontre des statistiques favorables.", pts: 0 },
+          { label: "De l'attention : voir l'occasion quand elle passe.", pts: 1 },
+          { label: "Un mélange de lucidité et de connexion à ce qui nous entoure.", pts: 2 },
+          { label: "La preuve que l'univers a un planning, et que j'y figure.", pts: 3 }
+        ]
+      }
+    ];
+
+    var profiles = [
+      {
+        min: 0, max: 6, emoji: "📊",
+        title: "Le Statisticien sceptique",
+        sub: "Diaconis & Mosteller approuvent ce message",
+        desc: "Pour vous, une coïncidence est un événement rare multiplié par un très grand nombre d'occasions : rien de plus, rien de moins. Cette lucidité vous protège des pensées magiques et des marchands de signes. Petit angle mort possible : à force de tout démonter, on peut passer à côté du plaisir (et de l'utilité motivationnelle) que procure un joli hasard.",
+        tips: "<strong>Votre kaïros à travailler :</strong> autorisez-vous à savourer une coïncidence sans l'autopsier. Le sens qu'on donne à un événement peut être une ressource psychologique réelle — même quand on sait parfaitement d'où il vient."
+      },
+      {
+        min: 7, max: 12, emoji: "🧭",
+        title: "Le Pragmatique curieux",
+        sub: "Un pied dans les stats, un œil sur le mystère",
+        desc: "Vous savez que votre cerveau adore fabriquer des motifs, et vous le laissez faire… sous surveillance. Vous profitez des coïncidences comme d'un spectacle sans leur signer de chèque en blanc. C'est probablement la position la plus confortable : assez ouverte pour saisir les occasions, assez lucide pour ne pas réorganiser sa vie autour d'une plaque d'immatriculation.",
+        tips: "<strong>Votre kaïros à travailler :</strong> variez davantage vos routines et vos environnements. La sérendipité est un sport de volume — plus de collisions, plus d'occasions à attraper par la mèche."
+      },
+      {
+        min: 13, max: 18, emoji: "🏄",
+        title: "Le Surfeur du kaïros",
+        sub: "L'attention comme planche, l'occasion comme vague",
+        desc: "Vous êtes à l'affût des moments justes, et cette disponibilité attentionnelle est précisément ce que Wiseman observait chez les gens « chanceux » : vous remarquez ce que d'autres ne voient pas. Attention simplement à la frontière, parfois glissante, entre « rester ouvert aux signes » et « déléguer ses décisions au cosmos ».",
+        tips: "<strong>Votre kaïros à travailler :</strong> quand une coïncidence vous pousse vers une décision, ajoutez un test simple — « la trouverais-je bonne même sans le signe ? ». Si oui, foncez. Si non, c'est peut-être la mèche de quelqu'un d'autre."
+      },
+      {
+        min: 19, max: 24, emoji: "✨",
+        title: "Le Cosmique assumé",
+        sub: "L'univers a votre numéro (et il s'en sert)",
+        desc: "Pour vous, le monde est une conversation permanente et les coïncidences en sont la ponctuation. Cette sensibilité au sens rend la vie plus riche et plus narrative — c'est une vraie force motivationnelle. Le revers : la recherche montre que la perception de motifs s'intensifie quand on se sent dépassé. Si les signes se multiplient soudainement, c'est parfois moins l'univers qui parle que le stress qui monte.",
+        tips: "<strong>Votre kaïros à travailler :</strong> gardez le sens, lâchez la prédiction. Un signe peut être une belle boussole intérieure sans être une prophétie. Et si les synchronicités deviennent envahissantes ou anxiogènes, c'est un signal qui mérite, lui, d'être écouté — avec un professionnel."
+      }
+    ];
+
+    var current = 0;
+    var score = 0;
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function show(id) {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function startQuiz() {
+      current = 0;
+      score = 0;
+      show('screen-quiz');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = questions[current];
+      document.getElementById('q-count').textContent = 'Question ' + (current + 1) + ' / ' + questions.length;
+      document.getElementById('progress-bar').style.width = (current / questions.length * 100) + '%';
+      document.getElementById('q-text').textContent = q.text;
+      var box = document.getElementById('q-answers');
+      box.innerHTML = '';
+      shuffle(q.answers).forEach(function(a) {
+        var btn = document.createElement('button');
+        btn.className = 'answer-btn';
+        btn.textContent = a.label;
+        btn.onclick = function() { pick(a.pts); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function pick(pts) {
+      score += pts;
+      current++;
+      if (current < questions.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var p = profiles.filter(function(pr) { return score >= pr.min && score <= pr.max; })[0] || profiles[1];
+      document.getElementById('r-emoji').textContent = p.emoji;
+      document.getElementById('r-title').textContent = p.title;
+      document.getElementById('r-sub').textContent = p.sub;
+      document.getElementById('r-desc').textContent = p.desc;
+      document.getElementById('r-tips').innerHTML = p.tips;
+
+      var shareText = 'Mon profil face aux coïncidences : ' + p.emoji + ' ' + p.title + ' — et vous ? Faites le quiz sur Oui Psycho !';
+      var eUrl = encodeURIComponent(ARTICLE_URL);
+      var eText = encodeURIComponent(shareText);
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + eUrl;
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + eText + '&url=' + eUrl;
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + eText + '%20' + eUrl;
+
+      show('screen-result');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
