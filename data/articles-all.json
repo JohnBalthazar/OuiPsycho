@@ -786,12 +786,12 @@
   {
     "id": "plateformes-psy-en-ligne-comparatif",
     "title": "Que valent les plateformes de psy en ligne ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "De 0 € avec Mon soutien psy à plus de 300 € par mois chez BetterHelp : le marché du psy en ligne est devenu une jungle. Comparatif complet 2026 — prix, remboursement, ergonomie, avis des usagers et notes de la rédaction.",
     "date": "2027-02-25",
-    "date_modified": "2027-02-25",
+    "date_modified": "2026-07-19",
     "category": "Thérapies",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cqxwfhhkfmpea2ekclas",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -805,7 +805,7 @@
       "therapie",
       "comparatif"
     ],
-    "metaDescription": "",
+    "metaDescription": "Psy en ligne : Mon soutien psy, Qare, Serenis, BetterHelp… Comparatif 2026 des plateformes : prix, remboursement, ergonomie, avis et notes de la rédaction.",
     "articles_lies": [],
     "status": "scheduled"
   },
