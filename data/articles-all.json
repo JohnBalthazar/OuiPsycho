@@ -166,6 +166,67 @@
     "status": "scheduled"
   },
   {
+    "id": "dans-la-tete-d-un-pervers-narcissique",
+    "title": "Dans la tête d'un pervers narcissique",
+    "type": "article",
+    "excerpt": "Comment pense un pervers narcissique ? Pourquoi choisit-il des proies empathiques et brillantes plutôt que fragiles ? Comprendre sa mécanique interne, c'est déjà s'en protéger — visite guidée d'un fonctionnement qui déteste être compris.",
+    "metaDescription": "Comment un pervers narcissique voit le monde, choisit ses proies et ce qu'il redoute : comprendre sa mécanique pour s'en protéger efficacement.",
+    "author": "John Balthazar",
+    "date": "2027-04-15",
+    "date_modified": "2027-04-15",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "pervers-narcissique",
+      "manipulation",
+      "emprise",
+      "narcissisme",
+      "relations-toxiques"
+    ],
+    "sources": [
+      {
+        "authors": "Wai M. & Tiliopoulos N.",
+        "year": "2012",
+        "title": "The affective and cognitive empathic nature of the dark triad of personality",
+        "journal": "Personality and Individual Differences",
+        "url": "https://doi.org/10.1016/j.paid.2012.05.008"
+      },
+      {
+        "authors": "Krizan Z. & Herlache A. D.",
+        "year": "2018",
+        "title": "The Narcissism Spectrum Model: A synthetic view of narcissistic personality",
+        "journal": "Personality and Social Psychology Review",
+        "url": "https://doi.org/10.1177/1088868316685018"
+      },
+      {
+        "authors": "Baumeister R. F., Smart L. & Boden J. M.",
+        "year": "1996",
+        "title": "Relation of threatened egotism to violence and aggression: The dark side of high self-esteem",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.103.1.5"
+      },
+      {
+        "authors": "Racamier P.-C.",
+        "year": "1992",
+        "title": "Le génie des origines : psychanalyse et psychoses",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral : la violence perverse au quotidien",
+        "publisher": "Syros"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
     "excerpt": "",
