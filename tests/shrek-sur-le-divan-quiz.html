@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel habitant du marais êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/shrek-sur-le-divan/">
+  <meta name="description" content="Ogre bourru, âne inarrêtable, princesse au secret ou félin stratège : découvrez votre profil psychologique du marais en 8 questions.">
+  <style>
+    :root{
+      --vert:#4E7A27; --vert-fonce:#2E4A16; --boue:#6B4F2E; --or:#D9B23D;
+      --fond:#141A0F; --carte:#1F2A17; --texte:#EEF3E4; --texte-doux:#B8C6A3;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,var(--fond) 0%,#233314 100%);color:var(--texte);padding:16px;min-height:100vh}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border:1px solid rgba(217,178,61,.25);border-radius:16px;padding:28px 24px;box-shadow:0 8px 32px rgba(0,0,0,.45)}
+    h1{font-size:1.4rem;color:var(--or);text-align:center;margin-bottom:6px}
+    .sous-titre{text-align:center;color:var(--texte-doux);font-size:.95rem;margin-bottom:20px}
+    .progress{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-bottom:22px}
+    .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--vert),var(--or));transition:width .35s ease}
+    .compteur{text-align:center;font-size:.85rem;color:var(--texte-doux);margin-bottom:10px}
+    .question{font-size:1.1rem;font-weight:600;margin-bottom:18px;line-height:1.45}
+    .reponses{display:flex;flex-direction:column;gap:10px}
+    .reponse{background:rgba(255,255,255,.05);border:1px solid rgba(217,178,61,.2);color:var(--texte);border-radius:12px;padding:14px 16px;font-size:.97rem;text-align:left;cursor:pointer;transition:all .18s ease;line-height:1.4}
+    .reponse:hover{background:rgba(78,122,39,.35);border-color:var(--vert);transform:translateY(-1px)}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--vert),var(--vert-fonce));color:#fff;border:1px solid rgba(217,178,61,.4);border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .btn:hover{opacity:.88}
+    .intro,.resultat{text-align:center}
+    .intro p{color:var(--texte-doux);margin-bottom:18px;line-height:1.55}
+    .resultat .emoji{font-size:3.2rem;margin-bottom:8px}
+    .resultat h2{color:var(--or);font-size:1.3rem;margin-bottom:12px}
+    .resultat .desc{text-align:left;color:var(--texte);line-height:1.6;margin-bottom:18px;font-size:.97rem}
+    .resultat .desc p{margin-bottom:10px}
+    .partage{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .partage a{background:rgba(255,255,255,.07);border:1px solid rgba(217,178,61,.25);color:var(--texte);text-decoration:none;border-radius:99px;padding:9px 16px;font-size:.88rem;transition:background .2s}
+    .partage a:hover{background:rgba(78,122,39,.35)}
+    .disclaimer{background:rgba(217,178,61,.1);border:1px solid rgba(217,178,61,.3);border-radius:12px;padding:13px 15px;font-size:.85rem;color:var(--texte-doux);line-height:1.5;text-align:left;margin-top:14px}
+    .disclaimer strong{color:var(--or)}
+    .recommencer{margin-top:16px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <h1>🌿 Quel habitant du marais êtes-vous ?</h1>
+    <p class="sous-titre">8 questions pour découvrir votre profil psychologique — pancartes de menace non fournies.</p>
+
+    <div id="ecran-intro" class="intro">
+      <p>Le marais est un écosystème psychologique complet : l'ogre qui grogne pour ne pas s'attacher, l'âne qui s'attache pour ne pas douter, la princesse qui cache sa vraie nature et le félin qui a fait du charme une stratégie. Et vous, vous logez où ?</p>
+      <button class="btn" onclick="demarrer()">Entrer dans le marais 🐸</button>
+    </div>
+
+    <div id="ecran-question" class="hidden">
+      <div class="compteur" id="compteur"></div>
+      <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="question" id="question"></div>
+      <div class="reponses" id="reponses"></div>
+    </div>
+
+    <div id="ecran-resultat" class="resultat hidden">
+      <div class="emoji" id="res-emoji"></div>
+      <h2 id="res-titre"></h2>
+      <div class="desc" id="res-desc"></div>
+      <div class="partage">
+        <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+      <div class="recommencer"><button class="btn" onclick="recommencer()">↻ Recommencer</button></div>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      { q: "Des invités débarquent chez vous sans prévenir. Réaction ?", r: [
+        { t: "Soupir intérieur, hospitalité minimale, espoir qu'ils partent vite.", p: "A" },
+        { t: "Génial ! Je sors les chaises, les gâteaux et trois sujets de conversation.", p: "B" },
+        { t: "Panique discrète : vite, ranger tout ce qui ne doit pas se voir.", p: "C" },
+        { t: "Parfait. Un public. Je fais l'entrée que je répète depuis toujours.", p: "D" }
+      ]},
+      { q: "Votre rapport aux compliments ?", r: [
+        { t: "Suspicion immédiate : qu'est-ce qu'on me veut ?", p: "A" },
+        { t: "J'adore ! Et j'en redemande, sans aucune honte.", p: "B" },
+        { t: "Gêne : si les gens savaient vraiment, ils ne diraient pas ça.", p: "C" },
+        { t: "Je les accueille avec élégance. Ils sont mérités, après tout.", p: "D" }
+      ]},
+      { q: "En groupe, votre rôle naturel ?", r: [
+        { t: "En retrait, à râler — mais c'est moi qu'on appelle en cas de vrai problème.", p: "A" },
+        { t: "Le ciment du groupe : je relance, je relie, je remonte le moral.", p: "B" },
+        { t: "Impeccable en façade, plus complexe en coulisses.", p: "C" },
+        { t: "Le charme officiel de l'équipe. Quelqu'un doit bien s'y coller.", p: "D" }
+      ]},
+      { q: "Quand quelqu'un cherche à vous connaître vraiment…", r: [
+        { t: "Je multiplie les pancartes « accès interdit ». Les persévérants verront.", p: "A" },
+        { t: "Enfin ! Je raconte tout, dans le désordre, avec enthousiasme.", p: "B" },
+        { t: "Je dose : certaines pièces de la maison restent fermées à clé.", p: "C" },
+        { t: "Je montre la meilleure version. La coulisse est sur invitation seulement.", p: "D" }
+      ]},
+      { q: "Votre pire cauchemar relationnel ?", r: [
+        { t: "Qu'on m'envahisse. Mon territoire, mes règles, ma boue.", p: "A" },
+        { t: "Qu'on m'abandonne. Le silence radio me rend fou/folle.", p: "B" },
+        { t: "Qu'on découvre la partie de moi que je cache.", p: "C" },
+        { t: "Qu'on cesse de me trouver irrésistible.", p: "D" }
+      ]},
+      { q: "Face à un conflit…", r: [
+        { t: "Je grogne fort, mais je pardonne vite (sans le dire).", p: "A" },
+        { t: "Je veux qu'on se réconcilie TOUT DE SUITE, là, maintenant.", p: "B" },
+        { t: "Je lisse en surface et je rumine en profondeur.", p: "C" },
+        { t: "Je sors le regard désarmant. Efficacité : redoutable.", p: "D" }
+      ]},
+      { q: "Ce que votre entourage dit de vous (quand vous n'êtes pas là) ?", r: [
+        { t: "« Bourru mais en or, une fois passé le portail. »", p: "A" },
+        { t: "« Épuisant et irremplaçable. »", p: "B" },
+        { t: "« On sent qu'on ne connaît pas tout. »", p: "C" },
+        { t: "« Trop de charme pour être honnête. Mais quel panache. »", p: "D" }
+      ]},
+      { q: "Votre définition du bonheur ?", r: [
+        { t: "La paix. Chez moi. Avec deux ou trois élus triés sur le volet.", p: "A" },
+        { t: "Du monde autour de la table, du bruit, des liens partout.", p: "B" },
+        { t: "Pouvoir enfin être la même personne dehors et dedans.", p: "C" },
+        { t: "Une vie à ma hauteur — c'est-à-dire très haut.", p: "D" }
+      ]}
+    ];
+
+    var PROFILS = {
+      A: { emoji: "🧌", titre: "L'ogre au grand cœur",
+        desc: "<p>Territoire défendu, grognements dissuasifs, tendresse en accès restreint : vous gérez le lien comme un marais — l'entrée se mérite. Derrière ce style d'attachement dit évitant se cache souvent une sensibilité au rejet bien réelle : mieux vaut tenir les gens à distance que risquer d'être déçu.</p><p><strong>Votre force :</strong> une loyauté massive envers les rares élus, et une authenticité totale — avec vous, pas de façade.</p><p><strong>Votre piste :</strong> vos pancartes filtrent aussi des gens qui vous auraient fait du bien. Laissez de temps en temps un âne franchir le pont-levis.</p>" },
+      B: { emoji: "🫏", titre: "L'inarrêtable compagnon",
+        desc: "<p>Vous êtes le lien fait personne : enthousiaste, bavard·e, incapable de comprendre qu'un « laisse-moi tranquille » puisse être sérieux. Votre besoin d'appartenance tourne à plein régime, et c'est votre superpouvoir : vous traversez les carapaces des autres par pure persévérance affectueuse.</p><p><strong>Votre force :</strong> vous êtes celui ou celle qui reste. Les évitants du monde entier vous doivent leurs plus belles amitiés.</p><p><strong>Votre piste :</strong> vérifier que votre peur du silence ne vous fait pas accepter des relations où vous donnez tout et recevez peu. Votre présence est un cadeau — pas un dû.</p>" },
+      C: { emoji: "👑", titre: "La princesse (ou le prince) au secret",
+        desc: "<p>Impeccable en public, différent·e en privé : vous avez appris quelque part que certaines parts de vous devaient rester cachées pour être aimé·e. Ce double personnage est épuisant à entretenir — et il repose sur une croyance qui mérite d'être vérifiée : celle que la « vraie version » ferait fuir.</p><p><strong>Votre force :</strong> une intelligence sociale fine et une profondeur que les proches qui vous connaissent vraiment adorent.</p><p><strong>Votre piste :</strong> tester la révélation à petites doses, avec des personnes sûres. Le plus souvent, ce qu'on cache avec le plus de soin est précisément ce qui rend attachant.</p>" },
+      D: { emoji: "🐈", titre: "Le félin stratège",
+        desc: "<p>Charme calibré, regard désarmant, sens du timing : vous avez compris très tôt que la séduction est un outil, et vous le maniez avec panache. Sous le chapeau et les bottes, un vrai courage — mais aussi une image à entretenir qui peut devenir un costume un peu serré.</p><p><strong>Votre force :</strong> vous ouvrez toutes les portes, apaisez les conflits et rendez la vie plus élégante.</p><p><strong>Votre piste :</strong> vous autoriser à être vu·e sans mise en scène. Les gens qui comptent vous aimeront aussi les jours sans bottes.</p>" }
+    };
+
+    var index = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function demarrer() {
+      index = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      document.getElementById('ecran-intro').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.add('hidden');
+      document.getElementById('ecran-question').classList.remove('hidden');
+      afficherQuestion();
+    }
+
+    function afficherQuestion() {
+      var q = QUESTIONS[index];
+      document.getElementById('compteur').textContent = 'Question ' + (index + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('progress-bar').style.width = ((index) / QUESTIONS.length * 100) + '%';
+      document.getElementById('question').textContent = q.q;
+      var cont = document.getElementById('reponses');
+      cont.innerHTML = '';
+      melanger(q.r).forEach(function(rep) {
+        var b = document.createElement('button');
+        b.className = 'reponse';
+        b.textContent = rep.t;
+        b.onclick = function() { repondre(rep.p); };
+        cont.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function repondre(p) {
+      votes[p]++;
+      index++;
+      if (index < QUESTIONS.length) {
+        afficherQuestion();
+      } else {
+        afficherResultat();
+      }
+    }
+
+    function afficherResultat() {
+      var meilleur = 'A';
+      ['B', 'C', 'D'].forEach(function(k) { if (votes[k] > votes[meilleur]) meilleur = k; });
+      var prof = PROFILS[meilleur];
+      document.getElementById('ecran-question').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.remove('hidden');
+      document.getElementById('res-emoji').textContent = prof.emoji;
+      document.getElementById('res-titre').textContent = prof.titre;
+      document.getElementById('res-desc').innerHTML = prof.desc;
+
+      var url = 'https://ouipsycho.fr/articles/shrek-sur-le-divan/';
+      var texte = 'Mon résultat au quiz « Quel habitant du marais êtes-vous ? » : ' + prof.titre + ' ' + prof.emoji + ' — et vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(texte) + '&url=' + encodeURIComponent(url);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(texte + ' ' + url);
+      notifyResize();
+    }
+
+    function recommencer() {
+      demarrer();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
