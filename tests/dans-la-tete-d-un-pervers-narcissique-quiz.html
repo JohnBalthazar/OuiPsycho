@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Traits narcissiques : où vous situez-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/dans-la-tete-d-un-pervers-narcissique/">
+  <meta name="description" content="Du narcissisme sain aux traits à surveiller : situez-vous sur le spectre en 10 questions. Indice : les vrais concernés ne font jamais ce test.">
+  <style>
+    :root{
+      --violet:#4A2C6D; --violet-fonce:#2E1A47; --accent:#9B6DC8; --or:#D9A441;
+      --fond:#17121F; --carte:#241B33; --texte:#EFE9F5; --texte-doux:#B8A9CC;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:linear-gradient(160deg,var(--fond) 0%,#241735 100%);color:var(--texte);padding:16px;min-height:100vh}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border:1px solid rgba(155,109,200,.3);border-radius:16px;padding:28px 24px;box-shadow:0 8px 32px rgba(0,0,0,.45)}
+    h1{font-size:1.4rem;color:var(--accent);text-align:center;margin-bottom:6px}
+    .sous-titre{text-align:center;color:var(--texte-doux);font-size:.95rem;margin-bottom:20px}
+    .progress{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden;margin-bottom:22px}
+    .progress-bar{height:100%;width:0;background:linear-gradient(90deg,var(--violet),var(--accent),var(--or));transition:width .35s ease}
+    .compteur{text-align:center;font-size:.85rem;color:var(--texte-doux);margin-bottom:10px}
+    .question{font-size:1.1rem;font-weight:600;margin-bottom:18px;line-height:1.45}
+    .reponses{display:flex;flex-direction:column;gap:10px}
+    .reponse{background:rgba(255,255,255,.05);border:1px solid rgba(155,109,200,.25);color:var(--texte);border-radius:12px;padding:14px 16px;font-size:.97rem;text-align:left;cursor:pointer;transition:all .18s ease;line-height:1.4}
+    .reponse:hover{background:rgba(155,109,200,.2);border-color:var(--accent);transform:translateY(-1px)}
+    .btn{display:inline-block;background:linear-gradient(90deg,var(--violet),var(--accent));color:#fff;border:none;border-radius:99px;padding:13px 28px;font-size:1rem;font-weight:600;cursor:pointer;transition:opacity .2s}
+    .btn:hover{opacity:.88}
+    .intro,.resultat{text-align:center}
+    .intro p{color:var(--texte-doux);margin-bottom:18px;line-height:1.55}
+    .resultat .emoji{font-size:3.2rem;margin-bottom:8px}
+    .resultat h2{color:var(--or);font-size:1.3rem;margin-bottom:6px}
+    .resultat .score-txt{color:var(--texte-doux);font-size:.9rem;margin-bottom:14px}
+    .resultat .desc{text-align:left;color:var(--texte);line-height:1.6;margin-bottom:18px;font-size:.97rem}
+    .resultat .desc p{margin-bottom:10px}
+    .partage{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:18px 0}
+    .partage a{background:rgba(255,255,255,.07);border:1px solid rgba(155,109,200,.3);color:var(--texte);text-decoration:none;border-radius:99px;padding:9px 16px;font-size:.88rem;transition:background .2s}
+    .partage a:hover{background:rgba(155,109,200,.22)}
+    .disclaimer{background:rgba(217,164,65,.1);border:1px solid rgba(217,164,65,.35);border-radius:12px;padding:13px 15px;font-size:.85rem;color:var(--texte-doux);line-height:1.5;text-align:left;margin-top:14px}
+    .disclaimer strong{color:var(--or)}
+    .recommencer{margin-top:16px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <h1>🪞 Traits narcissiques : où vous situez-vous ?</h1>
+    <p class="sous-titre">10 questions pour vous situer sur le spectre — du narcissisme sain aux zones à surveiller.</p>
+
+    <div id="ecran-intro" class="intro">
+      <p>Répondez honnêtement (personne ne regarde). Et rappelez-vous l'indice donné dans l'article : se poser la question avec inquiétude est déjà, en soi, plutôt bon signe — les fonctionnements réellement pervers ne s'interrogent jamais sur eux-mêmes.</p>
+      <button class="btn" onclick="demarrer()">Commencer le test 🔍</button>
+    </div>
+
+    <div id="ecran-question" class="hidden">
+      <div class="compteur" id="compteur"></div>
+      <div class="progress"><div class="progress-bar" id="progress-bar"></div></div>
+      <div class="question" id="question"></div>
+      <div class="reponses" id="reponses"></div>
+    </div>
+
+    <div id="ecran-resultat" class="resultat hidden">
+      <div class="emoji" id="res-emoji"></div>
+      <h2 id="res-titre"></h2>
+      <div class="score-txt" id="res-score"></div>
+      <div class="desc" id="res-desc"></div>
+      <div class="partage">
+        <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). Si vous subissez des violences psychologiques au sein de votre couple, le <strong>3919</strong> est gratuit et anonyme.</div>
+      <div class="recommencer"><button class="btn" onclick="recommencer()">↻ Recommencer</button></div>
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      { q: "Quand on vous fait une critique, même formulée gentiment…", r: [
+        { t: "Je l'écoute, ça pique parfois mais c'est utile.", pts: 0 },
+        { t: "Je rumine un moment avant de reconnaître le fond.", pts: 1 },
+        { t: "Je me défends pied à pied : la critique est rarement juste.", pts: 2 },
+        { t: "Je la vis comme une attaque et je m'en souviens longtemps.", pts: 3 }
+      ]},
+      { q: "Le succès d'un proche (ami, collègue, frère ou sœur)…", r: [
+        { t: "Me réjouit sincèrement.", pts: 0 },
+        { t: "Me réjouit, avec une petite pointe de comparaison.", pts: 1 },
+        { t: "Me pique : pourquoi lui et pas moi ?", pts: 2 },
+        { t: "M'agace franchement, surtout s'il en parle.", pts: 3 }
+      ]},
+      { q: "Dans une dispute de couple ou d'amitié…", r: [
+        { t: "Je peux reconnaître mes torts, même si c'est désagréable.", pts: 0 },
+        { t: "Je finis par m'excuser, mais il me faut du temps.", pts: 1 },
+        { t: "Je m'excuse rarement : c'est l'autre qui exagère.", pts: 2 },
+        { t: "M'excuser ? L'autre finit toujours par comprendre que c'était sa faute.", pts: 3 }
+      ]},
+      { q: "Quand quelqu'un vous raconte un problème personnel…", r: [
+        { t: "Je ressens ce qu'il vit, parfois presque physiquement.", pts: 0 },
+        { t: "Je comprends et je compatis, à ma manière.", pts: 1 },
+        { t: "Je comprends, mais ça ne me touche pas vraiment.", pts: 2 },
+        { t: "Je m'ennuie — et je repère surtout ce que ça m'apprend sur lui.", pts: 3 }
+      ]},
+      { q: "Votre rapport à l'admiration des autres ?", r: [
+        { t: "Agréable quand ça arrive, mais je n'en ai pas besoin.", pts: 0 },
+        { t: "J'aime être reconnu·e pour ce que je fais bien.", pts: 1 },
+        { t: "J'en ai besoin régulièrement pour me sentir bien.", pts: 2 },
+        { t: "C'est un dû : les gens devraient voir ma valeur.", pts: 3 }
+      ]},
+      { q: "Mentir ou arranger la vérité…", r: [
+        { t: "Me met mal à l'aise, je l'évite autant que possible.", pts: 0 },
+        { t: "M'arrive pour éviter de blesser quelqu'un.", pts: 1 },
+        { t: "Est un outil pratique quand la situation l'exige.", pts: 2 },
+        { t: "Ne me pose aucun problème si ça sert mes intérêts.", pts: 3 }
+      ]},
+      { q: "Les règles qui s'appliquent à tout le monde…", r: [
+        { t: "S'appliquent à moi aussi, évidemment.", pts: 0 },
+        { t: "Je les respecte, en râlant parfois.", pts: 1 },
+        { t: "Sont faites pour les gens ordinaires.", pts: 2 },
+        { t: "Sont des obstacles à contourner intelligemment.", pts: 3 }
+      ]},
+      { q: "Quand une relation ne vous « apporte » plus rien…", r: [
+        { t: "Une relation n'est pas un placement : je reste attaché·e aux gens.", pts: 0 },
+        { t: "Je prends de la distance naturellement, sans brutalité.", pts: 1 },
+        { t: "Je passe à autre chose sans trop d'états d'âme.", pts: 2 },
+        { t: "Je coupe net : les gens sont utiles ou ils ne le sont pas.", pts: 3 }
+      ]},
+      { q: "Faire douter quelqu'un de sa mémoire ou de sa perception (« tu exagères », « tu as rêvé »)…", r: [
+        { t: "Jamais volontairement — l'idée me dérange profondément.", pts: 0 },
+        { t: "Ça a pu m'arriver dans une dispute, et je l'ai regretté.", pts: 1 },
+        { t: "Parfois, c'est le seul moyen de calmer le jeu.", pts: 2 },
+        { t: "C'est efficace : les gens trop sûrs d'eux sont ingérables.", pts: 3 }
+      ]},
+      { q: "Au fond, les autres sont…", r: [
+        { t: "Des personnes, avec leur monde propre, aussi réel que le mien.", pts: 0 },
+        { t: "Globalement bienveillants, avec des exceptions.", pts: 1 },
+        { t: "Souvent décevants par rapport à ce que je mérite.", pts: 2 },
+        { t: "Des pièces sur un échiquier — autant bien jouer.", pts: 3 }
+      ]}
+    ];
+
+    var PALIERS = [
+      { max: 7, emoji: "💚", titre: "Empathie solide, ego tranquille",
+        desc: "<p>Votre profil est aux antipodes du fonctionnement pervers narcissique : vous ressentez les autres, vous savez reconnaître vos torts et l'admiration n'est pas votre oxygène. Si vous avez fait ce test parce que quelqu'un vous accuse d'être « le problème » dans une relation où vous vous excusez sans cesse… retournez lire l'article : c'est parfois la cible qui doute, jamais le prédateur.</p><p>Seul point de vigilance : une empathie généreuse attire aussi les personnalités qui s'en nourrissent. Vos limites méritent autant de soin que celles des autres.</p>" },
+      { max: 15, emoji: "🙂", titre: "Narcissisme sain : rien à signaler",
+        desc: "<p>Vous avez de l'estime pour vous-même, un ego qui réagit quand on le pique et un goût raisonnable pour la reconnaissance : c'est le narcissisme sain, celui qui permet de s'affirmer, de négocier son salaire et de survivre aux repas de famille. Rien, dans ce profil, n'évoque un fonctionnement pervers — qui suppose un système relationnel entier bâti sur l'exploitation d'autrui, pas quelques accès d'amour-propre.</p><p>Continuez simplement à faire ce que vous faites déjà : écouter, vous excuser quand c'est mérité, et vous réjouir (même imparfaitement) pour les autres.</p>" },
+      { max: 22, emoji: "🟠", titre: "Traits marqués : matière à réflexion",
+        desc: "<p>Certaines de vos réponses dessinent des traits narcissiques plus affirmés : sensibilité forte à la critique, empathie plutôt froide, tendance à instrumentaliser certaines relations. Rappelons-le clairement : cela ne fait pas de vous un pervers narcissique — ce test ne mesure que des tendances, et le fait même que vous le passiez honnêtement plaide contre l'hypothèse.</p><p>Mais si votre entourage vous renvoie régulièrement les mêmes reproches (dureté, absence d'excuses, froideur), il y a peut-être là un vrai sujet à explorer — idéalement avec un professionnel. Travailler ces traits est possible, et généralement très rentable pour la qualité de vos relations.</p>" },
+      { max: 30, emoji: "🔴", titre: "Zone à explorer sérieusement",
+        desc: "<p>Votre score traduit des réponses cohérentes avec un rapport très instrumental aux autres : peu de résonance émotionnelle, manipulation assumée, relations vues comme des rapports de force. Deux lectures possibles — et ce test ne peut pas trancher. Soit vous avez répondu avec une lucidité un peu provocatrice (ça arrive), soit ces réponses décrivent réellement votre fonctionnement quotidien.</p><p>Dans le second cas, un point mérite votre attention : ce mode relationnel a un coût, y compris pour vous — solitude, conflits en série, relations qui s'épuisent. Un travail avec un psychologue ou un psychiatre n'est pas une punition : c'est le seul outil connu pour assouplir un système devenu trop coûteux. Et si vous lisez ceci en pensant à quelqu'un d'autre qu'à vous-même, l'article ci-dessus contient le kit de protection.</p>" }
+    ];
+
+    var index = 0;
+    var score = 0;
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var t = a[i]; a[i] = a[j]; a[j] = t;
+      }
+      return a;
+    }
+
+    function demarrer() {
+      index = 0;
+      score = 0;
+      document.getElementById('ecran-intro').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.add('hidden');
+      document.getElementById('ecran-question').classList.remove('hidden');
+      afficherQuestion();
+    }
+
+    function afficherQuestion() {
+      var q = QUESTIONS[index];
+      document.getElementById('compteur').textContent = 'Question ' + (index + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('progress-bar').style.width = ((index) / QUESTIONS.length * 100) + '%';
+      document.getElementById('question').textContent = q.q;
+      var cont = document.getElementById('reponses');
+      cont.innerHTML = '';
+      melanger(q.r).forEach(function(rep) {
+        var b = document.createElement('button');
+        b.className = 'reponse';
+        b.textContent = rep.t;
+        b.onclick = function() { repondre(rep.pts); };
+        cont.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function repondre(pts) {
+      score += pts;
+      index++;
+      if (index < QUESTIONS.length) {
+        afficherQuestion();
+      } else {
+        afficherResultat();
+      }
+    }
+
+    function afficherResultat() {
+      var palier = PALIERS[PALIERS.length - 1];
+      for (var i = 0; i < PALIERS.length; i++) {
+        if (score <= PALIERS[i].max) { palier = PALIERS[i]; break; }
+      }
+      document.getElementById('ecran-question').classList.add('hidden');
+      document.getElementById('ecran-resultat').classList.remove('hidden');
+      document.getElementById('res-emoji').textContent = palier.emoji;
+      document.getElementById('res-titre').textContent = palier.titre;
+      document.getElementById('res-score').textContent = 'Votre score : ' + score + ' / 30';
+      document.getElementById('res-desc').innerHTML = palier.desc;
+
+      var url = 'https://ouipsycho.fr/articles/dans-la-tete-d-un-pervers-narcissique/';
+      var texte = 'Mon résultat au test « Traits narcissiques : où vous situez-vous ? » : ' + palier.titre + ' — et vous ?';
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(texte) + '&url=' + encodeURIComponent(url);
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodeURIComponent(texte + ' ' + url);
+      notifyResize();
+    }
+
+    function recommencer() {
+      demarrer();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
