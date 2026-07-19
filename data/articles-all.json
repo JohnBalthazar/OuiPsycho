@@ -115,12 +115,12 @@
   {
     "id": "zeus-sur-le-divan",
     "title": "Zeus sur le divan : psychologie d'un dieu grec",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Roi de l'Olympe, foudre à la main et ego en fusion : Zeus s'allonge sur le divan. Pouvoir sans limites, narcissisme grandiose et « séductions » qui n'en sont pas — analyse psychologique (et féministe) du patriarche des dieux.",
     "date": "2027-04-27",
-    "date_modified": "2027-04-27",
+    "date_modified": "2026-07-19",
     "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/loylah1akx1qzo5w8tj2",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -135,7 +135,7 @@
       "consentement",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Zeus sur le divan : narcissisme grandiose, abus de pouvoir et mythe du « séducteur ». Analyse psychologique et féministe du roi des dieux grecs.",
     "articles_lies": [],
     "status": "scheduled"
   },
