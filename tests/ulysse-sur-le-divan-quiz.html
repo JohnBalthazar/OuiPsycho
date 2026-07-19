@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel héros de la mythologie grecque êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/ulysse-sur-le-divan/">
+  <meta name="description" content="Métis d'Ulysse, fureur d'Achille, patience de Pénélope ou intégrité d'Antigone ? Découvrez quel héros antique guide votre façon de traverser les tempêtes.">
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(160deg, #10344a 0%, #1F4E6B 55%, #2a6485 100%);
+      color: #f4efe6;
+      padding: 24px 16px;
+      min-height: 100vh;
+    }
+    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .card {
+      background: rgba(244,239,230,0.07);
+      border: 1px solid rgba(244,239,230,0.18);
+      border-radius: 16px;
+      padding: 28px 24px;
+      backdrop-filter: blur(4px);
+    }
+    h1 { font-size: 1.45em; margin-bottom: 10px; color: #f0c987; }
+    .intro-text { font-size: 1em; line-height: 1.6; margin-bottom: 20px; color: #ece5d8; }
+    .btn {
+      display: inline-block;
+      background: #c96f3b;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 13px 30px;
+      font-size: 1.05em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform .15s, background .15s;
+    }
+    .btn:hover { background: #b55e2d; transform: translateY(-2px); }
+    .progress-wrap { margin-bottom: 18px; }
+    .progress-label { font-size: .85em; color: #d8cfbf; margin-bottom: 6px; }
+    .progress-bar { height: 8px; background: rgba(244,239,230,0.15); border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: linear-gradient(90deg,#f0c987,#c96f3b); width: 0; transition: width .3s; }
+    .question-text { font-size: 1.15em; font-weight: 600; line-height: 1.5; margin-bottom: 20px; }
+    .answer {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: rgba(244,239,230,0.09);
+      border: 1px solid rgba(244,239,230,0.22);
+      color: #f4efe6;
+      border-radius: 12px;
+      padding: 14px 16px;
+      font-size: .98em;
+      line-height: 1.45;
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: background .15s, transform .12s, border-color .15s;
+    }
+    .answer:hover { background: rgba(240,201,135,0.18); border-color: #f0c987; transform: translateX(4px); }
+    .result-emoji { font-size: 3em; text-align: center; margin-bottom: 8px; }
+    .result-title { font-size: 1.5em; text-align: center; color: #f0c987; margin-bottom: 14px; }
+    .result-desc { font-size: 1em; line-height: 1.65; margin-bottom: 20px; color: #ece5d8; }
+    .share-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 20px; }
+    .share-row a {
+      text-decoration: none;
+      color: #f4efe6;
+      background: rgba(244,239,230,0.12);
+      border: 1px solid rgba(244,239,230,0.25);
+      border-radius: 24px;
+      padding: 9px 16px;
+      font-size: .9em;
+      transition: background .15s;
+    }
+    .share-row a:hover { background: rgba(240,201,135,0.25); }
+    .disclaimer {
+      font-size: .82em;
+      line-height: 1.55;
+      color: #d8cfbf;
+      background: rgba(0,0,0,0.18);
+      border-left: 3px solid #f0c987;
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+    .center { text-align: center; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="quiz-container">
+    <!-- Écran d'intro -->
+    <div class="card" id="screen-intro">
+      <h1>⚓ Quel héros de la mythologie grecque êtes-vous ?</h1>
+      <p class="intro-text">Face aux tempêtes de la vie, certains rusent comme Ulysse, d'autres foncent comme Achille, tiennent bon comme Pénélope ou refusent de plier comme Antigone. Huit questions pour découvrir quel héros antique guide votre façon d'affronter l'adversité.</p>
+      <div class="center"><button class="btn" onclick="startQuiz()">Larguer les amarres ⛵</button></div>
+    </div>
+
+    <!-- Écran question -->
+    <div class="card hidden" id="screen-question">
+      <div class="progress-wrap">
+        <div class="progress-label" id="progress-label"></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div class="question-text" id="question-text"></div>
+      <div id="answers"></div>
+    </div>
+
+    <!-- Écran résultat -->
+    <div class="card hidden" id="screen-result">
+      <div class="result-emoji" id="result-emoji"></div>
+      <div class="result-title" id="result-title"></div>
+      <div class="result-desc" id="result-desc"></div>
+      <div class="share-row">
+        <a id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+      <div class="center"><button class="btn" onclick="restartQuiz()">🔄 Recommencer</button></div>
+    </div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Face à un obstacle qui semble insurmontable, votre premier réflexe :",
+        answers: [
+          { t: "Chercher la faille, le détour, le plan que personne n'a envisagé.", p: "A" },
+          { t: "Foncer. La meilleure défense, c'est l'attaque.", p: "B" },
+          { t: "Attendre. Le temps finit toujours par ouvrir une porte.", p: "C" },
+          { t: "Vérifier ce qui est juste, puis avancer, quoi qu'il en coûte.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre plus grande force, honnêtement :",
+        answers: [
+          { t: "L'adaptabilité : je retombe toujours sur mes pieds.", p: "A" },
+          { t: "L'intensité : quand je m'engage, c'est à 200 %.", p: "B" },
+          { t: "La constance : je tiens sur la durée, sans faire de bruit.", p: "C" },
+          { t: "L'intégrité : on sait toujours où j'en suis avec mes valeurs.", p: "D" }
+        ]
+      },
+      {
+        q: "Un conflit éclate au travail (ou en famille). Vous :",
+        answers: [
+          { t: "Négociez en coulisses, alliance par alliance.", p: "A" },
+          { t: "Mettez les pieds dans le plat, séance tenante.", p: "B" },
+          { t: "Laissez retomber la tension avant d'agir au bon moment.", p: "C" },
+          { t: "Dites publiquement ce qui est juste, même si ça dérange.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre talon d'Achille (tout le monde en a un) :",
+        answers: [
+          { t: "Je peux devenir trop calculateur, au risque de manipuler.", p: "A" },
+          { t: "Ma colère. Quand elle monte, elle emporte tout.", p: "B" },
+          { t: "J'attends parfois si longtemps que la vie décide à ma place.", p: "C" },
+          { t: "Ma rigidité : plier m'est presque physiquement impossible.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre soirée idéale ressemble à :",
+        answers: [
+          { t: "Une tablée où je raconte des histoires (légèrement embellies).", p: "A" },
+          { t: "Un match, un défi, une compétition — peu importe, mais gagner.", p: "B" },
+          { t: "Un projet créatif chez moi, tranquille, qui avance point par point.", p: "C" },
+          { t: "Un débat passionné sur un sujet qui compte vraiment.", p: "D" }
+        ]
+      },
+      {
+        q: "Ce que vos proches disent de vous dans votre dos :",
+        answers: [
+          { t: "« Débrouillard·e. Il/elle trouverait la sortie d'un labyrinthe les yeux fermés. »", p: "A" },
+          { t: "« Entier·ère. Avec lui/elle, c'est tout ou rien. »", p: "B" },
+          { t: "« Fiable. Vingt ans après, il/elle sera encore là. »", p: "C" },
+          { t: "« Droit·e. Il/elle ne transige jamais sur l'essentiel. »", p: "D" }
+        ]
+      },
+      {
+        q: "Face à une tentation que vous savez mauvaise pour vous :",
+        answers: [
+          { t: "Je m'attache au mât : je rends la rechute impossible à l'avance.", p: "A" },
+          { t: "J'y cède franchement, puis j'assume tout aussi franchement.", p: "B" },
+          { t: "Je temporise et détourne mon attention jusqu'à ce qu'elle passe.", p: "C" },
+          { t: "Je résiste par principe, en serrant les dents s'il le faut.", p: "D" }
+        ]
+      },
+      {
+        q: "Votre devise secrète :",
+        answers: [
+          { t: "« Il y a toujours un plan B. Et un plan C. »", p: "A" },
+          { t: "« Mieux vaut une vie brève et intense qu'une longue vie tiède. »", p: "B" },
+          { t: "« Tout vient à point à qui sait tisser… et détisser. »", p: "C" },
+          { t: "« Plutôt me briser que plier. »", p: "D" }
+        ]
+      }
+    ];
+
+    var profiles = {
+      A: {
+        emoji: "🧭",
+        title: "Ulysse — le stratège résilient",
+        desc: "Votre intelligence est celle de la métis : souple, rusée, imprévisible. Face à l'adversité, vous ne comptez ni sur la force ni sur la chance, mais sur votre capacité à lire la situation et à improviser un détour. Les psychologues parleraient de coping centré sur le problème et de flexibilité cognitive — vous appelez ça « se débrouiller ». Votre point de vigilance : à force de calculer, vous pouvez oublier de simplement demander de l'aide, ou masquer vos blessures sous votre manteau, comme Ulysse cachant ses larmes. Même le plus rusé des héros a eu besoin qu'on le reconnaisse pour rentrer vraiment chez lui."
+      },
+      B: {
+        emoji: "🔥",
+        title: "Achille — l'intensité incarnée",
+        desc: "Vous vivez fort, vous aimez fort, vous vous fâchez fort. Votre engagement total est magnétique : quand vous entrez quelque part, on le sait. Cette intensité est une force immense — c'est elle qui déplace les lignes — mais elle a le prix que la mythologie vous a déjà facturé : la colère qui déborde et le talon vulnérable qu'on préférerait cacher. Votre chantier : apprivoiser l'ardeur sans l'éteindre. La régulation émotionnelle n'est pas une trahison de votre tempérament, c'est ce qui lui permet de durer plus de dix chants."
+      },
+      C: {
+        emoji: "🧵",
+        title: "Pénélope — la patience stratège",
+        desc: "On vous sous-estime souvent, et c'est votre meilleure arme. Votre force est invisible : tenir, durer, temporiser, tisser le jour ce qu'il faudra peut-être détisser la nuit. Vous savez qu'attendre n'est pas subir — c'est parfois la plus active des résistances. Votre vigilance : ne pas laisser la patience devenir une salle d'attente permanente où votre propre vie reste suspendue à celle des autres. Pénélope a fini par poser ses conditions et tester elle-même son héros. Votre loyauté mérite la même exigence en retour."
+      },
+      D: {
+        emoji: "⚖️",
+        title: "Antigone — l'intégrité avant tout",
+        desc: "Il y a en vous quelque chose qui ne se négocie pas. Face à une règle injuste, vous choisissez votre conscience, même quand cela coûte cher — surtout quand cela coûte cher. Cette colonne vertébrale morale inspire le respect et attire ceux qui cherchent un repère fiable. Votre point de vigilance : la frontière entre fidélité à ses valeurs et rigidité peut devenir poreuse. Toutes les collines ne méritent pas qu'on y livre bataille, et accepter un compromis n'est pas toujours une capitulation. L'intégrité la plus solide est celle qui sait, parfois, choisir ses combats."
+      }
+    };
+
+    var currentQuestion = 0;
+    var votes = { A: 0, B: 0, C: 0, D: 0 };
+    var pageUrl = "https://ouipsycho.fr/articles/ulysse-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function show(id) {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-question').classList.add('hidden');
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function startQuiz() {
+      currentQuestion = 0;
+      votes = { A: 0, B: 0, C: 0, D: 0 };
+      show('screen-question');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = questions[currentQuestion];
+      document.getElementById('progress-label').textContent = 'Question ' + (currentQuestion + 1) + ' / ' + questions.length;
+      document.getElementById('progress-fill').style.width = ((currentQuestion) / questions.length * 100) + '%';
+      document.getElementById('question-text').textContent = q.q;
+      var container = document.getElementById('answers');
+      container.innerHTML = '';
+      shuffle(q.answers).forEach(function(a) {
+        var btn = document.createElement('button');
+        btn.className = 'answer';
+        btn.textContent = a.t;
+        btn.onclick = function() { selectAnswer(a.p); };
+        container.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function selectAnswer(p) {
+      votes[p]++;
+      currentQuestion++;
+      if (currentQuestion < questions.length) {
+        renderQuestion();
+      } else {
+        showResult();
+      }
+    }
+
+    function showResult() {
+      var best = 'A', order = ['A', 'B', 'C', 'D'];
+      order.forEach(function(k) { if (votes[k] > votes[best]) best = k; });
+      var prof = profiles[best];
+      document.getElementById('result-emoji').textContent = prof.emoji;
+      document.getElementById('result-title').textContent = prof.title;
+      document.getElementById('result-desc').textContent = prof.desc;
+
+      var shareText = 'Mon héros mythologique intérieur : ' + prof.title + ' — et vous ? Faites le test sur Oui Psycho!';
+      var encodedUrl = encodeURIComponent(pageUrl);
+      var encodedText = encodeURIComponent(shareText);
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl;
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl;
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + encodedText + '%20' + encodedUrl;
+
+      show('screen-result');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
