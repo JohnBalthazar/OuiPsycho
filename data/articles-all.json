@@ -166,6 +166,68 @@
     "status": "scheduled"
   },
   {
+    "id": "petites-phrases-gros-degats",
+    "title": "« C'est pas grave » : ces petites phrases qui font de gros dégâts",
+    "type": "article",
+    "excerpt": "« C'est pas grave », « il y a pire », « t'es trop sensible »… Ces phrases ne coûtent rien à dire, mais notre cerveau, lui, prend des notes. Enquête sur ces mots anodins qui invalident, figent ou cabossent — et sur ce qu'il faudrait dire à la place.",
+    "metaDescription": "« C'est pas grave », « t'es trop sensible »… Pourquoi ces phrases anodines marquent la psyché, et par quoi les remplacer : ce que dit la science.",
+    "author": "John Balthazar",
+    "date": "2027-04-16",
+    "date_modified": "2026-07-19",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "invalidation-emotionnelle",
+      "communication",
+      "validation",
+      "estime-de-soi",
+      "langage"
+    ],
+    "sources": [
+      {
+        "authors": "Lieberman M. D., Eisenberger N. I., Crockett M. J., Tom S. M., Pfeifer J. H. & Way B. M.",
+        "year": "2007",
+        "title": "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1111/j.1467-9280.2007.01916.x"
+      },
+      {
+        "authors": "Shenk C. E. & Fruzzetti A. E.",
+        "year": "2011",
+        "title": "The impact of validating and invalidating responses on emotional reactivity",
+        "journal": "Journal of Social and Clinical Psychology",
+        "url": "https://doi.org/10.1521/jscp.2011.30.2.163"
+      },
+      {
+        "authors": "Zielinski M. J. & Veilleux J. C.",
+        "year": "2018",
+        "title": "The Perceived Invalidation of Emotion Scale (PIES): Development and psychometric properties",
+        "journal": "Psychological Assessment"
+      },
+      {
+        "authors": "Mueller C. M. & Dweck C. S.",
+        "year": "1998",
+        "title": "Praise for intelligence can undermine children's motivation and performance",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.75.1.33"
+      },
+      {
+        "authors": "Kross E., Bruehlman-Senecal E., Park J., Burson A., Dougherty A., Shablack H., Bremner R., Moser J. & Ayduk O.",
+        "year": "2014",
+        "title": "Self-talk as a regulatory mechanism: How you do it matters",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/a0035173"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique",
     "type": "article",
