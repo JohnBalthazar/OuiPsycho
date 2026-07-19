@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel distributeur de petites phrases êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/petites-phrases-gros-degats/">
+  <meta name="description" content="Validateur né, minimiseur bienveillant, réparateur express ou distributeur automatique ? 8 situations pour découvrir votre style face aux émotions des autres.">
+  <style>
+    :root {
+      --violet: #5B4B8A;
+      --violet-fonce: #443768;
+      --ambre: #E8A13C;
+      --creme: #FBF7F0;
+      --encre: #2B2540;
+      --gris: #6E6885;
+      --vert: #2E7D5B;
+      --bleu: #3E6FA8;
+      --rose: #B45A7E;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+      background: var(--creme);
+      color: var(--encre);
+      line-height: 1.55;
+      padding: 8px;
+    }
+    .card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 18px rgba(43,37,64,.10);
+      overflow: hidden;
+    }
+    .head {
+      background: linear-gradient(135deg, var(--violet) 0%, var(--violet-fonce) 100%);
+      color: #fff;
+      padding: 22px 24px 18px;
+    }
+    .head h1 { font-size: 1.25rem; line-height: 1.3; }
+    .head p { font-size: .88rem; opacity: .85; margin-top: 6px; }
+    .body { padding: 22px 24px 26px; }
+    .progress-track {
+      height: 8px; background: #EDE9F5; border-radius: 99px; margin-bottom: 6px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; width: 0; background: linear-gradient(90deg, var(--ambre), var(--violet));
+      border-radius: 99px; transition: width .35s ease;
+    }
+    .progress-label { font-size: .78rem; color: var(--gris); margin-bottom: 16px; }
+    .bubble {
+      background: var(--creme);
+      border-left: 4px solid var(--ambre);
+      border-radius: 0 12px 12px 12px;
+      padding: 14px 16px;
+      font-size: 1.02rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    .answers { display: flex; flex-direction: column; gap: 10px; }
+    .answer {
+      display: block; width: 100%; text-align: left;
+      background: #fff; border: 2px solid #E4E0EF; border-radius: 12px;
+      padding: 13px 15px; font-size: .95rem; font-family: inherit; color: var(--encre);
+      cursor: pointer; transition: border-color .15s ease, background .15s ease, transform .1s ease;
+    }
+    .answer:hover { border-color: var(--violet); background: #F7F4FC; }
+    .answer:active { transform: scale(.985); }
+    .btn {
+      display: inline-block; border: none; cursor: pointer; font-family: inherit;
+      background: var(--violet); color: #fff; font-size: 1rem; font-weight: 600;
+      padding: 13px 26px; border-radius: 99px; transition: background .15s ease;
+    }
+    .btn:hover { background: var(--violet-fonce); }
+    .btn.secondary {
+      background: #EDE9F5; color: var(--violet);
+    }
+    .btn.secondary:hover { background: #E1DBF0; }
+    .intro p { margin-bottom: 14px; font-size: .96rem; }
+    .intro .note { font-size: .84rem; color: var(--gris); }
+    .center { text-align: center; }
+    .result-emoji { font-size: 3rem; margin-bottom: 6px; }
+    .result-title { font-size: 1.35rem; font-weight: 700; margin-bottom: 4px; }
+    .result-sub { font-size: .9rem; color: var(--gris); margin-bottom: 16px; }
+    .result-desc {
+      background: var(--creme); border-radius: 12px; padding: 16px 18px;
+      font-size: .95rem; text-align: left; margin-bottom: 14px;
+    }
+    .result-desc p { margin-bottom: 10px; }
+    .result-desc p:last-child { margin-bottom: 0; }
+    .tip {
+      border-left: 4px solid var(--vert);
+      background: #F0F7F3; border-radius: 0 12px 12px 0;
+      padding: 12px 15px; font-size: .9rem; text-align: left; margin-bottom: 18px;
+    }
+    .share { margin: 6px 0 18px; display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; }
+    .share a {
+      text-decoration: none; font-size: .85rem; font-weight: 600;
+      padding: 9px 15px; border-radius: 99px; color: #fff;
+    }
+    .share a.fb { background: #1877F2; }
+    .share a.tw { background: #14171A; }
+    .share a.wa { background: #25D366; }
+    .disclaimer {
+      font-size: .8rem; color: var(--gris); background: #F6F4FA;
+      border-radius: 10px; padding: 12px 14px; text-align: left; margin-top: 16px;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="head">
+      <h1>💬 Quel distributeur de petites phrases êtes-vous ?</h1>
+      <p>8 situations du quotidien — répondez honnêtement, personne ne regarde.</p>
+    </div>
+    <div class="body">
+
+      <!-- Écran d'intro -->
+      <div id="screen-intro" class="intro">
+        <p>Quand quelqu'un va mal devant vous, que sort-il de votre bouche ? Une validation en or massif, un « c'est pas grave » réflexe, un plan d'action en trois points ou une formule toute faite ?</p>
+        <p>Ce petit test vous propose 8 scènes de la vie ordinaire. Choisissez la réponse la plus proche de ce que vous feriez <em>vraiment</em> — pas de ce que vous devriez faire.</p>
+        <p class="note">⏱️ Environ 3 minutes · Aucun résultat n'est enregistré.</p>
+        <p class="center" style="margin-top:20px"><button class="btn" onclick="startQuiz()">Commencer le test</button></p>
+      </div>
+
+      <!-- Écran question -->
+      <div id="screen-quiz" class="hidden">
+        <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+        <div class="progress-label" id="progress-label"></div>
+        <div class="bubble" id="question-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <!-- Écran résultat -->
+      <div id="screen-result" class="hidden center">
+        <div class="result-emoji" id="result-emoji"></div>
+        <div class="result-title" id="result-title"></div>
+        <div class="result-sub">Votre profil dominant</div>
+        <div class="result-desc" id="result-desc"></div>
+        <div class="tip" id="result-tip"></div>
+        <div class="share">
+          <a class="fb" id="share-fb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+          <a class="tw" id="share-tw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="wa" id="share-wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="btn secondary" onclick="restartQuiz()">🔄 Recommencer</button>
+        <div class="disclaimer">
+          ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+          Seul un professionnel de santé peut évaluer votre situation.
+          En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    var QUESTIONS = [
+      {
+        q: "Votre meilleur ami vous annonce, en larmes, que son couple bat de l'aile.",
+        a: [
+          { t: "« Ça a l'air vraiment dur. Raconte-moi. »", p: "v" },
+          { t: "« Oh, tous les couples ont des hauts et des bas, c'est rien. »", p: "m" },
+          { t: "« Bon. On liste ce qui ne va pas et on trouve des solutions. »", p: "r" },
+          { t: "« Courage, ça va aller ! » (en jetant un œil à votre téléphone)", p: "a" }
+        ]
+      },
+      {
+        q: "Un collègue craque de stress juste avant une présentation importante.",
+        a: [
+          { t: "« C'est normal d'avoir le trac, l'enjeu est énorme pour toi. »", p: "v" },
+          { t: "« Franchement, il n'y a pas de quoi stresser. »", p: "m" },
+          { t: "« Respire, bois de l'eau et refais ton intro trois fois. »", p: "r" },
+          { t: "« Ça va bien se passer ! » (formule n°7 du manuel)", p: "a" }
+        ]
+      },
+      {
+        q: "Votre enfant (ou neveu) rentre avec une mauvaise note et les yeux brillants.",
+        a: [
+          { t: "« T'es déçu, hein ? Tu veux m'en parler ? »", p: "v" },
+          { t: "« C'est qu'une note, c'est pas grave. »", p: "m" },
+          { t: "« Montre-moi tes erreurs, on corrige tout ce soir. »", p: "r" },
+          { t: "« Bah, tu feras mieux la prochaine fois. »", p: "a" }
+        ]
+      },
+      {
+        q: "Votre moitié rentre en soupirant : « journée horrible ».",
+        a: [
+          { t: "« Viens, raconte. Qu'est-ce qui s'est passé ? »", p: "v" },
+          { t: "« T'inquiète, demain c'est vendredi. »", p: "m" },
+          { t: "« Tu devrais en parler à ton chef. Je t'aide à préparer ? »", p: "r" },
+          { t: "« Mmh mmh. » (en remuant les pâtes)", p: "a" }
+        ]
+      },
+      {
+        q: "Une amie vous confie qu'elle se sent très seule depuis son déménagement.",
+        a: [
+          { t: "« La solitude, c'est dur. Merci de m'en parler. »", p: "v" },
+          { t: "« T'as de la chance, moi je rêverais d'être tranquille ! »", p: "m" },
+          { t: "« Inscris-toi à un club de sport, c'est radical. »", p: "r" },
+          { t: "« Ça va passer, t'es quelqu'un de génial. »", p: "a" }
+        ]
+      },
+      {
+        q: "Vous-même, après une erreur au travail, vous vous dites plutôt :",
+        a: [
+          { t: "« OK, je suis contrarié, c'est normal. Qu'est-ce que j'en apprends ? »", p: "v" },
+          { t: "« C'est rien, on oublie. » (mais vous y repensez à 3h du matin)", p: "m" },
+          { t: "« Plan d'action immédiat. Pas le temps de ressentir. »", p: "r" },
+          { t: "« Je suis vraiment nul. » (le grand classique)", p: "a" }
+        ]
+      },
+      {
+        q: "Un proche vous parle de sa peur avant des examens médicaux.",
+        a: [
+          { t: "« C'est angoissant d'attendre des résultats. Je suis là. »", p: "v" },
+          { t: "« Arrête d'y penser, c'est sûrement rien. »", p: "m" },
+          { t: "« Tu as vu un spécialiste ? Je peux chercher pour toi. »", p: "r" },
+          { t: "« Positive ! Le stress, c'est mauvais pour la santé. »", p: "a" }
+        ]
+      },
+      {
+        q: "Quelqu'un pleure devant vous. Votre réaction intérieure, la vraie :",
+        a: [
+          { t: "« Je reste et j'écoute, même en silence. »", p: "v" },
+          { t: "« Vite, dédramatiser pour que ça s'arrête. »", p: "m" },
+          { t: "« Enfin un problème concret à résoudre ! »", p: "r" },
+          { t: "« Vite, une phrase toute faite, et on change de sujet. »", p: "a" }
+        ]
+      }
+    ];
+
+    var PROFILES = {
+      v: {
+        emoji: "🌱",
+        title: "Le Validateur né",
+        desc: "<p>Vous accueillez l'émotion avant de vouloir la corriger, la relativiser ou la réparer. C'est exactement ce que la recherche sur la validation émotionnelle décrit comme le plus régulateur pour l'autre : son émotion a le droit d'exister, donc elle peut se calmer.</p><p>Petit revers de la médaille : à force d'accueillir, vous absorbez. Vérifiez de temps en temps le niveau de votre propre réservoir.</p>",
+        tip: "💡 <strong>Votre défi :</strong> appliquez-vous à vous-même le traitement que vous offrez aux autres. Votre monologue intérieur mérite la même bienveillance."
+      },
+      m: {
+        emoji: "🩹",
+        title: "Le Minimiseur bienveillant",
+        desc: "<p>« C'est pas grave », « il y a pire », « ça va passer »… Vous dégainez la minimisation avec les meilleures intentions du monde : faire cesser la souffrance au plus vite. Le hic, c'est que minimiser apaise surtout votre inconfort à vous — l'autre, lui, reste avec son sac sur le dos, plus le sentiment d'exagérer.</p><p>Rassurez-vous : ce réflexe est ultra répandu, et il se rééduque très bien.</p>",
+        tip: "💡 <strong>Votre défi :</strong> avant tout « c'est pas grave », glissez un « je vois que ça te touche ». Trois secondes de validation, puis vous pourrez relativiser si besoin."
+      },
+      r: {
+        emoji: "🛠️",
+        title: "Le Réparateur express",
+        desc: "<p>Une émotion ? Pour vous, c'est un problème avec une solution qui s'ignore. Vous êtes précieux dans une gestion de crise, mais quand quelqu'un pleure, il ne cherche pas toujours un plan en trois points — il cherche d'abord un témoin. Proposer une solution trop vite envoie malgré vous le message : « ton émotion me dérange, passons à autre chose ».</p><p>Bonne nouvelle : votre énergie de résolution, une fois l'émotion accueillie, devient un vrai super-pouvoir.</p>",
+        tip: "💡 <strong>Votre défi :</strong> posez la question magique : « tu veux qu'on cherche des solutions, ou juste que je t'écoute ? ». Effet garanti."
+      },
+      a: {
+        emoji: "📼",
+        title: "Le Distributeur automatique",
+        desc: "<p>« Ça va aller », « courage », « tu feras mieux la prochaine fois »… Vous avez une formule pour chaque situation, distribuée avec la régularité d'une machine à café. Ces phrases ne sont pas méchantes — elles sont juste vides, et l'autre le sent : il reçoit un mot, pas une présence.</p><p>Souvent, ce mode automatique cache un vrai malaise face aux émotions. Ça tombe bien : la présence, contrairement au talent, ça s'entraîne.</p>",
+        tip: "💡 <strong>Votre défi :</strong> une fois par jour, remplacez une formule toute faite par une vraie question : « qu'est-ce qui a été le plus dur ? ». Puis écoutez la réponse. Vraiment."
+      }
+    };
+
+    var currentQ = 0;
+    var scores = { v: 0, m: 0, r: 0, a: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function show(id) {
+      document.getElementById('screen-intro').classList.add('hidden');
+      document.getElementById('screen-quiz').classList.add('hidden');
+      document.getElementById('screen-result').classList.add('hidden');
+      document.getElementById(id).classList.remove('hidden');
+    }
+
+    function startQuiz() {
+      currentQ = 0;
+      scores = { v: 0, m: 0, r: 0, a: 0 };
+      show('screen-quiz');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[currentQ];
+      document.getElementById('progress-fill').style.width = ((currentQ) / QUESTIONS.length * 100) + '%';
+      document.getElementById('progress-label').textContent = 'Question ' + (currentQ + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('question-text').textContent = q.q;
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var btn = document.createElement('button');
+        btn.className = 'answer';
+        btn.textContent = ans.t;
+        btn.onclick = function() { pick(ans.p); };
+        box.appendChild(btn);
+      });
+      notifyResize();
+    }
+
+    function pick(p) {
+      scores[p]++;
+      currentQ++;
+      if (currentQ < QUESTIONS.length) {
+        renderQuestion();
+      } else {
+        renderResult();
+      }
+    }
+
+    function renderResult() {
+      var order = ['v', 'r', 'm', 'a'];
+      var best = order[0];
+      order.forEach(function(k) { if (scores[k] > scores[best]) best = k; });
+      var prof = PROFILES[best];
+      document.getElementById('result-emoji').textContent = prof.emoji;
+      document.getElementById('result-title').textContent = prof.title;
+      document.getElementById('result-desc').innerHTML = prof.desc;
+      document.getElementById('result-tip').innerHTML = prof.tip;
+
+      var pageUrl = 'https://ouipsycho.fr/articles/petites-phrases-gros-degats/';
+      var shareText = 'Mon profil au test « Quel distributeur de petites phrases êtes-vous ? » : ' + prof.emoji + ' ' + prof.title + ' — et vous ?';
+      var eu = encodeURIComponent(pageUrl);
+      var et = encodeURIComponent(shareText);
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + eu;
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + et + '&url=' + eu;
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + et + '%20' + eu;
+
+      show('screen-result');
+      notifyResize();
+    }
+
+    function restartQuiz() {
+      startQuiz();
+      notifyResize();
+    }
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
