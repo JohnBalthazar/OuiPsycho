@@ -2,19 +2,18 @@
   {
     "id": "shrek-sur-le-divan",
     "title": "Shrek sur le divan : psychologie d'un ogre des marais",
-    "type": "article",
-    "excerpt": "Pancartes de menace, solitude revendiquée et métaphore de l'oignon : derrière l'ogre grognon se cache un cas d'école de sensibilité au rejet et d'attachement évitant. Consultation au bord du marais.",
-    "metaDescription": "Sensibilité au rejet, attachement évitant, honte internalisée : ce que la psychologie dit vraiment de Shrek, de Fiona et de la métaphore de l'oignon.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-19",
     "date_modified": "2027-05-19",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "shrek",
       "attachement-evitant",
@@ -22,41 +21,7 @@
       "estime-de-soi",
       "nos-heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Downey G. & Feldman S. I.",
-        "year": "1996",
-        "title": "Implications of rejection sensitivity for intimate relationships",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.70.6.1327"
-      },
-      {
-        "authors": "Baumeister R. F. & Leary M. R.",
-        "year": "1995",
-        "title": "The need to belong: Desire for interpersonal attachments as a fundamental human motivation",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.117.3.497"
-      },
-      {
-        "authors": "Holt-Lunstad J., Smith T. B., Baker M., Harris T. & Stephenson D.",
-        "year": "2015",
-        "title": "Loneliness and social isolation as risk factors for mortality: A meta-analytic review",
-        "journal": "Perspectives on Psychological Science",
-        "url": "https://doi.org/10.1177/1745691614568352"
-      },
-      {
-        "authors": "Goffman E.",
-        "year": "1963",
-        "title": "Stigma: Notes on the Management of Spoiled Identity",
-        "publisher": "Prentice-Hall"
-      },
-      {
-        "authors": "Mikulincer M. & Shaver P. R.",
-        "year": "2007",
-        "title": "Attachment in Adulthood: Structure, Dynamics, and Change",
-        "publisher": "Guilford Press"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -115,12 +80,12 @@
   {
     "id": "zeus-sur-le-divan",
     "title": "Zeus sur le divan : psychologie d'un dieu grec",
-    "type": "article",
-    "excerpt": "Roi de l'Olympe, foudre à la main et ego en fusion : Zeus s'allonge sur le divan. Pouvoir sans limites, narcissisme grandiose et « séductions » qui n'en sont pas — analyse psychologique (et féministe) du patriarche des dieux.",
+    "excerpt": "",
     "date": "2027-04-27",
     "date_modified": "2026-07-19",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/loylah1akx1qzo5w8tj2",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -135,80 +100,19 @@
       "consentement",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "Zeus sur le divan : narcissisme grandiose, abus de pouvoir et mythe du « séducteur ». Analyse psychologique et féministe du roi des dieux grecs.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "kairos-science-hasard",
-    "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
-    "type": "article",
-    "excerpt": "Vous pensez à quelqu'un, il vous appelle. Signe de l'univers ou tour de passe-passe neuronal ? Enquête sur le kaïros, la synchronicité et l'art très scientifique du bon timing.",
-    "metaDescription": "Kaïros, synchronicité, coïncidences troublantes : ce que la psychologie et les neurosciences disent vraiment des moments où tout « sonne juste ».",
-    "author": "John Balthazar",
-    "date": "2027-04-22",
-    "date_modified": "2027-04-22",
-    "category": "Développement personnel",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "tags": [
-      "kairos",
-      "synchronicite",
-      "hasard",
-      "coincidences",
-      "attention"
-    ],
-    "sources": [
-      {
-        "authors": "Whitson J. A. & Galinsky A. D.",
-        "year": "2008",
-        "title": "Lacking control increases illusory pattern perception",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.1159845"
-      },
-      {
-        "authors": "Diaconis P. & Mosteller F.",
-        "year": "1989",
-        "title": "Methods for studying coincidences",
-        "journal": "Journal of the American Statistical Association",
-        "url": "https://doi.org/10.1080/01621459.1989.10478847"
-      },
-      {
-        "authors": "Fyfe S., Williams C., Mason O. J. & Pickup G. J.",
-        "year": "2008",
-        "title": "Apophenia, theory of mind and schizotypy: Perceiving meaning and intentionality in randomness",
-        "journal": "Cortex",
-        "url": "https://doi.org/10.1016/j.cortex.2007.07.009"
-      },
-      {
-        "authors": "Csíkszentmihályi M.",
-        "year": "1990",
-        "title": "Flow: The Psychology of Optimal Experience",
-        "publisher": "Harper & Row"
-      },
-      {
-        "authors": "Wiseman R.",
-        "year": "2003",
-        "title": "The Luck Factor: The Scientific Study of the Lucky Mind",
-        "publisher": "Century"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
-    "type": "article",
-    "excerpt": "Et si la longévité amoureuse ne tenait pas aux grands gestes romantiques ? La recherche en psychologie révèle cinq habitudes discrètes — souvent contre-intuitives — qui distinguent les couples qui durent de ceux qui s'éteignent.",
+    "excerpt": "",
     "date": "2027-04-22",
     "date_modified": "2026-07-19",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lb6wuv2cydrpvy8aogke",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -223,7 +127,33 @@
       "Gottman",
       "vie de couple"
     ],
-    "metaDescription": "Pourquoi certains couples durent-ils ? La psychologie révèle 5 secrets méconnus, du ratio magique de Gottman à l'art de fêter les bonnes nouvelles.",
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "kairos-science-hasard",
+    "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
+    "excerpt": "",
+    "date": "2027-04-22",
+    "date_modified": "2027-04-22",
+    "category": "Développement personnel",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "kairos",
+      "synchronicite",
+      "hasard",
+      "coincidences",
+      "attention"
+    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -256,19 +186,18 @@
   {
     "id": "petites-phrases-gros-degats",
     "title": "« C'est pas grave » : ces petites phrases qui font de gros dégâts",
-    "type": "article",
-    "excerpt": "« C'est pas grave », « il y a pire », « t'es trop sensible »… Ces phrases ne coûtent rien à dire, mais notre cerveau, lui, prend des notes. Enquête sur ces mots anodins qui invalident, figent ou cabossent — et sur ce qu'il faudrait dire à la place.",
-    "metaDescription": "« C'est pas grave », « t'es trop sensible »… Pourquoi ces phrases anodines marquent la psyché, et par quoi les remplacer : ce que dit la science.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-16",
     "date_modified": "2026-07-19",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "invalidation-emotionnelle",
       "communication",
@@ -276,61 +205,25 @@
       "estime-de-soi",
       "langage"
     ],
-    "sources": [
-      {
-        "authors": "Lieberman M. D., Eisenberger N. I., Crockett M. J., Tom S. M., Pfeifer J. H. & Way B. M.",
-        "year": "2007",
-        "title": "Putting feelings into words: Affect labeling disrupts amygdala activity in response to affective stimuli",
-        "journal": "Psychological Science",
-        "url": "https://doi.org/10.1111/j.1467-9280.2007.01916.x"
-      },
-      {
-        "authors": "Shenk C. E. & Fruzzetti A. E.",
-        "year": "2011",
-        "title": "The impact of validating and invalidating responses on emotional reactivity",
-        "journal": "Journal of Social and Clinical Psychology",
-        "url": "https://doi.org/10.1521/jscp.2011.30.2.163"
-      },
-      {
-        "authors": "Zielinski M. J. & Veilleux J. C.",
-        "year": "2018",
-        "title": "The Perceived Invalidation of Emotion Scale (PIES): Development and psychometric properties",
-        "journal": "Psychological Assessment"
-      },
-      {
-        "authors": "Mueller C. M. & Dweck C. S.",
-        "year": "1998",
-        "title": "Praise for intelligence can undermine children's motivation and performance",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.75.1.33"
-      },
-      {
-        "authors": "Kross E., Bruehlman-Senecal E., Park J., Burson A., Dougherty A., Shablack H., Bremner R., Moser J. & Ayduk O.",
-        "year": "2014",
-        "title": "Self-talk as a regulatory mechanism: How you do it matters",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/a0035173"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique",
-    "type": "article",
-    "excerpt": "Comment pense un pervers narcissique ? Pourquoi choisit-il des proies empathiques et brillantes plutôt que fragiles ? Comprendre sa mécanique interne, c'est déjà s'en protéger — visite guidée d'un fonctionnement qui déteste être compris.",
-    "metaDescription": "Comment un pervers narcissique voit le monde, choisit ses proies et ce qu'il redoute : comprendre sa mécanique pour s'en protéger efficacement.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-15",
     "date_modified": "2027-04-15",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "pervers-narcissique",
       "manipulation",
@@ -338,41 +231,7 @@
       "narcissisme",
       "relations-toxiques"
     ],
-    "sources": [
-      {
-        "authors": "Wai M. & Tiliopoulos N.",
-        "year": "2012",
-        "title": "The affective and cognitive empathic nature of the dark triad of personality",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2012.05.008"
-      },
-      {
-        "authors": "Krizan Z. & Herlache A. D.",
-        "year": "2018",
-        "title": "The Narcissism Spectrum Model: A synthetic view of narcissistic personality",
-        "journal": "Personality and Social Psychology Review",
-        "url": "https://doi.org/10.1177/1088868316685018"
-      },
-      {
-        "authors": "Baumeister R. F., Smart L. & Boden J. M.",
-        "year": "1996",
-        "title": "Relation of threatened egotism to violence and aggression: The dark side of high self-esteem",
-        "journal": "Psychological Review",
-        "url": "https://doi.org/10.1037/0033-295X.103.1.5"
-      },
-      {
-        "authors": "Racamier P.-C.",
-        "year": "1992",
-        "title": "Le génie des origines : psychanalyse et psychoses",
-        "publisher": "Payot"
-      },
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral : la violence perverse au quotidien",
-        "publisher": "Syros"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -769,12 +628,12 @@
   {
     "id": "sept-secrets-jamais-partages",
     "title": "Les 7 secrets que les gens ne partagent (presque) jamais",
-    "type": "article",
-    "excerpt": "97 % d'entre nous gardent au moins un secret, et une douzaine en moyenne. Voici les sept que l'on confie le moins — et la découverte contre-intuitive de la recherche : ce n'est pas de le cacher qui fait mal.",
+    "excerpt": "",
     "date": "2027-03-05",
     "date_modified": "2026-07-19",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tkvttlhwl57b3vp7me8p",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -788,19 +647,19 @@
       "confiance",
       "emotions"
     ],
-    "metaDescription": "Argent, désir, honte, santé mentale : les 7 secrets que personne ne confie. Témoignages et ce que dit la science de leur poids réel — et comment s'en alléger.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "phrases-cultes-developpement-personnel-science",
     "title": "Les meilleures phrases des livres de développement personnel, passées au crible de la science",
-    "type": "article",
-    "excerpt": "Elles sont sur tous les mugs et semblent profondément vraies en quatre secondes. Mais que valent les grandes maximes du développement personnel face à la recherche ? Certaines sont excellentes. D'autres vous nuisent activement.",
+    "excerpt": "",
     "date": "2027-03-04",
     "date_modified": "2026-07-19",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lr2e05wefih8jyerrxyy",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -814,7 +673,7 @@
       "biais-cognitifs",
       "pleine-conscience"
     ],
-    "metaDescription": "Loi de l'attraction, moment présent, état d'esprit de développement : ce que la science dit vraiment des phrases cultes du développement personnel.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -848,12 +707,12 @@
   {
     "id": "loto-pourquoi-croire-gagner",
     "title": "Loto : pourquoi croit-on toujours que l'on peut gagner ?",
-    "type": "article",
-    "excerpt": "« 100 % des gagnants ont tenté leur chance » : le slogan est exact et pourtant totalement trompeur. Illusion de contrôle, biais du survivant, dopamine de l'attente — voici pourquoi votre cerveau refuse de comprendre une chance sur 19 millions.",
+    "excerpt": "",
     "date": "2027-02-26",
     "date_modified": "2026-07-19",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fr7nzg8v1jjay3jpafhk",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -867,19 +726,19 @@
       "jeu",
       "dopamine"
     ],
-    "metaDescription": "Une chance sur 19 millions et pourtant on y croit : illusion de contrôle, biais du survivant, dopamine… La psychologie de notre rapport au Loto et au hasard.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "plateformes-psy-en-ligne-comparatif",
     "title": "Que valent les plateformes de psy en ligne ?",
-    "type": "article",
-    "excerpt": "De 0 € avec Mon soutien psy à plus de 300 € par mois chez BetterHelp : le marché du psy en ligne est devenu une jungle. Comparatif complet 2026 — prix, remboursement, ergonomie, avis des usagers et notes de la rédaction.",
+    "excerpt": "",
     "date": "2027-02-25",
     "date_modified": "2026-07-19",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cqxwfhhkfmpea2ekclas",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -893,7 +752,7 @@
       "therapie",
       "comparatif"
     ],
-    "metaDescription": "Psy en ligne : Mon soutien psy, Qare, Serenis, BetterHelp… Comparatif 2026 des plateformes : prix, remboursement, ergonomie, avis et notes de la rédaction.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3259,59 +3118,24 @@
   {
     "id": "ulysse-sur-le-divan",
     "title": "Ulysse sur le divan : psychologie d'un héros de mythe",
-    "type": "article",
-    "excerpt": "Vingt ans loin de chez lui, une guerre, un naufrage permanent et un retour incognito : Ulysse est le premier cas clinique de la littérature. Stress post-traumatique, syndrome d'Ulysse, contrat d'Ulysse — la psychologie moderne lui doit beaucoup.",
-    "metaDescription": "Stress post-traumatique du vétéran, syndrome d'Ulysse, contrat d'Ulysse : ce que la psychologie moderne doit au plus rusé des héros de la mythologie.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2026-07-21",
     "date_modified": "2026-07-21",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "mythologie",
       "stress-post-traumatique",
       "resilience"
     ],
-    "sources": [
-      {
-        "authors": "Shay J.",
-        "year": "2002",
-        "title": "Odysseus in America: Combat Trauma and the Trials of Homecoming",
-        "publisher": "Scribner"
-      },
-      {
-        "authors": "Hoge C. W., Castro C. A., Messer S. C., McGurk D., Cotting D. I. & Koffman R. L.",
-        "year": "2004",
-        "title": "Combat duty in Iraq and Afghanistan, mental health problems, and barriers to care",
-        "journal": "New England Journal of Medicine",
-        "url": "https://doi.org/10.1056/NEJMoa040603"
-      },
-      {
-        "authors": "Bonanno G. A.",
-        "year": "2004",
-        "title": "Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?",
-        "journal": "American Psychologist",
-        "url": "https://doi.org/10.1037/0003-066X.59.1.20"
-      },
-      {
-        "authors": "Charuvastra A. & Cloitre M.",
-        "year": "2008",
-        "title": "Social bonds and posttraumatic stress disorder",
-        "journal": "Annual Review of Psychology",
-        "url": "https://doi.org/10.1146/annurev.psych.58.110405.085650"
-      },
-      {
-        "authors": "Bhugra D. & Becker M. A.",
-        "year": "2005",
-        "title": "Migration, cultural bereavement and cultural identity",
-        "journal": "World Psychiatry"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
