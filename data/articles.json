@@ -2976,17 +2976,16 @@
     "title": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé expliqué par la psychologie et les neurosciences",
     "type": "article",
     "excerpt": "Votre cerveau écrit des scénarios catastrophe pendant que le reste du monde dort ? La science a une explication — et surtout des solutions. Plongée dans les mécanismes du trouble anxieux généralisé, de l'amygdale à l'intolérance à l'incertitude.",
-    "metaDescription": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé décrypté par les neurosciences, avec des outils concrets pour s'apaiser.",
-    "author": "John Balthazar",
     "date": "2026-07-23",
     "date_modified": "2026-07-23",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wbgigev94t8wxqh98a6z",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "anxiété",
       "trouble-anxieux-généralisé",
@@ -2994,43 +2993,7 @@
       "inquiétude",
       "tcc"
     ],
-    "sources": [
-      {
-        "authors": "Dugas M. J., Gagnon F., Ladouceur R. & Freeston M. H.",
-        "year": "1998",
-        "title": "Generalized anxiety disorder: A preliminary test of a conceptual model",
-        "journal": "Behaviour Research and Therapy",
-        "url": "https://doi.org/10.1016/S0005-7967(97)00070-3"
-      },
-      {
-        "authors": "Ladouceur R., Dugas M. J., Freeston M. H., Léger E., Gagnon F. & Thibodeau N.",
-        "year": "2000",
-        "title": "Efficacy of a cognitive-behavioral treatment for generalized anxiety disorder: Evaluation in a controlled clinical trial",
-        "journal": "Journal of Consulting and Clinical Psychology",
-        "url": "https://doi.org/10.1037/0022-006X.68.6.957"
-      },
-      {
-        "authors": "Gosselin P. & Laberge B.",
-        "year": "2003",
-        "title": "Les facteurs étiologiques du trouble d'anxiété généralisée : état actuel des connaissances",
-        "journal": "L'Encéphale",
-        "url": "https://pubmed.ncbi.nlm.nih.gov/14615705/"
-      },
-      {
-        "authors": "Etkin A., Prater K. E., Schatzberg A. F., Menon V. & Greicius M. D.",
-        "year": "2009",
-        "title": "Disrupted amygdalar subregion functional connectivity and evidence of a compensatory network in generalized anxiety disorder",
-        "journal": "Archives of General Psychiatry",
-        "url": "https://doi.org/10.1001/archgenpsychiatry.2009.104"
-      },
-      {
-        "authors": "Behar E., DiMarco I. D., Hekler E. B., Mohlman J. & Staples A. M.",
-        "year": "2009",
-        "title": "Current theoretical models of generalized anxiety disorder (GAD): Conceptual review and treatment implications",
-        "journal": "Journal of Anxiety Disorders",
-        "url": "https://doi.org/10.1016/j.janxdis.2009.07.006"
-      }
-    ],
+    "metaDescription": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé décrypté par les neurosciences, avec des outils concrets pour s'apaiser.",
     "articles_lies": [],
     "status": "published"
   },
