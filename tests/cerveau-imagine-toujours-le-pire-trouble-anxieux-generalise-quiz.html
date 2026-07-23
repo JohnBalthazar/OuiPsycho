@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Où en êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise/">
+  <meta name="description" content="Quel rôle l'inquiétude joue-t-elle dans votre vie ? 8 questions pour faire le point sur votre relation aux scénarios catastrophe.">
+  <style>
+    :root{
+      --bleu:#1F4E6B; --bleu-fonce:#153A52; --orange:#E8833A; --creme:#FAF6F0;
+      --texte:#2A2E33; --gris:#6B7280; --vert:#3E8E7E; --rouge-doux:#C4574E;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:Georgia,'Times New Roman',serif;background:var(--creme);color:var(--texte);padding:20px 14px;line-height:1.55}
+    .card{max-width:640px;margin:0 auto;background:#fff;border-radius:16px;box-shadow:0 4px 18px rgba(31,78,107,.12);overflow:hidden}
+    .head{background:linear-gradient(135deg,var(--bleu),var(--bleu-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .head h1{font-size:1.45rem;margin-bottom:6px}
+    .head p{font-size:.95rem;opacity:.9;font-family:Arial,Helvetica,sans-serif}
+    .body{padding:24px}
+    .progress{height:8px;background:#E5E9EE;border-radius:99px;margin-bottom:18px;overflow:hidden}
+    .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--orange),var(--bleu));border-radius:99px;transition:width .35s ease}
+    .qnum{font-family:Arial,Helvetica,sans-serif;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--gris);margin-bottom:8px}
+    .qtext{font-size:1.15rem;font-weight:bold;margin-bottom:18px}
+    .answers button{display:block;width:100%;text-align:left;background:#F4F7FA;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:1rem;font-family:inherit;color:var(--texte);cursor:pointer;transition:all .15s}
+    .answers button:hover{border-color:var(--bleu);background:#ECF2F7;transform:translateY(-1px)}
+    .intro-txt{font-size:1.02rem;margin-bottom:20px}
+    .btn{display:inline-block;background:var(--orange);color:#fff;border:none;border-radius:99px;padding:14px 30px;font-size:1.05rem;font-family:Arial,Helvetica,sans-serif;font-weight:bold;cursor:pointer;transition:transform .15s}
+    .btn:hover{transform:scale(1.04)}
+    .btn.secondary{background:transparent;color:var(--bleu);border:2px solid var(--bleu);font-weight:normal}
+    .center{text-align:center}
+    .result-emoji{font-size:3rem;text-align:center;margin-bottom:8px}
+    .result-title{font-size:1.4rem;text-align:center;color:var(--bleu);margin-bottom:14px}
+    .result-desc{font-size:1rem;margin-bottom:10px}
+    .badge{display:inline-block;font-family:Arial,Helvetica,sans-serif;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;background:#ECF2F7;color:var(--bleu);border-radius:99px;padding:5px 14px;margin:0 auto 14px;display:table}
+    .tips{background:#F4F7FA;border-left:4px solid var(--vert);border-radius:0 10px 10px 0;padding:14px 16px;margin:16px 0;font-size:.96rem}
+    .tips strong{color:var(--vert)}
+    .disclaimer{background:#FBF1EC;border:1px solid #F0D9CC;border-radius:10px;padding:13px 15px;font-size:.87rem;font-family:Arial,Helvetica,sans-serif;color:#5A4A3F;margin-top:18px}
+    .share{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+    .share a{font-family:Arial,Helvetica,sans-serif;font-size:.88rem;text-decoration:none;color:var(--bleu);background:#ECF2F7;border-radius:99px;padding:9px 16px;transition:background .15s}
+    .share a:hover{background:#DCE7F0}
+    .restart-row{text-align:center;margin-top:18px}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="head">
+    <h1>Où en êtes-vous ?</h1>
+    <p>8 questions pour évaluer la place des scénarios catastrophe dans votre quotidien</p>
+  </div>
+  <div class="body" id="app"></div>
+</div>
+
+<script>
+(function(){
+  var PAGE_URL = "https://ouipsycho.fr/articles/cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise/";
+  var app = document.getElementById('app');
+
+  var QUESTIONS = [
+    { q: "Vous envoyez un message important. Deux heures plus tard, toujours pas de réponse. Que se passe-t-il dans votre tête ?",
+      a: [
+        { t: "Rien de spécial, les gens ont une vie.", p: "A" },
+        { t: "Un petit « tiens, c'est long », vite oublié.", p: "B" },
+        { t: "Je relis mon message pour vérifier que je n'ai rien écrit de mal.", p: "C" },
+        { t: "J'ai déjà envisagé la dispute, l'accident et la fin de la relation.", p: "D" }
+      ]},
+    { q: "Face à une situation incertaine (résultat d'examen, réponse d'un employeur, analyse médicale), vous…",
+      a: [
+        { t: "Attendez tranquillement : je verrai bien.", p: "A" },
+        { t: "Y pensez de temps en temps, sans que ça vous gâche la journée.", p: "B" },
+        { t: "Cherchez activement à réduire l'attente : relances, recherches, forums.", p: "C" },
+        { t: "Vivez l'attente comme une torture, avec scénarios en boucle jour et nuit.", p: "D" }
+      ]},
+    { q: "« S'inquiéter à l'avance, ça sert à être préparé·e. » Votre réaction ?",
+      a: [
+        { t: "Pas vraiment : je préfère gérer les problèmes quand ils arrivent.", p: "A" },
+        { t: "Un peu, mais je sais faire la différence entre prévoir et ruminer.", p: "B" },
+        { t: "Franchement oui, c'est un peu ma philosophie de vie.", p: "C" },
+        { t: "C'est vital pour moi — ne pas m'inquiéter me semblerait imprudent.", p: "D" }
+      ]},
+    { q: "Côté sommeil, en ce moment…",
+      a: [
+        { t: "Je dors bien, l'oreiller n'est pas une salle de réunion.", p: "A" },
+        { t: "Quelques soirées de rumination par mois, rien de méchant.", p: "B" },
+        { t: "L'endormissement est souvent long : mon cerveau fait le bilan et les prévisions.", p: "C" },
+        { t: "Sommeil léger, réveils nocturnes, pensées qui tournent : la totale.", p: "D" }
+      ]},
+    { q: "Votre corps, vous le sentez comment ces derniers temps ?",
+      a: [
+        { t: "Détendu, globalement.", p: "A" },
+        { t: "Quelques tensions les semaines chargées, ça passe.", p: "B" },
+        { t: "Nuque, mâchoires ou épaules souvent contractées, fatigue fréquente.", p: "C" },
+        { t: "Tension quasi permanente, fatigue, irritabilité, concentration en berne.", p: "D" }
+      ]},
+    { q: "Un proche vous dit : « Arrête de t'inquiéter, tout ira bien. » Effet produit ?",
+      a: [
+        { t: "Je ne m'inquiétais déjà pas beaucoup.", p: "A" },
+        { t: "Ça m'aide un peu, je passe à autre chose.", p: "B" },
+        { t: "Ça me rassure… dix minutes. Puis j'ai besoin d'être rassuré·e à nouveau.", p: "C" },
+        { t: "Ça m'agace : personne ne peut me GARANTIR que tout ira bien.", p: "D" }
+      ]},
+    { q: "Vos inquiétudes portent sur…",
+      a: [
+        { t: "Des problèmes concrets, quand il y en a.", p: "A" },
+        { t: "Un ou deux sujets sensibles (travail, santé…), le reste ça va.", p: "B" },
+        { t: "Pas mal de domaines : travail, proches, argent, avenir…", p: "C" },
+        { t: "À peu près tout — et quand un sujet se règle, un autre prend la place.", p: "D" }
+      ]},
+    { q: "Si vos inquiétudes disparaissaient demain matin, votre vie serait…",
+      a: [
+        { t: "Sensiblement la même.", p: "A" },
+        { t: "Un peu plus légère, sans révolution.", p: "B" },
+        { t: "Nettement plus agréable : je récupérerais du temps et de l'énergie.", p: "C" },
+        { t: "Transformée — mais honnêtement, j'aurais du mal à savoir quoi faire de ce silence.", p: "D" }
+      ]}
+  ];
+
+  var PROFILES = {
+    A: { emoji: "🌿", badge: "Profil dominant : A", title: "L'esprit tranquille",
+      desc: "L'incertitude ne vous empêche pas de vivre : vous gérez les problèmes quand ils se présentent, et votre cerveau ne produit des scénarios catastrophe qu'en quantité homéopathique. C'est exactement le fonctionnement que décrivent les chercheurs comme une bonne tolérance à l'incertitude.",
+      tip: "Continuez à cultiver ce qui vous régule déjà (sommeil, activité physique, liens sociaux). Et si un jour la machine s'emballe lors d'une période difficile, vous saurez que des outils existent." },
+    B: { emoji: "🌤️", badge: "Profil dominant : B", title: "L'inquiet du dimanche",
+      desc: "Vous connaissez la rumination, mais elle reste ponctuelle et proportionnée : quelques soirées agitées, un ou deux sujets sensibles, et la vie reprend son cours. L'inquiétude est chez vous un visiteur occasionnel, pas un colocataire.",
+      tip: "C'est le bon moment pour installer des habitudes protectrices à peu de frais : le tri « inquiétude réelle ou hypothétique ? » et la cohérence cardiaque (3 fois par jour, 6 respirations par minute, 5 minutes) décrits dans l'article." },
+    C: { emoji: "🎬", badge: "Profil dominant : C", title: "Le scénariste du pire",
+      desc: "Votre cerveau a un studio de production bien équipé : anticipation permanente, besoin de réassurance, tensions physiques, endormissement laborieux. L'inquiétude vous donne un sentiment de contrôle… qui se paie en énergie et en sérénité. Vous vous reconnaîtrez probablement dans le mécanisme d'intolérance à l'incertitude décrit dans l'article.",
+      tip: "Testez sérieusement (2 à 3 semaines) le temps d'inquiétude programmé et les micro-expositions à l'incertitude. Et si le coût au quotidien devient lourd, un psychologue formé aux TCC peut vraiment changer la donne." },
+    D: { emoji: "🚨", badge: "Profil dominant : D", title: "La vigie en surchauffe",
+      desc: "L'inquiétude semble occuper une place centrale et épuisante dans votre vie : sujets multiples, tension quasi constante, sommeil abîmé, besoin de certitudes impossible à combler. Ce tableau évoque ce que les cliniciens appellent une anxiété généralisée — un fonctionnement fréquent, bien connu… et qui se soigne bien.",
+      tip: "Ne restez pas seul·e avec ça : parlez-en à votre médecin traitant, à un psychologue ou à un psychiatre. La TCC centrée sur l'intolérance à l'incertitude a fait la preuve de son efficacité durable. Consulter n'est pas un aveu de faiblesse, c'est une décision stratégique." }
+  };
+
+  var current = 0;
+  var votes = { A:0, B:0, C:0, D:0 };
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function shuffle(arr){
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function esc(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function renderIntro(){
+    app.innerHTML =
+      '<p class="intro-txt">Répondez spontanément — il n\'y a ni bonne ni mauvaise réponse, seulement un instantané de votre relation actuelle à l\'inquiétude.</p>' +
+      '<div class="center"><button class="btn" id="start">Commencer le quiz</button></div>';
+    document.getElementById('start').onclick = function(){ current = 0; votes = {A:0,B:0,C:0,D:0}; renderQuestion(); };
+    notifyResize();
+  }
+
+  function renderQuestion(){
+    var q = QUESTIONS[current];
+    var answers = shuffle(q.a);
+    var pct = Math.round((current / QUESTIONS.length) * 100);
+    var html = '<div class="progress"><span style="width:' + pct + '%"></span></div>' +
+      '<div class="qnum">Question ' + (current + 1) + ' / ' + QUESTIONS.length + '</div>' +
+      '<div class="qtext">' + esc(q.q) + '</div><div class="answers">';
+    for (var i = 0; i < answers.length; i++) {
+      html += '<button data-p="' + answers[i].p + '">' + esc(answers[i].t) + '</button>';
+    }
+    html += '</div>';
+    app.innerHTML = html;
+    var btns = app.querySelectorAll('.answers button');
+    for (var k = 0; k < btns.length; k++) {
+      btns[k].onclick = function(){
+        votes[this.getAttribute('data-p')]++;
+        current++;
+        if (current < QUESTIONS.length) { renderQuestion(); } else { renderResult(); }
+      };
+    }
+    notifyResize();
+  }
+
+  function renderResult(){
+    var order = ["D","C","B","A"]; // en cas d'égalité, on retient le profil le plus prudent
+    var best = order[0];
+    for (var i = 0; i < order.length; i++) {
+      if (votes[order[i]] > votes[best]) best = order[i];
+    }
+    var p = PROFILES[best];
+    var shareText = encodeURIComponent("J'ai fait le quiz « Où en êtes-vous ? » sur Oui Psycho! Mon profil : " + p.title + " " + p.emoji);
+    var url = encodeURIComponent(PAGE_URL);
+    app.innerHTML =
+      '<div class="progress"><span style="width:100%"></span></div>' +
+      '<div class="result-emoji">' + p.emoji + '</div>' +
+      '<span class="badge">' + p.badge + '</span>' +
+      '<div class="result-title">' + p.title + '</div>' +
+      '<p class="result-desc">' + p.desc + '</p>' +
+      '<div class="tips"><strong>Piste concrète :</strong> ' + p.tip + '</div>' +
+      '<div class="share">' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + url + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + shareText + '%20' + url + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+      '<div class="restart-row"><button class="btn secondary" id="restart">↻ Recommencer</button></div>';
+    document.getElementById('restart').onclick = function(){ renderIntro(); };
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
