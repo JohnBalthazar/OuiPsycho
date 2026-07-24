@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Que dit votre bazar de vous ? Le test qui fouille vos placards</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/syndrome-de-diogene/">
+  <meta name="description" content="Ascète, écureuil sentimental ou archiviste débordé ? Découvrez ce que votre rapport aux objets (et à vos 47 000 photos) dit de vous.">
+  <style>
+    :root{
+      --ink:#3B2A1A;
+      --ochre:#B45309;
+      --ochre-dark:#8C4A08;
+      --sand:#FBF4E9;
+      --card:#FFFFFF;
+      --line:#EAD9C2;
+      --accent:#1F4E6B;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--sand);
+      color:var(--ink);
+      padding:20px 14px;
+      line-height:1.6;
+    }
+    .quiz{
+      max-width:640px;margin:0 auto;background:var(--card);
+      border:1px solid var(--line);border-radius:14px;
+      padding:26px 22px;box-shadow:0 4px 18px rgba(140,74,8,.08);
+    }
+    h1{font-size:1.35rem;color:var(--ochre-dark);margin-bottom:8px;line-height:1.3;}
+    .intro p{margin-bottom:12px;font-size:1rem;}
+    .badge{display:inline-block;background:var(--sand);border:1px solid var(--line);
+      border-radius:20px;padding:3px 12px;font-size:.8rem;color:var(--ochre-dark);
+      font-family:Arial,Helvetica,sans-serif;margin-bottom:14px;}
+    .progress{height:8px;background:var(--sand);border-radius:6px;overflow:hidden;margin:14px 0 20px;}
+    .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--ochre),var(--ochre-dark));
+      width:0;transition:width .35s ease;}
+    .qtitle{font-size:1.08rem;font-weight:bold;margin-bottom:16px;}
+    .qnum{font-family:Arial,Helvetica,sans-serif;font-size:.78rem;color:var(--ochre-dark);
+      text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}
+    button.ans{
+      display:block;width:100%;text-align:left;margin-bottom:10px;
+      background:var(--sand);border:1px solid var(--line);border-radius:10px;
+      padding:13px 15px;font:inherit;font-size:.98rem;color:var(--ink);
+      cursor:pointer;transition:transform .12s ease,background .12s ease,border-color .12s ease;
+    }
+    button.ans:hover{background:#F5E7D2;border-color:var(--ochre);transform:translateY(-1px);}
+    button.big{
+      display:inline-block;width:auto;background:var(--ochre);color:#fff;border:none;
+      border-radius:10px;padding:13px 26px;font:inherit;font-size:1rem;cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;font-weight:bold;
+    }
+    button.big:hover{background:var(--ochre-dark);}
+    .result h2{color:var(--ochre-dark);font-size:1.3rem;margin:6px 0 12px;line-height:1.3;}
+    .result .emoji{font-size:2.6rem;}
+    .result p{margin-bottom:12px;}
+    .tip{background:var(--sand);border-left:4px solid var(--ochre);border-radius:0 10px 10px 0;
+      padding:12px 15px;margin:14px 0;font-size:.95rem;}
+    .disclaimer{background:#EEF4F8;border:1px solid #CFE0EC;border-radius:10px;
+      padding:12px 15px;font-size:.88rem;margin:18px 0;color:#1F3A4D;}
+    .share{margin:16px 0;display:flex;flex-wrap:wrap;gap:10px;}
+    .share a{
+      text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:.88rem;
+      background:var(--sand);border:1px solid var(--line);border-radius:20px;
+      padding:8px 15px;color:var(--ink);
+    }
+    .share a:hover{border-color:var(--ochre);background:#F5E7D2;}
+    .restart{margin-top:6px;}
+    .hidden{display:none;}
+  </style>
+</head>
+<body>
+  <div class="quiz" id="app"></div>
+
+  <script>
+    (function(){
+      var PROFILES = [
+        {
+          key:"ascete",
+          emoji:"🏺",
+          title:"L'Ascète 2.0",
+          desc:"Diogène de Sinope vous aurait invité·e dans sa jarre (enfin, s'il invitait des gens). Chez vous, chaque objet a mérité sa place, votre boîte mail respire et jeter ne vous coûte rien — parfois même un peu trop peu, au goût de vos proches qui cherchent encore le cadeau qu'ils vous avaient offert. Votre rapport aux objets est léger, presque libérateur.",
+          tip:"Votre point de vigilance n'est pas l'accumulation, c'est l'inverse : vérifiez que le grand tri ne serve pas, parfois, à évacuer un peu vite ce qui porte une charge émotionnelle. On peut garder trois souvenirs sans trahir Marie Kondo."
+        },
+        {
+          key:"ecureuil",
+          emoji:"🐿️",
+          title:"L'Écureuil sentimental",
+          desc:"Vous gardez le ticket du concert de 2011, le doudou de votre enfance et « le carton des câbles » que tout foyer français possède. Vos objets sont des madeleines de Proust en trois dimensions : ils racontent votre histoire, et vous savez globalement où tout se trouve. C'est le rapport aux objets le plus répandu — et il n'a rien de pathologique.",
+          tip:"Un petit rituel peut vous aider à garder l'équilibre : une fois par saison, choisissez une boîte, un tiroir ou un dossier, et posez-vous la question non pas « est-ce que ça peut servir ? » (tout peut servir) mais « est-ce que ça me raconte encore quelque chose ? »."
+        },
+        {
+          key:"archiviste",
+          emoji:"🗄️",
+          title:"L'Archiviste débordé",
+          desc:"« Au cas où » est votre devise, et le cas ne se présente jamais. Objets, papiers, mails, captures d'écran : ça entre beaucoup plus que ça ne sort, le tri est toujours prévu « pour bientôt », et l'idée de jeter provoque un petit pincement d'anxiété. Rien d'alarmant en soi — mais si l'encombrement commence à grignoter vos espaces de vie ou votre charge mentale, votre organisation vous coûte plus qu'elle ne vous protège.",
+          tip:"Commencez microscopique : dix fichiers ou trois objets par jour, pas un grand soir du tri. Et si vous sentez que la détresse à l'idée de jeter est réelle et récurrente, sachez que le trouble d'accumulation compulsive se travaille très bien en thérapie cognitivo-comportementale."
+        },
+        {
+          key:"ermite",
+          emoji:"🚪",
+          title:"L'Ermite au trésor",
+          desc:"Vos réponses dessinent un rapport aux objets — et peut-être aux autres — où l'accumulation prend beaucoup de place, où le regard extérieur est devenu difficile à accueillir, et où ouvrir sa porte demande un effort. Ce test ne peut évidemment rien diagnostiquer, mais ce profil mérite qu'on s'y arrête avec bienveillance : parfois, les objets s'entassent là où quelque chose d'autre s'est vidé — un lien, un rôle, une présence.",
+          tip:"Si vous vous reconnaissez, ou si vous avez pensé à un proche en répondant, la meilleure première marche est petite : en parler à un médecin généraliste, sans objectif de « grand nettoyage ». Personne ne devrait débarquer chez vous avec des sacs poubelle — et vous avez le droit d'être aidé·e à votre rythme."
+        }
+      ];
+
+      // Chaque réponse vote pour un index de profil (0=ascète, 1=écureuil, 2=archiviste, 3=ermite)
+      var QUESTIONS = [
+        { q:"Votre table de salon, là, maintenant ?",
+          a:[["Vide. Peut-être un livre. Peut-être.",0],
+             ["Deux-trois objets qui ont une histoire, un plaid, la vie quoi.",1],
+             ["On devine qu'il y a une table quelque part sous les papiers.",2],
+             ["Quelle table ? Je ne l'ai pas vue depuis un moment.",3]] },
+        { q:"On sonne chez vous à l'improviste. Votre réaction ?",
+          a:[["J'ouvre, tout est toujours prêt à être vu.",0],
+             ["J'ouvre en poussant deux coussins du pied, technique éprouvée.",1],
+             ["Je fais patienter cinq minutes, le temps d'un camouflage express.",2],
+             ["Je n'ouvre pas. Les visites, très peu pour moi.",3]] },
+        { q:"Un objet cassé ou inutilisable chez vous, ça devient…",
+          a:[["Un souvenir. Direction poubelle ou recyclerie le jour même.",0],
+             ["Un candidat au « je vais le réparer un jour » (taux de réussite : honorable).",1],
+             ["Un pensionnaire permanent du placard des choses en attente.",2],
+             ["Rien de spécial. Il reste là où il est, avec les autres.",3]] },
+        { q:"Votre boîte mail ressemble à…",
+          a:[["Inbox zéro. Oui, ces gens existent, j'en suis.",0],
+             ["Quelques centaines de mails, mais je m'y retrouve.",1],
+             ["Des dizaines de milliers de mails non lus. Le compteur a renoncé.",2],
+             ["Je ne l'ouvre presque plus, ça s'entasse tout seul.",3]] },
+        { q:"Jeter un objet, honnêtement, ça vous fait quoi ?",
+          a:[["Un plaisir presque suspect. L'espace libéré, quel bonheur.",0],
+             ["Un petit pincement si l'objet a une histoire, sinon rien.",1],
+             ["Une vraie anxiété : et si j'en avais besoin plus tard ?",2],
+             ["Je ne jette pas. La question ne se pose même plus.",3]] },
+        { q:"La dernière personne entrée chez vous, c'était…",
+          a:[["Hier ou avant-hier, ma porte est un moulin.",0],
+             ["Le week-end dernier, pour un repas qui a fini tard.",1],
+             ["Il y a un moment… j'avoue que je préfère qu'on se voie ailleurs.",2],
+             ["Je ne sais plus. Et ça me va très bien comme ça.",3]] },
+        { q:"Vos placards, si on les ouvrait tous d'un coup ?",
+          a:[["Aucun risque : ils sont à moitié vides.",0],
+             ["Un ou deux sont « stratégiques », le reste est présentable.",1],
+             ["Avalanche garantie. On n'ouvre pas le placard du couloir. Jamais.",2],
+             ["Les placards sont pleins depuis longtemps, ça déborde ailleurs.",3]] },
+        { q:"Un proche vous glisse : « Il faudrait trier un peu, non ? »",
+          a:[["Impossible, il n'y a rien à trier.",0],
+             ["Je souris, il n'a pas tort, je note pour ce week-end.",1],
+             ["Je réponds « oui oui bientôt » — comme les quatre dernières fois.",2],
+             ["De quoi je me mêle ? Chez moi, c'est chez moi.",3]] },
+        { q:"Vos photos de téléphone, on en parle ?",
+          a:[["Triées, sauvegardées, doublons supprimés. Rangée impeccable.",0],
+             ["Beaucoup trop de photos du chat, mais je fais le ménage parfois.",1],
+             ["47 000, dont 300 captures d'écran « importantes » jamais rouvertes.",2],
+             ["Le stockage est plein depuis des mois, tant pis.",3]] },
+        { q:"Pour finir : votre objet le plus difficile à jeter, ce serait…",
+          a:[["Aucun. Tout est remplaçable, même mon canapé.",0],
+             ["Une lettre, un cadeau, quelque chose qui porte quelqu'un.",1],
+             ["Difficile de choisir : tout peut resservir un jour, c'est bien le problème.",2],
+             ["On ne jette rien ici. Chaque chose est à moi et elle reste.",3]] }
+      ];
+
+      var app = document.getElementById('app');
+      var current = 0;
+      var votes = [0,0,0,0];
+      var PAGE_URL = "https://ouipsycho.fr/articles/syndrome-de-diogene/";
+
+      function notifyResize() {
+        setTimeout(function() {
+          window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+        }, 50);
+      }
+
+      function shuffle(arr){
+        var a = arr.slice();
+        for (var i = a.length - 1; i > 0; i--) {
+          var j = Math.floor(Math.random() * (i + 1));
+          var t = a[i]; a[i] = a[j]; a[j] = t;
+        }
+        return a;
+      }
+
+      function esc(s){
+        return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      }
+
+      function renderIntro(){
+        current = 0; votes = [0,0,0,0];
+        app.innerHTML =
+          '<span class="badge">🧠 Test Oui Psycho! · 3 min</span>' +
+          '<h1>Que dit votre bazar de vous ?</h1>' +
+          '<div class="intro">' +
+          '<p>Diogène ne possédait rien, vous peut-être un peu plus. Entre l\u2019ascète assumé, l\u2019écureuil sentimental et l\u2019archiviste du « au cas où », ce test explore votre rapport aux objets — physiques et numériques.</p>' +
+          '<p><em>10 questions, aucune bonne réponse, et vos placards resteront fermés.</em></p>' +
+          '</div>' +
+          '<button class="big" id="start">Commencer le test</button>';
+        document.getElementById('start').addEventListener('click', function(){ renderQuestion(); });
+        notifyResize();
+      }
+
+      function renderQuestion(){
+        var item = QUESTIONS[current];
+        var answers = shuffle(item.a);
+        var pct = Math.round((current / QUESTIONS.length) * 100);
+        var html =
+          '<div class="qnum">Question ' + (current + 1) + ' / ' + QUESTIONS.length + '</div>' +
+          '<div class="progress"><i style="width:' + pct + '%"></i></div>' +
+          '<div class="qtitle">' + esc(item.q) + '</div>';
+        for (var i = 0; i < answers.length; i++) {
+          html += '<button class="ans" data-p="' + answers[i][1] + '">' + esc(answers[i][0]) + '</button>';
+        }
+        app.innerHTML = html;
+        var btns = app.querySelectorAll('button.ans');
+        for (var k = 0; k < btns.length; k++) {
+          btns[k].addEventListener('click', function(){
+            votes[parseInt(this.getAttribute('data-p'), 10)]++;
+            current++;
+            if (current < QUESTIONS.length) { renderQuestion(); } else { renderResult(); }
+          });
+        }
+        notifyResize();
+      }
+
+      function renderResult(){
+        var best = 0;
+        for (var i = 1; i < votes.length; i++) { if (votes[i] > votes[best]) best = i; }
+        // En cas d'égalité incluant le profil "ermite", on privilégie la prudence
+        if (votes[3] === votes[best] && best !== 3) best = 3;
+        var p = PROFILES[best];
+
+        var shareText = encodeURIComponent('Mon profil au test « Que dit votre bazar de vous ? » : ' + p.title + ' ' + p.emoji + ' — et vous ?');
+        var shareUrl = encodeURIComponent(PAGE_URL);
+
+        app.innerHTML =
+          '<span class="badge">✨ Votre profil</span>' +
+          '<div class="result">' +
+          '<div class="emoji">' + p.emoji + '</div>' +
+          '<h2>' + esc(p.title) + '</h2>' +
+          '<p>' + esc(p.desc) + '</p>' +
+          '<div class="tip"><strong>💡 Notre conseil :</strong> ' + esc(p.tip) + '</div>' +
+          '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+          '<div class="share">' +
+          '<a href="https://www.facebook.com/sharer/sharer.php?u=' + shareUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+          '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+          '<a href="https://wa.me/?text=' + shareText + '%20' + shareUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+          '</div>' +
+          '<button class="big restart" id="restart">🔄 Recommencer</button>' +
+          '</div>';
+        document.getElementById('restart').addEventListener('click', function(){ renderIntro(); });
+        notifyResize();
+      }
+
+      renderIntro();
+      window.addEventListener('load', notifyResize);
+    })();
+  </script>
+</body>
+</html>
