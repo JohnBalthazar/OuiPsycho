@@ -86,10 +86,8 @@
     "title": "Paranoïa : définition, symptômes et traitements d'un trouble mal compris",
     "type": "article",
     "excerpt": "Loin des clichés du cinéma, la paranoïa est un fonctionnement psychique précis, douloureux et soignable. Définition, symptômes, lecture psychodynamique, recherches récentes et pistes de rétablissement.",
-    "metaDescription": "Qu'est-ce que la paranoïa ? Définition clinique, symptômes, approche psychodynamique, recherches récentes et traitements d'un trouble souvent caricaturé.",
-    "author": "John Balthazar",
-    "date": "2027-05-28",
-    "date_modified": "2027-05-28",
+    "date": "2027-05-20",
+    "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "",
     "imagePosition": "50% 50%",
@@ -97,6 +95,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 10,
+    "author": "John Balthazar",
     "tags": [
       "paranoia",
       "trouble-delirant",
@@ -104,61 +103,7 @@
       "psychose",
       "mefiance"
     ],
-    "sources": [
-      {
-        "authors": "Freeman D.",
-        "year": "2016",
-        "title": "Persecutory delusions: a cognitive perspective on understanding and treatment",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(16)00066-3"
-      },
-      {
-        "authors": "Freeman D. et al.",
-        "year": "2021",
-        "title": "Comparison of a theoretically driven cognitive therapy (the Feeling Safe Programme) with befriending for the treatment of persistent persecutory delusions",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(21)00158-9"
-      },
-      {
-        "authors": "Freeman D. et al.",
-        "year": "2017",
-        "title": "The effects of improving sleep on mental health (OASIS): a randomised controlled trial with mediation analysis",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(17)30328-0"
-      },
-      {
-        "authors": "Freeman D. et al.",
-        "year": "2022",
-        "title": "Automated virtual reality therapy to treat agoraphobic avoidance and distress in patients with psychosis (gameChange)",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(22)00060-8"
-      },
-      {
-        "authors": "Bebbington P. E. et al.",
-        "year": "2013",
-        "title": "The structure of paranoia in the general population",
-        "journal": "British Journal of Psychiatry",
-        "url": "https://doi.org/10.1192/bjp.bp.112.119032"
-      },
-      {
-        "authors": "Freud S.",
-        "year": "1911",
-        "title": "Remarques psychanalytiques sur l'autobiographie d'un cas de paranoïa (Le président Schreber)",
-        "publisher": "PUF (éd. française)"
-      },
-      {
-        "authors": "Guelfi J.-D. & Rouillon F.",
-        "year": "2017",
-        "title": "Manuel de psychiatrie",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Chabert C.",
-        "year": "2018",
-        "title": "Psychanalyse et méthodes projectives",
-        "publisher": "Dunod"
-      }
-    ],
+    "metaDescription": "Qu'est-ce que la paranoïa ? Définition clinique, symptômes, approche psychodynamique, recherches récentes et traitements d'un trouble souvent caricaturé.",
     "articles_lies": [],
     "status": "scheduled"
   },
