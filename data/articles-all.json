@@ -26,6 +26,95 @@
     "status": "scheduled"
   },
   {
+    "id": "biais-cognitifs-7-pieges-du-cerveau",
+    "title": "Biais cognitifs : les 7 pièges que votre cerveau vous tend chaque jour",
+    "type": "article",
+    "excerpt": "Confirmation, ancrage, aversion à la perte… Votre cerveau prend des raccourcis en permanence. Voici les sept biais cognitifs les plus fréquents, et comment ralentir au bon moment.",
+    "metaDescription": "Confirmation, ancrage, disponibilité, négativité : découvrez les 7 biais cognitifs qui faussent vos décisions chaque jour et comment y résister.",
+    "author": "John Balthazar",
+    "date": "2027-05-14",
+    "date_modified": "2027-05-14",
+    "category": "Développement personnel",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "biais-cognitifs",
+      "prise-de-decision",
+      "psychologie-cognitive",
+      "raisonnement",
+      "developpement-personnel"
+    ],
+    "sources": [
+      {
+        "authors": "Tversky A. & Kahneman D.",
+        "year": "1974",
+        "title": "Judgment under uncertainty: heuristics and biases",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.185.4157.1124"
+      },
+      {
+        "authors": "Kahneman D. & Tversky A.",
+        "year": "1979",
+        "title": "Prospect theory: an analysis of decision under risk",
+        "journal": "Econometrica",
+        "url": "https://doi.org/10.2307/1914185"
+      },
+      {
+        "authors": "Wason P. C.",
+        "year": "1960",
+        "title": "On the failure to eliminate hypotheses in a conceptual task",
+        "journal": "Quarterly Journal of Experimental Psychology",
+        "url": "https://doi.org/10.1080/17470216008416717"
+      },
+      {
+        "authors": "Nickerson R. S.",
+        "year": "1998",
+        "title": "Confirmation bias: a ubiquitous phenomenon in many guises",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.2.2.175"
+      },
+      {
+        "authors": "Kruger J. & Dunning D.",
+        "year": "1999",
+        "title": "Unskilled and unaware of it: how difficulties in recognizing one's own incompetence lead to inflated self-assessments",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.77.6.1121"
+      },
+      {
+        "authors": "Baumeister R. F., Bratslavsky E., Finkenauer C. & Vohs K. D.",
+        "year": "2001",
+        "title": "Bad is stronger than good",
+        "journal": "Review of General Psychology",
+        "url": "https://doi.org/10.1037/1089-2680.5.4.323"
+      },
+      {
+        "authors": "Houdé O. & Borst G.",
+        "year": "2014",
+        "title": "Measuring inhibitory control in children and adults: brain imaging and mental chronometry",
+        "journal": "Frontiers in Psychology",
+        "url": "https://doi.org/10.3389/fpsyg.2014.00616"
+      },
+      {
+        "authors": "Houdé O.",
+        "year": "2019",
+        "title": "L'intelligence humaine n'est pas un algorithme",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Moukheiber A.",
+        "year": "2019",
+        "title": "Votre cerveau vous joue des tours",
+        "publisher": "Allary Éditions"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "pathologies-psychiatriques-cinema",
     "title": "Pathologies psychiatriques au cinéma : vraie clinique ou psychiatrie hollywoodienne ?",
     "type": "article",
