@@ -83,6 +83,66 @@
     "status": "scheduled"
   },
   {
+    "id": "traits-personnalite-presidents",
+    "title": "Psychologie des présidents : les 5 traits de personnalité de tous les chefs d'État",
+    "type": "article",
+    "excerpt": "Extraversion hors norme, sang-froid, ego bien nourri… Que trouve-t-on quand on allonge un président sur le divan ? La science a un portrait-robot, et il est étonnamment cohérent.",
+    "metaDescription": "Narcissisme, sang-froid, machiavélisme : découvrez les 5 traits de personnalité que la psychologie retrouve chez les présidents et chefs d'État. Quiz inclus !",
+    "author": "John Balthazar",
+    "date": "2027-05-28",
+    "date_modified": "2027-05-28",
+    "category": "Société & psychologie politique",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "psychologie-politique",
+      "personnalite",
+      "leadership",
+      "narcissisme",
+      "big-five"
+    ],
+    "sources": [
+      {
+        "authors": "Rubenzer S. J. & Faschingbauer T. R.",
+        "year": "2004",
+        "title": "Personality, Character, and Leadership in the White House: Psychologists Assess the Presidents",
+        "publisher": "Brassey's Inc."
+      },
+      {
+        "authors": "Watts A. L., Lilienfeld S. O., Smith S. F. et al.",
+        "year": "2013",
+        "title": "The double-edged sword of grandiose narcissism: Implications for successful and unsuccessful leadership among U.S. presidents",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1177/0956797613491970"
+      },
+      {
+        "authors": "Simonton D. K.",
+        "year": "2006",
+        "title": "Presidential IQ, Openness, Intellectual Brilliance, and Leadership",
+        "journal": "Political Psychology",
+        "url": "https://doi.org/10.1111/j.1467-9221.2006.00524.x"
+      },
+      {
+        "authors": "Deluga R. J.",
+        "year": "2001",
+        "title": "American presidential Machiavellianism: Implications for charismatic leadership and rated performance",
+        "journal": "The Leadership Quarterly"
+      },
+      {
+        "authors": "de Sutter P.",
+        "year": "2007",
+        "title": "Ces fous qui nous gouvernent : comment la psychologie permet de comprendre les hommes politiques",
+        "publisher": "Les Arènes"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "profiler-mythe-realite-psychologie-criminelle",
     "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
     "type": "article",
