@@ -82,17 +82,16 @@
     "title": "Le syndrome de Diogène, c'est quoi ? Les accumulateurs passent sur le divan",
     "type": "article",
     "excerpt": "Il vivait dans une jarre et ne possédait rien : Diogène aurait détesté le syndrome qui porte son nom. Incurie, accumulation, déni, refus d'aide — et une version numérique qui vous concerne peut-être. On démêle tout ça sur le divan.",
-    "metaDescription": "Définition, origine grecque, causes psychologiques, différence avec l'accumulation compulsive et version numérique : le syndrome de Diogène décrypté.",
-    "author": "John Balthazar",
     "date": "2027-04-29",
-    "date_modified": "2027-04-29",
+    "date_modified": "2026-07-24",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vu6m0rt4owmwagz9zaxv",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "syndrome-de-diogene",
       "accumulation-compulsive",
@@ -100,53 +99,7 @@
       "digital-hoarding",
       "troubles-psy"
     ],
-    "sources": [
-      {
-        "authors": "Clark A. N. G., Mankikar G. D. & Gray I.",
-        "year": "1975",
-        "title": "Diogenes syndrome: a clinical study of gross neglect in old age",
-        "journal": "The Lancet"
-      },
-      {
-        "authors": "Hanon C., Pinquier C., Gaddour N., Saïd S., Mathis D. & Pellerin J.",
-        "year": "2004",
-        "title": "Le syndrome de Diogène, une approche transnosographique",
-        "journal": "L'Encéphale"
-      },
-      {
-        "authors": "Monfort J.-C., Hugonot-Diener L., Devouche E., Wong C. & Péan I.",
-        "year": "2010",
-        "title": "Le syndrome de Diogène et les situations apparentées d'auto-exclusion sociale : enquête descriptive",
-        "journal": "Psychologie & NeuroPsychiatrie du vieillissement"
-      },
-      {
-        "authors": "Lavigne B., Hamdan M., Faure B., Merveille H., Pareaud M., Tallon E., Clément J.-P. & Calvet B.",
-        "year": "2016",
-        "title": "Syndrome de Diogène et Hoarding disorder : une même entité ?",
-        "journal": "L'Encéphale",
-        "url": "https://doi.org/10.1016/j.encep.2016.02.010"
-      },
-      {
-        "authors": "Frost R. O. & Hartl T. L.",
-        "year": "1996",
-        "title": "A cognitive-behavioral model of compulsive hoarding",
-        "journal": "Behaviour Research and Therapy",
-        "url": "https://doi.org/10.1016/0005-7967(95)00071-2"
-      },
-      {
-        "authors": "Sweeten G., Sillence E. & Neave N.",
-        "year": "2018",
-        "title": "Digital hoarding behaviours: Underlying motivations and potential negative consequences",
-        "journal": "Computers in Human Behavior",
-        "url": "https://doi.org/10.1016/j.chb.2018.03.031"
-      },
-      {
-        "authors": "Hugonot-Diener L. & Piccoli M.",
-        "year": "2023",
-        "title": "Le Syndrome de Diogène : comprendre et soigner",
-        "publisher": "De Boeck"
-      }
-    ],
+    "metaDescription": "Définition, origine grecque, causes psychologiques, différence avec l'accumulation compulsive et version numérique : le syndrome de Diogène décrypté.",
     "articles_lies": [],
     "status": "scheduled"
   },
