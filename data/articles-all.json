@@ -78,6 +78,62 @@
     "status": "scheduled"
   },
   {
+    "id": "schizophrenie-symptomes-causes-traitements",
+    "title": "Schizophrénie : symptômes, causes et traitements, au-delà des clichés",
+    "type": "article",
+    "excerpt": "Non, la schizophrénie n'est pas un dédoublement de personnalité, et encore moins un synonyme de violence. Plongée claire et sans jargon dans un trouble aussi mal connu que porteur d'espoir.",
+    "metaDescription": "La schizophrénie n'est ni un dédoublement de personnalité ni une affaire de violence. Symptômes, causes, traitements et rétablissement expliqués.",
+    "author": "John Balthazar",
+    "date": "2027-04-30",
+    "date_modified": "2027-04-30",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "schizophrenie",
+      "troubles-psychotiques",
+      "sante-mentale",
+      "retablissement",
+      "remediation-cognitive"
+    ],
+    "sources": [
+      {
+        "authors": "Franck N. (dir.)",
+        "year": "2018",
+        "title": "Traité de réhabilitation psychosociale",
+        "publisher": "Elsevier Masson",
+        "url": "https://doi.org/10.1016/C2017-0-00730-9"
+      },
+      {
+        "authors": "Franck N.",
+        "year": "2014",
+        "title": "Remédiation cognitive dans la schizophrénie",
+        "journal": "EMC - Psychiatrie",
+        "url": "https://doi.org/10.1016/S0246-1072(13)64355-2"
+      },
+      {
+        "authors": "Franck N., Duboc C., Sundby C. et al.",
+        "year": "2014",
+        "title": "De l'évaluation neuropsychologique à une remédiation cognitive ciblée",
+        "journal": "European Psychiatry",
+        "url": "https://doi.org/10.1016/j.eurpsy.2014.09.318"
+      },
+      {
+        "authors": "Benamer N., Marti F., Lujan R. et al.",
+        "year": "2018",
+        "title": "GluD1, linked to schizophrenia, controls the burst firing of dopamine neurons",
+        "journal": "Molecular Psychiatry",
+        "url": "https://doi.org/10.1038/mp.2017.137"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "syndrome-de-diogene",
     "title": "Le syndrome de Diogène, c'est quoi ? Les accumulateurs passent sur le divan",
     "type": "article",
