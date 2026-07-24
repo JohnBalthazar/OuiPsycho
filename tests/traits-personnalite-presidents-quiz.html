@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seriez-vous un bon président ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/traits-personnalite-presidents/">
+  <meta name="description" content="Extraverti charismatique, stratège de l'ombre ou humaniste de terrain ? Découvrez quel type de dirigeant sommeille en vous.">
+  <style>
+    :root{
+      --navy:#1B2A4A; --navy-dark:#12203B; --gold:#C9A227; --gold-soft:#E8D9A0;
+      --paper:#F7F5EF; --ink:#22283A; --muted:#5C6478; --white:#FFFFFF;
+      --radius:14px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--paper); color:var(--ink);
+      padding:20px 14px; line-height:1.6;
+    }
+    .quiz-card{
+      max-width:640px;margin:0 auto;background:var(--white);
+      border-radius:var(--radius);box-shadow:0 6px 24px rgba(27,42,74,.12);
+      overflow:hidden;border-top:5px solid var(--gold);
+    }
+    .quiz-header{background:var(--navy);color:var(--white);padding:24px 24px 20px;text-align:center}
+    .quiz-header .laurier{font-size:2rem;display:block;margin-bottom:6px}
+    .quiz-header h1{font-size:1.35rem;letter-spacing:.3px}
+    .quiz-header p{font-family:Helvetica,Arial,sans-serif;font-size:.85rem;color:var(--gold-soft);margin-top:8px}
+    .quiz-body{padding:24px}
+    .progress-track{height:6px;background:#E4E1D6;border-radius:3px;margin-bottom:20px;overflow:hidden}
+    .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),#A8811C);transition:width .35s ease}
+    .q-count{font-family:Helvetica,Arial,sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);margin-bottom:8px}
+    .q-text{font-size:1.12rem;font-weight:bold;margin-bottom:18px;color:var(--navy)}
+    .answers{display:flex;flex-direction:column;gap:10px}
+    .answer-btn{
+      font-family:Helvetica,Arial,sans-serif;font-size:.95rem;text-align:left;
+      padding:13px 16px;border:1.5px solid #D8D4C6;border-radius:10px;
+      background:var(--white);color:var(--ink);cursor:pointer;transition:all .15s ease;line-height:1.45;
+    }
+    .answer-btn:hover{border-color:var(--gold);background:#FCF8EC;transform:translateX(3px)}
+    .answer-btn:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+    .start-btn,.restart-btn{
+      display:block;width:100%;font-family:Helvetica,Arial,sans-serif;font-size:1rem;font-weight:bold;
+      padding:14px;border:none;border-radius:10px;background:var(--navy);color:var(--white);
+      cursor:pointer;transition:background .15s ease;margin-top:18px;
+    }
+    .start-btn:hover,.restart-btn:hover{background:var(--navy-dark)}
+    .intro-text{font-size:.98rem;color:var(--ink)}
+    .result-badge{text-align:center;padding:6px 0 2px}
+    .result-badge .emoji{font-size:3rem;display:block}
+    .result-title{font-size:1.4rem;color:var(--navy);text-align:center;margin:10px 0 4px}
+    .result-sub{font-family:Helvetica,Arial,sans-serif;text-align:center;font-size:.85rem;color:var(--gold);text-transform:uppercase;letter-spacing:2px;margin-bottom:16px}
+    .result-desc{font-size:.98rem;margin-bottom:14px}
+    .result-box{background:#F4F1E6;border-left:4px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-size:.93rem}
+    .result-box strong{color:var(--navy)}
+    .share-row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+    .share-row a{
+      font-family:Helvetica,Arial,sans-serif;font-size:.85rem;text-decoration:none;
+      padding:9px 14px;border-radius:8px;color:var(--white);font-weight:bold;
+    }
+    .share-fb{background:#1877F2}.share-tw{background:#111}.share-wa{background:#25D366}
+    .disclaimer{
+      font-family:Helvetica,Arial,sans-serif;font-size:.8rem;color:var(--muted);
+      background:#F4F1E6;border-radius:8px;padding:12px 14px;margin-top:16px;line-height:1.55;
+    }
+    .hidden{display:none}
+    @media(max-width:480px){
+      .quiz-body{padding:18px 16px}
+      .quiz-header h1{font-size:1.15rem}
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-card">
+    <div class="quiz-header">
+      <span class="laurier">🏛️</span>
+      <h1>Seriez-vous un bon président&nbsp;?</h1>
+      <p>10 dilemmes de chef d'État · Résultat immédiat · Aucun serrage de mains requis</p>
+    </div>
+    <div class="quiz-body">
+      <!-- Écran intro -->
+      <div id="screen-intro">
+        <p class="intro-text">Crise à gérer, discours à improviser, allié qui vous trahit… Comment gouverneriez-vous <em>vraiment</em>&nbsp;? Répondez spontanément à ces 10 situations : votre profil présidentiel vous attend au bout du mandat.</p>
+        <button class="start-btn" id="btn-start">Entrer à l'Élysée 🗳️</button>
+      </div>
+
+      <!-- Écran question -->
+      <div id="screen-question" class="hidden">
+        <div class="progress-track"><div class="progress-fill" id="progress"></div></div>
+        <div class="q-count" id="q-count"></div>
+        <div class="q-text" id="q-text"></div>
+        <div class="answers" id="answers"></div>
+      </div>
+
+      <!-- Écran résultat -->
+      <div id="screen-result" class="hidden">
+        <div class="result-badge"><span class="emoji" id="r-emoji"></span></div>
+        <h2 class="result-title" id="r-title"></h2>
+        <div class="result-sub">Votre profil présidentiel</div>
+        <p class="result-desc" id="r-desc"></p>
+        <div class="result-box" id="r-force"></div>
+        <div class="result-box" id="r-risque"></div>
+        <div class="result-box" id="r-verdict"></div>
+        <div class="share-row">
+          <a class="share-fb" id="share-fb" target="_blank" rel="noopener">👍 Facebook</a>
+          <a class="share-tw" id="share-tw" target="_blank" rel="noopener">🐦 Twitter</a>
+          <a class="share-wa" id="share-wa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+        <button class="restart-btn" id="btn-restart">Briguer un second mandat 🔄</button>
+        <div class="disclaimer">⚕️ <strong>Rappel important&nbsp;:</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Profils : visionnaire (V) / stratege (S) / roc (R) / humaniste (H)
+    var PROFILES = {
+      V: {
+        emoji: "🎤",
+        title: "Le Visionnaire charismatique",
+        desc: "Extraversion au plafond, ego bien nourri, phrases qui claquent : vous êtes taillé·e pour la tribune. Vous embarquez les foules, vous adorez ça, et — soyons honnêtes — les foules vous le rendent bien. Chez vous, la politique est d'abord une histoire qu'on raconte.",
+        force: "<strong>Votre atout :</strong> le charisme et l'assertivité, les meilleurs prédicteurs de l'accession au pouvoir selon les études sur les présidents. Vous donnez envie de vous suivre.",
+        risque: "<strong>Votre zone rouge :</strong> l'épée à double tranchant du narcissisme. Persuasion et audace côté pile, prises de risque et frictions côté face. Entourez-vous de gens qui osent vous dire non.",
+        verdict: "<strong>Verdict des urnes :</strong> élu·e au premier tour. La suite dépendra de votre capacité à écouter autre chose que les applaudissements."
+      },
+      S: {
+        emoji: "♟️",
+        title: "Le Stratège de l'ombre",
+        desc: "Vous lisez les rapports de force comme d'autres lisent le journal. Anticiper, temporiser, avancer ses pions : votre intelligence politique ferait pâlir un joueur d'échecs. Vous ne cherchez pas à être aimé·e — vous cherchez à gagner la partie.",
+        force: "<strong>Votre atout :</strong> le pragmatisme stratégique. Les recherches montrent que les dirigeants fins tacticiens comptent parmi les plus efficaces aux yeux des historiens.",
+        risque: "<strong>Votre zone rouge :</strong> à trop jouer aux échecs, on oublie que les pions sont des personnes. Un machiavélisme sans boussole éthique finit toujours par se payer — souvent en scandale.",
+        verdict: "<strong>Verdict des urnes :</strong> vous gagnez rarement les débats télévisés… mais curieusement, c'est toujours votre agenda qui s'applique."
+      },
+      R: {
+        emoji: "🗿",
+        title: "Le Roc imperturbable",
+        desc: "Crise financière, tempête médiatique, 3 heures de sommeil : votre électrocardiogramme reste plat. Cette stabilité émotionnelle hors norme est exactement ce que les psychologues retrouvent chez les dirigeants qui durent. Vous décidez quand les autres paniquent.",
+        force: "<strong>Votre atout :</strong> le sang-froid, la compétence n°1 du leadership de crise. Quand tout brûle, c'est vers vous qu'on se tourne.",
+        risque: "<strong>Votre zone rouge :</strong> la frontière entre « imperturbable » et « imperméable ». À force de ne rien laisser paraître, on peut finir par ne plus rien percevoir — surtout la détresse des autres.",
+        verdict: "<strong>Verdict des urnes :</strong> réélu·e après chaque crise. Pensez quand même à sourire sur l'affiche de campagne."
+      },
+      H: {
+        emoji: "🤝",
+        title: "L'Humaniste de terrain",
+        desc: "Vous gouverneriez avec le cœur autant qu'avec la tête : écoute, concertation, souci sincère des gens. C'est précisément le trait — l'agréabilité — que les présidents réels possèdent le moins. Autant dire que vous seriez une anomalie statistique… peut-être salutaire.",
+        force: "<strong>Votre atout :</strong> la confiance que vous inspirez. L'empathie fédère, apaise et fait remonter les vrais problèmes du terrain jusqu'au sommet.",
+        risque: "<strong>Votre zone rouge :</strong> les décisions impopulaires. Les études sont claires : trop vouloir plaire rend les arbitrages difficiles, et la fonction en exige de brutaux.",
+        verdict: "<strong>Verdict des urnes :</strong> adoré·e en début de mandat. Pour la suite, il vous faudra apprendre à dire non en regardant les gens dans les yeux."
+      }
+    };
+
+    var QUESTIONS = [
+      {
+        q: "Lundi, 7h30. Une crise majeure éclate. Votre premier réflexe ?",
+        a: [
+          { t: "Prendre la parole en direct : le pays a besoin d'entendre une voix, la mienne.", p: "V" },
+          { t: "Réunir trois conseillers fiables et cartographier qui va essayer d'en profiter.", p: "S" },
+          { t: "Respirer, collecter les faits, décider. La panique attendra.", p: "R" },
+          { t: "Appeler d'abord les personnes touchées : je veux comprendre ce qu'elles vivent.", p: "H" }
+        ]
+      },
+      {
+        q: "Un journaliste vous piège en direct avec un dossier embarrassant.",
+        a: [
+          { t: "Je retourne la salle avec une punchline. Demain, on ne parlera que de ma répartie.", p: "V" },
+          { t: "Je réponds à une autre question que celle posée. Un classique, mais bien exécuté.", p: "S" },
+          { t: "Je réponds factuellement, sans ciller. Mon calme EST la réponse.", p: "R" },
+          { t: "Je reconnais honnêtement ce qui doit l'être. Les gens méritent la vérité.", p: "H" }
+        ]
+      },
+      {
+        q: "Votre allié le plus proche annonce qu'il vote contre votre réforme.",
+        a: [
+          { t: "Je le convaincs en tête-à-tête. Personne ne me résiste vingt minutes.", p: "V" },
+          { t: "Intéressant. Je regarde ce qu'il veut vraiment, et ce que ça me coûte de lui donner.", p: "S" },
+          { t: "Sa défection est un paramètre. Je recompte les voix et j'avance.", p: "R" },
+          { t: "Je l'écoute d'abord : s'il se retourne, c'est peut-être que ma réforme a un vrai problème.", p: "H" }
+        ]
+      },
+      {
+        q: "On vous propose un raccourci légal mais moralement douteux pour faire passer une loi importante.",
+        a: [
+          { t: "Non : je préfère gagner à la loyale et le faire savoir. Belle histoire à raconter.", p: "V" },
+          { t: "Je l'utilise. La loi est bonne pour le pays, et l'Histoire retient les résultats.", p: "S" },
+          { t: "J'évalue froidement le rapport bénéfice/risque avant toute chose.", p: "R" },
+          { t: "Jamais. Si je trahis mes valeurs pour gagner, j'ai déjà perdu.", p: "H" }
+        ]
+      },
+      {
+        q: "Il est 2h du matin, le sommet international patine depuis 14 heures.",
+        a: [
+          { t: "Je relance tout le monde avec une intervention improvisée. L'énergie, c'est moi.", p: "V" },
+          { t: "C'est maintenant que les autres craquent. J'attends, puis je place ma proposition.", p: "S" },
+          { t: "Je suis aussi frais qu'à 9h. La fatigue des autres n'est pas mon problème.", p: "R" },
+          { t: "Je propose une pause et un café pour tous. On négocie mieux entre humains reposés.", p: "H" }
+        ]
+      },
+      {
+        q: "Votre cote de popularité chute de 15 points en un mois.",
+        a: [
+          { t: "Grand discours, bain de foule, émission en prime time : je reconquiers mon public.", p: "V" },
+          { t: "Je regarde quel adversaire monte, et je m'occupe de son cas en priorité.", p: "S" },
+          { t: "Les sondages fluctuent, les décisions restent. Je maintiens le cap.", p: "R" },
+          { t: "Je retourne sur le terrain écouter ce qu'on me reproche. La réponse est là-bas.", p: "H" }
+        ]
+      },
+      {
+        q: "Qu'est-ce qui vous attirerait le plus dans la fonction présidentielle ?",
+        a: [
+          { t: "Marquer l'Histoire. Soyons francs : les statues, un jour, pourquoi pas.", p: "V" },
+          { t: "Le jeu lui-même : alliances, rapports de force, coups à trois bandes.", p: "S" },
+          { t: "Décider dans la tempête quand personne d'autre n'en est capable.", p: "R" },
+          { t: "Améliorer concrètement la vie des gens. Le reste est du décor.", p: "H" }
+        ]
+      },
+      {
+        q: "Un ministre fidèle mais incompétent plombe votre gouvernement.",
+        a: [
+          { t: "Je le remplace lors d'un remaniement spectaculaire qui relance mon image.", p: "V" },
+          { t: "Je le déplace vers un poste honorifique où il ne peut plus rien casser. Élégant.", p: "S" },
+          { t: "Je le convoque, je le remercie, c'est réglé en dix minutes. Rien de personnel.", p: "R" },
+          { t: "Je cherche d'abord un poste où il pourrait réussir. On ne jette pas les gens.", p: "H" }
+        ]
+      },
+      {
+        q: "Dans les biographies de dirigeants, ce qui vous fascine le plus, c'est…",
+        a: [
+          { t: "Les grands discours qui ont retourné une foule ou un pays.", p: "V" },
+          { t: "Les coulisses : qui a trahi qui, et comment ça s'est vraiment joué.", p: "S" },
+          { t: "Les nuits de crise où tout s'est décidé à pile ou face.", p: "R" },
+          { t: "Les moments d'humanité : la main tendue, le geste qui réconcilie.", p: "H" }
+        ]
+      },
+      {
+        q: "Fin de mandat. Quelle phrase voudriez-vous dans les livres d'histoire ?",
+        a: [
+          { t: "« On ne l'a jamais oublié·e. » Modeste, non ?", p: "V" },
+          { t: "« Personne n'a compris son jeu avant la fin — et il/elle a gagné. »", p: "S" },
+          { t: "« Dans la tempête, le pays pouvait dormir tranquille. »", p: "R" },
+          { t: "« Le pays était plus juste en partant qu'en arrivant. »", p: "H" }
+        ]
+      }
+    ];
+
+    var ARTICLE_URL = "https://ouipsycho.fr/articles/traits-personnalite-presidents/";
+    var current = 0;
+    var votes = { V: 0, S: 0, R: 0, H: 0 };
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function shuffle(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function show(id) {
+      ['screen-intro','screen-question','screen-result'].forEach(function(s){
+        document.getElementById(s).classList.toggle('hidden', s !== id);
+      });
+    }
+
+    function renderQuestion() {
+      var q = QUESTIONS[current];
+      document.getElementById('q-count').textContent = 'Situation ' + (current + 1) + ' / ' + QUESTIONS.length;
+      document.getElementById('q-text').textContent = q.q;
+      document.getElementById('progress').style.width = (current / QUESTIONS.length * 100) + '%';
+      var box = document.getElementById('answers');
+      box.innerHTML = '';
+      shuffle(q.a).forEach(function(ans) {
+        var b = document.createElement('button');
+        b.className = 'answer-btn';
+        b.type = 'button';
+        b.textContent = ans.t;
+        b.addEventListener('click', function() {
+          votes[ans.p]++;
+          current++;
+          if (current < QUESTIONS.length) { renderQuestion(); }
+          else { renderResult(); }
+        });
+        box.appendChild(b);
+      });
+      notifyResize();
+    }
+
+    function renderResult() {
+      var best = 'V', order = ['V','S','R','H'];
+      order.forEach(function(k){ if (votes[k] > votes[best]) best = k; });
+      var p = PROFILES[best];
+      document.getElementById('r-emoji').textContent = p.emoji;
+      document.getElementById('r-title').textContent = p.title;
+      document.getElementById('r-desc').innerHTML = p.desc;
+      document.getElementById('r-force').innerHTML = p.force;
+      document.getElementById('r-risque').innerHTML = p.risque;
+      document.getElementById('r-verdict').innerHTML = p.verdict;
+
+      var shareText = 'Mon profil présidentiel : ' + p.title + ' ' + p.emoji + ' — Et vous, seriez-vous un bon président ?';
+      var eu = encodeURIComponent(ARTICLE_URL);
+      var et = encodeURIComponent(shareText);
+      document.getElementById('share-fb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + eu;
+      document.getElementById('share-tw').href = 'https://twitter.com/intent/tweet?text=' + et + '&url=' + eu;
+      document.getElementById('share-wa').href = 'https://wa.me/?text=' + et + '%20' + eu;
+
+      show('screen-result');
+      notifyResize();
+    }
+
+    document.getElementById('btn-start').addEventListener('click', function() {
+      current = 0;
+      votes = { V: 0, S: 0, R: 0, H: 0 };
+      show('screen-question');
+      renderQuestion();
+    });
+
+    document.getElementById('btn-restart').addEventListener('click', function() {
+      current = 0;
+      votes = { V: 0, S: 0, R: 0, H: 0 };
+      show('screen-intro');
+      notifyResize();
+    });
+
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
