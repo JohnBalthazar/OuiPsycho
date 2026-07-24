@@ -3064,13 +3064,13 @@
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
+    "type": "article",
     "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
     "date": "2026-07-24",
-    "date_modified": "2026-06-22",
+    "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uzyw7puhp2ufjwsmtihm",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
+    "imagePosition": "68% 53%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
@@ -3086,7 +3086,7 @@
     ],
     "metaDescription": "Wonder Woman analysée par la psychologie : son créateur psychologue, le lasso de vérité, la résilience, la charge mentale et l’archétype de la guerrière.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
