@@ -1,5 +1,88 @@
 [
   {
+    "id": "psychose-definition-symptomes-traitements",
+    "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
+    "type": "article",
+    "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et soignable. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
+    "metaDescription": "Qu'est-ce que la psychose ? Définition clinique, symptômes, approche psychodynamique, recherches récentes, traitements et voies de rétablissement.",
+    "author": "John Balthazar",
+    "date": "2027-06-03",
+    "date_modified": "2027-06-03",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "tags": [
+      "psychose",
+      "schizophrenie",
+      "hallucinations",
+      "delire",
+      "retablissement"
+    ],
+    "sources": [
+      {
+        "authors": "van Os J., Linscott R. J., Myin-Germeys I., Delespaul P. & Krabbendam L.",
+        "year": "2009",
+        "title": "A systematic review and meta-analysis of the psychosis continuum: evidence for a psychosis proneness-persistence-impairment model of psychotic disorder",
+        "journal": "Psychological Medicine",
+        "url": "https://doi.org/10.1017/S0033291708003814"
+      },
+      {
+        "authors": "Howes O. D. & Kapur S.",
+        "year": "2009",
+        "title": "The dopamine hypothesis of schizophrenia: version III — the final common pathway",
+        "journal": "Schizophrenia Bulletin",
+        "url": "https://doi.org/10.1093/schbul/sbp006"
+      },
+      {
+        "authors": "Kapur S.",
+        "year": "2003",
+        "title": "Psychosis as a state of aberrant salience: a framework linking biology, phenomenology, and pharmacology in schizophrenia",
+        "journal": "American Journal of Psychiatry",
+        "url": "https://doi.org/10.1176/appi.ajp.160.1.13"
+      },
+      {
+        "authors": "Correll C. U. et al.",
+        "year": "2018",
+        "title": "Comparison of early intervention services vs treatment as usual for early-phase psychosis: a systematic review, meta-analysis, and meta-regression",
+        "journal": "JAMA Psychiatry",
+        "url": "https://doi.org/10.1001/jamapsychiatry.2018.0623"
+      },
+      {
+        "authors": "Marshall M. et al.",
+        "year": "2005",
+        "title": "Association between duration of untreated psychosis and outcome in cohorts of first-episode patients: a systematic review",
+        "journal": "Archives of General Psychiatry",
+        "url": "https://doi.org/10.1001/archpsyc.62.9.975"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1924",
+        "title": "La perte de la réalité dans la névrose et la psychose",
+        "publisher": "PUF (éd. française)"
+      },
+      {
+        "authors": "Guelfi J.-D. & Rouillon F.",
+        "year": "2017",
+        "title": "Manuel de psychiatrie",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Franck N.",
+        "year": "2018",
+        "title": "Traité de réhabilitation psychosociale",
+        "publisher": "Elsevier Masson"
+      }
+    ],
+    "articles_lies": [
+      "paranoia-definition-symptomes-traitements"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
     "type": "article",
