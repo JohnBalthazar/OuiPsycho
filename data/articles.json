@@ -78,6 +78,88 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-tomber-amoureux-du-meme-type-de-personne",
+    "title": "Pourquoi tombe-t-on toujours amoureux du même type de personne ?",
+    "type": "article",
+    "excerpt": "Les prénoms changent, le scénario reste. Attachement, familiarité, répétition : la psychologie explique pourquoi vos histoires se ressemblent — et comment sortir de la boucle.",
+    "metaDescription": "Attachement, effet de familiarité, répétition : pourquoi tombe-t-on toujours amoureux du même type de personne, et comment changer de schéma amoureux.",
+    "author": "John Balthazar",
+    "date": "2027-05-07",
+    "date_modified": "2027-05-07",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "attachement",
+      "couple",
+      "schemas-amoureux",
+      "relations",
+      "psychologie-du-couple"
+    ],
+    "sources": [
+      {
+        "authors": "Park Y. & MacDonald G.",
+        "year": "2019",
+        "title": "Consistency between individuals' past and current romantic partners' own reports of their personalities",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.1902279116"
+      },
+      {
+        "authors": "Hazan C. & Shaver P.",
+        "year": "1987",
+        "title": "Romantic love conceptualized as an attachment process",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.52.3.511"
+      },
+      {
+        "authors": "Bartholomew K. & Horowitz L. M.",
+        "year": "1991",
+        "title": "Attachment styles among young adults: a test of a four-category model",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.61.2.226"
+      },
+      {
+        "authors": "Zajonc R. B.",
+        "year": "1968",
+        "title": "Attitudinal effects of mere exposure",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/h0025848"
+      },
+      {
+        "authors": "Montoya R. M., Horton R. S. & Kirchner J.",
+        "year": "2008",
+        "title": "Is actual similarity necessary for attraction? A meta-analysis of actual and perceived similarity",
+        "journal": "Journal of Social and Personal Relationships",
+        "url": "https://doi.org/10.1177/0265407508096700"
+      },
+      {
+        "authors": "Fraley R. C.",
+        "year": "2019",
+        "title": "Attachment in adulthood: recent developments, emergent debates, and future directions",
+        "journal": "Annual Review of Psychology",
+        "url": "https://doi.org/10.1146/annurev-psych-010418-102813"
+      },
+      {
+        "authors": "Guédeney N. & Guédeney A.",
+        "year": "2016",
+        "title": "L'attachement : approche clinique et thérapeutique",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1920",
+        "title": "Au-delà du principe de plaisir",
+        "publisher": "Payot (éd. française)"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "depression-a-change-ma-vie",
     "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
     "type": "article",
