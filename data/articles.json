@@ -1179,11 +1179,12 @@
   {
     "id": "plus-grands-psychologues-histoire",
     "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Skinner, Piaget, Freud, Bandura, Rogers : cinq esprits qui ne se seraient entendus sur rien, et qui façonnent pourtant la façon dont vous vous comprenez vous-même. Surprise : le plus célèbre n'est que troisième.",
     "date": "2027-03-11",
-    "date_modified": "2027-03-11",
+    "date_modified": "2026-07-24",
     "category": "Thérapies",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mbzzpsoyrfgdkhw7olbs",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1197,7 +1198,7 @@
       "piaget",
       "rogers"
     ],
-    "metaDescription": "",
+    "metaDescription": "Skinner, Piaget, Freud, Bandura, Rogers : découvrez les 5 psychologues qui ont le plus marqué l'histoire, leurs idées, leurs limites et leur héritage actuel.",
     "articles_lies": [],
     "status": "scheduled"
   },
