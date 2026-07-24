@@ -30,17 +30,16 @@
     "title": "Pathologies psychiatriques au cinéma : vraie clinique ou psychiatrie hollywoodienne ?",
     "type": "article",
     "excerpt": "Schizophrénie de Shutter Island, personnalités multiples de Split, génie maléfique d'Hannibal Lecter : que valent ces diagnostics de cinéma ? Un tri clinique, film par film, entre vérité psychiatrique et pur fantasme de scénariste.",
-    "metaDescription": "Shutter Island, Split, Hannibal Lecter : que valent les diagnostics du grand écran ? Le vrai du faux sur les pathologies psychiatriques au cinéma.",
-    "author": "John Balthazar",
-    "date": "2027-05-12",
-    "date_modified": "2027-05-12",
-    "category": "Société",
+    "date": "2027-05-13",
+    "date_modified": "2026-07-24",
+    "category": "Troubles Psy",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "cinéma",
       "schizophrénie",
@@ -48,42 +47,7 @@
       "stigmatisation",
       "psychiatrie"
     ],
-    "sources": [
-      {
-        "authors": "Blanc J.-V.",
-        "year": "2019",
-        "title": "Pop & Psy : comment la pop culture nous aide à comprendre les troubles psychiques",
-        "publisher": "Plon",
-        "amazon_asin": "2259264664"
-      },
-      {
-        "authors": "Zagury D.",
-        "year": "2008",
-        "title": "L'énigme des tueurs en série",
-        "publisher": "Plon"
-      },
-      {
-        "authors": "Owen P. R.",
-        "year": "2012",
-        "title": "Portrayals of schizophrenia by entertainment media: a content analysis of contemporary movies",
-        "journal": "Psychiatric Services",
-        "url": "https://doi.org/10.1176/appi.ps.201100371"
-      },
-      {
-        "authors": "Angermeyer M. C. & Schulze B.",
-        "year": "2001",
-        "title": "Reinforcing stereotypes: how the focus on forensic cases in news reporting may influence public attitudes towards the mentally ill",
-        "journal": "International Journal of Law and Psychiatry",
-        "url": "https://doi.org/10.1016/S0160-2527(01)00079-6"
-      },
-      {
-        "authors": "Byrne P.",
-        "year": "2009",
-        "title": "Why psychiatrists should watch films (or What has cinema ever done for psychiatry?)",
-        "journal": "Advances in Psychiatric Treatment",
-        "url": "https://doi.org/10.1192/apt.bp.107.005306"
-      }
-    ],
+    "metaDescription": "Shutter Island, Split, Hannibal Lecter : que valent les diagnostics du grand écran ? Le vrai du faux sur les pathologies psychiatriques au cinéma.",
     "articles_lies": [],
     "status": "scheduled"
   },
