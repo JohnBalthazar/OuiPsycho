@@ -54,11 +54,12 @@
   {
     "id": "le-diable-sur-le-divan",
     "title": "Le diable sur le divan : psychologie d'un ange déchu",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Narcissisme céleste, esprit de contradiction pathologique et carrière entière bâtie sur la tentation : que dirait un psy du plus célèbre des anges déchus ? Consultation infernale, dossier ouvert.",
     "date": "2027-05-04",
-    "date_modified": "2027-05-04",
+    "date_modified": "2026-07-24",
     "category": "Les monstres sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cf47ydjbgca8ybjozkks",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -72,7 +73,7 @@
       "effet-lucifer",
       "monstres-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Narcissisme grandiose, réactance et effet Lucifer : ce que la psychologie moderne dit du diable, cet ange déchu devenu bouc émissaire préféré de l'humanité.",
     "articles_lies": [],
     "status": "scheduled"
   },
