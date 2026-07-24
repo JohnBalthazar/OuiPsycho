@@ -83,6 +83,78 @@
     "status": "scheduled"
   },
   {
+    "id": "profiler-mythe-realite-psychologie-criminelle",
+    "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
+    "type": "article",
+    "excerpt": "Le profiler qui « lit » les tueurs en trois regards est un mythe télévisuel. La science raconte une autre histoire : moins de génie, plus de statistiques — et c'est passionnant.",
+    "metaDescription": "Que font vraiment les profilers ? Entre mythe télévisé et psychologie d'enquête scientifique, découvrez les vrais secrets du profilage criminel.",
+    "author": "John Balthazar",
+    "date": "2027-05-27",
+    "date_modified": "2027-05-27",
+    "category": "Société",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "profiler",
+      "psychologie-criminelle",
+      "profilage",
+      "criminologie",
+      "psychologie-d-enquete"
+    ],
+    "sources": [
+      {
+        "authors": "Snook B., Cullen R. M., Bennell C., Taylor P. J. & Gendreau P.",
+        "year": "2008",
+        "title": "The criminal profiling illusion: what's behind the smoke and mirrors?",
+        "journal": "Criminal Justice and Behavior",
+        "url": "https://doi.org/10.1177/0093854808321528"
+      },
+      {
+        "authors": "Snook B., Eastwood J., Gendreau P., Goggin C. & Cullen R. M.",
+        "year": "2007",
+        "title": "Taking stock of criminal profiling: a narrative review and meta-analysis",
+        "journal": "Criminal Justice and Behavior",
+        "url": "https://doi.org/10.1177/0093854806296925"
+      },
+      {
+        "authors": "Canter D. V., Alison L. J., Alison E. & Wentink N.",
+        "year": "2004",
+        "title": "The organized/disorganized typology of serial murder: myth or model?",
+        "journal": "Psychology, Public Policy, and Law",
+        "url": "https://doi.org/10.1037/1076-8971.10.3.293"
+      },
+      {
+        "authors": "Alison L., Smith M. D. & Morgan K.",
+        "year": "2003",
+        "title": "Interpreting the accuracy of offender profiles",
+        "journal": "Psychology, Crime & Law",
+        "url": "https://doi.org/10.1080/1068316031000116274"
+      },
+      {
+        "authors": "Meissner C. A. et al.",
+        "year": "2014",
+        "title": "Accusatorial and information-gathering interrogation methods and their effects on true and false confessions: a meta-analytic review",
+        "journal": "Journal of Experimental Criminology",
+        "url": "https://doi.org/10.1007/s11292-014-9207-6"
+      },
+      {
+        "authors": "Canter D.",
+        "year": "2004",
+        "title": "Offender profiling and investigative psychology",
+        "journal": "Journal of Investigative Psychology and Offender Profiling",
+        "url": "https://doi.org/10.1002/jip.7"
+      }
+    ],
+    "articles_lies": [
+      "biais-cognitifs-7-pieges-du-cerveau"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
     "type": "article",
