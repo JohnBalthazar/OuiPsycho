@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seriez-vous un bon profiler ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/profiler-mythe-realite-psychologie-criminelle/">
+  <meta name="description" content="8 scènes d'enquête pour découvrir votre style de raisonnement : intuitif, méthodique, clinicien ou sceptique. Quel enquêteur sommeille en vous ?">
+  <style>
+    :root{
+      --ink:#1a1d24;
+      --paper:#f4f1ea;
+      --card:#ffffff;
+      --accent:#8b1e2d;
+      --accent-dark:#5e1420;
+      --steel:#31405a;
+      --muted:#6b7280;
+      --line:#d8d2c4;
+    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:Georgia,'Times New Roman',serif;
+      background:var(--paper);
+      color:var(--ink);
+      padding:20px 14px;
+      line-height:1.55;
+    }
+    .dossier{
+      max-width:640px;margin:0 auto;background:var(--card);
+      border:1px solid var(--line);border-radius:12px;
+      box-shadow:0 4px 18px rgba(26,29,36,.08);
+      overflow:hidden;
+    }
+    .tampon{
+      background:var(--steel);color:#fff;padding:18px 22px;
+      display:flex;align-items:center;gap:12px;
+    }
+    .tampon .badge{font-size:1.7rem;}
+    .tampon h1{font-size:1.15rem;letter-spacing:.4px;font-weight:700;}
+    .tampon p{font-size:.8rem;opacity:.75;font-family:Arial,Helvetica,sans-serif;}
+    .zone{padding:22px;}
+    .intro p{margin-bottom:14px;font-size:.98rem;}
+    .confidentiel{
+      display:inline-block;font-family:Arial,Helvetica,sans-serif;font-weight:700;
+      color:var(--accent);border:2px solid var(--accent);border-radius:4px;
+      padding:2px 10px;font-size:.75rem;letter-spacing:2px;transform:rotate(-2deg);
+      margin-bottom:14px;
+    }
+    button.principal{
+      font-family:Arial,Helvetica,sans-serif;
+      background:var(--accent);color:#fff;border:none;border-radius:8px;
+      padding:13px 26px;font-size:1rem;font-weight:700;cursor:pointer;
+      transition:background .15s;
+    }
+    button.principal:hover{background:var(--accent-dark);}
+    .progression{
+      font-family:Arial,Helvetica,sans-serif;font-size:.78rem;color:var(--muted);
+      margin-bottom:6px;letter-spacing:.5px;
+    }
+    .barre{height:5px;background:var(--line);border-radius:3px;margin-bottom:18px;overflow:hidden;}
+    .barre span{display:block;height:100%;background:var(--accent);border-radius:3px;transition:width .25s;}
+    .q-titre{font-size:1.06rem;font-weight:700;margin-bottom:16px;}
+    .rep{
+      display:block;width:100%;text-align:left;
+      font-family:Georgia,serif;font-size:.95rem;color:var(--ink);
+      background:#faf8f3;border:1px solid var(--line);border-radius:8px;
+      padding:12px 14px;margin-bottom:10px;cursor:pointer;
+      transition:border-color .15s,background .15s;
+    }
+    .rep:hover{border-color:var(--accent);background:#fff;}
+    .resultat h2{font-size:1.25rem;margin-bottom:4px;color:var(--steel);}
+    .resultat .sous{font-family:Arial,Helvetica,sans-serif;font-size:.8rem;color:var(--muted);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;}
+    .resultat p{margin-bottom:12px;font-size:.96rem;}
+    .encart{
+      background:#faf8f3;border-left:4px solid var(--steel);
+      padding:12px 14px;border-radius:0 8px 8px 0;margin:16px 0;font-size:.92rem;
+    }
+    .partage{margin:18px 0 6px;display:flex;flex-wrap:wrap;gap:10px;}
+    .partage a{
+      font-family:Arial,Helvetica,sans-serif;font-size:.85rem;text-decoration:none;
+      color:var(--steel);border:1px solid var(--line);border-radius:20px;
+      padding:8px 14px;background:#fff;transition:border-color .15s;
+    }
+    .partage a:hover{border-color:var(--steel);}
+    .disclaimer{
+      margin-top:18px;padding:12px 14px;background:#fdf6ec;
+      border:1px solid #e8d9bd;border-radius:8px;
+      font-size:.82rem;font-family:Arial,Helvetica,sans-serif;color:#5b4a2e;
+    }
+    .recommencer{
+      margin-top:16px;background:none;border:1px solid var(--line);
+      color:var(--muted);border-radius:8px;padding:10px 18px;cursor:pointer;
+      font-family:Arial,Helvetica,sans-serif;font-size:.85rem;
+    }
+    .recommencer:hover{border-color:var(--muted);}
+    .cache{display:none;}
+  </style>
+</head>
+<body>
+<div class="dossier">
+  <div class="tampon">
+    <span class="badge">🕵️</span>
+    <div>
+      <h1>Seriez-vous un bon profiler ?</h1>
+      <p>Dossier n° 2026-OP · Unité d'analyse comportementale Oui Psycho!</p>
+    </div>
+  </div>
+
+  <div class="zone" id="ecran-intro">
+    <div class="intro">
+      <span class="confidentiel">CONFIDENTIEL</span>
+      <p>Huit situations d'enquête. Pas de bonne réponse, pas de piège — juste votre façon de raisonner face à un dossier qui résiste.</p>
+      <p>À la clé : votre style d'enquêteur, ses forces… et le biais qui vous perdra si vous ne le surveillez pas.</p>
+      <button class="principal" onclick="demarrer()">Ouvrir le dossier</button>
+    </div>
+  </div>
+
+  <div class="zone cache" id="ecran-quiz">
+    <div class="progression" id="prog-texte"></div>
+    <div class="barre"><span id="prog-barre" style="width:0%"></span></div>
+    <div class="q-titre" id="q-titre"></div>
+    <div id="q-reponses"></div>
+  </div>
+
+  <div class="zone cache" id="ecran-resultat"></div>
+</div>
+
+<script>
+  var PROFILS = {
+    intuitif: {
+      titre: "L'Intuitif — profil « série télé »",
+      emoji: "🔮",
+      texte: "Vous sentez les choses avant de pouvoir les expliquer. Votre cerveau adore générer des hypothèses, relier des indices, raconter l'histoire du dossier. C'est une vraie force créative — c'est comme ça que naissent les pistes. Mais la recherche est formelle : l'intuition est excellente pour PROPOSER des hypothèses, et catastrophique pour les VALIDER. Votre ennemi juré s'appelle le biais de confirmation : une fois votre scénario en tête, tout semble le confirmer.",
+      conseil: "Votre exercice d'entraînement : pour chaque conviction forte, cherchez activement UN élément qui la contredit. Le jour où vous saurez tuer vos plus belles théories, vous serez redoutable."
+    },
+    methodique: {
+      titre: "Le Méthodique — profil « psychologie d'enquête »",
+      emoji: "📊",
+      texte: "Données, recoupements, vérifications : vous êtes l'incarnation de ce qui fonctionne réellement dans les enquêtes modernes. Là où d'autres « sentent », vous comptez. Votre raisonnement en probabilités vous protège des conclusions hâtives, et votre patience fait de vous la personne qui trouve le détail que tout le monde a raté. Votre risque : la paralysie de l'analyse — attendre la donnée parfaite pendant que le dossier refroidit — et une légère surdité aux signaux humains qui ne rentrent pas dans un tableau.",
+      conseil: "Votre exercice d'entraînement : autorisez-vous une hypothèse « non prouvée mais plausible » par dossier. Les statistiques priorisent les pistes ; elles n'en créent pas."
+    },
+    clinicien: {
+      titre: "Le Clinicien — profil « empathie stratégique »",
+      emoji: "🫀",
+      texte: "Votre instrument de travail, c'est l'humain. Vous captez les états émotionnels, les incohérences de discours, les non-dits — et c'est précisément la compétence que la recherche valide dans les auditions : l'écoute et le lien obtiennent plus d'informations fiables que la pression. Vous seriez excellent en entretien. Votre zone de risque : la surinterprétation. À force de lire entre les lignes, on finit par y écrire soi-même — et l'empathie mal calibrée peut se faire manipuler par un bon menteur.",
+      conseil: "Votre exercice d'entraînement : séparez toujours observation (« il a détourné le regard ») et interprétation (« il ment »). La première est un fait, la seconde une hypothèse parmi d'autres."
+    },
+    sceptique: {
+      titre: "Le Sceptique — profil « contre-expertise »",
+      emoji: "🧐",
+      texte: "Votre premier réflexe devant une théorie séduisante : chercher la faille. Vous êtes la personne qui demande « et si on se trompait ? » — le rôle le plus impopulaire et le plus précieux d'une équipe d'enquête. L'humilité épistémique, que la littérature décrit comme la compétence la plus rare des enquêteurs, vous l'avez de série. Vos risques : le doute qui n'atterrit jamais (à force de tout déconstruire, on ne conclut rien) et une réputation de rabat-joie qui peut vous couper des informations informelles.",
+      conseil: "Votre exercice d'entraînement : fixez-vous une échéance de décision. Douter est une méthode, pas une destination — à un moment, il faut prioriser une piste, même imparfaite."
+    }
+  };
+
+  var QUESTIONS = [
+    {
+      q: "On vous confie un dossier non résolu depuis trois ans. Votre premier geste ?",
+      r: [
+        {t: "Relire tout le dossier de zéro en notant ce qui cloche dans l'enquête initiale", p: "sceptique"},
+        {t: "Étaler les pièces et laisser une impression d'ensemble se former", p: "intuitif"},
+        {t: "Construire un tableau chronologique croisant faits, lieux et témoins", p: "methodique"},
+        {t: "Réécouter les auditions pour entendre comment les gens parlent, pas seulement ce qu'ils disent", p: "clinicien"}
+      ]
+    },
+    {
+      q: "Un témoin est certain à 100 % de ce qu'il a vu. Votre réaction intérieure ?",
+      r: [
+        {t: "« La certitude d'un témoin ne dit rien de sa fiabilité — vérifions. »", p: "sceptique"},
+        {t: "« Qu'est-ce qui, dans son histoire à lui, rend ce souvenir si important ? »", p: "clinicien"},
+        {t: "« Comparons sa version aux données objectives : téléphonie, caméras, horaires. »", p: "methodique"},
+        {t: "« Quelque chose dans son récit sonne juste — ou faux. Je le sens vite. »", p: "intuitif"}
+      ]
+    },
+    {
+      q: "Deux affaires se ressemblent étrangement. Comment décidez-vous si elles sont liées ?",
+      r: [
+        {t: "Je liste les points communs et les différences, pondérés par leur rareté statistique", p: "methodique"},
+        {t: "Je me méfie : notre cerveau adore voir des motifs là où il n'y a que du hasard", p: "sceptique"},
+        {t: "La « signature » émotionnelle des deux scènes me parle plus que les détails matériels", p: "intuitif"},
+        {t: "Je cherche ce que les deux situations révèlent des besoins psychologiques de l'auteur", p: "clinicien"}
+      ]
+    },
+    {
+      q: "En audition, la personne en face de vous se ferme complètement. Vous…",
+      r: [
+        {t: "Changez de sujet, baissez la pression, reconstruisez le lien avant de revenir aux faits", p: "clinicien"},
+        {t: "Présentez calmement un élément matériel et observez ce que ça déclenche", p: "methodique"},
+        {t: "Vous demandez si votre propre approche n'a pas créé ce blocage", p: "sceptique"},
+        {t: "Suivez votre instinct : cette fermeture soudaine arrive juste après LA question sensible", p: "intuitif"}
+      ]
+    },
+    {
+      q: "Votre hypothèse favorite vient d'être contredite par un fait solide. Honnêtement ?",
+      r: [
+        {t: "Excellente nouvelle : un scénario éliminé, c'est de la clarté gagnée", p: "sceptique"},
+        {t: "Je mets à jour mon tableau et je recalcule quelles pistes deviennent prioritaires", p: "methodique"},
+        {t: "Ça pique un peu — cette théorie était élégante — mais l'intuition suivante arrive déjà", p: "intuitif"},
+        {t: "Je m'interroge : pourquoi tenais-je autant à cette version ? Qu'est-ce qu'elle m'arrangeait ?", p: "clinicien"}
+      ]
+    },
+    {
+      q: "Un collègue arrive avec « le profil parfait » du suspect, très détaillé et très convaincant. Vous pensez…",
+      r: [
+        {t: "« Détaillé et convaincant, c'est exactement le problème : effet Barnum, quelqu'un ? »", p: "sceptique"},
+        {t: "« Intéressant — voyons combien de suspects du fichier collent aussi à ce portrait »", p: "methodique"},
+        {t: "« Ce profil en dit peut-être plus long sur mon collègue que sur le suspect »", p: "clinicien"},
+        {t: "« Il y a un truc dans ce profil qui résonne avec le dossier. Creusons. »", p: "intuitif"}
+      ]
+    },
+    {
+      q: "Dans la vie quotidienne, on vous décrit plutôt comme quelqu'un qui…",
+      r: [
+        {t: "Devine l'humeur des gens avant qu'ils aient dit un mot", p: "clinicien"},
+        {t: "A souvent des pressentiments — et le fait remarquer quand ils se réalisent", p: "intuitif"},
+        {t: "Vérifie une information avant de la partager, même venant d'un proche", p: "sceptique"},
+        {t: "Planifie, liste, organise — et retrouve tout, tout le temps", p: "methodique"}
+      ]
+    },
+    {
+      q: "Le dossier est bouclé, coupable confondu. Qu'est-ce qui vous satisfait le plus ?",
+      r: [
+        {t: "Le moment où la personne a enfin pu dire la vérité — et pourquoi elle la retenait", p: "clinicien"},
+        {t: "La chaîne de preuves, propre, vérifiable, sans maillon faible", p: "methodique"},
+        {t: "Avoir eu raison de douter de la piste « évidente » du départ", p: "sceptique"},
+        {t: "Cette première impression, au tout début, qui pointait déjà dans la bonne direction", p: "intuitif"}
+      ]
+    }
+  ];
+
+  var index = 0;
+  var votes = {intuitif:0, methodique:0, clinicien:0, sceptique:0};
+  var ordreProfils = ["intuitif","methodique","clinicien","sceptique"];
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function melanger(tab){
+    var a = tab.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+    }
+    return a;
+  }
+
+  function demarrer(){
+    index = 0;
+    votes = {intuitif:0, methodique:0, clinicien:0, sceptique:0};
+    document.getElementById('ecran-intro').classList.add('cache');
+    document.getElementById('ecran-resultat').classList.add('cache');
+    document.getElementById('ecran-quiz').classList.remove('cache');
+    afficherQuestion();
+  }
+
+  function afficherQuestion(){
+    var q = QUESTIONS[index];
+    document.getElementById('prog-texte').textContent = 'Pièce ' + (index+1) + ' / ' + QUESTIONS.length;
+    document.getElementById('prog-barre').style.width = Math.round(index / QUESTIONS.length * 100) + '%';
+    document.getElementById('q-titre').textContent = q.q;
+    var zone = document.getElementById('q-reponses');
+    zone.innerHTML = '';
+    melanger(q.r).forEach(function(rep){
+      var b = document.createElement('button');
+      b.className = 'rep';
+      b.textContent = rep.t;
+      b.onclick = function(){ repondre(rep.p); };
+      zone.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function repondre(profil){
+    votes[profil]++;
+    index++;
+    if (index < QUESTIONS.length) {
+      afficherQuestion();
+    } else {
+      afficherResultat();
+    }
+  }
+
+  function afficherResultat(){
+    var meilleur = ordreProfils[0];
+    ordreProfils.forEach(function(p){ if (votes[p] > votes[meilleur]) meilleur = p; });
+    var pr = PROFILS[meilleur];
+
+    var url = 'https://ouipsycho.fr/articles/profiler-mythe-realite-psychologie-criminelle/';
+    var texte = 'Mon style d\'enquêteur : ' + pr.titre + ' — et vous, seriez-vous un bon profiler ?';
+    var encodedUrl = encodeURIComponent(url);
+    var encodedText = encodeURIComponent(texte);
+    var encodedTextUrl = encodeURIComponent(texte + ' ' + url);
+
+    var html = ''
+      + '<div class="resultat">'
+      + '<div class="sous">Rapport d\'évaluation — dossier clos</div>'
+      + '<h2>' + pr.emoji + ' ' + pr.titre + '</h2>'
+      + '<p>' + pr.texte + '</p>'
+      + '<div class="encart">💡 ' + pr.conseil + '</div>'
+      + '<p style="font-size:.88rem;color:var(--muted);">Petit rappel d\'honnêteté scientifique : ce quiz explore votre style de raisonnement, pas une aptitude professionnelle réelle — les vrais métiers de l\'enquête reposent sur des années de formation (et beaucoup moins de musique dramatique).</p>'
+      + '<div class="partage">'
+      + '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '" target="_blank" rel="noopener">👍 Facebook</a>'
+      + '<a href="https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>'
+      + '<a href="https://wa.me/?text=' + encodedTextUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>'
+      + '</div>'
+      + '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>'
+      + '<button class="recommencer" onclick="demarrer()">↺ Rouvrir le dossier</button>'
+      + '</div>';
+
+    document.getElementById('ecran-quiz').classList.add('cache');
+    var res = document.getElementById('ecran-resultat');
+    res.innerHTML = html;
+    res.classList.remove('cache');
+    notifyResize();
+  }
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
