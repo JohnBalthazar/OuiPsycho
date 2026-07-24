@@ -28,11 +28,12 @@
   {
     "id": "leonard-de-vinci-sur-le-divan",
     "title": "Léonard de Vinci sur le divan : psychologie d'un génie",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Curiosité insatiable, carnets écrits à l'envers, chefs-d'œuvre abandonnés en série : que dirait la psychologie moderne du plus célèbre des génies ? Freud a ouvert le dossier en 1910 — les neurosciences l'ont rouvert en 2019.",
     "date": "2027-05-12",
-    "date_modified": "2027-05-12",
+    "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/iouyl1ig9momp1yqgthc",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -46,7 +47,7 @@
       "psychobiographie",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "TDAH possible, ouverture à l'expérience extrême, procrastination créative : ce que la psychologie et les neurosciences disent du génie de Léonard de Vinci.",
     "articles_lies": [],
     "status": "scheduled"
   },
