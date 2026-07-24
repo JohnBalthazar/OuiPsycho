@@ -2,11 +2,12 @@
   {
     "id": "shrek-sur-le-divan",
     "title": "Shrek sur le divan : psychologie d'un ogre des marais",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Pancartes de menace, solitude revendiquée et métaphore de l'oignon : derrière l'ogre grognon se cache un cas d'école de sensibilité au rejet et d'attachement évitant. Consultation au bord du marais.",
     "date": "2027-05-19",
-    "date_modified": "2027-05-19",
+    "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/res0lxrnwbcuo5e30rpi",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -20,7 +21,7 @@
       "estime-de-soi",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "",
+    "metaDescription": "Sensibilité au rejet, attachement évitant, honte internalisée : ce que la psychologie dit vraiment de Shrek, de Fiona et de la métaphore de l'oignon.",
     "articles_lies": [],
     "status": "scheduled"
   },
