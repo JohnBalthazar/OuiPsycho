@@ -4,10 +4,8 @@
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
     "type": "article",
     "excerpt": "Projets abandonnés, formations inachevées, enthousiasmes qui retombent : simple procrastination ou signe d'un TDAH adulte ? Ce que dit la science — et comment finir plus souvent.",
-    "metaDescription": "Vous commencez tout sans jamais finir ? Entre procrastination ordinaire et TDAH adulte, découvrez ce que dit la psychologie et comment en sortir.",
-    "author": "John Balthazar",
-    "date": "2028-05-25",
-    "date_modified": "2028-05-25",
+    "date": "2027-05-21",
+    "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "",
     "imagePosition": "50% 50%",
@@ -15,6 +13,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "tdah",
       "tdah-adulte",
@@ -22,62 +21,7 @@
       "fonctions-executives",
       "motivation"
     ],
-    "sources": [
-      {
-        "authors": "Haute Autorité de santé",
-        "year": "2024",
-        "title": "Trouble déficit de l'attention avec ou sans hyperactivité (TDAH) chez l'adulte : repérage, diagnostic et prise en charge — recommandation de bonne pratique",
-        "publisher": "HAS"
-      },
-      {
-        "authors": "Barkley R. A.",
-        "year": "1997",
-        "title": "Behavioral inhibition, sustained attention, and executive functions: constructing a unifying theory of ADHD",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.121.1.65"
-      },
-      {
-        "authors": "Faraone S. V. et al.",
-        "year": "2021",
-        "title": "The World Federation of ADHD International Consensus Statement: 208 evidence-based conclusions about the disorder",
-        "journal": "Neuroscience & Biobehavioral Reviews",
-        "url": "https://doi.org/10.1016/j.neubiorev.2021.01.022"
-      },
-      {
-        "authors": "Volkow N. D. et al.",
-        "year": "2009",
-        "title": "Evaluating dopamine reward pathway in ADHD: clinical implications",
-        "journal": "JAMA",
-        "url": "https://doi.org/10.1001/jama.2009.1308"
-      },
-      {
-        "authors": "Gollwitzer P. M. & Sheeran P.",
-        "year": "2006",
-        "title": "Implementation intentions and goal achievement: a meta-analysis of effects and processes",
-        "journal": "Advances in Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/S0065-2601(06)38002-1"
-      },
-      {
-        "authors": "Steel P.",
-        "year": "2007",
-        "title": "The nature of procrastination: a meta-analytic and theoretical review of quintessential self-regulatory failure",
-        "journal": "Psychological Bulletin",
-        "url": "https://doi.org/10.1037/0033-2909.133.1.65"
-      },
-      {
-        "authors": "Kappes H. B. & Oettingen G.",
-        "year": "2011",
-        "title": "Positive fantasies about idealized futures sap energy",
-        "journal": "Journal of Experimental Social Psychology",
-        "url": "https://doi.org/10.1016/j.jesp.2011.02.003"
-      },
-      {
-        "authors": "Bange F.",
-        "year": "2014",
-        "title": "TDA/H, Trouble Déficit de l'Attention/Hyperactivité chez l'adulte",
-        "publisher": "Dunod"
-      }
-    ],
+    "metaDescription": "Vous commencez tout sans jamais finir ? Entre procrastination ordinaire et TDAH adulte, découvrez ce que dit la psychologie et comment en sortir.",
     "articles_lies": [],
     "status": "scheduled"
   },
