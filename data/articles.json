@@ -184,11 +184,12 @@
   {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Arrogant, lâche, insupportable ? Trop facile. Derrière le rictus de Draco Malfoy se cache un adolescent broyé entre l'héritage familial et sa propre conscience. Séance d'analyse pour le plus célèbre des Serpentard.",
     "date": "2027-04-20",
-    "date_modified": "2027-04-20",
+    "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ovszgeelcn1rbcrfwp9j",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -202,7 +203,7 @@
       "adolescence",
       "pression-familiale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Mépris de façade, loyautés toxiques et rédemption : plongée dans la psychologie de Draco Malfoy, entre pression familiale et quête d'identité.",
     "articles_lies": [],
     "status": "scheduled"
   },
