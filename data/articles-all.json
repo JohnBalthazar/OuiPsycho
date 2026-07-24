@@ -78,6 +78,80 @@
     "status": "scheduled"
   },
   {
+    "id": "depression-a-change-ma-vie",
+    "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
+    "type": "article",
+    "excerpt": "Certaines personnes affirment que leur dépression a transformé leur existence. Ni pensée positive ni déni : ce paradoxe porte un nom en psychologie. Décryptage, témoignages et mises en garde.",
+    "metaDescription": "Définition de la dépression, témoignages et croissance post-traumatique : pourquoi certains disent que leur épisode dépressif a changé leur vie.",
+    "author": "John Balthazar",
+    "date": "2027-05-06",
+    "date_modified": "2027-05-06",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "depression",
+      "croissance-post-traumatique",
+      "temoignages",
+      "resilience",
+      "sante-mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Inserm",
+        "year": "2023",
+        "title": "Dépression — Mieux la comprendre pour la guérir durablement",
+        "journal": "Dossiers d'information Inserm",
+        "url": "https://www.inserm.fr/dossier/depression/"
+      },
+      {
+        "authors": "Haute Autorité de Santé",
+        "year": "2017",
+        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en premier recours",
+        "journal": "Recommandation de bonne pratique, HAS"
+      },
+      {
+        "authors": "Santé publique France",
+        "year": "2021",
+        "title": "Prévalence de l'épisode dépressif caractérisé chez les adultes en France : résultats du Baromètre santé",
+        "journal": "Bulletin épidémiologique hebdomadaire (BEH)"
+      },
+      {
+        "authors": "Tedeschi R. G. & Calhoun L. G.",
+        "year": "2004",
+        "title": "Posttraumatic Growth: Conceptual Foundations and Empirical Evidence",
+        "journal": "Psychological Inquiry",
+        "url": "https://doi.org/10.1207/s15327965pli1501_01"
+      },
+      {
+        "authors": "Jayawickreme E. & Blackie L. E. R.",
+        "year": "2014",
+        "title": "Post-traumatic Growth as Positive Personality Change: Evidence, Controversies and Future Directions",
+        "journal": "European Journal of Personality",
+        "url": "https://doi.org/10.1002/per.1963"
+      },
+      {
+        "authors": "Teasdale J. D., Segal Z. V., Williams J. M. G. et al.",
+        "year": "2000",
+        "title": "Prevention of Relapse/Recurrence in Major Depression by Mindfulness-Based Cognitive Therapy",
+        "journal": "Journal of Consulting and Clinical Psychology",
+        "url": "https://doi.org/10.1037/0022-006X.68.4.615"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "le-diable-sur-le-divan",
     "title": "Le diable sur le divan : psychologie d'un ange déchu",
     "type": "article",
