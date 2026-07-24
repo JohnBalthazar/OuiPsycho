@@ -260,11 +260,12 @@
   {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Deux mille ans de projections, quatre phrases dans les Évangiles. De la Mater Dolorosa à la madone d'Instagram, que dit la Vierge Marie de l'image des femmes aujourd'hui ? Séance d'analyse d'une icône — auréole comprise.",
     "date": "2027-04-13",
-    "date_modified": "2027-04-13",
+    "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kilqufbbhnnjbtww9viv",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -278,7 +279,7 @@
       "feminisme",
       "icones-culturelles"
     ],
-    "metaDescription": "",
+    "metaDescription": "De la Vierge Marie à la mère parfaite d'Instagram : comment une icône vieille de 2000 ans façonne encore l'image des femmes. Analyse psy et quiz.",
     "articles_lies": [],
     "status": "scheduled"
   },
