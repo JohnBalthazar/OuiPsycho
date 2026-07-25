@@ -2,19 +2,18 @@
   {
     "id": "psychose-definition-symptomes-traitements",
     "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
-    "type": "article",
-    "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et soignable. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
-    "metaDescription": "Qu'est-ce que la psychose ? Définition clinique, symptômes, approche psychodynamique, recherches récentes, traitements et voies de rétablissement.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-06-03",
     "date_modified": "2027-06-03",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 10,
+    "author": "John Balthazar",
     "tags": [
       "psychose",
       "schizophrenie",
@@ -22,61 +21,7 @@
       "delire",
       "retablissement"
     ],
-    "sources": [
-      {
-        "authors": "van Os J., Linscott R. J., Myin-Germeys I., Delespaul P. & Krabbendam L.",
-        "year": "2009",
-        "title": "A systematic review and meta-analysis of the psychosis continuum: evidence for a psychosis proneness-persistence-impairment model of psychotic disorder",
-        "journal": "Psychological Medicine",
-        "url": "https://doi.org/10.1017/S0033291708003814"
-      },
-      {
-        "authors": "Howes O. D. & Kapur S.",
-        "year": "2009",
-        "title": "The dopamine hypothesis of schizophrenia: version III — the final common pathway",
-        "journal": "Schizophrenia Bulletin",
-        "url": "https://doi.org/10.1093/schbul/sbp006"
-      },
-      {
-        "authors": "Kapur S.",
-        "year": "2003",
-        "title": "Psychosis as a state of aberrant salience: a framework linking biology, phenomenology, and pharmacology in schizophrenia",
-        "journal": "American Journal of Psychiatry",
-        "url": "https://doi.org/10.1176/appi.ajp.160.1.13"
-      },
-      {
-        "authors": "Correll C. U. et al.",
-        "year": "2018",
-        "title": "Comparison of early intervention services vs treatment as usual for early-phase psychosis: a systematic review, meta-analysis, and meta-regression",
-        "journal": "JAMA Psychiatry",
-        "url": "https://doi.org/10.1001/jamapsychiatry.2018.0623"
-      },
-      {
-        "authors": "Marshall M. et al.",
-        "year": "2005",
-        "title": "Association between duration of untreated psychosis and outcome in cohorts of first-episode patients: a systematic review",
-        "journal": "Archives of General Psychiatry",
-        "url": "https://doi.org/10.1001/archpsyc.62.9.975"
-      },
-      {
-        "authors": "Freud S.",
-        "year": "1924",
-        "title": "La perte de la réalité dans la névrose et la psychose",
-        "publisher": "PUF (éd. française)"
-      },
-      {
-        "authors": "Guelfi J.-D. & Rouillon F.",
-        "year": "2017",
-        "title": "Manuel de psychiatrie",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Franck N.",
-        "year": "2018",
-        "title": "Traité de réhabilitation psychosociale",
-        "publisher": "Elsevier Masson"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "paranoia-definition-symptomes-traitements"
     ],
@@ -85,19 +30,18 @@
   {
     "id": "traits-personnalite-presidents",
     "title": "Psychologie des présidents : les 5 traits de personnalité de tous les chefs d'État",
-    "type": "article",
-    "excerpt": "Extraversion hors norme, sang-froid, ego bien nourri… Que trouve-t-on quand on allonge un président sur le divan ? La science a un portrait-robot, et il est étonnamment cohérent.",
-    "metaDescription": "Narcissisme, sang-froid, machiavélisme : découvrez les 5 traits de personnalité que la psychologie retrouve chez les présidents et chefs d'État. Quiz inclus !",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-28",
     "date_modified": "2027-05-28",
     "category": "Société & psychologie politique",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "psychologie-politique",
       "personnalite",
@@ -105,59 +49,25 @@
       "narcissisme",
       "big-five"
     ],
-    "sources": [
-      {
-        "authors": "Rubenzer S. J. & Faschingbauer T. R.",
-        "year": "2004",
-        "title": "Personality, Character, and Leadership in the White House: Psychologists Assess the Presidents",
-        "publisher": "Brassey's Inc."
-      },
-      {
-        "authors": "Watts A. L., Lilienfeld S. O., Smith S. F. et al.",
-        "year": "2013",
-        "title": "The double-edged sword of grandiose narcissism: Implications for successful and unsuccessful leadership among U.S. presidents",
-        "journal": "Psychological Science",
-        "url": "https://doi.org/10.1177/0956797613491970"
-      },
-      {
-        "authors": "Simonton D. K.",
-        "year": "2006",
-        "title": "Presidential IQ, Openness, Intellectual Brilliance, and Leadership",
-        "journal": "Political Psychology",
-        "url": "https://doi.org/10.1111/j.1467-9221.2006.00524.x"
-      },
-      {
-        "authors": "Deluga R. J.",
-        "year": "2001",
-        "title": "American presidential Machiavellianism: Implications for charismatic leadership and rated performance",
-        "journal": "The Leadership Quarterly"
-      },
-      {
-        "authors": "de Sutter P.",
-        "year": "2007",
-        "title": "Ces fous qui nous gouvernent : comment la psychologie permet de comprendre les hommes politiques",
-        "publisher": "Les Arènes"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "profiler-mythe-realite-psychologie-criminelle",
     "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
-    "type": "article",
-    "excerpt": "Le profiler qui « lit » les tueurs en trois regards est un mythe télévisuel. La science raconte une autre histoire : moins de génie, plus de statistiques — et c'est passionnant.",
-    "metaDescription": "Que font vraiment les profilers ? Entre mythe télévisé et psychologie d'enquête scientifique, découvrez les vrais secrets du profilage criminel.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-27",
     "date_modified": "2027-05-27",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "profiler",
       "psychologie-criminelle",
@@ -165,50 +75,7 @@
       "criminologie",
       "psychologie-d-enquete"
     ],
-    "sources": [
-      {
-        "authors": "Snook B., Cullen R. M., Bennell C., Taylor P. J. & Gendreau P.",
-        "year": "2008",
-        "title": "The criminal profiling illusion: what's behind the smoke and mirrors?",
-        "journal": "Criminal Justice and Behavior",
-        "url": "https://doi.org/10.1177/0093854808321528"
-      },
-      {
-        "authors": "Snook B., Eastwood J., Gendreau P., Goggin C. & Cullen R. M.",
-        "year": "2007",
-        "title": "Taking stock of criminal profiling: a narrative review and meta-analysis",
-        "journal": "Criminal Justice and Behavior",
-        "url": "https://doi.org/10.1177/0093854806296925"
-      },
-      {
-        "authors": "Canter D. V., Alison L. J., Alison E. & Wentink N.",
-        "year": "2004",
-        "title": "The organized/disorganized typology of serial murder: myth or model?",
-        "journal": "Psychology, Public Policy, and Law",
-        "url": "https://doi.org/10.1037/1076-8971.10.3.293"
-      },
-      {
-        "authors": "Alison L., Smith M. D. & Morgan K.",
-        "year": "2003",
-        "title": "Interpreting the accuracy of offender profiles",
-        "journal": "Psychology, Crime & Law",
-        "url": "https://doi.org/10.1080/1068316031000116274"
-      },
-      {
-        "authors": "Meissner C. A. et al.",
-        "year": "2014",
-        "title": "Accusatorial and information-gathering interrogation methods and their effects on true and false confessions: a meta-analytic review",
-        "journal": "Journal of Experimental Criminology",
-        "url": "https://doi.org/10.1007/s11292-014-9207-6"
-      },
-      {
-        "authors": "Canter D.",
-        "year": "2004",
-        "title": "Offender profiling and investigative psychology",
-        "journal": "Journal of Investigative Psychology and Offender Profiling",
-        "url": "https://doi.org/10.1002/jip.7"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "biais-cognitifs-7-pieges-du-cerveau"
     ],
@@ -217,12 +84,12 @@
   {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
-    "type": "article",
-    "excerpt": "Projets abandonnés, formations inachevées, enthousiasmes qui retombent : simple procrastination ou signe d'un TDAH adulte ? Ce que dit la science — et comment finir plus souvent.",
+    "excerpt": "",
     "date": "2027-05-21",
     "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -236,19 +103,19 @@
       "fonctions-executives",
       "motivation"
     ],
-    "metaDescription": "Vous commencez tout sans jamais finir ? Entre procrastination ordinaire et TDAH adulte, découvrez ce que dit la psychologie et comment en sortir.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "paranoia-definition-symptomes-traitements",
     "title": "Paranoïa : définition, symptômes et traitements d'un trouble mal compris",
-    "type": "article",
-    "excerpt": "Loin des clichés du cinéma, la paranoïa est un fonctionnement psychique précis, douloureux et soignable. Définition, symptômes, lecture psychodynamique, recherches récentes et pistes de rétablissement.",
+    "excerpt": "",
     "date": "2027-05-20",
     "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -262,19 +129,19 @@
       "psychose",
       "mefiance"
     ],
-    "metaDescription": "Qu'est-ce que la paranoïa ? Définition clinique, symptômes, approche psychodynamique, recherches récentes et traitements d'un trouble souvent caricaturé.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "shrek-sur-le-divan",
     "title": "Shrek sur le divan : psychologie d'un ogre des marais",
-    "type": "article",
-    "excerpt": "Pancartes de menace, solitude revendiquée et métaphore de l'oignon : derrière l'ogre grognon se cache un cas d'école de sensibilité au rejet et d'attachement évitant. Consultation au bord du marais.",
+    "excerpt": "",
     "date": "2027-05-18",
     "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/res0lxrnwbcuo5e30rpi",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -288,26 +155,25 @@
       "estime-de-soi",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "Sensibilité au rejet, attachement évitant, honte internalisée : ce que la psychologie dit vraiment de Shrek, de Fiona et de la métaphore de l'oignon.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "biais-cognitifs-7-pieges-du-cerveau",
     "title": "Biais cognitifs : les 7 pièges que votre cerveau vous tend chaque jour",
-    "type": "article",
-    "excerpt": "Confirmation, ancrage, aversion à la perte… Votre cerveau prend des raccourcis en permanence. Voici les sept biais cognitifs les plus fréquents, et comment ralentir au bon moment.",
-    "metaDescription": "Confirmation, ancrage, disponibilité, négativité : découvrez les 7 biais cognitifs qui faussent vos décisions chaque jour et comment y résister.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-14",
     "date_modified": "2027-05-14",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "biais-cognitifs",
       "prise-de-decision",
@@ -315,81 +181,19 @@
       "raisonnement",
       "developpement-personnel"
     ],
-    "sources": [
-      {
-        "authors": "Tversky A. & Kahneman D.",
-        "year": "1974",
-        "title": "Judgment under uncertainty: heuristics and biases",
-        "journal": "Science",
-        "url": "https://doi.org/10.1126/science.185.4157.1124"
-      },
-      {
-        "authors": "Kahneman D. & Tversky A.",
-        "year": "1979",
-        "title": "Prospect theory: an analysis of decision under risk",
-        "journal": "Econometrica",
-        "url": "https://doi.org/10.2307/1914185"
-      },
-      {
-        "authors": "Wason P. C.",
-        "year": "1960",
-        "title": "On the failure to eliminate hypotheses in a conceptual task",
-        "journal": "Quarterly Journal of Experimental Psychology",
-        "url": "https://doi.org/10.1080/17470216008416717"
-      },
-      {
-        "authors": "Nickerson R. S.",
-        "year": "1998",
-        "title": "Confirmation bias: a ubiquitous phenomenon in many guises",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.2.2.175"
-      },
-      {
-        "authors": "Kruger J. & Dunning D.",
-        "year": "1999",
-        "title": "Unskilled and unaware of it: how difficulties in recognizing one's own incompetence lead to inflated self-assessments",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.77.6.1121"
-      },
-      {
-        "authors": "Baumeister R. F., Bratslavsky E., Finkenauer C. & Vohs K. D.",
-        "year": "2001",
-        "title": "Bad is stronger than good",
-        "journal": "Review of General Psychology",
-        "url": "https://doi.org/10.1037/1089-2680.5.4.323"
-      },
-      {
-        "authors": "Houdé O. & Borst G.",
-        "year": "2014",
-        "title": "Measuring inhibitory control in children and adults: brain imaging and mental chronometry",
-        "journal": "Frontiers in Psychology",
-        "url": "https://doi.org/10.3389/fpsyg.2014.00616"
-      },
-      {
-        "authors": "Houdé O.",
-        "year": "2019",
-        "title": "L'intelligence humaine n'est pas un algorithme",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Moukheiber A.",
-        "year": "2019",
-        "title": "Votre cerveau vous joue des tours",
-        "publisher": "Allary Éditions"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "pathologies-psychiatriques-cinema",
     "title": "Pathologies psychiatriques au cinéma : vraie clinique ou psychiatrie hollywoodienne ?",
-    "type": "article",
-    "excerpt": "Schizophrénie de Shutter Island, personnalités multiples de Split, génie maléfique d'Hannibal Lecter : que valent ces diagnostics de cinéma ? Un tri clinique, film par film, entre vérité psychiatrique et pur fantasme de scénariste.",
+    "excerpt": "",
     "date": "2027-05-13",
     "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -403,19 +207,19 @@
       "stigmatisation",
       "psychiatrie"
     ],
-    "metaDescription": "Shutter Island, Split, Hannibal Lecter : que valent les diagnostics du grand écran ? Le vrai du faux sur les pathologies psychiatriques au cinéma.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "leonard-de-vinci-sur-le-divan",
     "title": "Léonard de Vinci sur le divan : psychologie d'un génie",
-    "type": "article",
-    "excerpt": "Curiosité insatiable, carnets écrits à l'envers, chefs-d'œuvre abandonnés en série : que dirait la psychologie moderne du plus célèbre des génies ? Freud a ouvert le dossier en 1910 — les neurosciences l'ont rouvert en 2019.",
+    "excerpt": "",
     "date": "2027-05-11",
     "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/iouyl1ig9momp1yqgthc",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -429,26 +233,25 @@
       "psychobiographie",
       "nos-heros-sur-le-divan"
     ],
-    "metaDescription": "TDAH possible, ouverture à l'expérience extrême, procrastination créative : ce que la psychologie et les neurosciences disent du génie de Léonard de Vinci.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "pourquoi-tomber-amoureux-du-meme-type-de-personne",
     "title": "Pourquoi tombe-t-on toujours amoureux du même type de personne ?",
-    "type": "article",
-    "excerpt": "Les prénoms changent, le scénario reste. Attachement, familiarité, répétition : la psychologie explique pourquoi vos histoires se ressemblent — et comment sortir de la boucle.",
-    "metaDescription": "Attachement, effet de familiarité, répétition : pourquoi tombe-t-on toujours amoureux du même type de personne, et comment changer de schéma amoureux.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-07",
     "date_modified": "2027-05-07",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "attachement",
       "couple",
@@ -456,81 +259,25 @@
       "relations",
       "psychologie-du-couple"
     ],
-    "sources": [
-      {
-        "authors": "Park Y. & MacDonald G.",
-        "year": "2019",
-        "title": "Consistency between individuals' past and current romantic partners' own reports of their personalities",
-        "journal": "Proceedings of the National Academy of Sciences",
-        "url": "https://doi.org/10.1073/pnas.1902279116"
-      },
-      {
-        "authors": "Hazan C. & Shaver P.",
-        "year": "1987",
-        "title": "Romantic love conceptualized as an attachment process",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.52.3.511"
-      },
-      {
-        "authors": "Bartholomew K. & Horowitz L. M.",
-        "year": "1991",
-        "title": "Attachment styles among young adults: a test of a four-category model",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/0022-3514.61.2.226"
-      },
-      {
-        "authors": "Zajonc R. B.",
-        "year": "1968",
-        "title": "Attitudinal effects of mere exposure",
-        "journal": "Journal of Personality and Social Psychology",
-        "url": "https://doi.org/10.1037/h0025848"
-      },
-      {
-        "authors": "Montoya R. M., Horton R. S. & Kirchner J.",
-        "year": "2008",
-        "title": "Is actual similarity necessary for attraction? A meta-analysis of actual and perceived similarity",
-        "journal": "Journal of Social and Personal Relationships",
-        "url": "https://doi.org/10.1177/0265407508096700"
-      },
-      {
-        "authors": "Fraley R. C.",
-        "year": "2019",
-        "title": "Attachment in adulthood: recent developments, emergent debates, and future directions",
-        "journal": "Annual Review of Psychology",
-        "url": "https://doi.org/10.1146/annurev-psych-010418-102813"
-      },
-      {
-        "authors": "Guédeney N. & Guédeney A.",
-        "year": "2016",
-        "title": "L'attachement : approche clinique et thérapeutique",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Freud S.",
-        "year": "1920",
-        "title": "Au-delà du principe de plaisir",
-        "publisher": "Payot (éd. française)"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "depression-a-change-ma-vie",
     "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
-    "type": "article",
-    "excerpt": "Certaines personnes affirment que leur dépression a transformé leur existence. Ni pensée positive ni déni : ce paradoxe porte un nom en psychologie. Décryptage, témoignages et mises en garde.",
-    "metaDescription": "Définition de la dépression, témoignages et croissance post-traumatique : pourquoi certains disent que leur épisode dépressif a changé leur vie.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-05-06",
     "date_modified": "2027-05-06",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "depression",
       "croissance-post-traumatique",
@@ -538,66 +285,19 @@
       "resilience",
       "sante-mentale"
     ],
-    "sources": [
-      {
-        "authors": "Inserm",
-        "year": "2023",
-        "title": "Dépression — Mieux la comprendre pour la guérir durablement",
-        "journal": "Dossiers d'information Inserm",
-        "url": "https://www.inserm.fr/dossier/depression/"
-      },
-      {
-        "authors": "Haute Autorité de Santé",
-        "year": "2017",
-        "title": "Épisode dépressif caractérisé de l'adulte : prise en charge en premier recours",
-        "journal": "Recommandation de bonne pratique, HAS"
-      },
-      {
-        "authors": "Santé publique France",
-        "year": "2021",
-        "title": "Prévalence de l'épisode dépressif caractérisé chez les adultes en France : résultats du Baromètre santé",
-        "journal": "Bulletin épidémiologique hebdomadaire (BEH)"
-      },
-      {
-        "authors": "Tedeschi R. G. & Calhoun L. G.",
-        "year": "2004",
-        "title": "Posttraumatic Growth: Conceptual Foundations and Empirical Evidence",
-        "journal": "Psychological Inquiry",
-        "url": "https://doi.org/10.1207/s15327965pli1501_01"
-      },
-      {
-        "authors": "Jayawickreme E. & Blackie L. E. R.",
-        "year": "2014",
-        "title": "Post-traumatic Growth as Positive Personality Change: Evidence, Controversies and Future Directions",
-        "journal": "European Journal of Personality",
-        "url": "https://doi.org/10.1002/per.1963"
-      },
-      {
-        "authors": "Teasdale J. D., Segal Z. V., Williams J. M. G. et al.",
-        "year": "2000",
-        "title": "Prevention of Relapse/Recurrence in Major Depression by Mindfulness-Based Cognitive Therapy",
-        "journal": "Journal of Consulting and Clinical Psychology",
-        "url": "https://doi.org/10.1037/0022-006X.68.4.615"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "1999",
-        "title": "Un merveilleux malheur",
-        "publisher": "Odile Jacob"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "le-diable-sur-le-divan",
     "title": "Le diable sur le divan : psychologie d'un ange déchu",
-    "type": "article",
-    "excerpt": "Narcissisme céleste, esprit de contradiction pathologique et carrière entière bâtie sur la tentation : que dirait un psy du plus célèbre des anges déchus ? Consultation infernale, dossier ouvert.",
+    "excerpt": "",
     "date": "2027-05-04",
     "date_modified": "2026-07-24",
     "category": "Les monstres sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cf47ydjbgca8ybjozkks",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -611,26 +311,25 @@
       "effet-lucifer",
       "monstres-sur-le-divan"
     ],
-    "metaDescription": "Narcissisme grandiose, réactance et effet Lucifer : ce que la psychologie moderne dit du diable, cet ange déchu devenu bouc émissaire préféré de l'humanité.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "schizophrenie-symptomes-causes-traitements",
     "title": "Schizophrénie : symptômes, causes et traitements, au-delà des clichés",
-    "type": "article",
-    "excerpt": "Non, la schizophrénie n'est pas un dédoublement de personnalité, et encore moins un synonyme de violence. Plongée claire et sans jargon dans un trouble aussi mal connu que porteur d'espoir.",
-    "metaDescription": "La schizophrénie n'est ni un dédoublement de personnalité ni une affaire de violence. Symptômes, causes, traitements et rétablissement expliqués.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2027-04-30",
     "date_modified": "2027-04-30",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "schizophrenie",
       "troubles-psychotiques",
@@ -638,48 +337,19 @@
       "retablissement",
       "remediation-cognitive"
     ],
-    "sources": [
-      {
-        "authors": "Franck N. (dir.)",
-        "year": "2018",
-        "title": "Traité de réhabilitation psychosociale",
-        "publisher": "Elsevier Masson",
-        "url": "https://doi.org/10.1016/C2017-0-00730-9"
-      },
-      {
-        "authors": "Franck N.",
-        "year": "2014",
-        "title": "Remédiation cognitive dans la schizophrénie",
-        "journal": "EMC - Psychiatrie",
-        "url": "https://doi.org/10.1016/S0246-1072(13)64355-2"
-      },
-      {
-        "authors": "Franck N., Duboc C., Sundby C. et al.",
-        "year": "2014",
-        "title": "De l'évaluation neuropsychologique à une remédiation cognitive ciblée",
-        "journal": "European Psychiatry",
-        "url": "https://doi.org/10.1016/j.eurpsy.2014.09.318"
-      },
-      {
-        "authors": "Benamer N., Marti F., Lujan R. et al.",
-        "year": "2018",
-        "title": "GluD1, linked to schizophrenia, controls the burst firing of dopamine neurons",
-        "journal": "Molecular Psychiatry",
-        "url": "https://doi.org/10.1038/mp.2017.137"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "syndrome-de-diogene",
     "title": "Le syndrome de Diogène, c'est quoi ? Les accumulateurs passent sur le divan",
-    "type": "article",
-    "excerpt": "Il vivait dans une jarre et ne possédait rien : Diogène aurait détesté le syndrome qui porte son nom. Incurie, accumulation, déni, refus d'aide — et une version numérique qui vous concerne peut-être. On démêle tout ça sur le divan.",
+    "excerpt": "",
     "date": "2027-04-29",
     "date_modified": "2026-07-24",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vu6m0rt4owmwagz9zaxv",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -693,7 +363,7 @@
       "digital-hoarding",
       "troubles-psy"
     ],
-    "metaDescription": "Définition, origine grecque, causes psychologiques, différence avec l'accumulation compulsive et version numérique : le syndrome de Diogène décrypté.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -727,12 +397,12 @@
   {
     "id": "kairos-science-hasard",
     "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
-    "type": "article",
-    "excerpt": "Vous pensez à quelqu'un, il vous appelle. Signe de l'univers ou tour de passe-passe neuronal ? Enquête sur le kaïros, la synchronicité et l'art très scientifique du bon timing.",
+    "excerpt": "",
     "date": "2027-04-23",
     "date_modified": "2026-07-24",
     "category": "Développement personnel",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -746,7 +416,7 @@
       "coincidences",
       "attention"
     ],
-    "metaDescription": "Kaïros, synchronicité, coïncidences troublantes : ce que la psychologie et les neurosciences disent vraiment des moments où tout « sonne juste ».",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -780,12 +450,12 @@
   {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
-    "type": "article",
-    "excerpt": "Arrogant, lâche, insupportable ? Trop facile. Derrière le rictus de Draco Malfoy se cache un adolescent broyé entre l'héritage familial et sa propre conscience. Séance d'analyse pour le plus célèbre des Serpentard.",
+    "excerpt": "",
     "date": "2027-04-20",
     "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ovszgeelcn1rbcrfwp9j",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -799,7 +469,7 @@
       "adolescence",
       "pression-familiale"
     ],
-    "metaDescription": "Mépris de façade, loyautés toxiques et rédemption : plongée dans la psychologie de Draco Malfoy, entre pression familiale et quête d'identité.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -858,12 +528,12 @@
   {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
-    "type": "article",
-    "excerpt": "Deux mille ans de projections, quatre phrases dans les Évangiles. De la Mater Dolorosa à la madone d'Instagram, que dit la Vierge Marie de l'image des femmes aujourd'hui ? Séance d'analyse d'une icône — auréole comprise.",
+    "excerpt": "",
     "date": "2027-04-13",
     "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kilqufbbhnnjbtww9viv",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -877,7 +547,7 @@
       "feminisme",
       "icones-culturelles"
     ],
-    "metaDescription": "De la Vierge Marie à la mère parfaite d'Instagram : comment une icône vieille de 2000 ans façonne encore l'image des femmes. Analyse psy et quiz.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1195,12 +865,12 @@
   {
     "id": "plus-grands-psychologues-histoire",
     "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
-    "type": "article",
-    "excerpt": "Skinner, Piaget, Freud, Bandura, Rogers : cinq esprits qui ne se seraient entendus sur rien, et qui façonnent pourtant la façon dont vous vous comprenez vous-même. Surprise : le plus célèbre n'est que troisième.",
+    "excerpt": "",
     "date": "2027-03-11",
     "date_modified": "2026-07-24",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mbzzpsoyrfgdkhw7olbs",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1214,7 +884,7 @@
       "piaget",
       "rogers"
     ],
-    "metaDescription": "Skinner, Piaget, Freud, Bandura, Rogers : découvrez les 5 psychologues qui ont le plus marqué l'histoire, leurs idées, leurs limites et leur héritage actuel.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3684,12 +3354,12 @@
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
-    "type": "article",
     "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
     "date": "2026-07-24",
     "date_modified": "2026-07-24",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uzyw7puhp2ufjwsmtihm",
+    "hasImage": true,
     "imagePosition": "68% 53%",
     "imageZoom": 1,
     "imageGravity": "none",

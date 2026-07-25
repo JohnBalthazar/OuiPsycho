@@ -1,12 +1,12 @@
 [
   {
     "id": "quel-genre-de-wonder-woman",
-    "title": "Quel genre de Wonder Woman êtes-vous ?",
-    "desc": "Empathique, combative ou sage ? Trouvez votre héroïne intérieure.",
-    "emoji": "🦸‍♀️",
-    "color": "#7C3AED",
-    "catLabel": "Pop culture",
-    "duration": "3 min",
+    "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
+    "desc": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
     "testUrl": "tests/quel-genre-de-wonder-woman.html",
     "articleUrl": "articles/wonder-woman-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uzyw7puhp2ufjwsmtihm",
