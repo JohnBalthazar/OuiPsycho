@@ -1,5 +1,19 @@
 [
   {
+    "id": "survivre-relation-toxique-quiz",
+    "title": "Survivre à une relation toxique ?",
+    "desc": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y…",
+    "emoji": "🧠",
+    "color": "#6b4e9e",
+    "catLabel": "Troubles Psy",
+    "duration": "5 min",
+    "testUrl": "tests/survivre-relation-toxique-quiz.html",
+    "articleUrl": "articles/survivre-relation-toxique/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w7i39kp9bde6t5apucsa",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "quel-genre-de-wonder-woman",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
     "desc": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai…",
@@ -164,7 +178,7 @@
     "testUrl": "tests/psychologie-du-feminisme-quiz.html",
     "articleUrl": "articles/psychologie-du-feminisme/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/gwpvyv2omgkuqpepgp5i",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
