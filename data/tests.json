@@ -1,5 +1,19 @@
 [
   {
+    "id": "quel-signe-etes-vous",
+    "title": "Quel signe êtes-vous vraiment ?",
+    "desc": "La psychologie répond aux archétypes astrologiques.",
+    "emoji": "⭐",
+    "color": "#059669",
+    "catLabel": "Bien-être",
+    "duration": "3 min",
+    "testUrl": "tests/quel-signe-etes-vous.html",
+    "articleUrl": "articles/horoscope-pourquoi-on-y-croit/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qc0q1g8vedl8l1vyjlik",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "survivre-relation-toxique-quiz",
     "title": "Survivre à une relation toxique ?",
     "desc": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y…",
