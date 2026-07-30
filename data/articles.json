@@ -1,5 +1,31 @@
 [
   {
+    "id": "friluftsliv-bonheur-norvegien",
+    "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
+    "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
+    "date": "2026-07-30",
+    "date_modified": "2026-06-23",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bzqjkswf1axnzbujj4uw",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "friluftsliv",
+      "bien-être",
+      "nature",
+      "plein air",
+      "bonheur",
+      "psychologie positive"
+    ],
+    "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
     "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
