@@ -1,5 +1,19 @@
 [
   {
+    "id": "meres-toxiques-quiz",
+    "title": "Votre relation maternelle a-t-elle laissé des traces ?",
+    "desc": "Un test clinique pour évaluer l'impact de votre relation maternelle.",
+    "emoji": "🌸",
+    "color": "#BE185D",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/meres-toxiques-quiz.html",
+    "articleUrl": "articles/meres-toxiques-comprendre-pour-se-reconstruire/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "quel-signe-etes-vous",
     "title": "Quel signe êtes-vous vraiment ?",
     "desc": "La psychologie répond aux archétypes astrologiques.",
