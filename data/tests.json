@@ -1,5 +1,19 @@
 [
   {
+    "id": "reine-des-neiges-quiz",
+    "title": "Quel genre de Reine des neiges êtes-vous ?",
+    "desc": "Votre profil émotionnel révélé par la psychologie des personnages.",
+    "emoji": "❄️",
+    "color": "#0EA5E9",
+    "catLabel": "Pop culture",
+    "duration": "3 min",
+    "testUrl": "tests/reine-des-neiges-quiz.html",
+    "articleUrl": "articles/reine-des-neiges-psychologie-heroine-glace/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/knqdnjashbahaprr9pir",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "meres-toxiques-quiz",
     "title": "Votre relation maternelle a-t-elle laissé des traces ?",
     "desc": "Un test clinique pour évaluer l'impact de votre relation maternelle.",
@@ -136,7 +150,7 @@
     "testUrl": "tests/son-goku-sur-le-divan-quiz.html",
     "articleUrl": "articles/son-goku-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zxj5jfrl9zntfpvsabbh",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
