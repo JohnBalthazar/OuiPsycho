@@ -1,5 +1,31 @@
 [
   {
+    "id": "ce-que-votre-metier-dit-de-vous",
+    "title": "Ce que votre métier dit de vous (ou pas)",
+    "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
+    "date": "2026-08-07",
+    "date_modified": "2026-06-12",
+    "category": "Développement personnel",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ntdsrmsq8n3vmvynzpkp",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "identité",
+      "travail",
+      "personnalité",
+      "burnout",
+      "orientation",
+      "sens"
+    ],
+    "metaDescription": "Votre métier révèle-t-il vraiment qui vous êtes ? Holland, Big Five, identité professionnelle : ce que la psychologie dit du lien entre travail et personnalité.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "reine-des-neiges-psychologie-heroine-glace",
     "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
     "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
