@@ -1,5 +1,31 @@
 [
   {
+    "id": "dexter-psychologie-tueur-en-serie",
+    "title": "Dexter sur le divan : psychologie d'un tueur en série",
+    "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
+    "date": "2026-08-13",
+    "date_modified": "2026-06-23",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jhuvy65qh9ipdpnvsuhr",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "pop-culture",
+      "psychopathie",
+      "trauma",
+      "morale",
+      "identite",
+      "psychologie-personnage"
+    ],
+    "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "naitre-parent-revolution-interieure",
     "title": "Naître parent : une révolution intérieure",
     "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
