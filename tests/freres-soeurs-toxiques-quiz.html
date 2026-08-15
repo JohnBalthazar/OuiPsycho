@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dans quelle configuration fraternelle êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/freres-soeurs-toxiques/">
+  <meta name="description" content="Dix questions pour identifier la place que vous occupez dans votre relation fraternelle : chamaillerie, bouc émissaire, pilier, emprise ou distance assumée.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#fff;color:#1c2b33;line-height:1.6;padding:4px}
+    .wrap{max-width:680px;margin:0 auto;background:#fff;border:1px solid #e3e9ed;border-radius:16px;padding:24px 20px 28px}
+    .head{text-align:center;margin-bottom:18px}
+    .head h1{font-size:1.35rem;color:#1F4E6B;line-height:1.3;margin-bottom:6px}
+    .head p{font-size:.9rem;color:#5c6f7c}
+    .bar{height:7px;background:#e9eff3;border-radius:99px;overflow:hidden;margin:16px 0 6px}
+    .bar span{display:block;height:100%;width:0;background:linear-gradient(90deg,#1F4E6B,#3d8fb5);border-radius:99px;transition:width .35s ease}
+    .count{font-size:.78rem;color:#7b8b96;text-align:right;margin-bottom:16px;letter-spacing:.02em}
+    .q{font-size:1.08rem;font-weight:600;color:#12313f;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#f7fafb;border:2px solid #e3e9ed;border-radius:12px;padding:13px 15px;margin-bottom:10px;font-size:.95rem;color:#1c2b33;cursor:pointer;font-family:inherit;line-height:1.45;transition:border-color .15s,background .15s,transform .1s}
+    .opt:hover{border-color:#1F4E6B;background:#eef5f9}
+    .opt:active{transform:scale(.99)}
+    .nav{margin-top:14px}
+    .back{background:none;border:none;color:#7b8b96;font-size:.85rem;cursor:pointer;font-family:inherit;padding:6px 0;text-decoration:underline}
+    .res{text-align:center}
+    .res .emo{font-size:3rem;line-height:1;margin-bottom:8px}
+    .res h2{font-size:1.4rem;color:#1F4E6B;margin-bottom:4px}
+    .tagline{font-size:.92rem;color:#5c6f7c;font-style:italic;margin-bottom:18px}
+    .desc{text-align:left;background:#f7fafb;border-left:4px solid #1F4E6B;border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:18px;font-size:.95rem}
+    .desc p+p{margin-top:10px}
+    .tips{text-align:left;margin-bottom:20px}
+    .tips h3{font-size:1rem;color:#12313f;margin-bottom:10px}
+    .tips ul{list-style:none}
+    .tips li{position:relative;padding-left:26px;margin-bottom:9px;font-size:.93rem}
+    .tips li:before{content:'→';position:absolute;left:6px;color:#1F4E6B;font-weight:700}
+    .scores{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px}
+    .chip{font-size:.75rem;background:#eef5f9;color:#3d6377;border-radius:99px;padding:4px 11px}
+    .share{margin-bottom:18px}
+    .share p{font-size:.85rem;color:#5c6f7c;margin-bottom:9px}
+    .share a{display:inline-block;text-decoration:none;font-size:.85rem;padding:8px 14px;border-radius:99px;margin:3px;color:#fff;background:#1F4E6B}
+    .share a:hover{opacity:.88}
+    .disc{font-size:.82rem;background:#fff8ec;border:1px solid #f2dfbd;border-radius:10px;padding:13px 15px;text-align:left;color:#5a4a2e;margin-bottom:16px}
+    .again{background:#1F4E6B;color:#fff;border:none;border-radius:99px;padding:11px 26px;font-size:.92rem;cursor:pointer;font-family:inherit}
+    .again:hover{background:#173d54}
+    @media(max-width:480px){.wrap{padding:18px 14px 22px}.head h1{font-size:1.15rem}.q{font-size:1rem}}
+  </style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+
+<script>
+var QUESTIONS = [
+  { q: "Le dernier repas de famille en date, vous en êtes ressorti·e…", a: [
+    { t: "Fatigué·e mais content·e, avec deux ou trois vannes en réserve pour la prochaine fois.", p: "A" },
+    { t: "Avec l'impression d'avoir été, une fois de plus, le sujet principal des blagues.", p: "B" },
+    { t: "Avec une liste de choses à organiser pour lui ou pour elle.", p: "C" },
+    { t: "En repassant certaines scènes en boucle pendant trois jours.", p: "D" },
+    { t: "Vous n'y étiez pas. Et c'était très bien ainsi.", p: "E" }
+  ]},
+  { q: "Quand vous évoquez ensemble vos souvenirs d'enfance…", a: [
+    { t: "Ça part en fou rire, chacun a sa version et personne n'a raison.", p: "A" },
+    { t: "On vous rappelle surtout vos bêtises, vos échecs et vos ridicules.", p: "B" },
+    { t: "Personne ne se souvient que c'est vous qui teniez la maison debout.", p: "C" },
+    { t: "Votre version est niée avec un tel aplomb que vous finissez par douter.", p: "D" },
+    { t: "Vous n'en parlez plus. Ni avec elle, ni avec lui, ni avec personne.", p: "E" }
+  ]},
+  { q: "Côté argent, temps et services rendus, la balance…", a: [
+    { t: "S'équilibre à peu près : on se rend service à tour de rôle.", p: "A" },
+    { t: "On vous demande peu, mais on vous critique beaucoup.", p: "B" },
+    { t: "Penche franchement de votre côté : vous êtes le taxi, la banque et la garderie.", p: "C" },
+    { t: "N'existe pas : les demandes ressemblent à des ordres, et refuser coûte cher.", p: "D" },
+    { t: "Ne bouge plus : il n'y a plus d'échanges du tout.", p: "E" }
+  ]},
+  { q: "Quand vous posez une limite claire…", a: [
+    { t: "Ça passe, éventuellement en râlant, et la vie continue.", p: "A" },
+    { t: "On vous traite d'égoïste, et le reste de la famille approuve d'un hochement de tête.", p: "B" },
+    { t: "Vous n'en posez pas vraiment : la culpabilité arrive avant la phrase.", p: "C" },
+    { t: "C'est la crise : chantage, menaces, ou silence punitif de trois semaines.", p: "D" },
+    { t: "La limite est déjà posée : c'est la distance.", p: "E" }
+  ]},
+  { q: "Vos parents, dans cette histoire…", a: [
+    { t: "Restent globalement neutres et laissent faire.", p: "A" },
+    { t: "Prennent systématiquement l'autre parti, avec le fameux « c'est ton frère, quand même ».", p: "B" },
+    { t: "Comptent sur vous pour gérer, arbitrer et réparer.", p: "C" },
+    { t: "Ne voient rien — ou ont peur, eux aussi.", p: "D" },
+    { t: "Vous reprochent régulièrement votre absence.", p: "E" }
+  ]},
+  { q: "Juste avant un appel ou un message de sa part, votre corps…", a: [
+    { t: "Ne fait rien de particulier.", p: "A" },
+    { t: "Se crispe : vous anticipez déjà la pique.", p: "B" },
+    { t: "Soupire : vous savez que ça va vous coûter du temps.", p: "C" },
+    { t: "S'accélère franchement, comme avant un examen.", p: "D" },
+    { t: "Ne réagit plus : vous ne décrochez plus.", p: "E" }
+  ]},
+  { q: "Si vous deviez résumer la relation en une image…", a: [
+    { t: "Un match de foot entre potes : ça tacle, mais on se serre la main à la fin.", p: "A" },
+    { t: "Un tribunal où vous êtes toujours du côté de l'accusé.", p: "B" },
+    { t: "Un service d'urgence ouvert 24h/24 — et c'est vous, le service.", p: "C" },
+    { t: "Une météo imprévisible : grand soleil, puis orage sans prévenir.", p: "D" },
+    { t: "Une porte fermée, avec un léger courant d'air de culpabilité.", p: "E" }
+  ]},
+  { q: "Le reste de la famille, face à la situation…", a: [
+    { t: "Fait tampon avec humour et change de sujet.", p: "A" },
+    { t: "Relaie la version de l'autre sans jamais vérifier la vôtre.", p: "B" },
+    { t: "Trouve normal que vous vous en occupiez. Les remerciements sont rares.", p: "C" },
+    { t: "Vous dit en privé qu'il comprend… et ne dit rien en public.", p: "D" },
+    { t: "Vous demande régulièrement quand vous allez « faire un effort ».", p: "E" }
+  ]},
+  { q: "Quand vous imaginez cette relation dans cinq ans…", a: [
+    { t: "Identique, avec quelques cheveux blancs en plus. Et ça vous va.", p: "A" },
+    { t: "Vous espérez encore une reconnaissance, une phrase, un jour.", p: "B" },
+    { t: "Vous redoutez d'être encore celui ou celle qui gère tout, parents vieillissants compris.", p: "C" },
+    { t: "Vous préférez très sincèrement ne pas y penser.", p: "D" },
+    { t: "Sereine à distance — si la culpabilité veut bien se taire.", p: "E" }
+  ]},
+  { q: "La phrase qui vous ressemble le plus :", a: [
+    { t: "« On s'engueule, on s'aime, c'est comme ça. »", p: "A" },
+    { t: "« J'ai toujours été celui ou celle qui déçoit. »", p: "B" },
+    { t: "« Si je ne le fais pas, personne ne le fera. »", p: "C" },
+    { t: "« Je ne sais jamais sur quel pied danser avec lui ou elle. »", p: "D" },
+    { t: "« J'ai choisi la paix, mais elle a un prix. »", p: "E" }
+  ]}
+];
+
+var PROFILES = {
+  A: {
+    emo: "🥊",
+    name: "La chamaillerie longue durée",
+    tag: "Ça tacle fort, mais le lien tient debout.",
+    desc: "<p>Votre relation fraternelle appartient à la catégorie la plus banale — et la plus enviable. Il y a de la rivalité, des piques, des comparaisons et probablement un vieux contentieux de 1998 sur un vélo. Mais l'essentiel est là : le rapport de force s'inverse régulièrement, personne n'est durablement en position basse, et vous sortez rarement diminué·e d'un échange.</p><p>Cette forme de conflit est fonctionnelle : elle a servi de terrain d'entraînement social et continue de jouer ce rôle. Le seul risque, c'est l'usure des habitudes — les rôles d'enfance qui se rejouent automatiquement dès qu'on franchit la porte de la maison familiale.</p>",
+    tips: [
+      "Repérez le moment précis où vous régressez : c'est presque toujours le même déclencheur, et le nommer suffit souvent à le désamorcer.",
+      "Créez des souvenirs en dehors du cadre familial : un projet commun, un voyage, une passion partagée.",
+      "Ne laissez pas les vieux surnoms d'enfance faire tout le travail à votre place : dites parfois les choses sérieusement."
+    ]
+  },
+  B: {
+    emo: "🎯",
+    name: "Le bouc émissaire de service",
+    tag: "Vous portez une étiquette que vous n'avez pas choisie.",
+    desc: "<p>Dans votre famille, un rôle vous a été attribué très tôt — le difficile, le raté, le trop sensible, l'ingrat — et il ne bouge plus depuis. Ce n'est pas un hasard : le bouc émissaire remplit une fonction pour le groupe. Tant que les problèmes ont un porteur désigné, personne d'autre n'a besoin de se remettre en question.</p><p>La conséquence la plus coûteuse n'est pas la moquerie ponctuelle, c'est l'usure identitaire : à force d'entendre une version de vous-même, on finit par se demander si elle n'est pas la bonne. Et comme le rappelait Marcel Rufo, dans chaque famille il y a un préféré — vous n'avez pas construit ce rôle tout seul·e.</p>",
+    tips: [
+      "Faites le deuil de la reconnaissance : attendre la phrase qui répare, c'est confier votre apaisement à celui qui l'a abîmé.",
+      "Constituez-vous une mémoire extérieure : un ami, un thérapeute, un carnet — quelqu'un dont la version des faits ne sera pas réécrite.",
+      "Arrêtez de plaider votre cause en réunion de famille : le jury est déjà constitué. Traitez en face à face ou pas du tout.",
+      "Testez les limites courtes : partir à 22h, refuser un sujet, quitter une pièce. Ce sont des muscles, ça s'entraîne."
+    ]
+  },
+  C: {
+    emo: "🧱",
+    name: "Le pilier taillable et corvéable",
+    tag: "Tout le monde s'appuie. Personne ne demande si ça tient.",
+    desc: "<p>Vous êtes celui ou celle sur qui ça repose : les démarches, les urgences, l'argent dépanné, les parents, la logistique. Souvent, cette place a commencé tôt — ce que les thérapeutes familiaux appellent la parentification — et elle a fini par devenir votre identité familiale. Le problème, c'est qu'un rôle utile est un rôle très difficile à quitter : dès que vous ralentissez, la culpabilité prend le relais.</p><p>Attention à la confusion fréquente : l'épuisement n'est pas une preuve d'amour. Et une relation dans laquelle les demandes circulent toujours dans le même sens est asymétrique, même quand personne ne crie.</p>",
+    tips: [
+      "Chiffrez, une semaine durant, le temps et l'argent réellement consacrés. Les chiffres résistent mieux à la culpabilité que les impressions.",
+      "Passez du refus global au refus partiel : « pas ce week-end », « je peux faire ça, pas le reste ».",
+      "Anticipez la question du vieillissement des parents avec les autres membres de la fratrie, par écrit, avant la crise.",
+      "Acceptez que certaines choses ne se fassent pas. C'est le seul moyen de vérifier si elles étaient vraiment indispensables."
+    ]
+  },
+  D: {
+    emo: "⚡",
+    name: "Sous influence",
+    tag: "L'imprévisibilité est devenue votre météo intérieure.",
+    desc: "<p>Vos réponses décrivent une relation à forte asymétrie, avec des mécanismes d'emprise : alternance de chaud et de froid, remise en cause de votre mémoire, chantage affectif, coût élevé du refus, et un corps qui donne l'alerte avant même que la conversation commence. Ce dernier point mérite d'être pris au sérieux : les réactions physiques anticipatoires sont un signal fiable, souvent plus lucide que le discours qu'on se tient.</p><p>Rappelons ce que la clinique française a mis longtemps à reconnaître : la violence entre frères et sœurs existe, elle est massivement banalisée (« ce sont des bagarres d'enfants ») et très rarement révélée, parce que la dénoncer revient à trahir la loyauté familiale. Ce que vous vivez n'est pas une chamaillerie qui aurait mal tourné.</p>",
+    tips: [
+      "Ne cherchez plus à gagner le débat sur les faits : avec quelqu'un qui réécrit, l'argumentation renforce le doute au lieu de le lever.",
+      "Réduisez le canal avant de réduire le lien : passez à l'écrit, différez les réponses, limitez la durée des rencontres.",
+      "Gardez une trace datée des échanges importants, surtout s'il existe un enjeu d'héritage ou de parents dépendants.",
+      "Faites-vous accompagner par un professionnel : sortir d'une emprise familiale seul·e est possible, mais nettement plus long.",
+      "S'il y a eu ou s'il y a des violences physiques, sexuelles ou des menaces, ce n'est plus une question de relation : parlez-en à un professionnel, au 116 006 (France Victimes, gratuit) — ou au 119 s'il s'agit d'un mineur actuellement en danger."
+    ]
+  },
+  E: {
+    emo: "🚪",
+    name: "La distance assumée",
+    tag: "La paix est là. La culpabilité aussi, parfois.",
+    desc: "<p>Vous avez déjà pris de la distance, partiellement ou totalement, et l'essentiel de votre énergie ne va plus au conflit mais à sa justification : auprès des parents, du reste de la famille, et surtout auprès de vous-même. C'est le paradoxe bien connu de l'éloignement familial — la souffrance change de forme sans disparaître complètement.</p><p>Bonne nouvelle : en clinique, ces trajectoires sont rarement des claquements de porte définitifs. Elles ressemblent plutôt à des espacements progressifs, faits d'allers-retours et de reprises partielles. Vous n'êtes pas enfermé·e dans un choix irrévocable, et vous n'avez pas non plus à le refaire tous les dimanches.</p>",
+    tips: [
+      "Distinguez la décision et le deuil : on peut être certain·e d'avoir bien fait et triste en même temps.",
+      "Préparez une phrase courte et stable pour la famille, à répéter sans l'argumenter : la justification relance toujours le débat.",
+      "Prévoyez à l'avance votre position pour les événements majeurs — maladie, décès, succession — plutôt que dans l'urgence émotionnelle.",
+      "Laissez la porte entrouverte si vous le souhaitez : distance n'est pas synonyme de définitif."
+    ]
+  }
+};
+
+var ORDER = ["D","B","C","E","A"];
+var LABELS = { A:"Chamaillerie", B:"Bouc émissaire", C:"Pilier", D:"Sous influence", E:"Distance" };
+
+var idx = 0, answers = [];
+var app = document.getElementById("app");
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+
+function renderQuestion() {
+  var q = QUESTIONS[idx];
+  var pct = Math.round((idx / QUESTIONS.length) * 100);
+  var html = '<div class="head"><h1>Dans quelle configuration fraternelle êtes-vous ?</h1><p>10 questions — environ 4 minutes</p></div>';
+  html += '<div class="bar"><span style="width:' + pct + '%"></span></div>';
+  html += '<div class="count">Question ' + (idx + 1) + ' / ' + QUESTIONS.length + '</div>';
+  html += '<div class="q">' + esc(q.q) + '</div>';
+  for (var i = 0; i < q.a.length; i++) {
+    html += '<button class="opt" data-i="' + i + '">' + esc(q.a[i].t) + '</button>';
+  }
+  if (idx > 0) {
+    html += '<div class="nav"><button class="back" id="back">← Question précédente</button></div>';
+  }
+  app.innerHTML = html;
+  var opts = app.querySelectorAll(".opt");
+  for (var j = 0; j < opts.length; j++) {
+    opts[j].addEventListener("click", function() {
+      answers[idx] = QUESTIONS[idx].a[parseInt(this.getAttribute("data-i"), 10)].p;
+      idx++;
+      if (idx >= QUESTIONS.length) { renderResult(); } else { renderQuestion(); }
+    });
+  }
+  var b = document.getElementById("back");
+  if (b) { b.addEventListener("click", function(){ idx--; renderQuestion(); }); }
+  notifyResize();
+}
+
+function computeProfile() {
+  var t = { A:0, B:0, C:0, D:0, E:0 };
+  for (var i = 0; i < answers.length; i++) { t[answers[i]]++; }
+  var best = ORDER[0];
+  for (var k = 0; k < ORDER.length; k++) {
+    if (t[ORDER[k]] > t[best]) { best = ORDER[k]; }
+  }
+  return { key: best, tally: t };
+}
+
+function renderResult() {
+  var r = computeProfile();
+  var p = PROFILES[r.key];
+  var url = "https://ouipsycho.fr/articles/freres-soeurs-toxiques/";
+  var txt = "Mon profil fraternel : " + p.name + " — et vous ?";
+  var eU = encodeURIComponent(url), eT = encodeURIComponent(txt);
+
+  var html = '<div class="res">';
+  html += '<div class="emo">' + p.emo + '</div>';
+  html += '<h2>' + esc(p.name) + '</h2>';
+  html += '<div class="tagline">' + esc(p.tag) + '</div>';
+  html += '<div class="desc">' + p.desc + '</div>';
+  html += '<div class="tips"><h3>Ce que vous pouvez faire dès maintenant</h3><ul>';
+  for (var i = 0; i < p.tips.length; i++) { html += '<li>' + esc(p.tips[i]) + '</li>'; }
+  html += '</ul></div>';
+
+  html += '<div class="scores">';
+  for (var k = 0; k < ORDER.length; k++) {
+    var key = ORDER[k];
+    if (r.tally[key] > 0) { html += '<span class="chip">' + LABELS[key] + ' : ' + r.tally[key] + '</span>'; }
+  }
+  html += '</div>';
+
+  html += '<div class="share"><p>Partagez votre résultat :</p>';
+  html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eU + '" target="_blank" rel="noopener">👍 Facebook</a>';
+  html += '<a href="https://twitter.com/intent/tweet?text=' + eT + '&url=' + eU + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+  html += '<a href="https://wa.me/?text=' + encodeURIComponent(txt + " " + url) + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+  html += '</div>';
+
+  html += '<div class="disc">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+  html += '<button class="again" id="again">↻ Recommencer le test</button>';
+  html += '</div>';
+
+  app.innerHTML = html;
+  document.getElementById("again").addEventListener("click", function(){
+    idx = 0; answers = []; renderQuestion();
+  });
+  if (typeof gtag === "function") {
+    gtag('event', 'quiz_complete', { quiz_id: 'freres-soeurs-toxiques', profile: p.name });
+  }
+  notifyResize();
+}
+
+renderQuestion();
+window.addEventListener('load', notifyResize);
+window.addEventListener('resize', notifyResize);
+</script>
+</body>
+</html>
