@@ -3002,17 +3002,16 @@
     "title": "Vraies et fausses idées sur les vrais jumeaux !",
     "type": "article",
     "excerpt": "Même ADN, même caractère, télépathie et langage secret : la gémellité traîne derrière elle un stock d'idées reçues impressionnant. La science française, de René Zazzo à l'INED, en démonte l'essentiel — et garde quelques surprises.",
-    "metaDescription": "Vrais jumeaux : ADN identique, télépathie, langage secret, même personnalité ? Sept idées reçues passées au crible de la recherche francophone.",
-    "author": "John Balthazar",
     "date": "2026-08-23",
     "date_modified": "2026-08-15",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fnjavazwlcwqysvmytwp",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "jumeaux",
       "gemellite",
@@ -3020,62 +3019,7 @@
       "fratrie",
       "idees-recues"
     ],
-    "sources": [
-      {
-        "authors": "Zazzo R.",
-        "year": "1960",
-        "title": "Les jumeaux, le couple et la personne (rééd. Quadrige, 2015)",
-        "publisher": "Presses Universitaires de France"
-      },
-      {
-        "authors": "Zazzo R.",
-        "year": "1984",
-        "title": "Le paradoxe des jumeaux",
-        "publisher": "Stock"
-      },
-      {
-        "authors": "Pison G. & Couvert N.",
-        "year": "2004",
-        "title": "La fréquence des accouchements gémellaires en France. La triple influence de la biologie, de la médecine et des comportements familiaux",
-        "journal": "Population, 59(6), 877-907",
-        "url": "https://www.ined.fr/fichier/s_rubrique/171/article_pop_0032.4663_2004_num_59_6_7509.fr.pdf"
-      },
-      {
-        "authors": "Scharmann G.",
-        "year": "2007",
-        "title": "Je malgré nous",
-        "journal": "Enfances & Psy, n° 34, 105-112",
-        "url": "https://doi.org/10.3917/ep.034.0105"
-      },
-      {
-        "authors": "Janaud J.-C.",
-        "year": "2007",
-        "title": "Jumeaux et plus en service de néonatologie",
-        "journal": "Enfances & Psy, n° 34, 26-37",
-        "url": "https://doi.org/10.3917/ep.034.0026"
-      },
-      {
-        "authors": "Jobin S.",
-        "year": "2007",
-        "title": "Un espace commun ou une prise en charge pour chacun ?",
-        "journal": "Enfances & Psy, n° 34, 79-88",
-        "url": "https://doi.org/10.3917/ep.034.0079"
-      },
-      {
-        "authors": "Fraga M. F. et al.",
-        "year": "2005",
-        "title": "Epigenetic differences arise during the lifetime of monozygotic twins",
-        "journal": "Proceedings of the National Academy of Sciences, 102(30), 10604-10609",
-        "url": "https://doi.org/10.1073/pnas.0500398102"
-      },
-      {
-        "authors": "Bak F.",
-        "year": "2019",
-        "title": "Jumeaux",
-        "publisher": "Solar",
-        "amazon_asin": "2263171770"
-      }
-    ],
+    "metaDescription": "Vrais jumeaux : ADN identique, télépathie, langage secret, même personnalité ? Sept idées reçues passées au crible de la recherche francophone.",
     "articles_lies": [],
     "status": "scheduled"
   },
