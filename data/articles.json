@@ -2940,17 +2940,16 @@
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
     "type": "article",
     "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
-    "metaDescription": "Frère ou sœur toxique : distinguer rivalité normale et relation destructrice, comprendre pourquoi ça fait si mal, et savoir quoi faire. Repères et conseils.",
-    "author": "John Balthazar",
     "date": "2026-08-18",
     "date_modified": "2026-08-15",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "fratrie",
       "relations-toxiques",
@@ -2958,56 +2957,7 @@
       "emprise",
       "limites"
     ],
-    "sources": [
-      {
-        "authors": "Rufo M. & Schilte C.",
-        "year": "2002",
-        "title": "Frères et sœurs, une maladie d'amour",
-        "publisher": "Fayard",
-        "amazon_asin": "2253155500"
-      },
-      {
-        "authors": "Scelles R.",
-        "year": "2004",
-        "title": "La fratrie comme ressource",
-        "journal": "Cahiers critiques de thérapie familiale et de pratiques de réseaux, n° 32, 105-123",
-        "url": "https://doi.org/10.3917/ctf.032.0105"
-      },
-      {
-        "authors": "Pinel-Jacquemin S. & Scelles R.",
-        "year": "2012",
-        "title": "La violence fraternelle existe : ne la banalisons pas !",
-        "journal": "Revue québécoise de psychologie, 33(3), 187-212"
-      },
-      {
-        "authors": "Scelles R.",
-        "year": "2022",
-        "title": "Lever le tabou",
-        "journal": "L'école des parents, n° 642, 44-45",
-        "url": "https://doi.org/10.3917/epar.642.0044"
-      },
-      {
-        "authors": "CIIVISE (Commission indépendante sur l'inceste et les violences sexuelles faites aux enfants)",
-        "year": "2023",
-        "title": "Violences sexuelles faites aux enfants : on vous croit — Rapport public",
-        "publisher": "République française",
-        "url": "https://www.ciivise.fr/le-rapport-public-de-2023"
-      },
-      {
-        "authors": "Le Goff J.-F.",
-        "year": "2000",
-        "title": "L'enfant, parent de ses parents. Parentification et thérapie familiale",
-        "publisher": "L'Harmattan",
-        "amazon_asin": "2738484786"
-      },
-      {
-        "authors": "Ducommun-Nagy C.",
-        "year": "2006",
-        "title": "Ces loyautés qui nous libèrent",
-        "publisher": "JC Lattès",
-        "amazon_asin": "2709626063"
-      }
-    ],
+    "metaDescription": "Frère ou sœur toxique : distinguer rivalité normale et relation destructrice, comprendre pourquoi ça fait si mal, et savoir quoi faire. Repères et conseils.",
     "articles_lies": [],
     "status": "published"
   },
