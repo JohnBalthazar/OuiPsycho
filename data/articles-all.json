@@ -3000,12 +3000,12 @@
   {
     "id": "vrais-jumeaux-idees-recues",
     "title": "Vraies et fausses idées sur les vrais jumeaux !",
-    "type": "article",
-    "excerpt": "Même ADN, même caractère, télépathie et langage secret : la gémellité traîne derrière elle un stock d'idées reçues impressionnant. La science française, de René Zazzo à l'INED, en démonte l'essentiel — et garde quelques surprises.",
+    "excerpt": "",
     "date": "2026-08-23",
     "date_modified": "2026-08-15",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fnjavazwlcwqysvmytwp",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3019,7 +3019,7 @@
       "fratrie",
       "idees-recues"
     ],
-    "metaDescription": "Vrais jumeaux : ADN identique, télépathie, langage secret, même personnalité ? Sept idées reçues passées au crible de la recherche francophone.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3080,12 +3080,12 @@
   {
     "id": "freres-soeurs-toxiques",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
-    "type": "article",
     "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
     "date": "2026-08-18",
     "date_modified": "2026-08-15",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
