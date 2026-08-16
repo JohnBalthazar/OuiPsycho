@@ -2647,6 +2647,101 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
+    "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
+    "type": "article",
+    "excerpt": "Votre cerveau est une machine à parier sur la note suivante. Vos goûts se sont figés vers 17 ans. Et détester un genre en dit souvent plus long sur vous que l'aimer. Petite enquête sur le plus intime des snobismes.",
+    "metaDescription": "Prédiction, dopamine, souvenirs d'adolescence et distinction sociale : ce que la science dit vraiment de nos goûts musicaux et de nos rejets.",
+    "author": "John Balthazar",
+    "date": "2026-09-20",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "gouts-musicaux",
+      "neurosciences-de-la-musique",
+      "personnalite",
+      "identite",
+      "psychologie-sociale"
+    ],
+    "sources": [
+      {
+        "authors": "Bigand E. (dir.)",
+        "year": "2013",
+        "title": "Le cerveau mélomane",
+        "publisher": "Belin"
+      },
+      {
+        "authors": "Peretz I.",
+        "year": "2018",
+        "title": "Apprendre la musique. Nouvelles des neurosciences",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Lechevalier B., Platel H. & Eustache F. (dir.)",
+        "year": "2010",
+        "title": "Le cerveau musicien. Neuropsychologie et psychologie cognitive de la perception musicale",
+        "publisher": "De Boeck"
+      },
+      {
+        "authors": "Bourdieu P.",
+        "year": "1979",
+        "title": "La distinction. Critique sociale du jugement",
+        "publisher": "Éditions de Minuit"
+      },
+      {
+        "authors": "Hennion A.",
+        "year": "2007",
+        "title": "La passion musicale. Une sociologie de la médiation",
+        "publisher": "Métailié"
+      },
+      {
+        "authors": "Guéguen N., Jacob C., Le Guellec H., Morineau T. & Lourel M.",
+        "year": "2008",
+        "title": "Sound level of environmental music and drinking behavior: A field experiment with beer drinkers",
+        "journal": "Alcoholism: Clinical and Experimental Research",
+        "url": "https://doi.org/10.1111/j.1530-0277.2008.00764.x"
+      },
+      {
+        "authors": "Salimpoor V. N., Benovoy M., Larcher K., Dagher A. & Zatorre R. J.",
+        "year": "2011",
+        "title": "Anatomically distinct dopamine release during anticipation and experience of peak emotion to music",
+        "journal": "Nature Neuroscience",
+        "url": "https://doi.org/10.1038/nn.2726"
+      },
+      {
+        "authors": "Rentfrow P. J. & Gosling S. D.",
+        "year": "2003",
+        "title": "The do re mi's of everyday life: The structure and personality correlates of music preferences",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.84.6.1236"
+      },
+      {
+        "authors": "Krumhansl C. L. & Zupnick J. A.",
+        "year": "2013",
+        "title": "Cascading reminiscence bumps in popular music",
+        "journal": "Psychological Science",
+        "url": "https://doi.org/10.1177/0956797613486486"
+      },
+      {
+        "authors": "Mas-Herrero E., Zatorre R. J., Rodriguez-Fornells A. & Marco-Pallarés J.",
+        "year": "2014",
+        "title": "Dissociation between musical and monetary reward responses in specific musical anhedonia",
+        "journal": "Current Biology",
+        "url": "https://doi.org/10.1016/j.cub.2014.04.018"
+      }
+    ],
+    "articles_lies": [
+      "se-remettre-d-une-rupture-amoureuse"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bienfaits-meconnus-du-sexe",
     "title": "Les bienfaits méconnus du sexe",
     "excerpt": "",
