@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sauriez-vous repérer l'emprise ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/dans-la-tete-d-un-pervers-narcissique/">
+  <meta name="description" content="Douze situations du quotidien pour explorer votre manière de réagir face aux manipulations relationnelles. Quatre profils, des conseils concrets.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px}
+    .wrap{max-width:620px;margin:0 auto}
+    .card{background:#fff;border:1px solid #E2E9EF;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(31,78,107,.06)}
+    .kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#5B7387;font-weight:700;margin-bottom:6px}
+    h1{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
+    .lead{font-size:.95rem;color:#4A5C6B;margin-bottom:14px}
+    .note{background:#F1F7FA;border:1px solid #DDE9F0;border-radius:9px;padding:11px 13px;font-size:.85rem;color:#3F566B;margin-bottom:16px}
+    .bar{height:6px;background:#E6ECF1;border-radius:99px;overflow:hidden;margin-bottom:16px}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,#1F4E6B,#3E8FA8);width:0;transition:width .3s ease}
+    .qnum{font-size:.78rem;color:#7A8B99;font-weight:600;margin-bottom:8px}
+    .qtxt{font-size:1.06rem;font-weight:700;color:#16232E;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#FBFCFD;border:1.5px solid #DDE5EC;border-radius:10px;padding:12px 14px;margin-bottom:9px;font-size:.94rem;color:#22323F;cursor:pointer;transition:all .15s ease;font-family:inherit;line-height:1.45}
+    .opt:hover{border-color:#1F4E6B;background:#F1F7FA;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .back{background:none;border:none;color:#7A8B99;font-size:.84rem;cursor:pointer;padding:8px 0 0;font-family:inherit;text-decoration:underline}
+    .res-emoji{font-size:2.6rem;line-height:1;margin-bottom:8px}
+    .res-name{font-size:1.35rem;color:#1F4E6B;font-weight:800;margin-bottom:4px}
+    .res-tag{font-size:.9rem;color:#5B7387;font-style:italic;margin-bottom:16px}
+    .res-body p{margin-bottom:11px;font-size:.95rem}
+    .res-body p strong{color:#1F4E6B}
+    .tips{background:#F5FAF7;border:1px solid #D8E9DF;border-radius:10px;padding:14px 16px;margin-top:6px}
+    .tips h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#2E6B4F;margin-bottom:9px}
+    .tips li{font-size:.92rem;margin:0 0 8px 18px;line-height:1.45}
+    .tips li:last-child{margin-bottom:0}
+    .hr{height:1px;background:#E6ECF1;margin:18px 0}
+    .disc{background:#FFF8E8;border:1px solid #F2DFAE;border-radius:10px;padding:13px 15px;font-size:.85rem;color:#5A4A22;line-height:1.5}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .share a{flex:1;min-width:110px;text-align:center;text-decoration:none;font-size:.85rem;font-weight:600;padding:10px 8px;border-radius:9px;background:#F1F5F8;color:#22323F;border:1px solid #DDE5EC}
+    .share a:hover{background:#E4EDF3}
+    .again{display:block;width:100%;margin-top:14px;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+    .again:hover{background:#183D54}
+    .mini{font-size:.8rem;color:#8A99A6;margin-top:14px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+var URL_ART = "https://ouipsycho.fr/articles/dans-la-tete-d-un-pervers-narcissique/";
+
+var PROFILS = {
+  radar: {
+    emoji: "\uD83D\uDCE1", name: "Le Radar affûté",
+    tag: "Vous voyez venir. Reste à savoir ce que vous en faites.",
+    body: [
+      "Vous repérez vite les incohérences entre ce qu'on vous dit et ce qu'on vous fait. Le compliment qui pique, la question qui teste, la générosité qui crée une dette : rien de tout cela ne passe inaperçu.",
+      "C'est une compétence rare et précieuse. Vous perdez peu de temps avec les relations qui commencent mal, et vous savez nommer un procédé au lieu de le subir en silence.",
+      "<strong>Le point de vigilance :</strong> un radar toujours allumé finit par détecter des avions qui n'existent pas. La lucidité peut glisser vers l'hypervigilance, et l'hypervigilance coûte cher en énergie et en relations perdues d'avance."
+    ],
+    tips: [
+      "Distinguez la maladresse de la manipulation : la première se corrige quand on la signale, la seconde se retourne contre vous.",
+      "Testez avant de trancher : posez une limite simple et observez la réaction. Elle vaut tous les diagnostics.",
+      "Si vous coupez souvent les ponts très vite, interrogez ce réflexe avec un professionnel plutôt que seul."
+    ]
+  },
+  diplo: {
+    emoji: "\uD83D\uDD4A\uFE0F", name: "Le Diplomate épuisé",
+    tag: "Vous voyez tout. Vous arrondissez tout. Vous êtes fatigué.",
+    body: [
+      "Vous n'êtes pas dupe une seconde, mais votre priorité reste le maintien de la paix. Vous anticipez les humeurs, vous choisissez vos mots, vous désamorcez avant l'étincelle.",
+      "Cette capacité fait de vous quelqu'un de précieux dans une équipe ou une famille. Vous tenez des liens que d'autres auraient laissés exploser.",
+      "<strong>Le point de vigilance :</strong> l'apaisement systématique enseigne à l'autre que le coût de ses débordements est nul, puisque c'est vous qui le payez. À force d'adapter le thermostat, on finit par ne plus savoir quelle est sa propre température."
+    ],
+    tips: [
+      "Repérez une situation par semaine où vous cédez « pour éviter une histoire », et ne cédez pas. Notez ce qui se passe réellement.",
+      "Remplacez les longues justifications par des phrases courtes : « Non, ce n'est pas possible pour moi. » Sans explication : elle offre une prise.",
+      "Vérifiez votre fatigue. Un épuisement relationnel prolongé mérite un avis médical, pas un effort de volonté supplémentaire."
+    ]
+  },
+  doute: {
+    emoji: "\uD83C\uDF00", name: "Le Doute permanent",
+    tag: "Vous vous demandez toujours si le problème, ce ne serait pas vous.",
+    body: [
+      "Devant une tension, votre premier réflexe est de chercher votre part de responsabilité. Vous rejouez les conversations, vous cherchez ce que vous auriez dû dire autrement, vous concluez souvent que vous avez exagéré.",
+      "Cette exigence envers vous-même n'est pas un défaut : elle vous rend capable de remise en question, ce qui est rare et précieux.",
+      "<strong>Le point de vigilance :</strong> ce doute-là est aussi, très exactement, ce que produit une relation d'emprise prolongée. Quand quelqu'un finit par ne plus se fier à sa propre mémoire ni à ses propres perceptions, la question n'est plus « suis-je trop sensible ? » mais « qui a intérêt à ce que je le croie ? »"
+    ],
+    tips: [
+      "Tenez un carnet daté des échanges qui vous laissent confus. Contre la réécriture du passé, la date est votre meilleure alliée.",
+      "Confrontez votre version à une personne extérieure de confiance, pas à la personne concernée.",
+      "Si le doute sur votre propre perception est devenu quotidien, parlez-en à un psychologue ou à votre médecin. Ce n'est pas un trait de caractère, c'est un symptôme relationnel."
+    ]
+  },
+  coeur: {
+    emoji: "\uD83D\uDC97", name: "Le Cœur grand ouvert",
+    tag: "Vous donnez le bénéfice du doute. Longtemps. Trop.",
+    body: [
+      "Vous partez du principe que les gens ont leurs raisons, que la souffrance explique beaucoup, et qu'un peu de patience finit toujours par payer. Vous vous attachez vite et vous vous engagez vraiment.",
+      "C'est une qualité humaine réelle, et le monde en manque cruellement. La plupart de vos relations en bénéficient sans même s'en rendre compte.",
+      "<strong>Le point de vigilance :</strong> l'empathie généreuse est exactement le terrain que recherche un fonctionnement d'emprise. Non parce que vous seriez naïf, mais parce que vous fournissez gratuitement ce que d'autres font payer : de l'attention inconditionnelle."
+    ],
+    tips: [
+      "Faites la différence entre comprendre et accepter. On peut parfaitement comprendre pourquoi quelqu'un agit ainsi et refuser de le subir.",
+      "Fixez-vous à l'avance deux ou trois comportements non négociables, écrits, avant d'être en situation.",
+      "Entretenez au moins un lien extérieur que votre relation principale n'a pas validé. L'isolement est le vrai facteur de risque."
+    ]
+  }
+};
+
+var Q = [
+  { q: "On vous fait un compliment qui se termine par une petite pique. Votre réaction :",
+    a: [
+      { t: "Vous relevez la pique, calmement mais clairement.", p: "radar" },
+      { t: "Vous riez, vous encaissez, vous passez à autre chose.", p: "diplo" },
+      { t: "Vous vous demandez si la remarque n'était pas justifiée.", p: "doute" },
+      { t: "Vous ne retenez que le compliment. Il devait être maladroit.", p: "coeur" }
+    ]},
+  { q: "Quelqu'un vous affirme que la conversation d'hier ne s'est pas passée comme vous le dites.",
+    a: [
+      { t: "Vous maintenez votre version. Vous savez ce que vous avez entendu.", p: "radar" },
+      { t: "Vous concédez le point pour ne pas envenimer.", p: "diplo" },
+      { t: "Vous doutez vraiment. Votre mémoire vous joue peut-être des tours.", p: "doute" },
+      { t: "Vous supposez un malentendu de bonne foi des deux côtés.", p: "coeur" }
+    ]},
+  { q: "Un proche vous rend un service, puis le mentionne à trois reprises dans le mois.",
+    a: [
+      { t: "Vous notez le mécanisme de la dette et vous restez prudent.", p: "radar" },
+      { t: "Vous remerciez encore une fois, en soupirant intérieurement.", p: "diplo" },
+      { t: "Vous culpabilisez de ne pas avoir assez montré votre gratitude.", p: "doute" },
+      { t: "Vous cherchez comment lui rendre la pareille rapidement.", p: "coeur" }
+    ]},
+  { q: "Une soirée est annulée à la dernière minute, pour la quatrième fois.",
+    a: [
+      { t: "Vous le dites franchement et vous arrêtez de proposer.", p: "radar" },
+      { t: "Vous répondez « pas de souci » et vous reproposez une date.", p: "diplo" },
+      { t: "Vous vous demandez si vous n'êtes pas ennuyeux.", p: "doute" },
+      { t: "Vous vous inquiétez surtout pour elle ou lui.", p: "coeur" }
+    ]},
+  { q: "Votre entourage adore une personne avec qui, en privé, vous êtes mal à l'aise.",
+    a: [
+      { t: "Vous vous fiez à votre ressenti et vous gardez vos distances.", p: "radar" },
+      { t: "Vous restez cordial en public et vous limitez le tête-à-tête.", p: "diplo" },
+      { t: "Vous en concluez que le problème vient sûrement de vous.", p: "doute" },
+      { t: "Vous vous forcez, en vous disant que vous finirez par la comprendre.", p: "coeur" }
+    ]},
+  { q: "Après une discussion, vous ressortez avec un vague sentiment de malaise sans savoir pourquoi.",
+    a: [
+      { t: "Vous reconstituez l'échange pour identifier la phrase précise.", p: "radar" },
+      { t: "Vous rangez ça de côté, vous avez d'autres priorités.", p: "diplo" },
+      { t: "Vous y repensez toute la soirée, en cherchant votre erreur.", p: "doute" },
+      { t: "Vous mettez ça sur le compte de votre fatigue.", p: "coeur" }
+    ]},
+  { q: "On vous demande un service qui vous met en difficulté.",
+    a: [
+      { t: "Vous refusez sans développer. C'est non.", p: "radar" },
+      { t: "Vous acceptez une version allégée pour ménager tout le monde.", p: "diplo" },
+      { t: "Vous acceptez, puis vous vous en voulez d'avoir accepté.", p: "doute" },
+      { t: "Vous acceptez. Aider fait partie de ce que vous êtes.", p: "coeur" }
+    ]},
+  { q: "Quelqu'un critique régulièrement vos amis ou votre famille, gentiment.",
+    a: [
+      { t: "Signal d'alarme. L'isolement commence toujours comme ça.", p: "radar" },
+      { t: "Vous changez de sujet, systématiquement.", p: "diplo" },
+      { t: "Vous vous surprenez à trouver qu'il ou elle n'a pas complètement tort.", p: "doute" },
+      { t: "Vous pensez que c'est de la franchise, même si ça pique.", p: "coeur" }
+    ]},
+  { q: "Vous exprimez un désaccord et on vous répond que vous êtes trop sensible.",
+    a: [
+      { t: "Vous nommez le procédé : « Tu réponds sur ma personne, pas sur le fond. »", p: "radar" },
+      { t: "Vous laissez tomber. Le débat n'en vaut pas la peine.", p: "diplo" },
+      { t: "Vous vous demandez sérieusement si vous ne l'êtes pas.", p: "doute" },
+      { t: "Vous expliquez longuement pourquoi vous ressentez ça.", p: "coeur" }
+    ]},
+  { q: "Vous avez besoin d'aide. Votre premier réflexe :",
+    a: [
+      { t: "Vous demandez, à la bonne personne, sans détour.", p: "radar" },
+      { t: "Vous vous débrouillez. Demander crée des complications.", p: "diplo" },
+      { t: "Vous hésitez longtemps : vous n'êtes pas sûr de le mériter.", p: "doute" },
+      { t: "Vous demandez à celui qui vous aide toujours, même s'il en profite.", p: "coeur" }
+    ]},
+  { q: "Une relation alterne périodes merveilleuses et périodes glaciales.",
+    a: [
+      { t: "Vous identifiez l'alternance comme un mécanisme, pas comme un hasard.", p: "radar" },
+      { t: "Vous apprenez à lire les signes et vous vous adaptez.", p: "diplo" },
+      { t: "Vous cherchez ce que vous faites qui déclenche les périodes froides.", p: "doute" },
+      { t: "Vous vous accrochez aux périodes merveilleuses. C'est ça, la vraie personne.", p: "coeur" }
+    ]},
+  { q: "Un ami vous raconte une situation qui ressemble à de l'emprise. Vous...",
+    a: [
+      { t: "Vous nommez les faits et vous l'orientez vers un professionnel.", p: "radar" },
+      { t: "Vous écoutez sans juger et vous restez disponible.", p: "diplo" },
+      { t: "Vous vous reconnaissez tellement que vous n'osez rien dire.", p: "doute" },
+      { t: "Vous vous proposez d'être là pour les deux. Il y a sûrement du bon partout.", p: "coeur" }
+    ]}
+];
+
+var idx = 0, votes = {}, history = [], ORDERS = [];
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function reset() {
+  idx = 0; votes = {}; history = []; ORDERS = [];
+  for (var i = 0; i < Q.length; i++) ORDERS.push(shuffle(Q[i].a));
+}
+
+function renderIntro() {
+  document.getElementById('app').innerHTML =
+    '<div class="kicker">Relations</div>' +
+    '<h1>Sauriez-vous repérer l\'emprise ?</h1>' +
+    '<p class="lead">Douze situations très ordinaires. Ce test n\'évalue pas votre entourage et ne pose aucune étiquette : il explore votre manière de réagir face aux petites manipulations du quotidien.</p>' +
+    '<div class="note">Aucun résultat ne dit que vous êtes manipulateur, ni que quelqu\'un l\'est. Il s\'agit d\'un outil de réflexion sur vos propres réflexes relationnels.</div>' +
+    '<button class="again" id="go">Commencer le test</button>' +
+    '<p class="mini">Environ 5 minutes · Aucune donnée enregistrée</p>';
+  document.getElementById('go').onclick = function(){ reset(); renderQ(); };
+  notifyResize();
+}
+
+function renderQ() {
+  var q = Q[idx];
+  var opts = ORDERS[idx];
+  var html = '<div class="bar"><span style="width:' + (idx / Q.length * 100) + '%"></span></div>' +
+    '<div class="qnum">Question ' + (idx + 1) + ' / ' + Q.length + '</div>' +
+    '<div class="qtxt">' + esc(q.q) + '</div>';
+  for (var i = 0; i < opts.length; i++) {
+    html += '<button class="opt" data-p="' + opts[i].p + '">' + esc(opts[i].t) + '</button>';
+  }
+  if (idx > 0) html += '<button class="back" id="bk">← Question précédente</button>';
+  document.getElementById('app').innerHTML = html;
+
+  var btns = document.querySelectorAll('.opt');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].onclick = function() {
+      var p = this.getAttribute('data-p');
+      votes[p] = (votes[p] || 0) + 1;
+      history.push(p);
+      idx++;
+      if (idx >= Q.length) { renderResult(); } else { renderQ(); }
+    };
+  }
+  var bk = document.getElementById('bk');
+  if (bk) bk.onclick = function() {
+    var last = history.pop();
+    if (last) votes[last]--;
+    idx--;
+    renderQ();
+  };
+  notifyResize();
+}
+
+function renderResult() {
+  var order = ['doute','coeur','diplo','radar'];
+  var best = null, max = -1;
+  for (var i = 0; i < order.length; i++) {
+    var v = votes[order[i]] || 0;
+    if (v > max) { max = v; best = order[i]; }
+  }
+  var p = PROFILS[best];
+
+  var shareTxt = "Mon profil : " + p.name + " — Sauriez-vous repérer l'emprise ? Test Oui Psycho !";
+  var eu = encodeURIComponent(URL_ART);
+  var et = encodeURIComponent(shareTxt);
+  var etu = encodeURIComponent(shareTxt + " " + URL_ART);
+
+  var body = '';
+  for (var k = 0; k < p.body.length; k++) body += '<p>' + p.body[k] + '</p>';
+  var tips = '';
+  for (var m = 0; m < p.tips.length; m++) tips += '<li>' + p.tips[m] + '</li>';
+
+  document.getElementById('app').innerHTML =
+    '<div class="bar"><span style="width:100%"></span></div>' +
+    '<div class="kicker">Votre profil dominant</div>' +
+    '<div class="res-emoji">' + p.emoji + '</div>' +
+    '<div class="res-name">' + p.name + '</div>' +
+    '<div class="res-tag">' + p.tag + '</div>' +
+    '<div class="res-body">' + body + '</div>' +
+    '<div class="tips"><h3>Trois conseils pour vous</h3><ul>' + tips + '</ul></div>' +
+    '<div class="hr"></div>' +
+    '<div class="disc">\u2695\uFE0F <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). Violences au sein du couple : <strong>3919</strong>, anonyme et gratuit.</div>' +
+    '<div class="share">' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC4D Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC26 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + etu + '" target="_blank" rel="noopener">\uD83D\uDCAC WhatsApp</a>' +
+    '</div>' +
+    '<button class="again" id="rs">\u21BA Recommencer le test</button>';
+
+  document.getElementById('rs').onclick = function() { reset(); renderQ(); notifyResize(); };
+  if (typeof gtag === 'function') gtag('event', 'quiz_complete', { quiz_id: 'dans-la-tete-d-un-pervers-narcissique-quiz', profil: p.name });
+  notifyResize();
+}
+
+reset();
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
