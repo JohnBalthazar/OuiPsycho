@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel chimiste sommeille en vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/walter-white-sur-le-divan/">
+  <meta name="description" content="Dix questions sur votre rapport à la reconnaissance, au contrôle et à la règle. Cinq profils inspirés de Breaking Bad.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px}
+    .wrap{max-width:620px;margin:0 auto}
+    .card{background:#fff;border:1px solid #E2E9EF;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(31,78,107,.06)}
+    .kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#5B7387;font-weight:700;margin-bottom:6px}
+    h1{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
+    .lead{font-size:.95rem;color:#4A5C6B;margin-bottom:18px}
+    .bar{height:6px;background:#E6ECF1;border-radius:99px;overflow:hidden;margin-bottom:16px}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,#1F4E6B,#3E8FA8);width:0;transition:width .3s ease}
+    .qnum{font-size:.78rem;color:#7A8B99;font-weight:600;margin-bottom:8px}
+    .qtxt{font-size:1.06rem;font-weight:700;color:#16232E;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#FBFCFD;border:1.5px solid #DDE5EC;border-radius:10px;padding:12px 14px;margin-bottom:9px;font-size:.94rem;color:#22323F;cursor:pointer;transition:all .15s ease;font-family:inherit;line-height:1.45}
+    .opt:hover{border-color:#1F4E6B;background:#F1F7FA;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .back{background:none;border:none;color:#7A8B99;font-size:.84rem;cursor:pointer;padding:8px 0 0;font-family:inherit;text-decoration:underline}
+    .res-emoji{font-size:2.6rem;line-height:1;margin-bottom:8px}
+    .res-name{font-size:1.35rem;color:#1F4E6B;font-weight:800;margin-bottom:4px}
+    .res-tag{font-size:.9rem;color:#5B7387;font-style:italic;margin-bottom:16px}
+    .res-body p{margin-bottom:11px;font-size:.95rem}
+    .res-body p strong{color:#1F4E6B}
+    .hr{height:1px;background:#E6ECF1;margin:18px 0}
+    .disc{background:#FFF8E8;border:1px solid #F2DFAE;border-radius:10px;padding:13px 15px;font-size:.85rem;color:#5A4A22;line-height:1.5}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .share a{flex:1;min-width:110px;text-align:center;text-decoration:none;font-size:.85rem;font-weight:600;padding:10px 8px;border-radius:9px;background:#F1F5F8;color:#22323F;border:1px solid #DDE5EC}
+    .share a:hover{background:#E4EDF3}
+    .again{display:block;width:100%;margin-top:14px;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+    .again:hover{background:#183D54}
+    .mini{font-size:.8rem;color:#8A99A6;margin-top:14px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+var URL_ART = "https://ouipsycho.fr/articles/walter-white-sur-le-divan/";
+
+var PROFILS = {
+  prof: {
+    emoji: "\uD83E\uDDEA", name: "Le Professeur",
+    tag: "Compétent, discret, et un peu trop patient.",
+    body: [
+      "Vous faites bien les choses, vous les faites même très bien, et vous attendez qu'on le remarque. Ce n'est pas de la modestie : c'est une forme de dignité qui refuse de se vendre.",
+      "Votre force est réelle. Vous êtes fiable, rigoureux, et vous tenez sur la durée là où d'autres s'épuisent. On vous confie les dossiers qui comptent.",
+      "<strong>Le point de vigilance :</strong> l'attente peut se transformer en comptabilité silencieuse. Chaque reconnaissance manquée s'ajoute à une ardoise que personne ne sait qu'elle vous doit.",
+      "Les rancunes les plus solides sont celles qu'on n'a jamais formulées. Demander explicitement ce que vous méritez n'est pas de l'arrogance : c'est de l'entretien courant."
+    ]
+  },
+  heis: {
+    emoji: "\uD83C\uDFA9", name: "L'Alchimiste orgueilleux",
+    tag: "Vous ne voulez pas gagner. Vous voulez qu'on sache que vous avez gagné.",
+    body: [
+      "L'excellence ne vous suffit pas : il faut qu'elle porte votre nom. Vous avez un rapport intense à la maîtrise et une tolérance très basse à l'idée d'être sous-estimé.",
+      "C'est un moteur redoutable. Vous allez au bout, vous ne déléguez pas la qualité, et vous obtenez des résultats que les tièdes n'atteindront jamais.",
+      "<strong>Le point de vigilance :</strong> quand la reconnaissance devient le carburant principal, l'objectif initial peut discrètement disparaître en route.",
+      "La bonne question à se poser régulièrement : est-ce que je fais encore ça pour la raison que j'invoque — ou pour la sensation que ça me procure ?"
+    ]
+  },
+  jesse: {
+    emoji: "\uD83D\uDC94", name: "L'Apprenti au grand cœur",
+    tag: "Loyal, intuitif, et souvent le seul à voir le problème moral.",
+    body: [
+      "Vous ressentez avant d'analyser. Vous vous attachez vite, vous vous engagez sincèrement, et vous encaissez la culpabilité pour tout le monde.",
+      "C'est une vraie qualité humaine : dans un groupe, vous êtes souvent la conscience qui reste allumée quand les autres ont éteint la lumière.",
+      "<strong>Le point de vigilance :</strong> votre besoin de reconnaissance affective vous rend perméable aux personnes qui alternent valorisation et rabaissement.",
+      "Une relation qui vous fait sentir alternativement génial et minable n'est pas une relation intense : c'est un mécanisme. La loyauté n'oblige à rien quand elle ne circule que dans un sens."
+    ]
+  },
+  gus: {
+    emoji: "\uD83E\uDDCA", name: "Le Stratège glacé",
+    tag: "Vous ne réagissez jamais à chaud. Jamais.",
+    body: [
+      "Sang-froid, anticipation, façade impeccable. Vous jouez à long terme quand les autres jouent au coup par coup, et cela vous donne une avance considérable.",
+      "On vous fait confiance parce que vous ne paniquez pas. En situation de crise, vous êtes souvent la personne la plus utile de la pièce.",
+      "<strong>Le point de vigilance :</strong> le contrôle émotionnel permanent a un coût. Ce qui n'est jamais exprimé n'est pas dissous, seulement stocké.",
+      "La maîtrise devient un piège quand elle interdit d'être aidé. Avoir un endroit où vous n'avez rien à tenir n'est pas une faiblesse dans le dispositif : c'en est la condition."
+    ]
+  },
+  saul: {
+    emoji: "\uD83E\uDD1D", name: "Le Négociateur élastique",
+    tag: "Il y a toujours une solution. Elle est rarement dans le règlement.",
+    body: [
+      "Pragmatique, rapide, remarquablement à l'aise dans l'ambiguïté. Là où d'autres voient une impasse, vous voyez une porte de service.",
+      "Vous désamorcez les conflits, vous trouvez les arrangements, et vous rendez possible ce qui paraissait bloqué. C'est une compétence sociale rare.",
+      "<strong>Le point de vigilance :</strong> à force de s'adapter à tout, on finit par ne plus savoir où se situe sa propre limite.",
+      "Le pragmatisme est un outil excellent et une boussole détestable. Écrire à l'avance les trois choses que vous ne ferez pas, quel que soit l'argument, vous évitera de le découvrir trop tard."
+    ]
+  }
+};
+
+var Q = [
+  { q: "Un collègue récolte publiquement les lauriers d'un travail que vous avez fait à 90 %. Sur le moment, vous...",
+    a: [
+      { t: "Vous ne dites rien. Ça se saura bien un jour.", p: "prof" },
+      { t: "Vous corrigez calmement, en public, avec des dates et des preuves.", p: "heis" },
+      { t: "Vous êtes surtout blessé qu'il ait pu vous faire ça, à vous.", p: "jesse" },
+      { t: "Vous notez l'information et vous vous en servirez au bon moment.", p: "gus" },
+      { t: "Vous allez le voir en privé et vous négociez une contrepartie.", p: "saul" }
+    ]},
+  { q: "Votre rapport aux règles, honnêtement :",
+    a: [
+      { t: "Je les respecte. C'est plus simple et c'est plus juste.", p: "prof" },
+      { t: "Je les respecte tant qu'elles ne sont pas idiotes. Beaucoup le sont.", p: "heis" },
+      { t: "Ça dépend surtout de qui en pâtit.", p: "jesse" },
+      { t: "Je les connais mieux que ceux qui les appliquent.", p: "gus" },
+      { t: "Une règle est un point de départ pour discuter.", p: "saul" }
+    ]},
+  { q: "Un imprévu fait dérailler un plan que vous aviez préparé pendant des semaines.",
+    a: [
+      { t: "Vous reprenez tout depuis le début, méthodiquement.", p: "prof" },
+      { t: "Vous êtes furieux : cela n'aurait pas dû être possible.", p: "heis" },
+      { t: "Vous êtes découragé et vous avez besoin d'en parler.", p: "jesse" },
+      { t: "Vous passez au plan B. Il existait déjà.", p: "gus" },
+      { t: "Vous improvisez. C'est souvent là que ça devient intéressant.", p: "saul" }
+    ]},
+  { q: "On vous fait un compliment appuyé sur votre travail. Votre réaction intérieure :",
+    a: [
+      { t: "Gêne. Vous minimisez immédiatement.", p: "prof" },
+      { t: "Satisfaction profonde. Enfin quelqu'un qui comprend.", p: "heis" },
+      { t: "Chaleur. Vous vous en souvenez pendant des semaines.", p: "jesse" },
+      { t: "Rien de visible. Un simple hochement de tête.", p: "gus" },
+      { t: "Vous le retournez en opportunité dans la conversation.", p: "saul" }
+    ]},
+  { q: "Dans une négociation tendue, votre arme principale :",
+    a: [
+      { t: "La solidité du dossier. Les faits parlent.", p: "prof" },
+      { t: "Le fait d'être irremplaçable, et qu'ils le sachent.", p: "heis" },
+      { t: "La sincérité. Vous dites ce que vous ressentez vraiment.", p: "jesse" },
+      { t: "Le silence. Celui qui parle en premier perd.", p: "gus" },
+      { t: "Le cadrage. Vous décidez du terrain de la discussion.", p: "saul" }
+    ]},
+  { q: "Ce qui vous ferait le plus mal, ce serait :",
+    a: [
+      { t: "Réaliser que ma vie n'a pas eu l'importance que j'espérais.", p: "prof" },
+      { t: "Être publiquement pris pour un médiocre.", p: "heis" },
+      { t: "Être abandonné par quelqu'un à qui je tenais.", p: "jesse" },
+      { t: "Perdre le contrôle devant témoins.", p: "gus" },
+      { t: "Me retrouver coincé sans aucune marge de manœuvre.", p: "saul" }
+    ]},
+  { q: "Quelqu'un vous a trahi. Six mois plus tard :",
+    a: [
+      { t: "Vous n'en parlez plus, mais rien n'est oublié.", p: "prof" },
+      { t: "Vous attendez encore des excuses. Explicites.", p: "heis" },
+      { t: "Vous lui avez déjà pardonné, et vous vous en voulez un peu.", p: "jesse" },
+      { t: "La relation existe toujours. Sur une base entièrement recalculée.", p: "gus" },
+      { t: "Vous avez tourné la page : la rancune coûte trop cher.", p: "saul" }
+    ]},
+  { q: "Le risque, pour vous, c'est plutôt :",
+    a: [
+      { t: "Quelque chose qu'on évite quand on peut.", p: "prof" },
+      { t: "Le prix d'un résultat que personne d'autre n'obtiendra.", p: "heis" },
+      { t: "Un truc qu'on prend pour quelqu'un, rarement pour soi.", p: "jesse" },
+      { t: "Une variable. Elle se réduit, elle ne se subit pas.", p: "gus" },
+      { t: "Le sel de l'affaire, tant que la sortie est repérée.", p: "saul" }
+    ]},
+  { q: "Vous découvrez que vous aviez tort sur un point important.",
+    a: [
+      { t: "Vous le reconnaissez, sobrement, et vous corrigez.", p: "prof" },
+      { t: "Vous expliquez surtout pourquoi votre raisonnement était défendable.", p: "heis" },
+      { t: "Vous vous excusez, peut-être un peu trop.", p: "jesse" },
+      { t: "Vous ajustez sans commentaire. L'annonce n'apporterait rien.", p: "gus" },
+      { t: "Vous transformez ça en anecdote et vous passez à la suite.", p: "saul" }
+    ]},
+  { q: "Dans vingt ans, vous aimeriez qu'on dise de vous :",
+    a: [
+      { t: "Qu'on pouvait compter sur vous, toujours.", p: "prof" },
+      { t: "Que vous étiez le meilleur dans ce que vous faisiez.", p: "heis" },
+      { t: "Que vous étiez quelqu'un de bien.", p: "jesse" },
+      { t: "Que rien ne vous atteignait jamais.", p: "gus" },
+      { t: "Que vous vous en sortiez dans toutes les situations.", p: "saul" }
+    ]}
+];
+
+var idx = 0, votes = {}, history = [];
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+var ORDERS = [];
+function buildOrders() {
+  ORDERS = [];
+  for (var i = 0; i < Q.length; i++) ORDERS.push(shuffle(Q[i].a));
+}
+
+function reset() {
+  idx = 0; votes = {}; history = [];
+  buildOrders();
+}
+
+function renderIntro() {
+  document.getElementById('app').innerHTML =
+    '<div class="kicker">Nos héros sur le divan</div>' +
+    '<h1>Quel chimiste sommeille en vous ?</h1>' +
+    '<p class="lead">Dix questions sur votre rapport à la reconnaissance, au contrôle et à la règle. Cinq profils inspirés de Breaking Bad. Aucun matériel de laboratoire requis.</p>' +
+    '<button class="again" id="go">Commencer le test</button>' +
+    '<p class="mini">Environ 4 minutes · Aucune donnée enregistrée</p>';
+  document.getElementById('go').onclick = function(){ reset(); renderQ(); };
+  notifyResize();
+}
+
+function renderQ() {
+  var q = Q[idx];
+  var opts = ORDERS[idx];
+  var html = '<div class="bar"><span style="width:' + (idx / Q.length * 100) + '%"></span></div>' +
+    '<div class="qnum">Question ' + (idx + 1) + ' / ' + Q.length + '</div>' +
+    '<div class="qtxt">' + esc(q.q) + '</div>';
+  for (var i = 0; i < opts.length; i++) {
+    html += '<button class="opt" data-p="' + opts[i].p + '">' + esc(opts[i].t) + '</button>';
+  }
+  if (idx > 0) html += '<button class="back" id="bk">← Question précédente</button>';
+  document.getElementById('app').innerHTML = html;
+
+  var btns = document.querySelectorAll('.opt');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].onclick = function() {
+      var p = this.getAttribute('data-p');
+      votes[p] = (votes[p] || 0) + 1;
+      history.push(p);
+      idx++;
+      if (idx >= Q.length) { renderResult(); } else { renderQ(); }
+    };
+  }
+  var bk = document.getElementById('bk');
+  if (bk) bk.onclick = function() {
+    var last = history.pop();
+    if (last) votes[last]--;
+    idx--;
+    renderQ();
+  };
+  notifyResize();
+}
+
+function renderResult() {
+  var best = null, max = -1;
+  var order = ['heis','gus','saul','jesse','prof'];
+  for (var i = 0; i < order.length; i++) {
+    var v = votes[order[i]] || 0;
+    if (v > max) { max = v; best = order[i]; }
+  }
+  var p = PROFILS[best];
+
+  var shareTxt = "Mon profil : " + p.name + " — Quel chimiste sommeille en vous ? Test Oui Psycho !";
+  var eu = encodeURIComponent(URL_ART);
+  var et = encodeURIComponent(shareTxt);
+  var etu = encodeURIComponent(shareTxt + " " + URL_ART);
+
+  var body = '';
+  for (var k = 0; k < p.body.length; k++) body += '<p>' + p.body[k] + '</p>';
+
+  document.getElementById('app').innerHTML =
+    '<div class="bar"><span style="width:100%"></span></div>' +
+    '<div class="kicker">Votre profil dominant</div>' +
+    '<div class="res-emoji">' + p.emoji + '</div>' +
+    '<div class="res-name">' + p.name + '</div>' +
+    '<div class="res-tag">' + p.tag + '</div>' +
+    '<div class="res-body">' + body + '</div>' +
+    '<div class="hr"></div>' +
+    '<div class="disc">\u2695\uFE0F <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+    '<div class="share">' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC4D Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC26 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + etu + '" target="_blank" rel="noopener">\uD83D\uDCAC WhatsApp</a>' +
+    '</div>' +
+    '<button class="again" id="rs">\u21BA Recommencer le test</button>';
+
+  document.getElementById('rs').onclick = function() { reset(); renderQ(); notifyResize(); };
+  if (typeof gtag === 'function') gtag('event', 'quiz_complete', { quiz_id: 'walter-white-sur-le-divan-quiz', profil: p.name });
+  notifyResize();
+}
+
+reset();
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
