@@ -2806,6 +2806,32 @@
     "status": "scheduled"
   },
   {
+    "id": "walter-white-sur-le-divan",
+    "title": "Walter White sur le divan : psychologie d'un chimiste de méthamphétamine",
+    "type": "article",
+    "excerpt": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste un homme, ses compétences et ses raisons. Décryptage psychologique d'une descente parfaitement logique.",
+    "date": "2026-08-30",
+    "date_modified": "2026-08-16",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "walter-white",
+      "breaking-bad",
+      "narcissisme",
+      "desengagement-moral",
+      "fiction-et-psychologie"
+    ],
+    "metaDescription": "Narcissisme, cancer et désengagement moral : analyse psychologique de Walter White, de Breaking Bad, du professeur discret au baron Heisenberg.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "",
@@ -3010,32 +3036,6 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "walter-white-sur-le-divan",
-    "title": "Walter White sur le divan : psychologie d'un chimiste de méthamphétamine",
-    "type": "article",
-    "excerpt": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste un homme, ses compétences et ses raisons. Décryptage psychologique d'une descente parfaitement logique.",
-    "date": "2026-08-16",
-    "date_modified": "2026-08-16",
-    "category": "Nos héros sur le divan",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "walter-white",
-      "breaking-bad",
-      "narcissisme",
-      "desengagement-moral",
-      "fiction-et-psychologie"
-    ],
-    "metaDescription": "Narcissisme, cancer et désengagement moral : analyse psychologique de Walter White, de Breaking Bad, du professeur discret au baron Heisenberg.",
-    "articles_lies": [],
-    "status": "published"
   },
   {
     "id": "argent-et-bonheur",
