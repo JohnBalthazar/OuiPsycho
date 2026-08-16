@@ -2726,6 +2726,22 @@
     "status": "scheduled"
   },
   {
+    "id": "_dans-la-tete-d-un-pervers-narcissique-quiz",
+    "title": "Sauriez-vous repérer l'emprise ?",
+    "desc": "Douze situations très ordinaires pour explorer vos réflexes relationnels. Quatre profils et des conseils concrets.",
+    "emoji": "🌀",
+    "color": "#1F4E6B",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/dans-la-tete-d-un-pervers-narcissique-quiz.html",
+    "articleUrl": "articles/dans-la-tete-d-un-pervers-narcissique/",
+    "image": "",
+    "isNew": true,
+    "status": "scheduled",
+    "date": "2026-09-06",
+    "date_modified": "2026-09-06"
+  },
+  {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
     "excerpt": "",
