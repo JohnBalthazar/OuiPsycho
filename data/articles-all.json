@@ -2566,6 +2566,86 @@
     "status": "scheduled"
   },
   {
+    "id": "est-ce-que-la-taille-compte-vraiment",
+    "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
+    "type": "article",
+    "excerpt": "C'est l'une des questions les plus tapées dans Google, toujours à 2h du matin, toujours en navigation privée. Bonne nouvelle : la science a répondu, et les chiffres sont beaucoup moins dramatiques que le silence qui entoure le sujet.",
+    "metaDescription": "Moyennes réelles, préférences mesurées, anatomie et dysmorphophobie : ce que la science dit vraiment de la taille du pénis, sans complaisance ni panique.",
+    "author": "John Balthazar",
+    "date": "2026-09-27",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "sexualite",
+      "image-du-corps",
+      "estime-de-soi",
+      "dysmorphophobie",
+      "couple"
+    ],
+    "sources": [
+      {
+        "authors": "Bajos N. & Bozon M. (dir.)",
+        "year": "2008",
+        "title": "Enquête sur la sexualité en France. Pratiques, genre et santé",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Bozon M.",
+        "year": "2018",
+        "title": "Sociologie de la sexualité",
+        "publisher": "Armand Colin"
+      },
+      {
+        "authors": "Brenot P.",
+        "year": "2011",
+        "title": "Les hommes, le sexe et l'amour",
+        "publisher": "Les Arènes"
+      },
+      {
+        "authors": "Solano C.",
+        "year": "2010",
+        "title": "La mécanique sexuelle des hommes",
+        "publisher": "Robert Laffont"
+      },
+      {
+        "authors": "Wéry A. & Billieux J.",
+        "year": "2017",
+        "title": "Problematic cybersex: Conceptualization, assessment, and treatment",
+        "journal": "Addictive Behaviors",
+        "url": "https://doi.org/10.1016/j.addbeh.2016.03.007"
+      },
+      {
+        "authors": "Veale D., Miles S., Bramley S., Muir G. & Hodsoll J.",
+        "year": "2015",
+        "title": "Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15 521 men",
+        "journal": "BJU International",
+        "url": "https://doi.org/10.1111/bju.13010"
+      },
+      {
+        "authors": "Lever J., Frederick D. A. & Peplau L. A.",
+        "year": "2006",
+        "title": "Does size matter? Men's and women's views on penis size across the lifespan",
+        "journal": "Psychology of Men & Masculinity",
+        "url": "https://doi.org/10.1037/1524-9220.7.3.129"
+      },
+      {
+        "authors": "Prause N., Park J., Leung S. & Miller G.",
+        "year": "2015",
+        "title": "Women's preferences for penis size: A new research method using selection among 3D models",
+        "journal": "PLoS ONE",
+        "url": "https://doi.org/10.1371/journal.pone.0133079"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ecran-sante-mentale",
     "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
     "excerpt": "",
