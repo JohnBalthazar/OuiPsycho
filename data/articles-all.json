@@ -2728,6 +2728,93 @@
     "status": "scheduled"
   },
   {
+    "id": "se-remettre-d-une-rupture-amoureuse",
+    "title": "Comment se remettre d'une rupture amoureuse ?",
+    "type": "article",
+    "excerpt": "Non, ce n'est pas « dans votre tête » : votre cerveau traite la rupture comme un sevrage doublé d'une blessure. Voici ce que la science, la clinique et une grande sœur bien intentionnée ont à en dire — sans un seul « il faut tourner la page ».",
+    "metaDescription": "Sevrage, rumination, identité perdue : ce que dit vraiment la science de la rupture amoureuse, et huit outils concrets pour s'en remettre sans cliché.",
+    "author": "John Balthazar",
+    "date": "2026-09-13",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "rupture-amoureuse",
+      "chagrin-d-amour",
+      "rumination",
+      "estime-de-soi",
+      "neurosciences-affectives"
+    ],
+    "sources": [
+      {
+        "authors": "Vincent L.",
+        "year": "2004",
+        "title": "Comment devient-on amoureux ?",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2001",
+        "title": "Les vilains petits canards",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "André C.",
+        "year": "2006",
+        "title": "Imparfaits, libres et heureux. Pratiques de l'estime de soi",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Philippot P.",
+        "year": "2011",
+        "title": "Émotion et psychothérapie",
+        "publisher": "Mardaga"
+      },
+      {
+        "authors": "Neuburger R.",
+        "year": "2013",
+        "title": "On arrête ?... On continue ? Faire son bilan de couple",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Hanus M.",
+        "year": "2006",
+        "title": "Les deuils dans la vie",
+        "publisher": "Maloine"
+      },
+      {
+        "authors": "Fisher H. E., Brown L. L., Aron A., Strong G. & Mashek D.",
+        "year": "2010",
+        "title": "Reward, addiction, and emotion regulation systems associated with rejection in love",
+        "journal": "Journal of Neurophysiology",
+        "url": "https://doi.org/10.1152/jn.00784.2009"
+      },
+      {
+        "authors": "Kross E., Berman M. G., Mischel W., Smith E. E. & Wager T. D.",
+        "year": "2011",
+        "title": "Social rejection shares somatosensory representations with physical pain",
+        "journal": "Proceedings of the National Academy of Sciences",
+        "url": "https://doi.org/10.1073/pnas.1102693108"
+      },
+      {
+        "authors": "Slotter E. B., Gardner W. L. & Finkel E. J.",
+        "year": "2010",
+        "title": "Who am I without you? The influence of romantic breakup on the self-concept",
+        "journal": "Personality and Social Psychology Bulletin",
+        "url": "https://doi.org/10.1177/0146167209352250"
+      }
+    ],
+    "articles_lies": [
+      "dans-la-tete-d-un-pervers-narcissique"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
     "excerpt": "",
