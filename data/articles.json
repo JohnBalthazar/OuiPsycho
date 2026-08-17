@@ -3143,32 +3143,6 @@
     "status": "scheduled"
   },
   {
-    "id": "lamour-est-il-une-arnaque",
-    "title": "L'amour est-il une arnaque ?",
-    "excerpt": "",
-    "date": "2026-08-18",
-    "date_modified": "2026-06-23",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sw9dewvucupgcgcp708l",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "amour",
-      "couple",
-      "attachement",
-      "neurosciences",
-      "passion",
-      "relations"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
     "type": "article",
@@ -3352,6 +3326,33 @@
     "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
     "articles_lies": [],
     "status": "scheduled"
+  },
+  {
+    "id": "lamour-est-il-une-arnaque",
+    "title": "L'amour est-il une arnaque ?",
+    "type": "article",
+    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
+    "date": "2026-08-03",
+    "date_modified": "2026-08-17",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sw9dewvucupgcgcp708l",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "amour",
+      "couple",
+      "attachement",
+      "neurosciences",
+      "passion",
+      "relations"
+    ],
+    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "gaston-lagaffe-psychopathologie",
