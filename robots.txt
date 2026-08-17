@@ -5,15 +5,15 @@ User-agent: *
 Allow: /
 
 # Pages non publiques
-Disallow: /admin.html
+Disallow: /poulet.html
 Disallow: /data/
 
 # Données JSON nécessaires au rendu JS (chargées par Googlebot)
+# NB : articles-all.json et config.json restent volontairement exclus —
+# le premier expose les articles non publiés, le second des identifiants.
 Allow: /data/articles.json
-Allow: /data/articles-all.json
 Allow: /data/tests.json
 Allow: /data/dossiers.json
-Allow: /data/config.json
 Disallow: /articles/*.json
 
 # Fichiers articles plats (doublons des URLs canoniques /articles/ID/)
