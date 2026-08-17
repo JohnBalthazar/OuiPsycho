@@ -2,12 +2,12 @@
   {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
-    "type": "article",
-    "excerpt": "Papillons dans le ventre, promesses éternelles, puis la routine et les chaussettes qui traînent. L'amour nous aurait-il vendu du rêve ? La science a mené l'enquête, et le verdict est plus nuancé qu'une rupture par SMS.",
+    "excerpt": "",
     "date": "2027-06-03",
     "date_modified": "2026-08-17",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sw9dewvucupgcgcp708l",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -22,7 +22,7 @@
       "passion",
       "relations"
     ],
-    "metaDescription": "Coup de foudre, désillusion, routine : l'amour est-il une arnaque chimique ? Ce que la science dit de la passion, de l'attachement et des couples qui durent.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2246,12 +2246,12 @@
   {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
-    "type": "article",
-    "excerpt": "La dépression touchera près d'une personne sur cinq en France. Maladie réelle, elle se soigne. TCC, psychanalyse, neurosciences, témoignages et routines concrètes : le dossier complet pour comprendre — et s'en sortir.",
+    "excerpt": "",
     "date": "2026-10-24",
     "date_modified": "2026-08-17",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/etrpv8ospcqjweg6vlbi",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2265,7 +2265,7 @@
       "sante-mentale",
       "therapies"
     ],
-    "metaDescription": "Dépression : symptômes, regards des TCC et de la psychanalyse, avancées scientifiques, témoignages et solutions concrètes pour s'en sortir. Dossier complet.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2946,12 +2946,12 @@
   {
     "id": "freres-soeurs-toxiques",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
-    "type": "article",
-    "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
+    "excerpt": "",
     "date": "2026-09-03",
     "date_modified": "2026-08-17",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2965,7 +2965,7 @@
       "emprise",
       "limites"
     ],
-    "metaDescription": "Frère ou sœur toxique : distinguer rivalité normale et relation destructrice, comprendre pourquoi ça fait si mal, et savoir quoi faire. Repères et conseils.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3000,19 +3000,18 @@
   {
     "id": "addiction-au-porno-comment-en-parler",
     "title": "Addiction au porno : comment en parler ?",
-    "type": "article",
-    "excerpt": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant dans le couple. Voici où se situe la ligne, ce que dit le cerveau, et comment aborder le sujet sans drame ni sermon.",
-    "metaDescription": "Où commence l'addiction au porno, ses effets sur le désir et le cerveau, et comment en parler avec son partenaire ou ses enfants sans dramatiser.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2026-08-31",
     "date_modified": "2026-08-16",
     "category": "Sexo",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "pornographie",
       "sexualite",
@@ -3020,54 +3019,7 @@
       "desir",
       "education-sexuelle"
     ],
-    "sources": [
-      {
-        "authors": "Mimoun S.",
-        "year": "2016",
-        "title": "Sexe & sentiments. Version homme",
-        "publisher": "Albin Michel"
-      },
-      {
-        "authors": "Wéry A. & Billieux J.",
-        "year": "2017",
-        "title": "Problematic cybersex: Conceptualization, assessment, and treatment",
-        "journal": "Addictive Behaviors",
-        "url": "https://doi.org/10.1016/j.addbeh.2016.03.007"
-      },
-      {
-        "authors": "Varescon I. (dir.)",
-        "year": "2009",
-        "title": "Les addictions comportementales. Aspects cliniques et psychopathologiques",
-        "publisher": "Mardaga"
-      },
-      {
-        "authors": "Valleur M. & Matysiak J.-C.",
-        "year": "2006",
-        "title": "Les addictions. Panorama clinique, modèles explicatifs, débat social et prise en charge",
-        "publisher": "Armand Colin"
-      },
-      {
-        "authors": "Kraus S. W., Krueger R. B., Briken P., First M. B. & Reed G. M.",
-        "year": "2018",
-        "title": "Compulsive sexual behaviour disorder in the ICD-11",
-        "journal": "World Psychiatry",
-        "url": "https://doi.org/10.1002/wps.20499"
-      },
-      {
-        "authors": "Grubbs J. B., Perry S. L., Wilt J. A. & Reid R. C.",
-        "year": "2019",
-        "title": "Pornography problems due to moral incongruence: An integrative model",
-        "journal": "Archives of Sexual Behavior",
-        "url": "https://doi.org/10.1007/s10508-018-1248-x"
-      },
-      {
-        "authors": "Bőthe B., Tóth-Király I., Potenza M. N., Orosz G. & Demetrovics Z.",
-        "year": "2020",
-        "title": "High-frequency pornography use may not always be problematic",
-        "journal": "The Journal of Sexual Medicine",
-        "url": "https://doi.org/10.1016/j.jsxm.2020.01.007"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "est-ce-que-la-taille-compte-vraiment"
     ],
@@ -3263,12 +3215,12 @@
   {
     "id": "psychose-definition-symptomes-traitements",
     "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
-    "type": "article",
-    "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et qui peut être pris en charge. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
+    "excerpt": "",
     "date": "2026-08-18",
     "date_modified": "2026-08-17",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qxpsrliyqt2gurbasvg9",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3282,7 +3234,7 @@
       "delire",
       "retablissement"
     ],
-    "metaDescription": "Qu'est-ce que la psychose ? Définition clinique, symptômes, approche psychodynamique, recherches récentes, traitements et voies de rétablissement.",
+    "metaDescription": "",
     "articles_lies": [
       "paranoia-definition-symptomes-traitements"
     ],
@@ -3291,12 +3243,12 @@
   {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
-    "type": "article",
     "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
     "date": "2026-08-17",
     "date_modified": "2026-08-17",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urctsuiy2sfb7lyj4unj",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
