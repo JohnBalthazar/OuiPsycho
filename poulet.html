@@ -2935,12 +2935,13 @@ function ghBase() {
   return 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/';
 }
 
-/* ── fetch vers l'API GitHub avec retry automatique (backoff exponentiel)
+/* ── fetch vers l'API GitHub avec retry automatique (backoff court, plafonné)
      Une publication enchaîne 7-14 requêtes séquentielles ; sans retry, un simple
      raté réseau ou une limitation anti-abus GitHub (403/429) casse toute la
      séquence et laisse le site dans un état incohérent (index à jour, page
-     statique manquante...). On retente donc avant d'abandonner. ── */
-async function ghFetch(url, options, retries = 4) {
+     statique manquante...). On retente donc avant d'abandonner, avec des délais
+     courts (≤3s) pour ne pas rendre toute la séquence perceptiblement lente. ── */
+async function ghFetch(url, options, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     let res;
     try {
@@ -2948,11 +2949,11 @@ async function ghFetch(url, options, retries = 4) {
     } catch (e) {
       // Erreur réseau (NetworkError, connexion coupée…)
       if (attempt === retries) throw e;
-      await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 1000));
+      await new Promise(r => setTimeout(r, Math.min(800 * attempt, 3000)));
       continue;
     }
     if ((res.status === 403 || res.status === 429) && attempt < retries) {
-      const retryAfter = parseFloat(res.headers.get('retry-after')) || Math.pow(2, attempt);
+      const retryAfter = parseFloat(res.headers.get('retry-after')) || Math.min(800 * attempt, 3000) / 1000;
       await new Promise(r => setTimeout(r, retryAfter * 1000));
       continue;
     }
