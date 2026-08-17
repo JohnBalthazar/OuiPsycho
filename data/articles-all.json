@@ -2945,34 +2945,6 @@
     "status": "scheduled"
   },
   {
-    "id": "meilleurs-sports-sante-mentale",
-    "title": "Quels sont les meilleurs sports pour la santé mentale ?",
-    "excerpt": "",
-    "date": "2026-09-03",
-    "date_modified": "2026-06-29",
-    "category": "Thérapies",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urctsuiy2sfb7lyj4unj",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "sport",
-      "activité physique",
-      "santé mentale",
-      "dépression",
-      "anxiété",
-      "bien-être",
-      "yoga"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "hermione-granger-divan-psychologie-sorciere",
     "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
     "excerpt": "",
@@ -3213,6 +3185,34 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
+  },
+  {
+    "id": "meilleurs-sports-sante-mentale",
+    "title": "Quels sont les meilleurs sports pour la santé mentale ?",
+    "type": "article",
+    "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
+    "date": "2026-08-17",
+    "date_modified": "2026-08-17",
+    "category": "Thérapies",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/urctsuiy2sfb7lyj4unj",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sport",
+      "activité physique",
+      "santé mentale",
+      "dépression",
+      "anxiété",
+      "bien-être",
+      "yoga"
+    ],
+    "metaDescription": "Marche, yoga, sports collectifs… La science révèle quels sports sont les plus efficaces pour la santé mentale et comment bien en profiter au quotidien.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "freres-soeurs-toxiques",
