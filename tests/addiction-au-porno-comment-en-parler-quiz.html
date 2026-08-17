@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Où vous situez-vous vraiment ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/addiction-au-porno-comment-en-parler/">
+  <meta name="description" content="Dix questions pour situer votre rapport au porno sur un continuum, sans étiquette ni jugement. Quatre profils et des pistes concrètes.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px}
+    .wrap{max-width:620px;margin:0 auto}
+    .card{background:#fff;border:1px solid #E2E9EF;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(31,78,107,.06)}
+    .kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#5B7387;font-weight:700;margin-bottom:6px}
+    h1{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
+    .lead{font-size:.95rem;color:#4A5C6B;margin-bottom:14px}
+    .note{background:#F1F7FA;border:1px solid #DDE9F0;border-radius:9px;padding:11px 13px;font-size:.85rem;color:#3F566B;margin-bottom:16px}
+    .bar{height:6px;background:#E6ECF1;border-radius:99px;overflow:hidden;margin-bottom:16px}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,#1F4E6B,#3E8FA8);width:0;transition:width .3s ease}
+    .qnum{font-size:.78rem;color:#7A8B99;font-weight:600;margin-bottom:8px}
+    .qtxt{font-size:1.06rem;font-weight:700;color:#16232E;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#FBFCFD;border:1.5px solid #DDE5EC;border-radius:10px;padding:12px 14px;margin-bottom:9px;font-size:.94rem;color:#22323F;cursor:pointer;transition:all .15s ease;font-family:inherit;line-height:1.45}
+    .opt:hover{border-color:#1F4E6B;background:#F1F7FA;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .back{background:none;border:none;color:#7A8B99;font-size:.84rem;cursor:pointer;padding:8px 0 0;font-family:inherit;text-decoration:underline}
+    .res-emoji{font-size:2.6rem;line-height:1;margin-bottom:8px}
+    .res-name{font-size:1.35rem;color:#1F4E6B;font-weight:800;margin-bottom:4px}
+    .res-tag{font-size:.9rem;color:#5B7387;font-style:italic;margin-bottom:16px}
+    .res-body p{margin-bottom:11px;font-size:.95rem}
+    .res-body p strong{color:#1F4E6B}
+    .tips{background:#F5FAF7;border:1px solid #D8E9DF;border-radius:10px;padding:14px 16px;margin-top:6px}
+    .tips h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#2E6B4F;margin-bottom:9px}
+    .tips li{font-size:.92rem;margin:0 0 8px 18px;line-height:1.45}
+    .tips li:last-child{margin-bottom:0}
+    .hr{height:1px;background:#E6ECF1;margin:18px 0}
+    .disc{background:#FFF8E8;border:1px solid #F2DFAE;border-radius:10px;padding:13px 15px;font-size:.85rem;color:#5A4A22;line-height:1.5}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .share a{flex:1;min-width:110px;text-align:center;text-decoration:none;font-size:.85rem;font-weight:600;padding:10px 8px;border-radius:9px;background:#F1F5F8;color:#22323F;border:1px solid #DDE5EC}
+    .share a:hover{background:#E4EDF3}
+    .again{display:block;width:100%;margin-top:14px;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+    .again:hover{background:#183D54}
+    .mini{font-size:.8rem;color:#8A99A6;margin-top:14px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+var URL_ART = "https://ouipsycho.fr/articles/addiction-au-porno-comment-en-parler/";
+
+var PROFILS = {
+  tranquille: {
+    emoji: "\uD83C\uDF3F", name: "Le Rapport apaisé",
+    tag: "Un usage occasionnel qui ne vous encombre pas.",
+    body: [
+      "Le porno occupe, chez vous, une place discrète et sans conflit. Vous n'y pensez pas entre deux fois, vous l'arrêtez sans effort, et il ne mange ni votre sommeil, ni votre vie sexuelle, ni votre humeur.",
+      "C'est, très concrètement, ce à quoi ressemble un usage non problématique. La fréquence n'a jamais été le critère : c'est l'absence de perte de contrôle et de souffrance, et vous cochez les deux.",
+      "<strong>À retenir :</strong> rien à corriger ici. Le seul piège serait de vous convaincre d'un problème que vous n'avez pas, sous l'effet d'un discours culpabilisant croisé quelque part."
+    ],
+    tips: [
+      "Gardez simplement en tête que l'équilibre peut bouger avec le stress ou la solitude : rester attentif suffit.",
+      "Si un jour l'usage augmente nettement dans une période difficile, c'est le contexte qu'il faudra regarder, pas le compteur.",
+      "Vous êtes bien placé pour en parler sereinement autour de vous, y compris avec des ados : le calme se transmet."
+    ]
+  },
+  question: {
+    emoji: "\uD83E\uDD14", name: "Le Questionnement",
+    tag: "Vous vous interrogez, et c'est plutôt bon signe.",
+    body: [
+      "Vous ne vous sentez pas débordé, mais quelque chose vous chatouille : une fréquence qui a un peu monté, une vague culpabilité, ou l'impression que ça prend parfois la place d'autre chose.",
+      "Se poser la question est déjà une forme de contrôle, pas une perte de contrôle. La plupart des gens qui s'interrogent ne relèvent d'aucun trouble — ils traversent simplement une phase où l'usage mérite un coup d'œil honnête.",
+      "<strong>À retenir :</strong> le vrai risque, à ce stade, n'est pas l'usage lui-même mais la spirale de honte qui peut le transformer en obsession. Restez factuel avec vous-même."
+    ],
+    tips: [
+      "Observez sans juger pendant deux semaines : quand, pourquoi, à la place de quoi. Les réponses sont souvent plus parlantes que le nombre.",
+      "Testez une pause courte et volontaire. Si elle est facile, vous êtes fixé ; si elle résiste, vous avez une information utile.",
+      "Remplacer vaut mieux qu'interdire : une activité qui occupe le même créneau (sport, sortie, sommeil) fait le travail sans bras de fer."
+    ]
+  },
+  tiraille: {
+    emoji: "\uD83C\uDF00", name: "Le Tiraillement",
+    tag: "L'écart entre ce que vous faites et ce que vous voudriez pèse.",
+    body: [
+      "Vous ressentez un décalage inconfortable : l'usage n'est peut-être pas énorme en volume, mais il entre en tension avec vos valeurs, votre couple ou l'image que vous voulez avoir de vous-même.",
+      "La recherche est claire sur ce point : cette souffrance-là — le désaccord moral — peut faire mal indépendamment de la quantité réelle. Ce n'est pas une faiblesse, c'est un conflit intérieur qui se dénoue, souvent mieux à deux ou avec un tiers.",
+      "<strong>À retenir :</strong> le soulagement viendra rarement d'un simple « arrêter par la volonté ». Il viendra de la réduction de l'écart entre vos actes et vos valeurs — ce qui se travaille."
+    ],
+    tips: [
+      "Distinguez ce qui vous dérange vraiment de ce qu'un discours extérieur vous dit de trouver mal. Les deux ne se recouvrent pas toujours.",
+      "Si l'usage touche votre couple, une conversation posée vaut mieux qu'un silence coupable : parlez de votre ressenti, pas de vos torts.",
+      "Un psychologue formé aux TCC ou un sexologue aide efficacement à réaligner comportement et valeurs. Ce n'est pas réservé aux cas graves."
+    ]
+  },
+  debordement: {
+    emoji: "\uD83D\uDEDF", name: "Le Sentiment de débordement",
+    tag: "Vous décidez d'arrêter, et vous n'y arrivez pas.",
+    body: [
+      "Plusieurs signaux se cumulent : des tentatives d'arrêt qui échouent, un usage qui empiète sur le sommeil, le travail ou la vie de couple, et une détresse qui s'installe. C'est exactement la triade que les cliniciens regardent.",
+      "Ce résultat n'est ni un verdict ni une étiquette définitive — un questionnaire ne diagnostique personne. Mais il indique que le sujet mérite mieux qu'une gestion en solitaire à 2h du matin.",
+      "<strong>À retenir :</strong> ce que vous vivez a un nom, des explications et des prises en charge qui fonctionnent. La bonne nouvelle, souvent ignorée, c'est que ces mécanismes sont largement réversibles."
+    ],
+    tips: [
+      "Parlez-en à votre médecin traitant : c'est une porte d'entrée simple, confidentielle et sans jugement vers les bons interlocuteurs.",
+      "Un sexologue ou un psychologue formé aux addictions comportementales est l'accompagnement le plus adapté.",
+      "En cas de détresse importante, le 3114 répond gratuitement, 24h/24. Demander de l'aide est un signe de santé, pas une défaite."
+    ]
+  }
+};
+
+var Q = [
+  { q: "Quand vous décidez de ne pas regarder de porno pendant quelques jours...",
+    a: [
+      { t: "C'est facile, vous n'y pensez même pas.", p: "tranquille" },
+      { t: "Ça va, avec un petit effort les premiers jours.", p: "question" },
+      { t: "Vous tenez, mais ça vous travaille plus que vous ne voudriez.", p: "tiraille" },
+      { t: "Vous n'y arrivez pas, ou vous craquez très vite.", p: "debordement" }
+    ]},
+  { q: "Le porno et votre sommeil :",
+    a: [
+      { t: "Aucun rapport, je dors très bien.", p: "tranquille" },
+      { t: "Ça m'a fait veiller une ou deux fois, sans plus.", p: "question" },
+      { t: "Je m'en veux parfois d'avoir veillé pour ça.", p: "tiraille" },
+      { t: "Je perds régulièrement des heures de sommeil à cause de ça.", p: "debordement" }
+    ]},
+  { q: "Par rapport à vos valeurs ou à l'image que vous avez de vous :",
+    a: [
+      { t: "Tout est cohérent, ça ne me pose aucun cas de conscience.", p: "tranquille" },
+      { t: "Une légère gêne de temps en temps, rien de fort.", p: "question" },
+      { t: "Un vrai décalage inconfortable entre ce que je fais et ce que je voudrais.", p: "tiraille" },
+      { t: "Un conflit permanent qui me pèse beaucoup.", p: "debordement" }
+    ]},
+  { q: "Votre désir pour un ou une partenaire réelle :",
+    a: [
+      { t: "Intact, le porno n'y change rien.", p: "tranquille" },
+      { t: "Je me demande parfois si ça n'émousse pas un peu les choses.", p: "question" },
+      { t: "Je sens un écart : le réel me paraît moins stimulant qu'avant.", p: "tiraille" },
+      { t: "Nette baisse de désir ou difficultés que je relie à cet usage.", p: "debordement" }
+    ]},
+  { q: "La fréquence, sur les derniers mois :",
+    a: [
+      { t: "Stable et occasionnelle.", p: "tranquille" },
+      { t: "En légère hausse, je l'ai remarqué.", p: "question" },
+      { t: "Plus élevée que ce que je souhaiterais.", p: "tiraille" },
+      { t: "En augmentation continue, il m'en faut plus pour le même effet.", p: "debordement" }
+    ]},
+  { q: "Si un proche connaissait exactement votre usage :",
+    a: [
+      { t: "Aucun problème, je n'ai rien à cacher.", p: "tranquille" },
+      { t: "Un peu gênant, comme tout le monde.", p: "question" },
+      { t: "Ça me mettrait vraiment mal à l'aise.", p: "tiraille" },
+      { t: "J'organise activement le secret autour de ça.", p: "debordement" }
+    ]},
+  { q: "Le porno occupe, dans votre vie, la place de :",
+    a: [
+      { t: "Un petit loisir parmi d'autres.", p: "tranquille" },
+      { t: "Un réflexe un peu automatique quand je m'ennuie.", p: "question" },
+      { t: "Un refuge quand ça ne va pas, et ça m'ennuie.", p: "tiraille" },
+      { t: "La réponse par défaut à presque toutes mes émotions.", p: "debordement" }
+    ]},
+  { q: "Votre concentration au travail ou dans vos études :",
+    a: [
+      { t: "Pas affectée du tout.", p: "tranquille" },
+      { t: "Distrait à l'occasion, rien de grave.", p: "question" },
+      { t: "Je culpabilise d'y penser à des moments inappropriés.", p: "tiraille" },
+      { t: "Nettement gênée, avec des conséquences concrètes.", p: "debordement" }
+    ]},
+  { q: "Les contenus que vous regardez, avec le temps :",
+    a: [
+      { t: "Toujours à peu près les mêmes, ça me convient.", p: "tranquille" },
+      { t: "J'ai un peu élargi, par curiosité.", p: "question" },
+      { t: "Je vais parfois vers des choses qui me mettent mal à l'aise après.", p: "tiraille" },
+      { t: "J'ai glissé vers des contenus qui me dérangent vraiment.", p: "debordement" }
+    ]},
+  { q: "Globalement, votre usage :",
+    a: [
+      { t: "Enrichit ou n'enlève rien à ma vie.", p: "tranquille" },
+      { t: "Me laisse parfois une question en suspens.", p: "question" },
+      { t: "Me met en tension avec moi-même ou mon couple.", p: "tiraille" },
+      { t: "Remplace des pans entiers de ma vie, et je le sais.", p: "debordement" }
+    ]}
+];
+
+var idx = 0, votes = {}, history = [], ORDERS = [];
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function reset() {
+  idx = 0; votes = {}; history = []; ORDERS = [];
+  for (var i = 0; i < Q.length; i++) ORDERS.push(shuffle(Q[i].a));
+}
+
+function renderIntro() {
+  document.getElementById('app').innerHTML =
+    '<div class="kicker">Sexo</div>' +
+    '<h1>Où vous situez-vous vraiment ?</h1>' +
+    '<p class="lead">Dix questions pour situer votre rapport au porno sur un continuum, calmement. Ce test ne compte pas vos clics et ne mesure ni votre valeur ni votre moralité.</p>' +
+    '<div class="note">Aucun résultat ne pose de diagnostic. Il s\'agit d\'un outil de réflexion sur votre rapport au contrôle et à la place que cet usage occupe.</div>' +
+    '<button class="again" id="go">Commencer le test</button>' +
+    '<p class="mini">Environ 5 minutes · Aucune donnée enregistrée</p>';
+  document.getElementById('go').onclick = function(){ reset(); renderQ(); };
+  notifyResize();
+}
+
+function renderQ() {
+  var q = Q[idx];
+  var opts = ORDERS[idx];
+  var html = '<div class="bar"><span style="width:' + (idx / Q.length * 100) + '%"></span></div>' +
+    '<div class="qnum">Question ' + (idx + 1) + ' / ' + Q.length + '</div>' +
+    '<div class="qtxt">' + esc(q.q) + '</div>';
+  for (var i = 0; i < opts.length; i++) {
+    html += '<button class="opt" data-p="' + opts[i].p + '">' + esc(opts[i].t) + '</button>';
+  }
+  if (idx > 0) html += '<button class="back" id="bk">← Question précédente</button>';
+  document.getElementById('app').innerHTML = html;
+
+  var btns = document.querySelectorAll('.opt');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].onclick = function() {
+      var p = this.getAttribute('data-p');
+      votes[p] = (votes[p] || 0) + 1;
+      history.push(p);
+      idx++;
+      if (idx >= Q.length) { renderResult(); } else { renderQ(); }
+    };
+  }
+  var bk = document.getElementById('bk');
+  if (bk) bk.onclick = function() {
+    var last = history.pop();
+    if (last) votes[last]--;
+    idx--;
+    renderQ();
+  };
+  notifyResize();
+}
+
+function renderResult() {
+  var order = ['debordement','tiraille','question','tranquille'];
+  var best = null, max = -1;
+  for (var i = 0; i < order.length; i++) {
+    var v = votes[order[i]] || 0;
+    if (v > max) { max = v; best = order[i]; }
+  }
+  var p = PROFILS[best];
+
+  var shareTxt = "Mon profil : " + p.name + " — Où vous situez-vous vraiment ? Test Oui Psycho !";
+  var eu = encodeURIComponent(URL_ART);
+  var et = encodeURIComponent(shareTxt);
+  var etu = encodeURIComponent(shareTxt + " " + URL_ART);
+
+  var body = '';
+  for (var k = 0; k < p.body.length; k++) body += '<p>' + p.body[k] + '</p>';
+  var tips = '';
+  for (var m = 0; m < p.tips.length; m++) tips += '<li>' + p.tips[m] + '</li>';
+
+  document.getElementById('app').innerHTML =
+    '<div class="bar"><span style="width:100%"></span></div>' +
+    '<div class="kicker">Votre profil dominant</div>' +
+    '<div class="res-emoji">' + p.emoji + '</div>' +
+    '<div class="res-name">' + p.name + '</div>' +
+    '<div class="res-tag">' + p.tag + '</div>' +
+    '<div class="res-body">' + body + '</div>' +
+    '<div class="tips"><h3>Vos pistes</h3><ul>' + tips + '</ul></div>' +
+    '<div class="hr"></div>' +
+    '<div class="disc">\u2695\uFE0F <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+    '<div class="share">' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC4D Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC26 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + etu + '" target="_blank" rel="noopener">\uD83D\uDCAC WhatsApp</a>' +
+    '</div>' +
+    '<button class="again" id="rs">\u21BA Recommencer le test</button>';
+
+  document.getElementById('rs').onclick = function() { reset(); renderQ(); notifyResize(); };
+  if (typeof gtag === 'function') gtag('event', 'quiz_complete', { quiz_id: 'addiction-au-porno-comment-en-parler-quiz', profil: p.name });
+  notifyResize();
+}
+
+reset();
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
