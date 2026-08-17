@@ -1,32 +1,5 @@
 [
   {
-    "id": "psychose-definition-symptomes-traitements",
-    "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
-    "excerpt": "",
-    "date": "2027-06-03",
-    "date_modified": "2027-06-03",
-    "category": "Troubles Psy",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 10,
-    "author": "John Balthazar",
-    "tags": [
-      "psychose",
-      "schizophrenie",
-      "hallucinations",
-      "delire",
-      "retablissement"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "paranoia-definition-symptomes-traitements"
-    ],
-    "status": "scheduled"
-  },
-  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "type": "article",
@@ -3167,6 +3140,34 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "psychose-definition-symptomes-traitements",
+    "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
+    "type": "article",
+    "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et soignable. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
+    "date": "2026-08-18",
+    "date_modified": "2026-08-17",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "author": "John Balthazar",
+    "tags": [
+      "psychose",
+      "schizophrenie",
+      "hallucinations",
+      "delire",
+      "retablissement"
+    ],
+    "metaDescription": "Qu'est-ce que la psychose ? Définition clinique, symptômes, approche psychodynamique, recherches récentes, traitements et voies de rétablissement.",
+    "articles_lies": [
+      "paranoia-definition-symptomes-traitements"
+    ],
     "status": "scheduled"
   },
   {
