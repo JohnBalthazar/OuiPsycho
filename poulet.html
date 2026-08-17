@@ -2935,11 +2935,36 @@ function ghBase() {
   return 'https://api.github.com/repos/' + owner + '/' + repo + '/contents/';
 }
 
+/* ── fetch vers l'API GitHub avec retry automatique (backoff exponentiel)
+     Une publication enchaîne 7-14 requêtes séquentielles ; sans retry, un simple
+     raté réseau ou une limitation anti-abus GitHub (403/429) casse toute la
+     séquence et laisse le site dans un état incohérent (index à jour, page
+     statique manquante...). On retente donc avant d'abandonner. ── */
+async function ghFetch(url, options, retries = 4) {
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    let res;
+    try {
+      res = await fetch(url, options);
+    } catch (e) {
+      // Erreur réseau (NetworkError, connexion coupée…)
+      if (attempt === retries) throw e;
+      await new Promise(r => setTimeout(r, Math.pow(2, attempt) * 1000));
+      continue;
+    }
+    if ((res.status === 403 || res.status === 429) && attempt < retries) {
+      const retryAfter = parseFloat(res.headers.get('retry-after')) || Math.pow(2, attempt);
+      await new Promise(r => setTimeout(r, retryAfter * 1000));
+      continue;
+    }
+    return res;
+  }
+}
+
 /* ── Récupère data/articles.json depuis l'API GitHub (jamais en cache) ── */
 async function fetchRemoteIndex() {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
-    const res = await fetch(
+    const res = await ghFetch(
       ghBase() + 'data/articles.json?ref=' + branch,
       { headers: ghHeaders() }
     );
@@ -2978,7 +3003,7 @@ async function githubGetFileContent(path) {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
     const pat    = localStorage.getItem(GH_PAT_KEY) || '';
     const url = ghBase() + path + '?ref=' + branch + '&t=' + Date.now();
-    const res = await fetch(url, {
+    const res = await ghFetch(url, {
       headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github.v3+json' }
     });
     if (!res.ok) return null;
@@ -2993,7 +3018,7 @@ async function githubGetSha(path) {
     const pat    = localStorage.getItem(GH_PAT_KEY) || '';
     // Headers minimaux pour le GET (évite les CORS preflight liés à Content-Type)
     const url = ghBase() + path + '?ref=' + branch + '&t=' + Date.now();
-    const res = await fetch(url, {
+    const res = await ghFetch(url, {
       headers: { 'Authorization': 'token ' + pat, 'Accept': 'application/vnd.github.v3+json' }
     });
     if (!res.ok) return null;
@@ -3008,7 +3033,7 @@ async function githubPutFile(path, content, message) {
   const doput = async (sha) => {
     const body = { message, content: encoded, branch };
     if (sha) body.sha = sha;
-    return fetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+    return ghFetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
   };
 
   let sha = await githubGetSha(path);
@@ -3035,7 +3060,7 @@ async function githubDeleteFile(path, message) {
   const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
   const sha = await githubGetSha(path);
   if (!sha) return; // file doesn't exist, nothing to do
-  const res = await fetch(ghBase() + path, { method: 'DELETE', headers: ghHeaders(), body: JSON.stringify({ message, sha, branch }) });
+  const res = await ghFetch(ghBase() + path, { method: 'DELETE', headers: ghHeaders(), body: JSON.stringify({ message, sha, branch }) });
   if (!res.ok) { const err = await res.json(); throw new Error(err.message || res.status); }
 }
 async function testGitHubConnection() {
@@ -4004,12 +4029,15 @@ function setImageLayout(layout) {
    WYSIWYG EDITOR
    Mini traitement de texte sans dépendance externe
 ══════════════════════════════════════════════ */
+let _wysPasteHandler = null;
+
 function initWysEditor(html) {
   const editor = document.getElementById('wysiwyg-editor');
   if (!editor) return;
   editor.innerHTML = html || '';
-  // Gérer le paste : nettoyer les styles indésirables
-  editor.addEventListener('paste', function handler(e) {
+  // Supprimer l'ancien listener avant d'en ajouter un nouveau (évite les doublons sur rechargement)
+  if (_wysPasteHandler) editor.removeEventListener('paste', _wysPasteHandler);
+  _wysPasteHandler = function(e) {
     e.preventDefault();
     const html  = e.clipboardData.getData('text/html');
     const plain = e.clipboardData.getData('text/plain');
@@ -4029,10 +4057,8 @@ function initWysEditor(html) {
       document.execCommand('insertText', false, plain);
     }
     syncEditorToTextarea();
-    // Éviter les doublons si appelé plusieurs fois
-    editor.removeEventListener('paste', handler);
-    editor.addEventListener('paste', handler);
-  }, { once: false });
+  };
+  editor.addEventListener('paste', _wysPasteHandler);
 }
 
 function syncEditorToTextarea() {
