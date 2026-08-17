@@ -678,6 +678,14 @@
   var leafletMap   = null;
   var geojsonLayer = null;
 
+  // Index densité précalculé (34 746 communes métro, cf. _gen_commune_density.js)
+  // Chargé en arrière-plan dès l'ouverture de la page pour permettre un rang nationale exact
+  var communeDensityIndex   = null;
+  var communeDensityPromise = fetch('cartes/bien-vivre-sante-mentale/communes-density.json')
+    .then(function(r){ return r.ok ? r.json() : null; })
+    .then(function(d){ communeDensityIndex = d; return d; })
+    .catch(function(){ return null; });
+
   // === CALCULS ===
   function activeList() {
     var a = [];
@@ -938,7 +946,8 @@
     return out;
   }
 
-  // Rang d'un score donné parmi ~35 000 communes (approx via scores départementaux)
+  // Fallback (approximation interpolée) utilisé uniquement le temps que l'index exact
+  // (communes-density.json, cf. exactCommuneRank) finisse de se charger en arrière-plan
   function communeRankByScore(myScore) {
     var total = 0, above = 0;
     var codes = Object.keys(DEPT_COMMUNE_COUNT);
@@ -1369,7 +1378,31 @@
     return obj;
   }
 
-  // Ajustements par densité de population (hab/km²) — différencie toutes les communes
+  // Modificateurs par palier de densité (hab/km²) — 8 paliers, partagés entre
+  // communeModifiers() (pop/surface réelles) et modsFromTierCode() (index précalculé)
+  //                          sun  nature  care  cost  air  social  sport  calm  weather
+  var TIER_TABLE = [
+    {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0}, // 0 : très rural
+    {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0}, // 1
+    {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0}, // 2
+    {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0}, // 3
+    {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0}, // 4
+    {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0}, // 5
+    {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0}, // 6
+    {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0}  // 7 : très dense
+  ];
+  function densityTier(dens) {
+    if (dens <   20) return 0;
+    if (dens <   60) return 1;
+    if (dens <  150) return 2;
+    if (dens <  400) return 3;
+    if (dens < 1200) return 4;
+    if (dens < 3500) return 5;
+    if (dens < 7000) return 6;
+    return 7;
+  }
+
+  // Ajustements par densité de population — différencie toutes les communes
   // surface (de l'API) est en hectares → densité = pop / (surface / 100)
   // sun et weather restent au niveau dept (peu de variation intra-dept)
   function communeModifiers(pop, surface) {
@@ -1387,20 +1420,53 @@
       else if (pop < 200000) dens = 1800;
       else                   dens = 5500;
     }
-    // Modificateur densité — 8 paliers
-    //                         sun  nature  care  cost  air  social  sport  calm  weather
-    var dm;
-    if      (dens <   20) dm = {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0};
-    else if (dens <   60) dm = {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0};
-    else if (dens <  150) dm = {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0};
-    else if (dens <  400) dm = {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0};
-    else if (dens < 1200) dm = {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0};
-    else if (dens < 3500) dm = {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0};
-    else if (dens < 7000) dm = {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0};
-    else                  dm = {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0};
+    var base = TIER_TABLE[densityTier(dens)];
+    var dm = {sun:base.sun, nature:base.nature, care:base.care, cost:base.cost, air:base.air,
+              social:base.social, sport:base.sport, calm:base.calm, weather:base.weather};
     // Facteur taille absolue : différencie les grandes métropoles (même densité, pression accrue)
     if (pop >= 500000) { dm.nature -= 1; dm.sport -= 1; }
     return dm;
+  }
+
+  // Décode un code précalculé (0-7, ou 10-17 si grande métropole) en modificateurs
+  function modsFromTierCode(code) {
+    var big  = code >= 10;
+    var base = TIER_TABLE[big ? code - 10 : code];
+    if (!big) return base;
+    return {sun:base.sun, nature:base.nature - 1, care:base.care, cost:base.cost, air:base.air,
+            social:base.social, sport:base.sport - 1, calm:base.calm, weather:base.weather};
+  }
+
+  // Rang exact d'un score parmi les 34 746 communes métropolitaines (index précalculé)
+  // Respecte les critères actuellement actifs — recalcule le score de chaque commune à la volée
+  function exactCommuneRank(myScore) {
+    if (!communeDensityIndex) return null;
+    var al = activeList();
+    if (!al.length) return null;
+    var depts = communeDensityIndex.depts, deptKeys = Object.keys(depts), above = 0;
+    for (var i = 0; i < deptKeys.length; i++) {
+      var base = deptToObj(deptKeys[i]); if (!base) continue;
+      var arr = depts[deptKeys[i]];
+      for (var j = 0; j < arr.length; j++) {
+        var dm = modsFromTierCode(arr[j]), tot = 0;
+        for (var k = 0; k < al.length; k++) {
+          var key = al[k];
+          tot += Math.min(10, Math.max(1, (base[key] || 0) + (dm[key] || 0)));
+        }
+        if ((tot / al.length) > myScore) above++;
+      }
+    }
+    return { rank: above + 1, total: communeDensityIndex.total };
+  }
+  function communeRankStyle(cr) {
+    var pct = cr.rank / cr.total * 100;
+    var bg  = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
+    var co  = pct <= 25 ? '#166534' : pct <= 60 ? '#92400e' : '#991b1b';
+    return 'background:' + bg + ';color:' + co;
+  }
+  function communeRankLabel(cr) {
+    var suf = cr.rank <= 1 ? 're' : 'e';
+    return '&#x1F3D8; Rang national&nbsp;: ' + fmtNum(cr.rank) + suf + '&nbsp;/ ' + fmtNum(cr.total) + ' communes';
   }
 
   // Score commune : base dept + ajustements densité, clampé [1,10]
@@ -1735,19 +1801,11 @@
         + '&#x1F3D8; Rang d&eacute;partemental&nbsp;: ' + dRank + drSuf + '&nbsp;/ 96 d&eacute;partements'
         + '</div>';
     } else if (rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
-      // Rang parmi ~35 000 communes — basé sur le score réel de la commune/ville
-      var cr   = communeRankByScore(globalScore);
-      var pct  = cr.rank / cr.total * 100;
-      var crBg = pct <= 25 ? '#dcfce7' : pct <= 60 ? '#fef9c3' : '#fee2e2';
-      var crCo = pct <= 25 ? '#166534' : pct <= 60 ? '#92400e' : '#991b1b';
-      var tRnd = Math.round(cr.total / 1000) * 1000;
-      var rn   = cr.rank <= 100 ? cr.rank : Math.min(Math.round(cr.rank / 100) * 100, tRnd);
-      var rStr = (cr.rank <= 100 ? '' : '~') + fmtNum(rn);
-      var tStr = '~' + fmtNum(tRnd);
-      var rnSuf = cr.rank <= 1 ? 're' : 'e';
-      commHtml = '<div class="cr-comm-rank" style="background:' + crBg + ';color:' + crCo + '">'
-        + '&#x1F3D8; Rang national&nbsp;: ' + rStr + rnSuf + '&nbsp;/ ' + tStr + ' communes'
-        + '</div>';
+      // Rang exact parmi les 34 746 communes métropolitaines (index précalculé) —
+      // fallback sur l'estimation interpolée si l'index n'est pas encore chargé
+      var cr = exactCommuneRank(globalScore) || communeRankByScore(globalScore);
+      commHtml = '<div class="cr-comm-rank" id="cr-comm-rank" data-myscore="' + globalScore
+        + '" style="' + communeRankStyle(cr) + '">' + communeRankLabel(cr) + '</div>';
     }
     var noteHtml = dataNote
       ? '<p class="cr-note">&#x2139;&#xFE0F; ' + dataNote + '</p>'
@@ -1773,6 +1831,18 @@
         var rect = el.getBoundingClientRect();
         var top  = rect.top + window.pageYOffset - 90; // 90 = hauteur header fixe
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+      });
+    }
+    // Si l'index communes n'était pas encore chargé, le badge affiché ci-dessus vient de
+    // l'estimation interpolée (fallback) — on le remplace par le rang exact dès que possible
+    if (!communeDensityIndex && rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
+      communeDensityPromise.then(function() {
+        var badge = document.getElementById('cr-comm-rank');
+        if (!badge || parseFloat(badge.getAttribute('data-myscore')) !== globalScore) return; // plus affiché / obsolète
+        var cr2 = exactCommuneRank(globalScore);
+        if (!cr2) return;
+        badge.setAttribute('style', communeRankStyle(cr2));
+        badge.innerHTML = communeRankLabel(cr2);
       });
     }
   }
