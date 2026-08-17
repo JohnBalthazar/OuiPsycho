@@ -2868,11 +2868,17 @@ async function saveArticle() {
       // articles-all.json : format admin complet (avec hasImage)
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index');
       // articles.json public : strip hasImage (champ admin uniquement, ne doit pas fuir dans le public)
-      const publicArticles = articles.map(({ hasImage: _h, ...rest }) => rest);
+      // + exclure brouillons et articles dont la date n'est pas encore arrivée (ne doivent pas fuir avant publication)
+      const todayStr = new Date().toISOString().split('T')[0];
+      const publicArticles = articles
+        .filter(a => a.status !== 'draft' && a.date <= todayStr)
+        .map(({ hasImage: _h, ...rest }) => rest);
       await githubPutFile('data/articles.json', JSON.stringify(publicArticles, null, 2), 'update: articles index');
-      // Régénérer et pousser le HTML statique
+      // Régénérer et pousser le HTML statique (page réelle sous articles/, stub de redirection à la racine)
       const htmlPage = generateArticleHTML(articleData);
-      await githubPutFile(id + '/index.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
+      await githubPutFile('articles/' + id + '/index.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
+      const redirectHtml = '<!DOCTYPE html><html><head><link rel="canonical" href="https://ouipsycho.fr/articles/' + id + '/"><meta http-equiv="refresh" content="0; url=/articles/' + id + '/"></head><body><p><a href="/articles/' + id + '/">Cliquez ici</a></p></body></html>';
+      await githubPutFile(id + '/index.html', redirectHtml, (editingId ? 'update' : 'create') + ': redirection ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
       showPage('articles'); // ← redirection uniquement si succès
@@ -2910,7 +2916,9 @@ async function deleteArticle(id) {
       await githubDeleteFile('articles/' + id + '.json', 'delete: article ' + id);
       articles = await mergeIndexWithRemote(articles, id);  // id = deletedId, ne sera pas restauré du remote
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: articles index after delete');
+      const todayStrDel = new Date().toISOString().split('T')[0];
+      const publicAfterDelete = articles.filter(a => a.status !== 'draft' && a.date <= todayStrDel);
+      await githubPutFile('data/articles.json', JSON.stringify(publicAfterDelete, null, 2), 'update: articles index after delete');
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index after delete');
       toast('Article supprimé sur GitHub', 'success');
     } catch(e) {
@@ -3114,8 +3122,11 @@ async function pushAllToGitHub() {
     const mergedIndex = await mergeIndexWithRemote(indexData);
     // articles-all.json : format admin complet (avec hasImage)
     await githubPutFile('data/articles-all.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
-    // articles.json public : strip hasImage (champ admin uniquement)
-    const mergedPublic = mergedIndex.map(({ hasImage: _h, ...rest }) => rest);
+    // articles.json public : strip hasImage (champ admin uniquement) + exclure brouillons et dates futures
+    const todayStrPush = new Date().toISOString().split('T')[0];
+    const mergedPublic = mergedIndex
+      .filter(a => a.status !== 'draft' && a.date <= todayStrPush)
+      .map(({ hasImage: _h, ...rest }) => rest);
     await githubPutFile('data/articles.json', JSON.stringify(mergedPublic, null, 2), msg + ' (index)');
     addLog('✓ data/articles.json + articles-all.json (' + mergedIndex.length + ' articles)'); ok++;
   } catch(e) { addLog('✗ data/articles.json : ' + e.message); fail++; }
