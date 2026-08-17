@@ -28,6 +28,16 @@ jobs:
         with:
           ref: main   # toujours déployer l'état le plus récent (inclut le commit d'auto-publication)
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # Bloque le déploiement si un article publié est en noindex ou un article
+      # planifié (date future) est en index,follow — voir incident du 17/08/2026.
+      - name: Vérifier la cohérence robots/date des articles
+        run: node .github/scripts/verify-robots-consistency.js
+
       - name: Configuration GitHub Pages
         uses: actions/configure-pages@v5
 

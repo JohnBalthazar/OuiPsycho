@@ -32,6 +32,11 @@ jobs:
       - name: Régénérer les pages statiques
         run: node _gen_static.js
 
+      # Bloque le commit/push si un article publié est en noindex ou un article
+      # planifié (date future) est en index,follow — voir incident du 17/08/2026.
+      - name: Vérifier la cohérence robots/date des articles
+        run: node .github/scripts/verify-robots-consistency.js
+
       - name: Commit et push si des articles ont été publiés
         id: commit-push
         run: |
