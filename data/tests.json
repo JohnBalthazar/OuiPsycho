@@ -122,7 +122,7 @@
     "testUrl": "tests/notre-radar-interieur-quiz.html",
     "articleUrl": "articles/notre-radar-interieur/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ca3h6mkh8zbg5b32gpel",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

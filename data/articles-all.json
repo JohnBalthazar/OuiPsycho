@@ -2568,12 +2568,12 @@
   {
     "id": "est-ce-que-la-taille-compte-vraiment",
     "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
-    "type": "article",
-    "excerpt": "C'est l'une des questions les plus tapées dans Google, toujours à 2h du matin, toujours en navigation privée. Bonne nouvelle : la science a répondu, et les chiffres sont beaucoup moins dramatiques que le silence qui entoure le sujet.",
+    "excerpt": "",
     "date": "2026-09-27",
     "date_modified": "2026-08-16",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/x4rb5ggmyathjokv50ft",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2587,7 +2587,7 @@
       "dysmorphophobie",
       "couple"
     ],
-    "metaDescription": "Moyennes réelles, préférences mesurées, anatomie et dysmorphophobie : ce que la science dit vraiment de la taille du pénis, sans complaisance ni panique.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2675,12 +2675,12 @@
   {
     "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
     "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
-    "type": "article",
-    "excerpt": "Votre cerveau est une machine à parier sur la note suivante. Vos goûts se sont figés vers 17 ans. Et détester un genre en dit souvent plus long sur vous que l'aimer. Petite enquête sur le plus intime des snobismes.",
+    "excerpt": "",
     "date": "2026-09-20",
     "date_modified": "2026-08-16",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zklwxxazqkkmwaljvt62",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2694,7 +2694,7 @@
       "identite",
       "psychologie-sociale"
     ],
-    "metaDescription": "Prédiction, dopamine, souvenirs d'adolescence et distinction sociale : ce que la science dit vraiment de nos goûts musicaux et de nos rejets.",
+    "metaDescription": "",
     "articles_lies": [
       "se-remettre-d-une-rupture-amoureuse"
     ],
@@ -2784,12 +2784,12 @@
   {
     "id": "se-remettre-d-une-rupture-amoureuse",
     "title": "Comment se remettre d'une rupture amoureuse ?",
-    "type": "article",
-    "excerpt": "Non, ce n'est pas « dans votre tête » : votre cerveau traite la rupture comme un sevrage doublé d'une blessure. Voici ce que la science, la clinique et une grande sœur bien intentionnée ont à en dire — sans un seul « il faut tourner la page ».",
+    "excerpt": "",
     "date": "2026-09-13",
     "date_modified": "2026-08-16",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/euumrhr2ok1omuc9ipmr",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2803,7 +2803,7 @@
       "estime-de-soi",
       "neurosciences-affectives"
     ],
-    "metaDescription": "Sevrage, rumination, identité perdue : ce que dit vraiment la science de la rupture amoureuse, et huit outils concrets pour s'en remettre sans cliché.",
+    "metaDescription": "",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique"
     ],
@@ -2892,19 +2892,18 @@
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
-    "type": "article",
-    "excerpt": "Il ne se lève pas le matin en se disant qu'il va détruire quelqu'un. Il se lève en se disant qu'il a raison. C'est précisément le problème. Visite guidée d'une vision du monde où l'autre n'est jamais tout à fait une personne.",
-    "metaDescription": "Vision du monde, phrases typiques, origines, vieillissement : décryptage de la perversion narcissique et conseils concrets pour s'en protéger.",
-    "author": "John Balthazar",
+    "excerpt": "",
     "date": "2026-09-06",
     "date_modified": "2026-08-16",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "pervers-narcissique",
       "emprise",
@@ -2912,59 +2911,7 @@
       "relations-toxiques",
       "narcissisme"
     ],
-    "sources": [
-      {
-        "authors": "Racamier P.-C.",
-        "year": "1992",
-        "title": "Le génie des origines. Psychanalyse et psychoses",
-        "publisher": "Payot"
-      },
-      {
-        "authors": "Eiguer A.",
-        "year": "2012",
-        "title": "Le pervers narcissique et son complice",
-        "publisher": "Dunod"
-      },
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral. La violence perverse au quotidien",
-        "publisher": "Syros"
-      },
-      {
-        "authors": "Dorey R.",
-        "year": "1981",
-        "title": "La relation d'emprise",
-        "journal": "Nouvelle Revue de Psychanalyse"
-      },
-      {
-        "authors": "Gruev-Vintila A.",
-        "year": "2022",
-        "title": "Le contrôle coercitif. Au cœur de la violence conjugale",
-        "publisher": "Dunod"
-      },
-      {
-        "authors": "Chabrol H., Van Leeuwen N., Rodgers R. & Séjourné N.",
-        "year": "2009",
-        "title": "Contributions of psychopathic, narcissistic, Machiavellian, and sadistic personality traits to juvenile delinquency",
-        "journal": "Personality and Individual Differences",
-        "url": "https://doi.org/10.1016/j.paid.2009.06.020"
-      },
-      {
-        "authors": "Pincus A. L. & Lukowitsky M. R.",
-        "year": "2010",
-        "title": "Pathological narcissism and narcissistic personality disorder",
-        "journal": "Annual Review of Clinical Psychology",
-        "url": "https://doi.org/10.1146/annurev.clinpsy.121208.131215"
-      },
-      {
-        "authors": "Foster J. D., Campbell W. K. & Twenge J. M.",
-        "year": "2003",
-        "title": "Individual differences in narcissism: Inflated self-views across the lifespan and around the world",
-        "journal": "Journal of Research in Personality",
-        "url": "https://doi.org/10.1016/S0092-6566(03)00026-6"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [
       "walter-white-sur-le-divan"
     ],
@@ -3056,12 +3003,12 @@
   {
     "id": "walter-white-sur-le-divan",
     "title": "Walter White sur le divan : psychologie d'un chimiste de méthamphétamine",
-    "type": "article",
-    "excerpt": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste un homme, ses compétences et ses raisons. Décryptage psychologique d'une descente parfaitement logique.",
+    "excerpt": "",
     "date": "2026-08-30",
     "date_modified": "2026-08-16",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3075,7 +3022,7 @@
       "desengagement-moral",
       "fiction-et-psychologie"
     ],
-    "metaDescription": "Narcissisme, cancer et désengagement moral : analyse psychologique de Walter White, de Breaking Bad, du professeur discret au baron Heisenberg.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3727,12 +3674,12 @@
   {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond sur le divan : psychologie d'un agent secret",
-    "type": "article",
     "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
     "date": "2026-07-16",
     "date_modified": "2026-08-16",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wjvkmwbiegoh8msitbvr",
+    "hasImage": true,
     "imagePosition": "71% 43%",
     "imageZoom": 1,
     "imageGravity": "none",
