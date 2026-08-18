@@ -605,12 +605,12 @@
   {
     "id": "difficulte-prendre-decisions-pas-manque-confiance",
     "title": "Vous avez du mal à prendre des décisions ? Ce n'est pas toujours un manque de confiance en soi",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Sept minutes devant le rayon des pâtes, une soirée entière à choisir un film : et si votre indécision n'avait rien à voir avec l'estime de soi ? Maximisation, surcharge de choix, fatigue décisionnelle : la science raconte une tout autre histoire.",
     "date": "2027-04-02",
-    "date_modified": "2027-04-02",
+    "date_modified": "2026-08-18",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ne5lkkylogq6knohpsbb",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -624,7 +624,7 @@
       "surcharge-de-choix",
       "confiance-en-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Maximisation, surcharge de choix, fatigue décisionnelle, aversion au regret : pourquoi vous hésitez tant — et pourquoi la confiance n'y est souvent pour rien.",
     "articles_lies": [],
     "status": "scheduled"
   },
