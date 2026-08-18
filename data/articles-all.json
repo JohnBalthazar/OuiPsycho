@@ -735,12 +735,12 @@
   {
     "id": "analyser-une-personnalite-en-7-points-cles",
     "title": "Analyser une personnalité en 7 points clés",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Traits, attachement, valeurs, défenses, contexte, récit : la psychologie dispose d'outils bien plus fins que les étiquettes. Voici sept points d'observation pour lire une personnalité sans l'enfermer.",
     "date": "2027-03-19",
-    "date_modified": "2027-03-19",
+    "date_modified": "2026-08-18",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/t3734sezzwrlcasodmy4",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -754,7 +754,7 @@
       "psychologie-des-traits",
       "connaissance-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Traits, attachement, valeurs, défenses, contexte, récit : 7 points clés validés par la recherche pour analyser une personnalité sans l'enfermer.",
     "articles_lies": [],
     "status": "scheduled"
   },
