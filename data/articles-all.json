@@ -812,12 +812,12 @@
   {
     "id": "enseignements-psychologie-histoires-disney",
     "title": "Ce que les histoires Disney nous apprennent vraiment : 6 leçons de psychologie",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Derrière les chansons et les couleurs saturées, les contes Disney déposent en nous des scénarios psychiques très précis. Deuil, ombre, faux self, attachement : six enseignements décryptés à la lumière de la recherche.",
     "date": "2027-03-12",
-    "date_modified": "2027-03-12",
+    "date_modified": "2026-08-18",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/csvagrlhlwx8lal8lori",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -831,7 +831,7 @@
       "developpement-personnel",
       "enfance"
     ],
-    "metaDescription": "",
+    "metaDescription": "Deuil, ombre, faux self, persévérance : ce que les histoires Disney nous apprennent vraiment sur nous, décrypté par la psychologie contemporaine.",
     "articles_lies": [],
     "status": "scheduled"
   },
