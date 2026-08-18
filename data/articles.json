@@ -1,5 +1,32 @@
 [
   {
+    "id": "psychose-definition-symptomes-traitements",
+    "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
+    "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et qui peut être pris en charge. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
+    "date": "2026-08-18",
+    "date_modified": "2026-08-17",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qxpsrliyqt2gurbasvg9",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "author": "John Balthazar",
+    "tags": [
+      "psychose",
+      "schizophrenie",
+      "hallucinations",
+      "delire",
+      "retablissement"
+    ],
+    "metaDescription": "Qu'est-ce que la psychose ? Définition clinique, symptômes, approche psychodynamique, recherches récentes, traitements et voies de rétablissement.",
+    "articles_lies": [
+      "paranoia-definition-symptomes-traitements"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
     "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
