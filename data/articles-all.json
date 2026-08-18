@@ -317,12 +317,12 @@
   {
     "id": "schizophrenie-symptomes-causes-traitements",
     "title": "Schizophrénie : symptômes, causes et traitements, au-delà des clichés",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Non, la schizophrénie n'est pas un dédoublement de personnalité, et encore moins un synonyme de violence. Plongée claire et sans jargon dans un trouble aussi mal connu que porteur d'espoir.",
     "date": "2027-04-30",
-    "date_modified": "2027-04-30",
+    "date_modified": "2026-08-18",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kqdcpu5s1fekooqypwhw",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -336,7 +336,7 @@
       "retablissement",
       "remediation-cognitive"
     ],
-    "metaDescription": "",
+    "metaDescription": "La schizophrénie n'est ni un dédoublement de personnalité ni une affaire de violence. Symptômes, causes, traitements et rétablissement expliqués.",
     "articles_lies": [],
     "status": "scheduled"
   },
