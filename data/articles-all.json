@@ -109,12 +109,12 @@
   {
     "id": "paranoia-definition-symptomes-traitements",
     "title": "Paranoïa : définition, symptômes et traitements d'un trouble mal compris",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Loin des clichés du cinéma, la paranoïa est un fonctionnement psychique précis, douloureux et soignable. Définition, symptômes, lecture psychodynamique, recherches récentes et pistes de rétablissement.",
     "date": "2027-05-20",
-    "date_modified": "2026-07-24",
+    "date_modified": "2026-08-18",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/navpza28gwxmriquclat",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -128,7 +128,7 @@
       "psychose",
       "mefiance"
     ],
-    "metaDescription": "",
+    "metaDescription": "Qu'est-ce que la paranoïa ? Définition clinique, symptômes, approche psychodynamique, recherches récentes et traitements d'un trouble souvent caricaturé.",
     "articles_lies": [],
     "status": "scheduled"
   },
