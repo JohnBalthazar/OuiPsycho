@@ -55,12 +55,12 @@
   {
     "id": "profiler-mythe-realite-psychologie-criminelle",
     "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le profiler qui « lit » les tueurs en trois regards est un mythe télévisuel. La science raconte une autre histoire : moins de génie, plus de statistiques — et c'est passionnant.",
     "date": "2027-05-27",
-    "date_modified": "2027-05-27",
-    "category": "Société",
-    "image": "",
-    "hasImage": false,
+    "date_modified": "2026-08-18",
+    "category": "Émotions & identité",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ol1y4g3a0ygvtf5by8du",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -74,7 +74,7 @@
       "criminologie",
       "psychologie-d-enquete"
     ],
-    "metaDescription": "",
+    "metaDescription": "Que font vraiment les profilers ? Entre mythe télévisé et psychologie d'enquête scientifique, découvrez les vrais secrets du profilage criminel.",
     "articles_lies": [
       "biais-cognitifs-7-pieges-du-cerveau"
     ],
