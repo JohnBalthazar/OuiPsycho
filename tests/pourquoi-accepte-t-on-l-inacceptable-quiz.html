@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Que faites-vous quand le lien vacille ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/pourquoi-accepte-t-on-l-inacceptable/">
+  <meta name="description" content="Douze situations pour explorer votre manière de réagir quand vous sentez que quelqu'un pourrait s'éloigner. Quatre profils, sans étiquette.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px}
+    .wrap{max-width:620px;margin:0 auto}
+    .card{background:#fff;border:1px solid #E2E9EF;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(31,78,107,.06)}
+    .kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#5B7387;font-weight:700;margin-bottom:6px}
+    h1{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
+    .lead{font-size:.95rem;color:#4A5C6B;margin-bottom:14px}
+    .note{background:#F1F7FA;border:1px solid #DDE9F0;border-radius:9px;padding:11px 13px;font-size:.85rem;color:#3F566B;margin-bottom:16px}
+    .bar{height:6px;background:#E6ECF1;border-radius:99px;overflow:hidden;margin-bottom:16px}
+    .bar span{display:block;height:100%;background:linear-gradient(90deg,#1F4E6B,#3E8FA8);width:0;transition:width .3s ease}
+    .qnum{font-size:.78rem;color:#7A8B99;font-weight:600;margin-bottom:8px}
+    .qtxt{font-size:1.06rem;font-weight:700;color:#16232E;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#FBFCFD;border:1.5px solid #DDE5EC;border-radius:10px;padding:12px 14px;margin-bottom:9px;font-size:.94rem;color:#22323F;cursor:pointer;transition:all .15s ease;font-family:inherit;line-height:1.45}
+    .opt:hover{border-color:#1F4E6B;background:#F1F7FA;transform:translateY(-1px)}
+    .opt:active{transform:translateY(0)}
+    .back{background:none;border:none;color:#7A8B99;font-size:.84rem;cursor:pointer;padding:8px 0 0;font-family:inherit;text-decoration:underline}
+    .res-emoji{font-size:2.6rem;line-height:1;margin-bottom:8px}
+    .res-name{font-size:1.35rem;color:#1F4E6B;font-weight:800;margin-bottom:4px}
+    .res-tag{font-size:.9rem;color:#5B7387;font-style:italic;margin-bottom:16px}
+    .res-body p{margin-bottom:11px;font-size:.95rem}
+    .res-body p strong{color:#1F4E6B}
+    .tips{background:#F5FAF7;border:1px solid #D8E9DF;border-radius:10px;padding:14px 16px;margin-top:6px}
+    .tips h3{font-size:.82rem;text-transform:uppercase;letter-spacing:.07em;color:#2E6B4F;margin-bottom:9px}
+    .tips li{font-size:.92rem;margin:0 0 8px 18px;line-height:1.45}
+    .tips li:last-child{margin-bottom:0}
+    .hr{height:1px;background:#E6ECF1;margin:18px 0}
+    .disc{background:#FFF8E8;border:1px solid #F2DFAE;border-radius:10px;padding:13px 15px;font-size:.85rem;color:#5A4A22;line-height:1.5}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+    .share a{flex:1;min-width:110px;text-align:center;text-decoration:none;font-size:.85rem;font-weight:600;padding:10px 8px;border-radius:9px;background:#F1F5F8;color:#22323F;border:1px solid #DDE5EC}
+    .share a:hover{background:#E4EDF3}
+    .again{display:block;width:100%;margin-top:14px;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:inherit}
+    .again:hover{background:#183D54}
+    .mini{font-size:.8rem;color:#8A99A6;margin-top:14px;text-align:center}
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+var URL_ART = "https://ouipsycho.fr/articles/pourquoi-accepte-t-on-l-inacceptable/";
+
+var PROFILS = {
+  ancre: {
+    emoji: "\u2693", name: "L'Ancre tranquille",
+    tag: "La distance de l'autre ne fait pas vaciller votre sol.",
+    body: [
+      "Quand quelqu'un s'éloigne, vous ressentez de la déception ou de la tristesse — mais votre valeur, elle, ne bouge pas. Vous pouvez attendre sans vous effondrer et partir sans vous punir.",
+      "C'est la position la plus confortable et la plus protectrice. Elle vous permet de rester quand ça vaut le coup et de vous retirer quand ce n'est plus le cas, ce qui est exactement la souplesse que réclame une relation saine.",
+      "<strong>Le point de vigilance :</strong> cette solidité peut vous rendre peu patient avec ceux qui n'en disposent pas. La peur de perdre, chez d'autres, n'est pas un caprice."
+    ],
+    tips: [
+      "Vous êtes bien placé pour être la personne extérieure de confiance d'un proche en difficulté : proposez votre écoute sans conseiller le départ.",
+      "Restez attentif : la solidité peut se fissurer dans une période de fatigue ou d'isolement, sans que ce soit un échec.",
+      "La bonne question à poser à un proche n'est jamais « pourquoi tu ne pars pas » mais « qu'est-ce qui t'en empêche »."
+    ]
+  },
+  alerte: {
+    emoji: "\uD83D\uDCE1", name: "L'Alerte permanente",
+    tag: "Un silence de deux heures et tout votre système se met en marche.",
+    body: [
+      "La moindre variation de température relationnelle déclenche chez vous une vigilance intense : vous relisez, vous analysez, vous cherchez ce que vous avez pu dire de travers.",
+      "Cette hypersensibilité au lien va souvent de pair avec une vraie générosité relationnelle — vous remarquez les autres, vous vous en souciez sincèrement.",
+      "<strong>Le point de vigilance :</strong> ce système d'alarme ne mesure pas la qualité de la relation, il mesure votre niveau d'anxiété. Ce sont deux choses différentes, et la confusion coûte cher."
+    ],
+    tips: [
+      "Avant d'interpréter un silence, notez trois explications possibles autres que « il m'en veut ». L'exercice paraît idiot et fonctionne.",
+      "Fixez-vous une règle de relance simple et tenez-la, plutôt que de décider dans l'urgence émotionnelle.",
+      "Si cette alarme occupe une grande part de vos journées, en parler à un psychologue apporte un soulagement réel — c'est un fonctionnement qui se rééduque."
+    ]
+  },
+  retrait: {
+    emoji: "\uD83D\uDEAA", name: "Le Retrait protecteur",
+    tag: "Vous partez avant qu'on ne vous laisse partir.",
+    body: [
+      "Dès que le lien devient incertain, vous prenez de l'avance : vous vous détachez, vous relativisez, vous trouvez soudain des défauts que vous n'aviez pas vus. Devancer la perte la rend moins coûteuse.",
+      "C'est une stratégie efficace à court terme et vous savez rester digne dans des situations difficiles. Peu de gens vous voient vaciller.",
+      "<strong>Le point de vigilance :</strong> à force de partir en premier, on ne teste jamais l'hypothèse que l'autre serait resté. Et on se prive de la seule expérience qui pourrait modifier la croyance de départ."
+    ],
+    tips: [
+      "Quand vous sentez venir le réflexe de chercher un défaut, notez la date. Si le défaut apparaît toujours au même moment du rapprochement, ce n'est pas le défaut le sujet.",
+      "Essayez de nommer votre inquiétude à voix haute plutôt que de la traduire en distance : c'est inconfortable et bien plus efficace.",
+      "Une thérapie centrée sur l'attachement donne de très bons résultats sur ce fonctionnement."
+    ]
+  },
+  negociateur: {
+    emoji: "\u2696\uFE0F", name: "Le Négociateur d'exception",
+    tag: "Vous trouvez toujours une bonne raison d'accepter un peu plus.",
+    body: [
+      "Face au risque de perdre quelqu'un, votre réflexe est d'ajuster vos propres limites plutôt que de demander à l'autre d'ajuster les siennes. Une fois, puis une autre, chacune parfaitement justifiable.",
+      "Cette souplesse est une vraie qualité relationnelle : vous savez faire des concessions, comprendre les contextes et pardonner. Beaucoup de liens tiennent grâce à des gens comme vous.",
+      "<strong>Le point de vigilance :</strong> c'est exactement le mécanisme de glissement décrit dans l'article. Aucune concession n'est déraisonnable seule ; c'est leur accumulation qui déplace la ligne, et on ne la voit jamais bouger."
+    ],
+    tips: [
+      "Faites le test de la version antérieure : votre vous d'il y a trois ans serait-il surpris de votre situation actuelle ? Sa réaction est votre ligne d'origine.",
+      "Écrivez maintenant, à froid, deux ou trois choses que vous n'accepterez pas — quel que soit l'argument avancé plus tard.",
+      "Si vous vous reconnaissez fortement ici, en parler à un professionnel ou à une association vaut mieux que de continuer l'analyse seul. Le 3919 et le 116 006 sont gratuits et anonymes."
+    ]
+  }
+};
+
+var Q = [
+  { q: "Un proche met beaucoup plus de temps que d'habitude à vous répondre.",
+    a: [
+      { t: "Vous supposez qu'il est occupé et passez à autre chose.", p: "ancre" },
+      { t: "Vous relisez votre dernier message pour y chercher l'erreur.", p: "alerte" },
+      { t: "Vous prenez vos distances par avance, par principe.", p: "retrait" },
+      { t: "Vous vous dites que vous en demandez sûrement trop.", p: "negociateur" }
+    ]},
+  { q: "Quelqu'un annule un rendez-vous à la dernière minute, pour la troisième fois.",
+    a: [
+      { t: "Vous le dites simplement et vous arrêtez de proposer.", p: "ancre" },
+      { t: "Vous cherchez immédiatement à recaler une date pour être rassuré.", p: "alerte" },
+      { t: "Vous cessez d'y penser, et un peu de tenir à cette personne.", p: "retrait" },
+      { t: "Vous trouvez que ses raisons sont valables, comme les deux fois précédentes.", p: "negociateur" }
+    ]},
+  { q: "Une remarque désagréable vous est faite devant d'autres personnes.",
+    a: [
+      { t: "Vous en reparlez en privé, calmement, sans dramatiser.", p: "ancre" },
+      { t: "Vous y repensez toute la soirée en cherchant ce qui l'a provoquée.", p: "alerte" },
+      { t: "Vous ne dites rien et vous notez mentalement de vous éloigner.", p: "retrait" },
+      { t: "Vous riez avec les autres pour que le moment passe.", p: "negociateur" }
+    ]},
+  { q: "Vous sentez qu'une relation importante devient plus froide.",
+    a: [
+      { t: "Vous posez la question directement, une fois, et vous acceptez la réponse.", p: "ancre" },
+      { t: "Vous multipliez les attentions pour rétablir la température.", p: "alerte" },
+      { t: "Vous refroidissez aussi, en miroir.", p: "retrait" },
+      { t: "Vous vous adaptez à ce qui semble attendu de vous.", p: "negociateur" }
+    ]},
+  { q: "On vous demande de renoncer à quelque chose qui compte pour vous.",
+    a: [
+      { t: "Vous expliquez pourquoi c'est important et vous maintenez.", p: "ancre" },
+      { t: "Vous cédez pour ne pas créer de tension, puis vous ruminez.", p: "alerte" },
+      { t: "Vous refusez sèchement et vous mettez de la distance.", p: "retrait" },
+      { t: "Vous acceptez : ce n'est pas si important au fond.", p: "negociateur" }
+    ]},
+  { q: "Votre entourage s'inquiète d'une de vos relations.",
+    a: [
+      { t: "Vous écoutez, vous pesez, vous décidez ensuite.", p: "ancre" },
+      { t: "Vous demandez l'avis de plusieurs personnes, puis d'autres encore.", p: "alerte" },
+      { t: "Vous n'en parlez plus à personne.", p: "retrait" },
+      { t: "Vous défendez la relation avec beaucoup d'arguments.", p: "negociateur" }
+    ]},
+  { q: "Après une dispute, la réconciliation est très intense.",
+    a: [
+      { t: "Agréable, mais ça ne règle pas le fond pour autant.", p: "ancre" },
+      { t: "Immense soulagement : le lien est sauvé.", p: "alerte" },
+      { t: "Vous restez sur la réserve un moment.", p: "retrait" },
+      { t: "Ces moments-là justifient largement le reste.", p: "negociateur" }
+    ]},
+  { q: "Vous devez expliquer votre situation à quelqu'un d'extérieur.",
+    a: [
+      { t: "Deux phrases suffisent.", p: "ancre" },
+      { t: "Vous parlez longtemps, en cherchant surtout à être rassuré.", p: "alerte" },
+      { t: "Vous restez vague, ça ne regarde personne.", p: "retrait" },
+      { t: "Il vous faut beaucoup de contexte pour que ce soit compréhensible.", p: "negociateur" }
+    ]},
+  { q: "Quand vous imaginez que cette personne disparaît de votre vie :",
+    a: [
+      { t: "Ce serait triste, et je m'en remettrais.", p: "ancre" },
+      { t: "Ce serait insupportable, je préfère ne pas y penser.", p: "alerte" },
+      { t: "J'y pense souvent, comme à une sortie de secours.", p: "retrait" },
+      { t: "Je ne sais pas ce que je ferais, ni qui je serais.", p: "negociateur" }
+    ]},
+  { q: "Vos limites personnelles, aujourd'hui, par rapport à il y a trois ans :",
+    a: [
+      { t: "Inchangées, je les connais bien.", p: "ancre" },
+      { t: "Plus floues, je ne sais plus trop où elles sont.", p: "alerte" },
+      { t: "Plus strictes, je laisse moins de gens approcher.", p: "retrait" },
+      { t: "Nettement plus larges. Je le remarque en le lisant.", p: "negociateur" }
+    ]},
+  { q: "Quelqu'un vous traite bien, de façon régulière et sans surprise.",
+    a: [
+      { t: "C'est exactement ce que je recherche.", p: "ancre" },
+      { t: "Ça me rassure, mais j'attends toujours que ça se gâte.", p: "alerte" },
+      { t: "Je trouve ça un peu étouffant.", p: "retrait" },
+      { t: "Honnêtement, je trouve ça un peu fade.", p: "negociateur" }
+    ]},
+  { q: "Sur les six derniers mois, votre relation la plus importante vous a laissé :",
+    a: [
+      { t: "Plutôt en forme et bien entouré.", p: "ancre" },
+      { t: "Souvent inquiet, dans l'attente.", p: "alerte" },
+      { t: "Plutôt à distance de tout le monde.", p: "retrait" },
+      { t: "Fatigué, et avec le sentiment de m'être beaucoup adapté.", p: "negociateur" }
+    ]}
+];
+
+var idx = 0, votes = {}, history = [], ORDERS = [];
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;'); }
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var t = a[i]; a[i] = a[j]; a[j] = t;
+  }
+  return a;
+}
+
+function reset() {
+  idx = 0; votes = {}; history = []; ORDERS = [];
+  for (var i = 0; i < Q.length; i++) ORDERS.push(shuffle(Q[i].a));
+}
+
+function renderIntro() {
+  document.getElementById('app').innerHTML =
+    '<div class="kicker">Relations</div>' +
+    '<h1>Que faites-vous quand le lien vacille ?</h1>' +
+    '<p class="lead">Douze situations très ordinaires. Ce test n\'évalue pas votre relation et ne juge personne : il explore votre manière de réagir quand vous sentez que quelqu\'un pourrait s\'éloigner.</p>' +
+    '<div class="note">Aucun résultat ne pose de diagnostic ni ne qualifie votre entourage. Il s\'agit d\'un outil de réflexion sur vos propres réflexes.</div>' +
+    '<button class="again" id="go">Commencer le test</button>' +
+    '<p class="mini">Environ 5 minutes · Aucune donnée enregistrée</p>';
+  document.getElementById('go').onclick = function(){ reset(); renderQ(); };
+  notifyResize();
+}
+
+function renderQ() {
+  var q = Q[idx];
+  var opts = ORDERS[idx];
+  var html = '<div class="bar"><span style="width:' + (idx / Q.length * 100) + '%"></span></div>' +
+    '<div class="qnum">Question ' + (idx + 1) + ' / ' + Q.length + '</div>' +
+    '<div class="qtxt">' + esc(q.q) + '</div>';
+  for (var i = 0; i < opts.length; i++) {
+    html += '<button class="opt" data-p="' + opts[i].p + '">' + esc(opts[i].t) + '</button>';
+  }
+  if (idx > 0) html += '<button class="back" id="bk">← Question précédente</button>';
+  document.getElementById('app').innerHTML = html;
+
+  var btns = document.querySelectorAll('.opt');
+  for (var j = 0; j < btns.length; j++) {
+    btns[j].onclick = function() {
+      var p = this.getAttribute('data-p');
+      votes[p] = (votes[p] || 0) + 1;
+      history.push(p);
+      idx++;
+      if (idx >= Q.length) { renderResult(); } else { renderQ(); }
+    };
+  }
+  var bk = document.getElementById('bk');
+  if (bk) bk.onclick = function() {
+    var last = history.pop();
+    if (last) votes[last]--;
+    idx--;
+    renderQ();
+  };
+  notifyResize();
+}
+
+function renderResult() {
+  var order = ['negociateur','alerte','retrait','ancre'];
+  var best = null, max = -1;
+  for (var i = 0; i < order.length; i++) {
+    var v = votes[order[i]] || 0;
+    if (v > max) { max = v; best = order[i]; }
+  }
+  var p = PROFILS[best];
+
+  var shareTxt = "Mon profil : " + p.name + " — Que faites-vous quand le lien vacille ? Test Oui Psycho !";
+  var eu = encodeURIComponent(URL_ART);
+  var et = encodeURIComponent(shareTxt);
+  var etu = encodeURIComponent(shareTxt + " " + URL_ART);
+
+  var body = '';
+  for (var k = 0; k < p.body.length; k++) body += '<p>' + p.body[k] + '</p>';
+  var tips = '';
+  for (var m = 0; m < p.tips.length; m++) tips += '<li>' + p.tips[m] + '</li>';
+
+  document.getElementById('app').innerHTML =
+    '<div class="bar"><span style="width:100%"></span></div>' +
+    '<div class="kicker">Votre profil dominant</div>' +
+    '<div class="res-emoji">' + p.emoji + '</div>' +
+    '<div class="res-name">' + p.name + '</div>' +
+    '<div class="res-tag">' + p.tag + '</div>' +
+    '<div class="res-body">' + body + '</div>' +
+    '<div class="tips"><h3>Vos pistes</h3><ul>' + tips + '</ul></div>' +
+    '<div class="hr"></div>' +
+    '<div class="disc">\u2695\uFE0F <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24). Violences au sein du couple : <strong>3919</strong>. Aide aux victimes : <strong>116 006</strong>.</div>' +
+    '<div class="share">' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC4D Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">\uD83D\uDC26 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + etu + '" target="_blank" rel="noopener">\uD83D\uDCAC WhatsApp</a>' +
+    '</div>' +
+    '<button class="again" id="rs">\u21BA Recommencer le test</button>';
+
+  document.getElementById('rs').onclick = function() { reset(); renderQ(); notifyResize(); };
+  if (typeof gtag === 'function') gtag('event', 'quiz_complete', { quiz_id: 'pourquoi-accepte-t-on-l-inacceptable-quiz', profil: p.name });
+  notifyResize();
+}
+
+reset();
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
