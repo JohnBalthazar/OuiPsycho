@@ -761,12 +761,12 @@
   {
     "id": "peut-on-etre-tout-le-temps-heureux",
     "title": "Peut-on être tout le temps heureux ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le bonheur est devenu un objectif de performance. Or la recherche est formelle : un bonheur permanent est impossible — et surtout, le poursuivre comme un but rend statistiquement plus malheureux.",
     "date": "2027-03-18",
-    "date_modified": "2027-03-18",
+    "date_modified": "2026-08-18",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/is6qtfggs8nxmhzhcbye",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -780,7 +780,7 @@
       "bien-etre",
       "adaptation-hedonique"
     ],
-    "metaDescription": "",
+    "metaDescription": "Non, on ne peut pas être heureux en permanence. Adaptation hédonique, utilité des émotions négatives, paradoxe de la quête du bonheur : ce que dit la science.",
     "articles_lies": [],
     "status": "scheduled"
   },
