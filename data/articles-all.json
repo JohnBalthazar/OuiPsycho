@@ -265,12 +265,12 @@
   {
     "id": "depression-a-change-ma-vie",
     "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Certaines personnes affirment que leur dépression a transformé leur existence. Ni pensée positive ni déni : ce paradoxe porte un nom en psychologie. Décryptage, témoignages et mises en garde.",
     "date": "2027-05-06",
-    "date_modified": "2027-05-06",
+    "date_modified": "2026-08-18",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mdglemhvjuz3skvv9szh",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -284,7 +284,7 @@
       "resilience",
       "sante-mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Définition de la dépression, témoignages et croissance post-traumatique : pourquoi certains disent que leur épisode dépressif a changé leur vie.",
     "articles_lies": [],
     "status": "scheduled"
   },
