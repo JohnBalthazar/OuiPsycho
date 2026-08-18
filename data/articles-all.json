@@ -475,12 +475,12 @@
   {
     "id": "petites-phrases-gros-degats",
     "title": "« C'est pas grave » : ces petites phrases qui font de gros dégâts",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "« C'est pas grave », « il y a pire », « t'es trop sensible »… Ces phrases ne coûtent rien à dire, mais notre cerveau, lui, prend des notes. Enquête sur ces mots anodins qui invalident, figent ou cabossent — et sur ce qu'il faudrait dire à la place.",
     "date": "2027-04-16",
-    "date_modified": "2026-07-19",
+    "date_modified": "2026-08-18",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mib9jqbliojf5b2hyqzk",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -494,7 +494,7 @@
       "estime-de-soi",
       "langage"
     ],
-    "metaDescription": "",
+    "metaDescription": "« C'est pas grave », « t'es trop sensible »… Pourquoi ces phrases anodines marquent la psyché, et par quoi les remplacer : ce que dit la science.",
     "articles_lies": [],
     "status": "scheduled"
   },
