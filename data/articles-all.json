@@ -396,12 +396,12 @@
   {
     "id": "kairos-science-hasard",
     "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Vous pensez à quelqu'un, il vous appelle. Signe de l'univers ou tour de passe-passe neuronal ? Enquête sur le kaïros, la synchronicité et l'art très scientifique du bon timing.",
     "date": "2027-04-23",
-    "date_modified": "2026-07-24",
+    "date_modified": "2026-08-18",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/pav2mvag8r2g2kjhqgdq",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -415,7 +415,7 @@
       "coincidences",
       "attention"
     ],
-    "metaDescription": "",
+    "metaDescription": "Kaïros, synchronicité, coïncidences troublantes : ce que la psychologie et les neurosciences disent vraiment des moments où tout « sonne juste ».",
     "articles_lies": [],
     "status": "scheduled"
   },
