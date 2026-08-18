@@ -527,12 +527,12 @@
   {
     "id": "trouble-dissociatif-identite",
     "title": "« Nous sommes plusieurs » : ces personnes qui partagent un même corps",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Alters, système, hôte, amnésies : le trouble dissociatif de l'identité fascine Hollywood et déroute le grand public. Entre mythe et clinique, plongée chez celles et ceux qui vivent, littéralement, en colocation avec eux-mêmes.",
     "date": "2027-04-09",
-    "date_modified": "2027-04-09",
+    "date_modified": "2026-08-18",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ekh8wxe7golalvyrvpge",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -546,7 +546,7 @@
       "psychotraumatisme",
       "troubles-psy"
     ],
-    "metaDescription": "",
+    "metaDescription": "Alters, système, hôte : qu'est-ce que le trouble dissociatif de l'identité ? Origines traumatiques, témoignages, controverses et traitements expliqués.",
     "articles_lies": [],
     "status": "scheduled"
   },
