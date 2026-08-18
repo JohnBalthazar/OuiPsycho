@@ -29,12 +29,12 @@
   {
     "id": "traits-personnalite-presidents",
     "title": "Psychologie des présidents : les 5 traits de personnalité de tous les chefs d'État",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Extraversion hors norme, sang-froid, ego bien nourri… Que trouve-t-on quand on allonge un président sur le divan ? La science a un portrait-robot, et il est étonnamment cohérent.",
     "date": "2027-05-28",
-    "date_modified": "2027-05-28",
+    "date_modified": "2026-08-18",
     "category": "Société & psychologie politique",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k91fpvomdvnsgnjdtogf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -48,7 +48,7 @@
       "narcissisme",
       "big-five"
     ],
-    "metaDescription": "",
+    "metaDescription": "Narcissisme, sang-froid, machiavélisme : découvrez les 5 traits de personnalité que la psychologie retrouve chez les présidents et chefs d'État. Quiz inclus !",
     "articles_lies": [],
     "status": "scheduled"
   },
