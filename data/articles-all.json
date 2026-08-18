@@ -3072,17 +3072,16 @@
     "title": "Pourquoi accepte-t-on l'inacceptable ?",
     "type": "article",
     "excerpt": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux cents fois. Voici la mécanique du glissement — et comment repérer le sien.",
-    "metaDescription": "Gradualisme, dissonance, coûts irrécupérables, sidération : les mécanismes qui font tolérer l'intolérable, et comment repérer son propre glissement.",
-    "author": "John Balthazar",
     "date": "2026-09-05",
-    "date_modified": "2026-08-16",
+    "date_modified": "2026-08-18",
     "category": "Relations",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j1fwscaqkapjpkq7n6cx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "emprise",
       "dissonance-cognitive",
@@ -3090,64 +3089,7 @@
       "peur-de-l-abandon",
       "estime-de-soi"
     ],
-    "sources": [
-      {
-        "authors": "Salmona M.",
-        "year": "2018",
-        "title": "Le livre noir des violences sexuelles",
-        "publisher": "Dunod"
-      },
-      {
-        "authors": "Hirigoyen M.-F.",
-        "year": "1998",
-        "title": "Le harcèlement moral. La violence perverse au quotidien",
-        "publisher": "Syros"
-      },
-      {
-        "authors": "Gruev-Vintila A.",
-        "year": "2022",
-        "title": "Le contrôle coercitif. Au cœur de la violence conjugale",
-        "publisher": "Dunod"
-      },
-      {
-        "authors": "Guédeney N. & Guédeney A. (dir.)",
-        "year": "2016",
-        "title": "L'attachement : approche théorique",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Cyrulnik B.",
-        "year": "2001",
-        "title": "Les vilains petits canards",
-        "publisher": "Odile Jacob"
-      },
-      {
-        "authors": "Dorey R.",
-        "year": "1981",
-        "title": "La relation d'emprise",
-        "journal": "Nouvelle Revue de Psychanalyse"
-      },
-      {
-        "authors": "Festinger L.",
-        "year": "1957",
-        "title": "A theory of cognitive dissonance",
-        "publisher": "Stanford University Press"
-      },
-      {
-        "authors": "Arkes H. R. & Blumer C.",
-        "year": "1985",
-        "title": "The psychology of sunk cost",
-        "journal": "Organizational Behavior and Human Decision Processes",
-        "url": "https://doi.org/10.1016/0749-5978(85)90049-4"
-      },
-      {
-        "authors": "Staw B. M.",
-        "year": "1976",
-        "title": "Knee-deep in the big muddy: A study of escalating commitment to a chosen course of action",
-        "journal": "Organizational Behavior and Human Performance",
-        "url": "https://doi.org/10.1016/0030-5073(76)90005-2"
-      }
-    ],
+    "metaDescription": "Gradualisme, dissonance, coûts irrécupérables, sidération : les mécanismes qui font tolérer l'intolérable, et comment repérer son propre glissement.",
     "articles_lies": [
       "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
       "dans-la-tete-d-un-pervers-narcissique"
