@@ -83,12 +83,12 @@
   {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Projets abandonnés, formations inachevées, enthousiasmes qui retombent : simple procrastination ou signe d'un TDAH adulte ? Ce que dit la science — et comment finir plus souvent.",
     "date": "2027-05-21",
-    "date_modified": "2026-07-24",
+    "date_modified": "2026-08-18",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/smwenrsejninln2wjxyt",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -102,7 +102,7 @@
       "fonctions-executives",
       "motivation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Vous commencez tout sans jamais finir ? Entre procrastination ordinaire et TDAH adulte, découvrez ce que dit la psychologie et comment en sortir.",
     "articles_lies": [],
     "status": "scheduled"
   },
