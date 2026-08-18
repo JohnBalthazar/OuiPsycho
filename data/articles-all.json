@@ -553,12 +553,12 @@
   {
     "id": "absorber-emotions-des-autres-eponge-emotionnelle",
     "title": "Pourquoi certaines personnes absorbent les émotions des autres (et comment s'en protéger)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le stress d'un collègue vous noue l'estomac, la tristesse d'un ami plombe votre soirée ? La contagion émotionnelle est un mécanisme universel — mais chez certains, le récepteur n'a pas de bouton de volume. Explications scientifiques et mode d'emploi pour rester connecté sans finir essoré.",
     "date": "2027-04-08",
-    "date_modified": "2027-04-08",
+    "date_modified": "2026-08-18",
     "category": "Émotions & identité",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/r1pxlx65jptrehms5w88",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -572,7 +572,7 @@
       "eponge-emotionnelle",
       "limites-emotionnelles"
     ],
-    "metaDescription": "",
+    "metaDescription": "Contagion émotionnelle, haute sensibilité, frontière soi-autrui : pourquoi certains absorbent les émotions des autres, et comment s'en protéger sans se fermer.",
     "articles_lies": [],
     "status": "scheduled"
   },
