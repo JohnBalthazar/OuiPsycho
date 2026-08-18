@@ -239,12 +239,12 @@
   {
     "id": "pourquoi-tomber-amoureux-du-meme-type-de-personne",
     "title": "Pourquoi tombe-t-on toujours amoureux du même type de personne ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Les prénoms changent, le scénario reste. Attachement, familiarité, répétition : la psychologie explique pourquoi vos histoires se ressemblent — et comment sortir de la boucle.",
     "date": "2027-05-07",
-    "date_modified": "2027-05-07",
+    "date_modified": "2026-08-18",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vxz5mp32lscclkspipwe",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -258,7 +258,7 @@
       "relations",
       "psychologie-du-couple"
     ],
-    "metaDescription": "",
+    "metaDescription": "Attachement, effet de familiarité, répétition : pourquoi tombe-t-on toujours amoureux du même type de personne, et comment changer de schéma amoureux.",
     "articles_lies": [],
     "status": "scheduled"
   },
