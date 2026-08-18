@@ -2862,6 +2862,79 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
+    "title": "Pourquoi certaines personnes s'éloignent-elles dès qu'une relation devient sérieuse ?",
+    "type": "article",
+    "excerpt": "Tout allait bien. Trop bien. Puis vous avez prononcé le mot « week-end prolongé », et la personne s'est évaporée avec l'élégance d'un chat qu'on voulait câliner. Ce n'est ni de la lâcheté ni un manque de sentiments : c'est un système de sécurité qui s'est déclenché.",
+    "metaDescription": "Attachement évitant, peur de l'engagement, désactivation : pourquoi certaines personnes fuient quand la relation devient sérieuse, et que faire.",
+    "author": "John Balthazar",
+    "date": "2026-09-09",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "attachement-evitant",
+      "engagement",
+      "couple",
+      "intimite",
+      "peur-de-l-abandon"
+    ],
+    "sources": [
+      {
+        "authors": "Guédeney N. & Guédeney A. (dir.)",
+        "year": "2016",
+        "title": "L'attachement : approche théorique",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2004",
+        "title": "Parler d'amour au bord du gouffre",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Kaufmann J.-C.",
+        "year": "2014",
+        "title": "Sociologie du couple",
+        "publisher": "Presses Universitaires de France"
+      },
+      {
+        "authors": "Neuburger R.",
+        "year": "2013",
+        "title": "On arrête ?... On continue ? Faire son bilan de couple",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Hefez S.",
+        "year": "2010",
+        "title": "Dans le cœur des hommes",
+        "publisher": "Hachette Littératures"
+      },
+      {
+        "authors": "Mikulincer M. & Shaver P. R.",
+        "year": "2016",
+        "title": "Attachment in adulthood: Structure, dynamics, and change",
+        "publisher": "Guilford Press"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1978",
+        "title": "Attachement et perte, volume 1 : l'attachement",
+        "publisher": "Presses Universitaires de France"
+      }
+    ],
+    "articles_lies": [
+      "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
+      "se-remettre-d-une-rupture-amoureuse"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
     "excerpt": "",
