@@ -657,12 +657,12 @@
   {
     "id": "rumination-mentale-cerveau-ne-sarrete-jamais",
     "title": "Pourquoi votre cerveau ne s'arrête jamais de penser : les mécanismes cachés de la rumination mentale",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Il est minuit et votre cerveau rejoue la réunion de mardi pour la quatorzième fois. Réseau du mode par défaut, effet Zeigarnik, croyances métacognitives : voici pourquoi la machine à penser ne se coupe jamais — et comment cesser de la laisser tourner à vide.",
     "date": "2027-03-26",
-    "date_modified": "2027-03-26",
+    "date_modified": "2026-08-18",
     "category": "Bien-être",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bvlmjpbxfxabssgopist",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -676,7 +676,7 @@
       "anxiete",
       "pleine-conscience"
     ],
-    "metaDescription": "",
+    "metaDescription": "Réseau du mode par défaut, effet Zeigarnik, pensée abstraite : les mécanismes cachés de la rumination mentale, et les stratégies validées pour en sortir.",
     "articles_lies": [],
     "status": "scheduled"
   },
