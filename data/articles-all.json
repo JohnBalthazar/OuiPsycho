@@ -2809,6 +2809,84 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
+    "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
+    "type": "article",
+    "excerpt": "Vous êtes enfin assis. Personne ne vous demande rien. Et au bout de quatre minutes, une petite voix vous rappelle le panier de linge. Bienvenue dans le seul loisir au monde qui exige une justification écrite.",
+    "metaDescription": "Culpabilité du repos, dette morale, amour conditionnel : pourquoi se reposer semble interdit à certains, et six leviers pour désamorcer le réflexe.",
+    "author": "John Balthazar",
+    "date": "2026-09-12",
+    "date_modified": "2026-08-16",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "culpabilite",
+      "repos",
+      "charge-mentale",
+      "estime-de-soi",
+      "perfectionnisme"
+    ],
+    "sources": [
+      {
+        "authors": "André C.",
+        "year": "2006",
+        "title": "Imparfaits, libres et heureux. Pratiques de l'estime de soi",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Haicault M.",
+        "year": "1984",
+        "title": "La gestion ordinaire de la vie en deux",
+        "journal": "Sociologie du travail"
+      },
+      {
+        "authors": "Rosa H.",
+        "year": "2010",
+        "title": "Accélération. Une critique sociale du temps",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Philippot P.",
+        "year": "2011",
+        "title": "Émotion et psychothérapie",
+        "publisher": "Mardaga"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2001",
+        "title": "Les vilains petits canards",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Zawieja P. & Guarnieri F. (dir.)",
+        "year": "2013",
+        "title": "Épuisement professionnel. Approches innovantes et pluridisciplinaires",
+        "publisher": "Armand Colin"
+      },
+      {
+        "authors": "Raichle M. E.",
+        "year": "2015",
+        "title": "The brain's default mode network",
+        "journal": "Annual Review of Neuroscience",
+        "url": "https://doi.org/10.1146/annurev-neuro-071013-014030"
+      },
+      {
+        "authors": "Neff K. D.",
+        "year": "2003",
+        "title": "Self-compassion: An alternative conceptualization of a healthy attitude toward oneself",
+        "journal": "Self and Identity",
+        "url": "https://doi.org/10.1080/15298860309032"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
     "excerpt": "",
