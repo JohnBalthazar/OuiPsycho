@@ -683,12 +683,12 @@
   {
     "id": "hpi-invisible-identification-tardive-adulte",
     "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Ils découvrent leur haut potentiel à 35, 45 ou 60 ans, souvent par hasard. Camouflage social, angles morts du repérage, masquages croisés : voici pourquoi un HPI peut rester invisible si longtemps — et pourquoi une identification tardive n'a rien d'une vie gâchée.",
     "date": "2027-03-25",
-    "date_modified": "2027-03-25",
+    "date_modified": "2026-08-18",
     "category": "Émotions & identité",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lmkmcrkg53hrcplxhhvt",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -702,7 +702,7 @@
       "douance",
       "adulte-surdoue"
     ],
-    "metaDescription": "",
+    "metaDescription": "Camouflage social, biais de repérage, profils masqués : pourquoi tant de HPI sont identifiés tardivement, et pourquoi ce n'est ni un drame ni un échec.",
     "articles_lies": [],
     "status": "scheduled"
   },
