@@ -2917,6 +2917,93 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-accepte-t-on-l-inacceptable",
+    "title": "Pourquoi accepte-t-on l'inacceptable ?",
+    "type": "article",
+    "excerpt": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux cents fois. Voici la mécanique du glissement — et comment repérer le sien.",
+    "metaDescription": "Gradualisme, dissonance, coûts irrécupérables, sidération : les mécanismes qui font tolérer l'intolérable, et comment repérer son propre glissement.",
+    "author": "John Balthazar",
+    "date": "2026-09-05",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "emprise",
+      "dissonance-cognitive",
+      "violences-conjugales",
+      "peur-de-l-abandon",
+      "estime-de-soi"
+    ],
+    "sources": [
+      {
+        "authors": "Salmona M.",
+        "year": "2018",
+        "title": "Le livre noir des violences sexuelles",
+        "publisher": "Dunod"
+      },
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral. La violence perverse au quotidien",
+        "publisher": "Syros"
+      },
+      {
+        "authors": "Gruev-Vintila A.",
+        "year": "2022",
+        "title": "Le contrôle coercitif. Au cœur de la violence conjugale",
+        "publisher": "Dunod"
+      },
+      {
+        "authors": "Guédeney N. & Guédeney A. (dir.)",
+        "year": "2016",
+        "title": "L'attachement : approche théorique",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "2001",
+        "title": "Les vilains petits canards",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Dorey R.",
+        "year": "1981",
+        "title": "La relation d'emprise",
+        "journal": "Nouvelle Revue de Psychanalyse"
+      },
+      {
+        "authors": "Festinger L.",
+        "year": "1957",
+        "title": "A theory of cognitive dissonance",
+        "publisher": "Stanford University Press"
+      },
+      {
+        "authors": "Arkes H. R. & Blumer C.",
+        "year": "1985",
+        "title": "The psychology of sunk cost",
+        "journal": "Organizational Behavior and Human Decision Processes",
+        "url": "https://doi.org/10.1016/0749-5978(85)90049-4"
+      },
+      {
+        "authors": "Staw B. M.",
+        "year": "1976",
+        "title": "Knee-deep in the big muddy: A study of escalating commitment to a chosen course of action",
+        "journal": "Organizational Behavior and Human Performance",
+        "url": "https://doi.org/10.1016/0030-5073(76)90005-2"
+      }
+    ],
+    "articles_lies": [
+      "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
+      "dans-la-tete-d-un-pervers-narcissique"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
     "excerpt": "",
@@ -3222,6 +3309,86 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
+    "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
+    "type": "article",
+    "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
+    "metaDescription": "Dette de réponse, effet Zeigarnik, ostracisme : pourquoi certaines personnes ne répondent plus aux messages, et comment cesser de s'y épuiser.",
+    "author": "John Balthazar",
+    "date": "2026-08-22",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "ghosting",
+      "communication",
+      "relations-numeriques",
+      "attachement",
+      "charge-mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Casilli A. A.",
+        "year": "2010",
+        "title": "Les liaisons numériques. Vers une nouvelle sociabilité ?",
+        "publisher": "Seuil"
+      },
+      {
+        "authors": "Cardon D.",
+        "year": "2019",
+        "title": "Culture numérique",
+        "publisher": "Presses de Sciences Po"
+      },
+      {
+        "authors": "Rimé B.",
+        "year": "2005",
+        "title": "Le partage social des émotions",
+        "publisher": "Presses Universitaires de France"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2008",
+        "title": "Virtuel, mon amour. Penser, aimer, souffrir à l'ère des nouvelles technologies",
+        "publisher": "Albin Michel"
+      },
+      {
+        "authors": "Balleys C.",
+        "year": "2015",
+        "title": "Grandir entre adolescents. À l'école et sur Internet",
+        "publisher": "Presses polytechniques et universitaires romandes"
+      },
+      {
+        "authors": "Jauréguiberry F. & Proulx S.",
+        "year": "2011",
+        "title": "Usages et enjeux des technologies de communication",
+        "publisher": "Érès"
+      },
+      {
+        "authors": "Williams K. D.",
+        "year": "2007",
+        "title": "Ostracism",
+        "journal": "Annual Review of Psychology",
+        "url": "https://doi.org/10.1146/annurev.psych.58.110405.085641"
+      },
+      {
+        "authors": "Freedman G., Powell D. N., Le B. & Williams K. D.",
+        "year": "2019",
+        "title": "Ghosting and destiny: Implicit theories of relationships predict beliefs about ghosting",
+        "journal": "Journal of Social and Personal Relationships",
+        "url": "https://doi.org/10.1177/0265407517748791"
+      }
+    ],
+    "articles_lies": [
+      "se-remettre-d-une-rupture-amoureuse"
+    ],
     "status": "scheduled"
   },
   {
