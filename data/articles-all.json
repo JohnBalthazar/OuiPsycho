@@ -161,12 +161,12 @@
   {
     "id": "biais-cognitifs-7-pieges-du-cerveau",
     "title": "Biais cognitifs : les 7 pièges que votre cerveau vous tend chaque jour",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Confirmation, ancrage, aversion à la perte… Votre cerveau prend des raccourcis en permanence. Voici les sept biais cognitifs les plus fréquents, et comment ralentir au bon moment.",
     "date": "2027-05-14",
-    "date_modified": "2027-05-14",
+    "date_modified": "2026-08-18",
     "category": "Développement personnel",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ugtojqimjeaxizlmnxdk",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -180,7 +180,7 @@
       "raisonnement",
       "developpement-personnel"
     ],
-    "metaDescription": "",
+    "metaDescription": "Confirmation, ancrage, disponibilité, négativité : découvrez les 7 biais cognitifs qui faussent vos décisions chaque jour et comment y résister.",
     "articles_lies": [],
     "status": "scheduled"
   },
