@@ -3042,12 +3042,12 @@
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Il ne se lève pas le matin en se disant qu'il va détruire quelqu'un. Il se lève en se disant qu'il a raison. C'est précisément le problème. Visite guidée d'une vision du monde où l'autre n'est jamais tout à fait une personne.",
     "date": "2026-09-06",
-    "date_modified": "2026-08-16",
+    "date_modified": "2026-08-18",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vtlxkpx5uchhyg0vklag",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3061,7 +3061,7 @@
       "relations-toxiques",
       "narcissisme"
     ],
-    "metaDescription": "",
+    "metaDescription": "Vision du monde, phrases typiques, origines, vieillissement : décryptage de la perversion narcissique et conseils concrets pour s'en protéger.",
     "articles_lies": [
       "walter-white-sur-le-divan"
     ],
