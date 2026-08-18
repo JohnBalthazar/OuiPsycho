@@ -3159,6 +3159,86 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
+    "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
+    "type": "article",
+    "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
+    "metaDescription": "Dette de réponse, effet Zeigarnik, ostracisme : pourquoi certaines personnes ne répondent plus aux messages, et comment cesser de s'y épuiser.",
+    "author": "John Balthazar",
+    "date": "2026-08-22",
+    "date_modified": "2026-08-16",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "ghosting",
+      "communication",
+      "relations-numeriques",
+      "attachement",
+      "charge-mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Casilli A. A.",
+        "year": "2010",
+        "title": "Les liaisons numériques. Vers une nouvelle sociabilité ?",
+        "publisher": "Seuil"
+      },
+      {
+        "authors": "Cardon D.",
+        "year": "2019",
+        "title": "Culture numérique",
+        "publisher": "Presses de Sciences Po"
+      },
+      {
+        "authors": "Rimé B.",
+        "year": "2005",
+        "title": "Le partage social des émotions",
+        "publisher": "Presses Universitaires de France"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2008",
+        "title": "Virtuel, mon amour. Penser, aimer, souffrir à l'ère des nouvelles technologies",
+        "publisher": "Albin Michel"
+      },
+      {
+        "authors": "Balleys C.",
+        "year": "2015",
+        "title": "Grandir entre adolescents. À l'école et sur Internet",
+        "publisher": "Presses polytechniques et universitaires romandes"
+      },
+      {
+        "authors": "Jauréguiberry F. & Proulx S.",
+        "year": "2011",
+        "title": "Usages et enjeux des technologies de communication",
+        "publisher": "Érès"
+      },
+      {
+        "authors": "Williams K. D.",
+        "year": "2007",
+        "title": "Ostracism",
+        "journal": "Annual Review of Psychology",
+        "url": "https://doi.org/10.1146/annurev.psych.58.110405.085641"
+      },
+      {
+        "authors": "Freedman G., Powell D. N., Le B. & Williams K. D.",
+        "year": "2019",
+        "title": "Ghosting and destiny: Implicit theories of relationships predict beliefs about ghosting",
+        "journal": "Journal of Social and Personal Relationships",
+        "url": "https://doi.org/10.1177/0265407517748791"
+      }
+    ],
+    "articles_lies": [
+      "se-remettre-d-une-rupture-amoureuse"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
     "excerpt": "",
