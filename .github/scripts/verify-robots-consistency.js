@@ -1,5 +1,6 @@
 // Vérifie que le robots meta de chaque page article correspond à sa date de
-// publication, et que les pages racine n'ont pas de contenu dupliqué.
+// publication, que les pages racine n'ont pas de contenu dupliqué, et que
+// date_modified n'est jamais antérieure à date.
 // Détecte le type de régression qui a exposé 85 articles planifiés en
 // "index, follow" et bloqué des articles publiés en "noindex" (août 2026).
 // Usage : node .github/scripts/verify-robots-consistency.js
@@ -15,6 +16,13 @@ const errors = [];
 
 for (const file of jsonFiles) {
   const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+
+  // date_modified ne doit jamais précéder date (sinon "Mis à jour le" affiche une
+  // date antérieure à "Publié le" — incident du 19/08/2026 sur argent-et-bonheur.json)
+  if (j.date_modified && j.date_modified < j.date) {
+    errors.push(`${j.id} : date_modified (${j.date_modified}) antérieure à date (${j.date})`);
+  }
+
   if ((j.status || 'published') === 'draft') continue; // brouillons non concernés
 
   const htmlPath = path.join(DIR, j.id, 'index.html');

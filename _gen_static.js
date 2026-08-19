@@ -56,6 +56,14 @@ function fmtDate(d) {
   return `${parseInt(day)} ${MONTHS[parseInt(m)]} ${y}`;
 }
 
+// Date de dernière modification effective : ignore date_modified si antérieure
+// (ou égale) à date — évite d'afficher/déclarer une "mise à jour" avant la
+// publication (donnée éditoriale mal renseignée). Utilisé partout où date_modified
+// est lu (JSON-LD, meta, affichage), pour garantir une seule source de vérité.
+function effectiveModified(a) {
+  return (a.date_modified && a.date_modified > a.date) ? a.date_modified : a.date;
+}
+
 const CAT = {
   'Bien-être':               { color: '#059669', bg: '#ECFDF5', enc: 'Bien-%C3%AAtre' },
   'Relations':               { color: '#BE185D', bg: '#FDF2F8', enc: 'Relations' },
@@ -178,7 +186,7 @@ ${srcItems}
     "headline":         j.title,
     "description":      j.metaDescription,
     "datePublished":    `${j.date}T00:00:00+02:00`,
-    "dateModified":     `${j.date_modified || j.date}T00:00:00+02:00`,
+    "dateModified":     `${effectiveModified(j)}T00:00:00+02:00`,
     "inLanguage":       "fr-FR",
     "author":           authorLd,
     "publisher": {
@@ -222,12 +230,9 @@ ${srcItems}
     ]
   }));
 
-  // Label de date : "Publié le" ou "Mis à jour le"
-  const fdMod = j.date_modified && j.date_modified !== j.date
-    ? (() => { const [my,mm,md] = j.date_modified.split('-'); return `${parseInt(md)} ${MONTHS[parseInt(mm)]} ${my}`; })()
-    : null;
-  const dateLabel   = fdMod ? `Mis à jour le ${fdMod}` : `Publié le ${fd}`;
-  const dateDatetime = j.date_modified || j.date;
+  // Label de date : "Publié le" ou "Mis à jour le" (seulement si mise à jour > publication)
+  const modDate = effectiveModified(j);
+  const fdMod    = modDate !== j.date ? fmtDate(modDate) : null;
 
   const outDir  = path.join(__dirname, 'articles', j.id);
   if (!fs.existsSync(outDir)) fs.mkdirSync(outDir, { recursive: true });
@@ -251,7 +256,7 @@ ${srcItems}
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
-  <meta property="article:modified_time"      content="${j.date_modified || j.date}T00:00:00+01:00">
+  <meta property="article:modified_time"      content="${effectiveModified(j)}T00:00:00+01:00">
   <meta property="article:author"             content="${displayAuthor}">
   <meta property="article:section"            content="${j.category}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
@@ -357,7 +362,7 @@ ${navHtml}
           <div class="article-meta">
             <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${displayAuthor}</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `<span class="article-meta-dot">•</span><time datetime="${j.date_modified}">Mis à jour le ${fdMod}</time>` : ''}
+            <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `<span class="article-meta-dot">•</span><time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : ''}
             <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
@@ -801,8 +806,8 @@ function fmtDateCard(d) {
 }
 
 function dateLabelCard(a) {
-  const pub = a.date, mod = a.date_modified;
-  if (!mod || mod <= pub) return 'Publié le ' + fmtDateCard(pub);
+  const mod = effectiveModified(a);
+  if (mod === a.date) return 'Publié le ' + fmtDateCard(a.date);
   return 'Mis à jour le ' + fmtDateCard(mod);
 }
 
@@ -829,7 +834,7 @@ function renderCardStatic(a) {
         <h2 class="card__title"><a href="articles/${escCard(a.id)}/">${escCard(a.title)}</a></h2>
         <p class="card__excerpt">${escCard(a.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${escCard(a.date_modified || a.date || '')}">${label}</time>
+          <time datetime="${escCard(effectiveModified(a))}">${label}</time>
           <span class="card__meta-dot">•</span>
           <span>${a.readTime || 5} min de lecture</span>
         </footer>
@@ -861,7 +866,7 @@ function renderFeaturedStatic(a) {
         <h2 class="card__title"><a href="articles/${escCard(a.id)}/">${escCard(a.title)}</a></h2>
         <p class="card__excerpt">${escCard(a.excerpt || '')}</p>
         <footer class="card__meta">
-          <time datetime="${escCard(a.date_modified || a.date || '')}">${label}</time>
+          <time datetime="${escCard(effectiveModified(a))}">${label}</time>
           <span class="card__meta-dot">•</span>
           <span>${a.readTime || 5} min de lecture</span>
         </footer>

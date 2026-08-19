@@ -897,7 +897,10 @@
       metaDescription: document.getElementById('f-meta').value,
       author:          document.getElementById('f-author').value,
       date:            document.getElementById('f-date').value,
-      ...(document.getElementById('f-datemod').value ? { date_modified: document.getElementById('f-datemod').value } : {}),
+      // date_modified n'est conservée que si elle est réellement postérieure à date
+      // (sinon la mise à jour affichée pourrait précéder la publication — incohérence)
+      ...(document.getElementById('f-datemod').value > document.getElementById('f-date').value
+        ? { date_modified: document.getElementById('f-datemod').value } : {}),
       category:        document.getElementById('f-category').value,
       image:           document.getElementById('f-image').value,
       imagePosition:   document.getElementById('f-imgpos').value,
