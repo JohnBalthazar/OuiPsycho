@@ -29,12 +29,12 @@
   {
     "id": "traits-personnalite-presidents",
     "title": "Psychologie des présidents : les 5 traits de personnalité de tous les chefs d'État",
-    "type": "article",
-    "excerpt": "Extraversion hors norme, sang-froid, ego bien nourri… Que trouve-t-on quand on allonge un président sur le divan ? La science a un portrait-robot, et il est étonnamment cohérent.",
+    "excerpt": "",
     "date": "2027-05-28",
     "date_modified": "2026-08-18",
     "category": "Société & psychologie politique",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k91fpvomdvnsgnjdtogf",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -48,19 +48,19 @@
       "narcissisme",
       "big-five"
     ],
-    "metaDescription": "Narcissisme, sang-froid, machiavélisme : découvrez les 5 traits de personnalité que la psychologie retrouve chez les présidents et chefs d'État. Quiz inclus !",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "profiler-mythe-realite-psychologie-criminelle",
     "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
-    "type": "article",
-    "excerpt": "Le profiler qui « lit » les tueurs en trois regards est un mythe télévisuel. La science raconte une autre histoire : moins de génie, plus de statistiques — et c'est passionnant.",
+    "excerpt": "",
     "date": "2027-05-27",
     "date_modified": "2026-08-18",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ol1y4g3a0ygvtf5by8du",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -74,7 +74,7 @@
       "criminologie",
       "psychologie-d-enquete"
     ],
-    "metaDescription": "Que font vraiment les profilers ? Entre mythe télévisé et psychologie d'enquête scientifique, découvrez les vrais secrets du profilage criminel.",
+    "metaDescription": "",
     "articles_lies": [
       "biais-cognitifs-7-pieges-du-cerveau"
     ],
@@ -83,12 +83,12 @@
   {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
-    "type": "article",
-    "excerpt": "Projets abandonnés, formations inachevées, enthousiasmes qui retombent : simple procrastination ou signe d'un TDAH adulte ? Ce que dit la science — et comment finir plus souvent.",
+    "excerpt": "",
     "date": "2027-05-21",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/smwenrsejninln2wjxyt",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -102,19 +102,19 @@
       "fonctions-executives",
       "motivation"
     ],
-    "metaDescription": "Vous commencez tout sans jamais finir ? Entre procrastination ordinaire et TDAH adulte, découvrez ce que dit la psychologie et comment en sortir.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "paranoia-definition-symptomes-traitements",
     "title": "Paranoïa : définition, symptômes et traitements d'un trouble mal compris",
-    "type": "article",
-    "excerpt": "Loin des clichés du cinéma, la paranoïa est un fonctionnement psychique précis, douloureux et soignable. Définition, symptômes, lecture psychodynamique, recherches récentes et pistes de rétablissement.",
+    "excerpt": "",
     "date": "2027-05-20",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/navpza28gwxmriquclat",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -128,7 +128,7 @@
       "psychose",
       "mefiance"
     ],
-    "metaDescription": "Qu'est-ce que la paranoïa ? Définition clinique, symptômes, approche psychodynamique, recherches récentes et traitements d'un trouble souvent caricaturé.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -161,12 +161,12 @@
   {
     "id": "biais-cognitifs-7-pieges-du-cerveau",
     "title": "Biais cognitifs : les 7 pièges que votre cerveau vous tend chaque jour",
-    "type": "article",
-    "excerpt": "Confirmation, ancrage, aversion à la perte… Votre cerveau prend des raccourcis en permanence. Voici les sept biais cognitifs les plus fréquents, et comment ralentir au bon moment.",
+    "excerpt": "",
     "date": "2027-05-14",
     "date_modified": "2026-08-18",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ugtojqimjeaxizlmnxdk",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -180,19 +180,19 @@
       "raisonnement",
       "developpement-personnel"
     ],
-    "metaDescription": "Confirmation, ancrage, disponibilité, négativité : découvrez les 7 biais cognitifs qui faussent vos décisions chaque jour et comment y résister.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "pathologies-psychiatriques-cinema",
     "title": "Pathologies psychiatriques au cinéma : vraie clinique ou psychiatrie hollywoodienne ?",
-    "type": "article",
-    "excerpt": "Schizophrénie de Shutter Island, personnalités multiples de Split, génie maléfique d'Hannibal Lecter : que valent ces diagnostics de cinéma ? Un tri clinique, film par film, entre vérité psychiatrique et pur fantasme de scénariste.",
+    "excerpt": "",
     "date": "2027-05-13",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/yq5d6tanzk3vgoc1uc1w",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -206,7 +206,7 @@
       "stigmatisation",
       "psychiatrie"
     ],
-    "metaDescription": "Shutter Island, Split, Hannibal Lecter : que valent les diagnostics du grand écran ? Le vrai du faux sur les pathologies psychiatriques au cinéma.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -239,12 +239,12 @@
   {
     "id": "pourquoi-tomber-amoureux-du-meme-type-de-personne",
     "title": "Pourquoi tombe-t-on toujours amoureux du même type de personne ?",
-    "type": "article",
-    "excerpt": "Les prénoms changent, le scénario reste. Attachement, familiarité, répétition : la psychologie explique pourquoi vos histoires se ressemblent — et comment sortir de la boucle.",
+    "excerpt": "",
     "date": "2027-05-07",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vxz5mp32lscclkspipwe",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -258,19 +258,19 @@
       "relations",
       "psychologie-du-couple"
     ],
-    "metaDescription": "Attachement, effet de familiarité, répétition : pourquoi tombe-t-on toujours amoureux du même type de personne, et comment changer de schéma amoureux.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "depression-a-change-ma-vie",
     "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
-    "type": "article",
-    "excerpt": "Certaines personnes affirment que leur dépression a transformé leur existence. Ni pensée positive ni déni : ce paradoxe porte un nom en psychologie. Décryptage, témoignages et mises en garde.",
+    "excerpt": "",
     "date": "2027-05-06",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mdglemhvjuz3skvv9szh",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -284,7 +284,7 @@
       "resilience",
       "sante-mentale"
     ],
-    "metaDescription": "Définition de la dépression, témoignages et croissance post-traumatique : pourquoi certains disent que leur épisode dépressif a changé leur vie.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -317,12 +317,12 @@
   {
     "id": "schizophrenie-symptomes-causes-traitements",
     "title": "Schizophrénie : symptômes, causes et traitements, au-delà des clichés",
-    "type": "article",
-    "excerpt": "Non, la schizophrénie n'est pas un dédoublement de personnalité, et encore moins un synonyme de violence. Plongée claire et sans jargon dans un trouble aussi mal connu que porteur d'espoir.",
+    "excerpt": "",
     "date": "2027-04-30",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kqdcpu5s1fekooqypwhw",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -336,7 +336,7 @@
       "retablissement",
       "remediation-cognitive"
     ],
-    "metaDescription": "La schizophrénie n'est ni un dédoublement de personnalité ni une affaire de violence. Symptômes, causes, traitements et rétablissement expliqués.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -396,12 +396,12 @@
   {
     "id": "kairos-science-hasard",
     "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
-    "type": "article",
-    "excerpt": "Vous pensez à quelqu'un, il vous appelle. Signe de l'univers ou tour de passe-passe neuronal ? Enquête sur le kaïros, la synchronicité et l'art très scientifique du bon timing.",
+    "excerpt": "",
     "date": "2027-04-23",
     "date_modified": "2026-08-18",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/pav2mvag8r2g2kjhqgdq",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -415,7 +415,7 @@
       "coincidences",
       "attention"
     ],
-    "metaDescription": "Kaïros, synchronicité, coïncidences troublantes : ce que la psychologie et les neurosciences disent vraiment des moments où tout « sonne juste ».",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -475,12 +475,12 @@
   {
     "id": "petites-phrases-gros-degats",
     "title": "« C'est pas grave » : ces petites phrases qui font de gros dégâts",
-    "type": "article",
-    "excerpt": "« C'est pas grave », « il y a pire », « t'es trop sensible »… Ces phrases ne coûtent rien à dire, mais notre cerveau, lui, prend des notes. Enquête sur ces mots anodins qui invalident, figent ou cabossent — et sur ce qu'il faudrait dire à la place.",
+    "excerpt": "",
     "date": "2027-04-16",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mib9jqbliojf5b2hyqzk",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -494,7 +494,7 @@
       "estime-de-soi",
       "langage"
     ],
-    "metaDescription": "« C'est pas grave », « t'es trop sensible »… Pourquoi ces phrases anodines marquent la psyché, et par quoi les remplacer : ce que dit la science.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -527,12 +527,12 @@
   {
     "id": "trouble-dissociatif-identite",
     "title": "« Nous sommes plusieurs » : ces personnes qui partagent un même corps",
-    "type": "article",
-    "excerpt": "Alters, système, hôte, amnésies : le trouble dissociatif de l'identité fascine Hollywood et déroute le grand public. Entre mythe et clinique, plongée chez celles et ceux qui vivent, littéralement, en colocation avec eux-mêmes.",
+    "excerpt": "",
     "date": "2027-04-09",
     "date_modified": "2026-08-18",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ekh8wxe7golalvyrvpge",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -546,19 +546,19 @@
       "psychotraumatisme",
       "troubles-psy"
     ],
-    "metaDescription": "Alters, système, hôte : qu'est-ce que le trouble dissociatif de l'identité ? Origines traumatiques, témoignages, controverses et traitements expliqués.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "absorber-emotions-des-autres-eponge-emotionnelle",
     "title": "Pourquoi certaines personnes absorbent les émotions des autres (et comment s'en protéger)",
-    "type": "article",
-    "excerpt": "Le stress d'un collègue vous noue l'estomac, la tristesse d'un ami plombe votre soirée ? La contagion émotionnelle est un mécanisme universel — mais chez certains, le récepteur n'a pas de bouton de volume. Explications scientifiques et mode d'emploi pour rester connecté sans finir essoré.",
+    "excerpt": "",
     "date": "2027-04-08",
     "date_modified": "2026-08-18",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/r1pxlx65jptrehms5w88",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -572,7 +572,7 @@
       "eponge-emotionnelle",
       "limites-emotionnelles"
     ],
-    "metaDescription": "Contagion émotionnelle, haute sensibilité, frontière soi-autrui : pourquoi certains absorbent les émotions des autres, et comment s'en protéger sans se fermer.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -605,12 +605,12 @@
   {
     "id": "difficulte-prendre-decisions-pas-manque-confiance",
     "title": "Vous avez du mal à prendre des décisions ? Ce n'est pas toujours un manque de confiance en soi",
-    "type": "article",
-    "excerpt": "Sept minutes devant le rayon des pâtes, une soirée entière à choisir un film : et si votre indécision n'avait rien à voir avec l'estime de soi ? Maximisation, surcharge de choix, fatigue décisionnelle : la science raconte une tout autre histoire.",
+    "excerpt": "",
     "date": "2027-04-02",
     "date_modified": "2026-08-18",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ne5lkkylogq6knohpsbb",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -624,7 +624,7 @@
       "surcharge-de-choix",
       "confiance-en-soi"
     ],
-    "metaDescription": "Maximisation, surcharge de choix, fatigue décisionnelle, aversion au regret : pourquoi vous hésitez tant — et pourquoi la confiance n'y est souvent pour rien.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -657,12 +657,12 @@
   {
     "id": "rumination-mentale-cerveau-ne-sarrete-jamais",
     "title": "Pourquoi votre cerveau ne s'arrête jamais de penser : les mécanismes cachés de la rumination mentale",
-    "type": "article",
-    "excerpt": "Il est minuit et votre cerveau rejoue la réunion de mardi pour la quatorzième fois. Réseau du mode par défaut, effet Zeigarnik, croyances métacognitives : voici pourquoi la machine à penser ne se coupe jamais — et comment cesser de la laisser tourner à vide.",
+    "excerpt": "",
     "date": "2027-03-26",
     "date_modified": "2026-08-18",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bvlmjpbxfxabssgopist",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -676,19 +676,19 @@
       "anxiete",
       "pleine-conscience"
     ],
-    "metaDescription": "Réseau du mode par défaut, effet Zeigarnik, pensée abstraite : les mécanismes cachés de la rumination mentale, et les stratégies validées pour en sortir.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "hpi-invisible-identification-tardive-adulte",
     "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
-    "type": "article",
-    "excerpt": "Ils découvrent leur haut potentiel à 35, 45 ou 60 ans, souvent par hasard. Camouflage social, angles morts du repérage, masquages croisés : voici pourquoi un HPI peut rester invisible si longtemps — et pourquoi une identification tardive n'a rien d'une vie gâchée.",
+    "excerpt": "",
     "date": "2027-03-25",
     "date_modified": "2026-08-18",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lmkmcrkg53hrcplxhhvt",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -702,7 +702,7 @@
       "douance",
       "adulte-surdoue"
     ],
-    "metaDescription": "Camouflage social, biais de repérage, profils masqués : pourquoi tant de HPI sont identifiés tardivement, et pourquoi ce n'est ni un drame ni un échec.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -735,12 +735,12 @@
   {
     "id": "analyser-une-personnalite-en-7-points-cles",
     "title": "Analyser une personnalité en 7 points clés",
-    "type": "article",
-    "excerpt": "Traits, attachement, valeurs, défenses, contexte, récit : la psychologie dispose d'outils bien plus fins que les étiquettes. Voici sept points d'observation pour lire une personnalité sans l'enfermer.",
+    "excerpt": "",
     "date": "2027-03-19",
     "date_modified": "2026-08-18",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/t3734sezzwrlcasodmy4",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -754,19 +754,19 @@
       "psychologie-des-traits",
       "connaissance-de-soi"
     ],
-    "metaDescription": "Traits, attachement, valeurs, défenses, contexte, récit : 7 points clés validés par la recherche pour analyser une personnalité sans l'enfermer.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
   {
     "id": "peut-on-etre-tout-le-temps-heureux",
     "title": "Peut-on être tout le temps heureux ?",
-    "type": "article",
-    "excerpt": "Le bonheur est devenu un objectif de performance. Or la recherche est formelle : un bonheur permanent est impossible — et surtout, le poursuivre comme un but rend statistiquement plus malheureux.",
+    "excerpt": "",
     "date": "2027-03-18",
     "date_modified": "2026-08-18",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/is6qtfggs8nxmhzhcbye",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -780,7 +780,7 @@
       "bien-etre",
       "adaptation-hedonique"
     ],
-    "metaDescription": "Non, on ne peut pas être heureux en permanence. Adaptation hédonique, utilité des émotions négatives, paradoxe de la quête du bonheur : ce que dit la science.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -812,12 +812,12 @@
   {
     "id": "enseignements-psychologie-histoires-disney",
     "title": "Ce que les histoires Disney nous apprennent vraiment : 6 leçons de psychologie",
-    "type": "article",
-    "excerpt": "Derrière les chansons et les couleurs saturées, les contes Disney déposent en nous des scénarios psychiques très précis. Deuil, ombre, faux self, attachement : six enseignements décryptés à la lumière de la recherche.",
+    "excerpt": "",
     "date": "2027-03-12",
     "date_modified": "2026-08-18",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/csvagrlhlwx8lal8lori",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -831,7 +831,7 @@
       "developpement-personnel",
       "enfance"
     ],
-    "metaDescription": "Deuil, ombre, faux self, persévérance : ce que les histoires Disney nous apprennent vraiment sur nous, décrypté par la psychologie contemporaine.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2811,12 +2811,12 @@
   {
     "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
     "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
-    "type": "article",
-    "excerpt": "Vous êtes enfin assis. Personne ne vous demande rien. Et au bout de quatre minutes, une petite voix vous rappelle le panier de linge. Bienvenue dans le seul loisir au monde qui exige une justification écrite.",
+    "excerpt": "",
     "date": "2026-09-12",
     "date_modified": "2026-08-18",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xggbc2tcnl4yx6lr4uq9",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2830,7 +2830,7 @@
       "estime-de-soi",
       "perfectionnisme"
     ],
-    "metaDescription": "Culpabilité du repos, dette morale, amour conditionnel : pourquoi se reposer semble interdit à certains, et six leviers pour désamorcer le réflexe.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2890,12 +2890,12 @@
   {
     "id": "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
     "title": "Pourquoi certaines personnes s'éloignent-elles dès qu'une relation devient sérieuse ?",
-    "type": "article",
-    "excerpt": "Tout allait bien. Trop bien. Puis vous avez prononcé le mot « week-end prolongé », et la personne s'est évaporée avec l'élégance d'un chat qu'on voulait câliner. Ce n'est ni de la lâcheté ni un manque de sentiments : c'est un système de sécurité qui s'est déclenché.",
+    "excerpt": "",
     "date": "2026-09-09",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/eqcztyhuyfl4jg7jipl2",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2909,7 +2909,7 @@
       "intimite",
       "peur-de-l-abandon"
     ],
-    "metaDescription": "Attachement évitant, peur de l'engagement, désactivation : pourquoi certaines personnes fuient quand la relation devient sérieuse, et que faire.",
+    "metaDescription": "",
     "articles_lies": [
       "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
       "se-remettre-d-une-rupture-amoureuse"
@@ -2946,12 +2946,12 @@
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
-    "type": "article",
-    "excerpt": "Il ne se lève pas le matin en se disant qu'il va détruire quelqu'un. Il se lève en se disant qu'il a raison. C'est précisément le problème. Visite guidée d'une vision du monde où l'autre n'est jamais tout à fait une personne.",
+    "excerpt": "",
     "date": "2026-09-06",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vtlxkpx5uchhyg0vklag",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2965,7 +2965,7 @@
       "relations-toxiques",
       "narcissisme"
     ],
-    "metaDescription": "Vision du monde, phrases typiques, origines, vieillissement : décryptage de la perversion narcissique et conseils concrets pour s'en protéger.",
+    "metaDescription": "",
     "articles_lies": [
       "walter-white-sur-le-divan"
     ],
@@ -2974,12 +2974,12 @@
   {
     "id": "pourquoi-accepte-t-on-l-inacceptable",
     "title": "Pourquoi accepte-t-on l'inacceptable ?",
-    "type": "article",
-    "excerpt": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux cents fois. Voici la mécanique du glissement — et comment repérer le sien.",
+    "excerpt": "",
     "date": "2026-09-05",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j1fwscaqkapjpkq7n6cx",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2993,7 +2993,7 @@
       "peur-de-l-abandon",
       "estime-de-soi"
     ],
-    "metaDescription": "Gradualisme, dissonance, coûts irrécupérables, sidération : les mécanismes qui font tolérer l'intolérable, et comment repérer son propre glissement.",
+    "metaDescription": "",
     "articles_lies": [
       "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
       "dans-la-tete-d-un-pervers-narcissique"
@@ -3056,12 +3056,12 @@
   {
     "id": "pleurer-de-colere",
     "title": "Pourquoi certaines personnes pleurent-elles lorsqu'elles sont en colère ?",
-    "type": "article",
-    "excerpt": "Vous vouliez répliquer, vous avez pleuré. Ces larmes de rage ne sont ni un bug ni une faiblesse : elles obéissent à une logique très précise. Explication, et surtout, quoi faire quand ça monte.",
+    "excerpt": "",
     "date": "2026-09-02",
     "date_modified": "2026-08-18",
     "category": "Émotions & identité",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jtqogfefawwjvyg9u22v",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3075,7 +3075,7 @@
       "regulation-emotionnelle",
       "impuissance"
     ],
-    "metaDescription": "Pleurer quand on est en colère n'est ni un bug ni une faiblesse : ce que dit la psychologie des émotions, et quoi faire quand les larmes montent.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3110,12 +3110,12 @@
   {
     "id": "addiction-au-porno-comment-en-parler",
     "title": "Addiction au porno : comment en parler ?",
-    "type": "article",
-    "excerpt": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant dans le couple. Voici où se situe la ligne, ce que dit le cerveau, et comment aborder le sujet sans drame ni sermon.",
+    "excerpt": "",
     "date": "2026-08-31",
     "date_modified": "2026-08-18",
     "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/t5pefutcewgxvh1pyya7",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3129,7 +3129,7 @@
       "desir",
       "education-sexuelle"
     ],
-    "metaDescription": "Où commence l'addiction au porno, ses effets sur le désir et le cerveau, et comment en parler avec son partenaire ou ses enfants sans dramatiser.",
+    "metaDescription": "",
     "articles_lies": [
       "est-ce-que-la-taille-compte-vraiment"
     ],
@@ -3271,12 +3271,12 @@
   {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
     "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
-    "type": "article",
-    "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
+    "excerpt": "",
     "date": "2026-08-22",
     "date_modified": "2026-08-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k5sqhwbsywsk3e3b3smv",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3290,7 +3290,7 @@
       "attachement",
       "charge-mentale"
     ],
-    "metaDescription": "Dette de réponse, effet Zeigarnik, ostracisme : pourquoi certaines personnes ne répondent plus aux messages, et comment cesser de s'y épuiser.",
+    "metaDescription": "",
     "articles_lies": [
       "se-remettre-d-une-rupture-amoureuse"
     ],
