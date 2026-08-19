@@ -96,6 +96,14 @@ for (const file of jsonFiles) {
   }
   const robotsMeta = 'index, follow';
 
+  // Image hero (haut d'article) — même convention que buildArticleHTML (js/main.js) et _gen_dossier.ps1
+  const heroPos   = j.imagePosition || 'center center';
+  const heroZoom  = parseFloat(j.imageZoom) || 1;
+  const heroStyle = `object-position:${escCard(heroPos)}${heroZoom > 1 ? `;transform:scale(${heroZoom});transform-origin:${escCard(heroPos)}` : ''}`;
+  const heroImageHtml = (j.image && (j.imageLayout || 'top') === 'top')
+    ? `\n          <div class="article-hero-image">\n            <img src="${escCard(j.image)}" alt="${escCard(j.title)}" loading="lazy" style="${heroStyle}">\n          </div>`
+    : '';
+
   // Keypoints
   let kpHtml = '';
   if (j.keypoints && j.keypoints.length) {
@@ -366,7 +374,7 @@ ${navHtml}
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
               </button>
             </div>
-          </div>
+          </div>${heroImageHtml}
         </header>
 
 ${kpHtml}
