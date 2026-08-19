@@ -51,7 +51,7 @@ function buildCloudinaryUrl(url, gravity) {
 function esc(s) {
   return String(s ?? '')
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
-    .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
 function formatDate(d) {
   if (!d) return '';
@@ -1190,10 +1190,18 @@ function _renderComments(comments) {
       <div class="comment-actions">
         ${alreadyReported
           ? `<span class="comment-report-btn comment-report-btn--done" aria-label="Déjà signalé">⚑ Signalé</span>`
-          : `<button class="comment-report-btn" aria-label="Signaler ce commentaire" onclick="handleReport('${esc(c.id)}')">⚑ Signaler</button>`}
+          : `<button class="comment-report-btn" aria-label="Signaler ce commentaire" data-comment-id="${esc(c.id)}">⚑ Signaler</button>`}
       </div>
     </div>`;
   }).join('');
+
+  if (!list.dataset.reportBound) {
+    list.dataset.reportBound = '1';
+    list.addEventListener('click', e => {
+      const btn = e.target.closest('.comment-report-btn[data-comment-id]');
+      if (btn) handleReport(btn.dataset.commentId);
+    });
+  }
 }
 
 async function handleCommentSubmit(articleId) {
@@ -1504,29 +1512,32 @@ async function initTestsRubrique() {
     }
 
     grid.innerHTML = published.map(t => {
+      const safeTestUrl    = /^https?:\/\/|^\//i.test(t.testUrl || '')    ? t.testUrl    : '#';
+      const safeArticleUrl = /^https?:\/\/|^\//i.test(t.articleUrl || '') ? t.articleUrl : '';
+      const safeColor      = /^#[0-9a-f]{3,8}$/i.test(t.color || '') ? t.color : '#1F4E6B';
       const imgHtml = t.image
-        ? `<img class="test-card__img" src="${t.image}" alt="${t.title}" loading="lazy">`
+        ? `<img class="test-card__img" src="${esc(t.image)}" alt="${esc(t.title)}" loading="lazy">`
         : '';
       const newBadge = t.isNew
         ? `<span class="test-card__badge-new">Nouveau</span>` : '';
-      const articleLink = t.articleUrl
-        ? `<a class="test-card__link" href="${t.articleUrl}">Lire l'article</a>` : '';
+      const articleLink = safeArticleUrl
+        ? `<a class="test-card__link" href="${esc(safeArticleUrl)}">Lire l'article</a>` : '';
       return `
-        <article class="test-card" style="--card-color:${t.color || '#1F4E6B'}">
+        <article class="test-card" style="--card-color:${safeColor}">
           <div class="test-card__head">
             ${imgHtml}
             ${newBadge}
             <span class="test-card__emoji">${t.emoji || '🧠'}</span>
           </div>
           <div class="test-card__body">
-            <h2 class="test-card__title">${t.title}</h2>
-            <p class="test-card__desc">${t.desc || ''}</p>
+            <h2 class="test-card__title">${esc(t.title)}</h2>
+            <p class="test-card__desc">${esc(t.desc || '')}</p>
             <div class="test-card__meta">
-              <span class="test-card__cat">${t.catLabel || ''}</span>
-              <span class="test-card__time">⏱ ${t.duration || '5 min'}</span>
+              <span class="test-card__cat">${esc(t.catLabel || '')}</span>
+              <span class="test-card__time">⏱ ${esc(t.duration || '5 min')}</span>
             </div>
             <div class="test-card__actions">
-              <a class="test-card__btn" href="${t.testUrl}">Faire le test →</a>
+              <a class="test-card__btn" href="${esc(safeTestUrl)}">Faire le test →</a>
               ${articleLink}
             </div>
           </div>

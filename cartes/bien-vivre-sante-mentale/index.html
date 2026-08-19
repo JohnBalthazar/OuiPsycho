@@ -1865,7 +1865,8 @@
         if (!data || !data.length) { if (status) status.textContent = 'Ville introuvable — vérifiez l’orthographe'; return; }
         var lat      = parseFloat(data[0].lat);
         var lng      = parseFloat(data[0].lon);
-        var cityName = data[0].display_name.split(',')[0];
+        var cityName = String(data[0].display_name.split(',')[0])
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
         // Extraction code dept via code postal Nominatim
         var addr     = data[0].address || {};
         var postcode = (addr.postcode || '').split(',')[0].trim();

@@ -236,8 +236,10 @@
 
       if (ok) {
         form.style.display = 'none';
+        const safeEmail = String(email)
+          .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
         msgEl.innerHTML = `
-          ✅ <strong>${email}</strong> a bien été désinscrit(e).<br>
+          ✅ <strong>${safeEmail}</strong> a bien été désinscrit(e).<br>
           <span style="font-weight:400">Vous ne recevrez plus nos newsletters. Merci d'avoir suivi Oui Psycho!</span>`;
         msgEl.className = 'success';
       } else {
