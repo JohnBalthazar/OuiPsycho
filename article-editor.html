@@ -933,7 +933,7 @@
       <span class="meta-chip cat">${d.category}</span>
       <span class="meta-chip date">${formatDate(d.date)}</span>
       <span class="meta-chip time">⏱ ${d.readTime} min</span>
-      <span class="meta-chip ${statusCls[d.status] || ''}">${statusLabel[d.status] || d.status}</span>
+      <span class="meta-chip ${statusCls[d.status] || ''}">${statusLabel[d.status] || esc(d.status)}</span>
     `;
 
     document.getElementById('prev-title').textContent   = d.title || '—';
@@ -953,7 +953,7 @@
     const kpBox = document.getElementById('prev-kp');
     const kpList = document.getElementById('prev-kp-list');
     if (d.keypoints && d.keypoints.length) {
-      kpList.innerHTML = d.keypoints.map(k => `<li>${k}</li>`).join('');
+      kpList.innerHTML = d.keypoints.map(k => `<li>${esc(k)}</li>`).join('');
       kpBox.classList.remove('hidden');
     } else {
       kpBox.classList.add('hidden');
@@ -963,7 +963,7 @@
     document.getElementById('prev-body').innerHTML = d.content || '';
 
     // tags
-    document.getElementById('prev-tags').innerHTML = d.tags.map(t => `<span>#${t}</span>`).join('');
+    document.getElementById('prev-tags').innerHTML = d.tags.map(t => `<span>#${esc(t)}</span>`).join('');
 
     // SEO
     const meta = d.metaDescription || '';
@@ -1032,6 +1032,14 @@
 
   function escAttr(s) {
     return (s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  // Échappement HTML complet pour les champs texte libre (points clés, tags, statut) :
+  // ces champs ne doivent jamais contenir de balises, contrairement à f-content (HTML riche voulu).
+  function esc(s) {
+    return String(s ?? '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
   function toast(msg, duration = 2800, type = '') {
