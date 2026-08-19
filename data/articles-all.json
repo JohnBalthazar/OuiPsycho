@@ -3300,17 +3300,16 @@
     "title": "Refus scolaire anxieux : quand votre enfant ne peut plus franchir la grille",
     "type": "article",
     "excerpt": "Maux de ventre chaque matin, crises au moment de partir, week-ends parfaitement normaux. Ce n'est ni un caprice ni de l'école buissonnière : c'est un trouble anxieux qui se soigne, à condition d'agir vite.",
-    "metaDescription": "Maux de ventre le matin, crises avant de partir, week-ends normaux : reconnaître le refus scolaire anxieux et agir avant que l'évitement ne s'installe.",
-    "author": "John Balthazar",
     "date": "2026-08-21",
-    "date_modified": "2026-08-21",
+    "date_modified": "2026-08-19",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/svjxl9nrezdzgmoixzuq",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "refus-scolaire-anxieux",
       "phobie-scolaire",
@@ -3318,44 +3317,7 @@
       "rentree-scolaire",
       "parentalite"
     ],
-    "sources": [
-      {
-        "authors": "Haute Autorité de Santé",
-        "year": "2014",
-        "title": "Manifestations dépressives à l'adolescence : repérage, diagnostic et prise en charge en soins de premier recours",
-        "publisher": "Haute Autorité de Santé"
-      },
-      {
-        "authors": "Catheline N.",
-        "year": "2012",
-        "title": "Psychopathologie de la scolarité",
-        "publisher": "Elsevier Masson"
-      },
-      {
-        "authors": "Inserm",
-        "year": "2002",
-        "title": "Troubles mentaux : dépistage et prévention chez l'enfant et l'adolescent. Expertise collective",
-        "publisher": "Éditions Inserm"
-      },
-      {
-        "authors": "Santé publique France",
-        "year": "2023",
-        "title": "EnCLASS — Enquête nationale en collège et en lycée chez les adolescents sur la santé et les substances",
-        "publisher": "Santé publique France"
-      },
-      {
-        "authors": "Gallé-Tessonneau M. & Dèttore D.",
-        "year": "2020",
-        "title": "École et refus scolaire anxieux : validation d'un outil d'évaluation chez l'adolescent",
-        "journal": "Journal of Pediatric Psychology"
-      },
-      {
-        "authors": "Kearney C. A.",
-        "year": "2008",
-        "title": "School absenteeism and school refusal behavior in youth: A contemporary review",
-        "journal": "Clinical Psychology Review"
-      }
-    ],
+    "metaDescription": "Maux de ventre le matin, crises avant de partir, week-ends normaux : reconnaître le refus scolaire anxieux et agir avant que l'évitement ne s'installe.",
     "articles_lies": [],
     "status": "scheduled"
   },
