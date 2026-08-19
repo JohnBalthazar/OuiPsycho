@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!--
+    Template d'épingle Pinterest — ouipsycho.fr
+    Dimensions : 1000 × 1500 px (ratio 2:3)
+
+    Placeholders injectés par _gen_pins.js :
+      {{TITLE}}          — titre de l'article (échappé HTML)
+      {{CATEGORY}}       — catégorie (ex. "Nos héros sur le divan")
+      {{IMAGE_URL}}      — URL Cloudinary transformée 1000×1500
+      {{IMAGE_POSITION}} — position CSS background (ex. "50% 50%")
+      {{HAS_IMAGE}}      — classe CSS : "has-image" ou "no-image"
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 1000px;
+      height: 1500px;
+      overflow: hidden;
+    }
+
+    /* ── Conteneur principal ───────────────────────────────────────────────── */
+    .pin {
+      position: relative;
+      width: 1000px;
+      height: 1500px;
+      /* Fond de secours visible quand pas d'image (mode no-image) */
+      background: linear-gradient(
+        158deg,
+        #072f33 0%,
+        #0d5c63 22%,
+        #1a7a6e 46%,
+        #c0622e 72%,
+        #e07a3f 100%
+      );
+    }
+
+    /* ── Bande signature teal → orange (toujours visible) ─────────────────── */
+    .top-stripe {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 10px;
+      z-index: 20;
+      background: linear-gradient(90deg, #0d5c63 0%, #e07a3f 100%);
+    }
+
+    /* ── Image de fond Cloudinary ─────────────────────────────────────────── */
+    .bg-image {
+      position: absolute;
+      inset: 0;
+      background-image: url('{{IMAGE_URL}}');
+      background-size: cover;
+      background-position: {{IMAGE_POSITION}};
+    }
+    /* Masquée si pas d'image */
+    .no-image .bg-image { display: none; }
+
+    /* ── Cercles décoratifs (mode no-image uniquement) ────────────────────── */
+    .deco {
+      position: absolute;
+      border-radius: 50%;
+    }
+    .deco-1 {
+      bottom: 250px; right: -90px;
+      width: 480px; height: 480px;
+      background: rgba(224, 122, 63, 0.20);
+    }
+    .deco-2 {
+      top: 100px; left: -110px;
+      width: 370px; height: 370px;
+      background: rgba(255, 255, 255, 0.07);
+    }
+    .deco-3 {
+      top: 42%; left: 48%;
+      transform: translate(-50%, -50%);
+      width: 680px; height: 680px;
+      background: rgba(0, 0, 0, 0.10);
+    }
+    /* Masqués si image présente */
+    .has-image .deco { display: none; }
+
+    /* ── Overlay sombre (adapté selon présence d'image) ───────────────────── */
+    .overlay { position: absolute; inset: 0; }
+
+    .has-image .overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(5, 22, 26, 0.52) 0%,
+        rgba(0,  0,  0, 0.12) 18%,
+        rgba(0,  0,  0, 0.28) 42%,
+        rgba(0,  0,  0, 0.80) 64%,
+        rgba(0,  0,  0, 0.94) 100%
+      );
+    }
+
+    .no-image .overlay {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.06) 0%,
+        rgba(0, 0, 0, 0.30) 100%
+      );
+    }
+
+    /* ── Contenu par-dessus tout ──────────────────────────────────────────── */
+    .content {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 60px 68px 54px;
+    }
+
+    /* ── Badge catégorie ──────────────────────────────────────────────────── */
+    .category-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      align-self: flex-start;
+      background: rgba(10, 70, 76, 0.88);
+      border: 1.5px solid rgba(255, 255, 255, 0.22);
+      color: white;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 23px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 14px 30px;
+      border-radius: 50px;
+    }
+    .cat-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #e07a3f;
+      flex-shrink: 0;
+    }
+
+    /* ── Espace flexible entre badge et titre ─────────────────────────────── */
+    .spacer { flex: 1; min-height: 40px; }
+
+    /* ── Titre ────────────────────────────────────────────────────────────── */
+    .title {
+      color: white;
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 96px; /* Ajusté dynamiquement par le script ci-dessous */
+      line-height: 1.06;
+      text-shadow: 0 4px 30px rgba(0, 0, 0, 0.55);
+      word-break: break-word;
+    }
+
+    /* ── Ligne séparatrice orange ─────────────────────────────────────────── */
+    .divider {
+      margin-top: 38px;
+      margin-bottom: 32px;
+      width: 88px;
+      height: 5px;
+      border-radius: 3px;
+      background: linear-gradient(90deg, #e07a3f 0%, rgba(224, 122, 63, 0.22) 100%);
+    }
+
+    /* ── Pied de page ─────────────────────────────────────────────────────── */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .site-name {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: white;
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+    .site-name .accent { color: #e07a3f; }
+
+    .cta {
+      font-family: 'Montserrat', Arial, sans-serif;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 21px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .cta-arrow {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: #e07a3f;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="pin {{HAS_IMAGE}}">
+
+    <div class="top-stripe"></div>
+
+    <!-- Image de fond (URL vide = rien affiché, masquée en no-image via CSS) -->
+    <div class="bg-image"></div>
+
+    <!-- Cercles décoratifs pour le fond sans image -->
+    <div class="deco deco-1"></div>
+    <div class="deco deco-2"></div>
+    <div class="deco deco-3"></div>
+
+    <!-- Overlay sombre -->
+    <div class="overlay"></div>
+
+    <!-- Contenu texte -->
+    <div class="content">
+
+      <div class="category-badge">
+        <div class="cat-dot"></div>
+        {{CATEGORY}}
+      </div>
+
+      <div class="spacer"></div>
+
+      <h1 class="title" id="pin-title">{{TITLE}}</h1>
+      <div class="divider"></div>
+
+      <div class="footer">
+        <div class="site-name">oui<span class="accent">psycho</span>.fr</div>
+        <div class="cta">
+          Lire l'article
+          <div class="cta-arrow">&#8594;</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    // Réduit progressivement la taille de police du titre
+    // jusqu'à ce qu'il tienne dans le conteneur (1500px de hauteur).
+    (function fitTitle() {
+      var title = document.getElementById('pin-title');
+      var pin   = title.closest('.pin');
+      var size  = 96;
+      title.style.fontSize = size + 'px';
+
+      for (var i = 0; i < 25 && pin.scrollHeight > 1500; i++) {
+        size = Math.max(44, size - 3);
+        title.style.fontSize = size + 'px';
+      }
+    })();
+  </script>
+</body>
+</html>

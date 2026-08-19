@@ -14,3 +14,9 @@ desktop.ini
 
 # Logs
 *.log
+
+# Dépendances Node (inclut Chromium ~300 Mo)
+node_modules/
+
+# Épingles Pinterest générées localement
+pins/
