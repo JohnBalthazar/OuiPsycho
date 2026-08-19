@@ -3271,12 +3271,12 @@
   {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
     "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
     "date": "2026-08-22",
-    "date_modified": "2026-08-18",
+    "date_modified": "2026-08-19",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k5sqhwbsywsk3e3b3smv",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3290,7 +3290,7 @@
       "attachement",
       "charge-mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Dette de réponse, effet Zeigarnik, ostracisme : pourquoi certaines personnes ne répondent plus aux messages, et comment cesser de s'y épuiser.",
     "articles_lies": [
       "se-remettre-d-une-rupture-amoureuse"
     ],
