@@ -1,8 +1,10 @@
 #!/usr/bin/env node
 /**
  * notify-new-comments.js
- * Vérifie les commentaires Firestore en attente de modération et envoie
- * un mail de notification (via Brevo) pour ceux pas encore notifiés.
+ * Vérifie les commentaires Firestore et envoie deux types de mails (via Brevo) :
+ *   1. À l'admin — nouveaux commentaires en attente de modération.
+ *   2. Au commentateur — quand la rédaction a répondu à son commentaire
+ *      (uniquement s'il a renseigné son e-mail).
  *
  * Variables d'environnement requises :
  *   BREVO_API_KEY            — clé API Brevo (GitHub Secrets)
@@ -27,6 +29,11 @@ const API_KEY      = cfg.firebaseApiKey;
 const NOTIFY_EMAIL = cfg.contactEmail;
 const SITE         = 'https://ouipsycho.fr';
 const SENDER       = { name: 'Oui Psycho! — Commentaires', email: 'contact@ouipsycho.fr' };
+
+const articles = JSON.parse(
+  fs.readFileSync(path.join(process.cwd(), 'data', 'articles.json'), 'utf8')
+);
+const ARTICLE_TITLES = new Map(articles.map(a => [a.id, a.title]));
 
 /* ── Requête HTTPS JSON générique ────────────────────────── */
 function httpsJson(method, hostname, pathName, body, headers) {
@@ -120,6 +127,41 @@ async function markNotified(idToken, commentId) {
   );
 }
 
+/* ── Commentaires approuvés avec réponse de la rédaction ─── */
+async function fetchApprovedComments(idToken) {
+  const query = {
+    structuredQuery: {
+      from:  [{ collectionId: 'comments' }],
+      where: {
+        fieldFilter: {
+          field: { fieldPath: 'status' },
+          op:    'EQUAL',
+          value: { stringValue: 'approved' },
+        },
+      },
+    },
+  };
+  const res = await httpsJson(
+    'POST', 'firestore.googleapis.com',
+    `/v1/projects/${PROJECT_ID}/databases/(default)/documents:runQuery`,
+    query,
+    { Authorization: `Bearer ${idToken}` }
+  );
+  if (res.status !== 200 || !Array.isArray(res.body)) {
+    throw new Error(`Requête Firestore échouée (${res.status}): ${JSON.stringify(res.body)}`);
+  }
+  return res.body.filter(r => r.document).map(r => fbDoc(r.document));
+}
+
+async function markReplyNotified(idToken, commentId) {
+  await httpsJson(
+    'PATCH', 'firestore.googleapis.com',
+    `/v1/projects/${PROJECT_ID}/databases/(default)/documents/comments/${commentId}?updateMask.fieldPaths=reply_notified`,
+    { fields: { reply_notified: { booleanValue: true } } },
+    { Authorization: `Bearer ${idToken}` }
+  );
+}
+
 /* ── Construction du mail ────────────────────────────────── */
 function esc(s) {
   return String(s || '').replace(/[&<>"']/g, c => (
@@ -172,6 +214,51 @@ async function sendNotificationEmail(comments) {
   }
 }
 
+/* ── Mail au commentateur : la rédaction a répondu ───────── */
+function buildReplyEmailHtml(comment) {
+  const articleTitle = ARTICLE_TITLES.get(comment.article_id) || comment.article_id;
+  const articleUrl   = `${SITE}/articles/${encodeURIComponent(comment.article_id)}/#comment-${encodeURIComponent(comment.id)}`;
+
+  return `<!DOCTYPE html>
+<html lang="fr"><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f0f4f8;font-family:'Segoe UI',Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td align="center" style="padding:24px 16px;">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+  <tr><td style="padding-bottom:18px;">
+    <div style="font-size:20px;font-weight:900;color:#1F4E6B;">✦ La rédaction a répondu à votre commentaire</div>
+    <div style="font-size:13px;color:#888;margin-top:4px;">Sur l'article : <strong>${esc(articleTitle)}</strong></div>
+  </td></tr>
+  <tr><td>
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:10px;margin-bottom:14px;box-shadow:0 2px 6px rgba(0,0,0,.06);">
+      <tr><td style="padding:16px 18px;">
+        <p style="margin:0 0 6px;font-size:13px;color:#888;">Votre commentaire :</p>
+        <p style="margin:0 0 14px;font-size:14px;color:#444;line-height:1.6;font-style:italic;">${esc(comment.content)}</p>
+        <p style="margin:0 0 6px;font-size:13px;color:#888;">Réponse de la rédaction :</p>
+        <p style="margin:0;font-size:14px;color:#1a1a2e;line-height:1.6;">${esc(comment.admin_reply)}</p>
+      </td></tr>
+    </table>
+  </td></tr>
+  <tr><td align="center" style="padding:10px 0;">
+    <a href="${articleUrl}" style="display:inline-block;background:#1F4E6B;color:#fff;padding:10px 22px;border-radius:20px;text-decoration:none;font-size:14px;font-weight:700;">Voir la conversation →</a>
+  </td></tr>
+</table>
+</td></tr></table>
+</body></html>`;
+}
+
+async function sendReplyEmail(comment) {
+  const res = await httpsJson('POST', 'api.brevo.com', '/v3/smtp/email', {
+    sender:      SENDER,
+    to:          [{ email: comment.author_email, name: comment.author_name || undefined }],
+    subject:     '✦ La rédaction a répondu à votre commentaire — Oui Psycho!',
+    htmlContent: buildReplyEmailHtml(comment),
+  }, { 'api-key': BREVO_API_KEY });
+
+  if (res.status !== 201) {
+    throw new Error(`Envoi Brevo (réponse) échoué (${res.status}): ${JSON.stringify(res.body)}`);
+  }
+}
+
 /* ── Main ─────────────────────────────────────────────────── */
 async function main() {
   if (!BREVO_API_KEY || !ADMIN_EMAIL || !ADMIN_PASSWORD) {
@@ -180,20 +267,38 @@ async function main() {
   }
 
   const idToken = await signIn();
-  const pending = await fetchPendingComments(idToken);
+
+  // 1. Nouveaux commentaires en attente → notifier l'admin
+  const pending  = await fetchPendingComments(idToken);
   const toNotify = pending.filter(c => !c.notified);
 
   if (toNotify.length === 0) {
     console.log('ℹ️  Aucun nouveau commentaire à notifier.');
-    return;
+  } else {
+    console.log(`📬 ${toNotify.length} nouveau(x) commentaire(s) à notifier à l'admin.`);
+    await sendNotificationEmail(toNotify);
+    for (const c of toNotify) {
+      await markNotified(idToken, c.id);
+    }
+    console.log('✅ Admin notifié.');
   }
 
-  console.log(`📬 ${toNotify.length} nouveau(x) commentaire(s) à notifier.`);
-  await sendNotificationEmail(toNotify);
-  for (const c of toNotify) {
-    await markNotified(idToken, c.id);
+  // 2. Réponses de la rédaction → notifier le commentateur (s'il a un e-mail)
+  const approved = await fetchApprovedComments(idToken);
+  const toReplyNotify = approved.filter(c =>
+    c.admin_reply && c.admin_reply.trim() && c.author_email && c.author_email.trim() && !c.reply_notified
+  );
+
+  if (toReplyNotify.length === 0) {
+    console.log('ℹ️  Aucune nouvelle réponse à notifier.');
+  } else {
+    console.log(`📬 ${toReplyNotify.length} réponse(s) à notifier aux commentateurs.`);
+    for (const c of toReplyNotify) {
+      await sendReplyEmail(c);
+      await markReplyNotified(idToken, c.id);
+    }
+    console.log('✅ Commentateurs notifiés.');
   }
-  console.log('✅ Notification envoyée et commentaires marqués comme notifiés.');
 }
 
 main().catch(err => {
