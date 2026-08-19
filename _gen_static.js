@@ -503,6 +503,7 @@ ${sourcesHtml}
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
   <link rel="canonical" href="${BASE}/articles/${j.id}/">
   <meta http-equiv="refresh" content="0; url=/articles/${j.id}/">
   <title>Redirection…</title>
