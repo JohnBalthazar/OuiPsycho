@@ -1,0 +1,27 @@
+name: Notification nouveaux commentaires
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:   # Bouton "Run workflow" dans GitHub Actions pour tester manuellement
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Vérifier les nouveaux commentaires et notifier
+        env:
+          BREVO_API_KEY:            ${{ secrets.BREVO_API_KEY }}
+          FIREBASE_ADMIN_EMAIL:     ${{ secrets.FIREBASE_ADMIN_EMAIL }}
+          FIREBASE_ADMIN_PASSWORD:  ${{ secrets.FIREBASE_ADMIN_PASSWORD }}
+        run: node .github/scripts/notify-new-comments.js
