@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Êtes-vous plutôt blues ou plutôt rock du dimanche soir ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/blues-du-dimanche-soir/">
+  <meta name="description" content="Dix questions pour identifier votre profil de dimanche soir et repartir avec des conseils adaptés à votre façon de redouter le lundi.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      background:#F7F9FB;color:#22303C;line-height:1.55;padding:20px 16px 24px;
+    }
+    .wrap{max-width:680px;margin:0 auto}
+    .card{
+      background:#fff;border:1px solid #E3E9EF;border-radius:16px;
+      padding:26px 22px;box-shadow:0 2px 14px rgba(31,78,107,.06)
+    }
+    h1{font-size:1.5rem;line-height:1.25;color:#1F4E6B;margin-bottom:10px}
+    h2{font-size:1.25rem;color:#1F4E6B;margin-bottom:8px}
+    .lead{color:#4A5A68;font-size:.97rem;margin-bottom:18px}
+    .meta{font-size:.82rem;color:#7A8894;margin-bottom:18px}
+    .btn{
+      display:inline-block;background:#1F4E6B;color:#fff;border:none;border-radius:10px;
+      padding:13px 24px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit;
+      transition:background .18s ease
+    }
+    .btn:hover{background:#163a51}
+    .btn.ghost{background:#fff;color:#1F4E6B;border:1.5px solid #C9D6E0}
+    .btn.ghost:hover{background:#F0F5F9}
+    .progress{height:6px;background:#E9EFF4;border-radius:99px;overflow:hidden;margin-bottom:14px}
+    .progress span{display:block;height:100%;background:#E8A33D;width:0;transition:width .3s ease}
+    .qnum{font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:#8A97A3;margin-bottom:8px}
+    .qtext{font-size:1.16rem;font-weight:650;color:#1B2A36;margin-bottom:16px}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .opt{
+      width:100%;text-align:left;background:#FBFCFD;border:1.5px solid #DDE5EC;border-radius:12px;
+      padding:13px 15px;font-size:.97rem;cursor:pointer;font-family:inherit;color:#22303C;
+      transition:border-color .15s ease,background .15s ease
+    }
+    .opt:hover{border-color:#1F4E6B;background:#F2F7FA}
+    .badge{
+      display:inline-block;background:#F0F5F9;color:#1F4E6B;border-radius:99px;
+      padding:5px 13px;font-size:.8rem;font-weight:600;margin-bottom:12px
+    }
+    .emoji{font-size:2.6rem;display:block;margin-bottom:6px}
+    .desc{color:#3B4A57;margin-bottom:16px}
+    .tips{background:#F7FAFC;border-left:4px solid #E8A33D;border-radius:0 10px 10px 0;padding:14px 16px;margin-bottom:18px}
+    .tips h3{font-size:1rem;color:#1F4E6B;margin-bottom:8px}
+    .tips ul{margin:0;padding-left:18px;font-size:.95rem;color:#3B4A57}
+    .tips li{margin-bottom:6px}
+    .share{margin:16px 0 14px}
+    .share p{font-size:.87rem;color:#6B7883;margin-bottom:8px}
+    .share a{
+      display:inline-block;text-decoration:none;background:#F0F5F9;color:#1F4E6B;
+      border:1px solid #D8E2EA;border-radius:9px;padding:9px 14px;font-size:.9rem;
+      margin:0 7px 7px 0;font-weight:600
+    }
+    .share a:hover{background:#E4EDF3}
+    .disclaimer{
+      background:#FFF8EC;border:1px solid #F3DDB4;border-radius:11px;
+      padding:13px 15px;font-size:.87rem;color:#5B4A2C;margin-bottom:16px
+    }
+    .actions{display:flex;gap:10px;flex-wrap:wrap}
+    .hidden{display:none}
+    @media(max-width:480px){
+      body{padding:14px 10px 18px}
+      .card{padding:20px 16px}
+      h1{font-size:1.3rem}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <h1>Êtes-vous plutôt blues ou plutôt rock du dimanche soir ?</h1>
+      <p class="lead">Boule au ventre dès 17 h, mails ouverts « juste pour prendre de l'avance », ou franche indifférence ? Dix questions pour identifier votre profil dominant — et repartir avec des conseils taillés pour votre façon très personnelle de voir arriver le lundi.</p>
+      <p class="meta">10 questions · environ 3 minutes · résultat immédiat</p>
+      <button class="btn" id="startBtn">Commencer le test</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar"></span></div>
+      <p class="qnum" id="qnum"></p>
+      <p class="qtext" id="qtext"></p>
+      <ul class="opts" id="opts"></ul>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="emoji" id="rEmoji"></span>
+      <span class="badge" id="rBadge"></span>
+      <h2 id="rTitle"></h2>
+      <p class="desc" id="rDesc"></p>
+      <div class="tips">
+        <h3>Vos conseils personnalisés</h3>
+        <ul id="rTips"></ul>
+      </div>
+      <div class="share">
+        <p>Partagez votre profil :</p>
+        <a id="shFb" href="#" target="_blank" rel="noopener">👍 Facebook</a>
+        <a id="shTw" href="#" target="_blank" rel="noopener">🐦 Twitter</a>
+        <a id="shWa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      </div>
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer le test</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var PAGE_URL = "https://ouipsycho.fr/articles/blues-du-dimanche-soir/";
+
+  var QUESTIONS = [
+    {
+      q: "Dimanche, 17 h 30. Que se passe-t-il dans votre corps ?",
+      o: [
+        {t:"Une boule au ventre s'installe, discrète mais fidèle au poste.", p:"A"},
+        {t:"Rien de spécial : je pense déjà à ce que je dois boucler demain.", p:"B"},
+        {t:"Un petit pincement nostalgique, le week-end file trop vite.", p:"C"},
+        {t:"Rien du tout. Il est 17 h 30, c'est tout.", p:"D"}
+      ]
+    },
+    {
+      q: "Vos mails professionnels, le dimanche soir :",
+      o: [
+        {t:"Je les évite, rien que l'icône me serre la gorge.", p:"A"},
+        {t:"J'y jette un œil « pour prendre de l'avance ». Puis un deuxième.", p:"B"},
+        {t:"Je les ouvre rarement, sans grande conséquence.", p:"C"},
+        {t:"Ils attendront lundi, comme tout le monde.", p:"D"}
+      ]
+    },
+    {
+      q: "À quelle heure vous couchez-vous le samedi soir, par rapport à un jour de semaine ?",
+      o: [
+        {t:"Bien plus tard, et je le paie cash le dimanche soir.", p:"A"},
+        {t:"Plus tard, mais je compense en travaillant le dimanche.", p:"B"},
+        {t:"Une heure de plus, guère davantage.", p:"C"},
+        {t:"Quasiment à la même heure : mon horloge ne négocie pas.", p:"D"}
+      ]
+    },
+    {
+      q: "Le dimanche après-midi ressemble le plus souvent à :",
+      o: [
+        {t:"Un compte à rebours. Je regarde l'heure toutes les vingt minutes.", p:"A"},
+        {t:"Un rattrapage : courses, ménage, dossiers, listes.", p:"B"},
+        {t:"Un moment agréable, avec une légère mélancolie en fin de journée.", p:"C"},
+        {t:"Un vrai temps à moi : sport, amis, projet perso.", p:"D"}
+      ]
+    },
+    {
+      q: "L'endormissement du dimanche soir :",
+      o: [
+        {t:"Difficile. Je repasse en boucle des scénarios de la semaine à venir.", p:"A"},
+        {t:"Retardé, parce que je finis toujours « un dernier truc ».", p:"B"},
+        {t:"Un peu plus long que d'habitude, mais ça passe.", p:"C"},
+        {t:"Comme les autres soirs. Je m'endors vite.", p:"D"}
+      ]
+    },
+    {
+      q: "Si vous deviez nommer ce que vous ressentez le dimanche soir :",
+      o: [
+        {t:"De l'appréhension, parfois franchement de l'angoisse.", p:"A"},
+        {t:"De la pression : trop à faire, pas assez de temps.", p:"B"},
+        {t:"Un spleen doux, presque agréable par moments.", p:"C"},
+        {t:"De l'élan : j'aime bien attaquer une nouvelle semaine.", p:"D"}
+      ]
+    },
+    {
+      q: "Le lundi matin, une fois arrivé sur place :",
+      o: [
+        {t:"Je réalise souvent que c'était moins terrible que prévu.", p:"A"},
+        {t:"Je suis déjà en retard sur ma propre liste.", p:"B"},
+        {t:"Ça va, la machine se remet en route sans drame.", p:"C"},
+        {t:"Je suis plutôt content d'y être.", p:"D"}
+      ]
+    },
+    {
+      q: "Le meilleur moment de votre week-end se situe :",
+      o: [
+        {t:"Le vendredi soir. Après, c'est une pente descendante.", p:"A"},
+        {t:"Difficile à dire, le week-end est surtout une liste de tâches.", p:"B"},
+        {t:"Le samedi, clairement.", p:"C"},
+        {t:"Un peu partout, y compris le dimanche soir.", p:"D"}
+      ]
+    },
+    {
+      q: "Avez-vous un rituel de fin de week-end (préparer ses affaires, une série, un repas précis) ?",
+      o: [
+        {t:"Non, et j'ai plutôt tendance à repousser le moment de m'y mettre.", p:"A"},
+        {t:"Oui : ma session « organisation de la semaine », qui déborde souvent.", p:"B"},
+        {t:"Un petit rituel tranquille, sans y penser vraiment.", p:"C"},
+        {t:"Oui, et c'est un des moments que je préfère.", p:"D"}
+      ]
+    },
+    {
+      q: "Cette sensation dominicale, sur les six derniers mois :",
+      o: [
+        {t:"Elle s'est intensifiée, et déborde parfois sur le lundi et le mardi.", p:"A"},
+        {t:"Elle suit la charge de travail : forte en période chargée.", p:"B"},
+        {t:"Elle va et vient, sans jamais durer.", p:"C"},
+        {t:"Elle est quasi inexistante.", p:"D"}
+      ]
+    }
+  ];
+
+  var PROFILES = {
+    A: {
+      emoji: "🎷",
+      badge: "Profil A",
+      title: "Le crooner du dimanche",
+      desc: "Chez vous, le dimanche soir joue en mode mineur. La bascule est corporelle avant d'être mentale : boule au ventre, gorge serrée, humeur qui s'affaisse à mesure que la lumière baisse. Votre cerveau fait ce qu'il sait faire de mieux — anticiper une menace floue —, et il le fait avec une conviction d'acteur du muet. Le plus révélateur, c'est que le lundi se passe presque toujours mieux que la bande-annonce que vous vous êtes projetée la veille. Ce décalage est votre meilleure information : ce n'est pas la semaine qui pose problème, c'est l'attente de la semaine.",
+      tips: [
+        "Écrivez précisément ce qui vous inquiète pour lundi : une inquiétude nommée devient un problème traitable, une inquiétude flottante ne l'est pas.",
+        "Placez quelque chose d'agréable et concret le dimanche soir — pas le samedi. Le cerveau anticipe ce qui est proche.",
+        "Bloquez dix minutes le vendredi pour lister ce qui attend lundi : la précision fait baisser l'incertitude, qui est le vrai carburant de l'angoisse.",
+        "Si la sensation déborde sur le lundi puis sur toute la semaine, parlez-en à votre médecin traitant ou à la médecine du travail."
+      ]
+    },
+    B: {
+      emoji: "🎸",
+      badge: "Profil B",
+      title: "Le riff de la rumination",
+      desc: "Vous ne subissez pas vraiment le dimanche soir : vous le travaillez. Listes, mails « juste un coup d'œil », dossiers ouverts sur un coin de table. Le résultat est paradoxal — vous n'avez ni vraiment travaillé, ni vraiment récupéré. C'est la définition même du week-end à zéro sur quatre : pas de détachement psychologique, pas de relaxation, pas de sentiment de maîtrise, pas de contrôle sur votre temps. Votre blues n'est pas de la mélancolie, c'est de la charge mentale qui n'a jamais été déposée quelque part.",
+      tips: [
+        "Instaurez une heure de fermeture le dimanche : après 18 h, plus d'écran professionnel. Le droit à la déconnexion existe, y compris pour vous-même.",
+        "Transférez la « session organisation » du dimanche soir au vendredi fin d'après-midi : même bénéfice, sans le coût émotionnel.",
+        "Ajoutez une activité de maîtrise non professionnelle le dimanche : sport, cuisine, musique, bricolage. La récupération a besoin d'accomplissement, pas seulement de repos.",
+        "Si la charge déborde structurellement sur vos week-ends depuis des mois, c'est un sujet à porter en entretien professionnel, pas un problème d'organisation personnelle."
+      ]
+    },
+    C: {
+      emoji: "🎻",
+      badge: "Profil C",
+      title: "La ballade acoustique",
+      desc: "Votre dimanche soir a la couleur d'un spleen léger, celui qui accompagne toutes les fins de quelque chose. Vous sentez le week-end filer, vous soupirez un peu, puis vous préparez vos affaires et la vie continue. C'est, cliniquement parlant, la version la plus banale et la plus saine du phénomène : une émotion de transition, proportionnée, qui se dissipe au réveil. Rien à réparer ici — tout au plus quelques réglages pour rendre la soirée franchement agréable plutôt que simplement supportable.",
+      tips: [
+        "Gardez un décalage de lever d'une heure maximum entre le week-end et la semaine : c'est ce qui protège le mieux votre endormissement dominical.",
+        "Exposez-vous à la lumière du jour dans les deux heures après le lever le dimanche matin : synchroniseur puissant, et gratuit.",
+        "Transformez le rituel de fin de week-end en moment attendu plutôt qu'en corvée : repas simple, musique, série choisie.",
+        "Restez attentif si le spleen s'allonge : quand il gagne le lundi et le mardi, ce n'est plus une émotion de transition."
+      ]
+    },
+    D: {
+      emoji: "🥁",
+      badge: "Profil D",
+      title: "Le rock du dimanche",
+      desc: "Vous êtes l'exception statistique et vous avez le droit d'en être fier. Le dimanche soir n'est pas une fin pour vous, mais un tremplin : horloge biologique stable, frontière nette entre temps choisi et temps contraint, et une semaine à venir qui n'a rien d'une menace. Cela tient rarement au hasard — c'est le plus souvent la conséquence de rythmes réguliers, d'un travail qui fait sens et d'une capacité à décrocher pour de bon. Le seul risque, à ce niveau, est de sous-estimer à quel point c'est difficile pour l'entourage.",
+      tips: [
+        "Conservez ce qui fonctionne : régularité des horaires, coupure nette, rituels de transition. Ces trois éléments expliquent l'essentiel de votre confort.",
+        "Restez vigilant lors des périodes de bascule (nouveau poste, surcharge, deuil, déménagement) : le blues dominical apparaît souvent à ces moments-là.",
+        "Autour de vous, évitez le « il suffit de relativiser » : pour un profil anxieux, l'anticipation n'est pas un choix.",
+        "Si votre dimanche soir change durablement de couleur, prenez-le au sérieux : chez vous, c'est un signal fiable."
+      ]
+    }
+  };
+
+  var order = [], idx = 0, votes = {A:0,B:0,C:0,D:0};
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function shuffle(arr) {
+    var a = arr.slice();
+    for (var i = a.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  function start() {
+    idx = 0;
+    votes = {A:0,B:0,C:0,D:0};
+    order = QUESTIONS.map(function(q){ return { q:q.q, o:shuffle(q.o) }; });
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    render();
+    try { gtag('event','quiz_start',{quiz_id:'blues-du-dimanche-soir-quiz'}); } catch(e){}
+  }
+
+  function render() {
+    var item = order[idx];
+    document.getElementById('bar').style.width = ((idx / order.length) * 100) + '%';
+    document.getElementById('qnum').textContent = 'Question ' + (idx + 1) + ' / ' + order.length;
+    document.getElementById('qtext').textContent = item.q;
+
+    var ul = document.getElementById('opts');
+    ul.innerHTML = '';
+    item.o.forEach(function(opt){
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.className = 'opt';
+      btn.type = 'button';
+      btn.textContent = opt.t;
+      btn.addEventListener('click', function(){ answer(opt.p); });
+      li.appendChild(btn);
+      ul.appendChild(li);
+    });
+    notifyResize();
+  }
+
+  function answer(p) {
+    votes[p]++;
+    idx++;
+    if (idx < order.length) {
+      render();
+    } else {
+      showResult();
+    }
+  }
+
+  function dominant() {
+    var best = 'C', max = -1;
+    ['A','B','C','D'].forEach(function(k){
+      if (votes[k] > max) { max = votes[k]; best = k; }
+    });
+    return best;
+  }
+
+  function showResult() {
+    var key = dominant();
+    var p = PROFILES[key];
+
+    document.getElementById('bar').style.width = '100%';
+    document.getElementById('rEmoji').textContent = p.emoji;
+    document.getElementById('rBadge').textContent = p.badge + ' · dominante';
+    document.getElementById('rTitle').textContent = p.title;
+    document.getElementById('rDesc').textContent = p.desc;
+
+    var ul = document.getElementById('rTips');
+    ul.innerHTML = '';
+    p.tips.forEach(function(t){
+      var li = document.createElement('li');
+      li.textContent = t;
+      ul.appendChild(li);
+    });
+
+    var txt = 'Mon profil de dimanche soir : ' + p.title + ' ' + p.emoji + ' — et vous ?';
+    var u = encodeURIComponent(PAGE_URL);
+    var t = encodeURIComponent(txt);
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + u;
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u;
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(txt + ' ' + PAGE_URL);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+    try { gtag('event','quiz_complete',{quiz_id:'blues-du-dimanche-soir-quiz',result:p.title}); } catch(e){}
+  }
+
+  document.getElementById('startBtn').addEventListener('click', start);
+  document.getElementById('restartBtn').addEventListener('click', function(){
+    elResult.classList.add('hidden');
+    elQuiz.classList.add('hidden');
+    elIntro.classList.remove('hidden');
+    notifyResize();
+  });
+
+  window.addEventListener('load', notifyResize);
+  notifyResize();
+})();
+</script>
+</body>
+</html>
