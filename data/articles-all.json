@@ -2538,6 +2538,80 @@
     "status": "scheduled"
   },
   {
+    "id": "blues-du-dimanche-soir",
+    "title": "Blues du dimanche soir : pourquoi l'angoisse monte à 18 h (et comment la faire redescendre)",
+    "type": "article",
+    "excerpt": "Boule au ventre, insomnie, humeur en berne : le blues du dimanche soir a une histoire, des causes neurologiques et un coupable chronobiologique inattendu. Et surtout, des solutions.",
+    "metaDescription": "Blues du dimanche soir : origines psy, jetlag social, anticipation anxieuse et 7 leviers efficaces pour retrouver des soirées dominicales vivables.",
+    "author": "John Balthazar",
+    "date": "2026-09-30",
+    "date_modified": "2026-09-30",
+    "category": "Bien-être",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "blues-du-dimanche",
+      "anxiete-anticipatoire",
+      "sommeil",
+      "travail",
+      "jetlag-social"
+    ],
+    "sources": [
+      {
+        "authors": "Grupe D. W. & Nitschke J. B.",
+        "year": "2013",
+        "title": "Uncertainty and anticipation in anxiety: an integrated neurobiological and psychological perspective",
+        "journal": "Nature Reviews Neuroscience",
+        "url": "https://doi.org/10.1038/nrn3524"
+      },
+      {
+        "authors": "Wittmann M., Dinich J., Merrow M. & Roenneberg T.",
+        "year": "2006",
+        "title": "Social jetlag: misalignment of biological and social time",
+        "journal": "Chronobiology International",
+        "url": "https://doi.org/10.1080/07420520500545979"
+      },
+      {
+        "authors": "Sonnentag S. & Fritz C.",
+        "year": "2007",
+        "title": "The Recovery Experience Questionnaire: development and validation of a measure for assessing recuperation and unwinding from work",
+        "journal": "Journal of Occupational Health Psychology",
+        "url": "https://doi.org/10.1037/1076-8998.12.3.204"
+      },
+      {
+        "authors": "Roenneberg T., Allebrandt K. V., Merrow M. & Vetter C.",
+        "year": "2012",
+        "title": "Social jetlag and obesity",
+        "journal": "Current Biology",
+        "url": "https://doi.org/10.1016/j.cub.2012.03.038"
+      },
+      {
+        "authors": "Ferenczi S.",
+        "year": "1919",
+        "title": "Les névroses du dimanche (Sonntagsneurosen)",
+        "publisher": "Payot (édition française des Œuvres complètes)"
+      },
+      {
+        "authors": "Frankl V.",
+        "year": "1946",
+        "title": "Découvrir un sens à sa vie avec la logothérapie",
+        "publisher": "Éditions de l'Homme"
+      },
+      {
+        "authors": "Loriol M.",
+        "year": "2000",
+        "title": "Le temps de la fatigue. La construction sociale de la fatigue au travail",
+        "publisher": "Anthropos"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "benedict-bridgerton-sur-le-divan",
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
     "excerpt": "",
