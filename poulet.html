@@ -4130,8 +4130,45 @@ function handleWysKeydown(e) {
     e.preventDefault();
     document.execCommand(e.shiftKey ? 'outdent' : 'indent');
   }
+  // Auto-remplacement des guillemets français : << → «  et >> → »
+  if (e.key === '<' || e.key === '>') insertFrenchQuoteIfDoubled(e);
   // Sync après chaque frappe
   setTimeout(syncEditorToTextarea, 0);
+}
+
+/** Si la frappe complète un << ou >>, remplace la paire par « / » (avec espace insécable) */
+function insertFrenchQuoteIfDoubled(e) {
+  const sel = window.getSelection();
+  if (!sel || !sel.rangeCount) return;
+  const range = sel.getRangeAt(0);
+  if (!range.collapsed || range.startContainer.nodeType !== Node.TEXT_NODE) return;
+  const node = range.startContainer;
+  const pos  = range.startOffset;
+  const prevChar = node.textContent[pos - 1];
+  if (prevChar !== e.key) return;
+  e.preventDefault();
+  // Supprime le premier caractère de la paire (< ou >) déjà présent
+  range.setStart(node, pos - 1);
+  range.setEnd(node, pos);
+  range.deleteContents();
+  let insertText;
+  if (e.key === '<') {
+    insertText = '« ';
+  } else {
+    // Retire l'espace juste avant le curseur pour éviter un double espace
+    const before = node.textContent.slice(0, range.startOffset);
+    if (/[  ]$/.test(before)) {
+      range.setStart(node, range.startOffset - 1);
+      range.deleteContents();
+    }
+    insertText = ' »';
+  }
+  const textNode = document.createTextNode(insertText);
+  range.insertNode(textNode);
+  range.setStartAfter(textNode);
+  range.setEndAfter(textNode);
+  sel.removeAllRanges();
+  sel.addRange(range);
 }
 
 /* ══════════════════════════════════════════════
