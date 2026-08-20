@@ -121,8 +121,8 @@ for (const file of jsonFiles) {
 
   // Sources & références
   let sourcesHtml = '';
+  let hasAmazon = false;
   if (j.sources && j.sources.length) {
-    let hasAmazon = false;
     const srcItems = j.sources.map(s => {
       if (typeof s === 'string') {
         // Format legacy : chaîne brute
@@ -395,10 +395,10 @@ ${sourcesHtml}
             <div class="author-box__name">${displayAuthor}</div>
             <p class="author-box__bio">${isJohnB ? AUTHOR_BIO_SHORT : 'Rédacteur spécialisé en santé mentale.'}</p>
             <div class="author-box__links">
-              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
+              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener sponsored" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
             </div>
           </div>
-        </div>
+        </div>${(isJohnB && AUTHOR_BOOK_URL && !hasAmazon) ? `\n        <p class="sources-affiliate-note">🛒 Lien affilié Amazon — vous payez le même prix, une petite commission aide à financer ce site.</p>` : ''}
 
         <div class="article-tags" aria-label="Mots-clés">${tagsHtml}</div>
 
