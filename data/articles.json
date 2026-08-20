@@ -1,5 +1,31 @@
 [
   {
+    "id": "mussolini-sur-le-divan",
+    "title": "Mussolini sur le divan : psychologie d'un fasciste",
+    "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
+    "date": "2026-08-20",
+    "date_modified": "2026-08-20",
+    "category": "Les monstres sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kbez0hpcncmooye7phdj",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "psychohistoire",
+      "narcissisme",
+      "théâtralité",
+      "personnalité",
+      "histoire",
+      "fascisme"
+    ],
+    "metaDescription": "Narcissisme, théâtralité, opportunisme : ce que la psychologie scientifique dit de la personnalité de Benito Mussolini, l'inventeur du fascisme.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
     "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
     "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",

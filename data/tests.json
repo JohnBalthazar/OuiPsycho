@@ -94,7 +94,7 @@
     "testUrl": "tests/ulysse-sur-le-divan-quiz.html",
     "articleUrl": "articles/ulysse-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/oorjm3epvwvsfr0omqqk",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
