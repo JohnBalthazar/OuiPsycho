@@ -1548,6 +1548,13 @@ const LOCKOUT_BASE_TIME  = 15 * 60 * 1000;         // 15 min (1er blocage)
 const INACTIVITY_TIMEOUT = 30 * 60 * 1000;         // déconnexion après 30 min sans action
 const LOGIN_BASE_DELAY   = 1000;                    // délai croissant entre tentatives (ms)
 
+// Firebase public (projet + clé API) — lu depuis config.json dès le boot, AVANT
+// toute connexion, pour pouvoir journaliser un blocage même dans un navigateur
+// inconnu (les clés localStorage FB_PROJECT_KEY/FB_APIKEY_KEY n'existent que
+// sur l'appareil de l'admin, jamais chez un visiteur qui tente de se connecter).
+let _secFbProject = '';
+let _secFbApiKey  = '';
+
 let articles = [];
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
@@ -1676,6 +1683,8 @@ window.addEventListener('DOMContentLoaded', async () => {
       if (isValidHash(cfg.adminPassHash)) {
         localStorage.setItem(ADMIN_PASS_KEY, cfg.adminPassHash);
       }
+      _secFbProject = cfg.firebaseProjectId || '';
+      _secFbApiKey  = cfg.firebaseApiKey    || '';
     }
   } catch(_) {}
 
@@ -1716,6 +1725,34 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Initialize keypoints
   for (let i = 0; i < 5; i++) addKeypoint();
 });
+
+/* ══════════════════════════════════════════════
+   ALERTE SÉCURITÉ — blocage après échecs de connexion
+   Écrit un événement dans Firestore (collection security_events),
+   relevé par un job GitHub Actions qui prévient l'admin par mail.
+   Ne journalise jamais le mot de passe saisi, ni en clair ni haché.
+══════════════════════════════════════════════ */
+async function logSecurityEvent(attemptsTotal) {
+  if (!_secFbProject || !_secFbApiKey) return; // Firebase non configuré → pas de journalisation possible
+  try {
+    await fetch(
+      `https://firestore.googleapis.com/v1/projects/${_secFbProject}/databases/(default)/documents/security_events?key=${_secFbApiKey}`,
+      {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          fields: {
+            type:           { stringValue: 'lockout' },
+            created_at:     { stringValue: new Date().toISOString() },
+            notified:       { booleanValue: false },
+            user_agent:     { stringValue: String(navigator.userAgent || '').slice(0, 300) },
+            attempts_total: { integerValue: String(attemptsTotal) },
+          },
+        }),
+      }
+    );
+  } catch (_) { /* best-effort — un échec de journalisation ne doit jamais bloquer l'UI */ }
+}
 
 /* ══════════════════════════════════════════════
    AUTH
@@ -1769,6 +1806,7 @@ async function doLogin() {
       localStorage.setItem('ouipsycho_lockout', JSON.stringify({ until: Date.now() + lockDur, total: attData.total }));
       localStorage.removeItem('ouipsycho_attempts');
       errEl.textContent = `🔒 Compte bloqué ${lockMin} après trop de tentatives.`;
+      logSecurityEvent(attData.total); // ne pas attendre — ne doit jamais retarder l'UI
     } else {
       localStorage.setItem('ouipsycho_attempts', JSON.stringify(attData));
       const remaining = MAX_ATTEMPTS - attData.count;
