@@ -1,5 +1,30 @@
 [
   {
+    "id": "vrais-jumeaux-idees-recues",
+    "title": "Vraies et fausses idées sur les vrais jumeaux !",
+    "excerpt": "Même ADN, même caractère, télépathie et langage secret : la gémellité traîne derrière elle un stock d'idées reçues impressionnant. La science française, de René Zazzo à l'INED, en démonte l'essentiel — et garde quelques surprises.",
+    "date": "2026-08-23",
+    "date_modified": "2026-08-23",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fnjavazwlcwqysvmytwp",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "jumeaux",
+      "gemellite",
+      "identite",
+      "fratrie",
+      "idees-recues"
+    ],
+    "metaDescription": "Vrais jumeaux : ADN identique, télépathie, langage secret, même personnalité ? Sept idées reçues passées au crible de la recherche francophone.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "refus-scolaire-anxieux-enfant-refuse-ecole",
     "title": "Refus scolaire anxieux : quand votre enfant ne peut plus franchir la grille",
     "excerpt": "Maux de ventre chaque matin, crises au moment de partir, week-ends parfaitement normaux. Ce n'est ni un caprice ni de l'école buissonnière : c'est un trouble anxieux qui se soigne, à condition d'agir vite.",
