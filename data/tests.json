@@ -1,5 +1,19 @@
 [
   {
+    "id": "lara-croft-divan-quiz",
+    "title": "Lara Croft sur le divan : psychologie d'une aventurière",
+    "desc": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/lara-croft-divan-quiz.html",
+    "articleUrl": "articles/lara-croft-divan-psychologie-aventuriere/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/o6zaqxwfylbkqj7p5fno",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "reine-des-neiges-quiz",
     "title": "Quel genre de Reine des neiges êtes-vous ?",
     "desc": "Votre profil émotionnel révélé par la psychologie des personnages.",

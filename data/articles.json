@@ -1,5 +1,32 @@
 [
   {
+    "id": "lara-croft-divan-psychologie-aventuriere",
+    "title": "Lara Croft sur le divan : psychologie d'une aventurière",
+    "excerpt": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse mais pas trop — de l'aventurière la plus célèbre du jeu vidéo, suivie d'un quiz pour situer votre profil.",
+    "date": "2026-08-25",
+    "date_modified": "2026-08-25",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/o6zaqxwfylbkqj7p5fno",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "Lara Croft",
+      "jeux vidéo",
+      "héroïne",
+      "résilience",
+      "courage",
+      "représentation",
+      "pop-culture"
+    ],
+    "metaDescription": "Orpheline, intrépide, icône sous le male gaze : la psychologie et la sociologie de Lara Croft décryptées, avec un quiz pour trouver votre profil d'aventurière.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "vrais-jumeaux-idees-recues",
     "title": "Vraies et fausses idées sur les vrais jumeaux !",
     "excerpt": "Même ADN, même caractère, télépathie et langage secret : la gémellité traîne derrière elle un stock d'idées reçues impressionnant. La science française, de René Zazzo à l'INED, en démonte l'essentiel — et garde quelques surprises.",
