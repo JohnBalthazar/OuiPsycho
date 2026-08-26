@@ -66,7 +66,7 @@
     "testUrl": "tests/survivre-relation-toxique-quiz.html",
     "articleUrl": "articles/survivre-relation-toxique/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w7i39kp9bde6t5apucsa",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
