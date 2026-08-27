@@ -1,5 +1,19 @@
 [
   {
+    "id": "arreter-de-fumer-en-2-semaines-quiz",
+    "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
+    "desc": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque…",
+    "emoji": "⚖️",
+    "color": "#1F4E6B",
+    "catLabel": "Thérapies",
+    "duration": "5 min",
+    "testUrl": "tests/arreter-de-fumer-en-2-semaines-quiz.html",
+    "articleUrl": "articles/arreter-de-fumer-en-2-semaines/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n9svnz2acigim2stmxes",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "lara-croft-divan-quiz",
     "title": "Lara Croft sur le divan : psychologie d'une aventurière",
     "desc": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse…",
