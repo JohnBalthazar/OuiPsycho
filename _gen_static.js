@@ -102,6 +102,17 @@ for (const file of jsonFiles) {
     console.log(`⏳ articles/${j.id}/ ignoré — date future (${j.date})`);
     continue;
   }
+
+  // Un article "scheduled" dont la date est atteinte est en ligne (le filtrage
+  // d'affichage ne dépend que de la date, cf. filtres plus bas) : on aligne le
+  // statut source sur la réalité pour que l'éditeur n'affiche plus "Planifié"
+  // indéfiniment sur un article déjà publié.
+  if (j.status === 'scheduled') {
+    j.status = 'published';
+    fs.writeFileSync(path.join(DIR, file), JSON.stringify(j, null, 2), 'utf8');
+    console.log(`✓ articles/${j.id} — status scheduled → published`);
+  }
+
   const robotsMeta = 'index, follow';
 
   // Image hero (haut d'article) — même convention que buildArticleHTML (js/main.js) et _gen_dossier.ps1

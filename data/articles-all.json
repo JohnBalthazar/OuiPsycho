@@ -3243,12 +3243,12 @@
   {
     "id": "arreter-de-fumer-en-2-semaines",
     "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
-    "type": "article",
     "excerpt": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque physique se joue justement sur ces 2 semaines. On t'explique — et un test te dit quel genre de fumeur tu es.",
     "date": "2026-08-27",
     "date_modified": "2026-08-27",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n9svnz2acigim2stmxes",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3293,7 +3293,7 @@
     ],
     "metaDescription": "Orpheline, intrépide, icône sous le male gaze : la psychologie et la sociologie de Lara Croft décryptées, avec un quiz pour trouver votre profil d'aventurière.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "vrais-jumeaux-idees-recues",
@@ -3319,7 +3319,7 @@
     ],
     "metaDescription": "Vrais jumeaux : ADN identique, télépathie, langage secret, même personnalité ? Sept idées reçues passées au crible de la recherche francophone.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "refus-scolaire-anxieux-enfant-refuse-ecole",
@@ -3345,7 +3345,7 @@
     ],
     "metaDescription": "Maux de ventre le matin, crises avant de partir, week-ends normaux : reconnaître le refus scolaire anxieux et agir avant que l'évitement ne s'installe.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "mussolini-sur-le-divan",
@@ -3372,7 +3372,7 @@
     ],
     "metaDescription": "Narcissisme, théâtralité, opportunisme : ce que la psychologie scientifique dit de la personnalité de Benito Mussolini, l'inventeur du fascisme.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
@@ -3428,7 +3428,7 @@
     "articles_lies": [
       "paranoia-definition-symptomes-traitements"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "meilleurs-sports-sante-mentale",
@@ -3483,7 +3483,7 @@
     ],
     "metaDescription": "L'argent fait-il le bonheur ? La psychologie et les neurosciences livrent une réponse surprenante et plus complexe que le dicton populaire.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "dexter-psychologie-tueur-en-serie",
@@ -3510,7 +3510,7 @@
     ],
     "metaDescription": "Dexter Morgan analysé par la psychologie : psychopathie, code moral, traumatisme précoce. Portrait clinique du tueur en série le plus populaire du petit écran.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "naitre-parent-revolution-interieure",
@@ -3537,7 +3537,7 @@
     ],
     "metaDescription": "Matrescence, héritage transgénérationnel, parent suffisamment bon : la psychologie de la parentalité décryptée avec bienveillance et rigueur.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "ce-que-votre-metier-dit-de-vous",
@@ -3564,7 +3564,7 @@
     ],
     "metaDescription": "Votre métier révèle-t-il vraiment qui vous êtes ? Holland, Big Five, identité professionnelle : ce que la psychologie dit du lien entre travail et personnalité.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "reine-des-neiges-psychologie-heroine-glace",
@@ -3592,7 +3592,7 @@
     ],
     "metaDescription": "Elsa de La Reine des neiges décryptée par la psychologie : répression émotionnelle, honte, faux self et dégel par le lien. Avec un quiz de personnalité.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
@@ -3619,7 +3619,7 @@
     ],
     "metaDescription": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "gaston-lagaffe-psychopathologie",
@@ -3647,7 +3647,7 @@
     ],
     "metaDescription": "Gaston Lagaffe vu par la psychologie : entre TDAH, résistance passive et génie créatif mal canalisé. Une analyse sérieuse (mais amusée) d'un mythe belge.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "friluftsliv-bonheur-norvegien",
@@ -3674,7 +3674,7 @@
     ],
     "metaDescription": "Le friluftsliv, philosophie norvégienne du plein air, booste bien-être et santé mentale. Découvrez ce que la science dit de cette sagesse nordique.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "horoscope-pourquoi-on-y-croit",
@@ -3701,7 +3701,7 @@
     ],
     "metaDescription": "Pourquoi votre horoscope semble toujours juste ? Effet Barnum, biais de confirmation et besoin de contrôle décryptés — avec un test « Quel signe êtes-vous ? ».",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "survivre-relation-toxique",
@@ -3729,7 +3729,7 @@
     "articles_lies": [
       "cinq-reflexes-se-proteger-pervers-narcissique"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "wonder-woman-sur-le-divan",
@@ -3809,7 +3809,7 @@
     ],
     "metaDescription": "Que recherchent vraiment les femmes en 2026 ? Les études récentes dressent le portrait-robot du prince charmant idéal, loin du cliché du beau gosse fortuné.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "ulysse-sur-le-divan",
@@ -3860,7 +3860,7 @@
     ],
     "metaDescription": "Pourquoi les psychiatres refusent de diagnostiquer Trump ? Origines, scandale et débats de la règle Goldwater, l'interdit le plus discuté de la psychiatrie.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "notre-radar-interieur",
@@ -3887,7 +3887,7 @@
     ],
     "metaDescription": "Intuition, pressentiment, malaise diffus : la science de votre radar intérieur pour détecter les relations toxiques et enfin oser vous faire confiance.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "james-bond-psychologie-agent-secret",
@@ -3941,7 +3941,7 @@
     ],
     "metaDescription": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "mickey-sur-le-divan",
@@ -3967,7 +3967,7 @@
     ],
     "metaDescription": "Néoténie, schéma du bébé, nostalgie : pourquoi Mickey nous attendrit-il autant ? La psychologie et la biologie de la souris la plus célèbre du monde.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "date-tinder-tueur-en-serie",
@@ -3996,7 +3996,7 @@
     "articles_lies": [
       "techniques-drague-science"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
@@ -4050,7 +4050,7 @@
     ],
     "metaDescription": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "son-goku-sur-le-divan",
@@ -4076,7 +4076,7 @@
     ],
     "metaDescription": "Résilience, quête initiatique, motivation : et si Son Goku, le héros de Dragon Ball Z, était un cas d'école de psychologie ? Analyse (et quiz) sur Oui Psycho!",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "techniques-drague-science",
@@ -4102,7 +4102,7 @@
     ],
     "metaDescription": "La psychologie révèle les vraies techniques de séduction qui marchent : simple exposition, réciprocité, 36 questions… et celles qu'il faut éviter.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "ia-revolution-travail-emploi",
@@ -4130,7 +4130,7 @@
     ],
     "metaDescription": "L'IA supprime des emplois comme la révolution industrielle en son temps. Comprendre l'impact psychologique et trouver ce qui reste irremplaçablement humain.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "tintin-sur-le-divan",
@@ -4215,7 +4215,7 @@
     ],
     "metaDescription": "Le coloriage anti-stress fonctionne-t-il vraiment ? Ce que disent les études sur l'anxiété, le mythe du mandala et la différence avec l'art-thérapie.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "syndrome-witzelsucht",
@@ -4269,7 +4269,7 @@
     ],
     "metaDescription": "Le féminisme vu par la psychologie : sexisme ambivalent, justification du système, identité sociale et un test pour situer votre profil féministe.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "chaleur-temperature-cerveau-sante-mentale",
@@ -4295,7 +4295,7 @@
     ],
     "metaDescription": "Canicule et cerveau : à partir de quelle température nos performances et notre moral flanchent ? Ce que dit la science, et pourquoi il est urgent d'agir.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "et-si-vous-etiez-hpi",
@@ -4322,7 +4322,7 @@
     ],
     "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "ce-que-les-peres-devraient-dire",
@@ -4349,7 +4349,7 @@
     ],
     "metaDescription": "Psychologie et parentalité : les phrases clés que chaque père peut dire à son enfant pour renforcer l'attachement, l'estime de soi et la confiance durable.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "peut-on-changer-de-personnalite",
@@ -4376,7 +4376,7 @@
     ],
     "metaDescription": "Peut-on changer de personnalité ? Big Five, neuroplasticité, psychothérapie : ce que la science dit de notre capacité à nous transformer vraiment.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "addiction-ia-cerveau-cloud",
@@ -4403,7 +4403,7 @@
     ],
     "metaDescription": "Addiction à l'IA, délégation cognitive, dépendance émotionnelle à ChatGPT : ce que la psychologie et les neurosciences disent de notre rapport à l'intelligence artificielle.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "accords-tolteques-psychologie-neurosciences",
@@ -4543,7 +4543,7 @@
       "cerveau-a-t-il-un-genre",
       "resilience-emotionnelle"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "pourquoi-sommes-nous-fascines-par-les-chats",
@@ -4570,7 +4570,7 @@
     ],
     "metaDescription": "Psychologie, neurosciences, histoire : pourquoi les humains sont-ils si fascinés par les chats ? La science répond avec sérieux — et un peu d'humour.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "brandolini",
@@ -4629,7 +4629,7 @@
     ],
     "metaDescription": "Ronronnement, médiation animale, ocytocine : ce que la science dit des bienfaits des animaux sur le stress, l'anxiété et la dépression.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "harry-potter-psychopathologie-complice",
@@ -4721,7 +4721,7 @@
       "savoir-dire-stop-seuils-fawn-response",
       "etes-vous-normal"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "cerveau-a-t-il-un-genre",
@@ -4753,7 +4753,7 @@
       "a-quoi-sert-la-honte",
       "estime-de-soi"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "age-ideal-avoir-enfants",
