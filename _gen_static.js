@@ -354,9 +354,11 @@ ${srcItems}
     ? `${BASE}/${RUBRIQUE_PAGES[j.category]}`
     : `${BASE}/?cat=${ci.enc}`;
 
-  // Niveau 2 du fil d'Ariane JSON-LD : le hub du cluster remplace la catégorie
-  // pour les articles rattachés à un cluster résolu (cohérent avec le fil de
-  // parcours visuel, qui pointe déjà vers ce même hub).
+  // Niveau 2 du fil d'Ariane (visible ET JSON-LD) : le hub du cluster remplace
+  // la catégorie pour les articles rattachés à un cluster résolu — les deux
+  // doivent rester cohérents entre eux.
+  const breadcrumbHref  = clusterResolved ? `theme/${clusterResolved.id}/` : catHref;
+  const breadcrumbLabel = clusterResolved ? clusterResolved.title : j.category;
   const breadcrumbLevel2 = clusterResolved
     ? { "@type": "ListItem", "position": 2, "name": clusterResolved.title, "item": `${BASE}/theme/${clusterResolved.id}/` }
     : { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs };
@@ -495,11 +497,11 @@ ${navHtml}
         <header class="article-header">
           <nav class="breadcrumb" aria-label="Fil d'Ariane">
             <a href="index.html">Accueil</a> <span>›</span>
-            <a href="${catHref}">${j.category}</a>
+            <a href="${breadcrumbHref}">${breadcrumbLabel}</a>
             <span>›</span> <span aria-current="page">${j.title}</span>
           </nav>
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
-          <h1>${j.title}</h1>${clusterTrailHtml}
+          <h1>${j.title}</h1>
           <div class="article-meta">
             <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${displayAuthor}</strong></span>
             <span class="article-meta-dot">•</span>
@@ -520,7 +522,7 @@ ${navHtml}
                 <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
               </button>
             </div>
-          </div>${heroImageHtml}
+          </div>${clusterTrailHtml}${heroImageHtml}
         </header>
 
 ${kpHtml}
