@@ -87,6 +87,34 @@ const NAV_CATS = ['Bien-être','Sommeil','Troubles Psy','Thérapies','Relations'
 
 const jsonFiles = fs.readdirSync(DIR).filter(f => f.endsWith('.json'));
 
+// ── Clusters thématiques (maillage) ──────────────────────────────────────────
+// Source de vérité : data/clusters.json. Un article s'y rattache via les champs
+// additifs j.cluster (slug) + j.etape (une des clés de cluster.etapes) — absents
+// par défaut, donc totalement neutres pour tout article qui ne les renseigne pas.
+const CLUSTERS_FILE = path.join(__dirname, 'data', 'clusters.json');
+let CLUSTERS = [];
+try { CLUSTERS = JSON.parse(fs.readFileSync(CLUSTERS_FILE, 'utf8')); } catch (_) {}
+const CLUSTERS_BY_ID = Object.fromEntries(CLUSTERS.map(c => [c.id, c]));
+
+// Pré-passe : appartenance cluster/étape des articles "en ligne" au sens où le
+// reste du site l'entend déjà (cf. bascule scheduled→published plus bas) :
+// status !== 'draft' et date <= TODAY. Alimente le fil de parcours, le widget
+// "Pour continuer" et le bloc de fin d'article. La page hub, elle, applique une
+// règle strictement plus stricte (status === 'published' uniquement) — voir la
+// section dédiée plus bas dans ce fichier.
+const clusterMembers = {}; // { clusterId: { etapeSlug: [{ id, title }] } }
+for (const file of jsonFiles) {
+  const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+  if (!j.cluster || !j.etape) continue;
+  if ((j.status || 'published') === 'draft') continue;
+  if (j.date > TODAY) continue;
+  const cluster = CLUSTERS_BY_ID[j.cluster];
+  if (!cluster || !cluster.etapes || !cluster.etapes[j.etape]) continue; // rattachement invalide, ignoré ici (voir verify-robots-consistency.js)
+  if (!clusterMembers[j.cluster]) clusterMembers[j.cluster] = {};
+  if (!clusterMembers[j.cluster][j.etape]) clusterMembers[j.cluster][j.etape] = [];
+  clusterMembers[j.cluster][j.etape].push({ id: j.id, title: j.title });
+}
+
 for (const file of jsonFiles) {
   const j   = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
   const ci  = CAT[j.category] || { color: '#555', bg: '#f5f5f5', enc: encodeURIComponent(j.category) };
@@ -176,6 +204,37 @@ ${srcItems}
     const cls = nc === j.category ? 'cat-nav__btn active' : 'cat-nav__btn';
     return `        <a class="${cls}" href="index.html?cat=${nc_enc}">${nc}</a>`;
   }).join('\n');
+
+  // Cluster thématique résolu (maillage) — null si l'article n'a pas de cluster,
+  // ou si le cluster/l'étape déclarés ne résolvent pas (donnée invalide, déjà
+  // signalée par verify-robots-consistency.js). Dans tous ces cas, additif : les
+  // variables *ClusterHtml/*WidgetHtml ci-dessous restent vides et l'article se
+  // génère à l'identique de l'existant.
+  const clusterResolved = (j.cluster && j.etape && CLUSTERS_BY_ID[j.cluster] &&
+    CLUSTERS_BY_ID[j.cluster].etapes && CLUSTERS_BY_ID[j.cluster].etapes[j.etape])
+    ? CLUSTERS_BY_ID[j.cluster]
+    : null;
+
+  // Fil de parcours (sous le h1) — n'affiche que les étapes ayant au moins un
+  // article en ligne ; l'étape courante n'est pas cliquable ; rendu horizontal
+  // discret, limité à 2 lignes en CSS (voir .cluster-trail).
+  let clusterTrailHtml = '';
+  if (clusterResolved) {
+    const stageSlugs = Object.keys(clusterResolved.etapes).filter(s =>
+      clusterMembers[j.cluster] && clusterMembers[j.cluster][s] && clusterMembers[j.cluster][s].length
+    );
+    if (stageSlugs.length) {
+      const stepsHtml = stageSlugs.map(s => {
+        const label = escCard(clusterResolved.etapes[s]);
+        return (s === j.etape)
+          ? `<span class="cluster-trail__step cluster-trail__step--current" aria-current="step">${label}</span>`
+          : `<a class="cluster-trail__step" href="theme/${escCard(clusterResolved.id)}/#etape-${s}">${label}</a>`;
+      }).join('<span class="cluster-trail__sep" aria-hidden="true">→</span>');
+      clusterTrailHtml = `\n          <nav class="cluster-trail" aria-label="Parcours : ${escCard(clusterResolved.title)}">` +
+        `<a class="cluster-trail__hub" href="theme/${escCard(clusterResolved.id)}/">${escCard(clusterResolved.title)}</a>` +
+        `<span class="cluster-trail__sep" aria-hidden="true">→</span>${stepsHtml}</nav>`;
+    }
+  }
 
   // JSON-LD ───────────────────────────────────────────────────────────────────
   const esc = s => String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"');
@@ -369,7 +428,7 @@ ${navHtml}
             <span>›</span> <span aria-current="page">${j.title}</span>
           </nav>
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
-          <h1>${j.title}</h1>
+          <h1>${j.title}</h1>${clusterTrailHtml}
           <div class="article-meta">
             <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${displayAuthor}</strong></span>
             <span class="article-meta-dot">•</span>
