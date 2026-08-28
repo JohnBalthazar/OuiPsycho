@@ -38,6 +38,12 @@ jobs:
       - name: Vérifier la cohérence robots/date des articles
         run: node .github/scripts/verify-robots-consistency.js
 
+      # Bloque le déploiement si le maillage thématique (clusters) est
+      # incohérent avec la sortie générée (lien mort, étape vide affichée,
+      # lien vers du contenu scheduled, etc.).
+      - name: Vérifier le maillage thématique (clusters)
+        run: node .github/scripts/check-clusters.js
+
       - name: Configuration GitHub Pages
         uses: actions/configure-pages@v5
 
