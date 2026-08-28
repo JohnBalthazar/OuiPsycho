@@ -1,5 +1,30 @@
 [
   {
+    "id": "freins-au-bonheur",
+    "title": "Quels sont les 5 plus grands freins au bonheur ?",
+    "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
+    "date": "2026-08-28",
+    "date_modified": "2026-08-28",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "bonheur",
+      "psychologie positive",
+      "biais cognitifs",
+      "rumination",
+      "comparaison sociale"
+    ],
+    "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "arreter-de-fumer-en-2-semaines",
     "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
     "excerpt": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque physique se joue justement sur ces 2 semaines. On t'explique — et un test te dit quel genre de fumeur tu es.",
@@ -1482,6 +1507,39 @@
     ],
     "metaDescription": "Biologie, psychologie, sociologie : que dit vraiment la science sur l'âge idéal pour avoir des enfants ? Une lecture nuancée, sans injonction.",
     "articles_lies": [],
+    "status": "published"
+  },
+  {
+    "id": "choisir-son-therapeute",
+    "title": "Comment choisir son thérapeute — et savoir s'il est vraiment bon",
+    "excerpt": "Psychologue, psychiatre, sophrologue, psychanalyste : le marché du \"aller mieux\" est une jungle. Le guide honnête pour choisir le bon professionnel — et reconnaître les red flags qui doivent vous faire fuir.",
+    "date": "2026-06-05",
+    "date_modified": "2026-08-28",
+    "category": "Thérapies",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "choisir-son-psy",
+      "psychologue",
+      "psychiatre",
+      "psychotherapeute",
+      "sophrologue",
+      "MonPsy",
+      "alliance-therapeutique",
+      "red-flags-therapeute",
+      "ADELI"
+    ],
+    "metaDescription": "Psychologue, psychiatre, sophrologue : comment choisir, quoi regarder, quand fuir. Le guide honnête pour ne pas se planter.",
+    "articles_lies": [
+      "quelle-therapie-choisir",
+      "therapie-cognitive-comportementale",
+      "resilience-emotionnelle"
+    ],
     "status": "published"
   },
   {

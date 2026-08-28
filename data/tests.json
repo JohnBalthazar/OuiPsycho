@@ -66,7 +66,7 @@
     "testUrl": "tests/quel-signe-etes-vous.html",
     "articleUrl": "articles/horoscope-pourquoi-on-y-croit/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qc0q1g8vedl8l1vyjlik",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
