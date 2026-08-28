@@ -1670,12 +1670,12 @@
   {
     "id": "couple-quand-faut-il-se-quitter",
     "title": "Couple : quand faut-il se quitter ?",
-    "type": "article",
-    "excerpt": "Les disputes ne sont pas le signal. Le mépris, la solitude à deux et les réparations qui échouent, si. Ce que la science du couple dit vraiment — et les faux signaux à écarter.",
+    "excerpt": "",
     "date": "2026-12-17",
-    "date_modified": "2026-08-28",
+    "date_modified": "2026-12-17",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sdk3p3l8e6wjptalq6fq",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1688,7 +1688,7 @@
       "separation",
       "relations"
     ],
-    "metaDescription": "Quand faut-il se séparer ? Les vrais signaux selon la recherche (Gottman, modèle de l'investissement), les faux signaux, et comment décider. Avec un quiz.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },

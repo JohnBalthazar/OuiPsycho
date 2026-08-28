@@ -2932,9 +2932,12 @@ async function saveArticle() {
   const etape        = document.getElementById('f-etape')?.value || '';
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
-  // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf)
+  // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf).
+  // Ne doit jamais précéder date (verify-robots-consistency.js bloque le déploiement
+  // sinon) : pour un article planifié (date future), on aligne sur date plutôt que
+  // sur aujourd'hui, qui serait antérieur.
   const today         = new Date().toISOString().split('T')[0];
-  const date_modified = editingId ? today : date;
+  const date_modified = editingId ? (date > today ? date : today) : date;
 
   if (!id || !title || !content || !category) {
     toast('Remplissez les champs obligatoires (slug, titre, contenu, catégorie)', 'error');
