@@ -1089,6 +1089,20 @@ if (sitemapDossiers.length) {
   }
 }
 
+// Pages hub /theme/{slug}/ (clusters thématiques)
+if (hubSitemapEntries.length) {
+  sitemapXml += `\n\n  <!-- Clusters thématiques (${hubSitemapEntries.length}) -->`;
+  for (const h of hubSitemapEntries) {
+    sitemapXml += `
+  <url>
+    <loc>${BASE}/theme/${h.slug}/</loc>
+    <lastmod>${h.lastmod}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>`;
+  }
+}
+
 const totalArticles = sitemapArticles.length + orphanArticles.length;
 sitemapXml += `\n\n  <!-- Articles (${totalArticles} publiés — généré automatiquement) -->`;
 sitemapArticles.forEach((a, i) => {
@@ -1118,7 +1132,7 @@ if (orphanArticles.length) {
 sitemapXml += `\n\n</urlset>\n`;
 
 fs.writeFileSync(SITEMAP_FILE, sitemapXml, 'utf8');
-console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles JSON + ${orphanArticles.length} orphelins + ${sitemapDossiers.length} dossier(s))`);
+console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles JSON + ${orphanArticles.length} orphelins + ${sitemapDossiers.length} dossier(s) + ${hubSitemapEntries.length} cluster(s))`);
 
 // ── Injection des cards statiques dans les pages de listing (SEO sans JS) ─────
 // Objectif : Googlebot voit du HTML avec liens internes dès le premier octet.

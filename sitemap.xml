@@ -75,6 +75,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Clusters thématiques (1) -->
+  <url>
+    <loc>https://ouipsycho.fr/theme/emprise-et-relations-toxiques/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Articles (76 publiés — généré automatiquement) -->
   <url>
     <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
