@@ -254,6 +254,29 @@ ${srcItems}
     }
   }
 
+  // Widget sidebar "Pour continuer" — remplace le shell vide "À lire aussi" pour
+  // les articles en cluster. loadRelated() n'est alors plus appelée côté client
+  // (js/main.js) pour ces articles, donc ce contenu statique n'est jamais écrasé.
+  let relatedWidgetHtml = '<h2 class="widget__title">À lire aussi</h2>';
+  if (clusterResolved) {
+    const stageOrder = Object.keys(clusterResolved.etapes);
+    const currentIdx = stageOrder.indexOf(j.etape);
+    let nextStageSlug = null;
+    for (let i = currentIdx + 1; i < stageOrder.length; i++) {
+      const s = stageOrder[i];
+      if (clusterMembers[j.cluster] && clusterMembers[j.cluster][s] && clusterMembers[j.cluster][s].length) {
+        nextStageSlug = s;
+        break;
+      }
+    }
+    const widgetLinks = [];
+    if (nextStageSlug) {
+      widgetLinks.push(`<a href="theme/${escCard(clusterResolved.id)}/#etape-${nextStageSlug}">Étape suivante : ${escCard(clusterResolved.etapes[nextStageSlug])}</a>`);
+    }
+    widgetLinks.push(`<a href="theme/${escCard(clusterResolved.id)}/">Voir tout le parcours « ${escCard(clusterResolved.title)} »</a>`);
+    relatedWidgetHtml = `<h2 class="widget__title">Pour continuer</h2>\n        <div class="widget-links">\n          ${widgetLinks.join('\n          ')}\n        </div>`;
+  }
+
   // JSON-LD ───────────────────────────────────────────────────────────────────
   const esc = s => String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"');
   // Sécurise l'injection dans <script>…</script> (séquence </script> interdite)
@@ -519,7 +542,7 @@ ${sourcesHtml}
         <h2 class="widget__title">Table des matières</h2>
       </div>
       <div class="widget" id="related-articles">
-        <h2 class="widget__title">À lire aussi</h2>
+        ${relatedWidgetHtml}
       </div>
       <div class="widget widget--accent" id="newsletter-widget">
         <h2 class="widget__title">Newsletter</h2>
