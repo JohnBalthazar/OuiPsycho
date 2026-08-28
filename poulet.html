@@ -844,6 +844,19 @@
                 </select>
               </div>
               <div class="form-group">
+                <label>Thème (cluster)</label>
+                <select id="f-cluster" onchange="onClusterChange()">
+                  <option value="">Aucun</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Étape</label>
+                <select id="f-etape" disabled>
+                  <option value="">-- Choisir un thème d'abord --</option>
+                </select>
+                <div class="hint">Le fil de parcours et la page hub n'apparaissent qu'après la prochaine exécution de <code>node _gen_static.js</code>.</div>
+              </div>
+              <div class="form-group">
                 <label id="f-date-label">Date de publication</label>
                 <input type="date" id="f-date" oninput="onDateChange()">
               </div>
@@ -1556,6 +1569,7 @@ let _secFbProject = '';
 let _secFbApiKey  = '';
 
 let articles = [];
+let clusters = [];   // data/clusters.json — lecture seule depuis Poulet (voir loadClusters)
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
@@ -1921,6 +1935,7 @@ function showApp() {
   document.getElementById('app').style.display = 'block';
   loadArticles();
   loadRemoteConfig();
+  loadClusters();
 }
 
 /* ══════════════════════════════════════════════
@@ -1982,6 +1997,53 @@ async function loadArticles() {
 function refreshArticles() {
   localStorage.removeItem(ARTICLES_KEY);
   loadArticles().then(() => { renderArticlesTable(); toast('Articles rechargés', 'success'); });
+}
+
+/* ══════════════════════════════════════════════
+   CLUSTERS (maillage thématique) — lecture seule depuis Poulet.
+   Aucune écriture dans data/clusters.json à ce stade : seuls les champs
+   cluster/etape de l'article édité sont concernés (voir saveArticle()).
+══════════════════════════════════════════════ */
+async function loadClusters() {
+  clusters = [];
+  try {
+    const res = await fetch('data/clusters.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data)) clusters = data;
+    }
+  } catch(e) { /* absent ou hors-ligne — champs désactivés, pas d'erreur */ }
+  populateClusterSelect();
+}
+
+function populateClusterSelect() {
+  const sel = document.getElementById('f-cluster');
+  if (!sel) return;
+  const current = sel.value;
+  sel.innerHTML = '<option value="">Aucun</option>' +
+    clusters.map(c => `<option value="${escapeAttr(c.id)}">${escapeAttr(c.title || c.id)}</option>`).join('');
+  sel.disabled = clusters.length === 0;
+  sel.value = clusters.some(c => c.id === current) ? current : '';
+  onClusterChange();
+}
+
+function onClusterChange() {
+  const clusterSel = document.getElementById('f-cluster');
+  const etapeSel    = document.getElementById('f-etape');
+  if (!clusterSel || !etapeSel) return;
+  const cluster = clusters.find(c => c.id === clusterSel.value);
+  const etapes  = cluster && cluster.etapes && typeof cluster.etapes === 'object' ? cluster.etapes : null;
+  if (!etapes) {
+    etapeSel.innerHTML = '<option value="">-- Choisir un thème d\'abord --</option>';
+    etapeSel.disabled  = true;
+    etapeSel.value     = '';
+    return;
+  }
+  const current = etapeSel.value;
+  etapeSel.innerHTML = '<option value="">-- Choisir --</option>' +
+    Object.entries(etapes).map(([slug, label]) => `<option value="${escapeAttr(slug)}">${escapeAttr(label)}</option>`).join('');
+  etapeSel.disabled = false;
+  etapeSel.value    = Object.prototype.hasOwnProperty.call(etapes, current) ? current : '';
 }
 
 /* ══════════════════════════════════════════════
@@ -2294,6 +2356,9 @@ function resetEditor() {
   document.getElementById('f-content').value     = '';
   initWysEditor('');
   document.getElementById('f-category').value    = '';
+  const _clusterSel = document.getElementById('f-cluster');
+  if (_clusterSel) _clusterSel.value = '';
+  onClusterChange();
   document.getElementById('f-date').value        = new Date().toISOString().split('T')[0];
   setArticleStatus('published');
   document.getElementById('f-readTime').value    = 7;
@@ -2335,6 +2400,11 @@ function editArticle(id) {
       document.getElementById('f-content').value  = full.content   || '';
       initWysEditor(full.content || '');
       document.getElementById('f-category').value = full.category  || '';
+      const _clusterSel2 = document.getElementById('f-cluster');
+      if (_clusterSel2) _clusterSel2.value = full.cluster || '';
+      onClusterChange();
+      const _etapeSel2 = document.getElementById('f-etape');
+      if (_etapeSel2 && full.etape) _etapeSel2.value = full.etape;
       document.getElementById('f-date').value     = full.date      || '';
       document.getElementById('f-readTime').value = full.readTime  || 7;
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
@@ -2858,6 +2928,8 @@ async function saveArticle() {
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints    = getKeypoints();
+  const cluster      = document.getElementById('f-cluster')?.value || '';
+  const etape        = document.getElementById('f-etape')?.value || '';
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
   // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf)
@@ -2873,7 +2945,7 @@ async function saveArticle() {
   const sources     = editingSources.length ? editingSources : undefined;
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
-  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), articles_lies: articlesLies, status };
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(cluster && etape && { cluster, etape }), articles_lies: articlesLies, status };
   const summaryData = { id, title, type, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
