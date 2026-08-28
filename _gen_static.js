@@ -779,12 +779,25 @@ for (const cluster of CLUSTERS) {
   }
   if (hubLastmod > TODAY) hubLastmod = TODAY;
 
-  const sectionsHtml = stageOrder
-    .filter(s => byStage[s] && byStage[s].length)
-    .map(s => `
+  // Étapes réellement affichées (au moins un article publié) — sert à la fois
+  // à numéroter le sommaire et les titres de section, dans le même ordre.
+  const nonEmptyStages = stageOrder.filter(s => byStage[s] && byStage[s].length);
+
+  const tocHtml = nonEmptyStages
+    .map((s, i) => `<a href="#etape-${s}">${i + 1}. ${escCard(cluster.etapes[s])}</a>`)
+    .join('<span class="theme-toc__sep" aria-hidden="true">·</span>');
+
+  // Cartes de la page hub : grille dédiée (3/2/1 colonnes, images réduites) et
+  // sans badge de catégorie — retrait fait ici par retrait du <span class="badge">
+  // rendu par renderCardStatic, plutôt qu'en modifiant cette fonction partagée
+  // (utilisée ailleurs pour l'accueil et les pages rubrique).
+  const stripBadge = html => html.replace(/<span class="badge"[^>]*>[^<]*<\/span>\s*/, '');
+
+  const sectionsHtml = nonEmptyStages
+    .map((s, i) => `
       <section class="theme-stage" id="etape-${s}" aria-labelledby="etape-${s}-title">
-        <h2 class="theme-stage__title" id="etape-${s}-title">${escCard(cluster.etapes[s])}</h2>
-        <div class="articles-grid">${byStage[s].map(renderCardStatic).join('')}
+        <h2 class="theme-stage__title" id="etape-${s}-title">${i + 1}. ${escCard(cluster.etapes[s])}</h2>
+        <div class="theme-cards-grid">${byStage[s].map(a => stripBadge(renderCardStatic(a))).join('')}
         </div>
       </section>`)
     .join('\n');
@@ -816,16 +829,37 @@ for (const cluster of CLUSTERS) {
     .theme-hero {
       background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1F4E6B 100%);
       color: #fff;
-      padding: 5rem 1.5rem 6rem;
+      padding: 2.5rem 1.5rem 3rem;
       text-align: center;
       clip-path: ellipse(120% 100% at 50% 0%);
     }
     .theme-hero__content { max-width: 700px; margin: 0 auto; }
     .theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
     .theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
-    .theme-stages-wrap { padding: 3.5rem 0 5rem; }
+    .theme-stages-wrap { padding: 2rem 0 5rem; }
+    /* Sommaire du parcours — sobre, tient sur 1-2 lignes */
+    .theme-toc {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--sp-3);
+      font-size: .85rem;
+      color: var(--color-text-muted);
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    .theme-toc a { color: var(--color-text-muted); }
+    .theme-toc a:hover { color: var(--color-primary); }
+    .theme-toc__sep { color: var(--color-border); }
     .theme-stage { margin-bottom: 3rem; }
     .theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
+    /* Grille de cartes dédiée à la page hub : 3/2/1 colonnes, images réduites —
+       n'affecte pas .articles-grid (règle partagée, utilisée ailleurs sur le site). */
+    .theme-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+    .theme-cards-grid .card__image { height: 130px; }
+    @media (max-width: 900px) { .theme-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; gap: var(--sp-5); } }
   </style>
   <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
@@ -888,6 +922,7 @@ for (const cluster of CLUSTERS) {
   </section>
 
   <div class="container theme-stages-wrap">
+    <nav class="theme-toc" aria-label="Sommaire du parcours">${tocHtml}</nav>
 ${sectionsHtml}
   </div>
 
