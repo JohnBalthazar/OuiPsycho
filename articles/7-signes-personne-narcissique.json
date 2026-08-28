@@ -71,6 +71,8 @@
       "publisher": "Payot"
     }
   ],
+  "cluster": "emprise-et-relations-toxiques",
+  "etape": "reconnaitre",
   "articles_lies": [],
   "status": "scheduled"
 }

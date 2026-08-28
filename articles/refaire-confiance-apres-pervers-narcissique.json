@@ -69,6 +69,8 @@
       "url": ""
     }
   ],
+  "cluster": "emprise-et-relations-toxiques",
+  "etape": "consulter",
   "articles_lies": [],
   "status": "scheduled"
 }
