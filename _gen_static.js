@@ -130,7 +130,7 @@ for (const file of jsonFiles) {
   if (!cluster || !cluster.etapes || !cluster.etapes[j.etape]) continue; // rattachement invalide, ignoré ici (voir verify-robots-consistency.js)
   if (!clusterMembers[j.cluster]) clusterMembers[j.cluster] = {};
   if (!clusterMembers[j.cluster][j.etape]) clusterMembers[j.cluster][j.etape] = [];
-  clusterMembers[j.cluster][j.etape].push({ id: j.id, title: j.title });
+  clusterMembers[j.cluster][j.etape].push({ id: j.id, title: j.title, image: j.image || '' });
 }
 
 for (const file of jsonFiles) {
@@ -295,8 +295,12 @@ ${srcItems}
     }
     const chosen = picks.slice(0, 3);
     if (chosen.length >= 2) {
-      const items = chosen.map(m => `<li><a href="articles/${escCard(m.id)}/">${escCard(m.title)}</a></li>`).join('\n              ');
-      continueBlockHtml = `\n          <div class="article-continue">\n            <p class="article-continue__title">Pour continuer</p>\n            <ul class="article-continue__list">\n              ${items}\n            </ul>\n          </div>`;
+      const items = chosen.map(m => {
+        const thumbStyle = m.image ? ` style="background-image:url('${escCard(m.image)}')"` : '';
+        const thumbFallback = m.image ? '' : '🧠';
+        return `<li class="article-continue__item"><a href="articles/${escCard(m.id)}/" class="article-continue__link"><span class="article-continue__thumb"${thumbStyle} aria-hidden="true">${thumbFallback}</span><span class="article-continue__link-title">${escCard(m.title)}</span></a></li>`;
+      }).join('\n              ');
+      continueBlockHtml = `\n          <div class="article-continue">\n            <p class="article-continue__title">Pour continuer</p>\n            <ul class="article-continue__list">\n              ${items}\n            </ul>\n            <a class="article-continue__hub-link" href="theme/${escCard(clusterResolved.id)}/">Voir le parcours complet « ${escCard(clusterResolved.title)} » →</a>\n          </div>`;
     }
   }
 

@@ -1071,24 +1071,34 @@ p:last-child { margin-bottom: 0; }
 }
 .article-meta strong { color: var(--color-text); }
 
-/* Fil de parcours (maillage thématique) — discret, 2 lignes max */
+/* Fil de parcours (maillage thématique) — se lit comme une barre de
+   navigation, reste sous le titre sans dominer le contenu. Enveloppe
+   librement (comme .breadcrumb) plutôt qu'un plafond strict en lignes :
+   un plafond de hauteur + overflow:hidden masquait silencieusement les
+   dernières étapes sur mobile une fois le texte agrandi. */
 .cluster-trail {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--sp-2);
-  font-size: var(--fs-xs);
-  line-height: 1.6em;
-  max-height: calc(2 * 1.6em);
-  overflow: hidden;
-  margin: var(--sp-3) 0 0;
+  gap: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  margin: var(--sp-4) 0 0;
+  padding: var(--sp-3);
+  background: var(--color-surface-2);
+  border-radius: var(--radius-lg);
 }
 .cluster-trail__hub,
-.cluster-trail__step { color: var(--color-text-muted); }
+.cluster-trail__step { color: var(--color-text); font-weight: 600; }
 .cluster-trail__hub:hover,
 .cluster-trail__step:hover { color: var(--color-primary); }
-.cluster-trail__step--current { color: var(--color-primary); font-weight: 700; }
-.cluster-trail__sep { color: var(--color-border); }
+.cluster-trail__step--current {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  padding: .2em .75em;
+  border-radius: var(--radius-full);
+}
+.cluster-trail__sep { color: var(--color-text-light); font-size: 1.1em; font-weight: 700; }
 
 /* Page hub /theme/{slug}/ — classes dédiées, ne redéfinissent aucune règle
    partagée (.articles-grid, .card__image, etc. restent inchangées ailleurs). */
@@ -1100,7 +1110,10 @@ p:last-child { margin-bottom: 0; }
   clip-path: ellipse(120% 100% at 50% 0%);
 }
 .theme-hero__content { max-width: 700px; margin: 0 auto; }
-.theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+/* color: #fff nécessaire ici — la règle globale h1,h2,h3... { color: var(--color-text) }
+   (texte sombre) est une déclaration explicite, donc prioritaire sur le blanc
+   hérité de .theme-hero malgré l'imbrication. */
+.theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; color: #fff; }
 .theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
 .theme-stages-wrap { padding: 2rem 0 5rem; }
 /* Sommaire du parcours — réutilise .cluster-trail (fil de parcours des
@@ -1349,14 +1362,52 @@ p:last-child { margin-bottom: 0; }
 }
 
 /* Encadré info générique */
-/* Bloc "Pour continuer" (maillage thématique) — texte sobre, sans vignette */
+/* Bloc "Pour continuer" (maillage thématique) — invitation éditoriale sobre,
+   pas un encart publicitaire : pas de cadre, pas de couleur vive. */
 .article-continue {
   margin-top: var(--sp-8);
   padding-top: var(--sp-6);
   border-top: 1px solid var(--color-border-light);
 }
-.article-continue__title { font-weight: 700; margin-bottom: var(--sp-3); }
-.article-continue__list { margin: 0; }
+.article-continue__title { font-size: var(--fs-lg); font-weight: 800; margin-bottom: var(--sp-2); }
+.article-continue__list { margin: 0; padding: 0; }
+/* Spécificité (0,2,0) nécessaire pour battre .article-body ul li (0,1,2), qui
+   impose autrement une puce disc malgré list-style:none sur le <ul> parent. */
+.article-body .article-continue__item { list-style: none; border-top: 1px solid var(--color-border-light); }
+.article-continue__item:first-child { border-top: none; }
+.article-body .article-continue a { text-decoration: none; }
+.article-continue__link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-4) 0;
+  color: var(--color-text);
+}
+.article-continue__link:hover .article-continue__link-title { color: var(--color-primary); text-decoration: underline; }
+.article-continue__thumb {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-primary-light);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+.article-continue__link-title { font-size: var(--fs-md); font-weight: 600; line-height: 1.4; }
+/* Lien vers le hub — distinct des 3 liens d'articles : séparé, plus discret */
+.article-continue__hub-link {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--color-border-light);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+.article-continue__hub-link:hover { color: var(--color-primary); }
 
 .article-body .info-box {
   background: var(--color-primary-light);
