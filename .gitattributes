@@ -1,0 +1,54 @@
+# Normalise les fins de ligne pour tout fichier texte détecté automatiquement
+# par Git, indépendamment du core.autocrlf de la machine qui clone/édite le
+# dépôt (ce dépôt est travaillé sous Windows, où autocrlf=true convertit
+# silencieusement les fichiers en CRLF au checkout).
+* text=auto
+
+.gitattributes text eol=lf
+
+# Fichiers réécrits en place par _gen_static.js et/ou poulet.html (JSON.stringify
+# émet toujours du LF côté Node/navigateur) : LF forcé pour que ces réécritures
+# ne produisent plus de diff de fin de ligne parasite.
+*.json  text eol=lf
+
+# _gen_static.js et poulet.html étaient eux-mêmes en CRLF : leurs template
+# literals multi-lignes injectent alors du \r\n directement dans le HTML généré
+# (vérifié : la majorité des articles/*/index.html déjà générés sont en CRLF de
+# ce seul fait). LF forcé sur le code source pour que la sortie générée cesse
+# d'hériter de la convention de fin de ligne du fichier qui la produit.
+*.js    text eol=lf
+*.html  text eol=lf
+*.css   text eol=lf
+*.xml   text eol=lf
+*.svg   text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+
+# Scripts exécutés par les workflows GitHub Actions sur des runners Linux via
+# `bash script.sh` : un \r résiduel en fin de ligne peut corrompre des variables
+# ou des heredocs au shell. LF obligatoire.
+*.sh    text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+
+# Scripts PowerShell manuels (_gen_static.ps1, _gen_dossier.ps1) : PowerShell
+# 5.1+ lit le LF nativement sans problème ; alignés sur le reste du dépôt pour
+# éviter une troisième convention de fin de ligne à gérer.
+*.ps1   text eol=lf
+
+# Fichiers texte sans extension standard (non couverts par un motif *.ext
+# ci-dessus) : le seul `* text=auto` générique ne suffit pas à forcer le LF au
+# checkout quand core.autocrlf=true côté client — il faut un eol=lf explicite.
+.gitignore  text eol=lf
+.nojekyll   text eol=lf
+CNAME       text eol=lf
+*.gitkeep   text eol=lf
+*.TEMPLATE  text eol=lf
+
+# Assets binaires : jamais de normalisation de fin de ligne.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.ico   binary
+*.woff  binary
+*.woff2 binary
