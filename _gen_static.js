@@ -85,6 +85,24 @@ const RUBRIQUE_PAGES = {
 
 const NAV_CATS = ['Bien-être','Sommeil','Troubles Psy','Thérapies','Relations'];
 
+// Couleurs des cards statiques (renderCardStatic/renderFeaturedStatic) — déclaré
+// ici (plutôt que juste avant son usage plus bas) pour être disponible dès la
+// génération de la page hub /theme/{slug}/, qui rend des cards avant la section
+// "Injection des cards statiques" historique.
+const CATS_CARD = {
+  'Bien-être':                       { color: '#059669', bg: '#ECFDF5' },
+  'Relations':                       { color: '#BE185D', bg: '#FDF2F8' },
+  'Sommeil':                         { color: '#0369A1', bg: '#ECFEFF' },
+  'Troubles Psy':                    { color: '#7C3AED', bg: '#F5F3FF' },
+  'Thérapies':                       { color: '#6D28D9', bg: '#EDE9FE' },
+  'Développement personnel':         { color: '#15803D', bg: '#F0FDF4' },
+  'Nos héros sur le divan':          { color: '#EA580C', bg: '#FFF7ED' },
+  'Les monstres sur le divan':       { color: '#9B1C1C', bg: '#FFF5F5' },
+  'Sexo':                            { color: '#C2185B', bg: '#FCE4EC' },
+  'Société':                         { color: '#1E40AF', bg: '#EFF6FF' },
+  'Société & psychologie politique': { color: '#1E40AF', bg: '#EFF6FF' },
+};
+
 const jsonFiles = fs.readdirSync(DIR).filter(f => f.endsWith('.json'));
 
 // ── Clusters thématiques (maillage) ──────────────────────────────────────────
@@ -673,6 +691,221 @@ const allIndex = jsonFiles.map(file => {
 fs.writeFileSync(ALL_INDEX_FILE, JSON.stringify(allIndex, null, 2), 'utf8');
 console.log(`📋 data/articles-all.json mis à jour (${allIndex.length} articles — admin)`);
 
+// ── Pages hub /theme/{slug}/ (clusters thématiques) ──────────────────────────
+// Page directe, sans stub racine ni redirection (contrairement aux articles).
+// Règle de filtrage volontairement plus stricte que le reste du site :
+// uniquement status === 'published', jamais un "scheduled" même à échéance —
+// la page hub ne doit refléter que du contenu définitivement publié.
+const THEME_DIR = path.join(__dirname, 'theme');
+const hubSitemapEntries = []; // { slug, lastmod } — consommé par la section sitemap plus bas
+
+for (const cluster of CLUSTERS) {
+  const stageOrder = Object.keys(cluster.etapes || {});
+  const byStage = {};
+  let hubLastmod = cluster.date || TODAY;
+  let hasAny = false;
+
+  for (const file of jsonFiles) {
+    const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+    if (j.cluster !== cluster.id) continue;
+    if (!j.etape || !cluster.etapes || !cluster.etapes[j.etape]) continue;
+    if ((j.status || 'published') !== 'published') continue; // jamais scheduled/draft
+    if (j.date > TODAY) continue;
+
+    if (!byStage[j.etape]) byStage[j.etape] = [];
+    byStage[j.etape].push({
+      id: j.id, title: j.title, excerpt: j.excerpt || '', category: j.category,
+      date: j.date, date_modified: j.date_modified || j.date,
+      image: j.image || '', imagePosition: j.imagePosition || '50% 50%',
+      imageZoom: j.imageZoom || 1, imageGravity: j.imageGravity || 'none',
+      readTime: j.readTime,
+    });
+    hasAny = true;
+    const artLastmod = (j.date_modified && j.date_modified > j.date) ? j.date_modified : j.date;
+    if (artLastmod > hubLastmod) hubLastmod = artLastmod;
+  }
+
+  if (!hasAny) {
+    console.log(`  ⚠ theme/${cluster.id}/ : aucun article publié pour ce cluster — page hub non générée`);
+    continue;
+  }
+  if (hubLastmod > TODAY) hubLastmod = TODAY;
+
+  const sectionsHtml = stageOrder
+    .filter(s => byStage[s] && byStage[s].length)
+    .map(s => `
+      <section class="theme-stage" id="etape-${s}" aria-labelledby="etape-${s}-title">
+        <h2 class="theme-stage__title" id="etape-${s}-title">${escCard(cluster.etapes[s])}</h2>
+        <div class="articles-grid">${byStage[s].map(renderCardStatic).join('')}
+        </div>
+      </section>`)
+    .join('\n');
+
+  const hubHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escCard(cluster.title)} — Oui Psycho!</title>
+  <meta name="description" content="${escCard(cluster.excerpt || cluster.title)}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="${BASE}/theme/${cluster.id}/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="${escCard(cluster.title)} — Oui Psycho!">
+  <meta property="og:description" content="${escCard(cluster.excerpt || cluster.title)}">
+  <meta property="og:url"         content="${BASE}/theme/${cluster.id}/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .theme-hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1F4E6B 100%);
+      color: #fff;
+      padding: 5rem 1.5rem 6rem;
+      text-align: center;
+      clip-path: ellipse(120% 100% at 50% 0%);
+    }
+    .theme-hero__content { max-width: 700px; margin: 0 auto; }
+    .theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+    .theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
+    .theme-stages-wrap { padding: 3.5rem 0 5rem; }
+    .theme-stage { margin-bottom: 3rem; }
+    .theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
+  </style>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="theme-hero" aria-labelledby="theme-hero-title">
+    <div class="theme-hero__content">
+      <h1 id="theme-hero-title">${escCard(cluster.title)}</h1>${cluster.excerpt ? `\n      <p>${escCard(cluster.excerpt)}</p>` : ''}
+    </div>
+  </section>
+
+  <div class="container theme-stages-wrap">
+${sectionsHtml}
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
+`;
+
+  const hubOutDir = path.join(THEME_DIR, cluster.id);
+  if (!fs.existsSync(hubOutDir)) fs.mkdirSync(hubOutDir, { recursive: true });
+  fs.writeFileSync(path.join(hubOutDir, 'index.html'), hubHtml, 'utf8');
+  console.log(`🧩 theme/${cluster.id}/index.html généré (${stageOrder.filter(s => byStage[s] && byStage[s].length).length} étape(s) avec contenu)`);
+  hubSitemapEntries.push({ slug: cluster.id, lastmod: hubLastmod });
+}
+
 // ── Génération du sitemap.xml ─────────────────────────────────────────────────
 // Utilise newIndex (articles publiés/passés déjà filtrés) pour rester en sync
 // avec les pages qui ont robots="index, follow".
@@ -847,20 +1080,6 @@ console.log(`🗺  sitemap.xml mis à jour (${sitemapArticles.length} articles J
 //
 // Approche : balanced-div walker → fonctionne à chaque ré-exécution du script
 // même si le fichier contient déjà des cards du run précédent.
-
-const CATS_CARD = {
-  'Bien-être':                       { color: '#059669', bg: '#ECFDF5' },
-  'Relations':                       { color: '#BE185D', bg: '#FDF2F8' },
-  'Sommeil':                         { color: '#0369A1', bg: '#ECFEFF' },
-  'Troubles Psy':                    { color: '#7C3AED', bg: '#F5F3FF' },
-  'Thérapies':                       { color: '#6D28D9', bg: '#EDE9FE' },
-  'Développement personnel':         { color: '#15803D', bg: '#F0FDF4' },
-  'Nos héros sur le divan':          { color: '#EA580C', bg: '#FFF7ED' },
-  'Les monstres sur le divan':       { color: '#9B1C1C', bg: '#FFF5F5' },
-  'Sexo':                            { color: '#C2185B', bg: '#FCE4EC' },
-  'Société':                         { color: '#1E40AF', bg: '#EFF6FF' },
-  'Société & psychologie politique': { color: '#1E40AF', bg: '#EFF6FF' },
-};
 
 function escCard(s) {
   return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
