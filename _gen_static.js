@@ -290,12 +290,19 @@ ${srcItems}
     ? `${BASE}/${RUBRIQUE_PAGES[j.category]}`
     : `${BASE}/?cat=${ci.enc}`;
 
+  // Niveau 2 du fil d'Ariane JSON-LD : le hub du cluster remplace la catégorie
+  // pour les articles rattachés à un cluster résolu (cohérent avec le fil de
+  // parcours visuel, qui pointe déjà vers ce même hub).
+  const breadcrumbLevel2 = clusterResolved
+    ? { "@type": "ListItem", "position": 2, "name": clusterResolved.title, "item": `${BASE}/theme/${clusterResolved.id}/` }
+    : { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs };
+
   const bLD = escLd(JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
       { "@type": "ListItem", "position": 1, "name": "Accueil", "item": `${BASE}/` },
-      { "@type": "ListItem", "position": 2, "name": j.category, "item": catHrefAbs },
+      breadcrumbLevel2,
       { "@type": "ListItem", "position": 3, "name": j.title, "item": `${BASE}/articles/${j.id}/` }
     ]
   }));
