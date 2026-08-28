@@ -83,12 +83,18 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Articles (76 publiés — généré automatiquement) -->
+  <!-- Articles (77 publiés — généré automatiquement) -->
   <url>
     <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/se-reconstruire-apres-emprise/</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/choisir-son-therapeute/</loc>
