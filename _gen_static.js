@@ -235,7 +235,7 @@ ${srcItems}
 
   // Fil de parcours (sous le h1) — n'affiche que les étapes ayant au moins un
   // article en ligne ; l'étape courante n'est pas cliquable ; rendu horizontal
-  // discret, limité à 2 lignes en CSS (voir .cluster-trail).
+  // qui s'enveloppe librement, sans plafond de lignes (voir .cluster-trail).
   let clusterTrailHtml = '';
   if (clusterResolved) {
     const stageSlugs = Object.keys(clusterResolved.etapes).filter(s =>
@@ -244,9 +244,19 @@ ${srcItems}
     if (stageSlugs.length) {
       const stepsHtml = stageSlugs.map(s => {
         const label = escCard(clusterResolved.etapes[s]);
-        return (s === j.etape)
-          ? `<span class="cluster-trail__step cluster-trail__step--current" aria-current="step">${label}</span>`
-          : `<a class="cluster-trail__step" href="theme/${escCard(clusterResolved.id)}/#etape-${s}">${label}</a>`;
+        if (s === j.etape) {
+          return `<span class="cluster-trail__step cluster-trail__step--current" aria-current="step">${label}</span>`;
+        }
+        // Une seule étape publiée à cette étape : lien direct vers l'article
+        // plutôt que vers l'ancre du hub (évite un détour pour rien). Dès 2
+        // articles ou plus, on renvoie vers l'ancre comme avant — seul le fil
+        // de parcours des pages article est concerné ; le sommaire de la page
+        // hub garde ses ancres dans tous les cas (voir tocHtml plus bas).
+        const stageMembers = clusterMembers[j.cluster][s];
+        const stepHref = stageMembers.length === 1
+          ? `articles/${escCard(stageMembers[0].id)}/`
+          : `theme/${escCard(clusterResolved.id)}/#etape-${s}`;
+        return `<a class="cluster-trail__step" href="${stepHref}">${label}</a>`;
       }).join('<span class="cluster-trail__sep" aria-hidden="true">→</span>');
       clusterTrailHtml = `\n          <nav class="cluster-trail" aria-label="Parcours : ${escCard(clusterResolved.title)}">` +
         `<a class="cluster-trail__hub" href="theme/${escCard(clusterResolved.id)}/">${escCard(clusterResolved.title)}</a>` +
@@ -805,12 +815,15 @@ for (const cluster of CLUSTERS) {
   const hubifyCard  = a => rebaseLinks(stripBadge(renderCardStatic(a)));
 
   const sectionsHtml = nonEmptyStages
-    .map(s => `
+    .map(s => {
+      const gridClass = byStage[s].length < 3 ? 'theme-cards-grid theme-cards-grid--few' : 'theme-cards-grid';
+      return `
       <section class="theme-stage" id="etape-${s}" aria-labelledby="etape-${s}-title">
         <h2 class="theme-stage__title" id="etape-${s}-title">${escCard(cluster.etapes[s])}</h2>
-        <div class="theme-cards-grid">${byStage[s].map(hubifyCard).join('')}
+        <div class="${gridClass}">${byStage[s].map(hubifyCard).join('')}
         </div>
-      </section>`)
+      </section>`;
+    })
     .join('\n');
 
   const hubHtml = `<!DOCTYPE html>

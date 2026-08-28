@@ -1124,7 +1124,9 @@ p:last-child { margin-bottom: 0; }
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--color-border-light);
 }
-.theme-stage { margin-bottom: 3rem; }
+/* --header-h seul (pas --catbar-h) : la page hub n'a pas de .cat-nav, son
+   .site-header sticky ne mesure que le bandeau logo/menu. */
+.theme-stage { margin-bottom: 3rem; scroll-margin-top: calc(var(--header-h) + var(--sp-6)); }
 .theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
 /* Grille de cartes dédiée à la page hub : 3 colonnes desktop / 2 tablette /
    1 mobile, images réduites — n'affecte pas .articles-grid (règle partagée,
@@ -1133,6 +1135,15 @@ p:last-child { margin-bottom: 0; }
 .theme-cards-grid .card__image { height: 130px; }
 @media (max-width: 768px) { .theme-cards-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; gap: var(--sp-5); } }
+/* Étape à 1 ou 2 articles : centre les cartes au lieu de laisser un vide à
+   droite d'une grille à 3 colonnes. Le rendu à 3 cartes ou plus (règle
+   ci-dessus) n'est pas concerné. */
+.theme-cards-grid--few {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.theme-cards-grid--few .card { flex: 0 1 380px; }
 
 .article-meta-dot { color: var(--color-border); }
 
