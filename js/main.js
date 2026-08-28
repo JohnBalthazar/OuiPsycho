@@ -433,7 +433,10 @@ async function initArticle() {
         const article = await res.json();
         initShareButtons(article);
         buildTOC();
-        loadRelated(article);
+        // Articles en cluster : le widget "À lire aussi" est déjà rempli
+        // statiquement par _gen_static.js ("Pour continuer") — ne pas
+        // l'écraser en appelant loadRelated().
+        if (!article.cluster) loadRelated(article);
         // Injecter l'image si ajoutée après la génération de la page statique
         injectArticleImage(article);
         // Section commentaires
