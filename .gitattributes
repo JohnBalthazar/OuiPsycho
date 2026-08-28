@@ -36,6 +36,15 @@
 # éviter une troisième convention de fin de ligne à gérer.
 *.ps1   text eol=lf
 
+# Fichiers texte sans extension standard (non couverts par un motif *.ext
+# ci-dessus) : le seul `* text=auto` générique ne suffit pas à forcer le LF au
+# checkout quand core.autocrlf=true côté client — il faut un eol=lf explicite.
+.gitignore  text eol=lf
+.nojekyll   text eol=lf
+CNAME       text eol=lf
+*.gitkeep   text eol=lf
+*.TEMPLATE  text eol=lf
+
 # Assets binaires : jamais de normalisation de fin de ligne.
 *.png   binary
 *.jpg   binary
