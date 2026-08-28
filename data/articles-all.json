@@ -3215,6 +3215,59 @@
     "status": "scheduled"
   },
   {
+    "id": "se-reconstruire-apres-emprise",
+    "title": "Se reconstruire après une relation d'emprise",
+    "type": "article",
+    "excerpt": "Partir est un moment, se reconstruire est un processus. Pourquoi ça prend du temps, dans quel ordre les choses reviennent, et à partir de quand se faire accompagner.",
+    "metaDescription": "Se reconstruire après une relation d'emprise : lien traumatique, étapes de la reconstruction, retrouver confiance en son jugement et quand consulter.",
+    "author": "John Balthazar",
+    "date": "2026-08-29",
+    "date_modified": "2026-08-29",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "emprise",
+      "reconstruction",
+      "psychotraumatisme",
+      "confiance-en-soi"
+    ],
+    "sources": [
+      {
+        "authors": "Dutton D. G. & Painter S.",
+        "year": "1993",
+        "title": "Emotional attachments in abusive relationships: A test of traumatic bonding theory",
+        "journal": "Violence and Victims"
+      },
+      {
+        "authors": "Herman J. L.",
+        "year": "1992",
+        "title": "Trauma and Recovery: The Aftermath of Violence",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Stark E.",
+        "year": "2007",
+        "title": "Coercive Control: How Men Entrap Women in Personal Life",
+        "publisher": "Oxford University Press"
+      },
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "1998",
+        "title": "Le harcèlement moral : la violence perverse au quotidien",
+        "publisher": "Syros"
+      }
+    ],
+    "cluster": "emprise-et-relations-toxiques",
+    "etape": "consulter",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "freins-au-bonheur",
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
