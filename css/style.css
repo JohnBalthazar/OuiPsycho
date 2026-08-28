@@ -1089,6 +1089,38 @@ p:last-child { margin-bottom: 0; }
 .cluster-trail__step:hover { color: var(--color-primary); }
 .cluster-trail__step--current { color: var(--color-primary); font-weight: 700; }
 .cluster-trail__sep { color: var(--color-border); }
+
+/* Page hub /theme/{slug}/ — classes dédiées, ne redéfinissent aucune règle
+   partagée (.articles-grid, .card__image, etc. restent inchangées ailleurs). */
+.theme-hero {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1F4E6B 100%);
+  color: #fff;
+  padding: 2.5rem 1.5rem 3rem;
+  text-align: center;
+  clip-path: ellipse(120% 100% at 50% 0%);
+}
+.theme-hero__content { max-width: 700px; margin: 0 auto; }
+.theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
+.theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
+.theme-stages-wrap { padding: 2rem 0 5rem; }
+/* Sommaire du parcours — réutilise .cluster-trail (fil de parcours des
+   articles), avec juste un centrage et une séparation visuelle en plus. */
+.theme-toc {
+  justify-content: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border-light);
+}
+.theme-stage { margin-bottom: 3rem; }
+.theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
+/* Grille de cartes dédiée à la page hub : 3 colonnes desktop / 2 tablette /
+   1 mobile, images réduites — n'affecte pas .articles-grid (règle partagée,
+   utilisée ailleurs sur le site : accueil, pages rubrique). */
+.theme-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
+.theme-cards-grid .card__image { height: 130px; }
+@media (max-width: 768px) { .theme-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; gap: var(--sp-5); } }
+
 .article-meta-dot { color: var(--color-border); }
 
 /* Image hero article */

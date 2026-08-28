@@ -7,7 +7,6 @@
   <meta name="description" content="Reconnaître l'emprise, comprendre pourquoi on y reste, et savoir comment s'en sortir. Un parcours en cinq étapes à travers nos articles.">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1F4E6B">
-  <base href="../../">
   <link rel="canonical" href="https://ouipsycho.fr/theme/emprise-et-relations-toxiques/">
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="Emprise et relations toxiques — Oui Psycho!">
@@ -16,47 +15,15 @@
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Oui Psycho!">
   <meta name="twitter:card"       content="summary_large_image">
-  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="icon" type="image/png" href="../../img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .theme-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1F4E6B 100%);
-      color: #fff;
-      padding: 2.5rem 1.5rem 3rem;
-      text-align: center;
-      clip-path: ellipse(120% 100% at 50% 0%);
-    }
-    .theme-hero__content { max-width: 700px; margin: 0 auto; }
-    .theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
-    .theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
-    .theme-stages-wrap { padding: 2rem 0 5rem; }
-    /* Sommaire du parcours — sobre, tient sur 1-2 lignes */
-    .theme-toc {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--sp-3);
-      font-size: .85rem;
-      color: var(--color-text-muted);
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border-light);
-    }
-    .theme-toc a { color: var(--color-text-muted); }
-    .theme-toc a:hover { color: var(--color-primary); }
-    .theme-toc__sep { color: var(--color-border); }
-    .theme-stage { margin-bottom: 3rem; }
-    .theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
-    /* Grille de cartes dédiée à la page hub : 3/2/1 colonnes, images réduites —
-       n'affecte pas .articles-grid (règle partagée, utilisée ailleurs sur le site). */
-    .theme-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
-    .theme-cards-grid .card__image { height: 130px; }
-    @media (max-width: 900px) { .theme-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; gap: var(--sp-5); } }
-  </style>
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- Pas de <base> sur cette page (contrairement aux pages article) : un
+       <base href="../../"> casse toute ancre fragment-only (href="#etape-x")
+       en la résolvant contre la racine du site plutôt que la page courante.
+       Tous les liens ci-dessous sont donc explicitement préfixés ../../. -->
   <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -93,20 +60,20 @@
 
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
-        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+      <a href="../../index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="../../img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
-        <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
-        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
-        <a class="nav__link" href="tests.html">🧪 Tests</a>
-        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
-        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+        <a class="nav__link" href="../../index.html">Accueil</a>
+        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="../../tests.html">🧪 Tests</a>
+        <a class="nav__link" href="../../a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="../../index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
   </header>
@@ -119,17 +86,17 @@
   </section>
 
   <div class="container theme-stages-wrap">
-    <nav class="theme-toc" aria-label="Sommaire du parcours"><a href="#etape-comprendre">1. Comprendre</a><span class="theme-toc__sep" aria-hidden="true">·</span><a href="#etape-reconnaitre">2. Reconnaître les signes</a><span class="theme-toc__sep" aria-hidden="true">·</span><a href="#etape-pourquoi">3. Pourquoi on reste</a><span class="theme-toc__sep" aria-hidden="true">·</span><a href="#etape-agir">4. Se protéger et sortir</a></nav>
+    <nav class="cluster-trail theme-toc" aria-label="Sommaire du parcours"><a class="cluster-trail__step" href="#etape-comprendre">Comprendre</a><span class="cluster-trail__sep" aria-hidden="true">→</span><a class="cluster-trail__step" href="#etape-reconnaitre">Reconnaître les signes</a><span class="cluster-trail__sep" aria-hidden="true">→</span><a class="cluster-trail__step" href="#etape-pourquoi">Pourquoi on reste</a><span class="cluster-trail__sep" aria-hidden="true">→</span><a class="cluster-trail__step" href="#etape-agir">Se protéger et sortir</a></nav>
 
       <section class="theme-stage" id="etape-comprendre" aria-labelledby="etape-comprendre-title">
-        <h2 class="theme-stage__title" id="etape-comprendre-title">1. Comprendre</h2>
+        <h2 class="theme-stage__title" id="etape-comprendre-title">Comprendre</h2>
         <div class="theme-cards-grid">
     <article class="card" data-category="Relations">
-      <a href="articles/du-crush-au-crash-anatomie-histoires-amour/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/du-crush-au-crash-anatomie-histoires-amour/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fxeqtgeidjz2zs9ycdcn');background-position:50% 50%;background-size:cover" data-cat="Relations"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/du-crush-au-crash-anatomie-histoires-amour/">Du crush au crash : anatomie d'une histoire d'amour</a></h2>
+        <h2 class="card__title"><a href="../../articles/du-crush-au-crash-anatomie-histoires-amour/">Du crush au crash : anatomie d'une histoire d'amour</a></h2>
         <p class="card__excerpt">De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.</p>
         <footer class="card__meta">
           <time datetime="2026-07-07">Publié le 7 juillet 2026</time>
@@ -139,11 +106,11 @@
       </div>
     </article>
     <article class="card" data-category="Développement personnel">
-      <a href="articles/estime-de-soi/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/estime-de-soi/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/aoxipastxsy2yhiky7nw');background-position:50% 50%;background-size:cover" data-cat="Développement personnel"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/estime-de-soi/">L'estime de soi : comprendre et reconstruire la relation avec soi-même</a></h2>
+        <h2 class="card__title"><a href="../../articles/estime-de-soi/">L'estime de soi : comprendre et reconstruire la relation avec soi-même</a></h2>
         <p class="card__excerpt">L'estime de soi n'est pas de l'arrogance. C'est la conviction profonde d'avoir de la valeur — indépendamment de ce qu'on accomplit, de l'approbation des autres ou de son apparence. Voici comment elle se construit, se détruit et se répare.</p>
         <footer class="card__meta">
           <time datetime="2026-06-04">Mis à jour le 4 juin 2026</time>
@@ -156,14 +123,14 @@
       </section>
 
       <section class="theme-stage" id="etape-reconnaitre" aria-labelledby="etape-reconnaitre-title">
-        <h2 class="theme-stage__title" id="etape-reconnaitre-title">2. Reconnaître les signes</h2>
+        <h2 class="theme-stage__title" id="etape-reconnaitre-title">Reconnaître les signes</h2>
         <div class="theme-cards-grid">
     <article class="card" data-category="Bien-être">
-      <a href="articles/notre-radar-interieur/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/notre-radar-interieur/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ca3h6mkh8zbg5b32gpel');background-position:50% 50%;background-size:cover" data-cat="Bien-être"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/notre-radar-interieur/">Notre radar intérieur : osez vous faire confiance</a></h2>
+        <h2 class="card__title"><a href="../../articles/notre-radar-interieur/">Notre radar intérieur : osez vous faire confiance</a></h2>
         <p class="card__excerpt">Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement. Encore faut-il savoir l'écouter. Mode d'emploi.</p>
         <footer class="card__meta">
           <time datetime="2026-07-17">Publié le 17 juillet 2026</time>
@@ -173,11 +140,11 @@
       </div>
     </article>
     <article class="card" data-category="Relations">
-      <a href="articles/relation-toxique-signes/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/relation-toxique-signes/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/i18mtrmw6piglzoxxo4z');background-position:50% 50%;background-size:cover" data-cat="Relations"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/relation-toxique-signes/">Relation toxique : les 8 signes qui ne trompent pas</a></h2>
+        <h2 class="card__title"><a href="../../articles/relation-toxique-signes/">Relation toxique : les 8 signes qui ne trompent pas</a></h2>
         <p class="card__excerpt">Une relation toxique ne commence pas forcément par des coups. Elle commence par des petites phrases, des regards, des culpabilisations subtiles. Voici les 8 signaux d'alarme à reconnaître avant que la situation ne s'aggrave.</p>
         <footer class="card__meta">
           <time datetime="2026-06-04">Mis à jour le 4 juin 2026</time>
@@ -190,14 +157,14 @@
       </section>
 
       <section class="theme-stage" id="etape-pourquoi" aria-labelledby="etape-pourquoi-title">
-        <h2 class="theme-stage__title" id="etape-pourquoi-title">3. Pourquoi on reste</h2>
+        <h2 class="theme-stage__title" id="etape-pourquoi-title">Pourquoi on reste</h2>
         <div class="theme-cards-grid">
     <article class="card" data-category="Relations">
-      <a href="articles/meres-toxiques-comprendre-pour-se-reconstruire/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/meres-toxiques-comprendre-pour-se-reconstruire/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd');background-position:50% 50%;background-size:cover" data-cat="Relations"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/meres-toxiques-comprendre-pour-se-reconstruire/">Mères toxiques : comprendre pour se reconstruire</a></h2>
+        <h2 class="card__title"><a href="../../articles/meres-toxiques-comprendre-pour-se-reconstruire/">Mères toxiques : comprendre pour se reconstruire</a></h2>
         <p class="card__excerpt">Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.</p>
         <footer class="card__meta">
           <time datetime="2026-08-04">Publié le 4 août 2026</time>
@@ -210,14 +177,14 @@
       </section>
 
       <section class="theme-stage" id="etape-agir" aria-labelledby="etape-agir-title">
-        <h2 class="theme-stage__title" id="etape-agir-title">4. Se protéger et sortir</h2>
+        <h2 class="theme-stage__title" id="etape-agir-title">Se protéger et sortir</h2>
         <div class="theme-cards-grid">
     <article class="card" data-category="Troubles Psy">
-      <a href="articles/survivre-relation-toxique/" class="card__image-link" tabindex="-1" aria-hidden="true">
+      <a href="../../articles/survivre-relation-toxique/" class="card__image-link" tabindex="-1" aria-hidden="true">
         <div class="card__image" style="background-image:url('https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w7i39kp9bde6t5apucsa');background-position:50% 50%;background-size:cover" data-cat="Troubles Psy"></div>
       </a>
       <div class="card__body">
-        <h2 class="card__title"><a href="articles/survivre-relation-toxique/">Survivre à une relation toxique ?</a></h2>
+        <h2 class="card__title"><a href="../../articles/survivre-relation-toxique/">Survivre à une relation toxique ?</a></h2>
         <p class="card__excerpt">Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.</p>
         <footer class="card__meta">
           <time datetime="2026-07-26">Publié le 26 juillet 2026</time>
@@ -239,7 +206,7 @@
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
+          <a href="../../index.html" class="logo">
             <span class="logo__icon" aria-hidden="true">🧠</span>
             <span>Oui Psycho!</span>
           </a>
@@ -248,18 +215,18 @@
         <div class="footer-col">
           <h4>Thématiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
-            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
-            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
-            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+            <li><a href="../../index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="../../index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="../../index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="../../index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>À propos</h4>
           <ul class="footer-links">
-            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
-            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../../a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="../../politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="../../mentions-legales.html">Mentions légales</a></li>
           </ul>
         </div>
       </div>
@@ -275,12 +242,12 @@
       <span class="cookie-emoji">🍪</span>
       <h2 id="cookie-title">Votre vie privée, votre choix</h2>
       <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
-      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a class="cookie-privacy-link" href="../../politique-de-confidentialite.html">Politique de confidentialité</a>
       <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
       <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
 </html>

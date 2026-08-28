@@ -779,25 +779,32 @@ for (const cluster of CLUSTERS) {
   }
   if (hubLastmod > TODAY) hubLastmod = TODAY;
 
-  // Étapes réellement affichées (au moins un article publié) — sert à la fois
-  // à numéroter le sommaire et les titres de section, dans le même ordre.
+  // Étapes réellement affichées (au moins un article publié).
   const nonEmptyStages = stageOrder.filter(s => byStage[s] && byStage[s].length);
 
+  // Sommaire du parcours — même rendu que le fil de parcours des articles
+  // (classes .cluster-trail partagées, déjà stylées) : une progression fléchée,
+  // pas une liste numérotée. Pas d'étape "courante" ici (page hub elle-même).
   const tocHtml = nonEmptyStages
-    .map((s, i) => `<a href="#etape-${s}">${i + 1}. ${escCard(cluster.etapes[s])}</a>`)
-    .join('<span class="theme-toc__sep" aria-hidden="true">·</span>');
+    .map(s => `<a class="cluster-trail__step" href="#etape-${s}">${escCard(cluster.etapes[s])}</a>`)
+    .join('<span class="cluster-trail__sep" aria-hidden="true">→</span>');
 
   // Cartes de la page hub : grille dédiée (3/2/1 colonnes, images réduites) et
   // sans badge de catégorie — retrait fait ici par retrait du <span class="badge">
   // rendu par renderCardStatic, plutôt qu'en modifiant cette fonction partagée
-  // (utilisée ailleurs pour l'accueil et les pages rubrique).
-  const stripBadge = html => html.replace(/<span class="badge"[^>]*>[^<]*<\/span>\s*/, '');
+  // (utilisée ailleurs pour l'accueil et les pages rubrique). Les href générés
+  // par renderCardStatic supposent un contexte avec <base href="../../"> (comme
+  // les pages article) ; la page hub n'a plus de <base> (voir plus bas, fix de
+  // la casse fragment-only + <base>), d'où le re-préfixage vers articles/.
+  const stripBadge  = html => html.replace(/<span class="badge"[^>]*>[^<]*<\/span>\s*/, '');
+  const rebaseLinks = html => html.replace(/href="articles\//g, 'href="../../articles/');
+  const hubifyCard  = a => rebaseLinks(stripBadge(renderCardStatic(a)));
 
   const sectionsHtml = nonEmptyStages
-    .map((s, i) => `
+    .map(s => `
       <section class="theme-stage" id="etape-${s}" aria-labelledby="etape-${s}-title">
-        <h2 class="theme-stage__title" id="etape-${s}-title">${i + 1}. ${escCard(cluster.etapes[s])}</h2>
-        <div class="theme-cards-grid">${byStage[s].map(a => stripBadge(renderCardStatic(a))).join('')}
+        <h2 class="theme-stage__title" id="etape-${s}-title">${escCard(cluster.etapes[s])}</h2>
+        <div class="theme-cards-grid">${byStage[s].map(hubifyCard).join('')}
         </div>
       </section>`)
     .join('\n');
@@ -811,7 +818,6 @@ for (const cluster of CLUSTERS) {
   <meta name="description" content="${escCard(cluster.excerpt || cluster.title)}">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#1F4E6B">
-  <base href="../../">
   <link rel="canonical" href="${BASE}/theme/${cluster.id}/">
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="${escCard(cluster.title)} — Oui Psycho!">
@@ -820,47 +826,15 @@ for (const cluster of CLUSTERS) {
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Oui Psycho!">
   <meta name="twitter:card"       content="summary_large_image">
-  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="icon" type="image/png" href="../../img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <style>
-    .theme-hero {
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #1F4E6B 100%);
-      color: #fff;
-      padding: 2.5rem 1.5rem 3rem;
-      text-align: center;
-      clip-path: ellipse(120% 100% at 50% 0%);
-    }
-    .theme-hero__content { max-width: 700px; margin: 0 auto; }
-    .theme-hero h1 { font-size: clamp(1.9rem, 5vw, 3rem); font-weight: 800; line-height: 1.15; margin-bottom: 1.2rem; }
-    .theme-hero p { font-size: 1.05rem; opacity: .88; line-height: 1.7; max-width: 560px; margin: 0 auto; }
-    .theme-stages-wrap { padding: 2rem 0 5rem; }
-    /* Sommaire du parcours — sobre, tient sur 1-2 lignes */
-    .theme-toc {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: var(--sp-3);
-      font-size: .85rem;
-      color: var(--color-text-muted);
-      margin-bottom: 2.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid var(--color-border-light);
-    }
-    .theme-toc a { color: var(--color-text-muted); }
-    .theme-toc a:hover { color: var(--color-primary); }
-    .theme-toc__sep { color: var(--color-border); }
-    .theme-stage { margin-bottom: 3rem; }
-    .theme-stage__title { font-size: var(--fs-xl); margin-bottom: 1.25rem; }
-    /* Grille de cartes dédiée à la page hub : 3/2/1 colonnes, images réduites —
-       n'affecte pas .articles-grid (règle partagée, utilisée ailleurs sur le site). */
-    .theme-cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--sp-5); }
-    .theme-cards-grid .card__image { height: 130px; }
-    @media (max-width: 900px) { .theme-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 640px) { .theme-cards-grid { grid-template-columns: 1fr; gap: var(--sp-5); } }
-  </style>
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- Pas de <base> sur cette page (contrairement aux pages article) : un
+       <base href="../../"> casse toute ancre fragment-only (href="#etape-x")
+       en la résolvant contre la racine du site plutôt que la page courante.
+       Tous les liens ci-dessous sont donc explicitement préfixés ../../. -->
   <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -897,20 +871,20 @@ for (const cluster of CLUSTERS) {
 
   <header class="site-header" id="site-header">
     <div class="header-top">
-      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
-        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+      <a href="../../index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="../../img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
         <span>Oui Psycho!</span>
       </a>
       <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
-        <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
-        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
-        <a class="nav__link" href="tests.html">🧪 Tests</a>
-        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
-        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+        <a class="nav__link" href="../../index.html">Accueil</a>
+        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="../../tests.html">🧪 Tests</a>
+        <a class="nav__link" href="../../a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="../../index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
   </header>
@@ -922,7 +896,7 @@ for (const cluster of CLUSTERS) {
   </section>
 
   <div class="container theme-stages-wrap">
-    <nav class="theme-toc" aria-label="Sommaire du parcours">${tocHtml}</nav>
+    <nav class="cluster-trail theme-toc" aria-label="Sommaire du parcours">${tocHtml}</nav>
 ${sectionsHtml}
   </div>
 
@@ -935,7 +909,7 @@ ${sectionsHtml}
       </div>
       <div class="footer-grid">
         <div class="footer-brand">
-          <a href="index.html" class="logo">
+          <a href="../../index.html" class="logo">
             <span class="logo__icon" aria-hidden="true">🧠</span>
             <span>Oui Psycho!</span>
           </a>
@@ -944,18 +918,18 @@ ${sectionsHtml}
         <div class="footer-col">
           <h4>Thématiques</h4>
           <ul class="footer-links">
-            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
-            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
-            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
-            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+            <li><a href="../../index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="../../index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="../../index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="../../index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h4>À propos</h4>
           <ul class="footer-links">
-            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
-            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
-            <li><a href="mentions-legales.html">Mentions légales</a></li>
+            <li><a href="../../a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="../../politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="../../mentions-legales.html">Mentions légales</a></li>
           </ul>
         </div>
       </div>
@@ -971,13 +945,13 @@ ${sectionsHtml}
       <span class="cookie-emoji">🍪</span>
       <h2 id="cookie-title">Votre vie privée, votre choix</h2>
       <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
-      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a class="cookie-privacy-link" href="../../politique-de-confidentialite.html">Politique de confidentialité</a>
       <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
       <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
     </div>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="../../js/main.js"></script>
 </body>
 </html>
 `;
