@@ -277,6 +277,29 @@ ${srcItems}
     relatedWidgetHtml = `<h2 class="widget__title">Pour continuer</h2>\n        <div class="widget-links">\n          ${widgetLinks.join('\n          ')}\n        </div>`;
   }
 
+  // Bloc "Pour continuer" en fin d'article-body — jusqu'à 3 liens piochés dans
+  // le cluster (hors article courant), répartis par étape pour varier les
+  // angles plutôt que de prendre 3 articles de la même étape. Un <p> (pas un
+  // <h2>/<h3>) pour le titre : évite que buildTOC() (js/main.js) ne le capture
+  // comme une section du contenu.
+  let continueBlockHtml = '';
+  if (clusterResolved) {
+    const stageOrder = Object.keys(clusterResolved.etapes);
+    const picks = [];
+    for (const s of stageOrder) {
+      const members = (clusterMembers[j.cluster] && clusterMembers[j.cluster][s]) || [];
+      for (const m of members) {
+        if (m.id === j.id) continue;
+        picks.push(m);
+      }
+    }
+    const chosen = picks.slice(0, 3);
+    if (chosen.length >= 2) {
+      const items = chosen.map(m => `<li><a href="articles/${escCard(m.id)}/">${escCard(m.title)}</a></li>`).join('\n              ');
+      continueBlockHtml = `\n          <div class="article-continue">\n            <p class="article-continue__title">Pour continuer</p>\n            <ul class="article-continue__list">\n              ${items}\n            </ul>\n          </div>`;
+    }
+  }
+
   // JSON-LD ───────────────────────────────────────────────────────────────────
   const esc = s => String(s).replace(/\\/g,'\\\\').replace(/"/g,'\\"');
   // Sécurise l'injection dans <script>…</script> (séquence </script> interdite)
@@ -502,7 +525,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${wrapTables(j.content)}
+          ${wrapTables(j.content)}${continueBlockHtml}
         </div>
 ${sourcesHtml}
         <div class="author-box">
