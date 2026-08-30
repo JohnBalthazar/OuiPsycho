@@ -10,9 +10,9 @@
   "contactEmail": "contact@ouipsycho.fr",
   "adminPassHash": "pbkdf2:SzU+xh9vO7E8pg91nSTqIw==:9irCSUTD66+OQsYikyXXj3efQ8yio7/sYCtbutkAoxM=",
   "fb_enc": {
-    "salt": "lMu7QH+jNle7Nr+bKQB8+A==",
-    "iv": "R1UPK49kVTiPXVlC",
-    "ct": "/TRh+xe1/qMpxBQHebnkArY8hBOWUJvem3GblYAPyOrR1KT0US791x0Frlm5NCGmOMA="
+    "salt": "lwSg+bPDyBkYGE00pzavRw==",
+    "iv": "MIH2tfz0PnJlhBcS",
+    "ct": "W/aZK2adwXnV5VZh2Z+6fy2zTRyVmlbipVNMezDLFC6+dekuuTuqM9zaxFbAL72HaWk="
   },
   "brevoFormUrl": "https://9462e3d1.sibforms.com/serve/MUIFAPM3hGtiK0D0nCAzxsyD2WYfwz051cAI23J91juLYiJgjvyEA1aPVI0ED_kWdSJOV7aYSIRqq1aZkG_Y3yrDYf89UqkHKDJidHRsW0kS2Cb3bxuADaGCoihxR_u2IvXQ-VeprjKnbJBu0fVJmXFyUj4T9iOeJrTUna8ZpUumnTCfj5z9NoALEClE1K_CXQ58Jf0i9qOjbhx4-w==",
   "brevoListId": "2"
