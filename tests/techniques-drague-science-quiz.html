@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Et vous, quel·le dragueur·se êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/techniques-drague-science/">
+  <meta name="description" content="Spontané·e, stratège, caméléon ou adepte du slow burn ? 10 questions pour découvrir votre style de séduction et les leviers psychologiques qui vous correspondent.">
+  <style>
+    :root{
+      --terra:#B0574F; --terra-fonce:#8a413b; --sauge:#5F8D6E; --accent:#C96B62;
+      --fond:#FAF6F4; --carte:#ffffff; --texte:#39302d; --gris:#7c6f6a;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(176,87,79,.13);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--terra),var(--terra-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.92;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#f1e6e3;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--sauge);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--terra-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#f8f1ef;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--terra);background:#f5ebe8}
+    .btn{display:inline-block;background:var(--terra);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--terra-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#eef4ef;border-left:4px solid var(--sauge);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#f8f1ef;border:1px solid #ecdcd8;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#f2e6e2}
+    .disclaimer{background:#f8f1ef;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Et vous, quel·le dragueur·se êtes-vous&nbsp;?</h1>
+      <p>Spontané·e, stratège, caméléon ou adepte du slow burn ? 10 questions pour situer votre style de séduction.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Quand quelqu'un vous plaît, votre premier réflexe est de :",
+        r: [
+          {t: "Vous lancer sans trop réfléchir, quitte à improviser sur le moment.", p: "A"},
+          {t: "Observer la situation, pour choisir le bon moment et la bonne approche.", p: "B"},
+          {t: "Vous adapter au contexte : bar bruyant, dîner calme, chacun sa version de vous.", p: "C"},
+          {t: "Ne pas bouger tout de suite — vous préférez laisser l'intérêt se construire.", p: "D"}
+        ]
+      },
+      {
+        q: "Pour créer une occasion de rencontre, vous avez tendance à :",
+        r: [
+          {t: "Saisir l'instant : une soirée, un lieu, ça part sans plan.", p: "A"},
+          {t: "Organiser : choisir le lieu, l'activité, le bon moment.", p: "B"},
+          {t: "Rejoindre les cercles où se trouve déjà la personne — cours, amis communs.", p: "C"},
+          {t: "Laisser les occasions se répéter naturellement, sans rien forcer.", p: "D"}
+        ]
+      },
+      {
+        q: "Pour montrer votre intérêt à quelqu'un, vous préférez :",
+        r: [
+          {t: "Le dire franchement, sans détour.", p: "A"},
+          {t: "Multiplier les attentions bien dosées, presque calculées.", p: "B"},
+          {t: "Écouter vraiment, et retenir ce qui compte pour l'autre.", p: "C"},
+          {t: "Laisser transparaître votre intérêt petit à petit, sans jamais brûler les étapes.", p: "D"}
+        ]
+      },
+      {
+        q: "Dans une conversation avec quelqu'un qui vous plaît, vous cherchez surtout :",
+        r: [
+          {t: "À faire rire, à créer une étincelle immédiate.", p: "A"},
+          {t: "À évaluer sa personnalité et sa compatibilité avec vous.", p: "B"},
+          {t: "Les points communs, les références partagées, ce qui vous rapproche.", p: "C"},
+          {t: "À poser de vraies questions, même si la conversation avance lentement.", p: "D"}
+        ]
+      },
+      {
+        q: "Souvent sans même vous en rendre compte, dans une conversation qui vous plaît :",
+        r: [
+          {t: "Vous suivez votre énergie du moment, sans y penser.", p: "A"},
+          {t: "Vous ajustez consciemment votre discours pour plaire.", p: "B"},
+          {t: "Vous adoptez naturellement le ton, le rythme, l'humour de l'autre.", p: "C"},
+          {t: "Vous restez fondamentalement vous-même, quitte à ce que ce soit plus lent à connecter.", p: "D"}
+        ]
+      },
+      {
+        q: "Sur le fait de vous dévoiler à quelqu'un qui vous plaît :",
+        r: [
+          {t: "Vous vous confiez vite et spontanément, sans trop calculer.", p: "A"},
+          {t: "Vous dévoilez ce qu'il faut, au bon moment, pour créer de l'intimité de façon maîtrisée.", p: "B"},
+          {t: "Vous vous adaptez au rythme de dévoilement de l'autre.", p: "C"},
+          {t: "Vous préférez y aller par paliers, question après question.", p: "D"}
+        ]
+      },
+      {
+        q: "Votre langage corporel dans ces moments-là :",
+        r: [
+          {t: "Expressif, énergique, ça se voit immédiatement.", p: "A"},
+          {t: "Maîtrisé — vous savez que la posture et le regard, ça se travaille.", p: "B"},
+          {t: "Vous reflétez inconsciemment la posture de l'autre.", p: "C"},
+          {t: "Discret au début, plus ouvert à mesure que la confiance s'installe.", p: "D"}
+        ]
+      },
+      {
+        q: "Face à un « conseil de drague » viral (jouer l'indifférence, attendre pour répondre) :",
+        r: [
+          {t: "Vous zappez, ce n'est pas votre style — trop calculé.", p: "A"},
+          {t: "Ça vous intrigue, même si vous savez que ça finit toujours par se voir.", p: "B"},
+          {t: "Vous préférez vous adapter à la personne en face plutôt que suivre une recette.", p: "C"},
+          {t: "Vous trouvez ça too much — la sincérité progressive fonctionne bien mieux.", p: "D"}
+        ]
+      },
+      {
+        q: "Après un date qui « n'a rien donné » :",
+        r: [
+          {t: "Vous passez vite à autre chose, sans trop y repenser.", p: "A"},
+          {t: "Vous analysez ce qui n'a pas fonctionné, pour ajuster la prochaine fois.", p: "B"},
+          {t: "Vous vous demandez si vous vous êtes trop adapté·e, au point de perdre un peu de vous-même.", p: "C"},
+          {t: "Vous vous dites que ça n'avait peut-être simplement pas eu le temps de prendre.", p: "D"}
+        ]
+      },
+      {
+        q: "Pour un premier rendez-vous, vous préférez :",
+        r: [
+          {t: "Une activité un peu improvisée, quitte à changer de plan en cours de route.", p: "A"},
+          {t: "Un lieu et un format bien choisis à l'avance, pour mettre les chances de votre côté.", p: "B"},
+          {t: "Une activité informelle qui permette de s'accorder facilement à l'autre (marche, expo…).", p: "C"},
+          {t: "Un cadre calme qui laisse la place à une vraie conversation, sans pression de temps.", p: "D"}
+        ]
+      }
+    ];
+
+    var profils = {
+      A: {
+        emoji: "🔥",
+        titre: "Le/la spontané·e",
+        texte: "<p>Vous jouez la carte de l'authenticité brute — et ce n'est pas rien : la recherche montre qu'un intérêt sincère, exprimé directement, vaut souvent mille phrases d'accroche travaillées. Votre énergie et votre franchise activent naturellement la réciprocité : on aime celles et ceux qui nous aiment, et vous le montrez sans détour.</p><p>Le point de vigilance, c'est la régularité : l'attirance se construit aussi par la simple exposition — se montrer, revenir, être là plusieurs fois. Un feu d'artifice suivi de silence retombe vite.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> gardez cette spontanéité, elle est rare et elle plaît — mais pensez à revenir, à vous montrer une deuxième puis une troisième fois. C'est souvent là, dans la répétition tranquille, que l'étincelle initiale se transforme en vrai lien."
+      },
+      B: {
+        emoji: "♟️",
+        titre: "Le/la stratège",
+        texte: "<p>Vous comprenez une chose essentielle que beaucoup ignorent : la séduction qui marche n'est pas un coup d'éclat, ce sont des conditions qu'on réunit patiemment — se montrer régulièrement, choisir le bon contexte, soigner les signaux non verbaux. Votre sens de l'observation et votre constance sont de vrais atouts psychologiques, validés par la science.</p><p>Le risque, s'il existe, se situe à la frontière entre stratégie et jeu de pouvoir : la recherche est sans pitié pour les tactiques qui traitent la séduction comme un rapport de force (feindre l'indifférence, attendre pour répondre) — elles sabotent justement la réciprocité qui fait tout le travail.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> continuez à soigner le contexte et le moment — c'est une vraie force — mais assurez-vous que votre stratégie reste au service de la sincérité, jamais du contrôle. Une bonne condition réunie sert à laisser advenir quelque chose de vrai, pas à le fabriquer."
+      },
+      C: {
+        emoji: "🦎",
+        titre: "Le caméléon",
+        texte: "<p>Vous mobilisez sans le savoir l'un des leviers les plus solides identifiés par la psychologie sociale : l'effet caméléon. En vous synchronisant naturellement au ton, au rythme et à l'énergie de l'autre, vous créez un sentiment de connivence puissant — les études de Chartrand et Bargh l'ont montré dès 1999. Vous ajoutez à cela la recherche de similarité, qui rassure et fluidifie la conversation bien plus que « les opposés s'attirent ».</p><p>Le point d'attention, c'est de ne pas vous perdre en route : une adaptation trop poussée finit par gommer ce qui vous rend, vous, intéressant·e à découvrir.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> votre talent d'adaptation est réel — gardez-le, mais réservez-vous quelques traits, opinions ou passions non négociables que vous n'ajustez jamais à l'autre. C'est précisément ce noyau stable qui rendra la connexion mémorable plutôt qu'interchangeable."
+      },
+      D: {
+        emoji: "🕰️",
+        titre: "L'adepte du slow burn",
+        texte: "<p>Vous incarnez le levier sans doute le plus solide de la psychologie de l'intimité : l'auto-révélation progressive, popularisée par la fameuse étude des « 36 questions » d'Arthur Aron. Se confier un peu, laisser l'autre se confier en retour, et voir l'intimité s'installer par paliers — c'est lent, mais terriblement efficace, et nettement plus durable qu'un coup de foudre instantané.</p><p>Le seul vrai risque de ce style, c'est de tellement bien maîtriser l'art d'attendre… que le premier pas ne soit jamais franchi. Aucun levier psychologique ne s'active depuis le canapé.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> votre patience est un vrai atout — gardez-la pour la suite. Mais autorisez-vous un premier geste, même petit et même imparfait : c'est le seul ingrédient que la science ne peut pas fabriquer à votre place."
+      }
+    };
+
+    var index = 0;
+    var votes = {A:0, B:0, C:0, D:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/techniques-drague-science/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['A', 'B', 'C', 'D'];
+      var max = -1, gagnant = 'A';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "J'ai fait le test « Quel·le dragueur·se êtes-vous ? » sur Oui Psycho! — " + p.titre + " " + p.emoji;
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion ludique, pas un diagnostic de personnalité. Chacun mêle en réalité plusieurs styles selon les personnes et les moments.</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {A:0, B:0, C:0, D:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>

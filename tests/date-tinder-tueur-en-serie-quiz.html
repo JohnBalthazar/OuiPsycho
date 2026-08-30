@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Votre date Tinder est-il un tueur en série ?</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/date-tinder-tueur-en-serie/">
+<meta name="description" content="Dix questions pour situer le curseur — du profil parfaitement clean aux signaux qui méritent qu'on écoute son instinct.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-50:  #F0FDF4;
+    --green-400: #4ADE80;
+    --green-600: #16A34A;
+    --amber-50:  #FFFBEB;
+    --amber-200: #FDE68A;
+    --amber-400: #FBBF24;
+    --amber-600: #D97706;
+    --amber-800: #92400E;
+    --orange-50: #FFF7ED;
+    --orange-600:#EA580C;
+    --red-50:    #FEF2F2;
+    --red-400:   #F87171;
+    --red-600:   #DC2626;
+    --text:      #2b2321;
+    --text-muted:#7c6f6a;
+    --border:    rgba(0,0,0,0.10);
+    --border-hover: rgba(0,0,0,0.22);
+    --bg:        #ffffff;
+    --bg-sec:    #FAF6F4;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --accent:    #b5546a;
+    --accent-light: #FBEEF0;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 2rem 1.5rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  .header h1 { font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.45; }
+  .header p  { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+  .progress-wrap { margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .progress-label { font-size: 12px; color: var(--text-muted); }
+  .progress-bar   { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.75rem; overflow: hidden; }
+  .progress-fill  { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.35s ease; }
+
+  .question { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 1.25rem; line-height: 1.55; }
+
+  .options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 1.75rem; }
+  .option {
+    background: var(--bg);
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  .option:hover   { border-color: var(--accent); background: var(--accent-light); }
+  .option.selected{ border: 2px solid var(--accent); background: var(--accent-light); color: #6d2e3e; font-weight: 500; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    background: transparent;
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-md);
+    padding: 9px 20px;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover    { background: var(--bg-sec); }
+  .btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+  .btn-primary  { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-primary:hover { background: #8a3d4f; }
+
+  .result { animation: fadeUp 0.4s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-zone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 auto 1rem;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .result-icon  { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 1rem; }
+  .result-title { font-size: 21px; font-weight: 700; text-align: center; margin-bottom: 0.25rem; }
+  .result-sub   { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem; }
+
+  .score-band { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .score-track { flex: 1; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; }
+  .score-fill  { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+  .score-label { font-size: 12px; color: var(--text-muted); min-width: 60px; text-align: right; }
+
+  .result-desc { font-size: 14.5px; line-height: 1.75; margin-bottom: 1.25rem; color: var(--text); }
+
+  .insight-block { background: var(--bg-sec); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 1.25rem; }
+  .insight-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 6px; }
+  .insight-text  { font-size: 14px; line-height: 1.65; color: var(--text); }
+
+  .disclaimer {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--amber-800);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: var(--radius-md);
+    font-size: 13px; font-family: inherit; cursor: pointer;
+    border: none; text-decoration: none; color: #fff; font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .share-btn:hover { opacity: 0.85; }
+  .share-btn--fb  { background: #1877F2; }
+  .share-btn--tw  { background: #000; }
+  .share-btn--wa  { background: #25D366; }
+
+  .restart-wrap { text-align: center; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">Auto-évaluation</div>
+  <h1>Votre date Tinder est-il un tueur en série&nbsp;?</h1>
+  <p>10 questions · résultats immédiats · aucune donnée collectée</p>
+</div>
+
+<div id="root"></div>
+
+<script>
+const questions = [
+  {
+    text: "Après seulement quelques jours d'échanges (ou un premier rendez-vous), cette personne…",
+    options: [
+      { text: "Reste sur un rythme mesuré : sympathique, sans excès.", score: 0 },
+      { text: "Se montre très enthousiaste, mais ça reste dans les clous.", score: 1 },
+      { text: "Parle déjà d'âme sœur, d'avenir à deux, ou multiplie les petits cadeaux.", score: 2 },
+      { text: "Vous submerge de déclarations enflammées, de cadeaux et de messages — un vrai raz-de-marée.", score: 3 }
+    ]
+  },
+  {
+    text: "Vous déclinez un verre, un baiser, ou une invitation à monter chez elle/lui. Sa réaction :",
+    options: [
+      { text: "Elle/il l'accepte simplement, sans insister.", score: 0 },
+      { text: "Une petite déception visible, mais respectée aussitôt.", score: 1 },
+      { text: "Elle/il insiste un peu ou tente de vous faire changer d'avis.", score: 2 },
+      { text: "Elle/il boude, culpabilise ou se vexe ouvertement.", score: 3 }
+    ]
+  },
+  {
+    text: "Au fil des échanges, cette personne veut savoir où vous êtes, avec qui, et commente déjà vos ami·e·s :",
+    options: [
+      { text: "Pas du tout — elle s'intéresse à vous sans vous surveiller.", score: 0 },
+      { text: "Quelques questions curieuses, normal en tout début.", score: 1 },
+      { text: "Elle veut être tenue informée en quasi permanence de vos faits et gestes.", score: 2 },
+      { text: "Elle critique déjà vos proches et s'agace quand vous êtes indisponible.", score: 3 }
+    ]
+  },
+  {
+    text: "Comment se comporte-t-elle/il avec le serveur, le chauffeur ou le personnel présent ?",
+    options: [
+      { text: "Poli et respectueux, sans effort apparent.", score: 0 },
+      { text: "Correct, sans plus.", score: 1 },
+      { text: "Un peu sec ou cassant par moments.", score: 2 },
+      { text: "Méprisant, hautain, voire humiliant.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand la conversation glisse vers ses ex, cette personne…",
+    options: [
+      { text: "En parle avec nuance, sans les dénigrer.", score: 0 },
+      { text: "Reste assez vague, semble vouloir tourner la page.", score: 1 },
+      { text: "Les décrit en des termes plutôt négatifs.", score: 2 },
+      { text: "Les traite toutes de « folles » ou pire, sans une once de recul.", score: 3 }
+    ]
+  },
+  {
+    text: "Ce qu'elle/il raconte sur sa vie (travail, lieu de résidence, amis communs) est…",
+    options: [
+      { text: "Cohérent et facilement vérifiable.", score: 0 },
+      { text: "Globalement cohérent, quelques flous sans importance.", score: 1 },
+      { text: "Étonnamment flou sur plusieurs points.", score: 2 },
+      { text: "Plein de contradictions ou d'informations invérifiables.", score: 3 }
+    ]
+  },
+  {
+    text: "Si vous exprimez un désaccord ou un avis différent du sien, cette personne…",
+    options: [
+      { text: "Écoute et peut débattre sereinement, voire changer d'avis.", score: 0 },
+      { text: "Défend son point de vue, sans plus.", score: 1 },
+      { text: "A du mal à accepter d'avoir tort, se braque un peu.", score: 2 },
+      { text: "Vous fait sentir bête ou déraisonnable d'avoir un avis différent.", score: 3 }
+    ]
+  },
+  {
+    text: "Sur le rythme de la relation (fréquence des messages, vitesse d'engagement), vous sentez que…",
+    options: [
+      { text: "Le rythme est confortable, décidé à deux.", score: 0 },
+      { text: "Elle/il est un peu plus pressé·e que vous, sans forcer.", score: 1 },
+      { text: "Elle/il pousse clairement pour accélérer les choses.", score: 2 },
+      { text: "Vous vous sentez bousculé·e, comme si dire non n'était pas vraiment une option.", score: 3 }
+    ]
+  },
+  {
+    text: "Après le rendez-vous ou l'échange, votre sensation générale est…",
+    options: [
+      { text: "Légère : vous vous sentez bien, en confiance.", score: 0 },
+      { text: "Plutôt positive, avec une petite question sans gravité.", score: 1 },
+      { text: "Un malaise difficile à nommer, mais bien présent.", score: 2 },
+      { text: "Un vrai inconfort, une petite voix qui dit clairement « fais attention ».", score: 3 }
+    ]
+  },
+  {
+    text: "Concernant votre liberté de mouvement (transport, téléphone) pendant le rendez-vous…",
+    options: [
+      { text: "Vous êtes venu·e par vos propres moyens et gardez un total contrôle.", score: 0 },
+      { text: "Vous dépendez un peu d'elle/lui pour le trajet, sans que ça pose problème.", score: 1 },
+      { text: "Elle/il insiste pour vous raccompagner ou « garder » votre téléphone.", score: 2 },
+      { text: "Vous vous sentez dépendant·e d'elle/lui pour rentrer ou communiquer.", score: 3 }
+    ]
+  }
+];
+
+const profiles = [
+  {
+    min: 0, max: 7,
+    zone: "🟢 Feu vert",
+    zoneColor: "#16A34A",
+    zoneBg: "#F0FDF4",
+    icon: "💚", iconBg: "#F0FDF4", iconColor: "#16A34A",
+    scoreColor: "#16A34A",
+    title: "Profil clean",
+    sub: "Aucun signal préoccupant détecté",
+    desc: "Rien, dans ce que vous décrivez, ne ressemble aux marqueurs identifiés par la recherche : rythme respecté, « non » entendu, empathie visible envers les tiers. Statistiquement, ce date a bien plus de chances de mal charger le lave-vaisselle que de cacher quoi que ce soit — et vos réponses le confirment plutôt que de le contredire.",
+    insight: "Un profil clean ne veut pas dire « garantie zéro risque » — personne ne peut le promettre après un ou deux rendez-vous. Mais l'absence des signaux les plus documentés (love bombing, non qui ne passe pas, mépris envers autrui) est une vraie donnée rassurante, pas juste une impression.",
+    action: "Profitez-en l'esprit tranquille : premier rendez-vous en lieu public, un proche informé, votre propre moyen de transport. Ce ne sont pas des réflexes de méfiance, ce sont juste les ceintures de sécurité qu'on met sans y penser — et qu'on oublie dès que tout roule."
+  },
+  {
+    min: 8, max: 15,
+    zone: "🟡 Vigilance normale",
+    zoneColor: "#D97706",
+    zoneBg: "#FFFBEB",
+    icon: "🙂", iconBg: "#FFFBEB", iconColor: "#D97706",
+    scoreColor: "#D97706",
+    title: "Rien d'alarmant, restez juste attentif·ve",
+    sub: "Quelques points isolés, sans schéma clair",
+    desc: "Vos réponses signalent un ou deux comportements qui méritent d'être observés, sans dessiner pour autant une dynamique inquiétante. Beaucoup de premiers rendez-vous comportent une part de maladresse, de nervosité ou d'enthousiasme mal calibré qui n'a rien à voir avec du contrôle.",
+    insight: "La différence entre nervosité et red flag, c'est la répétition et la réaction au « non ». Un excès isolé de compliments ou une question un peu curieuse ne prédit rien à eux seuls — c'est la façon dont la personne réagit quand vous posez une limite qui est réellement informative.",
+    action: "Continuez simplement à observer sur la durée, sans dramatiser un détail. Gardez vos réflexes de sécurité de base (lieu public, proche informé, moyen de transport à vous) — ils ne coûtent rien et évitent d'avoir à se poser la question après coup."
+  },
+  {
+    min: 16, max: 23,
+    zone: "🟠 Signaux à ne pas ignorer",
+    zoneColor: "#EA580C",
+    zoneBg: "#FFF7ED",
+    icon: "⚠️", iconBg: "#FFF7ED", iconColor: "#EA580C",
+    scoreColor: "#EA580C",
+    title: "Plusieurs signaux se recoupent",
+    sub: "Le schéma commence à se dessiner",
+    desc: "Vos réponses cumulent plusieurs indicateurs identifiés par la recherche — love bombing, mépris envers un tiers, difficulté à accepter un « non » ou un désaccord. Pris isolément, chacun pourrait s'excuser ; ensemble, ils forment un début de schéma qu'il vaut mieux ne pas balayer d'un revers de main.",
+    insight: "Gavin de Becker, expert en sécurité, en a fait l'un de ses signaux majeurs : quelqu'un qui n'entend pas votre « non » cherche, consciemment ou non, à prendre le contrôle. Et le love bombing, loin d'être un excès de passion, traduit surtout l'insécurité de celui qui le pratique — pas un réel attachement.",
+    action: "Ralentissez délibérément le rythme et observez comment la personne réagit à ce ralentissement : c'est souvent le test le plus révélateur. Parlez-en à un proche avant le prochain rendez-vous, fixez-le dans un lieu public, et faites confiance au malaise que vous ressentez déjà — il n'a pas besoin de preuve pour être légitime."
+  },
+  {
+    min: 24, max: 30,
+    zone: "🔴 Prudence",
+    zoneColor: "#DC2626",
+    zoneBg: "#FEF2F2",
+    icon: "🚩", iconBg: "#FEF2F2", iconColor: "#DC2626",
+    scoreColor: "#DC2626",
+    title: "Red flags sérieux",
+    sub: "Un faisceau d'indices cohérent",
+    desc: "Vos réponses dessinent un tableau cohérent, pas une succession de coïncidences : irrespect des limites, mépris envers autrui, tentative de contrôle, discours qui ne tient pas debout. Ce n'est plus de l'instinct qui parle, ce sont des faits que vous avez vous-même listés.",
+    insight: "La triade sombre — narcissisme, machiavélisme, manque d'empathie — existe sur un continuum, et personne n'a besoin d'un diagnostic pour la reconnaître : la manière dont quelqu'un traite votre « non », vos proches et votre liberté dit presque tout. Votre instinct n'est pas de la paranoïa, c'est un signal.",
+    action: "Vous n'avez besoin d'aucune preuve pour écourter ou arrêter cette relation naissante — « je ne le sentais pas » suffit amplement. Prévenez un proche, ne dépendez pas de cette personne pour rentrer, et faites-vous confiance : ce petit malaise que vous n'arriviez pas à nommer est justement le meilleur détecteur de red flags que vous possédiez."
+  }
+];
+
+let current = 0;
+let answers  = Array(questions.length).fill(null);
+
+function getProfile(total) {
+  return profiles.find(p => total >= p.min && total <= p.max) || profiles[profiles.length - 1];
+}
+
+function shareUrl(network, total, profileTitle) {
+  const url  = 'https://ouipsycho.fr/tests/date-tinder-tueur-en-serie-quiz.html';
+  const text = 'J\'ai fait le test « Votre date Tinder est-il un tueur en série ? » sur Oui Psycho! 🧠 Résultat : ' + profileTitle + '. Et toi ?';
+  const encodedText = encodeURIComponent(text);
+  const encodedUrl  = encodeURIComponent(url);
+  if (network === 'facebook') return 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '&quote=' + encodedText;
+  if (network === 'x')        return 'https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl;
+  if (network === 'whatsapp') return 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+  return url;
+}
+
+function render() {
+  const root = document.getElementById('root');
+
+  if (current < questions.length) {
+    const q   = questions[current];
+    const pct = Math.round((current / questions.length) * 100);
+    root.innerHTML =
+      '<div class="progress-wrap">' +
+        '<span class="progress-label">Question ' + (current + 1) + ' / ' + questions.length + '</span>' +
+      '</div>' +
+      '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="question">' + q.text + '</div>' +
+      '<div class="options">' +
+        q.options.map(function(o, i) {
+          return '<button class="option' + (answers[current] === i ? ' selected' : '') + '" onclick="select(' + i + ')">' + o.text + '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="nav">' +
+        '<button class="btn" onclick="goBack()"' + (current === 0 ? ' disabled' : '') + '>← Précédent</button>' +
+        '<button class="btn btn-primary" onclick="goNext()"' + (answers[current] === null ? ' disabled' : '') + '>' +
+          (current === questions.length - 1 ? 'Voir mon résultat' : 'Suivant →') +
+        '</button>' +
+      '</div>';
+  } else {
+    var total    = answers.reduce(function(s, idx, qi) { return s + (idx !== null ? questions[qi].options[idx].score : 0); }, 0);
+    var maxScore = questions.length * 3;
+    var p        = getProfile(total);
+    var pct      = Math.round((total / maxScore) * 100);
+
+    root.innerHTML =
+      '<div class="result">' +
+        '<div class="result-zone" style="color:' + p.zoneColor + ';background:' + p.zoneBg + '">' + p.zone + '</div>' +
+        '<div class="result-icon" style="background:' + p.iconBg + ';color:' + p.iconColor + '">' + p.icon + '</div>' +
+        '<div class="result-title">' + p.title + '</div>' +
+        '<div class="result-sub">' + p.sub + '</div>' +
+
+        '<div class="score-band">' +
+          '<div class="score-track"><div class="score-fill" style="width:' + pct + '%;background:' + p.scoreColor + '"></div></div>' +
+          '<div class="score-label">' + total + ' / ' + maxScore + '</div>' +
+        '</div>' +
+
+        '<div class="result-desc">' + p.desc + '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🔍 Ce que dit la science</div>' +
+          '<div class="insight-text">' + p.insight + '</div>' +
+        '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🛡️ Ce que vous pouvez faire</div>' +
+          '<div class="insight-text">' + p.action + '</div>' +
+        '</div>' +
+
+        '<div class="disclaimer">' +
+          '⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul votre jugement — éventuellement éclairé par un proche ou un professionnel — peut évaluer une situation réelle. En cas de danger immédiat, appelez le <strong>17</strong> ; en cas de violences, le <strong>3919</strong>.' +
+        '</div>' +
+
+        '<div class="share-row">' +
+          '<a class="share-btn share-btn--fb" href="' + shareUrl('facebook', total, p.title) + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+          '<a class="share-btn share-btn--tw" href="' + shareUrl('x', total, p.title) + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+          '<a class="share-btn share-btn--wa" href="' + shareUrl('whatsapp', total, p.title) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+
+        '<div class="restart-wrap">' +
+          '<button class="btn" onclick="restart()">↺ Recommencer</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  notifyResize();
+}
+
+function select(i)  { answers[current] = i; render(); }
+function goNext()   { if (answers[current] === null) return; current++; render(); }
+function goBack()   { if (current > 0) { current--; render(); } }
+function restart()  { current = 0; answers = Array(questions.length).fill(null); render(); }
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+render();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

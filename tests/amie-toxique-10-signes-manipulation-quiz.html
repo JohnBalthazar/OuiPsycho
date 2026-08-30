@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<title>Votre amie est-elle toxique ?</title>
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/amie-toxique-10-signes-manipulation/">
+<meta name="description" content="Frictions normales, déséquilibre passager ou véritable emprise ? 10 questions pour faire le point sur cette amitié qui vous questionne.">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-50:  #F0FDF4;
+    --green-600: #16A34A;
+    --amber-50:  #FFFBEB;
+    --amber-200: #FDE68A;
+    --amber-600: #D97706;
+    --amber-800: #92400E;
+    --orange-50: #FFF7ED;
+    --orange-600:#EA580C;
+    --red-50:    #FEF2F2;
+    --red-600:   #DC2626;
+    --text:      #2c2530;
+    --text-muted:#786f7d;
+    --border:    rgba(0,0,0,0.10);
+    --border-hover: rgba(0,0,0,0.22);
+    --bg:        #ffffff;
+    --bg-sec:    #F8F5FA;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --accent:    #7C5C9E;
+    --accent-light: #F1EAF7;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.6;
+    padding: 2rem 1.5rem 3rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .header { text-align: center; margin-bottom: 2rem; }
+  .header-badge {
+    display: inline-block;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    background: var(--accent-light);
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+  }
+  .header h1 { font-size: 19px; font-weight: 600; color: var(--text); line-height: 1.45; }
+  .header p  { font-size: 13px; color: var(--text-muted); margin-top: 0.5rem; }
+
+  .progress-wrap { margin-bottom: 0.5rem; display: flex; justify-content: space-between; align-items: center; }
+  .progress-label { font-size: 12px; color: var(--text-muted); }
+  .progress-bar   { height: 4px; background: var(--border); border-radius: 2px; margin-bottom: 1.75rem; overflow: hidden; }
+  .progress-fill  { height: 100%; background: var(--accent); border-radius: 2px; transition: width 0.35s ease; }
+
+  .question { font-size: 16px; font-weight: 600; color: var(--text); margin-bottom: 1.25rem; line-height: 1.55; }
+
+  .options { display: flex; flex-direction: column; gap: 9px; margin-bottom: 1.75rem; }
+  .option {
+    background: var(--bg);
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-lg);
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text);
+    text-align: left;
+    transition: border-color 0.15s, background 0.15s;
+    font-family: inherit;
+    line-height: 1.5;
+  }
+  .option:hover   { border-color: var(--accent); background: var(--accent-light); }
+  .option.selected{ border: 2px solid var(--accent); background: var(--accent-light); color: #4d3868; font-weight: 500; }
+
+  .nav { display: flex; justify-content: space-between; align-items: center; }
+  .btn {
+    background: transparent;
+    border: 0.5px solid var(--border-hover);
+    border-radius: var(--radius-md);
+    padding: 9px 20px;
+    font-size: 14px;
+    color: var(--text);
+    cursor: pointer;
+    font-family: inherit;
+    transition: background 0.15s;
+  }
+  .btn:hover    { background: var(--bg-sec); }
+  .btn:disabled { opacity: 0.3; cursor: default; pointer-events: none; }
+  .btn-primary  { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .btn-primary:hover { background: #5f4680; }
+
+  .result { animation: fadeUp 0.4s ease; }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .result-zone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 auto 1rem;
+    justify-content: center;
+    width: fit-content;
+  }
+
+  .result-icon  { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 1rem; }
+  .result-title { font-size: 21px; font-weight: 700; text-align: center; margin-bottom: 0.25rem; }
+  .result-sub   { font-size: 13px; color: var(--text-muted); text-align: center; margin-bottom: 1.5rem; }
+
+  .score-band { display: flex; align-items: center; gap: 10px; margin-bottom: 1.5rem; }
+  .score-track { flex: 1; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; }
+  .score-fill  { height: 100%; border-radius: 4px; transition: width 0.8s ease; }
+  .score-label { font-size: 12px; color: var(--text-muted); min-width: 60px; text-align: right; }
+
+  .result-desc { font-size: 14.5px; line-height: 1.75; margin-bottom: 1.25rem; color: var(--text); }
+
+  .insight-block { background: var(--bg-sec); border-radius: var(--radius-md); padding: 14px 18px; margin-bottom: 1.25rem; }
+  .insight-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); margin-bottom: 6px; }
+  .insight-text  { font-size: 14px; line-height: 1.65; color: var(--text); }
+
+  .disclaimer {
+    background: var(--amber-50);
+    border: 1px solid var(--amber-200);
+    border-radius: var(--radius-md);
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--amber-800);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .share-row { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 1rem; }
+  .share-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 8px 14px; border-radius: var(--radius-md);
+    font-size: 13px; font-family: inherit; cursor: pointer;
+    border: none; text-decoration: none; color: #fff; font-weight: 500;
+    transition: opacity 0.15s;
+  }
+  .share-btn:hover { opacity: 0.85; }
+  .share-btn--fb  { background: #1877F2; }
+  .share-btn--tw  { background: #000; }
+  .share-btn--wa  { background: #25D366; }
+
+  .restart-wrap { text-align: center; margin-top: 1.5rem; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-badge">Auto-évaluation</div>
+  <h1>Votre amie est-elle toxique&nbsp;?</h1>
+  <p>10 questions · résultats immédiats · aucune donnée collectée</p>
+</div>
+
+<div id="root"></div>
+
+<script>
+const questions = [
+  {
+    text: "Ses compliments à votre égard…",
+    options: [
+      { text: "Sont sincères et vous font vraiment plaisir.", score: 0 },
+      { text: "Sont parfois un peu maladroits, sans plus.", score: 1 },
+      { text: "Contiennent souvent une petite pique déguisée.", score: 2 },
+      { text: "Sont presque toujours des critiques enrobées d'un compliment.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous rappelez un événement ou une parole passée entre vous…",
+    options: [
+      { text: "Elle s'en souvient comme vous, ou reconnaît volontiers son erreur.", score: 0 },
+      { text: "Elle a parfois un souvenir légèrement différent, rien d'inhabituel.", score: 1 },
+      { text: "Elle nie souvent ce qu'elle a dit, ou vous trouve « trop sensible ».", score: 2 },
+      { text: "Vous finissez régulièrement par douter de votre propre mémoire face à elle.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous partagez une nouvelle (bonne ou mauvaise) qui vous concerne…",
+    options: [
+      { text: "Elle réagit proportionnellement, sans en faire une histoire personnelle.", score: 0 },
+      { text: "Elle ramène parfois la conversation à elle, occasionnellement.", score: 1 },
+      { text: "Elle a souvent une situation similaire « en pire » ou « en mieux » à raconter.", score: 2 },
+      { text: "Tout devient systématiquement une compétition, même vos épreuves.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous lui annoncez une réussite…",
+    options: [
+      { text: "Elle se réjouit sincèrement pour vous.", score: 0 },
+      { text: "Sa réaction est correcte, sans grand enthousiasme.", score: 1 },
+      { text: "Elle change de sujet ou minimise (« c'est pas non plus… »).", score: 2 },
+      { text: "Un silence froid, ou une remarque qui dégonfle immédiatement votre joie.", score: 3 }
+    ]
+  },
+  {
+    text: "Vos confidences, une fois partagées avec elle…",
+    options: [
+      { text: "Restent entre vous, vous lui faites confiance sans arrière-pensée.", score: 0 },
+      { text: "Elle en reparle parfois, sans que ça vous pose vraiment problème.", score: 1 },
+      { text: "Vous avez déjà découvert qu'elles avaient circulé, arrangées.", score: 2 },
+      { text: "Elle rapporte régulièrement à chacun ce que l'autre aurait dit.", score: 3 }
+    ]
+  },
+  {
+    text: "Elle prend de vos nouvelles…",
+    options: [
+      { text: "Régulièrement, dans les bons comme dans les mauvais moments.", score: 0 },
+      { text: "De façon un peu irrégulière, mais ça reste équilibré.", score: 1 },
+      { text: "Surtout quand elle a besoin de quelque chose.", score: 2 },
+      { text: "Presque uniquement quand elle a besoin de vous — le reste du temps, silence.", score: 3 }
+    ]
+  },
+  {
+    text: "À propos de vos autres relations (ami·e·s, partenaire, famille), elle…",
+    options: [
+      { text: "Les apprécie, ou reste simplement neutre.", score: 0 },
+      { text: "Fait parfois une remarque, sans insister.", score: 1 },
+      { text: "Les critique régulièrement, « pour votre bien ».", score: 2 },
+      { text: "Cherche ouvertement à vous en détourner.", score: 3 }
+    ]
+  },
+  {
+    text: "Quand vous posez une limite ou dites non…",
+    options: [
+      { text: "Elle la respecte sans discuter.", score: 0 },
+      { text: "Elle est un peu déçue, mais n'insiste pas.", score: 1 },
+      { text: "Elle vous rappelle « tout ce qu'elle a fait pour vous ».", score: 2 },
+      { text: "Elle vous fait sentir coupable jusqu'à ce que vous cédiez.", score: 3 }
+    ]
+  },
+  {
+    text: "Son comportement envers vous, d'une fois sur l'autre…",
+    options: [
+      { text: "Est globalement stable et prévisible.", score: 0 },
+      { text: "Varie un peu selon son humeur, sans que ça vous déstabilise.", score: 1 },
+      { text: "Alterne entre chaleur intense et froideur inexpliquée.", score: 2 },
+      { text: "Vous ne savez jamais sur quel pied danser — et vous y pensez beaucoup.", score: 3 }
+    ]
+  },
+  {
+    text: "Après un moment passé avec elle, vous vous sentez généralement…",
+    options: [
+      { text: "Ressourcé·e, en confiance.", score: 0 },
+      { text: "Neutre, ni bien ni mal.", score: 1 },
+      { text: "Vaguement tendu·e ou coupable, sans trop savoir pourquoi.", score: 2 },
+      { text: "Vidé·e, mal, avec une boule au ventre qui revient souvent.", score: 3 }
+    ]
+  }
+];
+
+const profiles = [
+  {
+    min: 0, max: 7,
+    zone: "🟢 Amitié saine",
+    zoneColor: "#16A34A",
+    zoneBg: "#F0FDF4",
+    icon: "🌿", iconBg: "#F0FDF4", iconColor: "#16A34A",
+    scoreColor: "#16A34A",
+    title: "Des frictions normales, pas un schéma toxique",
+    sub: "Rien qui ressemble à un déséquilibre durable",
+    desc: "Vos réponses ne dessinent pas un schéma de manipulation : cette amitié connaît sans doute des jalousies passagères ou des périodes moins équilibrées, comme toute relation vivante — mais rien de répété ni de systématique. C'est précisément la différence que fait la recherche entre une amie parfois maladroite et une dynamique d'emprise installée.",
+    insight: "Toute amitié saine traverse des frictions. Ce qui doit alerter, ce n'est pas l'existence d'un accroc ponctuel, mais sa répétition et le sentiment chronique d'être diminué·e qu'il laisse derrière lui. Ici, ce sentiment ne semble pas installé.",
+    action: "Continuez à faire confiance à ce que vous ressentez après l'avoir vue — c'est le meilleur baromètre qui soit. Et si un jour la balance penche, cette même vigilance vous permettra de le repérer tôt."
+  },
+  {
+    min: 8, max: 15,
+    zone: "🟡 À surveiller",
+    zoneColor: "#D97706",
+    zoneBg: "#FFFBEB",
+    icon: "👀", iconBg: "#FFFBEB", iconColor: "#D97706",
+    scoreColor: "#D97706",
+    title: "Un déséquilibre qui mérite votre attention",
+    sub: "Quelques signaux répétés, sans schéma généralisé",
+    desc: "Vos réponses pointent vers un ou deux mécanismes qui reviennent régulièrement — une compétition sourde, une réciprocité qui penche d'un côté, une réjouissance qui manque de chaleur. Rien d'irréversible, mais suffisamment présent pour ne pas être balayé d'un revers de main.",
+    insight: "L'amitié est un système de réciprocité à long terme. Un déséquilibre isolé se corrige souvent par une conversation directe ; un déséquilibre qui dure depuis des années, lui, tend à s'installer comme une habitude — la sienne comme la vôtre.",
+    action: "Nommez ce que vous observez, calmement et avec des exemples précis, plutôt que de laisser le malaise s'accumuler en silence. La façon dont elle reçoit cette parole — défense sincère ou déni total — vous en dira long sur la suite à donner à cette amitié."
+  },
+  {
+    min: 16, max: 23,
+    zone: "🟠 Schéma installé",
+    zoneColor: "#EA580C",
+    zoneBg: "#FFF7ED",
+    icon: "⚠️", iconBg: "#FFF7ED", iconColor: "#EA580C",
+    scoreColor: "#EA580C",
+    title: "Un schéma toxique qui semble installé",
+    sub: "Plusieurs mécanismes se recoupent",
+    desc: "Vos réponses cumulent plusieurs marqueurs identifiés par la recherche sur les amitiés toxiques : compliments qui piquent, doute installé sur vos propres souvenirs, réciprocité à sens unique, chaud et froid récurrent. Pris ensemble, ils dessinent un fonctionnement plus qu'un simple accident de parcours.",
+    insight: "Le chaud-et-froid n'est pas anodin : en psychologie de l'apprentissage, ce régime imprévisible s'appelle le renforcement intermittent — le plus addictif qui soit, car c'est l'incertitude de la récompense qui vous pousse à redoubler d'efforts pour retrouver « la bonne version » de votre amie.",
+    action: "Commencez à prendre de la distance, sans forcément couper net : espacez les échanges, réduisez ce que vous confiez, et observez si le comportement change. Parlez-en à un proche extérieur à la relation — rompre l'isolement est souvent la première étape la plus efficace."
+  },
+  {
+    min: 24, max: 30,
+    zone: "🔴 Emprise probable",
+    zoneColor: "#DC2626",
+    zoneBg: "#FEF2F2",
+    icon: "🛑", iconBg: "#FEF2F2", iconColor: "#DC2626",
+    scoreColor: "#DC2626",
+    title: "Une dynamique d'emprise amicale",
+    sub: "Un tableau cohérent, pas une série de coïncidences",
+    desc: "Vos réponses correspondent à un schéma cohérent de manipulation amicale : gaslighting sur vos souvenirs, triangulation de vos confidences, isolement progressif de vos autres proches, chantage affectif quand vous posez une limite. Ce n'est pas de la parano — c'est un ensemble de mécanismes documentés qui, mis bout à bout, ont un nom.",
+    insight: "Le plus grand piège de ce type de relation, c'est que le mot « amie » désarme la méfiance — on se protège d'un ennemi, pas d'une amie. Ce qui vous retient (l'histoire commune, l'espoir des bons moments, la culpabilité entretenue) est parfaitement connu et documenté : ça s'appelle le biais des coûts irrécupérables, pas un manque de lucidité de votre part.",
+    action: "Vous n'avez besoin d'aucune « preuve suffisante » pour prendre vos distances. Parlez-en à un proche de confiance ou à un·e psychologue pour comprendre ce qui, dans votre histoire, rend ce schéma familier — et pour poser, à votre rythme, les limites nécessaires."
+  }
+];
+
+let current = 0;
+let answers  = Array(questions.length).fill(null);
+
+function getProfile(total) {
+  return profiles.find(p => total >= p.min && total <= p.max) || profiles[profiles.length - 1];
+}
+
+function shareUrl(network, total, profileTitle) {
+  const url  = 'https://ouipsycho.fr/tests/amie-toxique-10-signes-manipulation-quiz.html';
+  const text = 'J\'ai fait le test « Votre amie est-elle toxique ? » sur Oui Psycho! 🧠 Résultat : ' + profileTitle + '. Et toi ?';
+  const encodedText = encodeURIComponent(text);
+  const encodedUrl  = encodeURIComponent(url);
+  if (network === 'facebook') return 'https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl + '&quote=' + encodedText;
+  if (network === 'x')        return 'https://twitter.com/intent/tweet?text=' + encodedText + '&url=' + encodedUrl;
+  if (network === 'whatsapp') return 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+  return url;
+}
+
+function render() {
+  const root = document.getElementById('root');
+
+  if (current < questions.length) {
+    const q   = questions[current];
+    const pct = Math.round((current / questions.length) * 100);
+    root.innerHTML =
+      '<div class="progress-wrap">' +
+        '<span class="progress-label">Question ' + (current + 1) + ' / ' + questions.length + '</span>' +
+      '</div>' +
+      '<div class="progress-bar"><div class="progress-fill" style="width:' + pct + '%"></div></div>' +
+      '<div class="question">' + q.text + '</div>' +
+      '<div class="options">' +
+        q.options.map(function(o, i) {
+          return '<button class="option' + (answers[current] === i ? ' selected' : '') + '" onclick="select(' + i + ')">' + o.text + '</button>';
+        }).join('') +
+      '</div>' +
+      '<div class="nav">' +
+        '<button class="btn" onclick="goBack()"' + (current === 0 ? ' disabled' : '') + '>← Précédent</button>' +
+        '<button class="btn btn-primary" onclick="goNext()"' + (answers[current] === null ? ' disabled' : '') + '>' +
+          (current === questions.length - 1 ? 'Voir mon résultat' : 'Suivant →') +
+        '</button>' +
+      '</div>';
+  } else {
+    var total    = answers.reduce(function(s, idx, qi) { return s + (idx !== null ? questions[qi].options[idx].score : 0); }, 0);
+    var maxScore = questions.length * 3;
+    var p        = getProfile(total);
+    var pct      = Math.round((total / maxScore) * 100);
+
+    root.innerHTML =
+      '<div class="result">' +
+        '<div class="result-zone" style="color:' + p.zoneColor + ';background:' + p.zoneBg + '">' + p.zone + '</div>' +
+        '<div class="result-icon" style="background:' + p.iconBg + ';color:' + p.iconColor + '">' + p.icon + '</div>' +
+        '<div class="result-title">' + p.title + '</div>' +
+        '<div class="result-sub">' + p.sub + '</div>' +
+
+        '<div class="score-band">' +
+          '<div class="score-track"><div class="score-fill" style="width:' + pct + '%;background:' + p.scoreColor + '"></div></div>' +
+          '<div class="score-label">' + total + ' / ' + maxScore + '</div>' +
+        '</div>' +
+
+        '<div class="result-desc">' + p.desc + '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🔍 Ce que ça dit</div>' +
+          '<div class="insight-text">' + p.insight + '</div>' +
+        '</div>' +
+
+        '<div class="insight-block">' +
+          '<div class="insight-label">🛡️ Ce que vous pouvez faire</div>' +
+          '<div class="insight-text">' + p.action + '</div>' +
+        '</div>' +
+
+        '<div class="disclaimer">' +
+          '⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. « Toxique » décrit des comportements répétés, pas une personne dans son essence. Seul un professionnel peut vous aider à y voir clair. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).' +
+        '</div>' +
+
+        '<div class="share-row">' +
+          '<a class="share-btn share-btn--fb" href="' + shareUrl('facebook', total, p.title) + '" target="_blank" rel="noopener">📘 Facebook</a>' +
+          '<a class="share-btn share-btn--tw" href="' + shareUrl('x', total, p.title) + '" target="_blank" rel="noopener">𝕏 Twitter</a>' +
+          '<a class="share-btn share-btn--wa" href="' + shareUrl('whatsapp', total, p.title) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+
+        '<div class="restart-wrap">' +
+          '<button class="btn" onclick="restart()">↺ Recommencer</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  notifyResize();
+}
+
+function select(i)  { answers[current] = i; render(); }
+function goNext()   { if (answers[current] === null) return; current++; render(); }
+function goBack()   { if (current > 0) { current--; render(); } }
+function restart()  { current = 0; answers = Array(questions.length).fill(null); render(); }
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+render();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel maître d'arts martiaux êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/son-goku-sur-le-divan/">
+  <meta name="description" content="Tortue Géniale, Piccolo, Goku ou Végéta : chacun incarne un style de transmission et un rapport bien à lui au dépassement de soi. 7 questions.">
+  <style>
+    :root{
+      --orange:#DB6B2A; --orange-fonce:#A84C1B; --bleu:#2E6F95; --accent:#E8952E;
+      --fond:#FFF8F1; --carte:#ffffff; --texte:#332821; --gris:#7c6f65;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(219,107,42,.15);overflow:hidden}
+    .entete{background:linear-gradient(135deg,var(--orange),var(--orange-fonce));color:#fff;padding:26px 24px;text-align:center}
+    .entete h1{font-size:1.4rem;margin-bottom:6px}
+    .entete p{opacity:.92;font-size:.95rem}
+    .corps{padding:24px}
+    .barre{height:8px;background:#f5e6d8;border-radius:4px;margin-bottom:20px;overflow:hidden}
+    .barre-int{height:100%;background:var(--bleu);border-radius:4px;width:0;transition:width .3s ease}
+    .compteur{font-size:.85rem;color:var(--gris);margin-bottom:10px;font-weight:600}
+    .question{font-size:1.12rem;font-weight:700;margin-bottom:18px;color:var(--orange-fonce)}
+    .reponse{display:block;width:100%;text-align:left;background:#fdf2e7;border:2px solid transparent;border-radius:12px;padding:14px 16px;margin-bottom:10px;font-size:.98rem;color:var(--texte);cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .reponse:hover{border-color:var(--orange);background:#fbe9d7}
+    .btn{display:inline-block;background:var(--orange);color:#fff;border:none;border-radius:999px;padding:13px 30px;font-size:1rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .12s}
+    .btn:hover{transform:translateY(-1px)}
+    .centre{text-align:center}
+    .resultat-badge{font-size:2.6rem;margin-bottom:8px}
+    .resultat-titre{font-size:1.35rem;font-weight:800;color:var(--orange-fonce);margin-bottom:12px}
+    .resultat-texte{font-size:.98rem;margin-bottom:16px;text-align:left}
+    .resultat-texte p{margin-bottom:10px}
+    .conseil{background:#eaf2f6;border-left:4px solid var(--bleu);border-radius:8px;padding:12px 14px;font-size:.93rem;text-align:left;margin-bottom:18px}
+    .partage{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:14px 0 6px}
+    .partage a{text-decoration:none;background:#fdf2e7;border:1px solid #f3ddc4;color:var(--texte);border-radius:999px;padding:9px 16px;font-size:.9rem;font-weight:600;transition:background .15s}
+    .partage a:hover{background:#f9e4cb}
+    .disclaimer{background:#fdf2e7;border-radius:10px;padding:12px 14px;font-size:.83rem;color:var(--gris);margin-top:16px;text-align:left}
+    .disclaimer strong{color:var(--texte)}
+    @media(max-width:480px){.corps{padding:18px}.entete{padding:20px 16px}.entete h1{font-size:1.2rem}}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="entete">
+      <h1>Quel maître d'arts martiaux sommeille en vous&nbsp;?</h1>
+      <p>Tortue Géniale, Piccolo, Goku ou Végéta : 7 questions pour découvrir votre style de dépassement de soi.</p>
+    </div>
+    <div class="corps" id="corps"></div>
+  </div>
+
+  <script>
+    var questions = [
+      {
+        q: "Face à un échec cuisant, votre réflexe est plutôt de :",
+        r: [
+          {t: "En rire un peu, retenir la leçon, et passer à autre chose sans en faire une montagne.", p: "T"},
+          {t: "Analyser froidement ce qui a raté, et redoubler de rigueur pour que ça ne se reproduise plus.", p: "P"},
+          {t: "Ressentir presque de l'excitation : enfin un obstacle à la hauteur, il y a forcément un palier à franchir.", p: "G"},
+          {t: "Ça vous ronge intérieurement — l'échec touche votre fierté, et vous vous jurez une revanche.", p: "V"}
+        ]
+      },
+      {
+        q: "Ce qui vous motive le plus à progresser :",
+        r: [
+          {t: "La transmission : voir quelqu'un progresser grâce à vous est presque aussi satisfaisant.", p: "T"},
+          {t: "La discipline : vous prouver à vous-même que vous tenez un cap, sans faiblir.", p: "P"},
+          {t: "Le plaisir pur de devenir meilleur qu'hier, sans autre objectif que celui-là.", p: "G"},
+          {t: "Être reconnu·e comme le/la meilleur·e, ou ne jamais être distancé·e.", p: "V"}
+        ]
+      },
+      {
+        q: "Votre rapport à la compétition :",
+        r: [
+          {t: "Vous préférez largement coopérer — la compétition, très peu pour vous.", p: "T"},
+          {t: "Vous la traversez avec sérieux et sang-froid, sans jamais chercher à humilier l'adversaire.", p: "P"},
+          {t: "Vous adorez ça, surtout face à plus fort que vous — c'est là que ça devient intéressant.", p: "G"},
+          {t: "Vous avez horreur de perdre, et honnêtement, ça se voit.", p: "V"}
+        ]
+      },
+      {
+        q: "Face à un débutant que vous devez former :",
+        r: [
+          {t: "Vous transmettez avec humour et légèreté — on retient mieux ce qu'on apprend en s'amusant.", p: "T"},
+          {t: "Vous êtes exigeant·e et ne lâchez rien, même si ça semble dur sur le moment.", p: "P"},
+          {t: "Vous vous entraînez à ses côtés, plus comme un partenaire que comme un professeur.", p: "G"},
+          {t: "Vous avez du mal à ralentir pour quelqu'un de moins avancé — la pédagogie n'est pas votre fort.", p: "V"}
+        ]
+      },
+      {
+        q: "Face à un rival manifestement plus fort ou plus avancé que vous :",
+        r: [
+          {t: "Vous restez philosophe : chacun son niveau, chacun son chemin.", p: "T"},
+          {t: "Vous l'étudiez méthodiquement pour comprendre ce qui fait sa force.", p: "P"},
+          {t: "Vous êtes ravi·e : un vrai défi, enfin !", p: "G"},
+          {t: "Ça vous obsède, jusqu'à ce que vous soyez capable de le/la dépasser.", p: "V"}
+        ]
+      },
+      {
+        q: "Vos proches décriraient votre humeur générale comme :",
+        r: [
+          {t: "Détendue, un brin facétieuse, avec une sagesse qui surprend.", p: "T"},
+          {t: "Réservée, exigeante envers vous-même — mais loyale une fois la confiance installée.", p: "P"},
+          {t: "Joyeuse et increvable, même après un gros coup dur.", p: "G"},
+          {t: "Intense, fière, parfois cassante — mais capable d'une loyauté sans faille.", p: "V"}
+        ]
+      },
+      {
+        q: "Sur votre rapport au travail ou à l'entraînement, vos proches diraient plutôt :",
+        r: [
+          {t: "Vous savez vous arrêter à temps — l'équilibre avant tout.", p: "T"},
+          {t: "Vous êtes du genre à vous isoler pour progresser, quitte à y sacrifier un peu de vie sociale.", p: "P"},
+          {t: "Vous auriez tendance à tout lâcher (même vos proches) pour un nouveau défi passionnant.", p: "G"},
+          {t: "Vous travaillez dans l'ombre, en silence, jusqu'au jour où vous éclatez au grand jour.", p: "V"}
+        ]
+      }
+    ];
+
+    var profils = {
+      T: {
+        emoji: "🐢",
+        titre: "Tortue Géniale — le mentor malicieux",
+        texte: "<p>Sous des dehors facétieux (et un brin coquins), vous êtes de ceux qui transmettent sans jamais écraser. Votre force n'est pas la démonstration mais la patience : vous laissez l'autre trouver son propre chemin plutôt que de lui imposer le vôtre. C'est exactement le rôle du « tuteur de résilience » décrit par Boris Cyrulnik — un adulte fiable qui sécurise sans étouffer.</p><p>Votre légèreté n'est pas de la superficialité : c'est souvent la meilleure porte d'entrée vers des choses sérieuses. On retient mieux ce qu'on apprend en souriant.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> votre humour est un vrai outil pédagogique — mais veillez à ne pas vous en servir pour éviter les conversations plus profondes quand elles sont nécessaires. Osez, de temps en temps, la franchise directe : elle ne casse pas la légèreté, elle la complète."
+      },
+      P: {
+        emoji: "💚",
+        titre: "Piccolo — la rigueur qui cache l'attachement",
+        texte: "<p>Rival devenu protecteur, vous exprimez votre affection par l'exigence plus que par les mots. Comme Piccolo avec Gohan, votre rigueur n'est pas de la froideur gratuite : c'est une manière — parfois maladroite — de préparer l'autre à être solide sans vous. La distance émotionnelle vous protège autant qu'elle protège ceux que vous formez.</p><p>Le risque, c'est que l'exigence, sans un mot de chaleur à côté, finisse par se lire uniquement comme du jugement.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> gardez votre rigueur, elle est précieuse — mais accompagnez-la, de temps en temps, d'une reconnaissance explicite. Un « je suis fier de toi » dit à voix haute pèse autant que dix séances d'entraînement exigeantes."
+      },
+      G: {
+        emoji: "🥋",
+        titre: "Goku — la joie du dépassement",
+        texte: "<p>Vous incarnez ce que la chercheuse Carol Dweck appelle un growth mindset : la conviction que les capacités se cultivent par l'effort, et que l'échec n'est jamais un verdict mais une information. Votre motivation est intrinsèque — vous progressez pour le plaisir de progresser, pas pour un trophée — et c'est, selon Deci et Ryan, le moteur le plus durable qui soit.</p><p>Mais vu du divan, cette quête sans fin a parfois des airs de fuite en avant : une façon de ne jamais s'arrêter assez longtemps pour ressentir, au risque de laisser d'autres gérer seuls ce que vous fuyez.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> programmez volontairement des pauses — pas pour vous reposer, mais pour digérer ce que vous traversez. Et vérifiez de temps en temps que vos quêtes personnelles ne se font pas au prix de l'attention que méritent vos proches."
+      },
+      V: {
+        emoji: "👑",
+        titre: "Végéta — la fierté qui pousse à se dépasser",
+        texte: "<p>Votre carburant, c'est la comparaison — et assumons-le, ça marche : peu de moteurs sont aussi puissants que la fierté blessée. Vous vous dépassez d'abord pour ne pas être distancé·e, avant, avec le temps, d'apprendre à vous dépasser pour vous-même. C'est exactement l'arc de Végéta : d'une ambition destructrice vers une loyauté et une puissance mises, finalement, au service des autres.</p><p>Le risque de ce moteur, c'est l'amertume quand quelqu'un d'autre réussit avant vous — et l'oubli que la victoire de l'autre ne retire rien à votre propre valeur.</p>",
+        conseil: "💡 <strong>Votre piste :</strong> réorientez la comparaison — plutôt que de vous mesurer aux autres, mesurez-vous à la personne que vous étiez hier. L'ambition reste une force tant qu'elle ne se transforme pas en ressentiment face au succès de quelqu'un d'autre."
+      }
+    };
+
+    var index = 0;
+    var votes = {T:0, P:0, G:0, V:0};
+    var corps = document.getElementById('corps');
+    var articleUrl = "https://ouipsycho.fr/articles/son-goku-sur-le-divan/";
+
+    function notifyResize() {
+      setTimeout(function() {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+
+    function melanger(arr) {
+      var a = arr.slice();
+      for (var i = a.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+      }
+      return a;
+    }
+
+    function afficherQuestion() {
+      var q = questions[index];
+      var pct = Math.round((index / questions.length) * 100);
+      var html = '<div class="barre"><div class="barre-int" style="width:' + pct + '%"></div></div>';
+      html += '<div class="compteur">Question ' + (index + 1) + ' / ' + questions.length + '</div>';
+      html += '<div class="question">' + q.q + '</div>';
+      var reponses = melanger(q.r);
+      for (var i = 0; i < reponses.length; i++) {
+        html += '<button type="button" class="reponse" data-p="' + reponses[i].p + '">' + reponses[i].t + '</button>';
+      }
+      corps.innerHTML = html;
+      var btns = corps.querySelectorAll('.reponse');
+      for (var k = 0; k < btns.length; k++) {
+        btns[k].addEventListener('click', function() {
+          votes[this.getAttribute('data-p')]++;
+          index++;
+          if (index < questions.length) { afficherQuestion(); } else { afficherResultat(); }
+        });
+      }
+      notifyResize();
+    }
+
+    function profilDominant() {
+      var ordre = ['V', 'P', 'G', 'T'];
+      var max = -1, gagnant = 'T';
+      for (var i = 0; i < ordre.length; i++) {
+        if (votes[ordre[i]] > max) { max = votes[ordre[i]]; gagnant = ordre[i]; }
+      }
+      return gagnant;
+    }
+
+    function afficherResultat() {
+      var p = profils[profilDominant()];
+      var texte = "J'ai fait ce quiz Dragon Ball sur ma manière de me dépasser — " + p.titre + " " + p.emoji;
+      var encUrl = encodeURIComponent(articleUrl);
+      var encTexte = encodeURIComponent(texte);
+      var html = '<div class="barre"><div class="barre-int" style="width:100%"></div></div>';
+      html += '<div class="centre">';
+      html += '<div class="resultat-badge">' + p.emoji + '</div>';
+      html += '<div class="resultat-titre">' + p.titre + '</div>';
+      html += '</div>';
+      html += '<div class="resultat-texte">' + p.texte + '</div>';
+      html += '<div class="conseil">' + p.conseil + '</div>';
+      html += '<div class="centre"><button type="button" class="btn" id="recommencer">🔄 Recommencer</button></div>';
+      html += '<div class="partage">';
+      html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + encUrl + '" target="_blank" rel="noopener">👍 Facebook</a>';
+      html += '<a href="https://twitter.com/intent/tweet?text=' + encTexte + '&url=' + encUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>';
+      html += '<a href="https://wa.me/?text=' + encTexte + '%20' + encUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+      html += '</div>';
+      html += '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion ludique, pas un diagnostic. Il prend appui sur des personnages de fiction pour illustrer des mécanismes psychologiques réels — pas pour vous enfermer dans une case.</div>';
+      corps.innerHTML = html;
+      document.getElementById('recommencer').addEventListener('click', function() {
+        index = 0;
+        votes = {T:0, P:0, G:0, V:0};
+        afficherQuestion();
+        notifyResize();
+      });
+      notifyResize();
+    }
+
+    afficherQuestion();
+    window.addEventListener('load', notifyResize);
+  </script>
+</body>
+</html>
