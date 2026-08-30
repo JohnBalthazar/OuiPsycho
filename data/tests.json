@@ -1,5 +1,19 @@
 [
   {
+    "id": "walter-white-sur-le-divan-quiz",
+    "title": "Walter White sur le divan : psychologie d'un chimiste de méthamphétamine",
+    "desc": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/walter-white-sur-le-divan-quiz.html",
+    "articleUrl": "articles/walter-white-sur-le-divan/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "arreter-de-fumer-en-2-semaines-quiz",
     "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
     "desc": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque…",
