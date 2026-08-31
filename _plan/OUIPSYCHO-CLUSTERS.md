@@ -149,6 +149,103 @@ Le plan ne listait aucun « existant », mais le site a déjà : `tdah-adulte-la
 ### 3.4 Liens internes cassés relevés (indépendant des lots, à corriger séparément)
 `a-quoi-sert-la-honte`, `et-si-vous-etiez-hpi`, `le-diable-sur-le-divan`, `leonard-de-vinci-sur-le-divan`, `meres-toxiques-comprendre-pour-se-reconstruire`, `monde-dirige-par-femmes`, `pourquoi-accepte-t-on-l-inacceptable`, `pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse`, `shrek-sur-le-divan` contiennent des liens vers des slugs inexistants (essentiellement d'anciens liens en `.html` datant d'avant la migration d'URL, et deux références à un article `pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention` qui n'a jamais été créé).
 
+### 3.5 Tableaux détaillés des 6 lots (lignes concrètes, colonne Statut ajoutée en Phase 0)
+
+**LOT 1 — Souffrance au travail** · `dossierId: souffrance-au-travail` · 💼 · Catégorie dominante : Travail
+Pilier proposé : `souffrance-au-travail-guide` — « Souffrance au travail : reconnaître, agir, se protéger »
+Existants à rattacher : `burnout-epuisement-professionnel`, `techniques-anti-stress`
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | Le blues du dimanche soir : pourquoi votre cerveau redoute lundi | `blues-du-dimanche-soir` | blues du dimanche soir | profils | **existe déjà** (scheduled 2026-09-30, titre quasi-identique) — ne pas réécrire |
+| 2 | Bore-out : quand l'ennui au travail rend malade | `bore-out-ennui-au-travail` | bore out | — | à écrire |
+| 3 | Brown-out : perdre le sens de son travail | `brown-out-perte-de-sens-travail` | brown out travail | — | à écrire |
+| 4 | Syndrome de l'imposteur : 8 signes et comment s'en sortir | `syndrome-imposteur` | syndrome de l'imposteur | score | à écrire |
+| 5 | Manager toxique : 7 signes qui ne trompent pas | `manager-toxique-signes` | manager toxique | — | à écrire |
+| 6 | Arrêt de travail pour burn-out : le parcours réel en France | `arret-travail-burn-out` | arrêt de travail burn out | — | à écrire |
+| 7 | Reprendre le travail après un burn-out sans rechuter | `reprise-travail-apres-burn-out` | reprise travail après burn out | — | à écrire |
+| 8 | Charge mentale : la définir, la mesurer, la répartir | `charge-mentale` | charge mentale | score | à écrire |
+| 9 | Harcèlement moral au travail : ce que dit la loi et quoi faire | `harcelement-moral-travail` | harcèlement moral travail | — | à écrire |
+
+**LOT 2 — Anxiété** · `dossierId: anxiete` · 😰 · Catégorie dominante : Troubles Psy
+Pilier proposé : `anxiete-guide-complet` — **collision de slug avec le dossier à chapitres existant**, à renommer si le lot part (ex. `anxiete-guide-complet-articles` ou fusionner dans un cluster `theme/anxiete/`)
+Existants : `crise-angoisse`, `trouble-anxieux-generalise`
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | Anxiété sociale : quand le regard des autres paralyse | `anxiete-sociale-phobie-sociale` | anxiété sociale | score | à écrire |
+| 2 | Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h | `crise-angoisse-nuit` | crise d'angoisse nocturne | — | à écrire |
+| 3 | Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété | `symptomes-physiques-anxiete` | symptômes physiques anxiété | — | à écrire |
+| 4 | Anxiété anticipatoire : souffrir de ce qui n'est pas arrivé | `anxiete-anticipatoire` | anxiété anticipatoire | — | proche de `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise` (existant, angle catastrophisme) — à vérifier avant d'écrire |
+| 5 | Cohérence cardiaque : la méthode 365 expliquée simplement | `coherence-cardiaque-365` | cohérence cardiaque 365 | — | à écrire |
+| 6 | Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien | `anxiete-de-sante-hypocondrie` | hypocondrie | profils | à écrire |
+| 7 | Agoraphobie : ce n'est pas la peur de la foule | `agoraphobie-comprendre` | agoraphobie | — | à écrire |
+| 8 | Anxiolytiques : ce qu'ils font vraiment (et les alternatives) | `anxiolytiques-effets-alternatives` | anxiolytique | — | à écrire |
+| 9 | TOC ou anxiété : comment faire la différence | `toc-ou-anxiete-difference` | TOC ou anxiété | — | à écrire |
+
+*Non listé par le plan mais trouvé à l'audit : `se-debarrasser-anxiete-pour-toujours` (existant, angle à comparer avant d'ajouter de nouvelles lignes) ; `refus-scolaire-anxieux-enfant-refuse-ecole` (existant, angle enfant — distinct, pas de collision).*
+
+**LOT 3 — Emprise et relations toxiques** · `dossierId: emprise-relations-toxiques` · 🕸️ · Catégorie dominante : Relations
+Pilier proposé `emprise-relation-toxique-guide` — **à abandonner** : ferait doublon avec la page hub déjà générée `theme/emprise-et-relations-toxiques/` (17 articles déjà rattachés, voir §3.2)
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | Pervers narcissique : 10 signes et ce que dit vraiment la clinique | `pervers-narcissique-signes` | pervers narcissique | score | **collision** avec `7-signes-personne-narcissique` + `dans-la-tete-d-un-pervers-narcissique` (existants dans le cluster) |
+| 2 | Gaslighting : quand on vous fait douter de votre propre mémoire | `gaslighting-manipulation` | gaslighting | — | trou réel — à écrire en le rattachant au cluster (`etape: reconnaitre` probable) |
+| 3 | Love bombing : l'amour à haute dose comme piège | `love-bombing` | love bombing | — | trou réel — à écrire (`etape: comprendre` ou `reconnaitre`) |
+| 4 | Dépendance affective : aimer jusqu'à s'oublier | `dependance-affective` | dépendance affective | profils | trou réel — à écrire (`etape: pourquoi`) |
+| 5 | Styles d'attachement : anxieux, évitant, sécure ? | `styles-attachement` | style d'attachement | profils | trou réel — à écrire (`etape: comprendre`) |
+| 6 | La punition par le silence : pourquoi elle fait si mal | `punition-par-le-silence` | silence radio couple | — | trou réel — à écrire (`etape: reconnaitre`) |
+| 7 | Sortir d'une relation toxique : plan concret en 7 étapes | `sortir-relation-toxique` | sortir relation toxique | — | **collision** avec `survivre-relation-toxique` (existant, publié, `etape: agir`) |
+| 8 | Violences psychologiques dans le couple : ce que dit la loi française | `violences-psychologiques-couple` | violence psychologique couple | — | trou réel — à écrire (`etape: agir`) |
+
+⚠️ Mentionner le **3919** en plus du 3114 sur les articles 7/8 et les quiz reste valable.
+
+**LOT 4 — Sommeil** · `dossierId: sommeil` · 😴 · Catégorie dominante : Sommeil
+Pilier proposé : `bien-dormir-guide-complet` — « Bien dormir : le guide complet du sommeil réparateur »
+Existants : `vaincre-insomnie`, `sommeil-sante-mentale`
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | Se réveiller à 3 h du matin : ce que ça révèle vraiment | `se-reveiller-3h-du-matin` | se réveiller à 3h du matin | — | à écrire |
+| 2 | Hygiène de sommeil : les 10 règles qui changent tout | `hygiene-de-sommeil` | hygiène de sommeil | — | à écrire |
+| 3 | Chronotype : lève-tôt, couche-tard ou entre les deux ? | `chronotype-matin-soir` | chronotype | profils | à écrire |
+| 4 | TCC de l'insomnie : la restriction de sommeil expliquée | `tcc-insomnie-restriction-sommeil` | TCC insomnie | — | à écrire |
+| 5 | Cauchemars récurrents : à quoi ils servent, comment les calmer | `cauchemars-recurrents` | cauchemars récurrents | — | à écrire |
+| 6 | Écrans et lumière bleue : ce que dit vraiment la science | `ecrans-lumiere-bleue-sommeil` | lumière bleue sommeil | — | à écrire |
+| 7 | La sieste : durée idéale et mode d'emploi | `sieste-duree-ideale` | sieste durée | — | à écrire |
+| 8 | Dette de sommeil : peut-on la rattraper le week-end ? | `dette-de-sommeil` | dette de sommeil | score | à écrire |
+| 9 | Paralysie du sommeil : réveillé, conscient, immobile | `paralysie-du-sommeil` | paralysie du sommeil | — | à écrire |
+
+**LOT 5 — Comprendre ses émotions** · `dossierId: emotions` · 🎭 · Catégorie dominante : Émotions & identité
+Pilier proposé : `comprendre-ses-emotions-guide` — « Comprendre et réguler ses émotions : le guide »
+Existants : `resilience-emotionnelle`, `estime-de-soi` (⚠️ déjà rattaché au cluster emprise-et-relations-toxiques, voir §3.3), `freins-au-bonheur`
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | Hypersensibilité : le test et ce qu'il faut en penser | `hypersensibilite-test` | hypersensibilité test | score | à écrire |
+| 2 | Alexithymie : ne pas trouver les mots de ses émotions | `alexithymie` | alexithymie | — | à écrire |
+| 3 | Gérer sa colère sans l'étouffer | `gerer-sa-colere` | gérer sa colère | profils | à écrire |
+| 4 | Culpabilité chronique : se sentir coupable de tout | `culpabilite-chronique` | culpabilité permanente | — | à écrire |
+| 5 | La honte : l'émotion dont personne ne parle | `honte-emotion` | sentiment de honte | — | **collision** avec `a-quoi-sert-la-honte` (existant) |
+| 6 | Pleurer pour un rien : ce que ça veut dire | `pleurer-pour-un-rien` | pleurer pour un rien | — | **collision probable** avec `pleurer-de-colere` (existant, à comparer) |
+| 7 | Rumination mentale : arrêter de ressasser | `rumination-mentale` | ruminations mentales | — | à écrire |
+| 8 | La roue des émotions : nommer pour apaiser | `roue-des-emotions` | roue des émotions | — | à écrire |
+
+**LOT 6 — Neuroatypie à l'âge adulte** · `dossierId: neuroatypie-adulte` · 🧩 · Catégorie dominante : Troubles Psy
+Pilier proposé `tdah-adulte-guide` — **à abandonner ou renommer** : `tdah-adulte-la-revelation` (existant) joue déjà ce rôle de pilier de fait dans le maillage réel
+
+| # | Titre SEO | Slug | Mot-clé cible | Quiz | Statut Phase 0 |
+|---|---|---|---|---|---|
+| 1 | TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard | `tdah-femme-adulte` | TDAH femme adulte | — | à vérifier vs `tdah-adulte-la-revelation`/`tdah-adulte-commencer-sans-jamais-finir` avant d'écrire |
+| 2 | Test TDAH adulte : ce que mesure l'ASRS (et ses limites) | `test-tdah-adulte-asrs` | test TDAH adulte | score | à écrire |
+| 3 | HPI : ce que le haut potentiel est — et n'est pas | `hpi-haut-potentiel-mythes` | HPI adulte | — | **collision probable** avec `et-si-vous-etiez-hpi` et `hpi-invisible-identification-tardive-adulte` (existants) |
+| 4 | Autisme diagnostiqué à l'âge adulte : le soulagement et l'après | `autisme-adulte-diagnostic-tardif` | autisme adulte | — | à écrire (aucun article autisme trouvé) |
+| 5 | Procrastination et TDAH : ce n'est pas de la paresse | `procrastination-tdah` | procrastination TDAH | profils | à écrire |
+| 6 | Fonctions exécutives : le chef d'orchestre fatigué du cerveau | `fonctions-executives` | fonctions exécutives | — | à écrire |
+| 7 | Diagnostic TDAH en France : parcours, délais, coûts | `diagnostic-tdah-france` | diagnostic TDAH adulte France | — | à écrire |
+| 8 | Vivre avec un TDAH : 12 aménagements qui marchent vraiment | `amenagements-tdah-quotidien` | TDAH organisation | — | à vérifier vs `meilleurs-livres-tdah-comparatif` (angle différent — livres vs aménagements — collision peu probable) |
+
 ---
 
 ## 4. PROCÉDURE D'UN RUN
