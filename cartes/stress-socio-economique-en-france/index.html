@@ -1,13 +1,13 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Où fait-il bon vivre pour la santé mentale en France ? &mdash; Oui Psycho!</title>
-  <meta name="description" content="9 indicateurs scientifiques, 13 régions : découvrez quelles régions de France sont les plus favorables à la santé mentale.">
-  <meta name="theme-color" content="#1F4E6B">
+  <title>Les zones de stress socio-économique en France — Oui Psycho!</title>
+  <meta name="description" content="9 indicateurs socio-économiques, 13 régions : chômage, précarité, logement, surendettement… découvrez quels territoires cumulent le plus de stress financier — et pourquoi c'est un facteur clé de santé mentale.">
+  <meta name="theme-color" content="#7f1d1d">
   <base href="../../">
-  <link rel="canonical" href="https://ouipsycho.fr/cartes/bien-vivre-sante-mentale/">
+  <link rel="canonical" href="https://ouipsycho.fr/cartes/stress-socio-economique-en-france/">
   <link rel="icon" type="image/png" href="img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
 
     /* HERO */
     .carte-hero{
-      background:linear-gradient(160deg,#0b1f38 0%,#133a62 55%,#0e5f8a 100%);
+      background:linear-gradient(160deg,#1a0b0b 0%,#3f0d0d 55%,#7f1d1d 100%);
       padding:clamp(2rem,5vw,3.5rem) 1.25rem clamp(1.5rem,4vw,2.5rem);
       text-align:center;color:#fff
     }
@@ -52,9 +52,9 @@
     }
     .hero-chips{display:flex;gap:7px;justify-content:center;flex-wrap:wrap}
     .hero-chips span{
-      background:rgba(255,255,255,.1);color:rgba(255,255,255,.75);
+      background:rgba(255,255,255,.15);color:rgba(255,255,255,.75);
       font-size:.7rem;padding:3px 10px;border-radius:20px;
-      border:1px solid rgba(255,255,255,.12)
+      border:1px solid rgba(255,255,255,.22);letter-spacing:.03em
     }
 
     /* WIDGET OUTER - plus large que le texte */
@@ -65,6 +65,10 @@
       border:1px solid #dde3ec;
       border-radius:12px;
       position:relative;overflow:hidden
+    }
+    .widget-card::before{
+      content:'';display:block;height:5px;
+      background:linear-gradient(90deg,#ef4444 0%,#f97316 22%,#f59e0b 44%,#84cc16 72%,#22c55e 100%)
     }
 
     /* TOPBAR */
@@ -117,7 +121,6 @@
     }
     @media(max-width:680px){#carte-leaflet{height:380px}}
     @media(max-width:480px){#carte-leaflet{height:300px}}
-
 
     /* Pin ville */
     .city-pin{position:relative;display:inline-block}
@@ -261,8 +264,8 @@
 
     /* LEGENDE */
     .widget-legend{
-      padding:10px 20px;background:#f4f7fb;border-top:1px solid #eef1f5;
-      display:flex;align-items:center;gap:9px;flex-wrap:wrap
+      padding:11px 22px;background:#f4f7fb;border-top:1px solid #eef1f5;
+      display:flex;align-items:center;gap:11px;flex-wrap:wrap
     }
     .legend-label{font-size:.7rem;font-weight:600;color:#64748b;white-space:nowrap}
     .legend-grad{display:flex;gap:2px;align-items:center;flex-shrink:0}
@@ -273,12 +276,21 @@
 
     /* ARTICLE */
     .carte-article{max-width:740px;margin:2.5rem auto 4rem;padding:0 1.25rem;font-size:1rem;line-height:1.82;color:#334155}
-    .carte-article h2{font-size:1.3rem;font-weight:800;color:#0b1f38;margin:2.5rem 0 .7rem}
+    .carte-article h2{
+      display:flex;align-items:center;gap:.55rem;
+      font-size:1.3rem;font-weight:800;color:#0b1f38;margin:2.5rem 0 .7rem;
+      padding-bottom:.5rem;border-bottom:2px solid #eef1f5
+    }
+    .carte-article h2::before{
+      content:'';display:inline-block;width:4px;height:1.1em;
+      background:linear-gradient(180deg,#dc2626,#7f1d1d);
+      border-radius:2px;flex-shrink:0
+    }
     .carte-article p{margin:0 0 1rem}
     .carte-article ul{margin:0 0 1rem 1.3rem}
     .carte-article li{margin-bottom:.4rem}
     .carte-article strong{color:#1e293b}
-    .callout{background:#fffbeb;border-left:3px solid #f59e0b;padding:12px 16px;border-radius:0 9px 9px 0;font-size:.87rem;color:#78350f;margin:1.25rem 0;line-height:1.65}
+    .callout{background:#fffbeb;border-left:4px solid #f59e0b;padding:12px 16px;border-radius:0 10px 10px 0;font-size:.87rem;color:#78350f;margin:1.25rem 0;line-height:1.65}
     .source-note{font-size:.76rem;color:#94a3b8;border-top:1px solid #eef1f5;margin-top:2.5rem;padding-top:1.2rem}
 
     /* Loader drill-down (dept / communes) */
@@ -297,7 +309,7 @@
     }
     .map-drill-txt{
       font-size:.67rem;font-weight:700;
-      color:#166534;letter-spacing:.06em;text-transform:uppercase;
+      color:#7f1d1d;letter-spacing:.06em;text-transform:uppercase;
       background:rgba(255,255,255,.92);
       padding:3px 12px;border-radius:20px;
       box-shadow:0 2px 10px rgba(11,31,56,.12)
@@ -305,24 +317,31 @@
     @keyframes breathe-orb{
       0%,100%{
         transform:scale(1);
-        box-shadow:0 4px 22px rgba(11,31,56,.18),0 0 0 0 rgba(34,197,94,.5)
+        box-shadow:0 4px 22px rgba(11,31,56,.18),0 0 0 0 rgba(220,38,38,.5)
       }
       50%{
         transform:scale(1.16);
-        box-shadow:0 8px 30px rgba(11,31,56,.22),0 0 0 16px rgba(34,197,94,0)
+        box-shadow:0 8px 30px rgba(11,31,56,.22),0 0 0 16px rgba(220,38,38,0)
       }
     }
 
     /* INTRO avant la carte */
-    .carte-intro{max-width:700px;margin:2.2rem auto 1.8rem;padding:0 1.5rem;color:#334155;line-height:1.8;font-size:.97rem}
+    .carte-intro{
+      max-width:none;margin:0;border-radius:0;border-right:none;border-top:none;
+      background:rgba(255,255,255,.82);border-bottom:1px solid #e2eaf4;
+      border-left:5px solid #dc2626;box-shadow:0 2px 16px rgba(11,31,56,.07);
+      padding:2rem clamp(1.5rem,6vw,5rem);color:#334155;line-height:1.8;font-size:.97rem
+    }
+    .carte-intro-inner{max-width:820px;margin:0 auto}
     .carte-intro h2{font-size:1.22rem;font-weight:800;color:#0b1f38;margin:0 0 .9rem;line-height:1.3}
     .carte-intro p{margin:0 0 .85rem}
     .carte-intro p:last-child{margin-bottom:0}
     .carte-intro strong{color:#1e293b}
 
     /* === RESULTAT VILLE === */
-    #city-result{max-width:740px;margin:0 auto 2rem;padding:0 1.25rem;scroll-margin-top:90px}
-    .cr-card{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid #dde3ec;box-shadow:0 4px 20px rgba(11,31,56,.09)}
+    #city-result{max-width:740px;margin:0 auto 2rem;padding:1.5rem 1.25rem 0;scroll-margin-top:90px}
+    .cr-card{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid #dde3ec;box-shadow:0 4px 20px rgba(11,31,56,.09);animation:cr-fadein .4s cubic-bezier(.22,.68,0,1.2) both}
+    @keyframes cr-fadein{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
     .cr-header{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;margin-bottom:14px;padding-bottom:12px;border-bottom:1px solid #eef1f5}
     .cr-city{font-size:1rem;font-weight:800;color:#0b1f38}
     .cr-region{font-size:.83rem;color:#475569}
@@ -363,62 +382,8 @@
     }
     .drill-hint.show{opacity:1}
 
-    /* ──────────────────────────────────────────────
-       AMÉLIORATIONS VISUELLES / ERGONOMIE
-    ────────────────────────────────────────────── */
-
     /* Vague de transition hero → contenu */
     .hero-wave{display:block;width:100%;height:52px;margin-top:-2px;flex-shrink:0}
-
-    /* Intro : pleine largeur comme le widget */
-    .carte-intro{
-      max-width:none;
-      margin:0;
-      border-radius:0;
-      border-right:none;
-      border-top:none;
-      background:rgba(255,255,255,.82);
-      border-bottom:1px solid #e2eaf4;
-      border-left:5px solid #22c55e;
-      box-shadow:0 2px 16px rgba(11,31,56,.07);
-      padding:2rem clamp(1.5rem,6vw,5rem)
-    }
-    .carte-intro-inner{max-width:820px;margin:0 auto}
-    .carte-intro h2{margin-top:0}
-
-    /* Widget card : spectre de score en haut */
-    .widget-card::before{
-      content:'';display:block;height:5px;
-      background:linear-gradient(90deg,#ef4444 0%,#f97316 22%,#f59e0b 44%,#84cc16 72%,#22c55e 100%)
-    }
-
-    /* Résultat ville : apparition fluide */
-    @keyframes cr-fadein{
-      from{opacity:0;transform:translateY(14px)}
-      to  {opacity:1;transform:translateY(0)}
-    }
-    .cr-card{animation:cr-fadein .4s cubic-bezier(.22,.68,0,1.2) both}
-
-    /* Result card : section titre améliorée */
-    #city-result{padding-top:1.5rem}
-
-    /* Article : h2 avec accroche gauche */
-    .carte-article h2{
-      display:flex;align-items:center;gap:.55rem;
-      padding-bottom:.5rem;
-      border-bottom:2px solid #eef1f5
-    }
-    .carte-article h2::before{
-      content:'';display:inline-block;width:4px;height:1.1em;
-      background:linear-gradient(180deg,#22c55e,#2563eb);
-      border-radius:2px;flex-shrink:0
-    }
-
-    /* Callout : bord gauche plus marqué */
-    .callout{border-left-width:4px;border-radius:0 10px 10px 0}
-
-    /* Légende : espace respiration */
-    .widget-legend{gap:11px;padding:11px 22px}
 
     /* Footer page carte */
     .carte-page-footer{
@@ -432,13 +397,8 @@
     .carte-page-footer a:hover{color:#1d4ed8;text-decoration:underline}
     .carte-page-footer-links{display:flex;gap:16px;flex-wrap:wrap}
 
-    /* Chips hero : légère amélioration */
-    .hero-chips span{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.22);letter-spacing:.03em}
-
-    /* Lien croisé vers l'autre carte de la famille */
-    .related-map{
-      max-width:740px;margin:0 auto 2.5rem;padding:0 1.25rem
-    }
+    /* Liens croisés vers les autres cartes de la famille */
+    .related-map{max-width:740px;margin:0 auto 2.5rem;padding:0 1.25rem}
     .related-map a{
       display:flex;align-items:center;gap:12px;
       background:#eef2ff;border:1px solid #e0e7ff;border-radius:12px;
@@ -466,10 +426,10 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="nos-heros-sur-le-divan.html">&#x1F6CB;&#xFE0F; Nos h&eacute;ros</a>
-        <a class="nav__link" href="les-monstres-sur-le-divan.html">&#x1F5A4; Les monstres</a>
-        <a class="nav__link" href="tests.html">&#x1F9EA; Tests</a>
-        <a class="nav__link active" href="cartes.html">&#x1F5FA;&#xFE0F; Cartes</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link active" href="cartes.html">🗺️ Cartes</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
     </div>
@@ -477,28 +437,28 @@
       <div class="cat-nav__inner">
         <a class="cat-nav__btn" href="index.html">&larr; Tous les articles</a>
         <div class="cat-nav__divider" aria-hidden="true"></div>
-        <a class="cat-nav__btn" href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiet&eacute;</a>
-        <a class="cat-nav__btn" href="index.html?cat=D%C3%A9pression">D&eacute;pression</a>
-        <a class="cat-nav__btn" href="index.html?cat=Bien-%C3%AAtre">Bien-&ecirc;tre</a>
+        <a class="cat-nav__btn" href="index.html?cat=Anxi%C3%A9t%C3%A9">Anxiété</a>
+        <a class="cat-nav__btn" href="index.html?cat=D%C3%A9pression">Dépression</a>
+        <a class="cat-nav__btn" href="index.html?cat=Bien-%C3%AAtre">Bien-être</a>
         <a class="cat-nav__btn" href="index.html?cat=Stress">Stress</a>
         <a class="cat-nav__btn" href="index.html?cat=Relations">Relations</a>
         <div class="cat-nav__divider" aria-hidden="true"></div>
-        <a class="cat-nav__btn" href="societe.html">&#x1F30D; Soci&eacute;t&eacute;</a>
-        <a class="cat-nav__btn" href="sexo.html">&#x2764;&#xFE0F; Sexo</a>
-        <a class="cat-nav__btn" href="cartes.html">&#x1F5FA;&#xFE0F; Cartes</a>
+        <a class="cat-nav__btn" href="societe.html">🌍 Société</a>
+        <a class="cat-nav__btn" href="sexo.html">❤️ Sexo</a>
+        <a class="cat-nav__btn" href="cartes.html">🗺️ Cartes</a>
       </div>
     </nav>
   </header>
 
   <div class="carte-hero">
-    <div class="tag">&#x1F5FA;&#xFE0F; Carte interactive</div>
-    <h1>O&ugrave; fait-il bon vivre pour&nbsp;la sant&eacute; mentale en&nbsp;France&nbsp;?</h1>
-    <p>9 indicateurs scientifiques &middot; 13 r&eacute;gions &middot; ~35&nbsp;000 communes &mdash; Activez ou d&eacute;sactivez les crit&egrave;res, puis cliquez une r&eacute;gion pour descendre jusqu'&agrave; votre commune.</p>
+    <div class="tag">😰 Carte interactive</div>
+    <h1>Les zones de stress socio-&eacute;conomique en&nbsp;France</h1>
+    <p>9 indicateurs socio-&eacute;conomiques &middot; 13 r&eacute;gions &middot; ~35&nbsp;000 communes &mdash; Activez ou d&eacute;sactivez les crit&egrave;res, puis cliquez une r&eacute;gion pour descendre jusqu'&agrave; votre commune.</p>
     <div class="hero-chips">
-      <span>27 juin 2026</span>
-      <span>Soci&eacute;t&eacute; &amp; bien-&ecirc;tre</span>
-      <span>9 crit&egrave;res</span>
-      <span>13 r&eacute;gions</span>
+      <span>31 août 2026</span>
+      <span>Société &amp; anxiété</span>
+      <span>9 critères</span>
+      <span>13 régions</span>
     </div>
   </div>
   <svg class="hero-wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 52" preserveAspectRatio="none" aria-hidden="true">
@@ -507,9 +467,9 @@
 
   <section class="carte-intro">
     <div class="carte-intro-inner">
-      <h2>L&rsquo;environnement peut-il vraiment influencer notre sant&eacute; mentale&nbsp;?</h2>
-      <p>La r&eacute;ponse est oui &mdash; et la science le confirme. La qualit&eacute; de l&rsquo;air, l&rsquo;acc&egrave;s aux espaces verts, la densit&eacute; de l&rsquo;offre de soins psychologiques, le co&ucirc;t de la vie, le lien social&hellip; chacun de ces facteurs est document&eacute; dans la litt&eacute;rature comme influent sur le bien-&ecirc;tre mental.</p>
-      <p>Cette carte croise <strong>9 indicateurs mesurables</strong>, issus de sources publiques (INSEE, Sant&eacute; Publique France, M&eacute;t&eacute;o-France, DREES, ATMO France), pour dresser un portrait compar&eacute; des <strong>13 r&eacute;gions de France m&eacute;tropolitaine</strong>. Parce que chacun valorise des choses diff&eacute;rentes, vous pouvez <strong>activer ou d&eacute;sactiver les crit&egrave;res</strong> pour n&rsquo;afficher que ce qui compte vraiment pour vous &mdash; le classement s&rsquo;adapte en temps r&eacute;el. Entrez votre ville pour voir o&ugrave; vous vous situez.</p>
+      <h2>Le stress financier, moteur silencieux de l'anxiété</h2>
+      <p>Chômage, loyers impayés, dettes qui s'accumulent, fins de mois qui commencent le 15&nbsp;: <strong>le stress socio-économique est l'un des facteurs de risque les mieux documentés</strong> en santé mentale. La précarité active en continu l'axe du stress (cortisol, hypervigilance), nourrit la rumination anxieuse et double le risque de dépression chez les personnes en situation de pauvreté ou d'endettement. Et ce stress n'est pas réparti au hasard sur le territoire&nbsp;: certains départements cumulent chômage, précarité de l'emploi et difficultés de logement, quand d'autres en sont largement préservés.</p>
+      <p>Cette carte croise <strong>9 indicateurs mesurables</strong> &mdash; chômage, emploi précaire, coût du logement, surendettement, pauvreté, bénéficiaires du RSA, renoncement aux soins, inégalités de revenus et jeunes NEET &mdash; pour dresser un portrait comparé des <strong>13 régions de France métropolitaine</strong>. C'est la déclinaison &laquo;&nbsp;stress socio-économique&nbsp;&raquo; de nos cartes <a href="cartes/bien-vivre-sante-mentale/">du bien-être mental</a> et <a href="cartes/ou-dort-on-le-mieux-en-france/">du sommeil</a> par région. Activez ou désactivez les critères selon ce qui compte pour vous, puis entrez votre ville pour voir où elle se situe.</p>
     </div>
   </section>
 
@@ -518,12 +478,12 @@
 
       <div class="widget-topbar">
         <div class="widget-topbar-left">
-          <h2>Indice de bien-&ecirc;tre mental par r&eacute;gion</h2>
+          <h2>Indice de stress socio-économique par région</h2>
           <span class="badge-actifs" id="badge-actifs">9 actifs</span>
         </div>
         <div class="city-search">
           <input type="text" class="city-input" id="city-input"
-            placeholder="&#x1F50D; Recherchez votre ville&hellip;"
+            placeholder="🔍 Recherchez votre ville…"
             aria-label="Rechercher une ville française"
             onkeydown="if(event.key==='Enter')searchCity()">
           <button class="city-btn" id="city-btn" onclick="searchCity()">Localiser</button>
@@ -535,7 +495,7 @@
       <div id="carte-leaflet">
         <div class="map-msg" id="map-msg">
           <div class="ring"></div>
-          <span id="map-msg-txt">Chargement de la carte&hellip;</span>
+          <span id="map-msg-txt">Chargement de la carte…</span>
         </div>
       </div>
 
@@ -549,51 +509,51 @@
           <div class="leg-sw" style="background:#84cc16"></div>
           <div class="leg-sw" style="background:#22c55e"></div>
         </div>
-        <span class="legend-lo">D&eacute;favorable</span>
+        <span class="legend-lo">Stress élevé</span>
         <span style="color:#dde3ec;font-size:.75rem">&rarr;</span>
-        <span class="legend-hi">Tr&egrave;s favorable</span>
-        <span class="legend-tip">Cliquez sur une r&eacute;gion ou un rang pour zoomer</span>
+        <span class="legend-hi">Stress faible</span>
+        <span class="legend-tip">Cliquez sur une région ou un rang pour zoomer</span>
       </div>
 
       <!-- Critères & classement — accordéon -->
       <details class="widget-panel-wrap" open>
-        <summary>&#x2699;&#xFE0F; Crit&egrave;res &amp; classement <span class="toggle-arrow">&#x25BE;</span></summary>
+        <summary>⚙️ Critères &amp; classement <span class="toggle-arrow">▾</span></summary>
         <div class="widget-panel">
 
           <div class="panel-block">
-            <p class="panel-title">Crit&egrave;res actifs</p>
+            <p class="panel-title">Critères actifs</p>
             <div id="crit-list">
-              <button class="crit-btn" id="cb-sun"     onclick="toggleCrit('sun')">    <span class="crit-icon">&#x2600;&#xFE0F;</span><span class="crit-label">Ensoleillement</span>    <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-nature"  onclick="toggleCrit('nature')"> <span class="crit-icon">&#x1F33F;</span><span class="crit-label">Espaces verts</span>         <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-care"    onclick="toggleCrit('care')">   <span class="crit-icon">&#x1F3E5;</span><span class="crit-label">Acc&egrave;s soins psy</span>    <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-cost"    onclick="toggleCrit('cost')">   <span class="crit-icon">&#x1F4B0;</span><span class="crit-label">Co&ucirc;t de la vie</span>      <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-air"     onclick="toggleCrit('air')">    <span class="crit-icon">&#x1F4A8;</span><span class="crit-label">Qualit&eacute; de l&rsquo;air</span> <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-social"  onclick="toggleCrit('social')"> <span class="crit-icon">&#x1F91D;</span><span class="crit-label">Lien social</span>           <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-sport"   onclick="toggleCrit('sport')">  <span class="crit-icon">&#x1F3C3;</span><span class="crit-label">Sport &amp; outdoor</span>       <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-calm"    onclick="toggleCrit('calm')">   <span class="crit-icon">&#x1F507;</span><span class="crit-label">Calme</span>                 <span class="crit-pill"></span></button>
-              <button class="crit-btn" id="cb-weather" onclick="toggleCrit('weather')"><span class="crit-icon">&#x1F321;</span><span class="crit-label">Douceur du climat</span>    <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-chomage"    onclick="toggleCrit('chomage')">   <span class="crit-icon">📉</span><span class="crit-label">Taux de chômage</span>         <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-precarite"  onclick="toggleCrit('precarite')"> <span class="crit-icon">👷</span><span class="crit-label">Emploi précaire</span>          <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-logement"   onclick="toggleCrit('logement')">  <span class="crit-icon">🏠</span><span class="crit-label">Coût du logement</span>         <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-dette"      onclick="toggleCrit('dette')">     <span class="crit-icon">💳</span><span class="crit-label">Surendettement</span>           <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-pauvrete"   onclick="toggleCrit('pauvrete')">  <span class="crit-icon">💰</span><span class="crit-label">Taux de pauvreté</span>         <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-rsa"        onclick="toggleCrit('rsa')">       <span class="crit-icon">🧾</span><span class="crit-label">Bénéficiaires du RSA</span>     <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-soins"      onclick="toggleCrit('soins')">     <span class="crit-icon">🏥</span><span class="crit-label">Renoncement aux soins</span>    <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-inegalites" onclick="toggleCrit('inegalites')"><span class="crit-icon">📊</span><span class="crit-label">Inégalités de revenus</span>    <span class="crit-pill"></span></button>
+              <button class="crit-btn" id="cb-neet"       onclick="toggleCrit('neet')">      <span class="crit-icon">🎓</span><span class="crit-label">Jeunes NEET</span>              <span class="crit-pill"></span></button>
             </div>
-            <button class="reset-btn" onclick="resetAll()">&#x21BA; Tout r&eacute;activer</button>
+            <button class="reset-btn" onclick="resetAll()">↺ Tout réactiver</button>
           </div>
 
           <div class="panel-block">
-            <p class="panel-title">&#x1F3C6; Classement</p>
+            <p class="panel-title">🏆 Classement</p>
             <div class="rank-tabs">
-              <button class="rank-tab active" id="rtab-region" onclick="switchRankTab('region')">Par r&eacute;gion</button>
-              <button class="rank-tab" id="rtab-dept"   onclick="switchRankTab('dept')">Par d&eacute;part.</button>
+              <button class="rank-tab active" id="rtab-region" onclick="switchRankTab('region')">Par région</button>
+              <button class="rank-tab" id="rtab-dept"   onclick="switchRankTab('dept')">Par départ.</button>
               <button class="rank-tab" id="rtab-ville"  onclick="switchRankTab('ville')">Par ville</button>
             </div>
             <div class="rank-tab-pane active" id="rpane-region">
-              <div id="rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Chargement&hellip;</p></div>
+              <div id="rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Chargement…</p></div>
             </div>
             <div class="rank-tab-pane" id="rpane-dept">
-              <div id="dept-rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Cliquez sur cet onglet pour afficher&hellip;</p></div>
+              <div id="dept-rank-list"><p style="font-size:.75rem;color:#94a3b8;margin:0">Cliquez sur cet onglet pour afficher…</p></div>
             </div>
             <div class="rank-tab-pane" id="rpane-ville">
-              <p style="font-size:.68rem;color:#94a3b8;margin:0 0 10px;line-height:1.4">Scores individuels calcul&eacute;s selon la densit&eacute; r&eacute;elle &mdash; parmi les 54 plus grandes villes de France m&eacute;tropolitaine.</p>
-              <p class="pcity-head">&#x1F3C6; 10 meilleures villes</p>
+              <p style="font-size:.68rem;color:#94a3b8;margin:0 0 10px;line-height:1.4">Scores individuels calculés selon la densité réelle &mdash; parmi les 54 plus grandes villes de France métropolitaine.</p>
+              <p class="pcity-head">🏆 10 villes les plus résilientes</p>
               <div id="city-top10"></div>
-              <p class="pcity-head pcity-head--bad">&#x1F4C9; 10 villes les moins bien class&eacute;es</p>
+              <p class="pcity-head pcity-head--bad">📉 10 villes les plus sous tension</p>
               <div id="city-bot10"></div>
             </div>
           </div>
@@ -608,104 +568,109 @@
   <div id="city-result"></div>
 
   <div class="related-map">
-    <a href="cartes/ou-dort-on-le-mieux-en-france/">
-      <span class="rm-ico">&#x1F319;</span>
-      <span><strong>Voir aussi :</strong> la carte &laquo;&nbsp;O&ugrave; dort-on le mieux en France&nbsp;?&raquo; &mdash; le sommeil est lui aussi un d&eacute;terminant majeur de la sant&eacute; mentale, d&eacute;clin&eacute; sur 9 crit&egrave;res sp&eacute;cifiques.</span>
+    <a href="cartes/bien-vivre-sante-mentale/">
+      <span class="rm-ico">🧠</span>
+      <span><strong>Voir aussi :</strong> la carte &laquo;&nbsp;Où fait-il bon vivre pour la santé mentale en France&nbsp;?&raquo; &mdash; 9 autres critères (ensoleillement, lien social, accès aux soins psy…) sur le même principe.</span>
     </a>
-    <a href="cartes/stress-socio-economique-en-france/">
-      <span class="rm-ico">&#x1F630;</span>
-      <span><strong>Voir aussi :</strong> la carte &laquo;&nbsp;Les zones de stress socio-&eacute;conomique en France&nbsp;?&raquo; &mdash; ch&ocirc;mage, pr&eacute;carit&eacute;, logement, surendettement&hellip; un autre d&eacute;terminant majeur de la sant&eacute; mentale, d&eacute;clin&eacute; sur 9 crit&egrave;res.</span>
+    <a href="cartes/ou-dort-on-le-mieux-en-france/">
+      <span class="rm-ico">🌙</span>
+      <span><strong>Voir aussi :</strong> la carte &laquo;&nbsp;Où dort-on le mieux en France&nbsp;?&raquo; &mdash; le sommeil est lui aussi un déterminant majeur de la santé mentale, décliné sur 9 critères spécifiques.</span>
     </a>
   </div>
 
   <article class="carte-article">
     <div class="callout">
-      &#x26A0;&#xFE0F; <strong>Note &eacute;ditoriale :</strong> Les scores sont bas&eacute;s sur des indicateurs publics agr&eacute;g&eacute;s (INSEE, Sant&eacute; Publique France, M&eacute;t&eacute;o-France, DREES, ATMO France). Cette carte est une visualisation p&eacute;dagogique, non un classement scientifique officiel.
+      ⚠️ <strong>Note éditoriale :</strong> Les scores sont basés sur des indicateurs publics agrégés (INSEE-Filosofi, DARES, Banque de France, CNAF, DREES, INJEP). Cette carte est une visualisation pédagogique, non un classement scientifique officiel.
     </div>
-    <h2>Pourquoi ces 9 crit&egrave;res ?</h2>
-    <p>La psychologie environnementale a identifi&eacute; un faisceau de facteurs ext&eacute;rieurs qui influencent durablement l&rsquo;humeur, le stress et la r&eacute;silience :</p>
+    <h2>Pourquoi le stress socio-économique est une question de santé mentale</h2>
+    <p>La précarité financière n'est pas qu'un problème de porte-monnaie&nbsp;: c'est un stress chronique qui maintient le corps en état d'alerte permanent. L'incertitude sur l'emploi, la peur de ne pas boucler le mois ou l'accumulation de dettes activent en continu l'axe hypothalamo-hypophyso-surrénalien &mdash; le même circuit hormonal impliqué dans les troubles anxieux. À long terme, cette &laquo;&nbsp;charge mentale de la pauvreté&nbsp;&raquo; épuise les ressources cognitives, favorise la rumination et multiplie par 2 à 3 le risque de dépression chez les personnes en situation de chômage prolongé ou de surendettement, selon plusieurs études en santé publique.</p>
+    <p>Ce stress s'ajoute souvent à d'autres vulnérabilités&nbsp;: le renoncement aux soins pour raisons financières retarde la prise en charge des troubles psychiques, tandis que l'instabilité de l'emploi fragilise les liens sociaux protecteurs. Ces facteurs ne sont pas répartis uniformément sur le territoire&nbsp;: bassins industriels en reconversion, zones rurales vieillissantes ou quartiers urbains très denses concentrent souvent plusieurs de ces difficultés à la fois.</p>
+    <h2>Les 9 critères retenus</h2>
     <ul>
-      <li><strong>&#x2600;&#xFE0F; Ensoleillement</strong> &mdash; La lumi&egrave;re solaire r&eacute;gule la s&eacute;rotonine et le rythme circadien. Les r&eacute;gions peu ensoleill&eacute;es pr&eacute;sentent un taux de d&eacute;pression saisonni&egrave;re jusqu&rsquo;&agrave; 3&times; sup&eacute;rieur.</li>
-      <li><strong>&#x1F33F; Espaces verts</strong> &mdash; 20 minutes dans un parc r&eacute;duisent le cortisol de 21 % (Hunter et al., 2019).</li>
-      <li><strong>&#x1F3E5; Acc&egrave;s soins psy</strong> &mdash; Densit&eacute; de psychologues et psychiatres lib&eacute;raux pour 100 000 habitants (DREES 2024).</li>
-      <li><strong>&#x1F4B0; Co&ucirc;t de la vie</strong> &mdash; Le stress financier est le 1er facteur de d&eacute;tresse psychologique d&eacute;clar&eacute; en France.</li>
-      <li><strong>&#x1F4A8; Qualit&eacute; de l&rsquo;air</strong> &mdash; L&rsquo;exposition aux particules fines PM2.5 augmente le risque de d&eacute;pression de 29 %.</li>
-      <li><strong>&#x1F91D; Lien social</strong> &mdash; Vie associative, b&eacute;n&eacute;volat, appartenance. L&rsquo;isolement social est aussi dangereux que fumer 15 cigarettes/jour.</li>
-      <li><strong>&#x1F3C3; Sport &amp; outdoor</strong> &mdash; 30 min &times; 3/semaine = efficacit&eacute; d&rsquo;un antid&eacute;presseur l&eacute;ger.</li>
-      <li><strong>&#x1F507; Calme</strong> &mdash; La pollution sonore chronique &eacute;l&egrave;ve le cortisol et perturbe le sommeil.</li>
-      <li><strong>&#x1F321; Douceur du climat</strong> &mdash; Des temp&eacute;ratures cl&eacute;mentes favorisent les sorties et les interactions sociales.</li>
+      <li><strong>📉 Taux de chômage</strong> &mdash; La perte ou l'absence d'emploi est l'un des facteurs de stress les mieux corrélés à l'anxiété et à la dépression. Source : INSEE, DARES.</li>
+      <li><strong>👷 Emploi précaire</strong> &mdash; Part des contrats courts (CDD, intérim, temps partiel subi) : l'instabilité professionnelle chronique entretient l'anticipation anxieuse. Source : INSEE, enquête Emploi.</li>
+      <li><strong>🏠 Coût du logement</strong> &mdash; Le taux d'effort des ménages pour se loger est une source majeure de rumination nocturne et de stress financier. Source : INSEE, ANIL.</li>
+      <li><strong>💳 Surendettement</strong> &mdash; Nombre de dossiers de surendettement déposés à la Banque de France pour 100&nbsp;000 habitants. Source : Banque de France.</li>
+      <li><strong>💰 Taux de pauvreté</strong> &mdash; Part de la population sous le seuil de pauvreté (60&nbsp;% du revenu médian nationale). Source : INSEE-Filosofi.</li>
+      <li><strong>🧾 Bénéficiaires du RSA</strong> &mdash; Part de la population couverte par le revenu de solidarité active, indicateur de précarité durable. Source : CNAF, DREES.</li>
+      <li><strong>🏥 Renoncement aux soins</strong> &mdash; Part de la population renonçant à des soins (y compris psychologiques) pour raisons financières. Source : DREES, Santé publique France.</li>
+      <li><strong>📊 Inégalités de revenus</strong> &mdash; Indice de Gini et rapport interdécile : au-delà de la pauvreté moyenne, l'écart de richesse perçu localement pèse aussi sur le bien-être. Source : INSEE-Filosofi.</li>
+      <li><strong>🎓 Jeunes NEET</strong> &mdash; Part des 15-29&nbsp;ans ni en emploi, ni en études, ni en formation : un marqueur précoce de décrochage socio-économique. Source : INJEP, INSEE.</li>
     </ul>
     <h2>Les grandes tendances</h2>
-    <p><strong>La Nouvelle-Aquitaine</strong> affiche le profil le plus &eacute;quilibr&eacute; : soleil, espaces naturels, co&ucirc;t mod&eacute;r&eacute;, qualit&eacute; de l&rsquo;air. <strong>La Corse</strong> score tr&egrave;s haut sur les crit&egrave;res environnementaux mais p&acirc;tit d&rsquo;un acc&egrave;s aux soins insuffisant. <strong>L&rsquo;&Icirc;le-de-France</strong> illustre le paradoxe m&eacute;tropolitain : acc&egrave;s aux soins exceptionnel, mais score tr&egrave;s bas sur le calme, le co&ucirc;t de la vie et la qualit&eacute; de l&rsquo;air.</p>
+    <p>Les <strong>Hauts-de-France</strong> et certains départements méditerranéens comme les <strong>Pyrénées-Orientales, l'Aude ou le Gard</strong> cumulent chômage élevé, pauvreté et renoncement aux soins &mdash; un héritage pour les premiers de la désindustrialisation, et pour les seconds d'une économie locale plus fragile. À l'inverse, la <strong>Bretagne</strong> et les <strong>Pays de la Loire</strong> affichent un chômage structurellement bas et une pauvreté contenue. L'<strong>Île-de-France</strong> illustre un paradoxe&nbsp;: richesse globale élevée mais <strong>inégalités de revenus parmi les plus fortes de France</strong>, avec des écarts extrêmes entre l'ouest parisien et la Seine-Saint-Denis, département le plus pauvre de France métropolitaine.</p>
     <div class="source-note">
-      <strong>Sources :</strong> INSEE (2023), Sant&eacute; Publique France (2022), DREES (2024), M&eacute;t&eacute;o-France (normales 1991-2020), ATMO France (2023), Minist&egrave;re des Sports (2023).
+      <strong>Sources :</strong> INSEE-Filosofi (revenus, pauvreté, inégalités, 2023), DARES &amp; INSEE (chômage, emploi précaire, 2024), ANIL (coût du logement), Banque de France (surendettement, 2023), CNAF / DREES (RSA, 2024), DREES / Santé publique France (renoncement aux soins), INJEP (jeunes NEET, 2023).
     </div>
   </article>
 
   <footer class="carte-page-footer">
-    <span>&copy; 2026 Oui&nbsp;Psycho! &mdash; Visualisation p&eacute;dagogique</span>
+    <span>&copy; 2026 Oui&nbsp;Psycho! &mdash; Visualisation pédagogique</span>
     <div class="carte-page-footer-links">
       <a href="index.html">&larr; Tous les articles</a>
-      <a href="cartes.html">&#x1F5FA;&#xFE0F; Toutes les cartes</a>
-      <a href="a-propos.html">&Agrave; propos</a>
+      <a href="cartes.html">🗺️ Toutes les cartes</a>
+      <a href="a-propos.html">À propos</a>
     </div>
   </footer>
 
   <!-- =====================================================================
-       JS INLINE - source 100% ASCII (non-ASCII en entites HTML ou \uXXXX JS)
+       JS INLINE
   ===================================================================== -->
   <script>
-  // === DONNEES : scores 1-10 (cles ASCII pures) ===
+  // === DONNEES : scores 1-10 par region (10 = stress faible / territoire resilient) ===
+  // KEYS : chomage(inv.), precarite(emploi precaire, inv.), logement(cout, inv.),
+  //        dette(surendettement, inv.), pauvrete(inv.), rsa(beneficiaires, inv.),
+  //        soins(renoncement, inv.), inegalites(inv.), neet(inv.)
   var DATA = {
-    'Ile-de-France':            {sun:4, nature:2,  care:9, cost:1, air:2, social:3, sport:5, calm:1, weather:5},
-    'Provence-Alpes-Cote-dAzur':{sun:9, nature:8,  care:7, cost:4, air:5, social:6, sport:9, calm:5, weather:9},
-    'Occitanie':                {sun:9, nature:8,  care:5, cost:7, air:7, social:7, sport:8, calm:7, weather:8},
-    'Bretagne':                 {sun:4, nature:9,  care:5, cost:7, air:9, social:8, sport:7, calm:8, weather:5},
-    'Auvergne-Rhone-Alpes':     {sun:6, nature:10, care:7, cost:6, air:6, social:7, sport:10,calm:7, weather:6},
-    'Nouvelle-Aquitaine':       {sun:7, nature:9,  care:6, cost:7, air:8, social:7, sport:8, calm:8, weather:8},
-    'Pays-de-la-Loire':         {sun:6, nature:8,  care:5, cost:7, air:8, social:8, sport:7, calm:8, weather:7},
-    'Normandie':                {sun:3, nature:8,  care:5, cost:7, air:8, social:7, sport:6, calm:8, weather:4},
-    'Centre-Val-de-Loire':      {sun:5, nature:8,  care:4, cost:8, air:8, social:7, sport:6, calm:9, weather:6},
-    'Grand-Est':                {sun:5, nature:7,  care:5, cost:7, air:6, social:6, sport:6, calm:7, weather:5},
-    'Bourgogne-Franche-Comte':  {sun:5, nature:9,  care:4, cost:8, air:9, social:7, sport:7, calm:9, weather:5},
-    'Hauts-de-France':          {sun:2, nature:6,  care:5, cost:7, air:5, social:6, sport:5, calm:6, weather:3},
-    'Corse':                    {sun:9, nature:9,  care:3, cost:6, air:9, social:6, sport:8, calm:9, weather:9}
+    'Ile-de-France': {chomage:6, precarite:6, logement:3, dette:6, pauvrete:5, rsa:5, soins:6, inegalites:2, neet:6},
+    'Centre-Val-de-Loire': {chomage:7, precarite:7, logement:7, dette:6, pauvrete:7, rsa:7, soins:6, inegalites:7, neet:6},
+    'Bourgogne-Franche-Comte': {chomage:7, precarite:6, logement:8, dette:6, pauvrete:7, rsa:7, soins:6, inegalites:7, neet:6},
+    'Normandie': {chomage:6, precarite:6, logement:7, dette:6, pauvrete:6, rsa:6, soins:6, inegalites:7, neet:5},
+    'Hauts-de-France': {chomage:3, precarite:4, logement:7, dette:4, pauvrete:3, rsa:3, soins:4, inegalites:6, neet:3},
+    'Grand-Est': {chomage:6, precarite:6, logement:7, dette:6, pauvrete:6, rsa:6, soins:6, inegalites:6, neet:5},
+    'Pays-de-la-Loire': {chomage:8, precarite:8, logement:7, dette:7, pauvrete:8, rsa:8, soins:7, inegalites:8, neet:8},
+    'Bretagne': {chomage:8, precarite:8, logement:7, dette:7, pauvrete:8, rsa:8, soins:7, inegalites:8, neet:8},
+    'Nouvelle-Aquitaine': {chomage:6, precarite:6, logement:6, dette:6, pauvrete:6, rsa:6, soins:6, inegalites:6, neet:6},
+    'Occitanie': {chomage:4, precarite:5, logement:6, dette:5, pauvrete:4, rsa:4, soins:5, inegalites:5, neet:4},
+    'Auvergne-Rhone-Alpes': {chomage:7, precarite:7, logement:6, dette:7, pauvrete:7, rsa:7, soins:7, inegalites:6, neet:7},
+    'Provence-Alpes-Cote-dAzur': {chomage:4, precarite:5, logement:3, dette:5, pauvrete:4, rsa:4, soins:5, inegalites:3, neet:4},
+    'Corse': {chomage:5, precarite:5, logement:3, dette:5, pauvrete:3, rsa:4, soins:4, inegalites:3, neet:5}
   };
-  // Labels HTML (entites ASCII â€” jamais de guillemets courbes)
+  // Labels HTML
   var LABELS = {
-    'Ile-de-France':            '&Icirc;le-de-France',
-    'Provence-Alpes-Cote-dAzur':'Provence-Alpes-C&ocirc;te d&rsquo;Azur',
+    'Ile-de-France':            'Île-de-France',
+    'Provence-Alpes-Cote-dAzur':'Provence-Alpes-Côte d’Azur',
     'Occitanie':                'Occitanie',
     'Bretagne':                 'Bretagne',
-    'Auvergne-Rhone-Alpes':     'Auvergne-Rh&ocirc;ne-Alpes',
+    'Auvergne-Rhone-Alpes':     'Auvergne-Rhône-Alpes',
     'Nouvelle-Aquitaine':       'Nouvelle-Aquitaine',
     'Pays-de-la-Loire':         'Pays de la Loire',
     'Normandie':                'Normandie',
     'Centre-Val-de-Loire':      'Centre-Val de Loire',
     'Grand-Est':                'Grand Est',
-    'Bourgogne-Franche-Comte':  'Bourgogne-Franche-Comt&eacute;',
+    'Bourgogne-Franche-Comte':  'Bourgogne-Franche-Comté',
     'Hauts-de-France':          'Hauts-de-France',
     'Corse':                    'Corse'
   };
   var ICONS = {
-    sun:'&#x2600;&#xFE0F;', nature:'&#x1F33F;', care:'&#x1F3E5;',
-    cost:'&#x1F4B0;',       air:'&#x1F4A8;',    social:'&#x1F91D;',
-    sport:'&#x1F3C3;',      calm:'&#x1F507;',   weather:'&#x1F321;'
+    chomage:'📉', precarite:'👷', logement:'🏠',
+    dette:'💳',   pauvrete:'💰', rsa:'🧾',
+    soins:'🏥',   inegalites:'📊', neet:'🎓'
   };
   var CRIT_LABELS = {
-    sun:'Ensoleillement',         nature:'Espaces verts',               care:'Acc&egrave;s soins psy',
-    cost:'Co&ucirc;t de la vie',  air:'Qualit&eacute; de l&rsquo;air',  social:'Lien social',
-    sport:'Sport &amp; outdoor',  calm:'Calme',                         weather:'Douceur du climat'
+    chomage:'Taux de chômage',       precarite:'Emploi précaire',       logement:'Coût du logement',
+    dette:'Surendettement',          pauvrete:'Taux de pauvreté',       rsa:'Bénéficiaires du RSA',
+    soins:'Renoncement aux soins',   inegalites:'Inégalités de revenus',neet:'Jeunes NEET'
   };
-  var KEYS = ['sun','nature','care','cost','air','social','sport','calm','weather'];
+  var KEYS = ['chomage','precarite','logement','dette','pauvrete','rsa','soins','inegalites','neet'];
   var active = {};
   for (var ii = 0; ii < KEYS.length; ii++) { active[KEYS[ii]] = true; }
 
   var leafletMap   = null;
   var geojsonLayer = null;
 
-  // Index densité précalculé (34 746 communes métro, cf. _gen_commune_density.js)
-  // Chargé en arrière-plan dès l'ouverture de la page pour permettre un rang nationale exact
+  // Index densité précalculé (34 746 communes métro) — réutilisé tel quel depuis la carte
+  // bien-vivre-sante-mentale (fichier générique, indépendant du thème)
   var communeDensityIndex   = null;
   var communeDensityPromise = fetch('cartes/bien-vivre-sante-mentale/communes-density.json')
     .then(function(r){ return r.ok ? r.json() : null; })
@@ -739,8 +704,6 @@
   }
 
   // === CORRESPONDANCE NOM GEOJSON -> CLE DATA ===
-  // \uXXXX = escapes JavaScript (ASCII dans la source, interprete par le navigateur)
-  // Couvre les noms exacts de geo.api.gouv.fr ET de gregoiredavid/france-geojson
   var GEO_MAP = {};
   GEO_MAP['Île-de-France']                     = 'Ile-de-France';
   GEO_MAP['Ile-de-France']                          = 'Ile-de-France';
@@ -765,76 +728,56 @@
   GEO_MAP['Corse']                                  = 'Corse';
 
   // ======================================================
-  // DONNEES DEPARTEMENTS [sol,vert,psy,cout,air,social,sport,calme,climat]
+  // DONNEES DEPARTEMENTS [chomage,precarite,logement,dette,pauvrete,rsa,soins,inegalites,neet]
   // Scores indicatifs bases sur donnees geographiques/statistiques FR
+  // (bassins industriels, littoral mediterraneen, metropoles dynamiques, ruralite vieillissante, etc.)
   // ======================================================
   var DEPT_DATA = {
     // ILE-DE-FRANCE
-    '75':[4,2,10,1,3,8,4,1,6],'77':[5,7,5,5,5,6,6,6,5],
-    '78':[5,6,6,4,5,5,6,5,5],'91':[5,6,5,4,5,5,5,5,5],
-    '92':[4,3,8,2,3,7,4,2,6],'93':[4,4,5,4,3,6,5,2,6],
-    '94':[4,4,6,3,3,6,4,3,6],'95':[5,5,5,4,4,5,5,4,5],
+    '75':[6,5,1,7,5,5,7,1,6],'77':[6,6,6,6,6,6,5,6,6],'78':[8,8,4,8,8,8,7,5,8],'91':[6,6,5,6,6,6,6,5,6],
+    '92':[7,7,2,7,6,6,7,3,7],'93':[2,2,4,2,1,1,2,2,2],'94':[6,6,4,6,6,6,6,5,6],'95':[5,5,5,5,5,5,5,5,5],
     // CENTRE-VAL-DE-LOIRE
-    '18':[6,6,5,8,7,5,5,8,6],'28':[5,6,5,7,7,5,5,7,5],
-    '36':[6,7,4,9,8,4,5,9,6],'37':[6,6,6,7,7,6,6,7,7],
-    '41':[6,7,5,8,7,5,5,8,6],'45':[5,6,6,7,6,6,5,7,5],
+    '18':[6,6,8,6,6,6,5,7,5],'28':[7,7,7,6,7,7,6,7,6],'36':[6,6,8,6,6,6,5,7,5],'37':[7,7,6,7,7,7,7,7,7],
+    '41':[7,7,7,6,7,7,6,7,6],'45':[7,7,6,7,7,7,7,6,6],
     // BOURGOGNE-FRANCHE-COMTE
-    '21':[6,7,6,7,7,6,6,7,6],'25':[5,7,5,6,6,6,8,7,4],
-    '39':[5,8,4,7,8,5,8,8,4],'58':[6,8,4,9,8,4,5,9,5],
-    '70':[5,7,4,7,7,5,6,8,5],'71':[6,7,5,7,7,5,6,7,6],
-    '89':[6,7,5,7,7,5,5,7,5],'90':[4,5,5,6,5,6,6,6,4],
+    '21':[7,7,7,7,7,7,7,6,7],'25':[7,7,7,6,7,7,6,7,6],'39':[7,6,8,6,7,7,5,7,6],'58':[5,5,8,5,5,5,4,7,5],
+    '70':[6,6,8,6,6,6,5,7,5],'71':[7,6,8,6,7,7,6,7,6],'89':[6,6,7,6,6,6,5,7,5],'90':[5,5,7,5,6,6,6,6,5],
     // NORMANDIE
-    '14':[4,7,6,6,7,6,6,6,5],'27':[4,6,5,6,6,5,5,6,5],
-    '50':[4,8,4,7,8,5,6,7,5],'61':[4,7,4,7,7,5,5,8,5],
-    '76':[4,5,5,5,5,5,5,5,5],
+    '14':[6,6,6,6,6,6,6,6,6],'27':[6,6,7,6,6,6,5,7,5],'50':[7,7,8,7,7,7,5,7,6],'61':[6,5,8,5,6,6,5,7,5],
+    '76':[5,5,6,5,5,5,5,6,4],
     // HAUTS-DE-FRANCE
-    '02':[4,6,4,7,5,5,4,7,4],'59':[3,4,6,6,3,7,5,4,4],
-    '60':[4,6,5,5,5,5,5,6,4],'62':[3,5,4,6,4,6,5,5,4],
-    '80':[4,5,4,7,5,5,5,6,4],
+    '02':[2,3,8,3,2,2,3,6,2],'59':[3,4,6,4,3,3,4,5,3],'60':[5,5,6,5,5,5,5,6,5],'62':[2,3,8,3,2,2,3,6,2],
+    '80':[3,4,7,4,3,3,4,6,3],
     // GRAND EST
-    '08':[4,7,4,7,6,5,5,8,4],'10':[5,6,5,7,6,5,5,7,5],
-    '51':[5,6,5,7,6,5,5,7,5],'52':[5,7,4,8,7,4,5,8,4],
-    '54':[4,7,5,6,6,6,6,6,4],'55':[4,7,4,8,7,4,5,8,4],
-    '57':[4,6,5,6,5,6,6,5,4],'67':[4,6,6,6,5,7,7,6,4],
-    '68':[4,7,5,6,6,6,8,6,5],'88':[4,8,4,7,7,5,7,7,4],
+    '08':[4,4,8,4,4,4,4,6,4],'10':[5,5,7,5,5,5,5,6,5],'51':[6,6,6,6,6,6,6,6,6],'52':[5,5,8,5,5,5,4,6,5],
+    '54':[6,6,6,6,6,6,6,6,6],'55':[6,5,8,5,6,6,4,6,5],'57':[6,6,7,6,6,6,6,6,5],'67':[7,7,6,7,7,7,7,6,7],
+    '68':[5,5,7,5,5,5,6,6,5],'88':[5,5,8,5,5,5,4,6,5],
     // PAYS-DE-LA-LOIRE
-    '44':[5,6,7,6,7,7,7,6,6],'49':[5,6,6,6,7,6,6,6,6],
-    '53':[5,7,4,7,7,5,5,8,5],'72':[5,6,5,7,7,5,5,7,5],
-    '85':[6,6,5,6,8,7,8,7,6],
+    '44':[8,8,6,8,8,8,7,7,8],'49':[8,8,7,8,8,8,7,8,8],'53':[9,9,8,8,8,8,6,8,8],'72':[7,7,7,7,7,7,6,7,7],
+    '85':[9,9,7,8,8,8,6,8,8],
     // BRETAGNE
-    '22':[4,7,5,7,9,6,7,8,5],'29':[4,7,5,6,9,7,8,7,5],
-    '35':[4,6,6,6,8,7,7,6,5],'56':[5,7,5,6,9,7,8,7,6],
+    '22':[8,8,8,7,8,8,6,8,7],'29':[7,7,7,7,7,7,7,7,7],'35':[8,8,6,8,8,8,8,7,8],'56':[8,8,7,7,8,8,6,8,7],
     // NOUVELLE-AQUITAINE
-    '16':[6,7,5,8,8,6,6,7,7],'17':[7,6,5,6,8,7,8,7,8],
-    '19':[6,9,4,9,9,5,7,9,6],'23':[6,9,3,10,9,4,5,10,5],
-    '24':[7,8,5,8,8,6,7,8,7],'33':[7,6,7,6,7,7,8,6,7],
-    '40':[8,8,4,7,9,6,8,8,7],'47':[8,7,4,8,8,5,6,7,7],
-    '64':[6,8,5,6,9,7,9,7,7],'79':[6,7,5,8,8,5,6,8,6],
-    '86':[6,7,5,7,7,6,6,7,6],'87':[5,8,5,8,8,5,6,8,5],
+    '16':[6,6,7,6,6,6,5,6,5],'17':[6,6,6,6,6,6,5,6,5],'19':[7,6,8,6,6,6,5,6,6],'23':[6,5,8,5,5,5,3,6,5],
+    '24':[6,5,7,5,5,5,4,6,5],'33':[7,7,4,7,6,6,7,5,7],'40':[7,7,6,6,7,7,5,7,6],'47':[5,5,7,5,5,5,4,6,5],
+    '64':[7,7,5,6,6,6,6,6,6],'79':[7,7,7,6,7,7,5,7,6],'86':[6,6,7,6,6,6,6,6,6],'87':[6,6,7,6,6,6,6,6,6],
     // OCCITANIE
-    '09':[7,9,4,8,9,5,9,9,6],'11':[8,6,4,8,8,5,7,8,7],
-    '12':[7,9,4,8,9,5,7,9,5],'30':[9,6,5,7,7,6,7,6,8],
-    '31':[7,7,7,6,6,7,8,6,7],'32':[8,7,4,9,9,5,6,9,7],
-    '34':[9,5,6,6,7,7,8,5,9],'46':[7,8,4,9,9,4,7,9,7],
-    '48':[7,9,3,9,10,4,8,10,5],'65':[7,9,4,8,10,5,10,8,6],
-    '66':[10,6,5,7,8,6,8,6,9],'81':[8,7,4,8,8,5,7,8,7],
-    '82':[8,6,4,8,7,5,6,7,7],
+    '09':[5,4,8,4,4,4,4,6,4],'11':[3,3,6,3,2,2,4,5,3],'12':[7,6,8,6,6,6,5,7,6],'30':[3,4,6,4,3,3,4,5,3],
+    '31':[7,7,5,7,6,6,7,5,7],'32':[7,6,8,6,6,6,4,7,5],'34':[4,5,5,5,4,4,5,4,4],'46':[7,6,8,6,6,6,4,7,5],
+    '48':[8,7,9,7,7,7,3,7,6],'65':[6,6,8,6,6,6,4,7,5],'66':[2,2,6,2,1,1,3,4,2],'81':[6,6,7,6,6,6,5,6,5],
+    '82':[5,5,7,5,5,5,4,6,5],
     // AUVERGNE-RHONE-ALPES
-    '01':[5,7,6,6,7,6,8,8,5],'03':[6,7,4,8,7,5,5,8,5],
-    '07':[7,8,4,8,8,5,8,8,7],'15':[6,9,3,9,10,4,7,10,4],
-    '26':[7,7,5,7,7,6,8,7,7],'38':[6,7,6,6,6,6,9,6,5],
-    '42':[5,6,5,7,6,6,7,6,5],'43':[6,8,3,8,9,5,7,9,4],
-    '63':[6,8,5,7,8,6,8,8,5],'69':[5,7,8,6,7,8,9,7,5],
-    '73':[7,8,5,5,8,6,10,7,5],'74':[7,7,6,5,7,7,10,6,6],
+    '01':[8,8,5,8,8,8,6,6,8],'03':[5,5,8,5,5,5,5,7,5],'07':[6,6,7,6,6,6,5,7,5],'15':[8,7,9,7,7,7,4,8,6],
+    '26':[6,6,6,6,6,6,6,6,6],'38':[7,7,6,7,7,7,7,6,7],'42':[5,5,7,5,5,5,5,6,5],'43':[7,7,8,7,7,7,4,7,6],
+    '63':[7,7,7,7,7,7,6,6,6],'69':[7,7,4,8,6,6,8,5,7],'73':[8,7,5,7,7,7,5,6,7],'74':[9,8,4,8,8,8,6,6,8],
     // PACA
-    '04':[9,8,4,8,10,5,9,9,7],'05':[8,9,4,8,10,5,10,9,6],
-    '06':[9,6,6,4,6,7,8,5,10],'13':[9,5,6,5,5,7,7,4,9],
-    '83':[9,7,5,5,7,7,8,6,9],'84':[9,7,5,6,7,6,7,6,8],
+    '04':[5,5,6,5,5,5,4,6,5],'05':[6,6,5,6,6,6,4,6,5],'06':[5,5,1,5,4,4,6,2,4],'13':[3,4,4,4,3,3,5,3,3],
+    '83':[5,5,3,5,5,5,5,5,5],'84':[3,4,5,4,3,3,4,5,3],
     // CORSE
-    '2A':[10,8,3,7,10,6,9,8,9],'2B':[9,9,3,7,10,5,9,9,8]
+    '2A':[6,5,3,5,4,4,4,4,5],'2B':[5,4,4,4,3,3,3,3,4]
   };
 
-  // Noms affichables des departements (\uXXXX = caracteres accentues)
+  // Noms affichables des departements
   var DEPT_LABELS = {
     '01':'Ain','02':'Aisne','03':'Allier',
     '04':'Alpes-de-Haute-Provence','05':'Hautes-Alpes','06':'Alpes-Maritimes',
@@ -871,7 +814,7 @@
   };
 
   // Villes de reference — pop (hab) et surf (ha) issus de geo.api.gouv.fr
-  // Score calculé par communeScore(dept, pop, surf) : tient compte de la densité réelle
+  // Liste generique reutilisee telle quelle (identique a la carte bien-vivre-sante-mentale)
   var CITIES_LIST = [
     // IDF
     {n:'Paris',dept:'75',pop:2103778,surf:10536},{n:'Boulogne-Billancourt',dept:'92',pop:119019,surf:615},
@@ -966,7 +909,7 @@
   function fmtNum(n) {
     var s = String(Math.round(n)), out = '', l = s.length;
     for (var i = 0; i < l; i++) {
-      if (i > 0 && (l - i) % 3 === 0) out += ' ';
+      if (i > 0 && (l - i) % 3 === 0) out += ' ';
       out += s[i];
     }
     return out;
@@ -977,23 +920,18 @@
   function communeRankByScore(myScore) {
     var total = 0, above = 0;
     var codes = Object.keys(DEPT_COMMUNE_COUNT);
-    // Plage de variation des scores au sein d'un même département :
-    //   commune rurale (dens<20)       → modifier moyen +1.0
-    //   commune très dense (dens>7000) → modifier moyen -1.1
-    // Au lieu d'un seuil binaire (tout-ou-rien), on interpole linéairement
-    // la fraction de communes du département qui scorent au-dessus de myScore.
     var rangeUp = 1.0;   // écart max vers le haut  (communes rurales)
     var rangeDn = 1.1;   // écart max vers le bas   (communes très denses)
     for (var i = 0; i < codes.length; i++) {
       var cnt  = DEPT_COMMUNE_COUNT[codes[i]] || 0;
       total   += cnt;
       var s    = scoreDept(codes[i]);
-      var hi   = s + rangeUp;          // meilleure commune possible du dept
-      var lo   = s - rangeDn;          // pire commune possible du dept
+      var hi   = s + rangeUp;
+      var lo   = s - rangeDn;
       var frac;
-      if      (myScore >= hi) frac = 0;                          // myScore dépasse toutes les communes
-      else if (myScore <= lo) frac = 1;                          // toutes les communes dépassent myScore
-      else                    frac = (hi - myScore) / (hi - lo); // interpolation linéaire
+      if      (myScore >= hi) frac = 0;
+      else if (myScore <= lo) frac = 1;
+      else                    frac = (hi - myScore) / (hi - lo);
       above += cnt * frac;
     }
     return { rank: Math.max(1, Math.min(Math.round(above) + 1, total)), total: total };
@@ -1008,9 +946,7 @@
   var deptGeoCache  = null;
   function toKey(nom) {
     if (!nom) return '';
-    // 1. Correspondance directe (99% des cas)
     if (GEO_MAP[nom]) return GEO_MAP[nom];
-    // 2. Normalize NFD + strip combining chars (fallback)
     try {
       var nfd = nom.normalize('NFD'), out = '';
       for (var i = 0; i < nfd.length; i++) {
@@ -1020,9 +956,8 @@
       var r1 = out.replace(/\s+/g, '-').replace(/-+/g, '-');
       if (DATA[r1]) return r1;
     } catch(e2) {}
-    // 3. Remplacement manuel (securite supplementaire)
     var ACCS = {};
-    ACCS['Ã ']='a'; ACCS['Ã¢']='a'; ACCS['Ã¤']='a';
+    ACCS['Ã ']='a'; ACCS['Ã¢']='a'; ACCS['Ã¤']='a';
     ACCS['Ã¨']='e'; ACCS['Ã©']='e'; ACCS['Ãª']='e'; ACCS['Ã«']='e';
     ACCS['Ã®']='i'; ACCS['Ã¯']='i';
     ACCS['Ã´']='o'; ACCS['Ã¶']='o';
@@ -1030,7 +965,7 @@
     ACCS['Ã§']='c';
     ACCS['Ã€']='A'; ACCS['Ã‚']='A'; ACCS['Ã„']='A';
     ACCS['Ãˆ']='E'; ACCS['Ã‰']='E'; ACCS['ÃŠ']='E'; ACCS['Ã‹']='E';
-    ACCS['ÃŽ']='I'; ACCS['Ã']='I';
+    ACCS['ÃŽ']='I'; ACCS['Ã']='I';
     ACCS['Ã”']='O'; ACCS['Ã–']='O';
     ACCS['Ã™']='U'; ACCS['Ã›']='U'; ACCS['Ãœ']='U';
     ACCS['Ã‡']='C';
@@ -1085,14 +1020,13 @@
     var ranked = [];
     for (var i = 0; i < CITIES_LIST.length; i++) {
       var c = CITIES_LIST[i];
-      // Score réel de la ville : tient compte de sa densité, pas juste du département
       var sc = communeScore(c.dept, c.pop || 0, c.surf || 0);
       var al = activeList(), tot = 0, s;
       if (sc) {
         for (var j = 0; j < al.length; j++) tot += (sc[al[j]] || 0);
         s = al.length > 0 ? tot / al.length : 0;
       } else {
-        s = scoreDept(c.dept); // fallback si dept inconnu
+        s = scoreDept(c.dept);
       }
       ranked.push({n:c.n, dept:c.dept, s:s});
     }
@@ -1118,7 +1052,6 @@
     var top = document.getElementById('city-top10');
     var bot = document.getElementById('city-bot10');
     if (top) top.innerHTML = makeRows(ranked.slice(0, 10), true);
-    // Bottom 10 : du moins bien au mieux parmi les derniers
     if (bot) bot.innerHTML = makeRows(ranked.slice(-10).reverse(), false);
   }
 
@@ -1143,7 +1076,6 @@
   }
 
   function focusDept(code) {
-    // Trouver la region qui contient ce departement et zoomer dessus
     var rkeys = Object.keys(REGION_DEPTS);
     for (var i = 0; i < rkeys.length; i++) {
       if (REGION_DEPTS[rkeys[i]].indexOf(code) >= 0) {
@@ -1158,7 +1090,6 @@
     var al = activeList();
     if (active[k]) {
       if (al.length <= 1) {
-        // Feedback visuel : flash rouge sur le bouton pour signaler qu'on ne peut pas désactiver
         var btnLast = document.getElementById('cb-' + k);
         if (btnLast) {
           btnLast.style.outline = '2px solid #ef4444';
@@ -1181,7 +1112,6 @@
     if (currentLevel === 1 && geojsonLayer) { geojsonLayer.setStyle(layerStyleFn); }
     if (currentLevel === 2 && deptLayer)    { deptLayer.setStyle(deptStyleFn); }
     if (currentLevel === 3 && communeLayer) {
-      // Recalculer la couleur du dept courant
       if (currentDeptCode) {
         var fc = colorFill(scoreDept(currentDeptCode));
         communeLayer.setStyle({fillColor:fc, fillOpacity:.82, color:'#fff', weight:1.5, opacity:1});
@@ -1207,7 +1137,6 @@
   function layerStyleFn(feat) {
     var nom = (feat && feat.properties && feat.properties.nom) || '';
     var k   = toKey(nom);
-    // Regions inconnues (DOM-TOM) : totalement invisibles
     if (!DATA[k]) return {fillOpacity:0, weight:0, opacity:0};
     return {fillColor:colorFill(score(k)), weight:2, opacity:1, color:'#fff', fillOpacity:0.82};
   }
@@ -1217,11 +1146,11 @@
     var s = score(k), al = activeList(), tot = 0;
     for (var i = 0; i < al.length; i++) tot += (d[al[i]] || 0);
     var label   = LABELS[k] || geoNom;
-    var verdict = s >= 8.5 ? 'Exceptionnel pour la santé mentale.'
-      : s >= 7.5 ? 'Très favorable selon vos critères.'
-      : s >= 6.5 ? 'Bonnes conditions globales.'
-      : s >= 5.5 ? 'Conditions mitigées.'
-      : 'Conditions difficiles sur ces critères.';
+    var verdict = s >= 8.5 ? 'Territoire très résilient sur ces critères.'
+      : s >= 7.5 ? 'Stress socio-économique globalement faible.'
+      : s >= 6.5 ? 'Situation plutôt favorable.'
+      : s >= 5.5 ? 'Situation mitigée.'
+      : 'Stress socio-économique marqué sur ces critères.';
     var bars = '';
     for (var i = 0; i < al.length; i++) {
       var ki = al[i], v = d[ki]||0, fc = v>=8?'#22c55e':v>=6?'#f59e0b':'#ef4444';
@@ -1248,8 +1177,8 @@
     if (!c) return;
     mapDrillLoader = document.createElement('div');
     mapDrillLoader.className = 'map-drill-loader';
-    mapDrillLoader.innerHTML = '<div class="map-drill-orb">&#x1F9D8;</div>'
-      + '<div class="map-drill-txt">Chargement&hellip;</div>';
+    mapDrillLoader.innerHTML = '<div class="map-drill-orb">😰</div>'
+      + '<div class="map-drill-txt">Chargement…</div>';
     c.appendChild(mapDrillLoader);
   }
   function hideMapLoading() {
@@ -1265,10 +1194,9 @@
       minZoom: 5, maxZoom: 10,
       zoomControl: true,
       scrollWheelZoom: false,
-      dragging: !isMobile,   // niveau 1 (régions) : le doigt scrolle la page
-      tap: !isMobile         // réactivé aux niveaux dept/communes via showDeptLevel/drillBack
+      dragging: !isMobile,
+      tap: !isMobile
     });
-    // Hint tactile — visible uniquement sur mobile, disparaît au premier tap
     if (isMobile) {
       var hint = document.createElement('div');
       hint.id = 'map-touch-hint';
@@ -1278,18 +1206,15 @@
         + 'padding:5px 14px;border-radius:20px;pointer-events:none;z-index:800;'
         + 'white-space:nowrap;transition:opacity .4s';
       document.getElementById('carte-leaflet').appendChild(hint);
-      // Disparaît après le premier clic/tap sur la carte
       leafletMap.once('click', function() {
         hint.style.opacity = '0';
         setTimeout(function(){ if (hint.parentNode) hint.parentNode.removeChild(hint); }, 450);
       });
     }
-    // Tuiles OpenStreetMap France — labels en français, libre de droits
     L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
       attribution: '&copy; Contributeurs <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &mdash; Rendu <a href="https://openstreetmap.fr/">OSMFR</a>',
       subdomains: 'abc', maxZoom: 20
     }).addTo(leafletMap);
-    // Controle breadcrumb / retour
     var NavCtrl = L.Control.extend({
       options: {position:'topleft'},
       onAdd: function() {
@@ -1308,8 +1233,6 @@
   }
 
   function loadGeoJSON() {
-    // geo.api.gouv.fr ne retourne plus la géométrie (juste nom+code depuis 2026)
-    // → on utilise gregoiredavid/france-geojson qui contient les polygones complets
     var urls = [
       'https://cdn.jsdelivr.net/gh/gregoiredavid/france-geojson@master/regions-version-simplifiee.geojson',
       'https://raw.githubusercontent.com/gregoiredavid/france-geojson/master/regions-version-simplifiee.geojson'
@@ -1317,7 +1240,6 @@
     tryFetch(urls, 0);
   }
 
-  // Fetch avec timeout (12 s) via AbortController pour eviter le spinner infini
   function fetchTimeout(url, ms) {
     if (typeof AbortController === 'undefined') return fetch(url);
     var ctrl = new AbortController();
@@ -1333,8 +1255,6 @@
     fetchTimeout(urls[idx], 12000)
       .then(function(r){ if(!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function(geo){
-        // Erreurs de rendu catchees ici, separement des erreurs reseau
-        // NE PAS supprimer #map-msg avant showMapError — showMapError en a besoin
         try { onGeoLoaded(geo); }
         catch(e2) { showMapError('⚠️ ' + (e2.message || 'Erreur rendu').substring(0, 50)); }
       })
@@ -1342,14 +1262,12 @@
   }
 
   function onGeoLoaded(geo) {
-    // Pas de filter : toutes les features chargent.
-    // layerStyleFn rend les DOM-TOM (non dans DATA) completement invisibles.
     geojsonLayer = L.geoJSON(geo, {
       style: layerStyleFn,
       onEachFeature: function(feat, layer) {
         var nom = (feat.properties && feat.properties.nom) || '';
         var k   = toKey(nom);
-        if (!DATA[k]) return; // pas de tooltip/event pour DOM-TOM
+        if (!DATA[k]) return;
         layer.bindTooltip(function() {
           return '<strong>' + nom + '</strong> – ' + score(k).toFixed(1) + '/10'
             + '<br><small style="color:#94a3b8">Cliquez pour voir les départements</small>';
@@ -1361,18 +1279,16 @@
           },
           mouseout: function(e) { geojsonLayer.resetStyle(e.target); },
           click:    function()  {
-            showCityResult(nom, k, nom, null, '', null, null, null, true); // noScroll: garde la carte visible
+            showCityResult(nom, k, nom, null, '', null, null, null, true);
             showDeptLevel(k);
           }
         });
       }
     }).addTo(leafletMap);
 
-    // Supprimer le spinner seulement après succès
     var msg = document.getElementById('map-msg');
     if (msg) msg.remove();
 
-    // Cadrer uniquement sur les 13 regions metropolitaines (exclut DOM-TOM)
     var bounds = null;
     geojsonLayer.eachLayer(function(layer) {
       var lnom = (layer.feature && layer.feature.properties && layer.feature.properties.nom) || '';
@@ -1396,7 +1312,6 @@
     return n > 0 ? tot / n : 0;
   }
 
-  // Convertit DEPT_DATA (tableau indexé) en objet {sun,nature,...} identique à DATA
   function deptToObj(code) {
     var d = DEPT_DATA[code]; if (!d) return null;
     var obj = {};
@@ -1404,18 +1319,17 @@
     return obj;
   }
 
-  // Modificateurs par palier de densité (hab/km²) — 8 paliers, partagés entre
-  // communeModifiers() (pop/surface réelles) et modsFromTierCode() (index précalculé)
-  //                          sun  nature  care  cost  air  social  sport  calm  weather
+  // Modificateurs par palier de densité (hab/km²) — 8 paliers
+  //                          chomage  precarite  logement  dette  pauvrete  rsa  soins  inegalites  neet
   var TIER_TABLE = [
-    {sun:0, nature: 3, care:-3, cost: 3, air: 3, social:-2, sport: 1, calm: 4, weather:0}, // 0 : très rural
-    {sun:0, nature: 3, care:-2, cost: 2, air: 2, social:-1, sport: 1, calm: 3, weather:0}, // 1
-    {sun:0, nature: 2, care:-1, cost: 2, air: 1, social: 1, sport: 1, calm: 2, weather:0}, // 2
-    {sun:0, nature: 1, care: 0, cost: 1, air: 0, social: 1, sport: 1, calm: 1, weather:0}, // 3
-    {sun:0, nature: 0, care: 0, cost: 0, air: 0, social: 1, sport: 0, calm: 0, weather:0}, // 4
-    {sun:0, nature:-1, care: 1, cost:-2, air:-1, social: 0, sport:-1, calm:-1, weather:0}, // 5
-    {sun:0, nature:-2, care: 1, cost:-3, air:-2, social: 0, sport:-1, calm:-2, weather:0}, // 6
-    {sun:0, nature:-2, care: 2, cost:-4, air:-2, social:-1, sport: 0, calm:-3, weather:0}  // 7 : très dense
+    {chomage: 1, precarite: 0, logement: 4, dette: 0, pauvrete: 0, rsa: 0, soins:-3, inegalites: 2, neet: 0}, // 0 : très rural
+    {chomage: 1, precarite: 0, logement: 3, dette: 0, pauvrete: 0, rsa: 0, soins:-2, inegalites: 2, neet: 0}, // 1
+    {chomage: 0, precarite: 0, logement: 2, dette: 0, pauvrete: 0, rsa: 0, soins:-1, inegalites: 1, neet: 0}, // 2
+    {chomage: 0, precarite: 0, logement: 1, dette: 0, pauvrete: 0, rsa: 0, soins: 0, inegalites: 0, neet: 0}, // 3
+    {chomage: 0, precarite: 0, logement: 0, dette: 0, pauvrete: 0, rsa: 0, soins: 0, inegalites: 0, neet: 0}, // 4
+    {chomage: 0, precarite:-1, logement:-1, dette: 0, pauvrete:-1, rsa:-1, soins: 1, inegalites:-1, neet:-1}, // 5
+    {chomage:-1, precarite:-1, logement:-2, dette:-1, pauvrete:-1, rsa:-1, soins: 1, inegalites:-2, neet:-1}, // 6
+    {chomage:-1, precarite:-2, logement:-3, dette:-1, pauvrete:-2, rsa:-2, soins: 2, inegalites:-3, neet:-2}  // 7 : très dense
   ];
   function densityTier(dens) {
     if (dens <   20) return 0;
@@ -1429,16 +1343,12 @@
   }
 
   // Ajustements par densité de population — différencie toutes les communes
-  // surface (de l'API) est en hectares → densité = pop / (surface / 100)
-  // sun et weather restent au niveau dept (peu de variation intra-dept)
   function communeModifiers(pop, surface) {
     pop = pop || 0;
-    // Densité en hab/km² ; fallback si surface absente : estimation grossière par palier pop
     var dens;
     if (surface && surface > 0) {
-      dens = pop / (surface / 100); // surface en ha → /100 = km²
+      dens = pop / (surface / 100);
     } else {
-      // estimation : communes françaises moyennes par taille
       if (pop <    500) dens = 18;
       else if (pop <   2000) dens = 55;
       else if (pop <  10000) dens = 180;
@@ -1447,10 +1357,10 @@
       else                   dens = 5500;
     }
     var base = TIER_TABLE[densityTier(dens)];
-    var dm = {sun:base.sun, nature:base.nature, care:base.care, cost:base.cost, air:base.air,
-              social:base.social, sport:base.sport, calm:base.calm, weather:base.weather};
-    // Facteur taille absolue : différencie les grandes métropoles (même densité, pression accrue)
-    if (pop >= 500000) { dm.nature -= 1; dm.sport -= 1; }
+    var dm = {chomage:base.chomage, precarite:base.precarite, logement:base.logement, dette:base.dette, pauvrete:base.pauvrete,
+              rsa:base.rsa, soins:base.soins, inegalites:base.inegalites, neet:base.neet};
+    // Facteur taille absolue : pression accrue des grandes métropoles (logement/inégalités)
+    if (pop >= 500000) { dm.logement -= 1; dm.inegalites -= 1; }
     return dm;
   }
 
@@ -1459,12 +1369,11 @@
     var big  = code >= 10;
     var base = TIER_TABLE[big ? code - 10 : code];
     if (!big) return base;
-    return {sun:base.sun, nature:base.nature - 1, care:base.care, cost:base.cost, air:base.air,
-            social:base.social, sport:base.sport - 1, calm:base.calm, weather:base.weather};
+    return {chomage:base.chomage, precarite:base.precarite, logement:base.logement - 1, dette:base.dette, pauvrete:base.pauvrete,
+            rsa:base.rsa, soins:base.soins, inegalites:base.inegalites - 1, neet:base.neet};
   }
 
   // Rang exact d'un score parmi les 34 746 communes métropolitaines (index précalculé)
-  // Respecte les critères actuellement actifs — recalcule le score de chaque commune à la volée
   function exactCommuneRank(myScore) {
     if (!communeDensityIndex) return null;
     var al = activeList();
@@ -1492,7 +1401,7 @@
   }
   function communeRankLabel(cr) {
     var suf = cr.rank <= 1 ? 're' : 'e';
-    return '&#x1F3D8; Rang national&nbsp;: ' + fmtNum(cr.rank) + suf + '&nbsp;/ ' + fmtNum(cr.total) + ' communes';
+    return '🏘 Rang national&nbsp;: ' + fmtNum(cr.rank) + suf + '&nbsp;/ ' + fmtNum(cr.total) + ' communes';
   }
 
   // Score commune : base dept + ajustements densité, clampé [1,10]
@@ -1514,7 +1423,7 @@
   }
 
   function tryFetchDept(urls, idx, cb) {
-    if (idx >= urls.length) { hideMapLoading(); return; } // echec silencieux
+    if (idx >= urls.length) { hideMapLoading(); return; }
     fetchTimeout(urls[idx], 12000)
       .then(function(r){ if(!r.ok) throw new Error(); return r.json(); })
       .then(function(geo){ deptGeoCache = geo; cb(geo); })
@@ -1524,7 +1433,6 @@
   function showDeptLevel(regionKey) {
     currentRegionKey = regionKey;
     currentLevel = 2;
-    // Mobile : réactiver le pan dès qu'on zoome dans une région (carte plus restreinte)
     if (L.Browser.mobile && leafletMap) leafletMap.dragging.enable();
     leafletMap.closePopup();
     if (geojsonLayer) geojsonLayer.remove();
@@ -1557,10 +1465,10 @@
             click:     function()  {
               var rLabel = LABELS[regionKey] || regionKey;
               showCityResult(label, regionKey, rLabel, code,
-                'R&eacute;gion&nbsp;: <strong>' + rLabel + '</strong>',
+                'Région&nbsp;: <strong>' + rLabel + '</strong>',
                 deptToObj(code),
-                'Donn&eacute;es au niveau d&eacute;partemental &mdash; cliquez une commune pour affiner',
-                'dept96', true); // noScroll: garde la carte visible
+                'Données au niveau départemental — cliquez une commune pour affiner',
+                'dept96', true);
               drillToCommunes(code, label);
             }
           });
@@ -1599,15 +1507,14 @@
         var firstGeom = geo.features[0] && geo.features[0].geometry;
         if (!firstGeom) { updateBreadcrumb(); return; }
 
-        var s  = scoreDept(deptCode); // score dept (pour tooltip)
+        var s  = scoreDept(deptCode);
 
         communeLayer = L.geoJSON(geo, {
           pointToLayer: function(feat, ll) {
             var pop     = (feat.properties && feat.properties.population) || 0;
             var surface = (feat.properties && feat.properties.surface)    || 0;
-            // Couleur individuelle selon score de la commune (dept + modif densité)
             var cSc  = communeScore(deptCode, pop, surface);
-            var cAvg = s; // fallback = score dept
+            var cAvg = s;
             if (cSc) {
               var _al = activeList(), _tot = 0;
               for (var _i = 0; _i < _al.length; _i++) _tot += (cSc[_al[_i]] || 0);
@@ -1643,14 +1550,14 @@
                 ? (pop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
                 : pop ? pop + '&nbsp;hab.' : '';
               showCityResult(nom, currentRegionKey, rLabel, deptCode,
-                'D&eacute;p.&nbsp;<strong>' + deptLabel + '</strong>'
-                + (rLabel ? '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + rLabel + '</strong>' : '')
+                'Dép.&nbsp;<strong>' + deptLabel + '</strong>'
+                + (rLabel ? '&nbsp;&middot; Région&nbsp;<strong>' + rLabel + '</strong>' : '')
                 + (popStr ? '&nbsp;&middot; ' + popStr : ''),
                 communeScore(deptCode, pop, surface),
-                'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
+                'Score estimé : données départementales ajustées selon la densité de population');
             });
           }
-        
+
 }).addTo(leafletMap);
 
         if (communeLayer.getBounds().isValid()) leafletMap.fitBounds(communeLayer.getBounds(), {padding:[25,25]});
@@ -1671,7 +1578,6 @@
         geojsonLayer.addTo(leafletMap);
         if (geojsonLayer.getBounds().isValid()) leafletMap.fitBounds(geojsonLayer.getBounds(), {padding:[10,10]});
       }
-      // Mobile : redésactiver le pan au retour au niveau régions (doigt = scroll page)
       if (L.Browser.mobile && leafletMap) leafletMap.dragging.disable();
       updateBreadcrumb();
     }
@@ -1686,7 +1592,6 @@
       geojsonLayer.addTo(leafletMap);
       if (geojsonLayer.getBounds().isValid()) leafletMap.fitBounds(geojsonLayer.getBounds(), {padding:[10,10]});
     }
-    // Mobile : redésactiver le pan au retour niveau régions
     if (L.Browser.mobile && leafletMap) leafletMap.dragging.disable();
     updateBreadcrumb();
   }
@@ -1711,7 +1616,6 @@
     }
     bc.innerHTML = h;
     if (btn) btn.style.display = currentLevel > 1 ? 'block' : 'none';
-    // Mettre a jour le style des regles si on est aux departements
     if (currentLevel === 2 && deptLayer) { deptLayer.setStyle(deptStyleFn); }
     if (currentLevel === 3 && deptLayer) { deptLayer.setStyle(deptStyleFn); }
   }
@@ -1719,7 +1623,6 @@
     var msg  = document.getElementById('map-msg');
     var ring = document.querySelector('#map-msg .ring');
     var span = document.getElementById('map-msg-txt');
-    // Passer au-dessus des tuiles Leaflet (z-index 200+) si message d'erreur
     if (msg)  { msg.style.zIndex = '900'; msg.style.background = '#fff8f8'; }
     if (ring) ring.style.display = 'none';
     if (span) span.textContent = txt || 'Carte non disponible';
@@ -1749,7 +1652,7 @@
     geojsonLayer.eachLayer(function(layer) {
       if (found) return;
       var nom = (layer.feature && layer.feature.properties && layer.feature.properties.nom) || '';
-      if (!DATA[toKey(nom)]) return; // ignorer DOM-TOM
+      if (!DATA[toKey(nom)]) return;
       var geom = layer.feature && layer.feature.geometry;
       if (!geom) return;
       var rings = [];
@@ -1764,17 +1667,11 @@
     return found;
   }
 
-  // Affiche la fiche détaillée sous la carte.
-  // subtitleHtml : undefined = "Région : X" par défaut
-  //                ''        = pas de sous-titre
-  //                string    = HTML personnalisé
   function showCityResult(cityName, regionKey, regionNomGeo, deptCode, subtitleHtml, scoreOverride, dataNote, rankMode, noScroll) {
     var el = document.getElementById('city-result');
     if (!el) return;
     var label = LABELS[regionKey] || regionNomGeo || regionKey;
-    // Données à afficher : scoreOverride (dept/commune) ou fallback région
     var d = scoreOverride || DATA[regionKey];
-    // Score global recalculé sur les données effectives
     var globalScore;
     if (scoreOverride) {
       var _al = activeList(), _tot = 0;
@@ -1783,7 +1680,6 @@
     } else {
       globalScore = score(regionKey);
     }
-    // Rang parmi 13 regions
     var keys = Object.keys(DATA), sorted = [];
     for (var i = 0; i < keys.length; i++) sorted.push({k:keys[i], s:score(keys[i])});
     sorted.sort(function(a,b){ return b.s - a.s; });
@@ -1792,14 +1688,12 @@
     var suf        = rank === 1 ? '<sup>re</sup>' : '<sup>e</sup>';
     var rankColor  = rank <= 4 ? '#166534' : rank <= 9 ? '#92400e' : '#991b1b';
     var rankBg     = rank <= 4 ? '#dcfce7' : rank <= 9 ? '#ffedd5' : '#fee2e2';
-    // Sous-titre (région, département, etc.)
     var subDiv = '';
     if (typeof subtitleHtml === 'undefined') {
-      subDiv = '<div class="cr-region">R&eacute;gion&nbsp;: <strong>' + label + '</strong></div>';
+      subDiv = '<div class="cr-region">Région&nbsp;: <strong>' + label + '</strong></div>';
     } else if (subtitleHtml) {
       subDiv = '<div class="cr-region">' + subtitleHtml + '</div>';
     }
-    // Barres : 9 criteres fixes
     var bars = '';
     for (var i = 0; i < KEYS.length; i++) {
       var ki = KEYS[i], v = d ? (d[ki]||0) : 0;
@@ -1811,10 +1705,8 @@
       bars += '<span class="cr-val">'+v+'/10</span>';
       bars += '</div>';
     }
-    // Badge de rang selon le mode
     var commHtml = '';
     if (rankMode === 'dept96' && deptCode && DEPT_DATA[deptCode]) {
-      // Rang parmi 96 departements (clic dept)
       var codes96 = Object.keys(DEPT_DATA), ranked96 = [];
       for (var ri = 0; ri < codes96.length; ri++) ranked96.push({c:codes96[ri], s:scoreDept(codes96[ri])});
       ranked96.sort(function(a,b){ return b.s - a.s; });
@@ -1824,24 +1716,22 @@
       var drBg  = dRank <= 24 ? '#dcfce7' : dRank <= 72 ? '#fef9c3' : '#fee2e2';
       var drCo  = dRank <= 24 ? '#166534' : dRank <= 72 ? '#92400e' : '#991b1b';
       commHtml = '<div class="cr-comm-rank" style="background:' + drBg + ';color:' + drCo + '">'
-        + '&#x1F3D8; Rang d&eacute;partemental&nbsp;: ' + dRank + drSuf + '&nbsp;/ 96 d&eacute;partements'
+        + '🏘 Rang départemental&nbsp;: ' + dRank + drSuf + '&nbsp;/ 96 départements'
         + '</div>';
     } else if (rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
-      // Rang exact parmi les 34 746 communes métropolitaines (index précalculé) —
-      // fallback sur l'estimation interpolée si l'index n'est pas encore chargé
       var cr = exactCommuneRank(globalScore) || communeRankByScore(globalScore);
       commHtml = '<div class="cr-comm-rank" id="cr-comm-rank" data-myscore="' + globalScore
         + '" style="' + communeRankStyle(cr) + '">' + communeRankLabel(cr) + '</div>';
     }
     var noteHtml = dataNote
-      ? '<p class="cr-note">&#x2139;&#xFE0F; ' + dataNote + '</p>'
+      ? '<p class="cr-note">ℹ️ ' + dataNote + '</p>'
       : '';
     el.innerHTML = '<div class="cr-card">'
       + '<div class="cr-header">'
-      + '<div class="cr-city">&#x1F4CD; <strong>' + cityName + '</strong></div>'
+      + '<div class="cr-city">📍 <strong>' + cityName + '</strong></div>'
       + subDiv
       + '<div class="cr-rank" style="background:' + rankBg + ';color:' + rankColor + '">'
-      + rank + suf + '&nbsp;/ 13 r&eacute;gions'
+      + rank + suf + '&nbsp;/ 13 régions'
       + (scoreOverride ? '' : ' &middot; Score&nbsp;' + globalScore.toFixed(1) + '/10')
       + '</div>'
       + commHtml
@@ -1850,21 +1740,17 @@
       + noteHtml
       + '</div>';
     el.style.display = 'block';
-    // Scroll uniquement pour la recherche ville et le clic commune (fin de drill-down)
-    // Les clics région/département passent noScroll=true pour garder la carte visible
     if (!noScroll) {
       requestAnimationFrame(function() {
         var rect = el.getBoundingClientRect();
-        var top  = rect.top + window.pageYOffset - 90; // 90 = hauteur header fixe
+        var top  = rect.top + window.pageYOffset - 90;
         window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
       });
     }
-    // Si l'index communes n'était pas encore chargé, le badge affiché ci-dessus vient de
-    // l'estimation interpolée (fallback) — on le remplace par le rang exact dès que possible
     if (!communeDensityIndex && rankMode !== 'dept96' && deptCode && DEPT_COMMUNE_COUNT[deptCode]) {
       communeDensityPromise.then(function() {
         var badge = document.getElementById('cr-comm-rank');
-        if (!badge || parseFloat(badge.getAttribute('data-myscore')) !== globalScore) return; // plus affiché / obsolète
+        if (!badge || parseFloat(badge.getAttribute('data-myscore')) !== globalScore) return;
         var cr2 = exactCommuneRank(globalScore);
         if (!cr2) return;
         badge.setAttribute('style', communeRankStyle(cr2));
@@ -1893,7 +1779,6 @@
         var lng      = parseFloat(data[0].lon);
         var cityName = String(data[0].display_name.split(',')[0])
           .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-        // Extraction code dept via code postal Nominatim
         var addr     = data[0].address || {};
         var postcode = (addr.postcode || '').split(',')[0].trim();
         var deptCode = postcodeToDept(postcode);
@@ -1914,9 +1799,6 @@
         var rk  = toKey(nom);
         leafletMap.fitBounds(layer.getBounds(), {padding:[40,40], maxZoom:9});
 
-        // 2e appel : score de commune précis (pop + surface réelles)
-        // Toujours effectué — Nominatim ne retourne pas toujours de postcode pour les villes
-        // (ex: Lyon → pas de postcode, mais geo.api.gouv.fr retourne codeDepartement directement)
         var geoUrl = 'https://geo.api.gouv.fr/communes?lat=' + lat + '&lon=' + lng
           + '&fields=nom,code,codeDepartement,population,surface&format=json';
         fetch(geoUrl)
@@ -1925,7 +1807,6 @@
             var comm     = cdata && cdata[0];
             var cpop     = (comm && comm.population) || 0;
             var csurf    = (comm && comm.surface)    || 0;
-            // Priorité au codeDepartement retourné par l'API (fiable), sinon fallback postcode Nominatim
             var realDept = (comm && comm.codeDepartement) || deptCode;
             var cScore   = realDept ? communeScore(realDept, cpop, csurf) : null;
             var dLabel   = DEPT_LABELS[realDept] || realDept || '';
@@ -1933,14 +1814,13 @@
               ? (cpop/1000).toFixed(0) + '&nbsp;000&nbsp;hab.'
               : cpop ? cpop + '&nbsp;hab.' : '';
             showCityResult(cityName, rk, nom, realDept,
-              'D&eacute;p.&nbsp;<strong>' + dLabel + '</strong>'
-              + '&nbsp;&middot; R&eacute;gion&nbsp;<strong>' + nom + '</strong>'
+              'Dép.&nbsp;<strong>' + dLabel + '</strong>'
+              + '&nbsp;&middot; Région&nbsp;<strong>' + nom + '</strong>'
               + (popStr ? '&nbsp;&middot; ' + popStr : ''),
               cScore,
-              'Score estim&eacute; : donn&eacute;es d&eacute;partementales ajust&eacute;es selon la densit&eacute; de population');
+              'Score estimé : données départementales ajustées selon la densité de population');
           })
           .catch(function() {
-            // Fallback : score région si l'API commune échoue
             showCityResult(cityName, rk, nom, deptCode);
           });
       })
