@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/charge-mentale/">
+<title>Quel est votre niveau de charge mentale au travail ? — Quiz Oui Psycho!</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #22303c; line-height: 1.55; background: transparent; padding: 4px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf0; border-radius: 16px;
+    padding: 26px 22px; box-shadow: 0 6px 24px rgba(31,78,107,.07);
+  }
+  .kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #1F4E6B; font-weight: 700; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 8px 0 10px; color: #16303f; }
+  .lead { color: #4a5b68; margin-bottom: 18px; }
+  .progress { height: 6px; background: #eef2f5; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .progress > span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#e8894a); transition: width .3s ease; }
+  .step { font-size: .8rem; color: #8091a0; margin-bottom: 8px; }
+  .question { font-size: 1.18rem; font-weight: 650; color: #16303f; margin-bottom: 16px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left; width: 100%; border: 1.5px solid #dce4ea; background: #fbfcfd;
+    border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: #2b3a46;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .opt:hover { border-color: #1F4E6B; background: #f3f8fb; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .btn {
+    display: inline-block; border: none; border-radius: 12px; padding: 13px 22px;
+    font-size: 1rem; font-weight: 650; cursor: pointer; background: #1F4E6B; color: #fff;
+  }
+  .btn:hover { background: #16394f; }
+  .btn.ghost { background: #eef2f5; color: #22303c; }
+  .btn.ghost:hover { background: #e2e9ee; }
+  .result-badge {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .result-emoji { font-size: 2.6rem; display: block; margin-bottom: 4px; }
+  .result-desc { color: #3c4c58; margin: 14px 0 4px; }
+  .result-desc p { margin-bottom: 10px; }
+  .disclaimer {
+    background: #f6f4ef; border-left: 4px solid #c58a1a; border-radius: 8px;
+    padding: 14px 16px; font-size: .92rem; color: #4a4335; margin: 20px 0;
+  }
+  .share { margin: 18px 0 6px; }
+  .share-label { font-size: .85rem; color: #6a7a87; margin-bottom: 8px; }
+  .share-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .share-links a {
+    text-decoration: none; font-size: .9rem; font-weight: 600; padding: 9px 14px;
+    border-radius: 10px; background: #eef2f5; color: #22303c;
+  }
+  .share-links a:hover { background: #e2e9ee; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="kicker">Quiz Oui Psycho!</div>
+      <h1>Quel est votre niveau de charge mentale au travail ?</h1>
+      <p class="lead">Huit questions pour évaluer le poids de ce travail invisible de planification et d'anticipation qui pèse sur votre quotidien professionnel.</p>
+      <button class="btn" id="startBtn">Commencer le test →</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="step" id="step"></div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="result-emoji" id="rEmoji"></span>
+      <span class="result-badge" id="rBadge"></span>
+      <div class="result-desc" id="rDesc"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="share">
+        <div class="share-label">Ce test peut aider quelqu'un. Partagez-le :</div>
+        <div class="share-links">
+          <a id="shFb" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shTw" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    {
+      q: "En dehors de vos horaires de travail, à quelle fréquence pensez-vous à des tâches professionnelles en suspens ?",
+      a: [
+        { t: "Rarement : je décroche assez facilement.", v: 0 },
+        { t: "De temps en temps, sans que ça m'envahisse.", v: 1 },
+        { t: "Souvent, ça me revient sans que je le veuille.", v: 2 },
+        { t: "En permanence, y compris la nuit.", v: 3 }
+      ]
+    },
+    {
+      q: "Dans votre équipe ou votre poste, qui porte la responsabilité de « ne rien oublier » ?",
+      a: [
+        { t: "Elle est clairement partagée entre plusieurs personnes.", v: 0 },
+        { t: "Elle repose un peu plus sur moi que sur les autres.", v: 1 },
+        { t: "Elle repose presque toujours sur moi.", v: 2 },
+        { t: "Elle ne repose que sur moi, personne d'autre ne suit ces sujets.", v: 3 }
+      ]
+    },
+    {
+      q: "Après une journée « calme » en apparence, vous sentez-vous parfois épuisé·e sans raison visible ?",
+      a: [
+        { t: "Non, mon niveau de fatigue correspond à ce que j'ai fait.", v: 0 },
+        { t: "Ça arrive occasionnellement.", v: 1 },
+        { t: "Assez régulièrement, sans bien comprendre pourquoi.", v: 2 },
+        { t: "Presque systématiquement, même les jours « tranquilles ».", v: 3 }
+      ]
+    },
+    {
+      q: "Quand vous déléguez une tâche, vous…",
+      a: [
+        { t: "Faites confiance et n'y repensez plus.", v: 0 },
+        { t: "Vérifiez une fois que c'est fait, sans plus.", v: 1 },
+        { t: "Relancez et vérifiez plusieurs fois par précaution.", v: 2 },
+        { t: "Avez du mal à vraiment lâcher, et finissez par tout reprendre en tête.", v: 3 }
+      ]
+    },
+    {
+      q: "Votre charge de travail « visible » (tâches, réunions) reflète-t-elle votre fatigue réelle ?",
+      a: [
+        { t: "Oui, les deux correspondent à peu près.", v: 0 },
+        { t: "Globalement oui, avec quelques exceptions.", v: 1 },
+        { t: "Non : je suis plus fatigué·e que ce que mon agenda ne le suggère.", v: 2 },
+        { t: "Pas du tout : sur le papier je « n'ai pas tant de travail », pourtant je suis épuisé·e.", v: 3 }
+      ]
+    },
+    {
+      q: "Vos proches ou collègues ont-ils déjà minimisé votre fatigue au motif que vous « n'avez pas l'air débordé·e » ?",
+      a: [
+        { t: "Non, jamais.", v: 0 },
+        { t: "Une fois ou deux.", v: 1 },
+        { t: "Plusieurs fois, et ça m'agace un peu.", v: 2 },
+        { t: "Régulièrement — j'ai l'impression que personne ne voit ce que je porte réellement.", v: 3 }
+      ]
+    },
+    {
+      q: "Combien de sujets professionnels différents gardez-vous « en tête » à surveiller, en ce moment ?",
+      a: [
+        { t: "Un ou deux, faciles à suivre.", v: 0 },
+        { t: "Trois ou quatre, gérables.", v: 1 },
+        { t: "Cinq ou plus, ça devient difficile à tenir.", v: 2 },
+        { t: "Je ne pourrais même pas tous les compter.", v: 3 }
+      ]
+    },
+    {
+      q: "À quand remonte la dernière fois où vous avez pu vraiment « ne penser à rien » de professionnel pendant un jour de repos ?",
+      a: [
+        { t: "C'est fréquent, ça m'arrive presque à chaque week-end.", v: 0 },
+        { t: "Ça arrive de temps en temps.", v: 1 },
+        { t: "C'est rare, je ne me souviens pas de la dernière fois précisément.", v: 2 },
+        { t: "Jamais, ou presque : mon esprit reste toujours en veille.", v: 3 }
+      ]
+    }
+  ];
+
+  var PROFILES = [
+    { max: 6, emoji: "🌿", label: "Une charge mentale sous contrôle", color: "#2e7d5b",
+      desc: "<p>Votre charge de planification et d'anticipation reste globalement raisonnable et plutôt bien répartie. Vous parvenez à décrocher, et votre fatigue correspond à peu près à votre charge de travail réelle.</p><p>Continuez à surveiller les périodes plus denses, où cette charge peut ponctuellement augmenter, et à la nommer si elle s'installe durablement.</p>" },
+    { max: 12, emoji: "🌤️", label: "Une charge mentale modérée à surveiller", color: "#c58a1a",
+      desc: "<p>Vous portez une part de responsabilité d'anticipation un peu plus lourde que la moyenne, ce qui peut expliquer une fatigue parfois disproportionnée par rapport à votre charge visible. Ce n'est pas alarmant, mais mérite d'être objectivé.</p><p>Lister sur une semaine ce qui occupe réellement votre esprit — pas seulement vos tâches — est un bon point de départ pour ouvrir la discussion avec votre entourage professionnel.</p>" },
+    { max: 18, emoji: "⚠️", label: "Une charge mentale élevée", color: "#d2691e",
+      desc: "<p>Vos réponses décrivent une charge mentale conséquente : vous portez seul·e, ou presque, la responsabilité de « ne rien oublier », et votre fatigue dépasse largement ce que suggère votre agenda officiel. C'est un signal à prendre au sérieux avant qu'il ne s'aggrave.</p><p>En parler concrètement à votre manager, avec des exemples précis, et chercher activement à répartir cette charge de coordination sont des démarches à entreprendre rapidement.</p>" },
+    { max: 24, emoji: "🛟", label: "Une charge mentale au point de rupture", color: "#b23a48",
+      desc: "<p>Vous portez une charge de planification et d'anticipation qui semble avoir dépassé ce qui est tenable durablement. Le décalage entre votre fatigue réelle et ce que les autres perçoivent de votre charge de travail peut être particulièrement isolant.</p><p>Ce niveau de charge mentale mérite d'être abordé sans tarder, avec votre entourage professionnel et, si la fatigue s'installe, avec un médecin. Ce n'est pas une fatalité liée à votre poste : c'est une situation qui peut, et doit, évoluer.</p>" }
+  ];
+
+  var idx = 0;
+  var total = 0;
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function startQuiz() {
+    idx = 0; total = 0;
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var Q = QUESTIONS[idx];
+    document.getElementById('step').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    document.getElementById('question').textContent = Q.q;
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    Q.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.onclick = function() { answer(opt.v); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(value) {
+    total += value;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function profileForScore() {
+    for (var i = 0; i < PROFILES.length; i++) {
+      if (total <= PROFILES[i].max) return PROFILES[i];
+    }
+    return PROFILES[PROFILES.length - 1];
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = '100%';
+    var P = profileForScore();
+
+    document.getElementById('rEmoji').textContent = P.emoji;
+    var badge = document.getElementById('rBadge');
+    badge.textContent = P.label;
+    badge.style.background = P.color + '1a';
+    badge.style.color = P.color;
+    document.getElementById('rDesc').innerHTML = P.desc;
+
+    var url = 'https://ouipsycho.fr/articles/charge-mentale/';
+    var text = 'Quel est votre niveau de charge mentale au travail ? J’ai fait le test sur Oui Psycho!';
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = startQuiz;
+  document.getElementById('restartBtn').onclick = function() {
+    elResult.classList.add('hidden');
+    startQuiz();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

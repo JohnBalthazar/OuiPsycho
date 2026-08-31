@@ -2560,7 +2560,11 @@
       "jetlag-social"
     ],
     "metaDescription": "",
-    "articles_lies": [],
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "bore-out-ennui-au-travail",
+      "burnout-epuisement-professionnel"
+    ],
     "status": "scheduled"
   },
   {
@@ -2614,6 +2618,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "reprise-travail-apres-burn-out",
+    "title": "Reprendre le travail après un burn-out sans rechuter",
+    "excerpt": "",
+    "date": "2026-09-27",
+    "date_modified": "2026-09-27",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "burnout",
+      "reprise-du-travail",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "arret-travail-burn-out",
+      "techniques-anti-stress"
+    ],
     "status": "scheduled"
   },
   {
@@ -2671,6 +2704,35 @@
     "status": "scheduled"
   },
   {
+    "id": "arret-travail-burn-out",
+    "title": "Arrêt de travail pour burn-out : le parcours réel en France",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "burnout",
+      "arret-de-travail",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "burnout-epuisement-professionnel",
+      "reprise-travail-apres-burn-out"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
     "excerpt": "",
@@ -2722,6 +2784,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "harcelement-moral-travail",
+    "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
+    "excerpt": "",
+    "date": "2026-09-21",
+    "date_modified": "2026-09-21",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "harcelement-moral",
+      "droit-du-travail",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "manager-toxique-signes",
+      "arret-travail-burn-out"
+    ],
     "status": "scheduled"
   },
   {
@@ -2780,6 +2871,35 @@
     "status": "scheduled"
   },
   {
+    "id": "charge-mentale",
+    "title": "Charge mentale : la définir, la mesurer, la répartir",
+    "excerpt": "",
+    "date": "2026-09-18",
+    "date_modified": "2026-09-18",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "charge-mentale",
+      "souffrance-au-travail",
+      "risques-psychosociaux"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "burnout-epuisement-professionnel",
+      "syndrome-imposteur"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
     "excerpt": "",
@@ -2831,6 +2951,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "manager-toxique-signes",
+    "title": "Manager toxique : 7 signes qui ne trompent pas",
+    "excerpt": "",
+    "date": "2026-09-15",
+    "date_modified": "2026-09-15",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "manager-toxique",
+      "risques-psychosociaux",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "harcelement-moral-travail",
+      "charge-mentale"
+    ],
     "status": "scheduled"
   },
   {
@@ -2888,6 +3037,35 @@
     "status": "scheduled"
   },
   {
+    "id": "syndrome-imposteur",
+    "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
+    "excerpt": "",
+    "date": "2026-09-12",
+    "date_modified": "2026-09-12",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "syndrome-imposteur",
+      "confiance-en-soi",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "manager-toxique-signes",
+      "charge-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
     "excerpt": "",
@@ -2938,6 +3116,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "brown-out-perte-de-sens-travail",
+    "title": "Brown-out : perdre le sens de son travail",
+    "excerpt": "",
+    "date": "2026-09-09",
+    "date_modified": "2026-09-09",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "brown-out",
+      "souffrance-au-travail",
+      "sens-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "bore-out-ennui-au-travail",
+      "manager-toxique-signes"
+    ],
     "status": "scheduled"
   },
   {
@@ -2994,6 +3201,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "bore-out-ennui-au-travail",
+    "title": "Bore-out : quand l'ennui au travail rend malade",
+    "excerpt": "",
+    "date": "2026-09-06",
+    "date_modified": "2026-09-06",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "bore-out",
+      "souffrance-au-travail",
+      "sens-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "brown-out-perte-de-sens-travail",
+      "charge-mentale"
+    ],
     "status": "scheduled"
   },
   {
@@ -3104,6 +3340,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "souffrance-au-travail-guide",
+    "title": "Souffrance au travail : reconnaître, agir, se protéger",
+    "excerpt": "",
+    "date": "2026-09-03",
+    "date_modified": "2026-09-03",
+    "category": "Travail",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "travail",
+      "souffrance-au-travail",
+      "burnout",
+      "risques-psychosociaux"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "charge-mentale",
+      "harcelement-moral-travail",
+      "burnout-epuisement-professionnel"
+    ],
     "status": "scheduled"
   },
   {
@@ -5101,7 +5366,7 @@
     "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il ne vous brise",
     "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, silencieusement, jusqu'au point de rupture. Apprendre à le reconnaître tôt — et agir — peut vous épargner des mois de reconstruction.",
     "date": "2026-04-20",
-    "date_modified": "2026-04-20",
+    "date_modified": "2026-08-31",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wp0xyx3kidvcywi5p0lq",
     "hasImage": true,
@@ -5119,7 +5384,11 @@
       "limites"
     ],
     "metaDescription": "Burnout : signes, causes et marche à suivre. Comment reconnaître l'épuisement professionnel avant la rupture et reconstruire durablement.",
-    "articles_lies": [],
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "arret-travail-burn-out",
+      "reprise-travail-apres-burn-out"
+    ],
     "status": "published"
   },
   {
@@ -5127,7 +5396,7 @@
     "title": "7 techniques anti-stress validées par la science",
     "excerpt": "Pas besoin de vacances aux Maldives pour déstresser. Ces 7 techniques, toutes validées par des études sérieuses, peuvent transformer votre rapport au stress en quelques semaines — et certaines agissent en quelques minutes.",
     "date": "2026-04-15",
-    "date_modified": "2026-04-15",
+    "date_modified": "2026-08-31",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve",
     "hasImage": true,
@@ -5146,7 +5415,11 @@
       "EFT"
     ],
     "metaDescription": "7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.",
-    "articles_lies": [],
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "charge-mentale",
+      "reprise-travail-apres-burn-out"
+    ],
     "status": "published"
   },
   {

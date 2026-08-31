@@ -14,5 +14,20 @@
       "consulter": "Se reconstruire"
     },
     "chapters": []
+  },
+  {
+    "id": "souffrance-au-travail",
+    "title": "Souffrance au travail",
+    "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : comprendre ce qui use au travail, reconnaître les signaux, et savoir quoi faire. Un parcours en quatre étapes à travers nos articles.",
+    "intro": "",
+    "category": "Travail",
+    "date": "2026-09-03",
+    "etapes": {
+      "comprendre": "Comprendre",
+      "reconnaitre": "Reconnaître les signes",
+      "agir": "Agir et se protéger",
+      "rebondir": "Se reconstruire après"
+    },
+    "chapters": []
   }
 ]

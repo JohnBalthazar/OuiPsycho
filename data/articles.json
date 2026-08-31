@@ -1870,7 +1870,7 @@
     "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il ne vous brise",
     "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, silencieusement, jusqu'au point de rupture. Apprendre à le reconnaître tôt — et agir — peut vous épargner des mois de reconstruction.",
     "date": "2026-04-20",
-    "date_modified": "2026-04-20",
+    "date_modified": "2026-08-31",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wp0xyx3kidvcywi5p0lq",
     "imagePosition": "50% 50%",
@@ -1887,7 +1887,11 @@
       "limites"
     ],
     "metaDescription": "Burnout : signes, causes et marche à suivre. Comment reconnaître l'épuisement professionnel avant la rupture et reconstruire durablement.",
-    "articles_lies": [],
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "arret-travail-burn-out",
+      "reprise-travail-apres-burn-out"
+    ],
     "status": "published"
   },
   {
@@ -1895,7 +1899,7 @@
     "title": "7 techniques anti-stress validées par la science",
     "excerpt": "Pas besoin de vacances aux Maldives pour déstresser. Ces 7 techniques, toutes validées par des études sérieuses, peuvent transformer votre rapport au stress en quelques semaines — et certaines agissent en quelques minutes.",
     "date": "2026-04-15",
-    "date_modified": "2026-04-15",
+    "date_modified": "2026-08-31",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jzymdtsddcdv0acd1kve",
     "imagePosition": "50% 50%",
@@ -1913,7 +1917,11 @@
       "EFT"
     ],
     "metaDescription": "7 techniques anti-stress validées scientifiquement : cohérence cardiaque, respiration 4-7-8, EFT, pleine conscience, shinrin-yoku. Pratiques et efficaces.",
-    "articles_lies": [],
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "charge-mentale",
+      "reprise-travail-apres-burn-out"
+    ],
     "status": "published"
   },
   {

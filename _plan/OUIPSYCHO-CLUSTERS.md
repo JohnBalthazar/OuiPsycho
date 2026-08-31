@@ -537,7 +537,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 
 | Lot | Dossier | Statut | Date du run | Articles | Quiz | Commit |
 |---|---|---|---|---|---|---|
-| 1 | souffrance-au-travail | à produire | — | 0/10 | 0/3 | — |
+| 1 | souffrance-au-travail | produit, non poussé | 2026-08-31 | 9 écrits (pilier + 8 satellites) + 3 rattachés | 2/2 | en attente (commit local, push non fait) |
 | 2 | anxiete | à produire | — | 0/10 | 0/2 | — |
 | 3 | emprise-relations-toxiques | à produire | — | 0/9 | 0/3 | — |
 | 4 | sommeil | à produire | — | 0/10 | 0/2 | — |
@@ -551,6 +551,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 |---|---|---|---|---|
 | `emprise-et-relations-toxiques` | cluster réel (`theme/`) | pas de pilier unique — hub `theme/emprise-et-relations-toxiques/` agrégeant 5 étapes | 17 (10 publiés, 7 scheduled) | `data/clusters.json` : oui |
 | `anxiete-guide-complet` | dossier à chapitres (`dossiers/`) | guide unique en 5 chapitres, pas un cluster d'articles | — (contenu interne au dossier) | `data/dossiers.json` : oui |
+| `souffrance-au-travail` | cluster réel (`theme/`) | pilier `souffrance-au-travail-guide` (2026-09-03) + hub `theme/souffrance-au-travail/` agrégeant 4 étapes (comprendre/reconnaitre/agir/rebondir) | 12 (2 publiés dès aujourd'hui via rattachement, 10 scheduled 2026-09-03→2026-09-30) | `data/clusters.json` : oui (ajouté le 2026-08-31) |
 
 ### Décisions techniques actées
 *(à compléter au fil des runs)*
@@ -562,6 +563,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - [ ] Anomalie de données hors périmètre : l'article `a-partir-de-quel-age-est-on-vieux` n'a pas de champ `status`.
 - [ ] 72 des 95 fichiers quiz existants (`tests/*.html`) ne sont pas référencés dans `data/tests.json` — à investiguer séparément (hors périmètre de ce plan).
 - [ ] 13 liens internes cassés relevés (détail §3.4) — à corriger indépendamment des lots.
+- [x] **`data/tests.json` est régénéré automatiquement** par `node _gen_static.js` à chaque run (log observé : `🧪 data/tests.json mis à jour (23 tests — 22 auto + 1 manuel(s))`), à partir des articles `published` dont le `content` contient un iframe `tests/...`. La Phase 3 du plan (§4) ne demande donc **aucune édition manuelle** — voir `_plan/tests-a-ajouter.md`, qui ne sert plus qu'à noter pourquoi un quiz n'est pas encore visible.
 
 ### Notes de run
 
@@ -569,3 +571,15 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - Écart majeur au plan d'origine : celui-ci a été rédigé sans connaître les 199 articles réels du site (il en supposait ~25) ni le mécanisme de cluster déjà en production. Section 3 entièrement réécrite en conséquence (voir §3).
 - Collisions de mot-clé signalées mais **non tranchées**, en attente de décision utilisateur lot par lot : `blues-du-dimanche-soir` (Lot 1), pilier `anxiete-guide-complet` déjà pris par un dossier (Lot 2), `sortir-relation-toxique`/`survivre-relation-toxique` et `pervers-narcissique-signes`/`7-signes-personne-narcissique` (Lot 3), `a-quoi-sert-la-honte` et `pleurer-de-colere` (Lot 5), pilier `tdah-adulte-guide` déjà tenu de fait par `tdah-adulte-la-revelation` (Lot 6).
 - Aucun lot n'a été produit. En attente de validation de ce rapport avant de lancer la Phase 1 sur un lot.
+
+**Run du 2026-08-31 (suite, même session) — Phase 1 à 5 du LOT 1 (souffrance au travail), sur validation de l'utilisateur.**
+- **Cluster réel créé** : `souffrance-au-travail` ajouté à `data/clusters.json`, 4 étapes (comprendre / reconnaître les signes / agir et se protéger / se reconstruire après). Hub `theme/souffrance-au-travail/` généré avec succès par `_gen_static.js` (2 étapes non vides à ce jour, les autres se peupleront à mesure des dates de publication).
+- **9 articles écrits** : le pilier `souffrance-au-travail-guide` + 8 satellites (`bore-out-ennui-au-travail`, `brown-out-perte-de-sens-travail`, `syndrome-imposteur`, `manager-toxique-signes`, `charge-mentale`, `harcelement-moral-travail`, `arret-travail-burn-out`, `reprise-travail-apres-burn-out`), tous `status: scheduled`, dates échelonnées du 2026-09-03 au 2026-09-27 (cadence ~3 jours). 2 quiz créés en `score` (`syndrome-imposteur-quiz.html`, `charge-mentale-quiz.html`), calqués sur la structure de `survivre-relation-toxique-quiz.html`.
+- **Ligne #1 du plan (`blues-du-dimanche-soir`) non réécrite** : conformément à la collision signalée en Phase 0, l'article existant (déjà excellent, sourcé, avec son propre quiz profils) a été conservé tel quel et simplement **rattaché** au cluster (`cluster`+`etape`+`articles_lies`+lien vers le pilier ajouté en fin de contenu). `date_modified` non touché (reste égal à `date`, scheduled 2026-09-30) pour respecter la règle « `date_modified` jamais antérieur à `date` ».
+- **3 articles existants rattachés** : `blues-du-dimanche-soir` (comprendre), `burnout-epuisement-professionnel` (reconnaitre, `date_modified` bumpée à 2026-08-31 car déjà publié), `techniques-anti-stress` (agir, `date_modified` bumpée à 2026-08-31 car déjà publié). Chacun a reçu un court paragraphe de lien vers le pilier en fin de contenu.
+- **Écart de longueur signalé honnêtement** : le pilier atteint 1921 mots (proche de la cible 2000–2500). Les 7 satellites nouveaux vont de 686 à 1180 mots, **en dessous** de la cible 1300–1400 du §2 — deux à trois passes d'enrichissement ont été faites sur chacun, mais le budget de la session n'a pas permis d'atteindre systématiquement la cible sans risquer du remplissage. Contenu dense, sourcé, non dilué, mais plus court que prévu. À densifier si l'utilisateur le juge nécessaire.
+- **Sources vérifiées par recherche web avant rédaction** (pas de mémoire seule) : OMS (burnout 2019), INRS (ED 6349, RPS), Werder & Rothlin (bore-out, 2007), Graeber (bullshit jobs), Clance & Imes (syndrome imposteur, 1978), Haicault (charge mentale, 1984), Légifrance L1152-1 + Code pénal 222-33-2 (harcèlement moral), Assurance Maladie (durée arrêt burn-out 2022). Aucun DOI ni ASIN inventé ; omis quand incertain.
+- **3919 non mentionné** : la consigne du plan de mentionner le 3919 (Violences Femmes Info) en plus du 3114 est spécifique au LOT 3, pas au LOT 1 — non appliquée ici à raison. Seul le 3114 figure dans le pilier.
+- **Découverte technique** : `data/tests.json` est en réalité régénéré automatiquement par `_gen_static.js` (voir case cochée ci-dessus) — la Phase 3 du plan est donc plus simple que documenté à l'origine.
+- **Validation Phase 2 effectuée pour chaque article** : JSON valide, `src` d'iframe sans slash initial, 0 lien interne cassé, 0 quiz manquant (`_check_quizzes.js`), `theme/souffrance-au-travail/` généré, `sitemap.xml` régénéré (2 clusters désormais listés).
+- **Commit fait, push non fait** : conformément à la Phase 4 du plan (« ne pas pousser sans demander »), en attente de validation explicite de l'utilisateur avant `git push`.
