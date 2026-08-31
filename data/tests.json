@@ -1,5 +1,19 @@
 [
   {
+    "id": "addiction-au-porno-comment-en-parler-quiz",
+    "title": "Addiction au porno : comment en parler ?",
+    "desc": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant…",
+    "emoji": "❤️",
+    "color": "#b5546a",
+    "catLabel": "Sexo",
+    "duration": "5 min",
+    "testUrl": "tests/addiction-au-porno-comment-en-parler-quiz.html",
+    "articleUrl": "articles/addiction-au-porno-comment-en-parler/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/t5pefutcewgxvh1pyya7",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "walter-white-sur-le-divan-quiz",
     "title": "Walter White sur le divan : psychologie d'un chimiste de méthamphétamine",
     "desc": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste…",
@@ -9,7 +23,7 @@
     "duration": "5 min",
     "testUrl": "tests/walter-white-sur-le-divan-quiz.html",
     "articleUrl": "articles/walter-white-sur-le-divan/",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhs0gjnercz7z8asbuan",
     "isNew": true,
     "status": "published"
   },
