@@ -631,7 +631,7 @@
       <li><strong>🔇 Calme nocturne</strong> &mdash; Le bruit routier et aérien chronique fragmente le sommeil même sans réveil conscient. Source : Bruitparif, ADEME.</li>
       <li><strong>🌡️ Nuits tropicales</strong> &mdash; Au-delà de 20&nbsp;°C la nuit, l'endormissement et le sommeil profond se dégradent nettement. Source : Météo-France, normales 1991-2020 et relevés récents.</li>
       <li><strong>💨 Qualité de l&rsquo;air</strong> &mdash; L'exposition aux particules fines PM2.5 est associée à une architecture du sommeil perturbée. Source : ATMO France, 2023.</li>
-      <li><strong>🏥 Accès aux soins du sommeil</strong> &mdash; Densité de centres et consultations agréés (troubles du sommeil, apnées, insomnies chroniques). Source : DREES.</li>
+      <li><strong>🏥 Accès aux soins du sommeil</strong> (pondération réduite) &mdash; Densité de centres et consultations agréés (troubles du sommeil, apnées, insomnies chroniques). Ce critère décrit l'offre de soins disponible, pas la qualité du sommeil elle-même : il pèse donc moins que les 8 autres dans le score global. Source : DREES.</li>
       <li><strong>🚗 Trajet domicile-travail</strong> &mdash; Chaque minute de trajet en plus grignote le temps de sommeil disponible. Source : INSEE, enquêtes mobilité.</li>
       <li><strong>🍷 Consommation d&rsquo;alcool</strong> &mdash; L'alcool facilite l'endormissement mais fragmente et raccourcit le sommeil profond en seconde partie de nuit. Source : Santé Publique France, Baromètre santé.</li>
       <li><strong>💰 Stress financier</strong> &mdash; Le coût du logement est un facteur de rumination nocturne et d'insomnie d'anticipation bien identifié. Source : INSEE, coût de la vie et du logement.</li>
@@ -703,6 +703,20 @@
     alcohol:'Consommation d’alcool',cost:'Stress financier',          green:'Espaces verts'
   };
   var KEYS = ['light','calm','trop','air','care','commute','alcohol','cost','green'];
+  // Pondérations : 'care' (accès aux soins du sommeil) est sous-pondéré car ce critère
+  // décrit l'offre de soins disponible localement, pas la qualité du sommeil en soi —
+  // il ne dit quasiment rien de si l'on dort bien ou mal, contrairement aux 8 autres critères.
+  var WEIGHTS = {light:1, calm:1, trop:1, air:1, care:0.3, commute:1, alcohol:1, cost:1, green:1};
+  function weightedAvg(d, al) {
+    if (!d || !al || !al.length) return 0;
+    var s = 0, wtot = 0;
+    for (var i = 0; i < al.length; i++) {
+      var k = al[i], w = WEIGHTS[k] != null ? WEIGHTS[k] : 1;
+      s += (d[k] || 0) * w;
+      wtot += w;
+    }
+    return wtot > 0 ? s / wtot : 0;
+  }
   var active = {};
   for (var ii = 0; ii < KEYS.length; ii++) { active[KEYS[ii]] = true; }
 
@@ -726,8 +740,7 @@
   function score(key) {
     var d = DATA[key]; if (!d) return 0;
     var al = activeList(); if (!al.length) return 0;
-    var s = 0; for (var i = 0; i < al.length; i++) s += (d[al[i]] || 0);
-    return s / al.length;
+    return weightedAvg(d, al);
   }
   function colorFill(s) {
     if (s >= 8) return '#22c55e'; if (s >= 7) return '#84cc16';
@@ -1061,10 +1074,9 @@
     for (var i = 0; i < CITIES_LIST.length; i++) {
       var c = CITIES_LIST[i];
       var sc = communeScore(c.dept, c.pop || 0, c.surf || 0);
-      var al = activeList(), tot = 0, s;
+      var al = activeList(), s;
       if (sc) {
-        for (var j = 0; j < al.length; j++) tot += (sc[al[j]] || 0);
-        s = al.length > 0 ? tot / al.length : 0;
+        s = weightedAvg(sc, al);
       } else {
         s = scoreDept(c.dept);
       }
@@ -1183,8 +1195,11 @@
 
   function openPopup(geoNom, latlng) {
     var k = toKey(geoNom), d = DATA[k]; if (!d) return;
-    var s = score(k), al = activeList(), tot = 0;
-    for (var i = 0; i < al.length; i++) tot += (d[al[i]] || 0);
+    var s = score(k), al = activeList(), tot = 0, wtot = 0;
+    for (var i = 0; i < al.length; i++) {
+      var w = WEIGHTS[al[i]] != null ? WEIGHTS[al[i]] : 1;
+      tot += (d[al[i]] || 0) * w; wtot += w;
+    }
     var label   = LABELS[k] || geoNom;
     var verdict = s >= 8.5 ? 'Conditions de sommeil exceptionnelles.'
       : s >= 7.5 ? 'Très favorable selon vos critères.'
@@ -1199,7 +1214,7 @@
       bars += '<span class="rp-val">'+v+'/10</span></div>';
     }
     var c = '<div class="rp"><div class="rp-name">'+label+'</div>';
-    c += '<div class="rp-total">Score : <strong>'+s.toFixed(1)+'</strong>/10 &middot; '+tot+' pts / '+(al.length*10)+'</div>';
+    c += '<div class="rp-total">Score : <strong>'+s.toFixed(1)+'</strong>/10 &middot; '+tot.toFixed(1)+' pts / '+(wtot*10)+'</div>';
     c += '<div class="rp-rows">'+bars+'</div><div class="rp-verdict">'+verdict+'</div></div>';
     L.popup({maxWidth:280}).setLatLng(latlng).setContent(c).openOn(leafletMap);
   }
@@ -1344,12 +1359,8 @@
 
   function scoreDept(code) {
     var d = DEPT_DATA[code]; if (!d) return 0;
-    var al = activeList(), tot = 0, n = 0;
-    for (var i = 0; i < al.length; i++) {
-      var idx = KEYS.indexOf(al[i]);
-      if (idx >= 0) { tot += (d[idx] || 0); n++; }
-    }
-    return n > 0 ? tot / n : 0;
+    var al = activeList(); if (!al.length) return 0;
+    return weightedAvg(deptToObj(code), al);
   }
 
   function deptToObj(code) {
@@ -1423,12 +1434,12 @@
       var base = deptToObj(deptKeys[i]); if (!base) continue;
       var arr = depts[deptKeys[i]];
       for (var j = 0; j < arr.length; j++) {
-        var dm = modsFromTierCode(arr[j]), tot = 0;
+        var dm = modsFromTierCode(arr[j]), obj = {};
         for (var k = 0; k < al.length; k++) {
           var key = al[k];
-          tot += Math.min(10, Math.max(1, (base[key] || 0) + (dm[key] || 0)));
+          obj[key] = Math.min(10, Math.max(1, (base[key] || 0) + (dm[key] || 0)));
         }
-        if ((tot / al.length) > myScore) above++;
+        if (weightedAvg(obj, al) > myScore) above++;
       }
     }
     return { rank: above + 1, total: communeDensityIndex.total };
@@ -1556,9 +1567,7 @@
             var cSc  = communeScore(deptCode, pop, surface);
             var cAvg = s;
             if (cSc) {
-              var _al = activeList(), _tot = 0;
-              for (var _i = 0; _i < _al.length; _i++) _tot += (cSc[_al[_i]] || 0);
-              if (_al.length > 0) cAvg = _tot / _al.length;
+              cAvg = weightedAvg(cSc, activeList());
             }
             var r = pop > 200000 ? 11 : pop > 50000 ? 9 : pop > 10000 ? 7 : pop > 2000 ? 5 : 4;
             return L.circleMarker(ll, {
@@ -1573,9 +1582,7 @@
             var cSc     = communeScore(deptCode, pop, surface);
             var cAvg    = s;
             if (cSc) {
-              var _al2 = activeList(), _tot2 = 0;
-              for (var _j = 0; _j < _al2.length; _j++) _tot2 += (cSc[_al2[_j]] || 0);
-              if (_al2.length > 0) cAvg = _tot2 / _al2.length;
+              cAvg = weightedAvg(cSc, activeList());
             }
             var ps = pop ? ' · ' + (pop >= 1000 ? (pop/1000).toFixed(0) + ' k' : pop) + ' hab.' : '';
             layer.bindTooltip(
@@ -1714,9 +1721,7 @@
     var d = scoreOverride || DATA[regionKey];
     var globalScore;
     if (scoreOverride) {
-      var _al = activeList(), _tot = 0;
-      for (var _i = 0; _i < _al.length; _i++) _tot += (scoreOverride[_al[_i]] || 0);
-      globalScore = _al.length > 0 ? _tot / _al.length : 0;
+      globalScore = weightedAvg(scoreOverride, activeList());
     } else {
       globalScore = score(regionKey);
     }
