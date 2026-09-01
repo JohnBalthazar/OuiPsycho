@@ -1170,7 +1170,11 @@
       "couple"
     ],
     "metaDescription": "",
-    "articles_lies": [],
+    "articles_lies": [
+      "dans-la-tete-d-un-pervers-narcissique",
+      "gaslighting-manipulation",
+      "punition-par-le-silence"
+    ],
     "status": "scheduled"
   },
   {
@@ -2878,6 +2882,35 @@
     "status": "scheduled"
   },
   {
+    "id": "violences-psychologiques-couple",
+    "title": "Violences psychologiques dans le couple : ce que dit la loi française",
+    "excerpt": "",
+    "date": "2026-09-22",
+    "date_modified": "2026-09-22",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "violences-psychologiques",
+      "droit",
+      "emprise"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "punition-par-le-silence",
+      "survivre-relation-toxique",
+      "se-reconstruire-apres-emprise"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "harcelement-moral-travail",
     "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
     "excerpt": "",
@@ -3020,6 +3053,35 @@
     "status": "scheduled"
   },
   {
+    "id": "punition-par-le-silence",
+    "title": "La punition par le silence : pourquoi elle fait si mal",
+    "excerpt": "",
+    "date": "2026-09-18",
+    "date_modified": "2026-09-18",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "punition-par-le-silence",
+      "stonewalling",
+      "communication"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "gaslighting-manipulation",
+      "relation-toxique-signes",
+      "violences-psychologiques-couple"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
     "excerpt": "",
@@ -3132,6 +3194,35 @@
     "status": "scheduled"
   },
   {
+    "id": "styles-attachement",
+    "title": "Styles d'attachement : anxieux, évitant, sécure ?",
+    "excerpt": "",
+    "date": "2026-09-15",
+    "date_modified": "2026-09-15",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "attachement",
+      "psychologie-du-couple",
+      "estime-de-soi"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "dependance-affective",
+      "pourquoi-tomber-amoureux-du-meme-type-de-personne",
+      "love-bombing"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "anxiete-anticipatoire",
     "title": "Anxiété anticipatoire : pourquoi on n'ose plus décider",
     "excerpt": "",
@@ -3240,6 +3331,35 @@
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
       "charge-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "dependance-affective",
+    "title": "Dépendance affective : aimer jusqu'à s'oublier",
+    "excerpt": "",
+    "date": "2026-09-11",
+    "date_modified": "2026-09-11",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "dependance-affective",
+      "estime-de-soi",
+      "emprise"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "styles-attachement",
+      "love-bombing",
+      "se-reconstruire-apres-emprise"
     ],
     "status": "scheduled"
   },
@@ -3413,6 +3533,35 @@
     "status": "scheduled"
   },
   {
+    "id": "love-bombing",
+    "title": "Love bombing : l'amour à haute dose comme piège",
+    "excerpt": "",
+    "date": "2026-09-08",
+    "date_modified": "2026-09-08",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "love-bombing",
+      "manipulation",
+      "emprise"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "dependance-affective",
+      "styles-attachement",
+      "gaslighting-manipulation"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
     "excerpt": "",
@@ -3551,6 +3700,35 @@
     "articles_lies": [
       "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
       "dans-la-tete-d-un-pervers-narcissique"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "gaslighting-manipulation",
+    "title": "Gaslighting : quand on vous fait douter de votre propre mémoire",
+    "excerpt": "",
+    "date": "2026-09-04",
+    "date_modified": "2026-09-04",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "gaslighting",
+      "manipulation",
+      "emprise"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "dans-la-tete-d-un-pervers-narcissique",
+      "7-signes-personne-narcissique",
+      "punition-par-le-silence"
     ],
     "status": "scheduled"
   },
