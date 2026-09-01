@@ -1659,11 +1659,14 @@ function dossierUrl(id) {
 
 /** Carte dossier (home + listing)
  *  d._path = 'articles' → lien vers /{SLUG}/
+ *  d._path = 'theme'    → lien vers theme/{SLUG}/ (cluster thématique)
  *  d._path = 'dossiers' (ou absent) → lien vers dossiers/SLUG/
  */
 function renderDossierCard(d) {
   const cat      = CATEGORIES[d.category] || {};
-  const url      = d._path === 'articles' ? `${esc(d.id)}/` : `dossiers/${esc(d.id)}/`;
+  const url      = d._path === 'articles' ? `${esc(d.id)}/`
+                  : d._path === 'theme'   ? `theme/${esc(d.id)}/`
+                  : `dossiers/${esc(d.id)}/`;
   const imgStyle = d.image
     ? `background-image:url('${esc(d.image)}');background-size:cover;background-position:center`
     : '';
@@ -1708,7 +1711,7 @@ async function loadDossierSection() {
       fetch('data/articles.json').then(r => r.ok ? r.json() : []).catch(() => []),
     ]);
 
-    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: 'dossiers' }));
+    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: d._path || 'dossiers' }));
     const fromArts = rawArticles.filter(a => a.type === 'dossier' && isOk(a))
                                 .map(a => ({ ...a, _path: 'articles' }));
 
@@ -1741,7 +1744,7 @@ async function initDossierList() {
       fetch('data/articles.json').then(r => r.ok ? r.json() : []).catch(() => []),
     ]);
 
-    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: 'dossiers' }));
+    const manual   = rawManual.filter(isOk).map(d => ({ ...d, _path: d._path || 'dossiers' }));
     const fromArts = rawArticles.filter(a => a.type === 'dossier' && isOk(a))
                                 .map(a => ({ ...a, _path: 'articles' }));
 

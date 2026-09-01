@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/anxiete-sociale-phobie-sociale/">
+<title>Quel est votre niveau d'anxiété sociale ? — Quiz Oui Psycho!</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #22303c; line-height: 1.55; background: transparent; padding: 4px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf0; border-radius: 16px;
+    padding: 26px 22px; box-shadow: 0 6px 24px rgba(31,78,107,.07);
+  }
+  .kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #1F4E6B; font-weight: 700; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 8px 0 10px; color: #16303f; }
+  .lead { color: #4a5b68; margin-bottom: 18px; }
+  .progress { height: 6px; background: #eef2f5; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .progress > span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#e8894a); transition: width .3s ease; }
+  .step { font-size: .8rem; color: #8091a0; margin-bottom: 8px; }
+  .question { font-size: 1.18rem; font-weight: 650; color: #16303f; margin-bottom: 16px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left; width: 100%; border: 1.5px solid #dce4ea; background: #fbfcfd;
+    border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: #2b3a46;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .opt:hover { border-color: #1F4E6B; background: #f3f8fb; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .btn {
+    display: inline-block; border: none; border-radius: 12px; padding: 13px 22px;
+    font-size: 1rem; font-weight: 650; cursor: pointer; background: #1F4E6B; color: #fff;
+  }
+  .btn:hover { background: #16394f; }
+  .btn.ghost { background: #eef2f5; color: #22303c; }
+  .btn.ghost:hover { background: #e2e9ee; }
+  .result-badge {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .result-emoji { font-size: 2.6rem; display: block; margin-bottom: 4px; }
+  .result-desc { color: #3c4c58; margin: 14px 0 4px; }
+  .result-desc p { margin-bottom: 10px; }
+  .disclaimer {
+    background: #f6f4ef; border-left: 4px solid #c58a1a; border-radius: 8px;
+    padding: 14px 16px; font-size: .92rem; color: #4a4335; margin: 20px 0;
+  }
+  .share { margin: 18px 0 6px; }
+  .share-label { font-size: .85rem; color: #6a7a87; margin-bottom: 8px; }
+  .share-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .share-links a {
+    text-decoration: none; font-size: .9rem; font-weight: 600; padding: 9px 14px;
+    border-radius: 10px; background: #eef2f5; color: #22303c;
+  }
+  .share-links a:hover { background: #e2e9ee; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="kicker">Quiz Oui Psycho!</div>
+      <h1>Quel est votre niveau d'anxiété sociale ?</h1>
+      <p class="lead">Huit questions pour évaluer l'intensité de votre anxiété face aux situations sociales. Répondez spontanément, en pensant à votre quotidien actuel.</p>
+      <button class="btn" id="startBtn">Commencer le test →</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="step" id="step"></div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="result-emoji" id="rEmoji"></span>
+      <span class="result-badge" id="rBadge"></span>
+      <div class="result-desc" id="rDesc"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="share">
+        <div class="share-label">Ce test peut aider quelqu'un. Partagez-le :</div>
+        <div class="share-links">
+          <a id="shFb" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shTw" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    {
+      q: "Avant de prendre la parole en réunion ou en groupe, vous ressentez…",
+      a: [
+        { t: "Un peu de trac normal, qui passe vite.", v: 0 },
+        { t: "Une nervosité assez marquée, mais je le fais quand même.", v: 1 },
+        { t: "Une angoisse qui me pousse souvent à éviter si je peux.", v: 2 },
+        { t: "Une peur si intense que j'évite presque systématiquement.", v: 3 }
+      ]
+    },
+    {
+      q: "Dans les jours qui précèdent un événement social important, vous…",
+      a: [
+        { t: "N'y pensez pas particulièrement à l'avance.", v: 0 },
+        { t: "Y pensez un peu, sans que ça vous gêne au quotidien.", v: 1 },
+        { t: "Ruminez souvent des scénarios négatifs à l'avance.", v: 2 },
+        { t: "Êtes envahi·e par l'appréhension plusieurs jours avant.", v: 3 }
+      ]
+    },
+    {
+      q: "Manger ou boire devant d'autres personnes, pour vous, c'est…",
+      a: [
+        { t: "Totalement naturel.", v: 0 },
+        { t: "Un peu inconfortable dans certains contextes seulement.", v: 1 },
+        { t: "Source d'une gêne assez fréquente.", v: 2 },
+        { t: "Quelque chose que j'évite autant que possible.", v: 3 }
+      ]
+    },
+    {
+      q: "Après une interaction sociale, vous avez tendance à…",
+      a: [
+        { t: "Passer à autre chose sans y repenser.", v: 0 },
+        { t: "Y repenser un peu, sans plus.", v: 1 },
+        { t: "Repasser en boucle les détails qui vous ont semblé maladroits.", v: 2 },
+        { t: "Analyser chaque instant pendant des heures, voire des jours.", v: 3 }
+      ]
+    },
+    {
+      q: "Face à un appel téléphonique inattendu, vous…",
+      a: [
+        { t: "Décrochez sans y penser.", v: 0 },
+        { t: "Décrochez, avec une petite appréhension.", v: 1 },
+        { t: "Hésitez souvent avant de répondre.", v: 2 },
+        { t: "Laissez sonner la plupart du temps.", v: 3 }
+      ]
+    },
+    {
+      q: "La peur d'être jugé·e négativement par les autres occupe, dans votre quotidien…",
+      a: [
+        { t: "Une place minime.", v: 0 },
+        { t: "Une place modérée, dans certains contextes précis.", v: 1 },
+        { t: "Une place assez importante, plusieurs fois par semaine.", v: 2 },
+        { t: "Une place centrale, presque tous les jours.", v: 3 }
+      ]
+    },
+    {
+      q: "Avez-vous déjà décliné une invitation uniquement par anxiété sociale ?",
+      a: [
+        { t: "Jamais, ou presque jamais.", v: 0 },
+        { t: "Rarement.", v: 1 },
+        { t: "Assez souvent.", v: 2 },
+        { t: "C'est fréquent, voire systématique.", v: 3 }
+      ]
+    },
+    {
+      q: "Sur le plan physique (rougissement, tremblements, transpiration) en situation sociale, vous…",
+      a: [
+        { t: "Ne ressentez presque rien de particulier.", v: 0 },
+        { t: "Ressentez de légers signes, gérables.", v: 1 },
+        { t: "Ressentez des signes visibles qui vous gênent.", v: 2 },
+        { t: "Ressentez des signes intenses, parfois difficiles à cacher.", v: 3 }
+      ]
+    }
+  ];
+
+  var PROFILES = [
+    { max: 6, emoji: "🌿", label: "Une anxiété sociale légère", color: "#2e7d5b",
+      desc: "<p>Vos réponses montrent une appréhension sociale modérée, comparable à celle que ressentent beaucoup de personnes sans que cela ne devienne handicapant. Vous parvenez globalement à faire face aux situations sociales malgré une nervosité ponctuelle.</p><p>Continuez à vous exposer régulièrement aux situations qui vous mettent un peu mal à l'aise : c'est souvent le meilleur moyen d'éviter que cette anxiété ne s'installe davantage.</p>" },
+    { max: 12, emoji: "🌤️", label: "Une anxiété sociale modérée", color: "#c58a1a",
+      desc: "<p>L'anxiété sociale occupe une place notable dans votre quotidien, avec des évitements ponctuels et une rumination assez fréquente après les interactions. Ce n'est pas anodin, mais c'est un stade où des ajustements simples peuvent avoir un effet réel.</p><p>Travailler progressivement sur l'exposition aux situations redoutées, en commençant par les moins anxiogènes, est un bon point de départ avant d'envisager un accompagnement plus structuré.</p>" },
+    { max: 18, emoji: "⚠️", label: "Une anxiété sociale marquée", color: "#d2691e",
+      desc: "<p>Vos réponses décrivent une anxiété sociale qui influence significativement vos choix au quotidien : évitements fréquents, rumination intense, signes physiques marqués. Ce niveau mérite d'être pris au sérieux plutôt que d'être géré seul indéfiniment.</p><p>Une thérapie cognitivo-comportementale, en particulier centrée sur l'exposition progressive, montre de très bons résultats à ce stade. Il est temps d'envisager un accompagnement professionnel.</p>" },
+    { max: 24, emoji: "🛟", label: "Une anxiété sociale sévère", color: "#b23a48",
+      desc: "<p>L'anxiété sociale semble occuper une place très importante dans votre vie, au point de limiter fortement vos interactions et vos choix. C'est une souffrance réelle, reconnue cliniquement, qui touche environ 12 % de la population au cours de la vie — vous n'êtes pas seul·e.</p><p>Un accompagnement par un professionnel spécialisé en TCC est vivement recommandé. Ce trouble se soigne bien, mais rarement sans aide extérieure structurée.</p>" }
+  ];
+
+  var idx = 0;
+  var total = 0;
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function startQuiz() {
+    idx = 0; total = 0;
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var Q = QUESTIONS[idx];
+    document.getElementById('step').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    document.getElementById('question').textContent = Q.q;
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    Q.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.onclick = function() { answer(opt.v); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(value) {
+    total += value;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function profileForScore() {
+    for (var i = 0; i < PROFILES.length; i++) {
+      if (total <= PROFILES[i].max) return PROFILES[i];
+    }
+    return PROFILES[PROFILES.length - 1];
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = '100%';
+    var P = profileForScore();
+
+    document.getElementById('rEmoji').textContent = P.emoji;
+    var badge = document.getElementById('rBadge');
+    badge.textContent = P.label;
+    badge.style.background = P.color + '1a';
+    badge.style.color = P.color;
+    document.getElementById('rDesc').innerHTML = P.desc;
+
+    var url = 'https://ouipsycho.fr/articles/anxiete-sociale-phobie-sociale/';
+    var text = 'Quel est votre niveau d’anxiété sociale ? J’ai fait le test sur Oui Psycho!';
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = startQuiz;
+  document.getElementById('restartBtn').onclick = function() {
+    elResult.classList.add('hidden');
+    startQuiz();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

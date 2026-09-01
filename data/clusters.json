@@ -29,5 +29,20 @@
       "rebondir": "Se reconstruire après"
     },
     "chapters": []
+  },
+  {
+    "id": "anxiete",
+    "title": "Anxiété : reconnaître et agir au quotidien",
+    "excerpt": "Anxiété sociale, crises nocturnes, agoraphobie, TOC ou anxiolytiques : un parcours pratique, forme par forme, pour reconnaître ce qui se joue et savoir comment agir. En complément de notre guide complet sur l'anxiété.",
+    "intro": "",
+    "category": "Anxiété",
+    "date": "2026-09-04",
+    "etapes": {
+      "comprendre": "Comprendre",
+      "reconnaitre": "Reconnaître les formes",
+      "agir": "Agir au quotidien",
+      "vivre-avec": "Vivre avec"
+    },
+    "chapters": []
   }
 ]

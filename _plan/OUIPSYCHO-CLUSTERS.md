@@ -538,7 +538,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | Lot | Dossier | Statut | Date du run | Articles | Quiz | Commit |
 |---|---|---|---|---|---|---|
 | 1 | souffrance-au-travail | produit, non poussé | 2026-08-31 | 9 écrits (pilier + 8 satellites) + 3 rattachés | 2/2 | en attente (commit local, push non fait) |
-| 2 | anxiete | à produire | — | 0/10 | 0/2 | — |
+| 2 | anxiete | produit, non poussé | 2026-09-01 | 9 écrits + 4 rattachés + dossier existant intégré | 2/2 | en attente |
 | 3 | emprise-relations-toxiques | à produire | — | 0/9 | 0/3 | — |
 | 4 | sommeil | à produire | — | 0/10 | 0/2 | — |
 | 5 | emotions | à produire | — | 0/9 | 0/2 | — |
@@ -552,6 +552,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | `emprise-et-relations-toxiques` | cluster réel (`theme/`) | pas de pilier unique — hub `theme/emprise-et-relations-toxiques/` agrégeant 5 étapes | 17 (10 publiés, 7 scheduled) | `data/clusters.json` : oui |
 | `anxiete-guide-complet` | dossier à chapitres (`dossiers/`) | guide unique en 5 chapitres, pas un cluster d'articles | — (contenu interne au dossier) | `data/dossiers.json` : oui |
 | `souffrance-au-travail` | cluster réel (`theme/`) | pilier `souffrance-au-travail-guide` (2026-09-03) + hub `theme/souffrance-au-travail/` agrégeant 4 étapes (comprendre/reconnaitre/agir/rebondir) | 12 (2 publiés dès aujourd'hui via rattachement, 10 scheduled 2026-09-03→2026-09-30) | `data/clusters.json` : oui (ajouté le 2026-08-31) |
+| `anxiete` | cluster réel (`theme/`), **sans pilier propre** — le dossier à chapitres `anxiete-guide-complet` en tient lieu (décision utilisateur, voir note ci-dessous) | hub `theme/anxiete/` agrégeant 4 étapes (comprendre/reconnaitre/agir/vivre-avec) | 13 (9 nouveaux + 4 rattachés : `crise-angoisse`, `trouble-anxieux-generalise`, `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise`, `se-debarrasser-anxiete-pour-toujours`) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 (mécanisme étendu, voir note) |
 
 ### Décisions techniques actées
 *(à compléter au fil des runs)*
@@ -564,6 +565,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - [ ] 72 des 95 fichiers quiz existants (`tests/*.html`) ne sont pas référencés dans `data/tests.json` — à investiguer séparément (hors périmètre de ce plan).
 - [ ] 13 liens internes cassés relevés (détail §3.4) — à corriger indépendamment des lots.
 - [x] **`data/tests.json` est régénéré automatiquement** par `node _gen_static.js` à chaque run (log observé : `🧪 data/tests.json mis à jour (23 tests — 22 auto + 1 manuel(s))`), à partir des articles `published` dont le `content` contient un iframe `tests/...`. La Phase 3 du plan (§4) ne demande donc **aucune édition manuelle** — voir `_plan/tests-a-ajouter.md`, qui ne sert plus qu'à noter pourquoi un quiz n'est pas encore visible.
+- [x] **Décision utilisateur (Lot 2, 2026-09-01) : « dossier = cluster ».** Chaque cluster doit avoir une entrée sur `dossiers.html`, y compris ceux sans dossier à chapitres. `js/main.js` (`renderDossierCard`, `loadDossierSection`, `initDossierList`) a été étendu pour accepter un `_path:"theme"` dans une entrée `data/dossiers.json`, qui fait alors pointer la carte vers `theme/{id}/` au lieu de `dossiers/{id}/`. Rétrocompatible (les entrées sans `_path` continuent de pointer vers `dossiers/`). Vérifié en Puppeteer, 0 erreur JS. **Cette règle s'applique à tous les futurs lots** : chaque nouveau cluster doit recevoir une entrée dans `data/dossiers.json`.
 
 ### Notes de run
 
@@ -589,3 +591,17 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - **Découverte technique** : `data/tests.json` est en réalité régénéré automatiquement par `_gen_static.js` (voir case cochée ci-dessus) — la Phase 3 du plan est donc plus simple que documenté à l'origine.
 - **Validation Phase 2 effectuée pour chaque article** : JSON valide, `src` d'iframe sans slash initial, 0 lien interne cassé, 0 quiz manquant (`_check_quizzes.js`), `theme/souffrance-au-travail/` généré, `sitemap.xml` régénéré (2 clusters désormais listés).
 - **Commit fait, push non fait** : conformément à la Phase 4 du plan (« ne pas pousser sans demander »), en attente de validation explicite de l'utilisateur avant `git push`.
+
+**Run du 2026-09-01 — LOT 2 (anxiété), sur demande explicite de l'utilisateur.**
+- **Deux collisions de Phase 0 tranchées par l'utilisateur avant écriture** (via question posée, pas de décision unilatérale) :
+  1. Pilier du lot : l'id `anxiete-guide-complet` était déjà pris par le dossier à chapitres existant. Décision utilisateur : **pas de nouveau pilier article** — le dossier existant tient lieu d'entrée principale, intégré au cluster via une entrée `data/dossiers.json` (`_path:"theme"`, voir case technique ci-dessus) plutôt que dupliqué. Conséquence pratique : `js/main.js` a été patché (changement de code, pas seulement de contenu — voir case ci-dessus).
+  2. Ligne « Anxiété anticipatoire » : chevauchait `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise` (existant). Décision utilisateur : **réécrite sous un angle différent** — paralysie décisionnelle et intolérance à l'incertitude dans les choix du quotidien (Dugas et al., 1998/2000), plutôt que la neurobiologie du catastrophisme déjà couverte par l'article existant. Les deux articles se renvoient l'un à l'autre en fin de contenu plutôt que de se dupliquer.
+- **Cluster réel `anxiete` créé** (`data/clusters.json`), 4 étapes (comprendre / reconnaître les formes / agir au quotidien / vivre avec). Hub `theme/anxiete/` généré avec succès (2 étapes non vides à ce jour).
+- **9 satellites écrits**, tous `status: scheduled`, dates échelonnées du 2026-09-05 au 2026-09-29 : `anxiete-sociale-phobie-sociale` (quiz score), `crise-angoisse-nuit`, `symptomes-physiques-anxiete`, `anxiete-anticipatoire`, `coherence-cardiaque-365`, `anxiete-de-sante-hypocondrie` (quiz profils), `agoraphobie-comprendre`, `anxiolytiques-effets-alternatives`, `toc-ou-anxiete-difference`. 2 quiz créés.
+- **4 articles existants rattachés** (cluster + étape + maillage), aucun réécrit : `crise-angoisse` (agir, publié), `trouble-anxieux-generalise` (comprendre, publié), `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise` (comprendre, publié), `se-debarrasser-anxiete-pour-toujours` (vivre-avec, scheduled 2026-11-05 — `date_modified` non touché pour respecter la règle `date_modified` ≥ `date`).
+- **Dossier existant mis à jour** : `dossiers/anxiete-guide-complet.json` (chapitre 5) reçoit un encart de lien vers `theme/anxiete/`, et son `date_modified` est bumpé à 2026-09-01 (légitime, `date` = 2026-06-10, déjà publié).
+- **Rétroactif Lot 1** : ajout d'une entrée `data/dossiers.json` pour `souffrance-au-travail` (`_path:"theme"`), conformément à la règle « tous les clusters ont une entrée dans le dossier » — appliquée pour la première fois sur ce run, donc rattrapée sur le lot précédent.
+- **Sources vérifiées par recherche web avant rédaction** : cohérence cardiaque 365 (David O'Hare + McCraty/Zayas 2014 sur le RMSSD), agoraphobie DSM-5-TR (distinction avec la peur de la foule), anxiolytiques/benzodiazépines (recommandations HAS, durée <12 semaines, alternatives buspirone/hydroxyzine), TOC vs TAG (classification DSM-5, Y-BOCS, Inserm), intolérance à l'incertitude (Dugas et al. 1998, Ladouceur et al. 2000), anxiété sociale et anxiété de santé (Santé publique France, DSM-5 illness anxiety disorder vs somatic symptom disorder). Aucune source inventée.
+- **Écart de longueur, à nouveau signalé honnêtement** : les 9 satellites, même après une passe de densification par recherche web ciblée, restent à 573–762 mots — sous la cible 1300–1400 du plan, et légèrement en dessous de la moyenne atteinte sur le Lot 1 (943–1180). Contenu dense et sourcé, pas de remplissage, mais l'écart mérite d'être noté pour arbitrage si l'utilisateur souhaite une nouvelle passe de densification.
+- **Validation complète effectuée** : JSON valides (13 articles touchés), 0 lien interne cassé, 0 quiz manquant, `_gen_static.js` et `_check_quizzes.js` exécutés avec succès, **vérification visuelle par Puppeteer** de `dossiers.html` (3 cartes affichées avec les bons liens — `theme/souffrance-au-travail/`, `theme/anxiete/`, `dossiers/anxiete-guide-complet/` —, 0 erreur JS console).
+- **Commit fait, push non fait**, en attente de validation utilisateur.

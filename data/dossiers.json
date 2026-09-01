@@ -12,5 +12,31 @@
     "date": "2026-06-10",
     "status": "published",
     "tags": ["anxiété", "stress", "TCC", "thérapie", "bien-être", "phobies", "TAG"]
+  },
+  {
+    "id": "souffrance-au-travail",
+    "_path": "theme",
+    "title": "Souffrance au travail",
+    "subtitle": "Le parcours en articles, en 4 étapes",
+    "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : comprendre ce qui use au travail, reconnaître les signaux, et savoir quoi faire.",
+    "category": "Travail",
+    "image": "",
+    "readTime": 40,
+    "date": "2026-09-01",
+    "status": "published",
+    "tags": ["travail", "burnout", "souffrance-au-travail", "risques-psychosociaux"]
+  },
+  {
+    "id": "anxiete",
+    "_path": "theme",
+    "title": "Anxiété : reconnaître et agir au quotidien",
+    "subtitle": "Le parcours en articles, en complément du guide complet",
+    "excerpt": "Anxiété sociale, crises nocturnes, agoraphobie, TOC ou anxiolytiques : un parcours pratique, forme par forme, pour reconnaître ce qui se joue et savoir comment agir.",
+    "category": "Anxiété",
+    "image": "",
+    "readTime": 40,
+    "date": "2026-09-01",
+    "status": "published",
+    "tags": ["anxiété", "phobies", "TAG", "TOC", "anxiolytiques"]
   }
 ]

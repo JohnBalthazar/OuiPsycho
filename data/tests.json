@@ -1,5 +1,19 @@
 [
   {
+    "id": "hermione-granger-divan-quiz",
+    "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
+    "desc": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/hermione-granger-divan-quiz.html",
+    "articleUrl": "articles/hermione-granger-divan-psychologie-sorciere/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhpnhjcevsz5tq2087l1",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "addiction-au-porno-comment-en-parler-quiz",
     "title": "Addiction au porno : comment en parler ?",
     "desc": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant…",

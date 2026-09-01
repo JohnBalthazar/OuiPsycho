@@ -7,13 +7,22 @@
   "metaDescription": "Guide complet sur l'anxiété : comprendre ses mécanismes neurobiologiques, identifier les différents troubles anxieux et accéder aux traitements les plus efficaces. En 5 chapitres.",
   "author": "La rédaction Oui Psycho!",
   "date": "2026-06-10",
-  "date_modified": "2026-06-10",
+  "date_modified": "2026-09-01",
   "category": "Anxiété",
   "image": "",
   "imagePosition": "50% 50%",
   "readTime": 25,
   "chapterCount": 5,
-  "tags": ["anxiété", "stress", "TCC", "thérapie", "bien-être", "phobies", "TAG", "panique"],
+  "tags": [
+    "anxiété",
+    "stress",
+    "TCC",
+    "thérapie",
+    "bien-être",
+    "phobies",
+    "TAG",
+    "panique"
+  ],
   "keypoints": [
     "L'anxiété est une réponse naturelle devenue pathologique quand elle est excessive, durable et handicapante",
     "Il existe plusieurs troubles anxieux distincts : TAG, phobie sociale, trouble panique, TOC, PTSD",
@@ -51,7 +60,7 @@
       "id": "c5",
       "number": 5,
       "title": "Vivre avec l'anxiété : 6 stratégies au quotidien",
-      "content": "<p>La thérapie est fondamentale, mais la gestion de l'anxiété ne se limite pas au cabinet du thérapeute. Voici les stratégies les mieux validées scientifiquement pour prendre soin de votre santé mentale entre les séances — et au-delà.</p>\n\n<h2>1. La respiration cohérente cardiaque</h2>\n<p>Inspirez lentement sur 5 secondes, expirez sur 5 secondes. Cette rythmicité de 6 respirations par minute active le nerf vague et bascule le système nerveux autonome en mode « repos-digestion » (parasympathique). <strong>10 minutes par jour</strong> suffisent à réduire mesurément le cortisol et à améliorer la variabilité cardiaque. C'est l'outil d'urgence le plus accessible et le mieux documenté.</p>\n\n<h2>2. Les créneaux d'inquiétude</h2>\n<p>Programmez chaque jour <strong>20 minutes dédiées</strong> à vos inquiétudes — et apprenez à reporter toute pensée anxieuse hors de ce créneau. Cette technique TCC, aussi paradoxale qu'elle semble, réduit significativement la fréquence et l'intensité des ruminations. L'anxiété perd de son pouvoir quand elle n'est plus omniprésente — quand on lui assigne une heure.</p>\n\n<h2>3. L'activité physique : un anxiolytique naturel</h2>\n<p><strong>30 minutes d'activité cardio-vasculaire modérée, 3 à 5 fois par semaine</strong>, réduisent l'anxiété de façon comparable à un traitement médicamenteux léger selon plusieurs méta-analyses. Le mécanisme est multiple : régulation du cortisol, libération d'endorphines et de BDNF (facteur neurotrophique), et neurogenèse dans l'hippocampe — une région cruciale pour la régulation émotionnelle. La marche rapide, le vélo, la natation : toute activité que vous aimez compte.</p>\n\n<h2>4. L'hygiène du sommeil</h2>\n<p>L'anxiété perturbe le sommeil, et le manque de sommeil amplifie l'anxiété : un cercle vicieux documenté. Des <strong>horaires réguliers</strong> de lever et coucher, une chambre fraîche et sombre, l'arrêt des écrans 1 heure avant le coucher, et l'évitement de la caféine après 14h constituent les bases d'une bonne hygiène du sommeil. La qualité du sommeil est l'un des meilleurs prédicteurs de la résistance au stress.</p>\n\n<h2>5. Le soutien social : l'anxiolytique gratuit</h2>\n<p>L'isolement aggrave systématiquement les troubles anxieux. Les liens sociaux de qualité réduisent la production de cortisol et augmentent l'ocytocine — l'hormone du lien et de la sécurité. Identifier et entretenir <strong>3 à 5 relations de confiance</strong> dans votre entourage — des personnes à qui vous pouvez vraiment vous confier — est une action concrète à haute valeur thérapeutique.</p>\n\n<h2>6. La journalisation expressive</h2>\n<p>Écrire 15 à 20 minutes sur ses émotions et expériences difficiles — sans censure, sans chercher à bien écrire — réduit l'anxiété, améliore les marqueurs immunitaires et clarifie les pensées. Ce résultat est reproduit depuis les travaux pionniers de James Pennebaker dans les années 1980. Ce n'est pas un journal intime romantique : c'est une exploration honnête de ce qui vous préoccupe, suivie d'une distance progressive.</p>\n\n<div class=\"info-box\">\n<strong>🔑 Un dernier mot :</strong> Ces stratégies sont des compléments — précieux, validés — mais pas des substituts à une aide professionnelle. Si votre anxiété vous empêche de travailler, de maintenir des relations, de sortir de chez vous ou de dormir, consultez un médecin ou un psychologue. En cas de détresse, le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24) peut vous écouter et vous orienter.\n</div>"
+      "content": "<p>La thérapie est fondamentale, mais la gestion de l'anxiété ne se limite pas au cabinet du thérapeute. Voici les stratégies les mieux validées scientifiquement pour prendre soin de votre santé mentale entre les séances — et au-delà.</p>\n\n<h2>1. La respiration cohérente cardiaque</h2>\n<p>Inspirez lentement sur 5 secondes, expirez sur 5 secondes. Cette rythmicité de 6 respirations par minute active le nerf vague et bascule le système nerveux autonome en mode « repos-digestion » (parasympathique). <strong>10 minutes par jour</strong> suffisent à réduire mesurément le cortisol et à améliorer la variabilité cardiaque. C'est l'outil d'urgence le plus accessible et le mieux documenté.</p>\n\n<h2>2. Les créneaux d'inquiétude</h2>\n<p>Programmez chaque jour <strong>20 minutes dédiées</strong> à vos inquiétudes — et apprenez à reporter toute pensée anxieuse hors de ce créneau. Cette technique TCC, aussi paradoxale qu'elle semble, réduit significativement la fréquence et l'intensité des ruminations. L'anxiété perd de son pouvoir quand elle n'est plus omniprésente — quand on lui assigne une heure.</p>\n\n<h2>3. L'activité physique : un anxiolytique naturel</h2>\n<p><strong>30 minutes d'activité cardio-vasculaire modérée, 3 à 5 fois par semaine</strong>, réduisent l'anxiété de façon comparable à un traitement médicamenteux léger selon plusieurs méta-analyses. Le mécanisme est multiple : régulation du cortisol, libération d'endorphines et de BDNF (facteur neurotrophique), et neurogenèse dans l'hippocampe — une région cruciale pour la régulation émotionnelle. La marche rapide, le vélo, la natation : toute activité que vous aimez compte.</p>\n\n<h2>4. L'hygiène du sommeil</h2>\n<p>L'anxiété perturbe le sommeil, et le manque de sommeil amplifie l'anxiété : un cercle vicieux documenté. Des <strong>horaires réguliers</strong> de lever et coucher, une chambre fraîche et sombre, l'arrêt des écrans 1 heure avant le coucher, et l'évitement de la caféine après 14h constituent les bases d'une bonne hygiène du sommeil. La qualité du sommeil est l'un des meilleurs prédicteurs de la résistance au stress.</p>\n\n<h2>5. Le soutien social : l'anxiolytique gratuit</h2>\n<p>L'isolement aggrave systématiquement les troubles anxieux. Les liens sociaux de qualité réduisent la production de cortisol et augmentent l'ocytocine — l'hormone du lien et de la sécurité. Identifier et entretenir <strong>3 à 5 relations de confiance</strong> dans votre entourage — des personnes à qui vous pouvez vraiment vous confier — est une action concrète à haute valeur thérapeutique.</p>\n\n<h2>6. La journalisation expressive</h2>\n<p>Écrire 15 à 20 minutes sur ses émotions et expériences difficiles — sans censure, sans chercher à bien écrire — réduit l'anxiété, améliore les marqueurs immunitaires et clarifie les pensées. Ce résultat est reproduit depuis les travaux pionniers de James Pennebaker dans les années 1980. Ce n'est pas un journal intime romantique : c'est une exploration honnête de ce qui vous préoccupe, suivie d'une distance progressive.</p>\n\n<div class=\"info-box\">\n<strong>🔑 Un dernier mot :</strong> Ces stratégies sont des compléments — précieux, validés — mais pas des substituts à une aide professionnelle. Si votre anxiété vous empêche de travailler, de maintenir des relations, de sortir de chez vous ou de dormir, consultez un médecin ou un psychologue. En cas de détresse, le <strong>3114</strong> (numéro national de prévention du suicide, 24h/24) peut vous écouter et vous orienter.\n</div>\n\n<div class=\"info-box\">\n<strong>📚 Pour aller plus loin, forme par forme :</strong> Ce guide pose les bases. Notre <a href=\"theme/anxiete/\">parcours en articles</a> approfondit chaque forme d'anxiété une par une — anxiété sociale, crises nocturnes, agoraphobie, TOC, anxiolytiques — avec, pour chacune, des pistes d'action concrètes.\n</div>"
     }
   ],
   "sources": [
@@ -84,6 +93,12 @@
       "url": "https://doi.org/10.1016/j.psychres.2017.05.035"
     }
   ],
-  "articles_lies": ["trouble-anxieux-generalise", "techniques-anti-stress", "crise-angoisse", "meditation-pleine-conscience", "therapie-cognitive-comportementale"],
+  "articles_lies": [
+    "trouble-anxieux-generalise",
+    "techniques-anti-stress",
+    "crise-angoisse",
+    "meditation-pleine-conscience",
+    "therapie-cognitive-comportementale"
+  ],
   "status": "published"
 }

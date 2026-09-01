@@ -1,5 +1,32 @@
 [
   {
+    "id": "hermione-granger-divan-psychologie-sorciere",
+    "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
+    "excerpt": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse mais complice — de la sorcière la plus studieuse de Poudlard, suivie d'un quiz pour révéler votre profil.",
+    "date": "2026-09-01",
+    "date_modified": "2026-09-01",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhpnhjcevsz5tq2087l1",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "Hermione Granger",
+      "Harry Potter",
+      "perfectionnisme",
+      "syndrome de l'imposteur",
+      "préjugés",
+      "résilience",
+      "pop-culture"
+    ],
+    "metaDescription": "Perfectionnisme, syndrome de l'imposteur, sens de la justice : la psychologie d'Hermione Granger décryptée, avec un quiz pour savoir quel genre de sorcière vous êtes.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "addiction-au-porno-comment-en-parler",
     "title": "Addiction au porno : comment en parler ?",
     "excerpt": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant dans le couple. Voici où se situe la ligne, ce que dit le cerveau, et comment aborder le sujet sans drame ni sermon.",
@@ -604,7 +631,7 @@
     "title": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé expliqué par la psychologie et les neurosciences",
     "excerpt": "Votre cerveau écrit des scénarios catastrophe pendant que le reste du monde dort ? La science a une explication — et surtout des solutions. Plongée dans les mécanismes du trouble anxieux généralisé, de l'amygdale à l'intolérance à l'incertitude.",
     "date": "2026-07-23",
-    "date_modified": "2026-07-23",
+    "date_modified": "2026-09-01",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wbgigev94t8wxqh98a6z",
     "imagePosition": "50% 50%",
@@ -621,7 +648,11 @@
       "tcc"
     ],
     "metaDescription": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé décrypté par les neurosciences, avec des outils concrets pour s'apaiser.",
-    "articles_lies": [],
+    "articles_lies": [
+      "trouble-anxieux-generalise",
+      "anxiete-anticipatoire",
+      "toc-ou-anxiete-difference"
+    ],
     "status": "published"
   },
   {
@@ -1712,7 +1743,7 @@
     "title": "Crise d'angoisse : quelles solutions quand ça arrive ?",
     "excerpt": "Le cœur qui s'emballe, la respiration qui se coupe, la certitude que quelque chose de grave se passe… La crise d'angoisse est terrifiante. Pourtant, elle est gérable. Voici comment.",
     "date": "2026-05-20",
-    "date_modified": "2026-06-04",
+    "date_modified": "2026-09-01",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/evxyp8em8y86fozgstb0",
     "imagePosition": "50% 50%",
@@ -1729,7 +1760,11 @@
       "techniques"
     ],
     "metaDescription": "Crise d'angoisse : symptômes, causes et 5 techniques concrètes pour la gérer sur le moment. Guide pratique validé par les professionnels de santé.",
-    "articles_lies": [],
+    "articles_lies": [
+      "crise-angoisse-nuit",
+      "coherence-cardiaque-365",
+      "anxiete-anticipatoire"
+    ],
     "status": "published"
   },
   {
@@ -1737,7 +1772,7 @@
     "title": "Le trouble anxieux généralisé : quand l'inquiétude devient permanente",
     "excerpt": "Se faire du souci, c'est normal. Mais quand l'inquiétude est constante, incontrôlable et envahit tous les aspects de la vie, on parle de trouble anxieux généralisé. Comprendre ce trouble, c'est déjà commencer à s'en libérer.",
     "date": "2026-05-15",
-    "date_modified": "2026-05-15",
+    "date_modified": "2026-09-01",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sucmbobek7n0lpjbwpbn",
     "imagePosition": "50% 50%",
@@ -1754,7 +1789,11 @@
       "TCC"
     ],
     "metaDescription": "Le trouble anxieux généralisé : symptômes, causes et traitements. Comprendre pourquoi l'inquiétude devient excessive et comment s'en libérer efficacement.",
-    "articles_lies": [],
+    "articles_lies": [
+      "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
+      "toc-ou-anxiete-difference",
+      "anxiete-anticipatoire"
+    ],
     "status": "published"
   },
   {
