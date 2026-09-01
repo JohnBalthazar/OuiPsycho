@@ -699,8 +699,35 @@
             <input type="date" id="dp-date">
           </div>
           <div class="form-group">
-            <label>Image (URL Cloudinary ou directe)</label>
-            <input type="text" id="dp-image" placeholder="https://res.cloudinary.com/…">
+            <label>Image du dossier</label>
+            <!-- Prévisualisation -->
+            <div id="dp-img-preview-wrap" class="img-preview-wrap" style="display:none;margin-bottom:8px">
+              <img id="dp-img-preview" src="" alt="Aperçu">
+              <div class="img-preview-actions">
+                <button type="button" onclick="removeDossierImage()">✕ Supprimer</button>
+              </div>
+            </div>
+            <!-- Zone de dépôt -->
+            <div class="img-upload-zone" id="dp-img-drop-zone"
+              onclick="document.getElementById('dp-img-file-input').click()"
+              ondragover="handleDossierDragOver(event)"
+              ondragleave="handleDossierDragLeave(event)"
+              ondrop="handleDossierDrop(event)">
+              <div class="upload-icon">🖼️</div>
+              <strong>Cliquer ou glisser-déposer une image</strong>
+              <p>JPG, PNG, WebP · Max 10 Mo</p>
+              <input type="file" id="dp-img-file-input" accept="image/*" style="display:none" onchange="handleDossierImageFile(this.files[0])">
+            </div>
+            <div class="img-upload-progress" id="dp-img-upload-progress">
+              <div class="img-upload-progress-bar" id="dp-img-upload-bar"></div>
+            </div>
+            <!-- URL manuelle (fallback) -->
+            <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+              <span style="font-size:.75rem;color:var(--gray-400);white-space:nowrap">ou URL directe :</span>
+              <input type="text" id="dp-image" placeholder="https://..." style="flex:1;font-size:.82rem"
+                oninput="onDossierImageUrlChange()">
+            </div>
+            <div class="hint" id="dp-img-status"></div>
           </div>
           <div class="form-group">
             <label>Tags</label>
@@ -4026,6 +4053,174 @@ function setImageStatus(msg, type) {
 // (image reset intégré directement dans resetEditor ci-dessus)
 
 /* ══════════════════════════════════════════════
+   IMAGE UPLOAD — DOSSIERS (même mécanisme que les articles,
+   IDs distincts pour ne pas entrer en conflit avec le formulaire article)
+══════════════════════════════════════════════ */
+function handleDossierDragOver(e) {
+  e.preventDefault();
+  document.getElementById('dp-img-drop-zone').classList.add('dragover');
+}
+function handleDossierDragLeave(e) {
+  document.getElementById('dp-img-drop-zone').classList.remove('dragover');
+}
+function handleDossierDrop(e) {
+  e.preventDefault();
+  document.getElementById('dp-img-drop-zone').classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) handleDossierImageFile(file);
+  else toast('Fichier non supporté — utilisez JPG, PNG ou WebP', 'error');
+}
+
+async function handleDossierImageFile(file) {
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('Image trop lourde (max 10 Mo)', 'error'); return; }
+
+  // Prévisualisation immédiate (locale)
+  const reader = new FileReader();
+  reader.onload = e => showDossierImagePreview(e.target.result);
+  reader.readAsDataURL(file);
+
+  const cldCloud  = localStorage.getItem(CLD_CLOUD_KEY);
+  const cldPreset = localStorage.getItem(CLD_PRESET_KEY);
+  const ghPat     = localStorage.getItem(GH_PAT_KEY);
+
+  if (cldCloud && cldPreset) {
+    await uploadDossierImageToCloudinary(file);
+  } else if (ghPat) {
+    await uploadDossierImageToGitHub(file);
+  } else {
+    setDossierImageStatus('⚠️ Configurez Cloudinary (recommandé) ou un PAT GitHub dans Paramètres pour héberger l\'image.', 'warning');
+  }
+}
+
+async function uploadDossierImageToCloudinary(file) {
+  const cloudName = localStorage.getItem(CLD_CLOUD_KEY);
+  const preset    = localStorage.getItem(CLD_PRESET_KEY);
+  const folder    = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
+  if (!cloudName || !preset) { toast('Configurez Cloudinary dans Paramètres', 'error'); return; }
+
+  const saveBtn = document.getElementById('dp-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('dp-img-upload-progress');
+  const bar = document.getElementById('dp-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '10%';
+  setDossierImageStatus('⏳ Upload Cloudinary…', 'info');
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', preset);
+    formData.append('folder', folder);
+
+    bar.style.width = '40%';
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+    bar.style.width = '80%';
+    if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || res.status); }
+    const data = await res.json();
+    bar.style.width = '100%';
+
+    const publicId = data.public_id;
+    const url = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1200/${publicId}`;
+
+    document.getElementById('dp-image').value = url;
+    showDossierImagePreview(url);
+    setDossierImageStatus(`✅ Hébergée sur Cloudinary (${Math.round(data.bytes / 1024)} Ko → optimisée automatiquement)`, 'success');
+    toast('Image uploadée sur Cloudinary 🎉', 'success');
+  } catch(e) {
+    setDossierImageStatus('❌ Erreur Cloudinary : ' + e.message, 'error');
+    toast('Erreur Cloudinary : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+async function uploadDossierImageToGitHub(file) {
+  const saveBtn = document.getElementById('dp-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('dp-img-upload-progress');
+  const bar = document.getElementById('dp-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '20%';
+  setDossierImageStatus('⏳ Upload GitHub…', 'info');
+
+  try {
+    const b64  = await fileToBase64(file);
+    bar.style.width = '50%';
+    const slug = document.getElementById('dp-id').value || 'dossier';
+    const ext  = file.name.split('.').pop().toLowerCase().replace('jpeg','jpg');
+    const path = `img/dossiers/${slug}-${Date.now()}.${ext}`;
+    await githubPutFile(path, b64, `img: upload ${path}`);
+    bar.style.width = '100%';
+    const owner  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+    const repo   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+    document.getElementById('dp-image').value = url;
+    showDossierImagePreview(url);
+    setDossierImageStatus('✅ Image hébergée sur GitHub (conseil : configurez Cloudinary pour de meilleures performances)', 'success');
+    toast('Image uploadée sur GitHub ✓', 'success');
+  } catch(e) {
+    setDossierImageStatus('❌ Erreur GitHub : ' + e.message, 'error');
+    toast('Erreur upload : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+function showDossierImagePreview(src) {
+  const wrap = document.getElementById('dp-img-preview-wrap');
+  const img  = document.getElementById('dp-img-preview');
+  const zone = document.getElementById('dp-img-drop-zone');
+  if (!wrap || !img) return;
+  img.src = src;
+  wrap.style.display = 'block';
+  if (zone) zone.style.display = 'none';
+}
+
+function removeDossierImage() {
+  const wrap  = document.getElementById('dp-img-preview-wrap');
+  const zone  = document.getElementById('dp-img-drop-zone');
+  const img   = document.getElementById('dp-img-preview');
+  const input = document.getElementById('dp-img-file-input');
+  const field = document.getElementById('dp-image');
+  if (wrap)  wrap.style.display  = 'none';
+  if (zone)  zone.style.display  = 'block';
+  if (img)   img.src             = '';
+  if (field) field.value         = '';
+  if (input) input.value         = '';
+  setDossierImageStatus('', '');
+}
+
+function onDossierImageUrlChange() {
+  const field = document.getElementById('dp-image');
+  if (!field) return;
+  const url = field.value.trim();
+  if (url && (url.startsWith('http') || url.startsWith('/'))) {
+    showDossierImagePreview(url);
+  } else if (!url) {
+    removeDossierImage();
+  }
+}
+
+function setDossierImageStatus(msg, type) {
+  const el = document.getElementById('dp-img-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = type === 'success' ? 'var(--success)'
+                 : type === 'error'   ? 'var(--danger)'
+                 : type === 'warning' ? 'var(--warning)'
+                 : 'var(--gray-400)';
+}
+
+/* ══════════════════════════════════════════════
    FOCAL POINT PICKER
    Permet de choisir le point focal de l'image
    pour un recadrage optimal sur les cartes et
@@ -5188,6 +5383,7 @@ function openDossierPanel(id) {
     document.getElementById('dp-image').value        = d.image        || '';
     document.getElementById('dp-tags').value         = (d.tags || []).join(', ');
     document.getElementById('dp-id').readOnly = true;
+    if (d.image) showDossierImagePreview(d.image); else removeDossierImage();
   } else {
     title.textContent = 'Nouveau dossier';
     document.getElementById('dp-id').value           = '';
@@ -5202,6 +5398,7 @@ function openDossierPanel(id) {
     document.getElementById('dp-image').value        = '';
     document.getElementById('dp-tags').value         = '';
     document.getElementById('dp-id').readOnly = false;
+    removeDossierImage();
   }
   panel.classList.add('open');
 }
@@ -5235,7 +5432,7 @@ async function saveDossier() {
 
   if (editingDossierId) {
     const idx = adminDossiers.findIndex(d => d.id === editingDossierId);
-    if (idx > -1) adminDossiers[idx] = dossierData;
+    if (idx > -1) adminDossiers[idx] = { ...adminDossiers[idx], ...dossierData };
     else adminDossiers.push(dossierData);
   } else {
     if (adminDossiers.find(d => d.id === id)) {
