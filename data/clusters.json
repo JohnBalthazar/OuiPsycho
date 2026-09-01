@@ -59,5 +59,20 @@
       "approfondir": "Aller plus loin"
     },
     "chapters": []
+  },
+  {
+    "id": "emotions",
+    "title": "Comprendre et réguler ses émotions",
+    "excerpt": "Hypersensibilité, alexithymie, colère, culpabilité, honte, rumination : un parcours pour mieux nommer ce qu'on ressent et apprendre à le réguler, sans le supprimer.",
+    "intro": "",
+    "category": "Émotions & identité",
+    "date": "2026-10-06",
+    "etapes": {
+      "comprendre": "Comprendre",
+      "reconnaitre": "Reconnaître ses émotions",
+      "reguler": "Réguler au quotidien",
+      "approfondir": "Aller plus loin"
+    },
+    "chapters": []
   }
 ]

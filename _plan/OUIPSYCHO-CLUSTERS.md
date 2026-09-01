@@ -541,7 +541,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | 2 | anxiete | produit, non poussé | 2026-09-01 | 9 écrits + 4 rattachés + dossier existant intégré | 2/2 | en attente |
 | 3 | emprise-relations-toxiques | produit, non poussé | 2026-09-01 | 6 écrits + 1 mis à jour + 2 lignes retirées (collisions) | 2/2 | en attente |
 | 4 | sommeil | produit, non poussé | 2026-09-01 | 10 écrits (pilier + 9) + 2 rattachés | 2/2 | en attente |
-| 5 | emotions | à produire | — | 0/9 | 0/2 | — |
+| 5 | emotions | produit, non poussé | 2026-09-01 | 9 écrits (pilier + 8) + 2 rattachés | 2/2 | en attente |
 | 6 | neuroatypie-adulte | à produire | — | 0/9 | 0/2 | — |
 
 ### Clusters existants relevés dans le repo
@@ -554,6 +554,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | `souffrance-au-travail` | cluster réel (`theme/`) | pilier `souffrance-au-travail-guide` (2026-09-03) + hub `theme/souffrance-au-travail/` agrégeant 4 étapes (comprendre/reconnaitre/agir/rebondir) | 12 (2 publiés dès aujourd'hui via rattachement, 10 scheduled 2026-09-03→2026-09-30) | `data/clusters.json` : oui (ajouté le 2026-08-31) |
 | `anxiete` | cluster réel (`theme/`), **sans pilier propre** — le dossier à chapitres `anxiete-guide-complet` en tient lieu (décision utilisateur, voir note ci-dessous) | hub `theme/anxiete/` agrégeant 4 étapes (comprendre/reconnaitre/agir/vivre-avec) | 13 (9 nouveaux + 4 rattachés : `crise-angoisse`, `trouble-anxieux-generalise`, `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise`, `se-debarrasser-anxiete-pour-toujours`) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 (mécanisme étendu, voir note) |
 | `sommeil` | cluster réel (`theme/`) | pilier `bien-dormir-guide-complet` (2026-09-06) + hub `theme/sommeil/` agrégeant 4 étapes (comprendre/reconnaitre/agir/approfondir) | 12 (10 nouveaux + 2 rattachés : `vaincre-insomnie`, `sommeil-sante-mentale`) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 |
+| `emotions` | cluster réel (`theme/`) | pilier `comprendre-ses-emotions-guide` (2026-10-06) + hub `theme/emotions/` agrégeant 4 étapes (comprendre/reconnaitre/reguler/approfondir) | 11 (9 nouveaux + 2 rattachés : `resilience-emotionnelle`, `freins-au-bonheur`) — `estime-de-soi` reste rattaché à `emprise-et-relations-toxiques` (voir note) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 |
 
 ### Décisions techniques actées
 *(à compléter au fil des runs)*
@@ -634,4 +635,18 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - Comptes de mots (1re passe → après densification)&nbsp;: pilier 991→1179 ; satellites de 456–545 → 574–706 mots.
 - **Validation complète** : tous les JSON valides, 0 lien interne cassé, 0 quiz manquant, `_gen_static.js` exécuté avec succès (233 pages), **vérification visuelle Puppeteer** de `dossiers.html` (4 cartes désormais affichées, bons liens, 0 erreur JS).
 - **Écart résiduel signalé honnêtement** : le pilier atteint 1179 mots (sous la cible 2000–2500) et les satellites 574–706 mots (sous la cible 1300–1400), légèrement en dessous des moyennes des Lots 1–3.
+- **Commit fait, push non fait**, en attente de validation utilisateur.
+
+**Run du 2026-09-01 (suite, nouvelle session) — LOT 5 (émotions), sur demande explicite de l'utilisateur.**
+- **Deux collisions de Phase 0 tranchées par l'utilisateur avant écriture** :
+  1. Ligne « La honte : l'émotion dont personne ne parle » (chevauchait `a-quoi-sert-la-honte`, existant) → décision utilisateur : **angle différent**. L'existant explore la fonction évolutive/sociale de la honte ; le nouvel article (`honte-emotion`, retitré « La honte au quotidien : la repérer et la nommer sur le moment ») se concentre sur le repérage concret dans des contextes précis (travail, famille, corps) et la nomination sur le moment. Les deux articles se renvoient l'un à l'autre.
+  2. Ligne « Pleurer pour un rien » (chevauchait partiellement `pleurer-de-colere`, existant, angle colère uniquement) → décision utilisateur : **angle élargi**. `pleurer-pour-un-rien` couvre les larmes sans déclencheur identifiable (fatigue, fluctuations hormonales, accumulation diffuse), avec renvoi explicite vers `pleurer-de-colere` pour le cas spécifique de la colère.
+- **Point technique non soumis à question, résolu par contrainte de schéma** : `estime-de-soi` (existant, cité en Phase 0 comme pilier informel possible du lot) est déjà rattaché au cluster `emprise-et-relations-toxiques` (`cluster` + `etape` sont des champs uniques, un article ne peut appartenir qu'à un seul cluster). Décision&nbsp;: **ne pas le déplacer** — il reste dans son cluster d'origine, et le pilier du Lot 5 s'y réfère par un simple lien, comme n'importe quel article hors cluster.
+- **Cluster réel `emotions` créé** (4 étapes : comprendre / reconnaître ses émotions / réguler au quotidien / aller plus loin). Pilier `comprendre-ses-emotions-guide` écrit. Hub `theme/emotions/` généré avec succès. Entrée `data/dossiers.json` posée dès la création.
+- **8 satellites écrits**, tous `status: scheduled`, dates échelonnées du 2026-10-09 au 2026-10-30 : `hypersensibilite-test` (quiz score), `alexithymie`, `gerer-sa-colere` (quiz profils), `culpabilite-chronique`, `honte-emotion`, `pleurer-pour-un-rien`, `rumination-mentale`, `roue-des-emotions`. 2 quiz créés.
+- **2 articles existants rattachés** sans réécriture : `resilience-emotionnelle` et `freins-au-bonheur` (tous deux publiés, liens croisés ajoutés, `date_modified` bumpée à 2026-09-01).
+- **Densification qualitative appliquée en 2 passes** : recherche avant rédaction (haute sensibilité — Aron 1997 —, alexithymie — Sifneos 1973, TAS-20 —, colère comme émotion secondaire, Tangney sur honte/culpabilité, Brené Brown, Bylsma sur les larmes, Nolen-Hoeksema sur la rumination, Plutchik 1980), puis 2<sup>e</sup> passe ciblée (susceptibilité différentielle de Belsky/Boyce/Ellis — orchidées et pissenlits —, colère et risque cardiovasculaire, culpabilité chez les aidants et perfectionnistes, thérapie basée sur la mentalisation pour l'alexithymie, lien honte/addiction, distinction temporelle rumination/inquiétude, roue de Willcox 1982 en complément de celle de Plutchik). Aucune source inventée.
+- Comptes de mots (1re passe → après densification)&nbsp;: pilier 832→927 ; satellites de 470–575 → 605–701 mots.
+- **Validation complète** : tous les JSON valides, 0 lien interne cassé, 0 quiz manquant, `_gen_static.js` exécuté avec succès (242 pages), **vérification visuelle Puppeteer** de `dossiers.html` (5 cartes désormais affichées, bons liens, 0 erreur JS).
+- **Écart résiduel signalé honnêtement** : pilier à 927 mots, satellites à 605–701 mots, sous les cibles du plan.
 - **Commit fait, push non fait**, en attente de validation utilisateur.

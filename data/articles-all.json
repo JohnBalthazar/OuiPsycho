@@ -2198,6 +2198,35 @@
     "status": "scheduled"
   },
   {
+    "id": "roue-des-emotions",
+    "title": "La roue des émotions : nommer pour apaiser",
+    "excerpt": "",
+    "date": "2026-10-30",
+    "date_modified": "2026-10-30",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "roue-des-emotions",
+      "regulation-emotionnelle",
+      "vocabulaire-emotionnel"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "alexithymie",
+      "gerer-sa-colere"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
     "excerpt": "",
@@ -2252,6 +2281,35 @@
     "status": "scheduled"
   },
   {
+    "id": "rumination-mentale",
+    "title": "Rumination mentale : arrêter de ressasser",
+    "excerpt": "",
+    "date": "2026-10-27",
+    "date_modified": "2026-10-27",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "rumination",
+      "regulation-emotionnelle",
+      "depression"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "gerer-sa-colere",
+      "roue-des-emotions"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
     "excerpt": "",
@@ -2275,6 +2333,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "pleurer-pour-un-rien",
+    "title": "Pleurer pour un rien : ce que ça veut dire",
+    "excerpt": "",
+    "date": "2026-10-24",
+    "date_modified": "2026-10-24",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "larmes",
+      "regulation-emotionnelle",
+      "hypersensibilite"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "hypersensibilite-test",
+      "pleurer-de-colere"
+    ],
     "status": "scheduled"
   },
   {
@@ -2330,6 +2417,35 @@
     "status": "scheduled"
   },
   {
+    "id": "honte-emotion",
+    "title": "La honte au quotidien : la repérer et la nommer sur le moment",
+    "excerpt": "",
+    "date": "2026-10-21",
+    "date_modified": "2026-10-21",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "honte",
+      "estime-de-soi",
+      "regulation-emotionnelle"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "culpabilite-chronique",
+      "a-quoi-sert-la-honte"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
     "excerpt": "",
@@ -2354,6 +2470,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "culpabilite-chronique",
+    "title": "Culpabilité chronique : se sentir coupable de tout",
+    "excerpt": "",
+    "date": "2026-10-18",
+    "date_modified": "2026-10-18",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "culpabilite",
+      "estime-de-soi",
+      "regulation-emotionnelle"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "honte-emotion",
+      "roue-des-emotions"
+    ],
     "status": "scheduled"
   },
   {
@@ -2411,6 +2556,35 @@
     "status": "scheduled"
   },
   {
+    "id": "gerer-sa-colere",
+    "title": "Gérer sa colère sans l'étouffer",
+    "excerpt": "",
+    "date": "2026-10-15",
+    "date_modified": "2026-10-15",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "colere",
+      "regulation-emotionnelle",
+      "communication"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "rumination-mentale",
+      "culpabilite-chronique"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
     "excerpt": "",
@@ -2435,6 +2609,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "alexithymie",
+    "title": "Alexithymie : ne pas trouver les mots de ses émotions",
+    "excerpt": "",
+    "date": "2026-10-12",
+    "date_modified": "2026-10-12",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "alexithymie",
+      "regulation-emotionnelle",
+      "sante-mentale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "hypersensibilite-test",
+      "rumination-mentale"
+    ],
     "status": "scheduled"
   },
   {
@@ -2465,6 +2668,35 @@
     "status": "scheduled"
   },
   {
+    "id": "hypersensibilite-test",
+    "title": "Hypersensibilité : le test et ce qu'il faut en penser",
+    "excerpt": "",
+    "date": "2026-10-09",
+    "date_modified": "2026-10-09",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "hypersensibilite",
+      "sensibilite-sensorielle",
+      "temperament"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "alexithymie",
+      "roue-des-emotions"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "innovations-sante-mentale-futur-imminent",
     "title": "Quelles innovations en santé mentale dans un futur imminent ?",
     "excerpt": "",
@@ -2489,6 +2721,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "comprendre-ses-emotions-guide",
+    "title": "Comprendre et réguler ses émotions : le guide",
+    "excerpt": "",
+    "date": "2026-10-06",
+    "date_modified": "2026-10-06",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "emotions",
+      "regulation-emotionnelle",
+      "hypersensibilite",
+      "estime-de-soi"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "hypersensibilite-test",
+      "gerer-sa-colere",
+      "resilience-emotionnelle"
+    ],
     "status": "scheduled"
   },
   {
@@ -4217,7 +4478,7 @@
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
     "date": "2026-08-28",
-    "date_modified": "2026-08-28",
+    "date_modified": "2026-09-01",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
     "hasImage": true,
@@ -4235,7 +4496,11 @@
       "comparaison sociale"
     ],
     "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
-    "articles_lies": [],
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "rumination-mentale",
+      "resilience-emotionnelle"
+    ],
     "status": "published"
   },
   {
@@ -6261,7 +6526,7 @@
     "title": "Développer sa résilience : l'art de rebondir après les épreuves",
     "excerpt": "La résilience n'est pas une qualité innée réservée aux forts. C'est une compétence qui s'apprend et se cultive. Voici comment développer votre capacité à traverser les tempêtes sans vous briser.",
     "date": "2026-03-20",
-    "date_modified": "2026-06-03",
+    "date_modified": "2026-09-01",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs",
     "hasImage": true,
@@ -6279,7 +6544,11 @@
       "psychologie positive"
     ],
     "metaDescription": "Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.",
-    "articles_lies": [],
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "roue-des-emotions",
+      "gerer-sa-colere"
+    ],
     "status": "published"
   },
   {

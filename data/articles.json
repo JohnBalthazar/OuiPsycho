@@ -83,7 +83,7 @@
     "title": "Quels sont les 5 plus grands freins au bonheur ?",
     "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
     "date": "2026-08-28",
-    "date_modified": "2026-08-28",
+    "date_modified": "2026-09-01",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpmbllhci7arhstomkk8",
     "imagePosition": "50% 50%",
@@ -100,7 +100,11 @@
       "comparaison sociale"
     ],
     "metaDescription": "Quels mécanismes psychologiques nous empêchent d'être heureux ? Découvrez les 5 freins scientifiquement identifiés et comment les surmonter.",
-    "articles_lies": [],
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "rumination-mentale",
+      "resilience-emotionnelle"
+    ],
     "status": "published"
   },
   {
@@ -2054,7 +2058,7 @@
     "title": "Développer sa résilience : l'art de rebondir après les épreuves",
     "excerpt": "La résilience n'est pas une qualité innée réservée aux forts. C'est une compétence qui s'apprend et se cultive. Voici comment développer votre capacité à traverser les tempêtes sans vous briser.",
     "date": "2026-03-20",
-    "date_modified": "2026-06-03",
+    "date_modified": "2026-09-01",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ml298eqjonjdr1e5nrcs",
     "imagePosition": "50% 50%",
@@ -2071,7 +2075,11 @@
       "psychologie positive"
     ],
     "metaDescription": "Comment développer sa résilience émotionnelle : les 5 piliers, les exercices pratiques et les clés pour rebondir après les épreuves selon la psychologie.",
-    "articles_lies": [],
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "roue-des-emotions",
+      "gerer-sa-colere"
+    ],
     "status": "published"
   },
   {

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/hypersensibilite-test/">
+<title>Êtes-vous une personne hautement sensible ? — Quiz Oui Psycho!</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #22303c; line-height: 1.55; background: transparent; padding: 4px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf0; border-radius: 16px;
+    padding: 26px 22px; box-shadow: 0 6px 24px rgba(31,78,107,.07);
+  }
+  .kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #1F4E6B; font-weight: 700; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 8px 0 10px; color: #16303f; }
+  .lead { color: #4a5b68; margin-bottom: 18px; }
+  .progress { height: 6px; background: #eef2f5; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .progress > span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#e8894a); transition: width .3s ease; }
+  .step { font-size: .8rem; color: #8091a0; margin-bottom: 8px; }
+  .question { font-size: 1.18rem; font-weight: 650; color: #16303f; margin-bottom: 16px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left; width: 100%; border: 1.5px solid #dce4ea; background: #fbfcfd;
+    border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: #2b3a46;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .opt:hover { border-color: #1F4E6B; background: #f3f8fb; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .btn {
+    display: inline-block; border: none; border-radius: 12px; padding: 13px 22px;
+    font-size: 1rem; font-weight: 650; cursor: pointer; background: #1F4E6B; color: #fff;
+  }
+  .btn:hover { background: #16394f; }
+  .btn.ghost { background: #eef2f5; color: #22303c; }
+  .btn.ghost:hover { background: #e2e9ee; }
+  .result-badge {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .result-emoji { font-size: 2.6rem; display: block; margin-bottom: 4px; }
+  .result-desc { color: #3c4c58; margin: 14px 0 4px; }
+  .result-desc p { margin-bottom: 10px; }
+  .disclaimer {
+    background: #f6f4ef; border-left: 4px solid #c58a1a; border-radius: 8px;
+    padding: 14px 16px; font-size: .92rem; color: #4a4335; margin: 20px 0;
+  }
+  .share { margin: 18px 0 6px; }
+  .share-label { font-size: .85rem; color: #6a7a87; margin-bottom: 8px; }
+  .share-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .share-links a {
+    text-decoration: none; font-size: .9rem; font-weight: 600; padding: 9px 14px;
+    border-radius: 10px; background: #eef2f5; color: #22303c;
+  }
+  .share-links a:hover { background: #e2e9ee; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="kicker">Quiz Oui Psycho!</div>
+      <h1>Êtes-vous une personne hautement sensible ?</h1>
+      <p class="lead">Huit questions pour évaluer votre niveau de sensibilité sensorielle et émotionnelle. Répondez spontanément, en pensant à votre fonctionnement habituel.</p>
+      <button class="btn" id="startBtn">Commencer le test →</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="step" id="step"></div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="result-emoji" id="rEmoji"></span>
+      <span class="result-badge" id="rBadge"></span>
+      <div class="result-desc" id="rDesc"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un professionnel de santé peut évaluer votre situation.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="share">
+        <div class="share-label">Ce test peut aider quelqu'un. Partagez-le :</div>
+        <div class="share-links">
+          <a id="shFb" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shTw" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    {
+      q: "Dans un environnement bruyant et animé (grand magasin, fête, open space), vous…",
+      a: [
+        { t: "Ne ressentez pas de gêne particulière.", v: 0 },
+        { t: "Ressentez une fatigue après un certain temps.", v: 1 },
+        { t: "Êtes vite submergé·e et avez besoin de faire une pause.", v: 2 },
+        { t: "Êtes rapidement épuisé·e et cherchez à quitter les lieux.", v: 3 }
+      ]
+    },
+    {
+      q: "Face à une œuvre d'art, une musique ou un film émouvant, vous…",
+      a: [
+        { t: "L'appréciez sans être particulièrement bouleversé·e.", v: 0 },
+        { t: "Êtes touché·e, de façon proportionnée.", v: 1 },
+        { t: "Êtes souvent submergé·e par une émotion intense.", v: 2 },
+        { t: "Pleurez ou ressentez des frissons très fréquemment.", v: 3 }
+      ]
+    },
+    {
+      q: "Remarquez-vous des détails sensoriels que les autres ne semblent pas percevoir (odeurs, textures, changements de lumière) ?",
+      a: [
+        { t: "Rarement.", v: 0 },
+        { t: "De temps en temps.", v: 1 },
+        { t: "Souvent, on me le fait remarquer.", v: 2 },
+        { t: "Presque tout le temps, c'est même parfois gênant.", v: 3 }
+      ]
+    },
+    {
+      q: "Après une journée sociale chargée, avez-vous besoin d'un temps seul·e pour récupérer ?",
+      a: [
+        { t: "Pas vraiment, je récupère vite.", v: 0 },
+        { t: "Un peu, sans que ce soit essentiel.", v: 1 },
+        { t: "Oui, c'est presque indispensable.", v: 2 },
+        { t: "Absolument, sans ce temps je suis épuisé·e plusieurs jours.", v: 3 }
+      ]
+    },
+    {
+      q: "Percevez-vous facilement l'humeur ou la tension émotionnelle des personnes autour de vous ?",
+      a: [
+        { t: "Pas particulièrement.", v: 0 },
+        { t: "Assez bien, comme la plupart des gens.", v: 1 },
+        { t: "Très nettement, presque instinctivement.", v: 2 },
+        { t: "Au point d'absorber malgré moi les émotions des autres.", v: 3 }
+      ]
+    },
+    {
+      q: "Face à une critique, même formulée avec douceur, vous…",
+      a: [
+        { t: "La recevez sans difficulté particulière.", v: 0 },
+        { t: "Y pensez un peu après coup.", v: 1 },
+        { t: "La ressentez fortement, parfois plusieurs heures après.", v: 2 },
+        { t: "Pouvez être bouleversé·e pendant plusieurs jours.", v: 3 }
+      ]
+    },
+    {
+      q: "Devez-vous accomplir plusieurs tâches en même temps sous pression, comment réagissez-vous ?",
+      a: [
+        { t: "Sans problème particulier.", v: 0 },
+        { t: "Un peu de stress, gérable.", v: 1 },
+        { t: "Je me sens vite dépassé·e et désorganisé·e.", v: 2 },
+        { t: "Je suis complètement submergé·e, incapable de bien fonctionner.", v: 3 }
+      ]
+    },
+    {
+      q: "Diriez-vous que vous ressentez les choses « plus fort » que la moyenne des gens autour de vous ?",
+      a: [
+        { t: "Non, pas spécialement.", v: 0 },
+        { t: "Un peu, parfois.", v: 1 },
+        { t: "Oui, on me le dit régulièrement.", v: 2 },
+        { t: "Oui, clairement, et depuis toujours.", v: 3 }
+      ]
+    }
+  ];
+
+  var PROFILES = [
+    { max: 6, emoji: "🌿", label: "Une sensibilité dans la moyenne", color: "#2e7d5b",
+      desc: "<p>Vos réponses ne suggèrent pas de trait de haute sensibilité marqué. Vous semblez traiter les stimuli sensoriels et émotionnels de façon proche de la moyenne de la population.</p><p>Cela ne veut pas dire que vous êtes insensible : simplement que ce trait spécifique n'est pas particulièrement dominant chez vous.</p>" },
+    { max: 12, emoji: "🌤️", label: "Une sensibilité modérée", color: "#5b8fc7",
+      desc: "<p>Vous montrez des signes ponctuels de haute sensibilité, sans que cela ne domine votre fonctionnement quotidien. Vous êtes probablement plus réceptif·ve que la moyenne dans certains contextes précis.</p><p>Repérer les situations qui vous submergent le plus aide à mieux doser votre exposition aux environnements stimulants.</p>" },
+    { max: 18, emoji: "⚠️", label: "Une haute sensibilité assez marquée", color: "#c58a1a",
+      desc: "<p>Vos réponses dessinent un profil de haute sensibilité assez net : sensibilité sensorielle, émotionnelle et sociale au-dessus de la moyenne, avec un réel besoin de récupération après les environnements stimulants.</p><p>Ce trait n'est pas un problème en soi : apprendre à poser des limites sensorielles sans culpabiliser est le levier le plus utile à ce stade.</p>" },
+    { max: 24, emoji: "🛟", label: "Une haute sensibilité prononcée", color: "#b23a48",
+      desc: "<p>Vous présentez un profil de haute sensibilité très marqué sur l'ensemble des dimensions testées : sensorielle, émotionnelle, sociale. C'est un trait tempéramental documenté, concernant 15 à 20 % de la population — vous n'êtes pas seul·e.</p><p>Structurer votre environnement (temps de récupération, limitation des sollicitations) et, si besoin, en parler à un professionnel formé à ce trait, peuvent transformer cette sensibilité en véritable force plutôt qu'en source d'épuisement.</p>" }
+  ];
+
+  var idx = 0;
+  var total = 0;
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function startQuiz() {
+    idx = 0; total = 0;
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var Q = QUESTIONS[idx];
+    document.getElementById('step').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    document.getElementById('question').textContent = Q.q;
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    Q.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.onclick = function() { answer(opt.v); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(value) {
+    total += value;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function profileForScore() {
+    for (var i = 0; i < PROFILES.length; i++) {
+      if (total <= PROFILES[i].max) return PROFILES[i];
+    }
+    return PROFILES[PROFILES.length - 1];
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = '100%';
+    var P = profileForScore();
+
+    document.getElementById('rEmoji').textContent = P.emoji;
+    var badge = document.getElementById('rBadge');
+    badge.textContent = P.label;
+    badge.style.background = P.color + '1a';
+    badge.style.color = P.color;
+    document.getElementById('rDesc').innerHTML = P.desc;
+
+    var url = 'https://ouipsycho.fr/articles/hypersensibilite-test/';
+    var text = 'Êtes-vous une personne hautement sensible ? J’ai fait le test sur Oui Psycho!';
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = startQuiz;
+  document.getElementById('restartBtn').onclick = function() {
+    elResult.classList.add('hidden');
+    startQuiz();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

@@ -75,7 +75,7 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Clusters thématiques (4) -->
+  <!-- Clusters thématiques (5) -->
   <url>
     <loc>https://ouipsycho.fr/theme/emprise-et-relations-toxiques/</loc>
     <lastmod>2026-08-28</lastmod>
@@ -100,6 +100,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ouipsycho.fr/theme/emotions/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Articles (80 publiés — généré automatiquement) -->
   <url>
@@ -110,6 +116,12 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/addiction-au-porno-comment-en-parler/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -145,6 +157,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ouipsycho.fr/articles/resilience-emotionnelle/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ouipsycho.fr/articles/burnout-epuisement-professionnel/</loc>
     <lastmod>2026-08-31</lastmod>
     <changefreq>monthly</changefreq>
@@ -159,12 +177,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/walter-white-sur-le-divan/</loc>
     <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
-    <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -560,12 +572,6 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/quelle-therapie-choisir/</loc>
-    <lastmod>2026-06-03</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/resilience-emotionnelle/</loc>
     <lastmod>2026-06-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
