@@ -1,0 +1,40 @@
+{
+  "type": "article",
+  "author": "John Balthazar",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "image": "",
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "id": "tdah-amenagements-travail-rqth",
+  "title": "TDAH au travail : RQTH, aménagements de poste, ce qui existe vraiment",
+  "excerpt": "Télétravail, casque antibruit, outils de gestion visuelle des tâches : le TDAH ouvre droit à de vrais aménagements professionnels, largement méconnus. Ce qu'il faut savoir pour les obtenir.",
+  "metaDescription": "TDAH et travail : RQTH, démarche MDPH, aménagements de poste concrets et financement AGEFIPH — le guide pratique des droits existants.",
+  "date": "2026-11-20",
+  "date_modified": "2026-11-20",
+  "category": "Travail",
+  "tags": [
+    "tdah",
+    "travail",
+    "rqth",
+    "amenagement-de-poste",
+    "mdph"
+  ],
+  "keypoints": [
+    "Le TDAH est reconnu en France comme un handicap invisible, au titre des troubles psychiques.",
+    "La demande de RQTH se fait directement auprès de la MDPH, indépendamment de l'employeur.",
+    "Télétravail partiel, casque antibruit, outils visuels de gestion de tâches : des aménagements concrets existent et sont finançables.",
+    "Le médecin du travail est l'interlocuteur clé pour formaliser ces aménagements une fois la RQTH obtenue.",
+    "La démarche reste confidentielle : rien n'oblige à en informer son manager ou ses collègues."
+  ],
+  "content": "<p>Peu de personnes concernées par le TDAH savent qu'il ouvre droit, en France, à une reconnaissance officielle de handicap et à de vrais aménagements professionnels. Cette méconnaissance n'est pas anodine&nbsp;: elle prive de solutions concrètes des personnes qui, bien souvent, redoublent d'efforts invisibles pour compenser au travail des difficultés qui pourraient être en partie allégées.</p>\n\n<h2>Le TDAH, un handicap reconnu — et invisible</h2>\n<p>Depuis la loi du 11 février 2005, les troubles psychiques et les troubles des fonctions cognitives sont explicitement reconnus comme relevant du champ du handicap en France. Le TDAH, en tant que trouble neurodéveloppemental affectant durablement l'attention, l'organisation et la régulation comportementale, entre pleinement dans ce cadre — même si son caractère invisible continue de freiner sa reconnaissance spontanée, y compris par les personnes concernées elles-mêmes.</p>\n\n<h2>La RQTH : à quoi ça sert concrètement</h2>\n<p>La Reconnaissance de la Qualité de Travailleur Handicapé (RQTH) s'obtient auprès de la Maison Départementale des Personnes Handicapées (MDPH) de son département, via un dossier comprenant le formulaire Cerfa 15692*01, un certificat médical détaillé de moins de six mois, et un projet de vie décrivant l'impact concret du TDAH sur l'activité professionnelle. La Commission des Droits et de l'Autonomie des Personnes Handicapées (CDAPH) examine ensuite le dossier et rend sa décision dans un délai légal de quatre mois. Point important&nbsp;: cette démarche est entièrement indépendante de l'employeur — elle se fait en dehors de toute information à l'entreprise, sauf décision volontaire de la personne concernée.</p>\n\n<h2>Une reconnaissance à durée limitée — mais renouvelable</h2>\n<p>La RQTH est accordée pour une durée comprise entre 1 et 10 ans, renouvelable, et peut même être attribuée sans limitation de durée depuis le 1<sup>er</sup> janvier 2020 lorsque la situation n'est pas susceptible d'évoluer favorablement. Le renouvellement n'est cependant jamais automatique&nbsp;: la MDPH recommande de déposer une nouvelle demande environ six mois avant la date d'expiration indiquée sur la notification, pour éviter toute interruption de droits entre deux décisions.</p>\n\n<h2>Les aménagements de poste qui font une vraie différence</h2>\n<p>Une fois la RQTH obtenue, plusieurs aménagements concrets peuvent être sollicités&nbsp;: télétravail partiel de deux à trois jours par semaine pour limiter les sollicitations d'un open space, casque antibruit professionnel, poste de travail positionné dans un espace calme ou périphérique, minuteur visuel pour structurer les tâches, logiciels de gestion visuelle des priorités, ou encore accompagnement par un coach spécialisé TDAH. Beaucoup de ces aménagements peuvent être financés via l'AGEFIPH (Association de gestion du fonds pour l'insertion professionnelle des personnes handicapées), ce qui limite le coût pour l'employeur et facilite leur mise en place.</p>\n\n<h2>Le rôle du médecin du travail</h2>\n<p>C'est le médecin du travail, et non le manager direct, qui formalise ces aménagements de poste&nbsp;: un rendez-vous dédié permet de traduire les besoins identifiés en préconisations concrètes, transmises ensuite à l'employeur sous une forme qui ne nécessite pas de révéler le diagnostic sous-jacent — seules les préconisations d'aménagement sont communiquées, pas leur origine médicale.</p>\n\n<h2>Le dire ou pas au travail ?</h2>\n<p>Rien n'oblige à évoquer son TDAH auprès de son manager ou de ses collègues&nbsp;: la RQTH et les aménagements qui en découlent peuvent rester une démarche strictement personnelle, gérée entre la MDPH, le médecin du travail et la personne concernée. Ce choix, souvent source d'hésitation, mérite d'être posé sans pression&nbsp;: il n'existe pas de bonne réponse universelle, seulement celle qui correspond à son propre contexte professionnel — un sujet que nous abordons aussi sous l'angle du quotidien dans notre article sur <a href=\"tdah-adulte-commencer-sans-jamais-finir/\">TDAH et procrastination</a>.</p>",
+  "etape": "vivre-avec",
+  "articles_lies": [
+    "tdah-adulte-commencer-sans-jamais-finir",
+    "meilleurs-livres-tdah-comparatif",
+    "diagnostic-tdah-france"
+  ],
+  "readTime": 4
+}

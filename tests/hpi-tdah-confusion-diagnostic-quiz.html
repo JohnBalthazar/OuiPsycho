@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://ouipsycho.fr/articles/hpi-tdah-confusion-diagnostic/">
+<title>Plutôt HPI, plutôt TDAH, ou les deux ? — Quiz Oui Psycho!</title>
+<!-- Google Consent Mode v2 (RGPD/Europe) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+  if (_pc === '1') {
+    gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+  } else {
+    gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+  }
+  gtag('set', 'url_passthrough', true);
+  gtag('set', 'ads_data_redaction', true);
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: #22303c; line-height: 1.55; background: transparent; padding: 4px;
+  }
+  .quiz { max-width: 640px; margin: 0 auto; }
+  .card {
+    background: #fff; border: 1px solid #e6ebf0; border-radius: 16px;
+    padding: 26px 22px; box-shadow: 0 6px 24px rgba(31,78,107,.07);
+  }
+  .kicker { font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: #1F4E6B; font-weight: 700; }
+  h1 { font-size: 1.5rem; line-height: 1.25; margin: 8px 0 10px; color: #16303f; }
+  .lead { color: #4a5b68; margin-bottom: 18px; }
+  .progress { height: 6px; background: #eef2f5; border-radius: 999px; overflow: hidden; margin-bottom: 20px; }
+  .progress > span { display: block; height: 100%; background: linear-gradient(90deg,#1F4E6B,#e8894a); transition: width .3s ease; }
+  .step { font-size: .8rem; color: #8091a0; margin-bottom: 8px; }
+  .question { font-size: 1.18rem; font-weight: 650; color: #16303f; margin-bottom: 16px; }
+  .options { display: flex; flex-direction: column; gap: 10px; }
+  .opt {
+    text-align: left; width: 100%; border: 1.5px solid #dce4ea; background: #fbfcfd;
+    border-radius: 12px; padding: 14px 16px; font-size: 1rem; color: #2b3a46;
+    cursor: pointer; transition: all .15s ease;
+  }
+  .opt:hover { border-color: #1F4E6B; background: #f3f8fb; transform: translateY(-1px); }
+  .opt:active { transform: translateY(0); }
+  .btn {
+    display: inline-block; border: none; border-radius: 12px; padding: 13px 22px;
+    font-size: 1rem; font-weight: 650; cursor: pointer; background: #1F4E6B; color: #fff;
+  }
+  .btn:hover { background: #16394f; }
+  .btn.ghost { background: #eef2f5; color: #22303c; }
+  .btn.ghost:hover { background: #e2e9ee; }
+  .result-badge {
+    display: inline-flex; align-items: center; gap: 10px; font-weight: 700;
+    padding: 8px 16px; border-radius: 999px; font-size: 1.05rem; margin-bottom: 6px;
+  }
+  .result-emoji { font-size: 2.6rem; display: block; margin-bottom: 4px; }
+  .result-desc { color: #3c4c58; margin: 14px 0 4px; }
+  .result-desc p { margin-bottom: 10px; }
+  .disclaimer {
+    background: #f6f4ef; border-left: 4px solid #c58a1a; border-radius: 8px;
+    padding: 14px 16px; font-size: .92rem; color: #4a4335; margin: 20px 0;
+  }
+  .share { margin: 18px 0 6px; }
+  .share-label { font-size: .85rem; color: #6a7a87; margin-bottom: 8px; }
+  .share-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .share-links a {
+    text-decoration: none; font-size: .9rem; font-weight: 600; padding: 9px 14px;
+    border-radius: 10px; background: #eef2f5; color: #22303c;
+  }
+  .share-links a:hover { background: #e2e9ee; }
+  .actions { margin-top: 18px; display: flex; gap: 10px; flex-wrap: wrap; }
+  .hidden { display: none; }
+</style>
+</head>
+<body>
+<div class="quiz">
+  <div class="card">
+
+    <!-- INTRO -->
+    <section id="intro">
+      <div class="kicker">Quiz Oui Psycho!</div>
+      <h1>Plutôt HPI, plutôt TDAH, ou les deux ?</h1>
+      <p class="lead">Huit situations du quotidien pour amorcer une réflexion sur votre fonctionnement. Répondez spontanément, celle qui vous ressemble le plus.</p>
+      <button class="btn" id="startBtn">Commencer le test →</button>
+    </section>
+
+    <!-- QUESTIONS -->
+    <section id="quiz" class="hidden">
+      <div class="progress"><span id="bar" style="width:0%"></span></div>
+      <div class="step" id="step"></div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="hidden">
+      <span class="result-emoji" id="rEmoji"></span>
+      <span class="result-badge" id="rBadge"></span>
+      <div class="result-desc" id="rDesc"></div>
+
+      <div class="disclaimer">
+        ⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+        Seul un bilan psychologique complet peut distinguer ces deux profils.
+        En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).
+      </div>
+
+      <div class="share">
+        <div class="share-label">Ce test peut aider quelqu'un. Partagez-le :</div>
+        <div class="share-links">
+          <a id="shFb" target="_blank" rel="noopener">📘 Facebook</a>
+          <a id="shTw" target="_blank" rel="noopener">𝕏 Twitter</a>
+          <a id="shWa" target="_blank" rel="noopener">💬 WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn ghost" id="restartBtn">↺ Recommencer</button>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  var QUESTIONS = [
+    {
+      q: "Face à un cours ou une réunion que vous jugez trop lente, vous…",
+      a: [
+        { t: "Décrochez car votre esprit est déjà allé plus loin, sur le fond.", p: "H" },
+        { t: "Décrochez sans lien avec le rythme, même si le sujet vous intéresse.", p: "T" },
+        { t: "Un peu des deux, selon les jours.", p: "M" },
+        { t: "Vous restez concentré·e sans difficulté particulière.", p: "N" }
+      ]
+    },
+    {
+      q: "Quand un sujet vous passionne vraiment, votre concentration devient…",
+      a: [
+        { t: "Intense et volontaire, vous pourriez y passer des heures par choix.", p: "H" },
+        { t: "Intense mais difficile à interrompre, presque malgré vous.", p: "T" },
+        { t: "Les deux à la fois, selon le contexte.", p: "M" },
+        { t: "Bonne, sans absorption particulière.", p: "N" }
+      ]
+    },
+    {
+      q: "Votre désorganisation, quand elle existe, vient surtout…",
+      a: [
+        { t: "D'un ennui pour les détails pratiques, jugés secondaires.", p: "H" },
+        { t: "D'une vraie difficulté à structurer, même quand le sujet vous tient à cœur.", p: "T" },
+        { t: "D'un mélange des deux selon les situations.", p: "M" },
+        { t: "Elle est rare, vous vous sentez plutôt organisé·e.", p: "N" }
+      ]
+    },
+    {
+      q: "Enfant, à l'école, vous étiez plutôt…",
+      a: [
+        { t: "Bon·ne élève qui s'ennuyait, en avance sur le programme.", p: "H" },
+        { t: "En difficulté malgré une intelligence évidente pour l'entourage.", p: "T" },
+        { t: "Un mélange des deux, difficile à faire rentrer dans une case.", p: "M" },
+        { t: "Sans difficulté particulière, dans la moyenne du groupe.", p: "N" }
+      ]
+    },
+    {
+      q: "Vos idées, en conversation, ont tendance à…",
+      a: [
+        { t: "Partir dans plusieurs directions liées entre elles, par association d'idées riches.", p: "H" },
+        { t: "Sauter d'un sujet à l'autre sans lien évident, de façon plus impulsive.", p: "T" },
+        { t: "Les deux, selon votre niveau de fatigue ou d'intérêt.", p: "M" },
+        { t: "Rester assez linéaires et structurées.", p: "N" }
+      ]
+    },
+    {
+      q: "Face à une tâche répétitive et peu stimulante, vous…",
+      a: [
+        { t: "Vous ennuyez profondément mais parvenez à vous forcer, à contrecœur.", p: "H" },
+        { t: "Avez une vraie difficulté physique à rester dessus, quel que soit l'effort.", p: "T" },
+        { t: "Les deux se mélangent, difficile à distinguer.", p: "M" },
+        { t: "Vous vous en accommodez sans trop de mal.", p: "N" }
+      ]
+    },
+    {
+      q: "Diriez-vous que vous avez longtemps compensé des difficultés grâce à vos capacités de raisonnement ?",
+      a: [
+        { t: "Oui, clairement — jusqu'à ce que ça devienne plus difficile récemment.", p: "H" },
+        { t: "Pas vraiment : les difficultés étaient là depuis toujours, visibles.", p: "T" },
+        { t: "Oui, et je me demande justement si les deux se superposent.", p: "M" },
+        { t: "Non, je n'ai pas ce sentiment de compensation.", p: "N" }
+      ]
+    },
+    {
+      q: "Ce qui vous a poussé·e à vous poser cette question aujourd'hui, c'est plutôt…",
+      a: [
+        { t: "Un sentiment de décalage intellectuel, de « trop » (trop vite, trop de pensées).", p: "H" },
+        { t: "Une accumulation d'oublis, de retards, de désorganisation chronique.", p: "T" },
+        { t: "Les deux ensemble, ce qui vous questionne justement.", p: "M" },
+        { t: "La curiosité, sans que ça vous concerne forcément.", p: "N" }
+      ]
+    }
+  ];
+
+  var PROFILES = {
+    H: {
+      emoji: "💡", label: "Plutôt évocateur d'un profil HPI", color: "#5b8fc7",
+      desc: "<p>Vos réponses évoquent davantage un fonctionnement de type haut potentiel intellectuel : ennui face à la sous-stimulation, pensée en arborescence, capacité de concentration intense sur ce qui vous intéresse vraiment.</p><p>Cela ne veut pas dire qu'un TDAH est exclu pour autant — seul un bilan psychologique complet permet de trancher avec certitude.</p>"
+    },
+    T: {
+      emoji: "⚡", label: "Plutôt évocateur d'un profil TDAH", color: "#c58a1a",
+      desc: "<p>Vos réponses évoquent davantage une difficulté de régulation de l'attention indépendante du niveau d'intérêt pour la tâche — une caractéristique centrale du TDAH.</p><p>Un entretien avec un psychiatre permettrait d'explorer cette piste plus précisément, notamment le critère d'ancienneté des symptômes depuis l'enfance.</p>"
+    },
+    M: {
+      emoji: "🧩", label: "Un mélange des deux profils", color: "#b23a48",
+      desc: "<p>Vos réponses évoquent un chevauchement entre les deux profils — une situation documentée et loin d'être rare : le haut potentiel et le TDAH peuvent coexister chez la même personne, chacun masquant parfois partiellement l'autre.</p><p>C'est justement la situation la plus difficile à démêler seul·e : un bilan psychologique complet, associant tests cognitifs et entretien clinique, est particulièrement indiqué ici.</p>"
+    },
+    N: {
+      emoji: "🌿", label: "Peu d'éléments évocateurs de l'un ou l'autre", color: "#2e7d5b",
+      desc: "<p>Vos réponses ne dessinent pas de profil particulièrement marqué, ni HPI ni TDAH, sur les dimensions explorées ici. Cela ne dit rien de définitif sur votre fonctionnement — simplement que ce questionnaire rapide n'y voit pas de signal fort.</p>"
+    }
+  };
+
+  var idx = 0;
+  var counts = { H:0, T:0, M:0, N:0 };
+  var order = ["H","T","M","N"];
+
+  var elIntro = document.getElementById('intro');
+  var elQuiz = document.getElementById('quiz');
+  var elResult = document.getElementById('result');
+
+  function startQuiz() {
+    idx = 0; counts = { H:0, T:0, M:0, N:0 };
+    elIntro.classList.add('hidden');
+    elResult.classList.add('hidden');
+    elQuiz.classList.remove('hidden');
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    var Q = QUESTIONS[idx];
+    document.getElementById('step').textContent = 'Question ' + (idx + 1) + ' / ' + QUESTIONS.length;
+    document.getElementById('bar').style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    document.getElementById('question').textContent = Q.q;
+    var box = document.getElementById('options');
+    box.innerHTML = '';
+    Q.a.forEach(function(opt) {
+      var b = document.createElement('button');
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.onclick = function() { answer(opt.p); };
+      box.appendChild(b);
+    });
+    notifyResize();
+  }
+
+  function answer(profile) {
+    counts[profile]++;
+    idx++;
+    if (idx < QUESTIONS.length) {
+      renderQuestion();
+    } else {
+      showResult();
+    }
+  }
+
+  function dominantProfile() {
+    var best = order[0];
+    order.forEach(function(k) {
+      if (counts[k] > counts[best]) best = k;
+    });
+    return best;
+  }
+
+  function showResult() {
+    document.getElementById('bar').style.width = '100%';
+    var key = dominantProfile();
+    var P = PROFILES[key];
+
+    document.getElementById('rEmoji').textContent = P.emoji;
+    var badge = document.getElementById('rBadge');
+    badge.textContent = P.label;
+    badge.style.background = P.color + '1a';
+    badge.style.color = P.color;
+    document.getElementById('rDesc').innerHTML = P.desc;
+
+    var url = 'https://ouipsycho.fr/articles/hpi-tdah-confusion-diagnostic/';
+    var text = 'Plutôt HPI, plutôt TDAH, ou les deux ? J’ai fait le test sur Oui Psycho!';
+    document.getElementById('shFb').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(url);
+    document.getElementById('shTw').href = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(url);
+    document.getElementById('shWa').href = 'https://wa.me/?text=' + encodeURIComponent(text + ' ' + url);
+
+    elQuiz.classList.add('hidden');
+    elResult.classList.remove('hidden');
+    notifyResize();
+  }
+
+  document.getElementById('startBtn').onclick = startQuiz;
+  document.getElementById('restartBtn').onclick = function() {
+    elResult.classList.add('hidden');
+    startQuiz();
+    notifyResize();
+  };
+
+  window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>

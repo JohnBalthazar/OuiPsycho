@@ -1,0 +1,48 @@
+{
+  "type": "article",
+  "author": "John Balthazar",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "image": "",
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "id": "hpi-tdah-confusion-diagnostic",
+  "title": "HPI et TDAH : pourquoi on les confond si souvent",
+  "excerpt": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre. Comment les distinguer — et pourquoi ils coexistent parfois.",
+  "metaDescription": "HPI et TDAH : symptômes qui se recoupent, ce qui les distingue réellement, et pourquoi le haut potentiel peut masquer un TDAH sous-jacent.",
+  "date": "2026-11-11",
+  "date_modified": "2026-11-11",
+  "category": "Émotions & identité",
+  "tags": [
+    "hpi",
+    "tdah",
+    "haut-potentiel",
+    "diagnostic-differentiel",
+    "comorbidite"
+  ],
+  "keypoints": [
+    "HPI et TDAH partagent des symptômes de surface : agitation, difficulté de concentration, discours qui part dans plusieurs directions.",
+    "Le HPI s'accompagne d'un ennui rapide face à la sous-stimulation ; le TDAH touche la régulation de l'attention quel que soit le niveau d'intérêt.",
+    "Le haut potentiel permet parfois de compenser des difficultés exécutives pendant des années, avant que la complexité de l'environnement ne les révèle.",
+    "Les deux profils peuvent coexister chez la même personne, ce qui complique encore le diagnostic différentiel.",
+    "Seul un bilan psychologique complet permet de trancher — un autoquestionnaire ne fait qu'orienter la réflexion."
+  ],
+  "content": "<p>« Est-ce que je suis HPI, TDAH, ou un peu des deux ? » — cette question, posée par de nombreux adultes en quête d'explication à leur fonctionnement, n'a rien d'anecdotique&nbsp;: elle traduit une confusion clinique bien réelle, documentée par les professionnels qui reçoivent ces deux profils.</p>\n\n<h2>Des symptômes de surface qui se recoupent</h2>\n<p>Agitation, difficulté à se concentrer sur une tâche jugée sans intérêt, discours qui part dans plusieurs directions à la fois, impression de « décrocher » en pleine conversation&nbsp;: pris isolément, ces signes peuvent évoquer aussi bien un haut potentiel intellectuel (HPI) qu'un trouble du déficit de l'attention (TDAH). Ce chevauchement explique en partie pourquoi les deux profils sont si souvent confondus, y compris par des professionnels peu formés à l'un ou l'autre.</p>\n\n<h2>Ce qui les distingue en profondeur</h2>\n<p>La mécanique sous-jacente, elle, diffère nettement. Dans le HPI, l'inattention apparente naît le plus souvent d'un ennui rapide face à une tâche jugée insuffisamment stimulante&nbsp;: la personne « décroche » parce que son esprit va plus vite que ce qu'on lui propose, et retrouve une concentration intense — voire un hyperfocus — dès qu'un sujet l'intéresse réellement. Dans le TDAH, la difficulté touche la régulation de l'attention elle-même, indépendamment du niveau d'intérêt&nbsp;: même une tâche passionnante peut être interrompue par une distraction, et l'hyperfocus, quand il survient, reste largement involontaire plutôt que piloté par la motivation.</p>\n\n<h2>Le haut potentiel peut masquer un TDAH</h2>\n<p>Un phénomène de compensation cognitive est régulièrement décrit&nbsp;: certaines personnes à haut potentiel parviennent, pendant des années, voire des décennies, à compenser des difficultés exécutives réelles grâce à leurs capacités de raisonnement — jusqu'à ce que la complexité croissante des exigences (études supérieures, vie professionnelle, charge mentale familiale) dépasse ce qu'aucune compensation ne peut plus absorber. Le TDAH sous-jacent, resté invisible tant que l'intelligence suffisait à masquer ses effets, devient alors soudainement flagrant — souvent vécu comme un effondrement brutal plutôt que comme la révélation progressive qu'il est en réalité.</p>\n\n<h2>Ils coexistent aussi</h2>\n<p>Une revue de la littérature consacrée spécifiquement à la relation entre haut potentiel intellectuel et TDAH souligne que les deux profils partagent des manifestations communes et peuvent tout à fait coexister chez la même personne — une « double exceptionnalité » qui complique encore davantage le diagnostic différentiel, chaque profil pouvant masquer partiellement l'autre selon le contexte. Poser les deux diagnostics correctement, quand c'est le cas, change concrètement l'accompagnement proposé&nbsp;: ignorer l'un des deux revient à ne traiter qu'une partie du tableau.</p>\n\n<h2>La double exceptionnalité, un accompagnement encore rare</h2>\n<p>Quand les deux profils coexistent réellement, on parle parfois de « double exceptionnalité » — la coexistence d'un potentiel intellectuel élevé et d'un trouble avéré. Ce profil pose un défi spécifique&nbsp;: le quotient intellectuel élevé peut compenser suffisamment les symptômes pour que les difficultés n'apparaissent que tardivement dans le parcours scolaire ou professionnel, une fois la complexité des exigences trop importante pour être absorbée par la seule intelligence. L'accompagnement recommandé pour ce profil ne segmente pas les deux dimensions&nbsp;: il combine un travail sur les fonctions exécutives, une attention à la régulation émotionnelle, et un soutien adapté qui reconnaît les deux réalités à la fois, plutôt que de n'en traiter qu'une seule.</p>\n\n<h2>Que faire de cette question ?</h2>\n<p>Ni un autoquestionnaire ni un article ne peuvent trancher cette question à votre place&nbsp;: seul un bilan psychologique complet, associant tests cognitifs standardisés et entretien clinique approfondi, permet de distinguer ces deux profils avec fiabilité — voir notre article sur le <a href=\"diagnostic-tdah-france/\">parcours de diagnostic en France</a>. Le questionnaire suivant propose simplement une première piste de réflexion, à explorer plus loin si elle vous parle.</p>\n\n<h2>Plutôt HPI, plutôt TDAH, ou les deux ?</h2>\n<p>Huit situations du quotidien pour amorcer une réflexion — à confirmer, le cas échéant, par un bilan professionnel.</p>\n<iframe src=\"tests/hpi-tdah-confusion-diagnostic-quiz.html\" style=\"width:100%;border:none;min-height:580px;border-radius:12px\" loading=\"lazy\" title=\"Plutôt HPI, plutôt TDAH, ou les deux ?\" id=\"quiz-frame-hpi-tdah-confusion-diagnostic\"></iframe>\n<script>window.addEventListener('message',function(e){if(e.data&&e.data.type==='quiz-resize'){var f=document.getElementById('quiz-frame-hpi-tdah-confusion-diagnostic');if(f)f.style.minHeight=(e.data.height+32)+'px';}});</script>",
+  "sources": [
+    {
+      "authors": "Fumeaux P., Revol O.",
+      "year": "2015",
+      "title": "Haut potentiel intellectuel et TDA/H : ressemblances, différences, co-existence ?",
+      "journal": "Pédiatrie Pratique"
+    }
+  ],
+  "etape": "reconnaitre",
+  "articles_lies": [
+    "et-si-vous-etiez-hpi",
+    "tdah-trouble-deficit-attention-hyperactivite",
+    "hpi-invisible-identification-tardive-adulte"
+  ],
+  "readTime": 4
+}

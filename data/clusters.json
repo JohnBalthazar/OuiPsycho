@@ -74,5 +74,20 @@
       "approfondir": "Aller plus loin"
     },
     "chapters": []
+  },
+  {
+    "id": "neuroatypie-adulte",
+    "title": "Neuroatypie à l'âge adulte",
+    "excerpt": "TDAH, haut potentiel, autisme : quand la découverte arrive à l'âge adulte, comment obtenir un diagnostic, et vivre avec au quotidien.",
+    "intro": "",
+    "category": "Troubles Psy",
+    "date": "2026-11-02",
+    "etapes": {
+      "comprendre": "Comprendre",
+      "reconnaitre": "Reconnaître les formes",
+      "diagnostiquer": "Se faire diagnostiquer",
+      "vivre-avec": "Vivre avec au quotidien"
+    },
+    "chapters": []
   }
 ]

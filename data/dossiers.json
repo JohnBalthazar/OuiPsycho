@@ -64,5 +64,18 @@
     "date": "2026-09-01",
     "status": "published",
     "tags": ["emotions", "hypersensibilite", "colere", "estime-de-soi"]
+  },
+  {
+    "id": "neuroatypie-adulte",
+    "_path": "theme",
+    "title": "Neuroatypie à l'âge adulte",
+    "subtitle": "Le parcours en articles, en 4 étapes",
+    "excerpt": "TDAH, haut potentiel, autisme : quand la découverte arrive à l'âge adulte, comment obtenir un diagnostic, et vivre avec au quotidien.",
+    "category": "Troubles Psy",
+    "image": "",
+    "readTime": 45,
+    "date": "2026-11-02",
+    "status": "published",
+    "tags": ["tdah", "hpi", "haut-potentiel", "autisme", "neuroatypie", "diagnostic-tardif"]
   }
 ]

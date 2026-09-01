@@ -68,6 +68,12 @@
       "publisher": "Tom Pousse"
     }
   ],
-  "articles_lies": [],
-  "status": "scheduled"
+  "articles_lies": [
+    "tdah-trouble-deficit-attention-hyperactivite",
+    "tdah-amenagements-travail-rqth",
+    "diagnostic-tdah-france"
+  ],
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "etape": "vivre-avec"
 }

@@ -57,6 +57,12 @@
       "publisher": "HAS"
     }
   ],
-  "articles_lies": [],
-  "status": "scheduled"
+  "articles_lies": [
+    "tdah-trouble-deficit-attention-hyperactivite",
+    "fonctions-executives",
+    "diagnostic-tdah-france"
+  ],
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "etape": "vivre-avec"
 }

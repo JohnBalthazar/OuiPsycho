@@ -1158,7 +1158,7 @@
     "title": "Et si vous étiez HPI ?",
     "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
     "date": "2026-06-22",
-    "date_modified": "2026-06-22",
+    "date_modified": "2026-09-01",
     "category": "Développement personnel",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kxrvvklrfl0vyxu6qy5m",
     "imagePosition": "50% 50%",
@@ -1176,7 +1176,11 @@
       "identité"
     ],
     "metaDescription": "HPI, surdoué, zèbre : que dit vraiment la science ? QI, pensée arborescence, hypersensibilité, diagnostic WAIS — tout comprendre sans les mythes.",
-    "articles_lies": [],
+    "articles_lies": [
+      "hpi-invisible-identification-tardive-adulte",
+      "hpi-tdah-confusion-diagnostic",
+      "tdah-trouble-deficit-attention-hyperactivite"
+    ],
     "status": "published"
   },
   {

@@ -85,6 +85,12 @@
       "publisher": "Dunod"
     }
   ],
-  "articles_lies": [],
-  "status": "scheduled"
+  "articles_lies": [
+    "fonctions-executives",
+    "tdah-amenagements-travail-rqth",
+    "tdah-trouble-deficit-attention-hyperactivite"
+  ],
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "etape": "vivre-avec"
 }

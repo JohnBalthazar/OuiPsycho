@@ -59,6 +59,12 @@
       "url": "https://doi.org/10.1155/2011/420297"
     }
   ],
-  "articles_lies": [],
-  "status": "scheduled"
+  "articles_lies": [
+    "et-si-vous-etiez-hpi",
+    "hpi-tdah-confusion-diagnostic",
+    "autisme-adulte-diagnostic-tardif"
+  ],
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "etape": "reconnaitre"
 }

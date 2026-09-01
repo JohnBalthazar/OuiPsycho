@@ -74,6 +74,13 @@
       "url": "https://doi.org/10.1016/S2215-0366(18)30269-4"
     }
   ],
-  "articles_lies": [],
-  "status": "scheduled"
+  "articles_lies": [
+    "fonctions-executives",
+    "tdah-femme-adulte",
+    "test-tdah-adulte-asrs",
+    "diagnostic-tdah-france"
+  ],
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "etape": "comprendre"
 }

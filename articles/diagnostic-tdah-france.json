@@ -1,0 +1,40 @@
+{
+  "type": "article",
+  "author": "John Balthazar",
+  "imagePosition": "50% 50%",
+  "imageZoom": 1,
+  "imageGravity": "none",
+  "imageLayout": "top",
+  "image": "",
+  "status": "scheduled",
+  "cluster": "neuroatypie-adulte",
+  "id": "diagnostic-tdah-france",
+  "title": "Diagnostic TDAH en France : parcours, délais, coûts",
+  "excerpt": "Qui peut poser le diagnostic, par où commencer, combien ça coûte réellement, combien de temps il faut attendre : ce qu'il faut savoir avant de se lancer dans le parcours.",
+  "metaDescription": "Diagnostic TDAH adulte en France : parcours public et privé, psychiatre et bilan neuropsychologique, délais d'attente et coûts réels.",
+  "date": "2026-11-17",
+  "date_modified": "2026-11-17",
+  "category": "Troubles Psy",
+  "tags": [
+    "tdah",
+    "diagnostic-tdah",
+    "parcours-de-soins",
+    "psychiatre",
+    "france"
+  ],
+  "keypoints": [
+    "Seul un psychiatre peut poser un diagnostic médical de TDAH ; le bilan neuropsychologique est recommandé mais pas obligatoire.",
+    "Le parcours public (CMP, hôpital) est peu coûteux mais les délais d'attente s'étendent souvent sur 9 à 18 mois.",
+    "Le parcours libéral est plus rapide mais représente une dépense totale de plusieurs centaines d'euros, partiellement remboursée.",
+    "Un centre de ressources autisme (CRA) peut être sollicité en cas de suspicion d'un trouble associé, avec des délais comparables.",
+    "En attendant un rendez-vous, la psychoéducation et les associations spécialisées restent des ressources utiles."
+  ],
+  "content": "<p>Décider de faire le pas vers un diagnostic de TDAH se heurte vite à une question très concrète&nbsp;: par où commencer, et à quoi s'attendre en termes de délais et de budget ? Le parcours de soins français, encore mal connu du grand public, mérite d'être clarifié avant de s'y engager.</p>\n\n<h2>Qui peut poser le diagnostic</h2>\n<p>En France, seul un psychiatre est habilité à poser un diagnostic médical de TDAH chez l'adulte, à l'issue d'un entretien clinique structuré. Un bilan neuropsychologique complémentaire, réalisé par un neuropsychologue, est vivement recommandé pour objectiver les difficultés attentionnelles et exécutives — mais il n'est pas juridiquement obligatoire pour que le diagnostic soit posé.</p>\n\n<h2>Le parcours public</h2>\n<p>Passer par un centre médico-psychologique (CMP) ou un service hospitalier public présente l'avantage d'un coût très réduit, voire nul&nbsp;: la consultation et le bilan y sont pris en charge. La contrepartie est un délai d'attente qui reste, selon plusieurs sources spécialisées dans l'accompagnement du TDAH, généralement compris entre 9 et 18 mois avant un premier rendez-vous — une durée qui varie fortement selon les régions et la disponibilité locale des professionnels formés.</p>\n\n<h2>Le parcours privé, plus rapide mais coûteux</h2>\n<p>En secteur libéral, une première consultation avec un psychiatre coûte généralement entre 80 et 200 €, remboursée à 70 % par l'Assurance Maladie si le praticien exerce en secteur 1. Le bilan neuropsychologique complémentaire, lui, représente une dépense supplémentaire estimée entre 350 et 800 € selon les praticiens et les régions, rarement remboursée. Au total, plusieurs guides spécialisés évoquent un coût global avoisinant les 800 € pour un parcours privé complet — une somme non négligeable, à mettre en balance avec un délai d'attente généralement bien plus court qu'en secteur public.</p>\n\n<h2>Et le centre de ressources autisme (CRA) dans tout ça ?</h2>\n<p>Le CRA n'est pas la voie d'entrée pour un TDAH isolé&nbsp;: il devient pertinent lorsqu'un trouble du spectre autistique est également suspecté, une situation qui n'est pas rare compte tenu du chevauchement fréquent entre profils neuroatypiques. Les évaluations y sont prises en charge à 100 % par l'Assurance Maladie, mais les délais d'attente rapportés — de 9 à 24 mois selon les structures — sont souvent au moins aussi longs que ceux du secteur public classique.</p>\n\n<h2>Et le traitement médicamenteux ?</h2>\n<p>Quand un traitement par méthylphénidate est envisagé, sa prescription initiale reste réservée à un médecin spécialiste — neurologue, pédiatre ou psychiatre —, exerçant à l'hôpital ou en libéral depuis l'assouplissement de la réglementation intervenu en 2021. Une fois cette prescription initiale établie pour une durée d'un an, son renouvellement peut en revanche être assuré par n'importe quel médecin, y compris un médecin généraliste, ce qui allège concrètement le suivi au quotidien une fois le traitement stabilisé.</p>\n\n<h2>Que faire en attendant</h2>\n<p>L'attente, souvent frustrante, peut être mise à profit&nbsp;: se documenter sérieusement sur le fonctionnement du TDAH (voir notre <a href=\"tdah-trouble-deficit-attention-hyperactivite/\">guide complet</a>), rejoindre une association spécialisée comme HyperSupers-TDAH France pour échanger avec des personnes concernées, et commencer à tester quelques stratégies d'organisation concrètes en autonomie. Ces démarches ne remplacent pas un diagnostic, mais elles permettent souvent d'améliorer sensiblement le quotidien avant même d'obtenir un premier rendez-vous.</p>",
+  "etape": "diagnostiquer",
+  "articles_lies": [
+    "test-tdah-adulte-asrs",
+    "tdah-trouble-deficit-attention-hyperactivite",
+    "autisme-adulte-diagnostic-tardif"
+  ],
+  "readTime": 4
+}
