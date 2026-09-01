@@ -78,7 +78,7 @@
   <!-- Clusters thématiques (6) -->
   <url>
     <loc>https://ouipsycho.fr/theme/emprise-et-relations-toxiques/</loc>
-    <lastmod>2026-08-28</lastmod>
+    <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -128,6 +128,12 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
+    <lastmod>2026-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/survivre-relation-toxique/</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -309,12 +315,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/horoscope-pourquoi-on-y-croit/</loc>
     <lastmod>2026-07-28</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/survivre-relation-toxique/</loc>
-    <lastmod>2026-07-26</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
