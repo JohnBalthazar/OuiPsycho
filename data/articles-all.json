@@ -2519,6 +2519,35 @@
     "status": "scheduled"
   },
   {
+    "id": "paralysie-du-sommeil",
+    "title": "Paralysie du sommeil : réveillé, conscient, immobile",
+    "excerpt": "",
+    "date": "2026-10-03",
+    "date_modified": "2026-10-03",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "paralysie-du-sommeil",
+      "sommeil-paradoxal",
+      "parasomnie"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "cauchemars-recurrents",
+      "bien-dormir-guide-complet",
+      "sommeil-sante-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
     "excerpt": "",
@@ -2572,6 +2601,35 @@
       "souffrance-au-travail-guide",
       "bore-out-ennui-au-travail",
       "burnout-epuisement-professionnel"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "dette-de-sommeil",
+    "title": "Dette de sommeil : peut-on la rattraper le week-end ?",
+    "excerpt": "",
+    "date": "2026-09-30",
+    "date_modified": "2026-09-30",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "dette-de-sommeil",
+      "jetlag-social",
+      "recuperation"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "sieste-duree-ideale",
+      "se-reveiller-3h-du-matin",
+      "bien-dormir-guide-complet"
     ],
     "status": "scheduled"
   },
@@ -2683,6 +2741,35 @@
       "souffrance-au-travail-guide",
       "arret-travail-burn-out",
       "techniques-anti-stress"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "sieste-duree-ideale",
+    "title": "La sieste : durée idéale et mode d'emploi",
+    "excerpt": "",
+    "date": "2026-09-27",
+    "date_modified": "2026-09-27",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "sieste",
+      "vigilance",
+      "inertie-du-sommeil"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "dette-de-sommeil",
+      "bien-dormir-guide-complet",
+      "chronotype-matin-soir"
     ],
     "status": "scheduled"
   },
@@ -2799,6 +2886,35 @@
     "status": "scheduled"
   },
   {
+    "id": "ecrans-lumiere-bleue-sommeil",
+    "title": "Écrans et lumière bleue : ce que dit vraiment la science",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "lumiere-bleue",
+      "ecrans",
+      "melatonine"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "hygiene-de-sommeil",
+      "dette-de-sommeil"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
     "excerpt": "",
@@ -2907,6 +3023,35 @@
       "punition-par-le-silence",
       "survivre-relation-toxique",
       "se-reconstruire-apres-emprise"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "cauchemars-recurrents",
+    "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
+    "excerpt": "",
+    "date": "2026-09-21",
+    "date_modified": "2026-09-21",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "cauchemars",
+      "sommeil-paradoxal",
+      "therapie-imagerie-mentale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "paralysie-du-sommeil",
+      "bien-dormir-guide-complet",
+      "sommeil-sante-mentale"
     ],
     "status": "scheduled"
   },
@@ -3082,6 +3227,35 @@
     "status": "scheduled"
   },
   {
+    "id": "tcc-insomnie-restriction-sommeil",
+    "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
+    "excerpt": "",
+    "date": "2026-09-18",
+    "date_modified": "2026-09-18",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "insomnie",
+      "tcc-i",
+      "restriction-de-sommeil"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "vaincre-insomnie",
+      "bien-dormir-guide-complet",
+      "se-reveiller-3h-du-matin"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
     "excerpt": "",
@@ -3134,6 +3308,35 @@
       "symptomes-physiques-anxiete",
       "anxiolytiques-effets-alternatives",
       "anxiete-anticipatoire"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "chronotype-matin-soir",
+    "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
+    "excerpt": "",
+    "date": "2026-09-15",
+    "date_modified": "2026-09-15",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "chronotype",
+      "rythme-circadien",
+      "horloge-biologique"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "sieste-duree-ideale",
+      "dette-de-sommeil"
     ],
     "status": "scheduled"
   },
@@ -3276,6 +3479,35 @@
     "metaDescription": "",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "hygiene-de-sommeil",
+    "title": "Hygiène de sommeil : les 10 règles qui changent tout",
+    "excerpt": "",
+    "date": "2026-09-12",
+    "date_modified": "2026-09-12",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "hygiene-de-sommeil",
+      "insomnie",
+      "rythme-circadien"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "ecrans-lumiere-bleue-sommeil",
+      "chronotype-matin-soir"
     ],
     "status": "scheduled"
   },
@@ -3504,6 +3736,35 @@
     "status": "scheduled"
   },
   {
+    "id": "se-reveiller-3h-du-matin",
+    "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
+    "excerpt": "",
+    "date": "2026-09-09",
+    "date_modified": "2026-09-09",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "reveil-nocturne",
+      "insomnie-de-maintien",
+      "cortisol"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "vaincre-insomnie",
+      "dette-de-sommeil"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "crise-angoisse-nuit",
     "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
     "excerpt": "",
@@ -3586,6 +3847,35 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "bien-dormir-guide-complet",
+    "title": "Bien dormir : le guide complet du sommeil réparateur",
+    "excerpt": "",
+    "date": "2026-09-06",
+    "date_modified": "2026-09-06",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sommeil",
+      "insomnie",
+      "chronotype",
+      "hygiene-de-sommeil"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "hygiene-de-sommeil",
+      "tcc-insomnie-restriction-sommeil",
+      "vaincre-insomnie"
+    ],
     "status": "scheduled"
   },
   {
@@ -5882,7 +6172,7 @@
     "title": "Sommeil et santé mentale : ce que l'on ne vous a jamais dit !",
     "excerpt": "Mal dormir rend anxieux. L'anxiété empêche de dormir. Ce cercle vicieux entre sommeil et santé mentale est l'un des plus importants à comprendre — et à briser. Voici comment.",
     "date": "2026-04-10",
-    "date_modified": "2026-06-05",
+    "date_modified": "2026-09-01",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vuy1pfu1pmap03rgjwsh",
     "hasImage": true,
@@ -5902,9 +6192,9 @@
     ],
     "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir.",
     "articles_lies": [
-      "trouble-anxieux-generalise",
-      "meditation-pleine-conscience",
-      "sortir-depression"
+      "cauchemars-recurrents",
+      "bien-dormir-guide-complet",
+      "vaincre-insomnie"
     ],
     "status": "published"
   },
@@ -5913,7 +6203,7 @@
     "title": "Vaincre l'insomnie : les méthodes qui marchent vraiment",
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
-    "date_modified": "2026-06-04",
+    "date_modified": "2026-09-01",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/nspxfah2y7rth9sztasb",
     "hasImage": true,
@@ -5931,7 +6221,11 @@
       "restriction de sommeil"
     ],
     "metaDescription": "Comment vaincre l'insomnie : TCC-I, restriction de sommeil, contrôle du stimulus. Les méthodes validées scientifiquement sans médicaments expliquées étape par étape.",
-    "articles_lies": [],
+    "articles_lies": [
+      "tcc-insomnie-restriction-sommeil",
+      "bien-dormir-guide-complet",
+      "se-reveiller-3h-du-matin"
+    ],
     "status": "published"
   },
   {

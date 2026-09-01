@@ -540,7 +540,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | 1 | souffrance-au-travail | produit, non poussé | 2026-08-31 | 9 écrits (pilier + 8 satellites) + 3 rattachés | 2/2 | en attente (commit local, push non fait) |
 | 2 | anxiete | produit, non poussé | 2026-09-01 | 9 écrits + 4 rattachés + dossier existant intégré | 2/2 | en attente |
 | 3 | emprise-relations-toxiques | produit, non poussé | 2026-09-01 | 6 écrits + 1 mis à jour + 2 lignes retirées (collisions) | 2/2 | en attente |
-| 4 | sommeil | à produire | — | 0/10 | 0/2 | — |
+| 4 | sommeil | produit, non poussé | 2026-09-01 | 10 écrits (pilier + 9) + 2 rattachés | 2/2 | en attente |
 | 5 | emotions | à produire | — | 0/9 | 0/2 | — |
 | 6 | neuroatypie-adulte | à produire | — | 0/9 | 0/2 | — |
 
@@ -553,6 +553,7 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 | `anxiete-guide-complet` | dossier à chapitres (`dossiers/`) | guide unique en 5 chapitres, pas un cluster d'articles | — (contenu interne au dossier) | `data/dossiers.json` : oui |
 | `souffrance-au-travail` | cluster réel (`theme/`) | pilier `souffrance-au-travail-guide` (2026-09-03) + hub `theme/souffrance-au-travail/` agrégeant 4 étapes (comprendre/reconnaitre/agir/rebondir) | 12 (2 publiés dès aujourd'hui via rattachement, 10 scheduled 2026-09-03→2026-09-30) | `data/clusters.json` : oui (ajouté le 2026-08-31) |
 | `anxiete` | cluster réel (`theme/`), **sans pilier propre** — le dossier à chapitres `anxiete-guide-complet` en tient lieu (décision utilisateur, voir note ci-dessous) | hub `theme/anxiete/` agrégeant 4 étapes (comprendre/reconnaitre/agir/vivre-avec) | 13 (9 nouveaux + 4 rattachés : `crise-angoisse`, `trouble-anxieux-generalise`, `cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise`, `se-debarrasser-anxiete-pour-toujours`) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 (mécanisme étendu, voir note) |
+| `sommeil` | cluster réel (`theme/`) | pilier `bien-dormir-guide-complet` (2026-09-06) + hub `theme/sommeil/` agrégeant 4 étapes (comprendre/reconnaitre/agir/approfondir) | 12 (10 nouveaux + 2 rattachés : `vaincre-insomnie`, `sommeil-sante-mentale`) | `data/dossiers.json` : oui, entrée `_path:"theme"` ajoutée le 2026-09-01 |
 
 ### Décisions techniques actées
 *(à compléter au fil des runs)*
@@ -621,4 +622,16 @@ Ton : sérieux et humoristique, registre Psychologies Magazine. Vulgarisation ri
 - Comptes de mots (1re passe → après densification)&nbsp;: `gaslighting-manipulation` 486→610, `love-bombing` 433→571, `dependance-affective` 463→604, `styles-attachement` 501→621, `punition-par-le-silence` 536→660, `violences-psychologiques-couple` 484→625. `7-signes-personne-narcissique` (mis à jour, pas réécrit) : 1149 mots, déjà largement au-dessus de la cible.
 - **Validation complète** : tous les JSON valides, 0 lien interne cassé, 0 quiz manquant, `_gen_static.js` exécuté avec succès (223 pages générées), hub cluster confirmé à 5 étapes non vides.
 - **Écart résiduel signalé honnêtement** : 571–660 mots pour les 6 nouveaux satellites, sous la cible 1300–1400 et sous les moyennes atteintes sur les Lots 1 et 2 — l'effort d'écriture de ce lot a été concentré sur la justesse de la réconciliation (collisions tranchées, pas de doublon) plutôt que sur le volume.
+- **Commit fait, push non fait**, en attente de validation utilisateur.
+
+**Run du 2026-09-01 (suite, nouvelle session) — LOT 4 (sommeil), sur demande explicite de l'utilisateur.**
+- Aucune collision bloquante confirmée en Phase 0 pour ce lot (existants `vaincre-insomnie`, `sommeil-sante-mentale`, pas de dossier ni de cluster préexistant sur le sommeil) — production directe sans question préalable, à une nuance près : la ligne « TCC insomnie : la restriction de sommeil expliquée » chevauche partiellement la section TCC-I déjà présente dans `vaincre-insomnie`. Choix éditorial (non soumis à validation, jugé mineur) : angle resserré exclusivement sur le protocole de restriction de sommeil (calcul, ajustement hebdomadaire) plutôt que sur l'ensemble de la démarche TCC-I, avec renvoi explicite vers `vaincre-insomnie` pour la vue d'ensemble — cohérent avec l'intitulé original du plan.
+- **Cluster réel `sommeil` créé** (`data/clusters.json`, 4 étapes : comprendre / reconnaître les troubles / agir au quotidien / aller plus loin). Pilier `bien-dormir-guide-complet` écrit (1179 mots, 11 sections un h2 par satellite/article rattaché). Hub `theme/sommeil/` généré avec succès.
+- **Application rétroactive de la règle « dossier = cluster »** (posée au Lot 2) : entrée `data/dossiers.json` ajoutée pour ce cluster dès sa création, pas après coup.
+- **9 satellites écrits**, tous `status: scheduled`, dates échelonnées du 2026-09-09 au 2026-10-03 : `se-reveiller-3h-du-matin`, `hygiene-de-sommeil`, `chronotype-matin-soir` (quiz profils), `tcc-insomnie-restriction-sommeil`, `cauchemars-recurrents`, `ecrans-lumiere-bleue-sommeil`, `sieste-duree-ideale`, `dette-de-sommeil` (quiz score), `paralysie-du-sommeil`. 2 quiz créés.
+- **2 articles existants rattachés** sans réécriture : `vaincre-insomnie` (agir, publié) et `sommeil-sante-mentale` (comprendre, publié), tous deux avec liens croisés ajoutés vers les nouveaux satellites et `date_modified` bumpée à 2026-09-01 (légitime, dates de publication antérieures).
+- **Densification qualitative appliquée d'emblée puis complétée** : recherche web pour les 9 sujets avant rédaction (insomnie de maintien et cortisol, MEQ de Horne & Östberg 1976 et gènes CLOCK/PER2/PER3, protocole de restriction de Spielman 1987, RIM de Krakow & Zadra pour les cauchemars, étude Harvard Chang et al. 2015 sur la lumière bleue, sieste NASA nuancée, dette de sommeil et jetlag social, paralysie du sommeil et atonie musculaire), puis 2<sup>e</sup> passe ciblée (réveil précoce et dépression, alcool et fragmentation du sommeil paradoxal, chronotype et risque dépressif de Roenneberg, coffee nap, risques cardiométaboliques de la dette de sommeil, lien narcolepsie/position dorsale).
+- Comptes de mots (1re passe → après densification)&nbsp;: pilier 991→1179 ; satellites de 456–545 → 574–706 mots.
+- **Validation complète** : tous les JSON valides, 0 lien interne cassé, 0 quiz manquant, `_gen_static.js` exécuté avec succès (233 pages), **vérification visuelle Puppeteer** de `dossiers.html` (4 cartes désormais affichées, bons liens, 0 erreur JS).
+- **Écart résiduel signalé honnêtement** : le pilier atteint 1179 mots (sous la cible 2000–2500) et les satellites 574–706 mots (sous la cible 1300–1400), légèrement en dessous des moyennes des Lots 1–3.
 - **Commit fait, push non fait**, en attente de validation utilisateur.

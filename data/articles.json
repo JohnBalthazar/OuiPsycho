@@ -1968,7 +1968,7 @@
     "title": "Sommeil et santé mentale : ce que l'on ne vous a jamais dit !",
     "excerpt": "Mal dormir rend anxieux. L'anxiété empêche de dormir. Ce cercle vicieux entre sommeil et santé mentale est l'un des plus importants à comprendre — et à briser. Voici comment.",
     "date": "2026-04-10",
-    "date_modified": "2026-06-05",
+    "date_modified": "2026-09-01",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vuy1pfu1pmap03rgjwsh",
     "imagePosition": "50% 50%",
@@ -1987,9 +1987,9 @@
     ],
     "metaDescription": "Le lien entre sommeil et santé mentale expliqué : comment le manque de sommeil aggrave anxiété et dépression, et les solutions concrètes pour mieux dormir.",
     "articles_lies": [
-      "trouble-anxieux-generalise",
-      "meditation-pleine-conscience",
-      "sortir-depression"
+      "cauchemars-recurrents",
+      "bien-dormir-guide-complet",
+      "vaincre-insomnie"
     ],
     "status": "published"
   },
@@ -1998,7 +1998,7 @@
     "title": "Vaincre l'insomnie : les méthodes qui marchent vraiment",
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
-    "date_modified": "2026-06-04",
+    "date_modified": "2026-09-01",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/nspxfah2y7rth9sztasb",
     "imagePosition": "50% 50%",
@@ -2015,7 +2015,11 @@
       "restriction de sommeil"
     ],
     "metaDescription": "Comment vaincre l'insomnie : TCC-I, restriction de sommeil, contrôle du stimulus. Les méthodes validées scientifiquement sans médicaments expliquées étape par étape.",
-    "articles_lies": [],
+    "articles_lies": [
+      "tcc-insomnie-restriction-sommeil",
+      "bien-dormir-guide-complet",
+      "se-reveiller-3h-du-matin"
+    ],
     "status": "published"
   },
   {

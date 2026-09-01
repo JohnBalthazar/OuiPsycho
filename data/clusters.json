@@ -44,5 +44,20 @@
       "vivre-avec": "Vivre avec"
     },
     "chapters": []
+  },
+  {
+    "id": "sommeil",
+    "title": "Bien dormir : le guide complet",
+    "excerpt": "Réveils nocturnes, chronotype, écrans, siestes, dette de sommeil : un parcours complet pour comprendre son sommeil, repérer ce qui le perturbe, et savoir quoi faire.",
+    "intro": "",
+    "category": "Sommeil",
+    "date": "2026-09-06",
+    "etapes": {
+      "comprendre": "Comprendre",
+      "reconnaitre": "Reconnaître les troubles",
+      "agir": "Agir au quotidien",
+      "approfondir": "Aller plus loin"
+    },
+    "chapters": []
   }
 ]

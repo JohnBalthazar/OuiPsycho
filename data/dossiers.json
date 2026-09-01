@@ -38,5 +38,18 @@
     "date": "2026-09-01",
     "status": "published",
     "tags": ["anxiété", "phobies", "TAG", "TOC", "anxiolytiques"]
+  },
+  {
+    "id": "sommeil",
+    "_path": "theme",
+    "title": "Bien dormir : le guide complet",
+    "subtitle": "Le parcours en articles, en 4 étapes",
+    "excerpt": "Réveils nocturnes, chronotype, écrans, siestes, dette de sommeil : un parcours complet pour comprendre son sommeil, repérer ce qui le perturbe, et savoir quoi faire.",
+    "category": "Sommeil",
+    "image": "",
+    "readTime": 40,
+    "date": "2026-09-01",
+    "status": "published",
+    "tags": ["sommeil", "insomnie", "chronotype", "hygiene-de-sommeil"]
   }
 ]
