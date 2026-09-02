@@ -2980,6 +2980,35 @@
     "status": "scheduled"
   },
   {
+    "id": "brown-out-perte-de-sens-travail",
+    "title": "Brown-out : perdre le sens de son travail",
+    "type": "article",
+    "excerpt": "On continue à travailler, parfois beaucoup, mais on ne croit plus à ce qu'on produit. Le brown-out n'épuise pas le corps comme le burn-out : il vide le travail de son sens, jusqu'à le rendre absurde.",
+    "date": "2026-10-07",
+    "date_modified": "2026-10-07",
+    "category": "Travail",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "brown-out",
+      "souffrance-au-travail",
+      "sens-au-travail"
+    ],
+    "metaDescription": "Brown-out : définition, signes et différences avec le burn-out. Comprendre la perte de sens au travail et savoir comment y remédier concrètement.",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "bore-out-ennui-au-travail",
+      "manager-toxique-signes"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "comprendre-ses-emotions-guide",
     "title": "Comprendre et réguler ses émotions : le guide",
     "excerpt": "",
@@ -4439,35 +4468,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "brown-out-perte-de-sens-travail",
-    "title": "Brown-out : perdre le sens de son travail",
-    "excerpt": "",
-    "date": "2026-09-09",
-    "date_modified": "2026-09-09",
-    "category": "Travail",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "brown-out",
-      "souffrance-au-travail",
-      "sens-au-travail"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "bore-out-ennui-au-travail",
-      "manager-toxique-signes"
-    ],
     "status": "scheduled"
   },
   {
