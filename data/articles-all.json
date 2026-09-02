@@ -4581,12 +4581,12 @@
   {
     "id": "anxiete-sociale-phobie-sociale",
     "title": "Anxiété sociale : quand le regard des autres paralyse",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Rougir, bafouiller, éviter le regard des autres par peur d'être jugé : l'anxiété sociale dépasse largement la timidité. Elle touche jusqu'à une personne sur huit au cours de sa vie, et se soigne bien mieux qu'on ne le croit.",
     "date": "2026-09-05",
     "date_modified": "2026-09-05",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tfmbirlad7v7fjwm7qfy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4599,7 +4599,7 @@
       "phobie-sociale",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Anxiété sociale : symptômes, différence avec la timidité, causes et traitements validés (TCC, exposition). Un test pour évaluer votre profil.",
     "articles_lies": [
       "agoraphobie-comprendre",
       "crise-angoisse-nuit",
