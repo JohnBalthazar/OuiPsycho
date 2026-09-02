@@ -4398,12 +4398,12 @@
   {
     "id": "symptomes-physiques-anxiete",
     "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "L'anxiété ne se joue pas que dans la tête. Boule au ventre, gorge serrée, oppression thoracique, jambes en coton : le corps parle souvent avant l'esprit — et c'est un vrai mécanisme physiologique, pas de la comédie.",
     "date": "2026-09-11",
     "date_modified": "2026-09-11",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rt4azdla8u6czbjcy8vf",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4416,7 +4416,7 @@
       "somatisation",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Symptômes physiques de l'anxiété : boule au ventre, gorge serrée, oppression thoracique. Pourquoi le corps réagit, et comment le calmer concrètement.",
     "articles_lies": [
       "crise-angoisse-nuit",
       "coherence-cardiaque-365",
