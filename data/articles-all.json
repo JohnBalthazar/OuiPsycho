@@ -3207,6 +3207,35 @@
     "status": "scheduled"
   },
   {
+    "id": "bore-out-ennui-au-travail",
+    "title": "Bore-out : quand l'ennui au travail rend malade",
+    "type": "article",
+    "excerpt": "S'ennuyer à un poste qu'on juge « confortable » peut sembler un faux problème. C'est pourtant une souffrance documentée, aussi épuisante à sa façon qu'un excès de travail — et beaucoup plus difficile à avouer.",
+    "date": "2026-09-28",
+    "date_modified": "2026-09-28",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/h2dpz5zhua9mki7svioi",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "bore-out",
+      "souffrance-au-travail",
+      "sens-au-travail"
+    ],
+    "metaDescription": "Bore-out : ennui chronique, désintérêt, sentiment de vide au travail. Définition, signes et pistes concrètes pour en sortir sans culpabiliser.",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "brown-out-perte-de-sens-travail",
+      "charge-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "est-ce-que-la-taille-compte-vraiment",
     "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
     "excerpt": "",
@@ -4549,35 +4578,6 @@
       "hygiene-de-sommeil",
       "tcc-insomnie-restriction-sommeil",
       "vaincre-insomnie"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "bore-out-ennui-au-travail",
-    "title": "Bore-out : quand l'ennui au travail rend malade",
-    "type": "article",
-    "excerpt": "S'ennuyer à un poste qu'on juge « confortable » peut sembler un faux problème. C'est pourtant une souffrance documentée, aussi épuisante à sa façon qu'un excès de travail — et beaucoup plus difficile à avouer.",
-    "date": "2026-09-06",
-    "date_modified": "2026-09-06",
-    "category": "Travail",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/h2dpz5zhua9mki7svioi",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "bore-out",
-      "souffrance-au-travail",
-      "sens-au-travail"
-    ],
-    "metaDescription": "Bore-out : ennui chronique, désintérêt, sentiment de vide au travail. Définition, signes et pistes concrètes pour en sortir sans culpabiliser.",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "brown-out-perte-de-sens-travail",
-      "charge-mentale"
     ],
     "status": "scheduled"
   },
