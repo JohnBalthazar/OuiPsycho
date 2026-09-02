@@ -83,7 +83,7 @@
     "subtitle": "Le parcours en articles, en 4 étapes",
     "excerpt": "Hypersensibilité, alexithymie, colère, culpabilité, honte, rumination : un parcours pour mieux nommer ce qu'on ressent et apprendre à le réguler, sans le supprimer.",
     "category": "Émotions & identité",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xnkuxkunjdvoqxjymsnz",
     "readTime": 35,
     "date": "2026-09-01",
     "status": "published",
@@ -92,7 +92,9 @@
       "hypersensibilite",
       "colere",
       "estime-de-soi"
-    ]
+    ],
+    "type": "dossier",
+    "chapterCount": 5
   },
   {
     "id": "neuroatypie-adulte",
