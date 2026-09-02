@@ -2592,6 +2592,35 @@
     "status": "scheduled"
   },
   {
+    "id": "coherence-cardiaque-365",
+    "title": "Cohérence cardiaque : la méthode 365 expliquée simplement",
+    "type": "article",
+    "excerpt": "Trois fois par jour, six respirations par minute, cinq minutes : la méthode 365 popularisée par le Dr David O'Hare tient en une formule simple. Voici ce qu'elle fait vraiment au corps, et comment la pratiquer correctement.",
+    "date": "2026-10-28",
+    "date_modified": "2026-10-28",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "coherence-cardiaque",
+      "respiration",
+      "gestion-du-stress"
+    ],
+    "metaDescription": "Cohérence cardiaque, méthode 365 : origine, mécanisme physiologique et mode d'emploi pas à pas pour réduire durablement l'anxiété et le stress.",
+    "articles_lies": [
+      "symptomes-physiques-anxiete",
+      "anxiolytiques-effets-alternatives",
+      "anxiete-anticipatoire"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "rumination-mentale",
     "title": "Rumination mentale : arrêter de ressasser",
     "excerpt": "",
@@ -4214,35 +4243,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "coherence-cardiaque-365",
-    "title": "Cohérence cardiaque : la méthode 365 expliquée simplement",
-    "excerpt": "",
-    "date": "2026-09-17",
-    "date_modified": "2026-09-17",
-    "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "anxiete",
-      "coherence-cardiaque",
-      "respiration",
-      "gestion-du-stress"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "symptomes-physiques-anxiete",
-      "anxiolytiques-effets-alternatives",
-      "anxiete-anticipatoire"
-    ],
     "status": "scheduled"
   },
   {
