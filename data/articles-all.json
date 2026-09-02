@@ -1714,6 +1714,83 @@
     "status": "scheduled"
   },
   {
+    "id": "doctor-doom-sur-le-divan-psychologie-savant-fou",
+    "title": "Doctor Doom sur le divan : Psychologie d'un savant fou",
+    "type": "article",
+    "excerpt": "Le 16 décembre 2026, Doctor Doom prend le pouvoir sur les écrans avec Avengers : Doomsday. Derrière le masque de fer et la vendetta contre le multivers, un cas d'école : honte, narcissisme grandiose, hubris et contrôle. Séance d'analyse (fictive, mais documentée).",
+    "metaDescription": "Doctor Doom débarque dans Avengers : Doomsday le 16 décembre 2026. Narcissisme, honte, hubris : psychanalyse express du savant fou le plus classe du multivers.",
+    "author": "John Balthazar",
+    "date": "2026-12-16",
+    "date_modified": "2026-12-16",
+    "category": "Les monstres sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "doctor-doom",
+      "avengers-doomsday",
+      "narcissisme",
+      "psychologie-des-super-vilains",
+      "hubris"
+    ],
+    "sources": [
+      {
+        "authors": "Hirigoyen M.-F.",
+        "year": "2019",
+        "title": "Les Narcisse : ils ont pris le pouvoir",
+        "publisher": "La Découverte"
+      },
+      {
+        "authors": "Tisseron S.",
+        "year": "2007",
+        "title": "La honte : psychanalyse d'un lien social",
+        "publisher": "Dunod"
+      },
+      {
+        "authors": "Kernberg O.",
+        "year": "1997",
+        "title": "Les troubles limites de la personnalité",
+        "publisher": "Dunod"
+      },
+      {
+        "authors": "Freud S.",
+        "year": "1914",
+        "title": "Pour introduire le narcissisme",
+        "publisher": "Presses Universitaires de France"
+      },
+      {
+        "authors": "Jung C. G.",
+        "year": "1964",
+        "title": "Dialectique du Moi et de l'inconscient",
+        "publisher": "Gallimard"
+      },
+      {
+        "authors": "Cyrulnik B.",
+        "year": "1999",
+        "title": "Un merveilleux malheur",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Owen D. & Davidson J.",
+        "year": "2009",
+        "title": "Hubris syndrome: an acquired personality disorder?",
+        "journal": "Brain",
+        "url": "https://doi.org/10.1093/brain/awp008"
+      },
+      {
+        "authors": "American Psychiatric Association",
+        "year": "2023",
+        "title": "DSM-5-TR : Manuel diagnostique et statistique des troubles mentaux",
+        "publisher": "Elsevier Masson"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "picsou-sur-le-divan",
     "title": "Picsou sur le divan : psychologie d'un canard millionnaire",
     "excerpt": "",
