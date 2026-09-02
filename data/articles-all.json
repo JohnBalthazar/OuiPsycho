@@ -2143,6 +2143,34 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
+    "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
+    "type": "article",
+    "excerpt": "Votre cerveau est une machine à parier sur la note suivante. Vos goûts se sont figés vers 17 ans. Et détester un genre en dit souvent plus long sur vous que l'aimer. Petite enquête sur le plus intime des snobismes.",
+    "date": "2026-11-18",
+    "date_modified": "2026-11-18",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zklwxxazqkkmwaljvt62",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "gouts-musicaux",
+      "neurosciences-de-la-musique",
+      "personnalite",
+      "identite",
+      "psychologie-sociale"
+    ],
+    "metaDescription": "Prédiction, dopamine, souvenirs d'adolescence et distinction sociale : ce que la science dit vraiment de nos goûts musicaux et de nos rejets.",
+    "articles_lies": [
+      "se-remettre-d-une-rupture-amoureuse"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "diagnostic-tdah-france",
     "title": "Diagnostic TDAH en France : parcours, délais, coûts",
     "excerpt": "",
@@ -4189,34 +4217,6 @@
       "agoraphobie-comprendre",
       "toc-ou-anxiete-difference",
       "anxiete-sociale-phobie-sociale"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
-    "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
-    "excerpt": "",
-    "date": "2026-09-20",
-    "date_modified": "2026-09-20",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zklwxxazqkkmwaljvt62",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "gouts-musicaux",
-      "neurosciences-de-la-musique",
-      "personnalite",
-      "identite",
-      "psychologie-sociale"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "se-remettre-d-une-rupture-amoureuse"
     ],
     "status": "scheduled"
   },
