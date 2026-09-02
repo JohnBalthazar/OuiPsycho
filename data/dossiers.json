@@ -101,7 +101,7 @@
     "subtitle": "Le parcours en articles, en 4 étapes",
     "excerpt": "TDAH, haut potentiel, autisme : quand la découverte arrive à l'âge adulte, comment obtenir un diagnostic, et vivre avec au quotidien.",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ky20goyfoovopmkbidbo",
     "readTime": 45,
     "date": "2026-11-02",
     "status": "published",
@@ -112,6 +112,8 @@
       "autisme",
       "neuroatypie",
       "diagnostic-tardif"
-    ]
+    ],
+    "type": "dossier",
+    "chapterCount": 5
   }
 ]
