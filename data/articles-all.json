@@ -1980,6 +1980,35 @@
     "status": "scheduled"
   },
   {
+    "id": "hygiene-de-sommeil",
+    "title": "Hygiène de sommeil : les 10 règles qui changent tout",
+    "type": "article",
+    "excerpt": "Avant les techniques sophistiquées, il y a les fondamentaux. Recommandées par les médecins du sommeil, ces règles simples ont un effet démontré sur la qualité des nuits — et coûtent beaucoup moins cher qu'un somnifère.",
+    "date": "2026-11-26",
+    "date_modified": "2026-11-26",
+    "category": "Sommeil",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "hygiene-de-sommeil",
+      "insomnie",
+      "rythme-circadien"
+    ],
+    "metaDescription": "Hygiène de sommeil : les règles essentielles recommandées par les médecins du sommeil pour améliorer durablement la qualité de vos nuits.",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "ecrans-lumiere-bleue-sommeil",
+      "chronotype-matin-soir"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
     "type": "article",
@@ -4356,35 +4385,6 @@
     "metaDescription": "",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "hygiene-de-sommeil",
-    "title": "Hygiène de sommeil : les 10 règles qui changent tout",
-    "excerpt": "",
-    "date": "2026-09-12",
-    "date_modified": "2026-09-12",
-    "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "hygiene-de-sommeil",
-      "insomnie",
-      "rythme-circadien"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "bien-dormir-guide-complet",
-      "ecrans-lumiere-bleue-sommeil",
-      "chronotype-matin-soir"
     ],
     "status": "scheduled"
   },
