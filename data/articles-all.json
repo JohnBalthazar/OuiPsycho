@@ -4439,12 +4439,12 @@
   {
     "id": "love-bombing",
     "title": "Love bombing : l'amour à haute dose comme piège",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Messages toute la journée, déclarations enflammées dès la première semaine, cadeaux qui pleuvent : le love bombing ressemble à un coup de foudre. Le problème n'est pas l'intensité — c'est ce qu'elle sert à obtenir en retour.",
     "date": "2026-09-08",
     "date_modified": "2026-09-08",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/r4xlpwzyfnfzhiffkaut",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4457,7 +4457,7 @@
       "manipulation",
       "emprise"
     ],
-    "metaDescription": "",
+    "metaDescription": "Love bombing : définition, signes pour le distinguer d'une passion sincère, et pourquoi cette intensité précoce peut être un outil de dépendance.",
     "articles_lies": [
       "dependance-affective",
       "styles-attachement",
