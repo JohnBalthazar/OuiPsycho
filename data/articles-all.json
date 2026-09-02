@@ -4369,12 +4369,12 @@
   {
     "id": "syndrome-imposteur",
     "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Diplômes, promotions, réussites reconnues par tous — et pourtant cette petite voix qui répète que vous allez être « démasqué ». Le syndrome de l'imposteur touche même les personnes les plus compétentes. Voici comment le reconnaître, et le désamorcer.",
     "date": "2026-09-12",
     "date_modified": "2026-09-12",
     "category": "Travail",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kfdgaiug6zlapbdzxh2e",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4387,7 +4387,7 @@
       "confiance-en-soi",
       "souffrance-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Syndrome de l'imposteur : 8 signes pour le reconnaître, ce que dit la recherche depuis 1978, et des pistes concrètes pour s'en libérer durablement.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
