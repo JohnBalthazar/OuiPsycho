@@ -2199,6 +2199,35 @@
     "status": "scheduled"
   },
   {
+    "id": "tcc-insomnie-restriction-sommeil",
+    "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
+    "type": "article",
+    "excerpt": "Dormir moins pour dormir mieux : la restriction de sommeil est la technique la plus contre-intuitive de la TCC de l'insomnie — et l'une des plus efficaces. Voici comment elle fonctionne, étape par étape.",
+    "date": "2026-11-16",
+    "date_modified": "2026-11-16",
+    "category": "Sommeil",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "insomnie",
+      "tcc-i",
+      "restriction-de-sommeil"
+    ],
+    "metaDescription": "Restriction de sommeil (TCC-I) : protocole de Spielman étape par étape, calcul de l'efficacité du sommeil, et comment l'appliquer sans se décourager.",
+    "articles_lies": [
+      "vaincre-insomnie",
+      "bien-dormir-guide-complet",
+      "se-reveiller-3h-du-matin"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "autisme-adulte-diagnostic-tardif",
     "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
     "excerpt": "",
@@ -4245,35 +4274,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "tcc-insomnie-restriction-sommeil",
-    "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
-    "excerpt": "",
-    "date": "2026-09-18",
-    "date_modified": "2026-09-18",
-    "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "insomnie",
-      "tcc-i",
-      "restriction-de-sommeil"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "vaincre-insomnie",
-      "bien-dormir-guide-complet",
-      "se-reveiller-3h-du-matin"
-    ],
     "status": "scheduled"
   },
   {
