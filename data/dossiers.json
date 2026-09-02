@@ -45,8 +45,8 @@
     "title": "Anxiété : reconnaître et agir au quotidien",
     "subtitle": "Le parcours en articles, en complément du guide complet",
     "excerpt": "Anxiété sociale, crises nocturnes, agoraphobie, TOC ou anxiolytiques : un parcours pratique, forme par forme, pour reconnaître ce qui se joue et savoir comment agir.",
-    "category": "Anxiété",
-    "image": "",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cpcuhjl41jinkm4chtsi",
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
@@ -56,7 +56,9 @@
       "TAG",
       "TOC",
       "anxiolytiques"
-    ]
+    ],
+    "type": "dossier",
+    "chapterCount": 5
   },
   {
     "id": "sommeil",
