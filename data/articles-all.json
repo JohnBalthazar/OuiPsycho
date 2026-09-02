@@ -3904,6 +3904,33 @@
     "status": "scheduled"
   },
   {
+    "id": "nouveautes-sante-mentale-2026",
+    "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
+    "type": "article",
+    "excerpt": "Applications d'IA, champignons hallucinogènes, médicaments « révolutionnaires », accès aux soins simplifié : 2026 ne manque pas d'annonces en santé mentale. On démêle les avancées réelles des effets de mode, sans perdre de vue l'essentiel.",
+    "date": "2026-09-16",
+    "date_modified": "2026-09-16",
+    "category": "Thérapies",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qiatornprnbpsjw0mumo",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sante-mentale",
+      "psychiatrie",
+      "psychedeliques",
+      "intelligence-artificielle",
+      "mon-soutien-psy",
+      "innovation"
+    ],
+    "metaDescription": "Mon soutien psy remanié, psychiatrie de précision, psychédéliques et IA : le tri entre vraies avancées et effets d'annonce en santé mentale en 2026.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "chronotype-matin-soir",
     "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
     "excerpt": "",
@@ -4638,33 +4665,6 @@
       "7-signes-personne-narcissique",
       "punition-par-le-silence"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "nouveautes-sante-mentale-2026",
-    "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
-    "excerpt": "",
-    "date": "2026-09-04",
-    "date_modified": "2026-09-04",
-    "category": "Thérapies",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qiatornprnbpsjw0mumo",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "sante-mentale",
-      "psychiatrie",
-      "psychedeliques",
-      "intelligence-artificielle",
-      "mon-soutien-psy",
-      "innovation"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
