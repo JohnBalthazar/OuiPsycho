@@ -4508,32 +4508,6 @@
     "status": "scheduled"
   },
   {
-    "id": "freres-soeurs-toxiques",
-    "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
-    "type": "article",
-    "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
-    "date": "2026-09-07",
-    "date_modified": "2026-09-07",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "fratrie",
-      "relations-toxiques",
-      "famille",
-      "emprise",
-      "limites"
-    ],
-    "metaDescription": "Frère ou sœur toxique : distinguer rivalité normale et relation destructrice, comprendre pourquoi ça fait si mal, et savoir quoi faire. Repères et conseils.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
     "excerpt": "",
@@ -4647,6 +4621,32 @@
       "burnout-epuisement-professionnel"
     ],
     "status": "scheduled"
+  },
+  {
+    "id": "freres-soeurs-toxiques",
+    "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
+    "type": "article",
+    "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
+    "date": "2026-09-02",
+    "date_modified": "2026-09-02",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "fratrie",
+      "relations-toxiques",
+      "famille",
+      "emprise",
+      "limites"
+    ],
+    "metaDescription": "Frère ou sœur toxique : distinguer rivalité normale et relation destructrice, comprendre pourquoi ça fait si mal, et savoir quoi faire. Repères et conseils.",
+    "articles_lies": [],
+    "status": "published"
   },
   {
     "id": "pleurer-de-colere",
