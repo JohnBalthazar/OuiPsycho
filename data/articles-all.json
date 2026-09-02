@@ -4646,12 +4646,12 @@
   {
     "id": "souffrance-au-travail-guide",
     "title": "Souffrance au travail : reconnaître, agir, se protéger",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : la souffrance au travail prend des formes très différentes selon les personnes. Ce guide fait le point sur chacune d'elles, et sur ce qu'on peut faire, concrètement.",
     "date": "2026-09-03",
     "date_modified": "2026-09-03",
     "category": "Travail",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bde55ykdljcl3e8xvy44",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4664,7 +4664,7 @@
       "burnout",
       "risques-psychosociaux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Souffrance au travail : burn-out, bore-out, brown-out, charge mentale, harcèlement... Un guide complet pour reconnaître les signaux et savoir comment agir.",
     "articles_lies": [
       "charge-mentale",
       "harcelement-moral-travail",
