@@ -4312,12 +4312,12 @@
   {
     "id": "anxiete-anticipatoire",
     "title": "Anxiété anticipatoire : pourquoi on n'ose plus décider",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Reporter un rendez-vous médical, hésiter des semaines avant de répondre à un message, ne jamais réserver ses vacances par peur que « ça tourne mal » : l'anxiété anticipatoire ne fait pas que faire peur, elle paralyse la décision elle-même.",
     "date": "2026-09-14",
     "date_modified": "2026-09-14",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/a2zjyxhbcq1ngpwg6iiz",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4330,7 +4330,7 @@
       "prise-de-decision",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Anxiété anticipatoire et paralysie décisionnelle : pourquoi l'intolérance à l'incertitude bloque les choix du quotidien, et comment recommencer à décider.",
     "articles_lies": [
       "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
       "toc-ou-anxiete-difference",
