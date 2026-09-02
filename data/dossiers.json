@@ -65,7 +65,7 @@
     "subtitle": "Le parcours en articles, en 4 étapes",
     "excerpt": "Réveils nocturnes, chronotype, écrans, siestes, dette de sommeil : un parcours complet pour comprendre son sommeil, repérer ce qui le perturbe, et savoir quoi faire.",
     "category": "Sommeil",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ubghtflnzn6zpk2fgrvf",
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
@@ -74,7 +74,9 @@
       "insomnie",
       "chronotype",
       "hygiene-de-sommeil"
-    ]
+    ],
+    "type": "dossier",
+    "chapterCount": 5
   },
   {
     "id": "emotions",
