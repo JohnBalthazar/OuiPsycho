@@ -2621,6 +2621,32 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
+    "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
+    "type": "article",
+    "excerpt": "Vous êtes enfin assis. Personne ne vous demande rien. Et au bout de quatre minutes, une petite voix vous rappelle le panier de linge. Bienvenue dans le seul loisir au monde qui exige une justification écrite.",
+    "date": "2026-10-25",
+    "date_modified": "2026-10-25",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xggbc2tcnl4yx6lr4uq9",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "culpabilite",
+      "repos",
+      "charge-mentale",
+      "estime-de-soi",
+      "perfectionnisme"
+    ],
+    "metaDescription": "Culpabilité du repos, dette morale, amour conditionnel : pourquoi se reposer semble interdit à certains, et six leviers pour désamorcer le réflexe.",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
     "excerpt": "",
@@ -4386,32 +4412,6 @@
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
-    "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
-    "excerpt": "",
-    "date": "2026-09-12",
-    "date_modified": "2026-09-12",
-    "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xggbc2tcnl4yx6lr4uq9",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "culpabilite",
-      "repos",
-      "charge-mentale",
-      "estime-de-soi",
-      "perfectionnisme"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
