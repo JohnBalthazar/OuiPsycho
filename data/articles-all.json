@@ -3036,6 +3036,35 @@
     "status": "scheduled"
   },
   {
+    "id": "crise-angoisse-nuit",
+    "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
+    "type": "article",
+    "excerpt": "Cœur qui s'emballe, souffle coupé, certitude de mourir — à 3 h du matin, seul dans le noir. La crise d'angoisse nocturne existe bel et bien, avec des mécanismes propres, différents de l'angoisse diurne.",
+    "date": "2026-10-04",
+    "date_modified": "2026-10-04",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "crise-d-angoisse",
+      "sommeil",
+      "troubles-anxieux"
+    ],
+    "metaDescription": "Crise d'angoisse la nuit : pourquoi elle survient souvent vers 3h du matin, comment la distinguer d'un cauchemar, et les gestes qui aident à la traverser.",
+    "articles_lies": [
+      "crise-angoisse",
+      "anxiete-sociale-phobie-sociale",
+      "symptomes-physiques-anxiete"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "paralysie-du-sommeil",
     "title": "Paralysie du sommeil : réveillé, conscient, immobile",
     "excerpt": "",
@@ -4467,35 +4496,6 @@
       "bien-dormir-guide-complet",
       "vaincre-insomnie",
       "dette-de-sommeil"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "crise-angoisse-nuit",
-    "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
-    "excerpt": "",
-    "date": "2026-09-08",
-    "date_modified": "2026-09-08",
-    "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "anxiete",
-      "crise-d-angoisse",
-      "sommeil",
-      "troubles-anxieux"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "crise-angoisse",
-      "anxiete-sociale-phobie-sociale",
-      "symptomes-physiques-anxiete"
     ],
     "status": "scheduled"
   },
