@@ -3510,6 +3510,81 @@
     "status": "scheduled"
   },
   {
+    "id": "james-belmont-heart-of-the-beast",
+    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "type": "article",
+    "excerpt": "Un ex-forces spéciales, un chien de combat à la retraite et 300 km d'Alaska. Derrière le survival de David Ayer se cache un cas d'école : hypervigilance, blessure morale et pouvoir thérapeutique du lien homme-animal.",
+    "metaDescription": "Heart of the Beast : analyse psychologique de James Belmont, entre stress post-traumatique, hypervigilance et lien avec son chien Odin. Plus un quiz.",
+    "author": "John Balthazar",
+    "date": "2026-09-23",
+    "date_modified": "2026-09-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "tags": [
+      "stress-post-traumatique",
+      "cinema",
+      "resilience",
+      "lien-homme-animal",
+      "veterans",
+      "chien-assistance"
+    ],
+    "sources": [
+      {
+        "authors": "Leighton S. C., Rodriguez K. E., Jensen C. L. et coll.",
+        "year": "2024",
+        "title": "Service Dogs for Veterans and Military Members With Posttraumatic Stress Disorder: A Nonrandomized Controlled Trial",
+        "journal": "JAMA Network Open",
+        "url": "https://doi.org/10.1001/jamanetworkopen.2024.14686"
+      },
+      {
+        "authors": "Beetz A., Uvnäs-Moberg K., Julius H. & Kotrschal K.",
+        "year": "2012",
+        "title": "Psychosocial and psychophysiological effects of human-animal interactions: the possible role of oxytocin",
+        "journal": "Frontiers in Psychology",
+        "url": "https://doi.org/10.3389/fpsyg.2012.00234"
+      },
+      {
+        "authors": "Bisson J. I., Roberts N. P., Andrew M., Cooper R. & Lewis C.",
+        "year": "2013",
+        "title": "Psychothérapies pour le traitement du syndrome de stress post-traumatique chronique chez les adultes",
+        "journal": "Cochrane Database of Systematic Reviews",
+        "url": "https://doi.org/10.1002/14651858.CD003388.pub4"
+      },
+      {
+        "authors": "Litz B. T., Stein N., Delaney E. et coll.",
+        "year": "2009",
+        "title": "Moral injury and moral repair in war veterans: a preliminary model and intervention strategy",
+        "journal": "Clinical Psychology Review"
+      },
+      {
+        "authors": "Crocq L.",
+        "year": "1999",
+        "title": "Les traumatismes psychiques de guerre",
+        "publisher": "Odile Jacob"
+      },
+      {
+        "authors": "Frankl V.",
+        "year": "1988",
+        "title": "Découvrir un sens à sa vie avec la logothérapie",
+        "publisher": "Éditions de l'Homme"
+      },
+      {
+        "authors": "Sénat (République française)",
+        "year": "2023",
+        "title": "Question écrite n° 07493 — Chiens d'assistance pour les militaires en état de stress post-traumatique",
+        "journal": "Journal officiel du Sénat",
+        "url": "https://www.senat.fr/questions/base/2023/qSEQ230607493.html"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
     "excerpt": "",
