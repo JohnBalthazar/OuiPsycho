@@ -4639,12 +4639,12 @@
   {
     "id": "gaslighting-manipulation",
     "title": "Gaslighting : quand on vous fait douter de votre propre mémoire",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "« Tu inventes », « ça ne s'est jamais passé comme ça », « tu es trop sensible » : le gaslighting ne crie pas, il réécrit. À force, on finit par ne plus faire confiance à sa propre mémoire — c'est précisément le but.",
     "date": "2026-09-04",
     "date_modified": "2026-09-04",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jilsybbvixlb8og8nb7v",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4657,7 +4657,7 @@
       "manipulation",
       "emprise"
     ],
-    "metaDescription": "",
+    "metaDescription": "Gaslighting : définition, origine du terme, signes concrets et pistes pour sortir du doute qu'il installe sur sa propre mémoire et sa perception.",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique",
       "7-signes-personne-narcissique",
