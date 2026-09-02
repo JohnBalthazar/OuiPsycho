@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Face au crash : quel survivant êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/james-belmont-heart-of-the-beast/">
+  <meta name="description" content="Neuf questions pour repérer votre style de survie psychique : vigilance, lien, endurance ou récit. Un outil de réflexion, pas un diagnostic.">
+  <style>
+    :root {
+      --bleu: #1F4E6B;
+      --bleu-clair: #35789B;
+      --epicea: #35624E;
+      --neige: #F2F5F6;
+      --encre: #14262F;
+      --gris: #5D6F79;
+      --bord: #D8E1E5;
+      --blanc: #FFFFFF;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: transparent;
+      color: var(--encre);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 22px 18px 26px;
+      background: var(--neige);
+      border-radius: 12px;
+    }
+    .trace {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 18px;
+    }
+    .trace i {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bord);
+      transition: background .25s ease;
+    }
+    .trace i.on { background: var(--bleu); }
+    .compteur {
+      font-size: .82rem;
+      color: var(--gris);
+      margin-bottom: 6px;
+      letter-spacing: .01em;
+    }
+    h1 {
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: 1.5rem;
+      line-height: 1.25;
+      margin: 0 0 8px;
+      color: var(--bleu);
+      font-weight: 700;
+    }
+    .question {
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: 1.22rem;
+      line-height: 1.35;
+      margin: 0 0 16px;
+      color: var(--encre);
+    }
+    .intro p { margin: 0 0 14px; color: var(--gris); font-size: .96rem; }
+    button.opt {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: var(--blanc);
+      border: 1px solid var(--bord);
+      border-left: 3px solid var(--bord);
+      border-radius: 8px;
+      padding: 13px 15px;
+      margin-bottom: 9px;
+      font: inherit;
+      font-size: .97rem;
+      color: var(--encre);
+      cursor: pointer;
+      transition: border-color .15s ease, transform .12s ease;
+    }
+    button.opt:hover { border-color: var(--bleu-clair); border-left-color: var(--bleu); }
+    button.opt:active { transform: scale(.995); }
+    button.opt:focus-visible { outline: 2px solid var(--bleu); outline-offset: 2px; }
+    .cta {
+      display: inline-block;
+      background: var(--bleu);
+      color: var(--blanc);
+      border: none;
+      border-radius: 8px;
+      padding: 12px 22px;
+      font: inherit;
+      font-size: .98rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .cta:hover { background: #17405A; }
+    .cta:focus-visible { outline: 2px solid var(--epicea); outline-offset: 2px; }
+    .lien {
+      background: none;
+      border: none;
+      color: var(--bleu);
+      font: inherit;
+      font-size: .9rem;
+      text-decoration: underline;
+      cursor: pointer;
+      padding: 6px 0;
+    }
+    .badge {
+      display: inline-block;
+      font-size: .8rem;
+      color: var(--epicea);
+      border: 1px solid var(--epicea);
+      border-radius: 999px;
+      padding: 3px 11px;
+      margin-bottom: 10px;
+    }
+    .emoji { font-size: 2.4rem; line-height: 1; display: block; margin-bottom: 6px; }
+    .res-titre {
+      font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      font-size: 1.6rem;
+      margin: 0 0 10px;
+      color: var(--bleu);
+    }
+    .res p { margin: 0 0 13px; font-size: .98rem; }
+    .bloc {
+      background: var(--blanc);
+      border-radius: 8px;
+      padding: 13px 15px;
+      margin-bottom: 11px;
+      border-left: 3px solid var(--epicea);
+    }
+    .bloc strong { color: var(--bleu); }
+    .bloc.risque { border-left-color: #B8842B; }
+    .partage { margin: 18px 0 14px; }
+    .partage span { display: block; font-size: .85rem; color: var(--gris); margin-bottom: 8px; }
+    .partage a {
+      display: inline-block;
+      background: var(--blanc);
+      border: 1px solid var(--bord);
+      border-radius: 999px;
+      padding: 7px 14px;
+      margin: 0 6px 6px 0;
+      font-size: .88rem;
+      color: var(--encre);
+      text-decoration: none;
+    }
+    .partage a:hover { border-color: var(--bleu); }
+    .disclaimer {
+      font-size: .86rem;
+      color: var(--gris);
+      background: var(--blanc);
+      border: 1px dashed var(--bord);
+      border-radius: 8px;
+      padding: 12px 14px;
+      margin-top: 16px;
+      line-height: 1.5;
+    }
+    .disclaimer strong { color: var(--encre); }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div id="app"></div>
+</div>
+
+<script>
+(function () {
+  var URL_ARTICLE = 'https://ouipsycho.fr/articles/james-belmont-heart-of-the-beast/';
+
+  var PROFILS = {
+    sentinelle: {
+      nom: 'La Sentinelle',
+      emoji: '🦅',
+      accroche: 'Vous survivez en voyant venir.',
+      texte: "Votre cerveau tourne en permanence un scénario d'avance. Vous repérez le détail qui cloche avant tout le monde, vous savez où sont les sorties, et vous avez rarement été pris au dépourvu. C'est une compétence réelle — celle que l'armée passe des années à installer chez des gens comme James Belmont.",
+      force: "Vous êtes lucide, préparé, difficile à surprendre. Dans une crise réelle, votre anticipation sauve du temps et parfois des gens.",
+      risque: "La vigilance ne s'éteint pas toute seule. Quand le danger disparaît, elle se cherche un nouvel objet : le travail, la santé, les proches. Le corps, lui, continue de payer la facture (sommeil, tension, irritabilité).",
+      piste: "Entraînez-vous à la détente comme vous vous êtes entraîné à la vigilance : c'est une compétence, pas un état naturel. Cohérence cardiaque, activité physique régulière, et un endroit précis où vous vous autorisez à ne surveiller rien."
+    },
+    gardien: {
+      nom: 'Le Gardien',
+      emoji: '🐕',
+      accroche: "Vous tenez debout parce que quelqu'un a besoin de vous.",
+      texte: "Votre carburant, c'est le lien. Seul, vous lâcheriez peut-être ; avec quelqu'un à protéger — un enfant, un ami, un chien nommé Odin — vous devenez étonnamment increvable. Le film repose entièrement sur ce ressort : Belmont ne marche pas pour lui, il marche pour ramener son chien à la maison.",
+      force: "Le lien est l'un des régulateurs de stress les plus puissants que nous connaissions. Vous savez le créer et le maintenir, y compris en terrain hostile.",
+      risque: "Vous vous occupez de tout le monde et de personne. Et si l'autre disparaît, la structure entière vacille, parce que votre raison de tenir était à l'extérieur de vous.",
+      piste: "Cherchez au moins une raison de tenir qui ne dépende de personne d'autre. Et acceptez d'être, de temps en temps, celui dont on s'occupe : ça se travaille, ce n'est pas inné."
+    },
+    marcheur: {
+      nom: 'Le Marcheur',
+      emoji: '🥾',
+      accroche: 'Vous survivez un pas après l\'autre.',
+      texte: "Vous ne cherchez pas à comprendre l'ensemble du problème : vous cherchez la prochaine chose faisable. Abri, eau, direction. C'est la stratégie la plus efficace en situation de survie réelle, et la plus sous-estimée dans la vie ordinaire.",
+      force: "Vous transformez l'angoisse en action. Là où d'autres ruminent, vous avancez — et l'action réduit réellement l'activation physiologique du stress.",
+      risque: "L'action peut aussi servir d'évitement de luxe. Tant que vous marchez, vous n'avez pas à ressentir. Le mur arrive souvent plus tard, à l'arrêt : congés, retraite, convalescence.",
+      piste: "Programmez des arrêts avant qu'ils ne vous soient imposés. Et testez une fois par semaine l'exercice le plus difficile pour vous : rester assis dix minutes sans rien produire."
+    },
+    conteur: {
+      nom: 'Le Conteur',
+      emoji: '🔥',
+      accroche: 'Vous survivez en donnant un sens.',
+      texte: "Vous avez besoin que ça veuille dire quelque chose. Vous racontez, vous plaisantez, vous reformulez — et ce n'est pas de la frivolité : mettre des mots sur une expérience est l'un des mécanismes centraux de toutes les thérapies du trauma.",
+      force: "Vous digérez les événements au lieu de les stocker. L'humour, chez vous, n'est pas un déni : c'est une manière de reprendre la main sur ce qui vous est arrivé.",
+      risque: "Une histoire trop bien racontée peut remplacer l'émotion au lieu de la traiter. Et quand un événement refuse obstinément d'avoir un sens, vous pouvez rester bloqué à le réécrire indéfiniment.",
+      piste: "Distinguez raconter et ressentir. Écrire pour soi, sans public et sans jolie chute, est un excellent contrepoids — et l'un des rares exercices dont l'effet est documenté."
+    }
+  };
+
+  var QUESTIONS = [
+    { q: "Votre petit avion vient de se poser en catastrophe. Vous êtes indemne. Premier réflexe ?", o: [
+      { t: "Faire l'inventaire de tout ce qui peut encore mal tourner", p: 'sentinelle' },
+      { t: "Sortir, marcher, trouver un abri avant la nuit", p: 'marcheur' },
+      { t: "Vérifier que le passager d'à côté respire encore", p: 'gardien' },
+      { t: "Vous entendre dire à voix haute : « bon, ça fera une histoire »", p: 'conteur' }
+    ]},
+    { q: "Au travail, un projet part en vrille. On vous reconnaît surtout pour...", o: [
+      { t: "Votre humour, qui empêche la réunion de tourner à la panique", p: 'conteur' },
+      { t: "Le fait que vous aviez prévenu trois semaines plus tôt", p: 'sentinelle' },
+      { t: "Votre capacité à tenir le rythme quand les autres lâchent", p: 'marcheur' },
+      { t: "Le fait que vous prenez des nouvelles de chacun", p: 'gardien' }
+    ]},
+    { q: "La nuit, quand le sommeil ne vient pas, votre tête...", o: [
+      { t: "Fait des listes de ce qu'il faudra faire demain", p: 'marcheur' },
+      { t: "Pense à quelqu'un dont vous vous inquiétez", p: 'gardien' },
+      { t: "Rejoue des scénarios catastrophe très bien documentés", p: 'sentinelle' },
+      { t: "Réécrit une scène de la journée avec une meilleure réplique", p: 'conteur' }
+    ]},
+    { q: "On vous propose d'adopter un chien. Votre première pensée ?", o: [
+      { t: "« Il va me forcer à sortir tous les jours, même en février »", p: 'marcheur' },
+      { t: "« Il faudra que je sois là pour lui, tous les jours »", p: 'gardien' },
+      { t: "« Il entendra le danger avant moi »", p: 'sentinelle' },
+      { t: "« Je vais lui parler plus qu'à mes collègues, et ça me va »", p: 'conteur' }
+    ]},
+    { q: "Vous avez peur. Vraiment peur. Ce qui vous aide le plus :", o: [
+      { t: "Une présence à côté de vous, même silencieuse", p: 'gardien' },
+      { t: "Comprendre exactement ce qui est en train de se passer", p: 'sentinelle' },
+      { t: "Une tâche concrète, immédiate, physique", p: 'marcheur' },
+      { t: "Une blague, même mauvaise, surtout mauvaise", p: 'conteur' }
+    ]},
+    { q: "Vos proches diraient de vous que vous êtes...", o: [
+      { t: "Fiable jusqu'à l'épuisement", p: 'marcheur' },
+      { t: "Drôle y compris aux enterrements", p: 'conteur' },
+      { t: "Difficile à surprendre", p: 'sentinelle' },
+      { t: "Toujours en train de veiller sur quelqu'un", p: 'gardien' }
+    ]},
+    { q: "Dans une épreuve, le pire n'est pas la douleur. Le pire, c'est...", o: [
+      { t: "Ne pas avoir vu venir", p: 'sentinelle' },
+      { t: "Que ça n'ait servi à rien", p: 'conteur' },
+      { t: "Ne pas savoir combien de temps ça va durer", p: 'marcheur' },
+      { t: "Que ça atteigne quelqu'un que vous aimez", p: 'gardien' }
+    ]},
+    { q: "Une fois que c'est terminé, vous...", o: [
+      { t: "Vérifiez que tout le monde va bien avant de penser à vous", p: 'gardien' },
+      { t: "Passez à la suite, très vite", p: 'marcheur' },
+      { t: "Analysez en boucle ce que vous auriez dû faire autrement", p: 'sentinelle' },
+      { t: "Racontez, et vous racontez bien", p: 'conteur' }
+    ]},
+    { q: "Trois cents kilomètres d'Alaska vous séparent du premier village. Vous emportez d'abord...", o: [
+      { t: "Un carnet", p: 'conteur' },
+      { t: "Une carte et trois itinéraires de repli", p: 'sentinelle' },
+      { t: "De très bonnes chaussures", p: 'marcheur' },
+      { t: "Une photo", p: 'gardien' }
+    ]}
+  ];
+
+  var app = document.getElementById('app');
+  var index = -1;
+  var scores = { sentinelle: 0, gardien: 0, marcheur: 0, conteur: 0 };
+  var ordre = ['gardien', 'marcheur', 'sentinelle', 'conteur'];
+
+  function notifyResize() {
+    setTimeout(function () {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function esc(s) {
+    return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  }
+
+  function trace() {
+    var h = '<div class="trace">';
+    for (var i = 0; i < QUESTIONS.length; i++) {
+      h += '<i class="' + (i < index ? 'on' : '') + '"></i>';
+    }
+    return h + '</div>';
+  }
+
+  function renderIntro() {
+    app.innerHTML =
+      '<h1>Face au crash : quel survivant êtes-vous ?</h1>' +
+      '<div class="intro">' +
+      '<p>Personne ne réagit de la même façon quand le sol se dérobe. Certains anticipent, d\'autres s\'accrochent à quelqu\'un, d\'autres avancent sans réfléchir, d\'autres racontent. Neuf questions pour repérer votre style dominant — celui que vous mobilisez sans y penser.</p>' +
+      '<p>Deux minutes. Aucune bonne réponse.</p>' +
+      '</div>' +
+      '<button class="cta" id="go">Commencer</button>';
+    document.getElementById('go').addEventListener('click', function () { index = 0; render(); });
+    notifyResize();
+  }
+
+  function render() {
+    if (index >= QUESTIONS.length) return renderResultat();
+    var Q = QUESTIONS[index];
+    var h = trace() +
+      '<div class="compteur">Question ' + (index + 1) + ' sur ' + QUESTIONS.length + '</div>' +
+      '<p class="question">' + esc(Q.q) + '</p>';
+    for (var i = 0; i < Q.o.length; i++) {
+      h += '<button class="opt" data-p="' + Q.o[i].p + '">' + esc(Q.o[i].t) + '</button>';
+    }
+    app.innerHTML = h;
+    var btns = app.querySelectorAll('.opt');
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].addEventListener('click', function () {
+        scores[this.getAttribute('data-p')]++;
+        index++;
+        render();
+      });
+    }
+    notifyResize();
+  }
+
+  function gagnant() {
+    var best = ordre[0];
+    for (var i = 1; i < ordre.length; i++) {
+      if (scores[ordre[i]] > scores[best]) best = ordre[i];
+    }
+    return best;
+  }
+
+  function renderResultat() {
+    var k = gagnant();
+    var P = PROFILS[k];
+    var textePartage = 'Face au crash, je suis « ' + P.nom + ' ». Et vous ?';
+    var u = encodeURIComponent(URL_ARTICLE);
+    var t = encodeURIComponent(textePartage);
+    var tu = encodeURIComponent(textePartage + ' ' + URL_ARTICLE);
+
+    app.innerHTML =
+      '<span class="badge">Votre profil dominant</span>' +
+      '<span class="emoji">' + P.emoji + '</span>' +
+      '<h2 class="res-titre">' + esc(P.nom) + '</h2>' +
+      '<div class="res">' +
+      '<p><em>' + esc(P.accroche) + '</em></p>' +
+      '<p>' + esc(P.texte) + '</p>' +
+      '<div class="bloc"><strong>Ce que ça vous donne.</strong> ' + esc(P.force) + '</div>' +
+      '<div class="bloc risque"><strong>Ce que ça vous coûte.</strong> ' + esc(P.risque) + '</div>' +
+      '<div class="bloc"><strong>Une piste.</strong> ' + esc(P.piste) + '</div>' +
+      '</div>' +
+      '<div class="partage"><span>Envoyer le test à quelqu\'un qui se reconnaîtra</span>' +
+      '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+      '<a href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+      '<a href="https://wa.me/?text=' + tu + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<button class="lien" id="restart">Refaire le test</button>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>';
+
+    document.getElementById('restart').addEventListener('click', function () {
+      scores = { sentinelle: 0, gardien: 0, marcheur: 0, conteur: 0 };
+      index = -1;
+      renderIntro();
+      notifyResize();
+    });
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
