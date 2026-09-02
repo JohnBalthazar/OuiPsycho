@@ -28,7 +28,7 @@
     "subtitle": "Le parcours en articles, en 4 étapes",
     "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : comprendre ce qui use au travail, reconnaître les signaux, et savoir quoi faire.",
     "category": "Travail",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ebuh0qmbh47qxnetri8y",
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
@@ -37,7 +37,9 @@
       "burnout",
       "souffrance-au-travail",
       "risques-psychosociaux"
-    ]
+    ],
+    "type": "dossier",
+    "chapterCount": 5
   },
   {
     "id": "anxiete",
