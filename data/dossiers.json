@@ -5,13 +5,21 @@
     "title": "L'anxiété : comprendre et surmonter",
     "subtitle": "Le guide complet en 5 chapitres",
     "excerpt": "15 millions de Français touchés, pourtant si mal compris. De la neurobiologie aux thérapies validées, ce dossier vous donne toutes les clés pour comprendre l'anxiété — et en sortir.",
-    "category": "Anxiété",
-    "image": "",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kdq3tv0mmt42erktz6oa",
     "readTime": 25,
     "chapterCount": 5,
     "date": "2026-06-10",
     "status": "published",
-    "tags": ["anxiété", "stress", "TCC", "thérapie", "bien-être", "phobies", "TAG"]
+    "tags": [
+      "anxiété",
+      "stress",
+      "TCC",
+      "thérapie",
+      "bien-être",
+      "phobies",
+      "TAG"
+    ]
   },
   {
     "id": "souffrance-au-travail",
@@ -24,7 +32,12 @@
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
-    "tags": ["travail", "burnout", "souffrance-au-travail", "risques-psychosociaux"]
+    "tags": [
+      "travail",
+      "burnout",
+      "souffrance-au-travail",
+      "risques-psychosociaux"
+    ]
   },
   {
     "id": "anxiete",
@@ -37,7 +50,13 @@
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
-    "tags": ["anxiété", "phobies", "TAG", "TOC", "anxiolytiques"]
+    "tags": [
+      "anxiété",
+      "phobies",
+      "TAG",
+      "TOC",
+      "anxiolytiques"
+    ]
   },
   {
     "id": "sommeil",
@@ -50,7 +69,12 @@
     "readTime": 40,
     "date": "2026-09-01",
     "status": "published",
-    "tags": ["sommeil", "insomnie", "chronotype", "hygiene-de-sommeil"]
+    "tags": [
+      "sommeil",
+      "insomnie",
+      "chronotype",
+      "hygiene-de-sommeil"
+    ]
   },
   {
     "id": "emotions",
@@ -63,7 +87,12 @@
     "readTime": 35,
     "date": "2026-09-01",
     "status": "published",
-    "tags": ["emotions", "hypersensibilite", "colere", "estime-de-soi"]
+    "tags": [
+      "emotions",
+      "hypersensibilite",
+      "colere",
+      "estime-de-soi"
+    ]
   },
   {
     "id": "neuroatypie-adulte",
@@ -76,6 +105,13 @@
     "readTime": 45,
     "date": "2026-11-02",
     "status": "published",
-    "tags": ["tdah", "hpi", "haut-potentiel", "autisme", "neuroatypie", "diagnostic-tardif"]
+    "tags": [
+      "tdah",
+      "hpi",
+      "haut-potentiel",
+      "autisme",
+      "neuroatypie",
+      "diagnostic-tardif"
+    ]
   }
 ]
