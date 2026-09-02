@@ -2897,6 +2897,35 @@
     "status": "scheduled"
   },
   {
+    "id": "dependance-affective",
+    "title": "Dépendance affective : aimer jusqu'à s'oublier",
+    "type": "article",
+    "excerpt": "Ce n'est pas « trop aimer ». C'est avoir besoin de l'autre pour exister, se sentir vide dès qu'il s'éloigne, et rester bien après que la relation a cessé de faire du bien. La dépendance affective se distingue de l'amour — et se travaille.",
+    "date": "2026-10-11",
+    "date_modified": "2026-10-11",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "dependance-affective",
+      "estime-de-soi",
+      "emprise"
+    ],
+    "metaDescription": "Dépendance affective : définition, différence avec la codépendance, origines et pistes concrètes pour retrouver son autonomie affective.",
+    "articles_lies": [
+      "styles-attachement",
+      "love-bombing",
+      "se-reconstruire-apres-emprise"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "se-reveiller-3h-du-matin",
     "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
     "type": "article",
@@ -4385,35 +4414,6 @@
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
       "charge-mentale"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "dependance-affective",
-    "title": "Dépendance affective : aimer jusqu'à s'oublier",
-    "excerpt": "",
-    "date": "2026-09-11",
-    "date_modified": "2026-09-11",
-    "category": "Relations",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "relations",
-      "dependance-affective",
-      "estime-de-soi",
-      "emprise"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "styles-attachement",
-      "love-bombing",
-      "se-reconstruire-apres-emprise"
     ],
     "status": "scheduled"
   },
