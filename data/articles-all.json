@@ -2509,6 +2509,35 @@
     "status": "scheduled"
   },
   {
+    "id": "manager-toxique-signes",
+    "title": "Manager toxique : 7 signes qui ne trompent pas",
+    "type": "article",
+    "excerpt": "Un manager exigeant pousse son équipe à progresser. Un manager toxique l'épuise, la dévalorise et la fait douter d'elle-même — souvent sans jamais élever la voix. Voici comment faire la différence, et par où commencer pour se protéger.",
+    "date": "2026-11-01",
+    "date_modified": "2026-11-01",
+    "category": "Travail",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "manager-toxique",
+      "risques-psychosociaux",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "Manager toxique : 7 signes pour le reconnaître, la différence avec un management exigeant, et les démarches concrètes pour se protéger au travail.",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "harcelement-moral-travail",
+      "charge-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "roue-des-emotions",
     "title": "La roue des émotions : nommer pour apaiser",
     "excerpt": "",
@@ -4297,35 +4326,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "manager-toxique-signes",
-    "title": "Manager toxique : 7 signes qui ne trompent pas",
-    "excerpt": "",
-    "date": "2026-09-15",
-    "date_modified": "2026-09-15",
-    "category": "Travail",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "manager-toxique",
-      "risques-psychosociaux",
-      "souffrance-au-travail"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "harcelement-moral-travail",
-      "charge-mentale"
-    ],
     "status": "scheduled"
   },
   {
