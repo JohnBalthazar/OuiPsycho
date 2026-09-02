@@ -2621,6 +2621,35 @@
     "status": "scheduled"
   },
   {
+    "id": "chronotype-matin-soir",
+    "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
+    "type": "article",
+    "excerpt": "Ce n'est pas un manque de discipline si vous n'êtes productif qu'après 22h — c'est peut-être votre horloge biologique. Le chronotype est en partie génétique, et le comprendre change tout à la façon d'organiser ses journées.",
+    "date": "2026-10-26",
+    "date_modified": "2026-10-26",
+    "category": "Sommeil",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "chronotype",
+      "rythme-circadien",
+      "horloge-biologique"
+    ],
+    "metaDescription": "Chronotype : définition, test de référence (MEQ), part génétique, et comment organiser son quotidien en fonction de son horloge biologique.",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "sieste-duree-ideale",
+      "dette-de-sommeil"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
     "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
     "type": "article",
@@ -4241,35 +4270,6 @@
     ],
     "metaDescription": "Mon soutien psy remanié, psychiatrie de précision, psychédéliques et IA : le tri entre vraies avancées et effets d'annonce en santé mentale en 2026.",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "chronotype-matin-soir",
-    "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
-    "excerpt": "",
-    "date": "2026-09-15",
-    "date_modified": "2026-09-15",
-    "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "chronotype",
-      "rythme-circadien",
-      "horloge-biologique"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "bien-dormir-guide-complet",
-      "sieste-duree-ideale",
-      "dette-de-sommeil"
-    ],
     "status": "scheduled"
   },
   {
