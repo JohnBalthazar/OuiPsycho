@@ -4495,12 +4495,12 @@
   {
     "id": "bien-dormir-guide-complet",
     "title": "Bien dormir : le guide complet du sommeil réparateur",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Réveils nocturnes, chronotype, écrans, siestes, dette de sommeil : le sommeil obéit à des mécanismes précis, et la plupart des difficultés qu'on lui attribue ont une explication — et une solution. Ce guide fait le tour de la question.",
     "date": "2026-09-06",
     "date_modified": "2026-09-06",
     "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j5mbhlnttnw0uxf9xzdy",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4513,7 +4513,7 @@
       "chronotype",
       "hygiene-de-sommeil"
     ],
-    "metaDescription": "",
+    "metaDescription": "Bien dormir : guide complet sur l'insomnie, le chronotype, les réveils nocturnes, les écrans et la dette de sommeil, avec des solutions concrètes.",
     "articles_lies": [
       "hygiene-de-sommeil",
       "tcc-insomnie-restriction-sommeil",
