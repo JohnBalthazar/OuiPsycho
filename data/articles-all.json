@@ -2367,6 +2367,35 @@
     "status": "scheduled"
   },
   {
+    "id": "charge-mentale",
+    "title": "Charge mentale : la définir, la mesurer, la répartir",
+    "type": "article",
+    "excerpt": "Ce n'est pas une tâche de plus sur la liste : c'est le fait de devoir penser à toutes les autres, en permanence, même sans les accomplir. La charge mentale épuise sans qu'on puisse toujours la nommer — au travail comme à la maison.",
+    "date": "2026-11-07",
+    "date_modified": "2026-11-07",
+    "category": "Travail",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "charge-mentale",
+      "souffrance-au-travail",
+      "risques-psychosociaux"
+    ],
+    "metaDescription": "Charge mentale : définition, origine du concept, signes d'alerte au travail et pistes concrètes pour la mesurer et la répartir plus équitablement.",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "burnout-epuisement-professionnel",
+      "syndrome-imposteur"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologie-positive-peut-elle-nous-sauver",
     "title": "La psychologie positive peut-elle nous sauver ?",
     "excerpt": "",
@@ -4187,35 +4216,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "charge-mentale",
-    "title": "Charge mentale : la définir, la mesurer, la répartir",
-    "excerpt": "",
-    "date": "2026-09-18",
-    "date_modified": "2026-09-18",
-    "category": "Travail",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "charge-mentale",
-      "souffrance-au-travail",
-      "risques-psychosociaux"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "burnout-epuisement-professionnel",
-      "syndrome-imposteur"
-    ],
     "status": "scheduled"
   },
   {
