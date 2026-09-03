@@ -1,8 +1,35 @@
 [
   {
+    "id": "souffrance-au-travail-guide",
+    "title": "Souffrance au travail : reconnaître, agir, se protéger",
+    "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : la souffrance au travail prend des formes très différentes selon les personnes. Ce guide fait le point sur chacune d'elles, et sur ce qu'on peut faire, concrètement.",
+    "date": "2026-09-03",
+    "date_modified": "2026-09-03",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bde55ykdljcl3e8xvy44",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "travail",
+      "souffrance-au-travail",
+      "burnout",
+      "risques-psychosociaux"
+    ],
+    "metaDescription": "Souffrance au travail : burn-out, bore-out, brown-out, charge mentale, harcèlement... Un guide complet pour reconnaître les signaux et savoir comment agir.",
+    "articles_lies": [
+      "charge-mentale",
+      "harcelement-moral-travail",
+      "burnout-epuisement-professionnel"
+    ],
+    "status": "published"
+  },
+  {
     "id": "freres-soeurs-toxiques",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
-    "type": "article",
     "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
     "date": "2026-09-02",
     "date_modified": "2026-09-02",

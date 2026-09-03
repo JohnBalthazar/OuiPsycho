@@ -1716,12 +1716,12 @@
   {
     "id": "doctor-doom-sur-le-divan-psychologie-savant-fou",
     "title": "Doctor Doom sur le divan : Psychologie d'un savant fou",
-    "type": "article",
-    "excerpt": "Le 16 décembre 2026, Doctor Doom prend le pouvoir sur les écrans avec Avengers : Doomsday. Derrière le masque de fer et la vendetta contre le multivers, un cas d'école : honte, narcissisme grandiose, hubris et contrôle. Séance d'analyse (fictive, mais documentée).",
+    "excerpt": "",
     "date": "2026-12-16",
     "date_modified": "2026-12-16",
     "category": "Les monstres sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ipwndetpxwgjikzxmhsx",
+    "hasImage": true,
     "imagePosition": "62% 36%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -1735,7 +1735,7 @@
       "psychologie-des-super-vilains",
       "hubris"
     ],
-    "metaDescription": "Doctor Doom débarque dans Avengers : Doomsday le 16 décembre 2026. Narcissisme, honte, hubris : psychanalyse express du savant fou le plus classe du multivers.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -1954,6 +1954,35 @@
     "status": "scheduled"
   },
   {
+    "id": "hygiene-de-sommeil",
+    "title": "Hygiène de sommeil : les 10 règles qui changent tout",
+    "excerpt": "",
+    "date": "2026-11-26",
+    "date_modified": "2026-11-26",
+    "category": "Sommeil",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "hygiene-de-sommeil",
+      "insomnie",
+      "rythme-circadien"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "ecrans-lumiere-bleue-sommeil",
+      "chronotype-matin-soir"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
     "excerpt": "",
@@ -1980,43 +2009,14 @@
     "status": "scheduled"
   },
   {
-    "id": "hygiene-de-sommeil",
-    "title": "Hygiène de sommeil : les 10 règles qui changent tout",
-    "type": "article",
-    "excerpt": "Avant les techniques sophistiquées, il y a les fondamentaux. Recommandées par les médecins du sommeil, ces règles simples ont un effet démontré sur la qualité des nuits — et coûtent beaucoup moins cher qu'un somnifère.",
-    "date": "2026-11-26",
-    "date_modified": "2026-11-26",
-    "category": "Sommeil",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "hygiene-de-sommeil",
-      "insomnie",
-      "rythme-circadien"
-    ],
-    "metaDescription": "Hygiène de sommeil : les règles essentielles recommandées par les médecins du sommeil pour améliorer durablement la qualité de vos nuits.",
-    "articles_lies": [
-      "bien-dormir-guide-complet",
-      "ecrans-lumiere-bleue-sommeil",
-      "chronotype-matin-soir"
-    ],
-    "status": "scheduled"
-  },
-  {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
-    "type": "article",
-    "excerpt": "L'un a envie, l'autre pas. Loin d'être une panne ou une faute, le décalage de désir est l'un des défis les plus banals — et les plus tus — de la vie à deux.",
+    "excerpt": "",
     "date": "2026-11-25",
     "date_modified": "2026-11-25",
     "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/slddq8a1qvdy7rpkvwwb",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2030,7 +2030,7 @@
       "sexualité",
       "communication"
     ],
-    "metaDescription": "Différence de libido dans le couple : comprendre désir spontané et réactif, sortir du bras de fer et retrouver l'accord. Approche déculpabilisante.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -2145,12 +2145,12 @@
   {
     "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
     "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
-    "type": "article",
-    "excerpt": "Votre cerveau est une machine à parier sur la note suivante. Vos goûts se sont figés vers 17 ans. Et détester un genre en dit souvent plus long sur vous que l'aimer. Petite enquête sur le plus intime des snobismes.",
+    "excerpt": "",
     "date": "2026-11-18",
     "date_modified": "2026-11-18",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zklwxxazqkkmwaljvt62",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2164,7 +2164,7 @@
       "identite",
       "psychologie-sociale"
     ],
-    "metaDescription": "Prédiction, dopamine, souvenirs d'adolescence et distinction sociale : ce que la science dit vraiment de nos goûts musicaux et de nos rejets.",
+    "metaDescription": "",
     "articles_lies": [
       "se-remettre-d-une-rupture-amoureuse"
     ],
@@ -2229,12 +2229,12 @@
   {
     "id": "tcc-insomnie-restriction-sommeil",
     "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
-    "type": "article",
-    "excerpt": "Dormir moins pour dormir mieux : la restriction de sommeil est la technique la plus contre-intuitive de la TCC de l'insomnie — et l'une des plus efficaces. Voici comment elle fonctionne, étape par étape.",
+    "excerpt": "",
     "date": "2026-11-16",
     "date_modified": "2026-11-16",
     "category": "Sommeil",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2247,7 +2247,7 @@
       "tcc-i",
       "restriction-de-sommeil"
     ],
-    "metaDescription": "Restriction de sommeil (TCC-I) : protocole de Spielman étape par étape, calcul de l'efficacité du sommeil, et comment l'appliquer sans se décourager.",
+    "metaDescription": "",
     "articles_lies": [
       "vaincre-insomnie",
       "bien-dormir-guide-complet",
@@ -2396,12 +2396,12 @@
   {
     "id": "punition-par-le-silence",
     "title": "La punition par le silence : pourquoi elle fait si mal",
-    "type": "article",
-    "excerpt": "Un mur. Plus un mot, plus un regard, parfois pendant des jours. Le silence punitif n'est pas « juste » un conflit qui traîne : la recherche le classe parmi les comportements qui prédisent le mieux une rupture.",
+    "excerpt": "",
     "date": "2026-11-09",
     "date_modified": "2026-11-09",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2414,7 +2414,7 @@
       "stonewalling",
       "communication"
     ],
-    "metaDescription": "Punition par le silence (stonewalling) : ce qu'en dit la recherche de John Gottman, pourquoi elle fait si mal, et comment y faire face en couple.",
+    "metaDescription": "",
     "articles_lies": [
       "gaslighting-manipulation",
       "relation-toxique-signes",
@@ -2455,12 +2455,12 @@
   {
     "id": "charge-mentale",
     "title": "Charge mentale : la définir, la mesurer, la répartir",
-    "type": "article",
-    "excerpt": "Ce n'est pas une tâche de plus sur la liste : c'est le fait de devoir penser à toutes les autres, en permanence, même sans les accomplir. La charge mentale épuise sans qu'on puisse toujours la nommer — au travail comme à la maison.",
+    "excerpt": "",
     "date": "2026-11-07",
     "date_modified": "2026-11-07",
     "category": "Travail",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2473,7 +2473,7 @@
       "souffrance-au-travail",
       "risques-psychosociaux"
     ],
-    "metaDescription": "Charge mentale : définition, origine du concept, signes d'alerte au travail et pistes concrètes pour la mesurer et la répartir plus équitablement.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "burnout-epuisement-professionnel",
@@ -2569,12 +2569,12 @@
   {
     "id": "styles-attachement",
     "title": "Styles d'attachement : anxieux, évitant, sécure ?",
-    "type": "article",
-    "excerpt": "Pourquoi certaines personnes ont besoin de réassurance constante, d'autres prennent leurs distances dès que ça devient sérieux, et d'autres encore semblent naturellement à l'aise dans l'intimité ? La théorie de l'attachement a une explication.",
+    "excerpt": "",
     "date": "2026-11-04",
     "date_modified": "2026-11-04",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2587,7 +2587,7 @@
       "psychologie-du-couple",
       "estime-de-soi"
     ],
-    "metaDescription": "Styles d'attachement amoureux (sécure, anxieux, évitant) : origine de la théorie, comment ils se manifestent en couple, et peut-on en changer.",
+    "metaDescription": "",
     "articles_lies": [
       "dependance-affective",
       "pourquoi-tomber-amoureux-du-meme-type-de-personne",
@@ -2655,12 +2655,12 @@
   {
     "id": "manager-toxique-signes",
     "title": "Manager toxique : 7 signes qui ne trompent pas",
-    "type": "article",
-    "excerpt": "Un manager exigeant pousse son équipe à progresser. Un manager toxique l'épuise, la dévalorise et la fait douter d'elle-même — souvent sans jamais élever la voix. Voici comment faire la différence, et par où commencer pour se protéger.",
+    "excerpt": "",
     "date": "2026-11-01",
     "date_modified": "2026-11-01",
     "category": "Travail",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2673,7 +2673,7 @@
       "risques-psychosociaux",
       "souffrance-au-travail"
     ],
-    "metaDescription": "Manager toxique : 7 signes pour le reconnaître, la différence avec un management exigeant, et les démarches concrètes pour se protéger au travail.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "harcelement-moral-travail",
@@ -2767,12 +2767,12 @@
   {
     "id": "coherence-cardiaque-365",
     "title": "Cohérence cardiaque : la méthode 365 expliquée simplement",
-    "type": "article",
-    "excerpt": "Trois fois par jour, six respirations par minute, cinq minutes : la méthode 365 popularisée par le Dr David O'Hare tient en une formule simple. Voici ce qu'elle fait vraiment au corps, et comment la pratiquer correctement.",
+    "excerpt": "",
     "date": "2026-10-28",
     "date_modified": "2026-10-28",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2785,7 +2785,7 @@
       "respiration",
       "gestion-du-stress"
     ],
-    "metaDescription": "Cohérence cardiaque, méthode 365 : origine, mécanisme physiologique et mode d'emploi pas à pas pour réduire durablement l'anxiété et le stress.",
+    "metaDescription": "",
     "articles_lies": [
       "symptomes-physiques-anxiete",
       "anxiolytiques-effets-alternatives",
@@ -2825,12 +2825,12 @@
   {
     "id": "chronotype-matin-soir",
     "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
-    "type": "article",
-    "excerpt": "Ce n'est pas un manque de discipline si vous n'êtes productif qu'après 22h — c'est peut-être votre horloge biologique. Le chronotype est en partie génétique, et le comprendre change tout à la façon d'organiser ses journées.",
+    "excerpt": "",
     "date": "2026-10-26",
     "date_modified": "2026-10-26",
     "category": "Sommeil",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2843,7 +2843,7 @@
       "rythme-circadien",
       "horloge-biologique"
     ],
-    "metaDescription": "Chronotype : définition, test de référence (MEQ), part génétique, et comment organiser son quotidien en fonction de son horloge biologique.",
+    "metaDescription": "",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "sieste-duree-ideale",
@@ -2854,12 +2854,12 @@
   {
     "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
     "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
-    "type": "article",
-    "excerpt": "Vous êtes enfin assis. Personne ne vous demande rien. Et au bout de quatre minutes, une petite voix vous rappelle le panier de linge. Bienvenue dans le seul loisir au monde qui exige une justification écrite.",
+    "excerpt": "",
     "date": "2026-10-25",
     "date_modified": "2026-10-25",
     "category": "Bien-être",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xggbc2tcnl4yx6lr4uq9",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -2873,7 +2873,7 @@
       "estime-de-soi",
       "perfectionnisme"
     ],
-    "metaDescription": "Culpabilité du repos, dette morale, amour conditionnel : pourquoi se reposer semble interdit à certains, et six leviers pour désamorcer le réflexe.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -3211,12 +3211,12 @@
   {
     "id": "dependance-affective",
     "title": "Dépendance affective : aimer jusqu'à s'oublier",
-    "type": "article",
-    "excerpt": "Ce n'est pas « trop aimer ». C'est avoir besoin de l'autre pour exister, se sentir vide dès qu'il s'éloigne, et rester bien après que la relation a cessé de faire du bien. La dépendance affective se distingue de l'amour — et se travaille.",
+    "excerpt": "",
     "date": "2026-10-11",
     "date_modified": "2026-10-11",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3229,7 +3229,7 @@
       "estime-de-soi",
       "emprise"
     ],
-    "metaDescription": "Dépendance affective : définition, différence avec la codépendance, origines et pistes concrètes pour retrouver son autonomie affective.",
+    "metaDescription": "",
     "articles_lies": [
       "styles-attachement",
       "love-bombing",
@@ -3240,12 +3240,12 @@
   {
     "id": "se-reveiller-3h-du-matin",
     "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
-    "type": "article",
-    "excerpt": "Toujours la même heure, nuit après nuit. Ce réveil qui semble programmé n'est pas un hasard : il correspond à un mécanisme hormonal précis, souvent amplifié par le stress — et il se travaille.",
+    "excerpt": "",
     "date": "2026-10-10",
     "date_modified": "2026-10-10",
     "category": "Sommeil",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3258,7 +3258,7 @@
       "insomnie-de-maintien",
       "cortisol"
     ],
-    "metaDescription": "Se réveiller à 3h du matin : pourquoi cette heure précise, le rôle du cortisol, et les leviers concrets pour retrouver des nuits complètes.",
+    "metaDescription": "",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "vaincre-insomnie",
@@ -3352,12 +3352,12 @@
   {
     "id": "brown-out-perte-de-sens-travail",
     "title": "Brown-out : perdre le sens de son travail",
-    "type": "article",
-    "excerpt": "On continue à travailler, parfois beaucoup, mais on ne croit plus à ce qu'on produit. Le brown-out n'épuise pas le corps comme le burn-out : il vide le travail de son sens, jusqu'à le rendre absurde.",
+    "excerpt": "",
     "date": "2026-10-07",
     "date_modified": "2026-10-07",
     "category": "Travail",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3370,7 +3370,7 @@
       "souffrance-au-travail",
       "sens-au-travail"
     ],
-    "metaDescription": "Brown-out : définition, signes et différences avec le burn-out. Comprendre la perte de sens au travail et savoir comment y remédier concrètement.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "bore-out-ennui-au-travail",
@@ -3437,12 +3437,12 @@
   {
     "id": "love-bombing",
     "title": "Love bombing : l'amour à haute dose comme piège",
-    "type": "article",
-    "excerpt": "Messages toute la journée, déclarations enflammées dès la première semaine, cadeaux qui pleuvent : le love bombing ressemble à un coup de foudre. Le problème n'est pas l'intensité — c'est ce qu'elle sert à obtenir en retour.",
+    "excerpt": "",
     "date": "2026-10-05",
     "date_modified": "2026-10-05",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/r4xlpwzyfnfzhiffkaut",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3455,7 +3455,7 @@
       "manipulation",
       "emprise"
     ],
-    "metaDescription": "Love bombing : définition, signes pour le distinguer d'une passion sincère, et pourquoi cette intensité précoce peut être un outil de dépendance.",
+    "metaDescription": "",
     "articles_lies": [
       "dependance-affective",
       "styles-attachement",
@@ -3466,12 +3466,12 @@
   {
     "id": "crise-angoisse-nuit",
     "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
-    "type": "article",
-    "excerpt": "Cœur qui s'emballe, souffle coupé, certitude de mourir — à 3 h du matin, seul dans le noir. La crise d'angoisse nocturne existe bel et bien, avec des mécanismes propres, différents de l'angoisse diurne.",
+    "excerpt": "",
     "date": "2026-10-04",
     "date_modified": "2026-10-04",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3484,7 +3484,7 @@
       "sommeil",
       "troubles-anxieux"
     ],
-    "metaDescription": "Crise d'angoisse la nuit : pourquoi elle survient souvent vers 3h du matin, comment la distinguer d'un cauchemar, et les gestes qui aident à la traverser.",
+    "metaDescription": "",
     "articles_lies": [
       "crise-angoisse",
       "anxiete-sociale-phobie-sociale",
@@ -3551,12 +3551,12 @@
   {
     "id": "bien-dormir-guide-complet",
     "title": "Bien dormir : le guide complet du sommeil réparateur",
-    "type": "article",
-    "excerpt": "Réveils nocturnes, chronotype, écrans, siestes, dette de sommeil : le sommeil obéit à des mécanismes précis, et la plupart des difficultés qu'on lui attribue ont une explication — et une solution. Ce guide fait le tour de la question.",
+    "excerpt": "",
     "date": "2026-10-01",
     "date_modified": "2026-10-01",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j5mbhlnttnw0uxf9xzdy",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3569,7 +3569,7 @@
       "chronotype",
       "hygiene-de-sommeil"
     ],
-    "metaDescription": "Bien dormir : guide complet sur l'insomnie, le chronotype, les réveils nocturnes, les écrans et la dette de sommeil, avec des solutions concrètes.",
+    "metaDescription": "",
     "articles_lies": [
       "hygiene-de-sommeil",
       "tcc-insomnie-restriction-sommeil",
@@ -3695,12 +3695,12 @@
   {
     "id": "bore-out-ennui-au-travail",
     "title": "Bore-out : quand l'ennui au travail rend malade",
-    "type": "article",
-    "excerpt": "S'ennuyer à un poste qu'on juge « confortable » peut sembler un faux problème. C'est pourtant une souffrance documentée, aussi épuisante à sa façon qu'un excès de travail — et beaucoup plus difficile à avouer.",
+    "excerpt": "",
     "date": "2026-09-28",
     "date_modified": "2026-09-28",
     "category": "Travail",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/h2dpz5zhua9mki7svioi",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3713,7 +3713,7 @@
       "souffrance-au-travail",
       "sens-au-travail"
     ],
-    "metaDescription": "Bore-out : ennui chronique, désintérêt, sentiment de vide au travail. Définition, signes et pistes concrètes pour en sortir sans culpabiliser.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "brown-out-perte-de-sens-travail",
@@ -3974,33 +3974,6 @@
     "status": "scheduled"
   },
   {
-    "id": "james-belmont-heart-of-the-beast",
-    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
-    "type": "article",
-    "excerpt": "Un ex-forces spéciales, un chien de combat à la retraite et 300 km d'Alaska. Derrière le survival de David Ayer se cache un cas d'école : hypervigilance, blessure morale et pouvoir thérapeutique du lien homme-animal.",
-    "date": "2026-09-23",
-    "date_modified": "2026-09-23",
-    "category": "Nos héros sur le divan",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "stress-post-traumatique",
-      "cinema",
-      "resilience",
-      "lien-homme-animal",
-      "veterans",
-      "chien-assistance"
-    ],
-    "metaDescription": "Heart of the Beast : analyse psychologique de James Belmont, entre stress post-traumatique, hypervigilance et lien avec son chien Odin. Plus un quiz.",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
     "excerpt": "",
@@ -4027,6 +4000,33 @@
       "anxiete-de-sante-hypocondrie",
       "crise-angoisse-nuit"
     ],
+    "status": "scheduled"
+  },
+  {
+    "id": "james-belmont-heart-of-the-beast",
+    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "excerpt": "",
+    "date": "2026-09-23",
+    "date_modified": "2026-09-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "stress-post-traumatique",
+      "cinema",
+      "resilience",
+      "lien-homme-animal",
+      "veterans",
+      "chien-assistance"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -4175,12 +4175,12 @@
   {
     "id": "anxiete-sociale-phobie-sociale",
     "title": "Anxiété sociale : quand le regard des autres paralyse",
-    "type": "article",
-    "excerpt": "Rougir, bafouiller, éviter le regard des autres par peur d'être jugé : l'anxiété sociale dépasse largement la timidité. Elle touche jusqu'à une personne sur huit au cours de sa vie, et se soigne bien mieux qu'on ne le croit.",
+    "excerpt": "",
     "date": "2026-09-19",
     "date_modified": "2026-09-19",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/tfmbirlad7v7fjwm7qfy",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4193,7 +4193,7 @@
       "phobie-sociale",
       "troubles-anxieux"
     ],
-    "metaDescription": "Anxiété sociale : symptômes, différence avec la timidité, causes et traitements validés (TCC, exposition). Un test pour évaluer votre profil.",
+    "metaDescription": "",
     "articles_lies": [
       "agoraphobie-comprendre",
       "crise-angoisse-nuit",
@@ -4258,12 +4258,12 @@
   {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
-    "type": "article",
-    "excerpt": "Applications d'IA, champignons hallucinogènes, médicaments « révolutionnaires », accès aux soins simplifié : 2026 ne manque pas d'annonces en santé mentale. On démêle les avancées réelles des effets de mode, sans perdre de vue l'essentiel.",
+    "excerpt": "",
     "date": "2026-09-16",
     "date_modified": "2026-09-16",
     "category": "Thérapies",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qiatornprnbpsjw0mumo",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4278,7 +4278,7 @@
       "mon-soutien-psy",
       "innovation"
     ],
-    "metaDescription": "Mon soutien psy remanié, psychiatrie de précision, psychédéliques et IA : le tri entre vraies avancées et effets d'annonce en santé mentale en 2026.",
+    "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
   },
@@ -4312,12 +4312,12 @@
   {
     "id": "anxiete-anticipatoire",
     "title": "Anxiété anticipatoire : pourquoi on n'ose plus décider",
-    "type": "article",
-    "excerpt": "Reporter un rendez-vous médical, hésiter des semaines avant de répondre à un message, ne jamais réserver ses vacances par peur que « ça tourne mal » : l'anxiété anticipatoire ne fait pas que faire peur, elle paralyse la décision elle-même.",
+    "excerpt": "",
     "date": "2026-09-14",
     "date_modified": "2026-09-14",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/a2zjyxhbcq1ngpwg6iiz",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4330,7 +4330,7 @@
       "prise-de-decision",
       "troubles-anxieux"
     ],
-    "metaDescription": "Anxiété anticipatoire et paralysie décisionnelle : pourquoi l'intolérance à l'incertitude bloque les choix du quotidien, et comment recommencer à décider.",
+    "metaDescription": "",
     "articles_lies": [
       "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
       "toc-ou-anxiete-difference",
@@ -4369,12 +4369,12 @@
   {
     "id": "syndrome-imposteur",
     "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
-    "type": "article",
-    "excerpt": "Diplômes, promotions, réussites reconnues par tous — et pourtant cette petite voix qui répète que vous allez être « démasqué ». Le syndrome de l'imposteur touche même les personnes les plus compétentes. Voici comment le reconnaître, et le désamorcer.",
+    "excerpt": "",
     "date": "2026-09-12",
     "date_modified": "2026-09-12",
     "category": "Travail",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kfdgaiug6zlapbdzxh2e",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4387,7 +4387,7 @@
       "confiance-en-soi",
       "souffrance-au-travail"
     ],
-    "metaDescription": "Syndrome de l'imposteur : 8 signes pour le reconnaître, ce que dit la recherche depuis 1978, et des pistes concrètes pour s'en libérer durablement.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
@@ -4398,12 +4398,12 @@
   {
     "id": "symptomes-physiques-anxiete",
     "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
-    "type": "article",
-    "excerpt": "L'anxiété ne se joue pas que dans la tête. Boule au ventre, gorge serrée, oppression thoracique, jambes en coton : le corps parle souvent avant l'esprit — et c'est un vrai mécanisme physiologique, pas de la comédie.",
+    "excerpt": "",
     "date": "2026-09-11",
     "date_modified": "2026-09-11",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rt4azdla8u6czbjcy8vf",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4416,7 +4416,7 @@
       "somatisation",
       "troubles-anxieux"
     ],
-    "metaDescription": "Symptômes physiques de l'anxiété : boule au ventre, gorge serrée, oppression thoracique. Pourquoi le corps réagit, et comment le calmer concrètement.",
+    "metaDescription": "",
     "articles_lies": [
       "crise-angoisse-nuit",
       "coherence-cardiaque-365",
@@ -4567,12 +4567,12 @@
   {
     "id": "gaslighting-manipulation",
     "title": "Gaslighting : quand on vous fait douter de votre propre mémoire",
-    "type": "article",
-    "excerpt": "« Tu inventes », « ça ne s'est jamais passé comme ça », « tu es trop sensible » : le gaslighting ne crie pas, il réécrit. À force, on finit par ne plus faire confiance à sa propre mémoire — c'est précisément le but.",
+    "excerpt": "",
     "date": "2026-09-04",
     "date_modified": "2026-09-04",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jilsybbvixlb8og8nb7v",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4585,7 +4585,7 @@
       "manipulation",
       "emprise"
     ],
-    "metaDescription": "Gaslighting : définition, origine du terme, signes concrets et pistes pour sortir du doute qu'il installe sur sa propre mémoire et sa perception.",
+    "metaDescription": "",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique",
       "7-signes-personne-narcissique",
@@ -4596,12 +4596,12 @@
   {
     "id": "souffrance-au-travail-guide",
     "title": "Souffrance au travail : reconnaître, agir, se protéger",
-    "type": "article",
     "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : la souffrance au travail prend des formes très différentes selon les personnes. Ce guide fait le point sur chacune d'elles, et sur ce qu'on peut faire, concrètement.",
     "date": "2026-09-03",
     "date_modified": "2026-09-03",
     "category": "Travail",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bde55ykdljcl3e8xvy44",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4620,17 +4620,17 @@
       "harcelement-moral-travail",
       "burnout-epuisement-professionnel"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "freres-soeurs-toxiques",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
-    "type": "article",
     "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
     "date": "2026-09-02",
     "date_modified": "2026-09-02",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
