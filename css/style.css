@@ -2604,3 +2604,95 @@ p:last-child { margin-bottom: 0; }
   text-underline-offset: 3px;
 }
 .dossier-sources__list a:hover { text-decoration-style: solid; }
+
+/* ── Page outil (/outils/{slug}/) ────────────────────────────────────────── */
+.tool-page { max-width: 640px; margin: 0 auto; }
+
+.tool-chapeau { margin-bottom: var(--sp-6); }
+.tool-chapeau__lead { color: var(--color-text-muted); margin-top: var(--sp-2); }
+
+/* Bloc ressources — 3114/3919, axe "severite" uniquement, statique (jamais
+   généré par tool-engine.js), visible dès le chargement de la page, pas
+   seulement au résultat. */
+.tool-resources {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-6);
+  margin-bottom: var(--sp-6);
+  font-size: var(--fs-sm);
+  color: #7F1D1D;
+  line-height: 1.65;
+}
+.tool-resources strong { color: #7F1D1D; }
+.tool-resources a { color: #7F1D1D; text-decoration: underline; font-weight: 700; }
+.tool-resources ul { margin-top: var(--sp-2); padding-left: var(--sp-5); }
+.tool-resources li { margin-bottom: var(--sp-1); }
+
+.tool-mount {
+  background: #fff;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--sp-8) var(--sp-6);
+  box-shadow: var(--shadow);
+  margin-bottom: var(--sp-8);
+}
+
+.tool-outcome {
+  background: var(--color-primary-light);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-6);
+  margin-bottom: var(--sp-8);
+  font-size: var(--fs-sm);
+  color: var(--color-primary-dark);
+  line-height: 1.7;
+}
+.tool-outcome h2 {
+  font-family: var(--font-heading);
+  font-size: var(--fs-lg);
+  color: var(--color-primary);
+  margin-bottom: var(--sp-3);
+}
+
+/* Éléments rendus par assets/tool-engine.js */
+.tool-intro__lead { color: var(--color-text-muted); margin-bottom: var(--sp-5); }
+
+.tool-btn {
+  display: inline-block; border: none; border-radius: var(--radius);
+  padding: .8rem 1.4rem; font-size: var(--fs-base); font-weight: 700;
+  cursor: pointer; background: var(--color-primary); color: #fff;
+  font-family: var(--font-body);
+}
+.tool-btn:hover { background: var(--color-primary-dark); }
+.tool-btn--ghost { background: var(--color-border-light); color: var(--color-text); margin-top: var(--sp-5); }
+.tool-btn--ghost:hover { background: var(--color-border); }
+
+.tool-progress { height: 6px; background: var(--color-border-light); border-radius: var(--radius-full); overflow: hidden; margin-bottom: var(--sp-5); }
+.tool-progress > span { display: block; height: 100%; background: var(--color-primary); transition: width .3s ease; }
+
+.tool-step { font-size: var(--fs-xs); color: var(--color-text-muted); margin-bottom: var(--sp-2); }
+.tool-question { font-family: var(--font-heading); font-size: var(--fs-xl); color: var(--color-primary-dark); margin-bottom: var(--sp-5); }
+
+.tool-options { display: flex; flex-direction: column; gap: var(--sp-3); }
+.tool-opt {
+  text-align: left; width: 100%; border: 1.5px solid var(--color-border);
+  background: #fbfcfd; border-radius: var(--radius); padding: .9rem 1rem;
+  font-size: var(--fs-base); font-family: var(--font-body); color: var(--color-text);
+  cursor: pointer; transition: all .15s ease;
+}
+.tool-opt:hover { border-color: var(--color-primary); background: var(--color-primary-light); }
+
+.tool-result__badge {
+  display: flex; align-items: center; gap: var(--sp-3); font-weight: 700;
+  padding: var(--sp-3) var(--sp-5); border-radius: var(--radius-full);
+  font-size: var(--fs-md); margin-bottom: var(--sp-4); width: fit-content;
+}
+.tool-result__emoji { font-size: 1.8rem; }
+.tool-result__desc { color: var(--color-text); line-height: 1.7; margin-bottom: var(--sp-5); }
+.tool-result__desc p { margin-bottom: var(--sp-3); }
+
+.tool-complement {
+  background: #FFFBEB; border-left: 3px solid #F59E0B; border-radius: 0 var(--radius) var(--radius) 0;
+  padding: var(--sp-4) var(--sp-5); font-size: var(--fs-sm); color: #78350F;
+  line-height: 1.65; margin-bottom: var(--sp-6);
+}

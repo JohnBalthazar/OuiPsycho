@@ -980,6 +980,212 @@ ${sectionsHtml}
   hubSitemapEntries.push({ slug: cluster.id, lastmod: hubLastmod });
 }
 
+// ── Pages outil /outils/{slug}/ (tools.json) ──────────────────────────────────
+// Une entrée = une page. Pas de filtre date/status (tools.json n'en a pas) :
+// tout ce qui est dans le fichier est généré. robots=noindex,follow tant que
+// la section /outils/ n'est pas officiellement lancée (rien n'y lie encore
+// depuis un article — voir README de la tâche : "ne touche à aucun article").
+const TOOLS_FILE = path.join(__dirname, 'tools.json');
+const OUTILS_DIR = path.join(__dirname, 'outils');
+let TOOLS = [];
+try { TOOLS = JSON.parse(fs.readFileSync(TOOLS_FILE, 'utf8')).outils || []; } catch (_) {}
+
+for (const outil of TOOLS) {
+  const { identite, contenu, restitution } = outil;
+  const slug = identite.slug;
+  const escLdTool = s => s.replace(/<\/script>/gi, '<\\/script>');
+  const toolDataJson = escLdTool(JSON.stringify(outil));
+  const metaDesc = `${identite.titre} — un outil de réflexion en ${contenu.items.length} questions, résultat immédiat, aucune donnée collectée.`;
+
+  const resourcesHtml = identite.axe === 'severite' ? `
+        <div class="tool-resources" role="note">
+          ⚕️ <strong>Si ce sujet touche quelque chose de plus lourd pour vous :</strong>
+          <ul>
+            <li><strong><a href="tel:3114">3114</a></strong> — numéro national de prévention du suicide, gratuit, 24h/24.</li>
+            <li><strong><a href="tel:3919">3919</a></strong> — violences femmes info, gratuit, 24h/24.</li>
+          </ul>
+        </div>` : '';
+
+  const toolHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${identite.titre} — Oui Psycho!</title>
+  <meta name="description" content="${escCard(metaDesc)}">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="${BASE}/outils/${slug}/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="${escCard(identite.titre)} — Oui Psycho!">
+  <meta property="og:description" content="${escCard(metaDesc)}">
+  <meta property="og:url"         content="${BASE}/outils/${slug}/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container tool-page">
+    <main>
+      <div class="tool-chapeau">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span>›</span>
+          <a href="tests.html">Tests</a> <span>›</span> <span aria-current="page">${escCard(identite.titre)}</span>
+        </nav>
+        <h1>${escCard(identite.titre)}</h1>
+        <p class="tool-chapeau__lead">Quelques minutes pour faire le point. Vos réponses ne sont ni enregistrées, ni envoyées : tout se passe dans votre navigateur.</p>
+      </div>
+
+      <aside class="article-disclaimer" role="note">
+        ⚕️ <em>Cet outil est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
+        l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
+      </aside>
+${resourcesHtml}
+      <div class="tool-mount" id="tool-mount"></div>
+
+      <div class="tool-outcome">
+        <h2>Que faire de ce résultat ?</h2>
+        <p>Ce résultat n'est ni un diagnostic ni une étiquette : c'est une photographie, à un instant donné, de ce que vos réponses évoquent. Il peut confirmer ce que vous pressentiez déjà, ou vous surprendre — dans les deux cas, ce qui compte, c'est ce que vous en faites. Si quelque chose ici vous parle, en parler à un proche ou à un professionnel reste le meilleur moyen d'y voir plus clair, bien plus que de refaire le test en espérant un résultat différent.</p>
+      </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="tool-data">${toolDataJson}</script>
+  <script>
+    function notifyResize() {
+      setTimeout(function () {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+    window.addEventListener('load', notifyResize);
+  </script>
+  <script src="assets/tool-engine.js"></script>
+  <script>
+    ToolEngine.render(document.getElementById('tool-mount'), JSON.parse(document.getElementById('tool-data').textContent));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+`;
+
+  const toolOutDir = path.join(OUTILS_DIR, slug);
+  if (!fs.existsSync(toolOutDir)) fs.mkdirSync(toolOutDir, { recursive: true });
+  fs.writeFileSync(path.join(toolOutDir, 'index.html'), toolHtml, 'utf8');
+  console.log(`🛠  outils/${slug}/index.html généré (axe: ${identite.axe})`);
+}
+
 // ── Génération du sitemap.xml ─────────────────────────────────────────────────
 // Utilise newIndex (articles publiés/passés déjà filtrés) pour rester en sync
 // avec les pages qui ont robots="index, follow".
