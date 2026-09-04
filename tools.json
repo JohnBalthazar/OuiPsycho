@@ -32,10 +32,15 @@
     "",
     "── contenu ─────────────────────────────────────────────────────────────",
     "  items          array — une entrée par question, dans l'ordre d'origine :",
-    "                 { id, texte, reponses: [ { texte, palier }, ... ] }.",
-    "                 texte et reponses[].texte sont repris tels quels de la",
-    "                 source ; id est une clé de position (q1, q2, ...) absente",
-    "                 de la source, inventée pour l'adressage.",
+    "                 { id, texte, reponses: [ { texte, palier }, ... ],",
+    "                 renvoiArticle }. texte et reponses[].texte sont repris",
+    "                 tels quels de la source ; id est une clé de position",
+    "                 (q1, q2, ...) absente de la source, inventée pour",
+    "                 l'adressage. renvoiArticle (string|null) pointera vers la",
+    "                 section de l'article qui traite ce thème — vide tant que",
+    "                 le maillage n'a pas été fait ; consommé par",
+    "                 restitution.complement pour relier chaque item cité à sa",
+    "                 section d'origine.",
     "  echelleReponse object — forme des réponses : { genre, nbOptions, nature }.",
     "                 nature distingue notamment \"libelles-specifiques-par-",
     "                 question\" (chaque question a ses propres intitulés,",
@@ -71,12 +76,53 @@
     "           articles/*.json). Repris tel quel de la source pour cette",
     "           entrée ; à réécrire au cas par cas si une échelle nommée y",
     "           est mentionnée (voir signalement en fin de fichier/rapport).",
+    "  complement  object|absent — second niveau de restitution pour familles",
+    "              où le palier majoritaire (mode) peut masquer des réponses",
+    "              isolées mais fortes. Structure :",
+    "              { paliersDeclencheurs: array<idPalier>, seuilItems: number,",
+    "                gabarits: { un, deux, plusieurs } }.",
+    "              paliersDeclencheurs liste les paliers de contenu.paliers.liste",
+    "              dont une occurrence individuelle mérite d'être nommée, même",
+    "              minoritaire dans le résultat global. Peut être [] : certains",
+    "              questionnaires reperes-maison décrivent un TRAIT (ex. un",
+    "              chronotype) sans qu'aucun palier ne soit \"préoccupant\" —",
+    "              dans ce cas il n'y a rien à faire remonter individuellement,",
+    "              et complement reste inerte (jamais déclenché) sans que ce",
+    "              soit une erreur de format. Quand paliersDeclencheurs vaut",
+    "              [], seuilItems et gabarits n'ont plus de rôle possible (rien",
+    "              ne peut jamais correspondre) : complement peut alors se",
+    "              limiter à { paliersDeclencheurs: [] }, seuilItems/gabarits",
+    "              omis plutôt que remplis de valeurs qui ne serviront jamais.",
+    "              seuilItems est le nombre minimum d'items en palier",
+    "              déclencheur pour que le bloc s'affiche (1 = tout item",
+    "              qualifiant est nommé, aucun n'est tu). C'est un COMPTE",
+    "              d'items, jamais un score : il vit ici, dans restitution,",
+    "              précisément parce que contenu doit rester sans aucune",
+    "              valeur numérique dérivée des réponses.",
+    "              gabarits fournit 3 formulations selon le nombre d'items",
+    "              effectivement ressortis (pas selon seuilItems) : \"un\" et",
+    "              \"deux\" sont des phrases fixes ; \"plusieurs\" (3 items ou",
+    "              plus) contient un jeton {{nombre}} que le moteur de rendu",
+    "              calcule et met en toutes lettres (\"trois\", \"quatre\"...).",
+    "              Les trois gabarits partagent un jeton {{items}} : la liste",
+    "              des items déclencheurs, résolue par le moteur à partir de",
+    "              contenu.items[].texte (pas un nouveau champ de libellé —",
+    "              on réutilise le texte de la question telle quelle). La mise",
+    "              en forme exacte de cette liste (guillemets, séparateurs,",
+    "              \"et\" final) est laissée au moteur de rendu, hors de ce",
+    "              format de données. Les gabarits ne redisent pas le résultat",
+    "              principal (déjà affiché juste avant par restitution.paliers) :",
+    "              ce sont des phrases de transition, pas des paragraphes",
+    "              autonomes.",
     "",
     "── tracabilite ─────────────────────────────────────────────────────────",
     "  sources       array d'objets { authors, year, title, journal } — pour",
-    "                famille \"reperes-maison\", documente le CONSTRUIT théorique",
-    "                abordé par l'outil (littérature générale sur le sujet),",
-    "                jamais une échelle de mesure nommée ni son auteur.",
+    "                famille \"reperes-maison\", documente au besoin le CONSTRUIT",
+    "                théorique abordé (littérature générale), jamais une échelle",
+    "                de mesure nommée ni son auteur. Peut être vide ([]) : un",
+    "                questionnaire reperes-maison n'a pas d'obligation de",
+    "                source, précisément parce qu'il ne prétend adosser ses",
+    "                items à aucune échelle publiée.",
     "  version       string — version de cette entrée (contenu + mécanique),",
     "                indépendante des révisions de l'article auquel l'outil",
     "                est rattaché.",
@@ -94,8 +140,10 @@
     "                  lier cet outil pour qu'il reste pertinent à maintenir.",
     "  maxParArticle   number — nombre maximum d'embarquements de cet outil",
     "                  au sein d'un même article (évite la sur-répétition).",
-    "  formats         array<string> — formats techniques d'intégration pris",
-    "                  en charge (ex. \"iframe\", seul format existant à date).",
+    "  formats         array<string> — modes d'insertion dans un article pris",
+    "                  en charge (ex. \"inline\", \"card\"). Décrit un emplacement",
+    "                  éditorial, pas une technique d'embarquement (l'iframe en",
+    "                  est un détail d'implémentation, pas un format).",
     "  ancres          array<string> — intitulés de lien autorisés pour",
     "                  pointer vers cet outil depuis le corps d'un article",
     "                  (cohérence éditoriale, pas de champ libre au cas par",
@@ -119,7 +167,8 @@
               { "texte": "« Ça s'est bien passé, tant mieux. »", "palier": "modere" },
               { "texte": "« J'ai eu de la chance sur ce coup-là. »", "palier": "marque" },
               { "texte": "« Je ne sais pas comment j'ai réussi à donner le change. »", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q2",
@@ -129,7 +178,8 @@
               { "texte": "Remerciez poliment, sans trop y croire.", "palier": "modere" },
               { "texte": "Minimisez aussitôt : « oh, ce n'est rien ».", "palier": "marque" },
               { "texte": "Êtes mal à l'aise et cherchez à changer de sujet.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q3",
@@ -139,7 +189,8 @@
               { "texte": "Un trac normal, qui passe vite.", "palier": "modere" },
               { "texte": "Une anxiété assez disproportionnée par rapport à l'enjeu réel.", "palier": "marque" },
               { "texte": "La peur d'être « découvert » comme incompétent.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q4",
@@ -149,7 +200,8 @@
               { "texte": "Que vous doutez un peu, parfois.", "palier": "modere" },
               { "texte": "Qu'ils sont souvent plus compétents que vous.", "palier": "marque" },
               { "texte": "Qu'ils le sont tous, sans exception, plus que vous.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q5",
@@ -159,7 +211,8 @@
               { "texte": "Y repensez un peu dans la journée.", "palier": "modere" },
               { "texte": "La ressassez : elle confirme vos doutes.", "palier": "marque" },
               { "texte": "Y voyez la preuve que vous n'êtes pas à votre place.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q6",
@@ -169,7 +222,8 @@
               { "texte": "Il vous arrive d'en faire un peu plus que demandé.", "palier": "modere" },
               { "texte": "Vous en faites souvent plus, pour « compenser ».", "palier": "marque" },
               { "texte": "Vous en faites systématiquement plus, par peur d'être jugé insuffisant.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q7",
@@ -179,7 +233,8 @@
               { "texte": "Possible, mais avec un peu d'hésitation.", "palier": "modere" },
               { "texte": "Rare : vous craignez que ça révèle vos lacunes.", "palier": "marque" },
               { "texte": "Quasiment jamais : ce serait un aveu de faiblesse.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           },
           {
             "id": "q8",
@@ -189,7 +244,8 @@
               { "texte": "Généralement claire, avec des doutes ponctuels.", "palier": "modere" },
               { "texte": "Régulièrement questionnée, intérieurement.", "palier": "marque" },
               { "texte": "Un sujet de doute permanent, malgré vos résultats.", "palier": "severe" }
-            ]
+            ],
+            "renvoiArticle": null
           }
         ],
         "echelleReponse": {
@@ -231,29 +287,31 @@
             "emoji": "🛟",
             "label": "Un syndrome de l'imposteur sévère",
             "couleur": "#b23a48",
-            "texte": "<p>Vos réponses décrivent un doute permanent sur votre propre légitimité, au point d'influencer fortement votre façon de travailler et de vous percevoir. Ce vécu, bien documenté par la recherche depuis 1978, n'a rien d'un caprice ni d'une fragilité personnelle.</p><p>Un accompagnement par un professionnel formé aux approches cognitivo-comportementales peut vraiment aider à déconstruire ces schémas de pensée installés. Vous méritez de vous accorder ce soutien.</p>"
-          }
-        ]
-      },
-      "tracabilite": {
-        "sources": [
-          {
-            "authors": "Bravata D.M., Watts S.A., Keefer A.L. et al.",
-            "year": "2020",
-            "title": "Prevalence, Predictors, and Treatment of Impostor Syndrome: a Systematic Review",
-            "journal": "Journal of General Internal Medicine"
+            "texte": "<p>Vos réponses décrivent un doute permanent sur votre propre légitimité, au point d'influencer fortement votre façon de travailler et de vous percevoir. Ce vécu, bien documenté par la recherche, n'a rien d'un caprice ni d'une fragilité personnelle.</p><p>Un accompagnement par un professionnel formé aux approches cognitivo-comportementales peut vraiment aider à déconstruire ces schémas de pensée installés. Vous méritez de vous accorder ce soutien.</p>"
           }
         ],
+        "complement": {
+          "paliersDeclencheurs": ["severe"],
+          "seuilItems": 1,
+          "gabarits": {
+            "un": "Un point ressort néanmoins nettement : {{items}}.",
+            "deux": "Deux points ressortent néanmoins nettement : {{items}}.",
+            "plusieurs": "{{nombre}} points ressortent néanmoins nettement : {{items}}."
+          }
+        }
+      },
+      "tracabilite": {
+        "sources": [],
         "version": "1.0",
         "dateRevision": "2026-09-04",
-        "revoirAvant": "2027-01-01"
+        "revoirAvant": "2027-09-04"
       },
       "maillage": {
         "categories": ["Travail"],
         "motsCles": ["syndrome-imposteur", "confiance-en-soi", "souffrance-au-travail"],
         "minOccurrences": 1,
         "maxParArticle": 1,
-        "formats": ["iframe"],
+        "formats": ["inline", "card"],
         "ancres": [
           "syndrome de l'imposteur",
           "test du syndrome de l'imposteur",
