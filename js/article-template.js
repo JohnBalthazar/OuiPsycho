@@ -49,14 +49,24 @@
 
   const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
+  // Doit rester en phase avec CATS_CARD (_gen_static.js, cartes de listing) :
+  // même couleur pour une même catégorie, où qu'elle s'affiche sur le site.
+  // Manquaient ici les 4 catégories à page de rubrique dédiée (badge gris
+  // générique par défaut sur la page article — bug relevé le 2026-09-04).
   const CAT = {
-    'Bien-être':               { color: '#059669', bg: '#ECFDF5', enc: 'Bien-%C3%AAtre' },
-    'Relations':               { color: '#BE185D', bg: '#FDF2F8', enc: 'Relations' },
-    'Sommeil':                 { color: '#0369A1', bg: '#ECFEFF', enc: 'Sommeil' },
-    'Troubles Psy':            { color: '#7C3AED', bg: '#F5F3FF', enc: 'Troubles%20Psy' },
-    'Thérapies':               { color: '#6D28D9', bg: '#EDE9FE', enc: 'Th%C3%A9rapies' },
-    'Développement personnel': { color: '#15803D', bg: '#F0FDF4', enc: 'D%C3%A9veloppement%20personnel' },
-    'Sexo':                    { color: '#C2185B', bg: '#FCE4EC', enc: 'Sexo' },
+    'Bien-être':                        { color: '#059669', bg: '#ECFDF5', enc: 'Bien-%C3%AAtre' },
+    'Relations':                        { color: '#BE185D', bg: '#FDF2F8', enc: 'Relations' },
+    'Sommeil':                          { color: '#0369A1', bg: '#ECFEFF', enc: 'Sommeil' },
+    'Troubles Psy':                     { color: '#7C3AED', bg: '#F5F3FF', enc: 'Troubles%20Psy' },
+    'Thérapies':                        { color: '#6D28D9', bg: '#EDE9FE', enc: 'Th%C3%A9rapies' },
+    'Développement personnel':          { color: '#15803D', bg: '#F0FDF4', enc: 'D%C3%A9veloppement%20personnel' },
+    'Sexo':                             { color: '#C2185B', bg: '#FCE4EC', enc: 'Sexo' },
+    'Nos héros sur le divan':           { color: '#EA580C', bg: '#FFF7ED', enc: 'Nos%20h%C3%A9ros%20sur%20le%20divan' },
+    'Les monstres sur le divan':        { color: '#9B1C1C', bg: '#FFF5F5', enc: 'Les%20monstres%20sur%20le%20divan' },
+    'Société':                          { color: '#1E40AF', bg: '#EFF6FF', enc: 'Soci%C3%A9t%C3%A9' },
+    'Société & psychologie politique':  { color: '#1E40AF', bg: '#EFF6FF', enc: 'Soci%C3%A9t%C3%A9%20%26%20psychologie%20politique' },
+    'Travail':                          { color: '#1e293b', bg: '#e2e8f0', enc: 'Travail' },
+    'Émotions & identité':              { color: '#6a2a4a', bg: '#f5edf2', enc: '%C3%89motions%20%26%20identit%C3%A9' },
   };
   const RUBRIQUE_PAGES = {
     'Société':                          'societe.html',

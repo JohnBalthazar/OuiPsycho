@@ -10,54 +10,7 @@ const DIR   = path.join(__dirname, 'articles');
 const YEAR  = new Date().getFullYear();
 const TODAY = new Date().toISOString().split('T')[0];  // YYYY-MM-DD, pour filtrer les articles planifiés
 
-// ── Affiliation Amazon ───────────────────────────────────────────────────────
-const AMAZON_TAG  = 'ouipsycho-21';
-
-// ── Identité auteur & E-E-A-T ────────────────────────────────────────────────
-const AUTHOR_NAME      = 'John Balthazar';
-const AUTHOR_BIO_SHORT = 'Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l\'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d\'écriture.';
-const AUTHOR_PHOTO_ABS = `${BASE}/images/auteur.jpg`;  // URL absolue (JSON-LD, OG)
-const AUTHOR_PHOTO_REL = 'images/auteur.jpg';           // chemin relatif (base href="../../" sur les pages articles)
-const AUTHOR_PAGE_URL  = `${BASE}/a-propos.html`;
-// Livre de l'auteur — renseigner l'ASIN Amazon ; laisser vide pour masquer tous les liens
-const AUTHOR_BOOK_ASIN = 'B08NWTCT2G';
-const AUTHOR_BOOK_URL  = AUTHOR_BOOK_ASIN
-  ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}?tag=${AMAZON_TAG}`
-  : '';  // vide = aucun lien livre affiché nulle part
-const AUTHOR_BOOK_SAME_AS = AUTHOR_BOOK_ASIN
-  ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}`  // URL propre pour JSON-LD sameAs (sans tag)
-  : '';
-// Noms génériques à remplacer par AUTHOR_NAME
-const RÉDACTION_SET    = new Set(['La rédaction Oui Psycho!', 'La rédaction', 'Oui Psycho!', 'Rédaction Oui Psycho!']);
-
 const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
-
-// ── Balises autorisées dans j.content (convention rédactionnelle, non enforced) ─
-// Inline : p, h2, h3, ul, li, ol, strong, em, blockquote, a, br
-// Tableaux : table (class), thead, tbody, tr, th (scope), td, caption
-// Exception quiz : <iframe src="tests/…">…</iframe> + <script>…</script> en fin de content
-//
-// Post-traitement : chaque <table>…</table> est automatiquement enveloppé dans
-// <div class="table-wrap"> pour permettre le scroll horizontal sur mobile.
-// L'opération est idempotente : un tableau déjà wrappé n'est pas re-wrappé.
-function wrapTables(html) {
-  // 1. Retire les .table-wrap existants (idempotence entre re-générations)
-  let result = html.replace(
-    /<div class="table-wrap">\s*(<table[\s\S]*?<\/table>)\s*<\/div>/g,
-    '$1'
-  );
-  // 2. Enveloppe chaque <table>…</table> — hypothèse : pas de tables imbriquées
-  result = result.replace(
-    /(<table[\s\S]*?<\/table>)/g,
-    '<div class="table-wrap">$1</div>'
-  );
-  return result;
-}
-
-function fmtDate(d) {
-  const [y, m, day] = d.split('-');
-  return `${parseInt(day)} ${MONTHS[parseInt(m)]} ${y}`;
-}
 
 // Date de dernière modification effective : ignore date_modified si antérieure
 // (ou égale) à date — évite d'afficher/déclarer une "mise à jour" avant la
@@ -66,27 +19,6 @@ function fmtDate(d) {
 function effectiveModified(a) {
   return (a.date_modified && a.date_modified > a.date) ? a.date_modified : a.date;
 }
-
-const CAT = {
-  'Bien-être':               { color: '#059669', bg: '#ECFDF5', enc: 'Bien-%C3%AAtre' },
-  'Relations':               { color: '#BE185D', bg: '#FDF2F8', enc: 'Relations' },
-  'Sommeil':                 { color: '#0369A1', bg: '#ECFEFF', enc: 'Sommeil' },
-  'Troubles Psy':            { color: '#7C3AED', bg: '#F5F3FF', enc: 'Troubles%20Psy' },
-  'Thérapies':               { color: '#6D28D9', bg: '#EDE9FE', enc: 'Th%C3%A9rapies' },
-  'Développement personnel': { color: '#15803D', bg: '#F0FDF4', enc: 'D%C3%A9veloppement%20personnel' },
-  'Sexo':                    { color: '#C2185B', bg: '#FCE4EC', enc: 'Sexo' },
-};
-
-// Catégories qui ont leur propre page rubrique (pas de filtre homepage)
-const RUBRIQUE_PAGES = {
-  'Société':                          'societe.html',
-  'Société & psychologie politique':  'societe.html',
-  'Sexo':                             'sexo.html',
-  'Nos héros sur le divan':           'nos-heros-sur-le-divan.html',
-  'Les monstres sur le divan':        'les-monstres-sur-le-divan.html',
-};
-
-const NAV_CATS = ['Bien-être','Sommeil','Troubles Psy','Thérapies','Relations'];
 
 // Couleurs des cards statiques (renderCardStatic/renderFeaturedStatic) — déclaré
 // ici (plutôt que juste avant son usage plus bas) pour être disponible dès la
@@ -104,6 +36,8 @@ const CATS_CARD = {
   'Sexo':                            { color: '#C2185B', bg: '#FCE4EC' },
   'Société':                         { color: '#1E40AF', bg: '#EFF6FF' },
   'Société & psychologie politique': { color: '#1E40AF', bg: '#EFF6FF' },
+  'Travail':                         { color: '#1e293b', bg: '#e2e8f0' },
+  'Émotions & identité':             { color: '#6a2a4a', bg: '#f5edf2' },
 };
 
 const jsonFiles = fs.readdirSync(DIR).filter(f => f.endsWith('.json'));
