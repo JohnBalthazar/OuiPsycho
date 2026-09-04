@@ -1,0 +1,265 @@
+{
+  "_format": [
+    "tools.json — format de données des outils interactifs (quiz, comparatifs) du site.",
+    "Pas de schéma séparé : ce bloc _format documente la structure ; le fichier",
+    "doit rester du JSON strict (aucun schéma JS/JSONC n'est chargé pour le lire).",
+    "",
+    "Racine : { \"_format\": [...], \"outils\": [ {entrée}, {entrée}, ... ] }",
+    "",
+    "Chaque entrée de \"outils\" a exactement 5 groupes : identite, contenu,",
+    "restitution, tracabilite, maillage.",
+    "",
+    "── identite ────────────────────────────────────────────────────────────",
+    "  slug     string — identifiant unique de l'outil (nom de fichier tests/",
+    "           sans extension, ex. \"syndrome-imposteur-quiz\").",
+    "  titre    string — titre affiché tel quel (h1 de l'outil).",
+    "  famille  string — catégorie de provenance éditoriale/juridique des items.",
+    "           Valeur utilisée dans ce fichier : \"reperes-maison\" (items",
+    "           originaux inspirés d'un construit théorique, sans copie d'items",
+    "           d'une échelle existante). Autres valeurs envisageables pour de",
+    "           futures entrées, à titre d'exemple seulement — aucune n'est",
+    "           encore en usage : \"adaptation-echelle\" (inspiration assumée",
+    "           d'une échelle nommée, statut juridique à vérifier au cas par",
+    "           cas), \"echelle-domaine-public\" (reproduction fidèle d'une",
+    "           échelle confirmée libre d'usage, sourcée et attribuée),",
+    "           \"divertissement\" (association à un personnage/profil, aucune",
+    "           portée clinique).",
+    "  type     string — mécanique d'interaction. \"auto-evaluation\" (l'outil",
+    "           évalue l'état/le vécu du répondant, cas de cette entrée),",
+    "           \"orientation\" (recommande une option parmi plusieurs, ex. un",
+    "           comparatif), \"connaissance\" (teste une compréhension, pas un",
+    "           vécu personnel), \"divertissement\" (association ludique).",
+    "",
+    "── contenu ─────────────────────────────────────────────────────────────",
+    "  items          array — une entrée par question, dans l'ordre d'origine :",
+    "                 { id, texte, reponses: [ { texte, palier }, ... ] }.",
+    "                 texte et reponses[].texte sont repris tels quels de la",
+    "                 source ; id est une clé de position (q1, q2, ...) absente",
+    "                 de la source, inventée pour l'adressage.",
+    "  echelleReponse object — forme des réponses : { genre, nbOptions, nature }.",
+    "                 nature distingue notamment \"libelles-specifiques-par-",
+    "                 question\" (chaque question a ses propres intitulés,",
+    "                 cas de cette entrée) de \"libelles-generiques-partages\"",
+    "                 (mêmes intitulés réutilisés à chaque question, ex. une",
+    "                 échelle de fréquence type Likert) — cette dernière forme",
+    "                 est structurellement plus proche des échelles cliniques",
+    "                 usuelles et mérite un examen de provenance renforcé.",
+    "  bareme OU      contenu contient bareme (barème chiffré : points par",
+    "  paliers        réponse, seuils numériques) SI ET SEULEMENT SI un score",
+    "                 chiffré est légitime pour cette entrée ; il contient",
+    "                 paliers (résultat qualitatif, sans aucune valeur",
+    "                 numérique dérivée des réponses) sinon. Les deux clés ne",
+    "                 coexistent jamais dans la même entrée.",
+    "                 RÈGLE DE FAMILLE : pour famille = \"reperes-maison\", la",
+    "                 clé bareme est structurellement absente (pas même à",
+    "                 null) — la forme documentée pour cette famille ne",
+    "                 comporte aucun emplacement où écrire un nombre. C'est",
+    "                 la famille elle-même, pas une validation externe, qui",
+    "                 rend le score chiffré impossible : il n'y a nulle part",
+    "                 où le poser.",
+    "                 paliers = { liste: [idPalier, ...] (ordre croissant de",
+    "                 sévérité/intensité — l'ordre dans le tableau fait foi,",
+    "                 aucun champ numérique de rang), calcul (description en",
+    "                 texte libre de la règle d'agrégation), regleEgalite",
+    "                 (idem pour les égalités) }.",
+    "",
+    "── restitution ─────────────────────────────────────────────────────────",
+    "  paliers  array — une entrée par palier de contenu.paliers.liste,",
+    "           identifiée par id : { id, emoji, label, couleur, texte }.",
+    "           texte est le texte d'interprétation affiché au palier atteint",
+    "           (HTML autorisé : p, strong, em — mêmes conventions que",
+    "           articles/*.json). Repris tel quel de la source pour cette",
+    "           entrée ; à réécrire au cas par cas si une échelle nommée y",
+    "           est mentionnée (voir signalement en fin de fichier/rapport).",
+    "",
+    "── tracabilite ─────────────────────────────────────────────────────────",
+    "  sources       array d'objets { authors, year, title, journal } — pour",
+    "                famille \"reperes-maison\", documente le CONSTRUIT théorique",
+    "                abordé par l'outil (littérature générale sur le sujet),",
+    "                jamais une échelle de mesure nommée ni son auteur.",
+    "  version       string — version de cette entrée (contenu + mécanique),",
+    "                indépendante des révisions de l'article auquel l'outil",
+    "                est rattaché.",
+    "  dateRevision  string (YYYY-MM-DD) — dernière relecture éditoriale de",
+    "                cette entrée.",
+    "  revoirAvant   string (YYYY-MM-DD) — échéance au-delà de laquelle",
+    "                l'entrée doit être réexaminée (contenu retiré, périmé,",
+    "                ou simplement jamais revu depuis sa création).",
+    "",
+    "── maillage ────────────────────────────────────────────────────────────",
+    "  categories      array<string> — catégories du site concernées (mêmes",
+    "                  valeurs que articles/*.json:category).",
+    "  motsCles        array<string> — mots-clés de rattachement thématique.",
+    "  minOccurrences  number — nombre minimum d'articles du site qui doivent",
+    "                  lier cet outil pour qu'il reste pertinent à maintenir.",
+    "  maxParArticle   number — nombre maximum d'embarquements de cet outil",
+    "                  au sein d'un même article (évite la sur-répétition).",
+    "  formats         array<string> — formats techniques d'intégration pris",
+    "                  en charge (ex. \"iframe\", seul format existant à date).",
+    "  ancres          array<string> — intitulés de lien autorisés pour",
+    "                  pointer vers cet outil depuis le corps d'un article",
+    "                  (cohérence éditoriale, pas de champ libre au cas par",
+    "                  cas)."
+  ],
+  "outils": [
+    {
+      "identite": {
+        "slug": "syndrome-imposteur-quiz",
+        "titre": "Quel est votre niveau de syndrome de l'imposteur ?",
+        "famille": "reperes-maison",
+        "type": "auto-evaluation"
+      },
+      "contenu": {
+        "items": [
+          {
+            "id": "q1",
+            "texte": "Quand vous réussissez un projet important, votre première pensée est plutôt…",
+            "reponses": [
+              { "texte": "« J'ai bien travaillé, c'est mérité. »", "palier": "sain" },
+              { "texte": "« Ça s'est bien passé, tant mieux. »", "palier": "modere" },
+              { "texte": "« J'ai eu de la chance sur ce coup-là. »", "palier": "marque" },
+              { "texte": "« Je ne sais pas comment j'ai réussi à donner le change. »", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q2",
+            "texte": "Face à un compliment sur votre travail, vous…",
+            "reponses": [
+              { "texte": "L'accueillez sincèrement, avec plaisir.", "palier": "sain" },
+              { "texte": "Remerciez poliment, sans trop y croire.", "palier": "modere" },
+              { "texte": "Minimisez aussitôt : « oh, ce n'est rien ».", "palier": "marque" },
+              { "texte": "Êtes mal à l'aise et cherchez à changer de sujet.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q3",
+            "texte": "Avant une nouvelle responsabilité, vous ressentez…",
+            "reponses": [
+              { "texte": "De la confiance, mêlée d'excitation.", "palier": "sain" },
+              { "texte": "Un trac normal, qui passe vite.", "palier": "modere" },
+              { "texte": "Une anxiété assez disproportionnée par rapport à l'enjeu réel.", "palier": "marque" },
+              { "texte": "La peur d'être « découvert » comme incompétent.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q4",
+            "texte": "Comparé à des collègues de même niveau, vous avez tendance à penser…",
+            "reponses": [
+              { "texte": "Que vous êtes à votre place, comme eux.", "palier": "sain" },
+              { "texte": "Que vous doutez un peu, parfois.", "palier": "modere" },
+              { "texte": "Qu'ils sont souvent plus compétents que vous.", "palier": "marque" },
+              { "texte": "Qu'ils le sont tous, sans exception, plus que vous.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q5",
+            "texte": "Face à une erreur mineure dans votre travail, vous…",
+            "reponses": [
+              { "texte": "La corrigez et passez à autre chose.", "palier": "sain" },
+              { "texte": "Y repensez un peu dans la journée.", "palier": "modere" },
+              { "texte": "La ressassez : elle confirme vos doutes.", "palier": "marque" },
+              { "texte": "Y voyez la preuve que vous n'êtes pas à votre place.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q6",
+            "texte": "Concernant le fait d'en « faire plus » que nécessaire…",
+            "reponses": [
+              { "texte": "Vous travaillez ce qu'il faut, ni plus ni moins.", "palier": "sain" },
+              { "texte": "Il vous arrive d'en faire un peu plus que demandé.", "palier": "modere" },
+              { "texte": "Vous en faites souvent plus, pour « compenser ».", "palier": "marque" },
+              { "texte": "Vous en faites systématiquement plus, par peur d'être jugé insuffisant.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q7",
+            "texte": "Demander de l'aide à un collègue ou un supérieur, pour vous, c'est…",
+            "reponses": [
+              { "texte": "Naturel, ça arrive régulièrement.", "palier": "sain" },
+              { "texte": "Possible, mais avec un peu d'hésitation.", "palier": "modere" },
+              { "texte": "Rare : vous craignez que ça révèle vos lacunes.", "palier": "marque" },
+              { "texte": "Quasiment jamais : ce serait un aveu de faiblesse.", "palier": "severe" }
+            ]
+          },
+          {
+            "id": "q8",
+            "texte": "Dans l'ensemble, votre légitimité à votre poste vous semble…",
+            "reponses": [
+              { "texte": "Évidente, vous n'y pensez pas vraiment.", "palier": "sain" },
+              { "texte": "Généralement claire, avec des doutes ponctuels.", "palier": "modere" },
+              { "texte": "Régulièrement questionnée, intérieurement.", "palier": "marque" },
+              { "texte": "Un sujet de doute permanent, malgré vos résultats.", "palier": "severe" }
+            ]
+          }
+        ],
+        "echelleReponse": {
+          "genre": "choix-unique",
+          "nbOptions": 4,
+          "nature": "libelles-specifiques-par-question"
+        },
+        "paliers": {
+          "liste": ["sain", "modere", "marque", "severe"],
+          "calcul": "palier choisi le plus souvent parmi les 8 réponses (mode)",
+          "regleEgalite": "en cas d'égalité entre plusieurs paliers, celui qui apparaît le plus loin dans contenu.paliers.liste l'emporte (le plus sévère)"
+        }
+      },
+      "restitution": {
+        "paliers": [
+          {
+            "id": "sain",
+            "emoji": "🌿",
+            "label": "Un rapport sain à vos réussites",
+            "couleur": "#2e7d5b",
+            "texte": "<p>Vos réponses montrent que vous parvenez, la plupart du temps, à vous attribuer sincèrement vos réussites. Le doute existe — c'est humain — mais il ne prend pas le dessus sur une évaluation réaliste de vos compétences.</p><p>Continuez à documenter vos réussites, même modestement : ce réflexe simple aide à consolider durablement une confiance déjà bien installée.</p>"
+          },
+          {
+            "id": "modere",
+            "emoji": "🌤️",
+            "label": "Un syndrome de l'imposteur modéré",
+            "couleur": "#c58a1a",
+            "texte": "<p>Vous doutez de vous plus souvent que la réalité ne le justifierait, en particulier face à de nouvelles responsabilités ou à des retours positifs. Ce n'est pas rare, et cela reste gérable avec quelques ajustements simples.</p><p>Tenir un journal de vos réussites concrètes, et accepter les compliments sans les minimiser systématiquement, sont deux leviers accessibles pour commencer à desserrer cet étau.</p>"
+          },
+          {
+            "id": "marque",
+            "emoji": "⚠️",
+            "label": "Un syndrome de l'imposteur marqué",
+            "couleur": "#d2691e",
+            "texte": "<p>Le doute occupe une place importante dans votre rapport au travail : peur d'être démasqué, comparaison permanente, surtravail compensatoire. Cela peut, à la longue, alimenter une fatigue et une anxiété disproportionnées par rapport à vos compétences réelles.</p><p>En parler ouvertement à une personne de confiance, et envisager un accompagnement psychologique si ce doute pèse sur votre quotidien, sont des pistes à prendre au sérieux plutôt qu'à repousser.</p>"
+          },
+          {
+            "id": "severe",
+            "emoji": "🛟",
+            "label": "Un syndrome de l'imposteur sévère",
+            "couleur": "#b23a48",
+            "texte": "<p>Vos réponses décrivent un doute permanent sur votre propre légitimité, au point d'influencer fortement votre façon de travailler et de vous percevoir. Ce vécu, bien documenté par la recherche depuis 1978, n'a rien d'un caprice ni d'une fragilité personnelle.</p><p>Un accompagnement par un professionnel formé aux approches cognitivo-comportementales peut vraiment aider à déconstruire ces schémas de pensée installés. Vous méritez de vous accorder ce soutien.</p>"
+          }
+        ]
+      },
+      "tracabilite": {
+        "sources": [
+          {
+            "authors": "Bravata D.M., Watts S.A., Keefer A.L. et al.",
+            "year": "2020",
+            "title": "Prevalence, Predictors, and Treatment of Impostor Syndrome: a Systematic Review",
+            "journal": "Journal of General Internal Medicine"
+          }
+        ],
+        "version": "1.0",
+        "dateRevision": "2026-09-04",
+        "revoirAvant": "2027-01-01"
+      },
+      "maillage": {
+        "categories": ["Travail"],
+        "motsCles": ["syndrome-imposteur", "confiance-en-soi", "souffrance-au-travail"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["iframe"],
+        "ancres": [
+          "syndrome de l'imposteur",
+          "test du syndrome de l'imposteur",
+          "évaluer votre syndrome de l'imposteur"
+        ]
+      }
+    }
+  ]
+}
