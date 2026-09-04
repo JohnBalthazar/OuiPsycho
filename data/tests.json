@@ -108,7 +108,7 @@
     "testUrl": "tests/meres-toxiques-quiz.html",
     "articleUrl": "articles/meres-toxiques-comprendre-pour-se-reconstruire/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wt7hsl7s4pkdlw1dojpd",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
