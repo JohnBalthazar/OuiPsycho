@@ -997,15 +997,6 @@ for (const outil of TOOLS) {
   const toolDataJson = escLdTool(JSON.stringify(outil));
   const metaDesc = `${identite.titre} — un outil de réflexion en ${contenu.items.length} questions, résultat immédiat, aucune donnée collectée.`;
 
-  const resourcesHtml = identite.axe === 'severite' ? `
-        <div class="tool-resources" role="note">
-          ⚕️ <strong>Si ce sujet touche quelque chose de plus lourd pour vous :</strong>
-          <ul>
-            <li><strong><a href="tel:3114">3114</a></strong> — numéro national de prévention du suicide, gratuit, 24h/24.</li>
-            <li><strong><a href="tel:3919">3919</a></strong> — violences femmes info, gratuit, 24h/24.</li>
-          </ul>
-        </div>` : '';
-
   const toolHtml = `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -1093,15 +1084,9 @@ for (const outil of TOOLS) {
           <a href="tests.html">Tests</a> <span>›</span> <span aria-current="page">${escCard(identite.titre)}</span>
         </nav>
         <h1>${escCard(identite.titre)}</h1>
-        <p class="tool-chapeau__lead">Quelques minutes pour faire le point. Vos réponses ne sont ni enregistrées, ni envoyées : tout se passe dans votre navigateur.</p>
+        <p class="tool-preambule">Outil de réflexion, pas un diagnostic : vos réponses ne sont ni enregistrées, ni envoyées.</p>
       </div>
 
-      <aside class="article-disclaimer" role="note">
-        ⚕️ <em>Cet outil est fourni à titre <strong>informatif uniquement</strong> et ne remplace pas
-        l'avis d'un professionnel de santé. En cas de détresse, appelez le
-        <strong><a href="tel:3114">3114</a></strong> (24h/24, gratuit).</em>
-      </aside>
-${resourcesHtml}
       <div class="tool-mount" id="tool-mount"></div>
 
       <div class="tool-outcome">

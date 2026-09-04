@@ -43,6 +43,11 @@
     "           paliers[].couleur ne doivent pas suggérer de gradation de",
     "           gravité (pas de rampe verte→orange→rouge) : les 4 paliers",
     "           doivent avoir un poids visuel comparable entre eux.",
+    "           Nota : restitution.ressources (ressources pratiques au",
+    "           résultat) est un champ à part, pas automatiquement lié à axe",
+    "           — un outil \"severite\" peut légitimement avoir ressources: []",
+    "           si le sujet ne justifie aucun numéro spécifique (cas de cette",
+    "           entrée). Voir restitution.ressources plus bas.",
     "",
     "── contenu ─────────────────────────────────────────────────────────────",
     "  items          array — une entrée par question, dans l'ordre d'origine :",
@@ -55,6 +60,18 @@
     "                 le maillage n'a pas été fait ; consommé par",
     "                 restitution.complement pour relier chaque item cité à sa",
     "                 section d'origine.",
+    "  ordreReponses  string — \"aleatoire\" ou \"fixe\". Décide si l'ordre des 4",
+    "                 réponses de CHAQUE item est brassé à chaque chargement de",
+    "                 page (\"aleatoire\") ou reste celui de la source (\"fixe\").",
+    "                 Ne concerne jamais l'ordre des items eux-mêmes, qui ne",
+    "                 bouge jamais.",
+    "                 RÈGLE DE FAMILLE : \"reperes-maison\" DOIT valoir",
+    "                 \"aleatoire\" (rien dans des items maison ne justifie un",
+    "                 ordre figé). Une famille adossée à une échelle publiée ou",
+    "                 sous licence (\"adaptation-echelle\", \"echelle-domaine-",
+    "                 public\") DOIT valoir \"fixe\" : sur un instrument validé,",
+    "                 l'ordre des réponses en fait partie et ne doit jamais",
+    "                 bouger.",
     "  echelleReponse object — forme des réponses : { genre, nbOptions, nature }.",
     "                 nature distingue notamment \"libelles-specifiques-par-",
     "                 question\" (chaque question a ses propres intitulés,",
@@ -137,6 +154,18 @@
     "              principal (déjà affiché juste avant par restitution.paliers) :",
     "              ce sont des phrases de transition, pas des paragraphes",
     "              autonomes.",
+    "  ressources  array — ressources pratiques (numéro, structure), affichées",
+    "              APRÈS le résultat, jamais avant. Chaque entrée :",
+    "              { contact, label }. Peut être [] : aucun outil n'est",
+    "              obligé d'en afficher — cas de cette entrée (le sujet ne",
+    "              justifie aucun numéro d'urgence spécifique).",
+    "              NE JAMAIS y inclure le 3114 : il figure déjà dans le pied",
+    "              de page, présent sur toute page du site, et le répéter ici",
+    "              violerait la règle \"le 3114 n'apparaît qu'une fois par",
+    "              page\". N'y placer que des ressources supplémentaires et",
+    "              spécifiques au sujet précis de l'outil (ex. une ligne dédiée",
+    "              aux violences pour un outil sur l'emprise), jamais la ligne",
+    "              générique déjà couverte par le pied de page.",
     "",
     "── tracabilite ─────────────────────────────────────────────────────────",
     "  sources       array d'objets { authors, year, title, journal } — pour",
@@ -272,6 +301,7 @@
             "renvoiArticle": null
           }
         ],
+        "ordreReponses": "aleatoire",
         "echelleReponse": {
           "genre": "choix-unique",
           "nbOptions": 4,
@@ -322,7 +352,8 @@
             "deux": "Deux points ressortent néanmoins nettement : {{items}}.",
             "plusieurs": "{{nombre}} points ressortent néanmoins nettement : {{items}}."
           }
-        }
+        },
+        "ressources": []
       },
       "tracabilite": {
         "sources": [],

@@ -34,6 +34,16 @@
     if (typeof window.notifyResize === 'function') window.notifyResize();
   }
 
+  // Fisher-Yates — copie mélangée, ne mute jamais le tableau d'origine.
+  function melange(tableau) {
+    var copie = tableau.slice();
+    for (var i = copie.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = copie[i]; copie[i] = copie[j]; copie[j] = tmp;
+    }
+    return copie;
+  }
+
   function trackComplete(slug) {
     if (typeof gtag === 'function') {
       gtag('event', 'tool_complete', { tool_slug: slug });
@@ -41,7 +51,16 @@
   }
 
   function render(mountEl, outil) {
-    var items = outil.contenu.items;
+    // Ordre des réponses : brassé à chaque chargement pour la famille
+    // reperes-maison (contenu.ordreReponses === "aleatoire"), figé sinon —
+    // l'ordre des items eux-mêmes n'est jamais concerné, seulement celui des
+    // réponses à l'intérieur de chaque item. Copie locale : outil.contenu.items
+    // (la donnée source embarquée dans la page) n'est jamais mutée.
+    var brasser = outil.contenu.ordreReponses === 'aleatoire';
+    var items = outil.contenu.items.map(function (item) {
+      if (!brasser) return item;
+      return { id: item.id, texte: item.texte, renvoiArticle: item.renvoiArticle, reponses: melange(item.reponses) };
+    });
     var paliersListe = outil.contenu.paliers.liste;
     var restitutionParPalier = {};
     outil.restitution.paliers.forEach(function (p) { restitutionParPalier[p.id] = p; });
@@ -168,6 +187,18 @@
         if (complementTexte) {
           wrap.appendChild(el('div', 'tool-complement', complementTexte));
         }
+      }
+
+      // Ressources : uniquement après le résultat, jamais avant ; rien si le
+      // champ est vide (cette entrée) ou absent.
+      var ressources = outil.restitution.ressources;
+      if (ressources && ressources.length) {
+        var resBox = el('div', 'tool-resources');
+        var items_ = ressources.map(function (r) {
+          return '<li><strong>' + r.contact + '</strong> — ' + r.label + '</li>';
+        }).join('');
+        resBox.innerHTML = '<p>Si ce sujet touche quelque chose de plus lourd pour vous :</p><ul>' + items_ + '</ul>';
+        wrap.appendChild(resBox);
       }
 
       var restart = el('button', 'tool-btn tool-btn--ghost', '↺ Recommencer');

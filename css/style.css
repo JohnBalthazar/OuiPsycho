@@ -2609,7 +2609,7 @@ p:last-child { margin-bottom: 0; }
 .tool-page { max-width: 640px; margin: 0 auto; }
 
 .tool-chapeau { margin-bottom: var(--sp-6); }
-.tool-chapeau__lead { color: var(--color-text-muted); margin-top: var(--sp-2); }
+.tool-preambule { color: var(--color-text-muted); font-size: var(--fs-sm); margin-top: var(--sp-2); }
 
 /* Bloc ressources — 3114/3919, axe "severite" uniquement, statique (jamais
    généré par tool-engine.js), visible dès le chargement de la page, pas
