@@ -1,5 +1,33 @@
 [
   {
+    "id": "pourquoi-accepte-t-on-l-inacceptable",
+    "title": "Pourquoi accepte-t-on l'inacceptable ?",
+    "excerpt": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux cents fois. Voici la mécanique du glissement — et comment repérer le sien.",
+    "date": "2026-09-05",
+    "date_modified": "2026-09-05",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j1fwscaqkapjpkq7n6cx",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "emprise",
+      "dissonance-cognitive",
+      "violences-conjugales",
+      "peur-de-l-abandon",
+      "estime-de-soi"
+    ],
+    "metaDescription": "Gradualisme, dissonance, coûts irrécupérables, sidération : les mécanismes qui font tolérer l'intolérable, et comment repérer son propre glissement.",
+    "articles_lies": [
+      "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
+      "dans-la-tete-d-un-pervers-narcissique"
+    ],
+    "status": "published"
+  },
+  {
     "id": "gaslighting-manipulation",
     "title": "Gaslighting : quand on vous fait douter de votre propre mémoire",
     "excerpt": "« Tu inventes », « ça ne s'est jamais passé comme ça », « tu es trop sensible » : le gaslighting ne crie pas, il réécrit. À force, on finit par ne plus faire confiance à sa propre mémoire — c'est précisément le but.",

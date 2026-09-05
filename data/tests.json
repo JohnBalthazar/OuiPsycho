@@ -1,5 +1,19 @@
 [
   {
+    "id": "pourquoi-accepte-t-on-l-inacceptable-quiz",
+    "title": "Pourquoi accepte-t-on l'inacceptable ?",
+    "desc": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux…",
+    "emoji": "💬",
+    "color": "#b5546a",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/pourquoi-accepte-t-on-l-inacceptable-quiz.html",
+    "articleUrl": "articles/pourquoi-accepte-t-on-l-inacceptable/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j1fwscaqkapjpkq7n6cx",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "freres-soeurs-toxiques-quiz",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
     "desc": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné…",
