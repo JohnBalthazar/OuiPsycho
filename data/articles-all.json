@@ -3949,12 +3949,12 @@
   {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "La lumière bleue retarde bien la sécrétion de mélatonine — ce n'est pas un mythe marketing. Mais son ampleur réelle, et la part qui revient au contenu plutôt qu'à la lumière elle-même, méritent d'être précisées.",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
     "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hdxrvpzva8rvndr2drvo",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3967,7 +3967,7 @@
       "ecrans",
       "melatonine"
     ],
-    "metaDescription": "",
+    "metaDescription": "Lumière bleue et sommeil : ce que montre l'étude Harvard de référence, l'ampleur réelle de l'effet, et ce qui compte vraiment pour bien dormir.",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "hygiene-de-sommeil",
