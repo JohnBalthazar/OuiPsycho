@@ -4146,12 +4146,12 @@
   {
     "id": "harcelement-moral-travail",
     "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le Code du travail définit précisément le harcèlement moral, et prévoit des sanctions pénales pour son auteur. Encore faut-il savoir où se situe la frontière avec un simple conflit — et quelles démarches entreprendre pour se défendre.",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Travail",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dh6ab6vkdnsrfxfvf1yx",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4164,7 +4164,7 @@
       "droit-du-travail",
       "souffrance-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Harcèlement moral au travail : définition légale (article L1152-1), sanctions pénales, et démarches concrètes pour se protéger et se faire aider.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
