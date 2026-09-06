@@ -4088,12 +4088,12 @@
   {
     "id": "violences-psychologiques-couple",
     "title": "Violences psychologiques dans le couple : ce que dit la loi française",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Depuis 2010, la loi française reconnaît explicitement les violences psychologiques comme un délit à part entière, sans qu'aucune trace physique ne soit nécessaire pour les caractériser. Voici ce qu'elles recouvrent, et comment se faire aider.",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
     "category": "Relations",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hzkeynaqbsyl2u0jvpvs",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4106,7 +4106,7 @@
       "droit",
       "emprise"
     ],
-    "metaDescription": "",
+    "metaDescription": "Violences psychologiques dans le couple : définition légale (article 222-14-3), sanctions encourues, et démarches pour se protéger et se faire aider.",
     "articles_lies": [
       "punition-par-le-silence",
       "survivre-relation-toxique",
