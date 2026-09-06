@@ -4117,12 +4117,12 @@
   {
     "id": "cauchemars-recurrents",
     "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Toujours le même scénario, ou des variations sur un même thème angoissant. Les cauchemars récurrents touchent 4 à 8% de la population — et une thérapie simple, fondée sur la réécriture du scénario en journée, permet souvent de les réduire nettement.",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Sommeil",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rtt1bypxwebhfvrwj3wn",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4135,7 +4135,7 @@
       "sommeil-paradoxal",
       "therapie-imagerie-mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Cauchemars récurrents : prévalence, mécanismes, et la thérapie par répétition d'imagerie mentale (RIM), traitement de référence validé scientifiquement.",
     "articles_lies": [
       "paralysie-du-sommeil",
       "bien-dormir-guide-complet",
