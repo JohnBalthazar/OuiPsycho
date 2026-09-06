@@ -4005,12 +4005,12 @@
   {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
-    "type": "article",
-    "excerpt": "Contrairement à l'idée reçue, l'agoraphobie n'est pas la peur des grands espaces ou de la foule en tant que telle. C'est la peur de ne pas pouvoir s'échapper, ou de ne trouver aucun secours, si l'angoisse devait survenir.",
+    "excerpt": "",
     "date": "2026-09-23",
     "date_modified": "2026-09-23",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/m958xckkowkjdr0skdbe",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4023,7 +4023,7 @@
       "phobies",
       "troubles-anxieux"
     ],
-    "metaDescription": "Agoraphobie : définition réelle (DSM-5), différence avec la peur de la foule, symptômes et traitement par exposition progressive.",
+    "metaDescription": "",
     "articles_lies": [
       "anxiete-sociale-phobie-sociale",
       "anxiete-de-sante-hypocondrie",
@@ -4088,12 +4088,12 @@
   {
     "id": "violences-psychologiques-couple",
     "title": "Violences psychologiques dans le couple : ce que dit la loi française",
-    "type": "article",
-    "excerpt": "Depuis 2010, la loi française reconnaît explicitement les violences psychologiques comme un délit à part entière, sans qu'aucune trace physique ne soit nécessaire pour les caractériser. Voici ce qu'elles recouvrent, et comment se faire aider.",
+    "excerpt": "",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hzkeynaqbsyl2u0jvpvs",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4106,7 +4106,7 @@
       "droit",
       "emprise"
     ],
-    "metaDescription": "Violences psychologiques dans le couple : définition légale (article 222-14-3), sanctions encourues, et démarches pour se protéger et se faire aider.",
+    "metaDescription": "",
     "articles_lies": [
       "punition-par-le-silence",
       "survivre-relation-toxique",
@@ -4117,12 +4117,12 @@
   {
     "id": "cauchemars-recurrents",
     "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
-    "type": "article",
-    "excerpt": "Toujours le même scénario, ou des variations sur un même thème angoissant. Les cauchemars récurrents touchent 4 à 8% de la population — et une thérapie simple, fondée sur la réécriture du scénario en journée, permet souvent de les réduire nettement.",
+    "excerpt": "",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rtt1bypxwebhfvrwj3wn",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4135,7 +4135,7 @@
       "sommeil-paradoxal",
       "therapie-imagerie-mentale"
     ],
-    "metaDescription": "Cauchemars récurrents : prévalence, mécanismes, et la thérapie par répétition d'imagerie mentale (RIM), traitement de référence validé scientifiquement.",
+    "metaDescription": "",
     "articles_lies": [
       "paralysie-du-sommeil",
       "bien-dormir-guide-complet",
@@ -4146,12 +4146,12 @@
   {
     "id": "harcelement-moral-travail",
     "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
-    "type": "article",
-    "excerpt": "Le Code du travail définit précisément le harcèlement moral, et prévoit des sanctions pénales pour son auteur. Encore faut-il savoir où se situe la frontière avec un simple conflit — et quelles démarches entreprendre pour se défendre.",
+    "excerpt": "",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Travail",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dh6ab6vkdnsrfxfvf1yx",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4164,7 +4164,7 @@
       "droit-du-travail",
       "souffrance-au-travail"
     ],
-    "metaDescription": "Harcèlement moral au travail : définition légale (article L1152-1), sanctions pénales, et démarches concrètes pour se protéger et se faire aider.",
+    "metaDescription": "",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
@@ -4175,12 +4175,12 @@
   {
     "id": "anxiete-de-sante-hypocondrie",
     "title": "Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien - je vous l'avais bien dit !",
-    "type": "article",
-    "excerpt": "Guetter le moindre symptôme, enchaîner les recherches en ligne, consulter puis douter du diagnostic rassurant : l'anxiété liée à la santé est un vrai trouble, pas un caprice d'« hypocondriaque » — un mot qui, souvent, ne fait qu'ajouter de la honte.",
+    "excerpt": "",
     "date": "2026-09-20",
     "date_modified": "2026-09-20",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n5oqelcua0d23vk2gbsk",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4193,7 +4193,7 @@
       "hypocondrie",
       "troubles-anxieux"
     ],
-    "metaDescription": "Anxiété de santé (hypocondrie) : symptômes, mécanismes et traitements validés. Pourquoi ce trouble mérite d'être pris au sérieux, sans jugement.",
+    "metaDescription": "",
     "articles_lies": [
       "agoraphobie-comprendre",
       "toc-ou-anxiete-difference",

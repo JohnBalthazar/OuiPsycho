@@ -2619,6 +2619,27 @@ function updateRelatedBadges() {
 
 function getRelatedArticles() { return [...selectedRelated]; }
 
+// Champs dérivés de l'index admin (data/articles-all.json), calculés avec
+// exactement la même règle que _gen_static.js : excerpt/metaDescription
+// restent masqués (chaîne vide) tant que l'article n'est pas public
+// (draft, ou scheduled avec une date future), pour éviter que ce fichier
+// admin ne fasse fuiter du contenu éditorial non publié. hasImage est
+// dérivé de image. Utilisé par les 3 chemins d'écriture de cet index
+// (saveArticle, pushAllToGitHub, publication après import) — sans ce calcul
+// partagé, chacun risque de diverger silencieusement du générateur
+// (incident du 2026-09-06 : deux de ces chemins écrivaient excerpt/
+// metaDescription en clair et omettaient hasImage).
+function computeAdminIndexFields({ excerpt, metaDescription, image, status, date }) {
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isPublic = (status || 'published') === 'published' ||
+                   (status === 'scheduled' && date <= todayStr);
+  return {
+    excerpt: isPublic ? (excerpt || '') : '',
+    metaDescription: isPublic ? (metaDescription || '') : '',
+    hasImage: !!(image && image.trim()),
+  };
+}
+
 async function saveArticle() {
   // Bloquer si un upload image est en cours
   if (isUploading) {
@@ -2664,7 +2685,8 @@ async function saveArticle() {
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
   const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(cluster && etape && { cluster, etape }), articles_lies: articlesLies, status };
-  const summaryData = { id, title, type, excerpt, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, articles_lies: articlesLies, status };
+  const adminFields = computeAdminIndexFields({ excerpt, metaDescription: metaDesc, image, status, date });
+  const summaryData = { id, title, type, excerpt: adminFields.excerpt, date, date_modified, category, image, hasImage: adminFields.hasImage, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: adminFields.metaDescription, articles_lies: articlesLies, status };
 
   const btn = document.getElementById('save-btn');
   btn.innerHTML = '<div class="spinner"></div> Publication…';
@@ -2944,7 +2966,13 @@ async function pushAllToGitHub() {
 
   // 2. Push l'index fusionné avec le remote (jamais d'écrasement)
   // strip content/keypoints pour l'index ; strip hasImage pour le fichier public
-  const indexData = articles.map(({ content: _c, keypoints: _k, ...summary }) => summary);
+  // Recalcule excerpt/metaDescription/hasImage à partir du statut/date de CHAQUE
+  // article (pas juste celui édité dans cette session) : un push global doit
+  // rester aussi strict que _gen_static.js sur ce qui peut fuiter.
+  const indexData = articles.map(({ content: _c, keypoints: _k, ...summary }) => ({
+    ...summary,
+    ...computeAdminIndexFields(summary)
+  }));
   try {
     addLog('→ Fusion avec le remote…');
     const mergedIndex = await mergeIndexWithRemote(indexData);
@@ -3043,7 +3071,8 @@ async function publishImportedArticle() {
   if (btn) { btn.disabled = true; btn.innerHTML = '<div class="spinner" style="display:inline-block;width:14px;height:14px;border-width:2px;vertical-align:middle;margin-right:6px"></div> Publication…'; }
 
   // Stocker le résumé dans l'index local (sans content ni quiz HTML)
-  const { content, keypoints, quiz, ...summary } = data;
+  const { content, keypoints, quiz, ...summaryRaw } = data;
+  const summary = { ...summaryRaw, ...computeAdminIndexFields(data) };
   const idx = articles.findIndex(a => a.id === data.id);
   if (idx > -1) articles[idx] = summary; else articles.unshift(summary);
   localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
