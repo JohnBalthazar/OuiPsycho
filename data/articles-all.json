@@ -3920,12 +3920,12 @@
   {
     "id": "arret-travail-burn-out",
     "title": "Arrêt de travail pour burn-out : le parcours réel en France",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Consulter, oser le dire, être arrêté : la procédure d'arrêt de travail pour épuisement professionnel reste mal connue, alors qu'elle concerne chaque année des dizaines de milliers de salariés. Voici comment elle se déroule réellement.",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
     "category": "Travail",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lrdkshyp601iwhrjgldw",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3938,7 +3938,7 @@
       "arret-de-travail",
       "souffrance-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Arrêt de travail pour burn-out : procédure auprès du médecin traitant, démarches employeur, durée moyenne et droits du salarié en France.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "burnout-epuisement-professionnel",
@@ -3949,12 +3949,12 @@
   {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "La lumière bleue retarde bien la sécrétion de mélatonine — ce n'est pas un mythe marketing. Mais son ampleur réelle, et la part qui revient au contenu plutôt qu'à la lumière elle-même, méritent d'être précisées.",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hdxrvpzva8rvndr2drvo",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -3967,7 +3967,7 @@
       "ecrans",
       "melatonine"
     ],
-    "metaDescription": "",
+    "metaDescription": "Lumière bleue et sommeil : ce que montre l'étude Harvard de référence, l'ampleur réelle de l'effet, et ce qui compte vraiment pour bien dormir.",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "hygiene-de-sommeil",
@@ -4005,12 +4005,12 @@
   {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Contrairement à l'idée reçue, l'agoraphobie n'est pas la peur des grands espaces ou de la foule en tant que telle. C'est la peur de ne pas pouvoir s'échapper, ou de ne trouver aucun secours, si l'angoisse devait survenir.",
     "date": "2026-09-23",
     "date_modified": "2026-09-23",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/m958xckkowkjdr0skdbe",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4023,7 +4023,7 @@
       "phobies",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Agoraphobie : définition réelle (DSM-5), différence avec la peur de la foule, symptômes et traitement par exposition progressive.",
     "articles_lies": [
       "anxiete-sociale-phobie-sociale",
       "anxiete-de-sante-hypocondrie",
@@ -4088,12 +4088,12 @@
   {
     "id": "violences-psychologiques-couple",
     "title": "Violences psychologiques dans le couple : ce que dit la loi française",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Depuis 2010, la loi française reconnaît explicitement les violences psychologiques comme un délit à part entière, sans qu'aucune trace physique ne soit nécessaire pour les caractériser. Voici ce qu'elles recouvrent, et comment se faire aider.",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
     "category": "Relations",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hzkeynaqbsyl2u0jvpvs",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4106,7 +4106,7 @@
       "droit",
       "emprise"
     ],
-    "metaDescription": "",
+    "metaDescription": "Violences psychologiques dans le couple : définition légale (article 222-14-3), sanctions encourues, et démarches pour se protéger et se faire aider.",
     "articles_lies": [
       "punition-par-le-silence",
       "survivre-relation-toxique",
@@ -4117,12 +4117,12 @@
   {
     "id": "cauchemars-recurrents",
     "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Toujours le même scénario, ou des variations sur un même thème angoissant. Les cauchemars récurrents touchent 4 à 8% de la population — et une thérapie simple, fondée sur la réécriture du scénario en journée, permet souvent de les réduire nettement.",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Sommeil",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rtt1bypxwebhfvrwj3wn",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4135,7 +4135,7 @@
       "sommeil-paradoxal",
       "therapie-imagerie-mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Cauchemars récurrents : prévalence, mécanismes, et la thérapie par répétition d'imagerie mentale (RIM), traitement de référence validé scientifiquement.",
     "articles_lies": [
       "paralysie-du-sommeil",
       "bien-dormir-guide-complet",
@@ -4146,12 +4146,12 @@
   {
     "id": "harcelement-moral-travail",
     "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Le Code du travail définit précisément le harcèlement moral, et prévoit des sanctions pénales pour son auteur. Encore faut-il savoir où se situe la frontière avec un simple conflit — et quelles démarches entreprendre pour se défendre.",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
     "category": "Travail",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dh6ab6vkdnsrfxfvf1yx",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4164,7 +4164,7 @@
       "droit-du-travail",
       "souffrance-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Harcèlement moral au travail : définition légale (article L1152-1), sanctions pénales, et démarches concrètes pour se protéger et se faire aider.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "manager-toxique-signes",
@@ -4175,12 +4175,12 @@
   {
     "id": "anxiete-de-sante-hypocondrie",
     "title": "Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien - je vous l'avais bien dit !",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Guetter le moindre symptôme, enchaîner les recherches en ligne, consulter puis douter du diagnostic rassurant : l'anxiété liée à la santé est un vrai trouble, pas un caprice d'« hypocondriaque » — un mot qui, souvent, ne fait qu'ajouter de la honte.",
     "date": "2026-09-20",
     "date_modified": "2026-09-20",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n5oqelcua0d23vk2gbsk",
-    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4193,7 +4193,7 @@
       "hypocondrie",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Anxiété de santé (hypocondrie) : symptômes, mécanismes et traitements validés. Pourquoi ce trouble mérite d'être pris au sérieux, sans jugement.",
     "articles_lies": [
       "agoraphobie-comprendre",
       "toc-ou-anxiete-difference",
