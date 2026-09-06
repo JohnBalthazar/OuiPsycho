@@ -4005,12 +4005,12 @@
   {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
-    "excerpt": "",
+    "type": "article",
+    "excerpt": "Contrairement à l'idée reçue, l'agoraphobie n'est pas la peur des grands espaces ou de la foule en tant que telle. C'est la peur de ne pas pouvoir s'échapper, ou de ne trouver aucun secours, si l'angoisse devait survenir.",
     "date": "2026-09-23",
     "date_modified": "2026-09-23",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/m958xckkowkjdr0skdbe",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4023,7 +4023,7 @@
       "phobies",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Agoraphobie : définition réelle (DSM-5), différence avec la peur de la foule, symptômes et traitement par exposition progressive.",
     "articles_lies": [
       "anxiete-sociale-phobie-sociale",
       "anxiete-de-sante-hypocondrie",
