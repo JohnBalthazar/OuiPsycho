@@ -2690,6 +2690,7 @@ p:last-child { margin-bottom: 0; }
 .tool-result__emoji { font-size: 1.8rem; }
 .tool-result__desc { color: var(--color-text); line-height: 1.7; margin-bottom: var(--sp-5); }
 .tool-result__desc p { margin-bottom: var(--sp-3); }
+.tool-result__score { font-weight: 700; color: var(--color-primary-dark); margin-bottom: var(--sp-4); }
 
 .tool-complement {
   background: #FFFBEB; border-left: 3px solid #F59E0B; border-radius: 0 var(--radius) var(--radius) 0;

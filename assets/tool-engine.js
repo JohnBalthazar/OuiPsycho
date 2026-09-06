@@ -61,12 +61,28 @@
       if (!brasser) return item;
       return { id: item.id, texte: item.texte, renvoiArticle: item.renvoiArticle, reponses: melange(item.reponses) };
     });
-    var paliersListe = outil.contenu.paliers.liste;
+
+    // Deux mécaniques mutuellement exclusives (contenu.bareme XOR contenu.paliers
+    // — voir tools.json _format) : mode (palier qualitatif, reperes-maison) ou
+    // somme (score chiffré + tranche, echelle-validee).
+    var paliersListe = outil.contenu.paliers ? outil.contenu.paliers.liste : null;
     var restitutionParPalier = {};
-    outil.restitution.paliers.forEach(function (p) { restitutionParPalier[p.id] = p; });
+    if (outil.restitution.paliers) {
+      outil.restitution.paliers.forEach(function (p) { restitutionParPalier[p.id] = p; });
+    }
+    var restitutionParTranche = {};
+    if (outil.restitution.tranches) {
+      outil.restitution.tranches.forEach(function (t) { restitutionParTranche[t.id] = t; });
+    }
+
+    // Options partagées (echelleReponse.nature === "libelles-generiques-partages")
+    // quand un item ne porte pas ses propres reponses — voir tools.json _format.
+    function optionsPour(item) {
+      return item.reponses || outil.contenu.echelleReponse.options;
+    }
 
     var idx = 0;
-    var reponses = []; // { itemId, palier }
+    var reponses = []; // { itemId, palier, points }
 
     function el(tag, className, html) {
       var e = document.createElement(tag);
@@ -81,7 +97,8 @@
       var btn = el('button', 'tool-btn tool-btn--primary', 'Commencer →');
       btn.type = 'button';
       btn.addEventListener('click', function () { idx = 0; reponses = []; renderQuestion(); });
-      wrap.appendChild(el('p', 'tool-intro__lead', String(items.length) + ' questions. Répondez spontanément.'));
+      var lead = outil.contenu.consigne || (String(items.length) + ' questions. Répondez spontanément.');
+      wrap.appendChild(el('p', 'tool-intro__lead', lead));
       wrap.appendChild(btn);
       mountEl.appendChild(wrap);
       notify();
@@ -103,10 +120,10 @@
       wrap.appendChild(el('div', 'tool-question', item.texte));
 
       var options = el('div', 'tool-options');
-      item.reponses.forEach(function (r) {
+      optionsPour(item).forEach(function (r) {
         var b = el('button', 'tool-opt', r.texte);
         b.type = 'button';
-        b.addEventListener('click', function () { answer(item.id, r.palier); });
+        b.addEventListener('click', function () { answer(item.id, r); });
         options.appendChild(b);
       });
       wrap.appendChild(options);
@@ -115,8 +132,8 @@
       notify();
     }
 
-    function answer(itemId, palier) {
-      reponses.push({ itemId: itemId, palier: palier });
+    function answer(itemId, option) {
+      reponses.push({ itemId: itemId, palier: option.palier, points: option.points });
       idx++;
       if (idx < items.length) {
         renderQuestion();
@@ -136,6 +153,19 @@
         if (comptes[p] >= comptes[meilleur]) meilleur = p;
       });
       return meilleur;
+    }
+
+    // Score chiffré (echelle-validee) : somme des points des réponses, puis
+    // tranche publiée dans contenu.bareme.tranches qui le contient.
+    function scoreTotal() {
+      return reponses.reduce(function (somme, r) { return somme + (r.points || 0); }, 0);
+    }
+    function trancheForScore(score) {
+      var tranches = outil.contenu.bareme.tranches;
+      for (var i = 0; i < tranches.length; i++) {
+        if (score >= tranches[i].min && score <= tranches[i].max) return tranches[i];
+      }
+      return tranches[tranches.length - 1];
     }
 
     // Bloc complémentaire (axe "severite" uniquement) : nomme les items dont
@@ -167,12 +197,10 @@
       return texte;
     }
 
-    function renderResult() {
+    // Résultat "palier" (mode) : reperes-maison et assimilées.
+    function renderResultPalier(wrap) {
       var palierId = palierDominant();
       var p = restitutionParPalier[palierId];
-
-      mountEl.innerHTML = '';
-      var wrap = el('div', 'tool-result');
 
       var badge = el('div', 'tool-result__badge');
       badge.style.color = p.couleur;
@@ -188,9 +216,41 @@
           wrap.appendChild(el('div', 'tool-complement', complementTexte));
         }
       }
+    }
+
+    // Résultat "score" (somme) : echelle-validee. Affiche le score chiffré ET
+    // la tranche — pas seulement un palier (voir tools.json _format /
+    // rapport de tâche : le format ne savait faire que du palier avant PHQ-8).
+    // complement n'existe pas pour cette famille (absent de restitution),
+    // rien à appeler ici : le score fait le travail que complement faisait
+    // ailleurs pour un résultat qualitatif.
+    function renderResultScore(wrap) {
+      var score = scoreTotal();
+      var tranche = trancheForScore(score);
+      var rt = restitutionParTranche[tranche.id];
+
+      var badge = el('div', 'tool-result__badge');
+      badge.style.color = rt.couleur;
+      badge.style.background = rt.couleur + '1a';
+      badge.innerHTML = '<span class="tool-result__emoji">' + rt.emoji + '</span><span>' + rt.label + '</span>';
+      wrap.appendChild(badge);
+
+      wrap.appendChild(el('div', 'tool-result__score', 'Score : ' + score + ' / ' + outil.contenu.bareme.echelle.max));
+      wrap.appendChild(el('div', 'tool-result__desc', rt.texte));
+    }
+
+    function renderResult() {
+      mountEl.innerHTML = '';
+      var wrap = el('div', 'tool-result');
+
+      if (outil.contenu.bareme) {
+        renderResultScore(wrap);
+      } else {
+        renderResultPalier(wrap);
+      }
 
       // Ressources : uniquement après le résultat, jamais avant ; rien si le
-      // champ est vide (cette entrée) ou absent.
+      // champ est vide ou absent — commun aux deux mécaniques.
       var ressources = outil.restitution.ressources;
       if (ressources && ressources.length) {
         var resBox = el('div', 'tool-resources');

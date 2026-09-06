@@ -535,7 +535,8 @@ for (const outil of TOOLS) {
   const slug = identite.slug;
   const escLdTool = s => s.replace(/<\/script>/gi, '<\\/script>');
   const toolDataJson = escLdTool(JSON.stringify(outil));
-  const metaDesc = `${identite.titre} — un outil de réflexion en ${contenu.items.length} questions, résultat immédiat, aucune donnée collectée.`;
+  const metaDesc = identite.metaDescription
+    || `${identite.titre} — un outil de réflexion en ${contenu.items.length} questions, résultat immédiat, aucune donnée collectée.`;
 
   const toolHtml = `<!DOCTYPE html>
 <html lang="fr">
