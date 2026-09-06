@@ -1,5 +1,19 @@
 [
   {
+    "id": "dans-la-tete-d-un-pervers-narcissique-quiz",
+    "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
+    "desc": "Il ne se lève pas le matin en se disant qu'il va détruire quelqu'un. Il se lève en se disant qu'il a raison. C'est précisément le problème.…",
+    "emoji": "💬",
+    "color": "#b5546a",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/dans-la-tete-d-un-pervers-narcissique-quiz.html",
+    "articleUrl": "articles/dans-la-tete-d-un-pervers-narcissique/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vtlxkpx5uchhyg0vklag",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "pourquoi-accepte-t-on-l-inacceptable-quiz",
     "title": "Pourquoi accepte-t-on l'inacceptable ?",
     "desc": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux…",
@@ -108,7 +122,7 @@
     "testUrl": "tests/reine-des-neiges-quiz.html",
     "articleUrl": "articles/reine-des-neiges-psychologie-heroine-glace/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/knqdnjashbahaprr9pir",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
