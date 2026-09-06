@@ -531,8 +531,18 @@ let TOOLS = [];
 try { TOOLS = JSON.parse(fs.readFileSync(TOOLS_FILE, 'utf8')).outils || []; } catch (_) {}
 
 for (const outil of TOOLS) {
-  const { identite, contenu, restitution } = outil;
+  const { identite, contenu, restitution, tracabilite } = outil;
   const slug = identite.slug;
+
+  // Garde-fou de famille : une entrée "echelle-validee" dont les items n'ont
+  // pas été vérifiés contre une source ne doit jamais pouvoir être générée —
+  // sans quoi c'est un questionnaire maison qui se réclame d'une échelle
+  // validée, ce qui est pire qu'un simple manque de source (voir _format,
+  // tracabilite.itemsVerifies, et l'incident du 2026-09-06 sur phq-8).
+  if (identite.famille === 'echelle-validee' && tracabilite.itemsVerifies !== true) {
+    console.log(`⛔ outils/${slug}/ ignoré — famille "echelle-validee" avec tracabilite.itemsVerifies ≠ true (items non vérifiés contre source)`);
+    continue;
+  }
   const escLdTool = s => s.replace(/<\/script>/gi, '<\\/script>');
   const toolDataJson = escLdTool(JSON.stringify(outil));
   const metaDesc = identite.metaDescription
