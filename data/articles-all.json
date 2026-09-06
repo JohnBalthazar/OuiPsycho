@@ -4174,13 +4174,13 @@
   },
   {
     "id": "anxiete-de-sante-hypocondrie",
-    "title": "Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien",
-    "excerpt": "",
+    "title": "Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien - je vous l'avais bien dit !",
+    "type": "article",
+    "excerpt": "Guetter le moindre symptôme, enchaîner les recherches en ligne, consulter puis douter du diagnostic rassurant : l'anxiété liée à la santé est un vrai trouble, pas un caprice d'« hypocondriaque » — un mot qui, souvent, ne fait qu'ajouter de la honte.",
     "date": "2026-09-20",
     "date_modified": "2026-09-20",
     "category": "Troubles Psy",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n5oqelcua0d23vk2gbsk",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4193,7 +4193,7 @@
       "hypocondrie",
       "troubles-anxieux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Anxiété de santé (hypocondrie) : symptômes, mécanismes et traitements validés. Pourquoi ce trouble mérite d'être pris au sérieux, sans jugement.",
     "articles_lies": [
       "agoraphobie-comprendre",
       "toc-ou-anxiete-difference",
