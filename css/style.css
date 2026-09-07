@@ -2697,3 +2697,42 @@ p:last-child { margin-bottom: 0; }
   padding: var(--sp-4) var(--sp-5); font-size: var(--fs-sm); color: #78350F;
   line-height: 1.65; margin-bottom: var(--sp-6);
 }
+
+/* ── Page ressource (/ressources/{slug}/) — assets/ressources-engine.js ──── */
+.ressource-coloriage { display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
+.ressource-coloriage__img {
+  max-width: 100%; width: 360px; border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); background: #fff;
+}
+.ressource-coloriage__dl { text-decoration: none; }
+
+.ressource-roue { display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
+.ressource-roue__svg { width: 100%; max-width: 320px; height: auto; }
+.ressource-roue__secteur { cursor: pointer; stroke: #fff; stroke-width: 2; transition: opacity .15s ease; }
+.ressource-roue__secteur:hover, .ressource-roue__secteur:focus { opacity: .82; outline: none; }
+.ressource-roue__secteur.is-active { stroke: var(--color-text); stroke-width: 3; }
+.ressource-roue__label { font-family: var(--font-body); font-size: 13px; font-weight: 700; fill: #fff; pointer-events: none; }
+.ressource-roue__detail { width: 100%; min-height: 90px; }
+.ressource-roue__detail h3 { font-family: var(--font-heading); color: var(--color-primary-dark); margin-bottom: var(--sp-2); }
+.ressource-roue__detail ul { padding-left: var(--sp-5); font-size: var(--fs-sm); line-height: 1.65; color: var(--color-text); }
+.ressource-roue__hint { color: var(--color-text-muted); font-size: var(--fs-sm); text-align: center; }
+
+.ressource-checklist__list { display: flex; flex-direction: column; gap: var(--sp-3); list-style: none; padding: 0; }
+.ressource-checklist__item { display: flex; align-items: flex-start; gap: var(--sp-3); }
+.ressource-checklist__item input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--color-primary); }
+.ressource-checklist__item label { font-size: var(--fs-base); line-height: 1.55; color: var(--color-text); }
+.ressource-checklist__counter { margin-top: var(--sp-5); font-size: var(--fs-sm); font-weight: 700; color: var(--color-primary-dark); }
+
+/* ── Carte de maillage vers une ressource, dans le corps d'un article ────── */
+/* {"type":"ressourceCard","slug":"SLUG"} — résolu par js/article-template.js */
+.article-body .ressource-card { text-decoration: none; }
+.ressource-card {
+  display: flex; align-items: flex-start; gap: var(--sp-4);
+  background: var(--color-primary-light); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--sp-5); margin: var(--sp-6) 0;
+  color: var(--color-text); transition: border-color .15s ease;
+}
+.ressource-card:hover { border-color: var(--color-primary); }
+.ressource-card__icon { font-size: 1.6rem; flex-shrink: 0; }
+.ressource-card__title { display: block; font-weight: 700; color: var(--color-primary-dark); margin-bottom: var(--sp-1); }
+.ressource-card__desc { display: block; font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.55; }

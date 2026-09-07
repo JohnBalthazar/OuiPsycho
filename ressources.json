@@ -1,0 +1,189 @@
+{
+  "_format": [
+    "ressources.json — format de données des ressources pratiques (coloriage,",
+    "checklist, roue des émotions...) du site. Distinct de tools.json : ces",
+    "contenus n'évaluent rien chez le lecteur (aucun item, aucune réponse,",
+    "aucun score, aucun palier) — les règles de tools.json (familles",
+    "reperes-maison/echelle-validee, lexique interdit, disclaimer, etc.) ne",
+    "s'appliquent pas ici et ne doivent pas y être importées par réflexe.",
+    "Pas de schéma séparé : ce bloc _format documente la structure ; le",
+    "fichier reste du JSON strict.",
+    "",
+    "Racine : { \"_format\": [...], \"ressources\": [ {entrée}, ... ] }",
+    "",
+    "Chaque entrée a : type, identite, contenu (forme dépendant de type),",
+    "maillage.",
+    "",
+    "  type      string — \"coloriage\" | \"roue-emotions\" | \"checklist\".",
+    "            Décide la forme de contenu et le gabarit de rendu. Toute",
+    "            nouvelle valeur de type doit être documentée ici avant usage.",
+    "",
+    "── identite ────────────────────────────────────────────────────────────",
+    "  slug         string — identifiant unique, nom de dossier généré sous",
+    "               /ressources/<slug>/.",
+    "  titre        string — titre affiché tel quel (h1 de la page).",
+    "  description  string — un ou deux paragraphes affichés en intro de page",
+    "               (HTML autorisé : p, strong, em) et réutilisés comme",
+    "               résumé pour une carte de maillage.",
+    "",
+    "── contenu selon type ─────────────────────────────────────────────────",
+    "  coloriage :    { image } — image string, URL du fichier à imprimer/",
+    "                 télécharger (aussi utilisée comme aperçu sur la page).",
+    "                 Aucune interaction JS : la page affiche l'aperçu et un",
+    "                 bouton de téléchargement, rien d'autre.",
+    "  roue-emotions : { emotions } — emotions array de",
+    "                 { nom, couleur, nuances }. nom = émotion \"cœur\" (ex.",
+    "                 \"Colère\"), couleur = hex utilisé pour le secteur de la",
+    "                 roue. nuances array de { mot, definition } — mots plus",
+    "                 précis rattachés à cette émotion cœur, avec une",
+    "                 définition courte (une phrase). Purement exploratoire :",
+    "                 aucun lien automatique vers un article, aucun résultat,",
+    "                 aucun score — cliquer une émotion cœur affiche juste ses",
+    "                 nuances.",
+    "  checklist :    { items } — items array<string>. Chaque item est une",
+    "                 case à cocher. Aucune sauvegarde de l'état coché : la",
+    "                 checklist se réinitialise à chaque chargement de page,",
+    "                 par choix (voir décision du 2026-09-07) — pas un oubli.",
+    "",
+    "── maillage ────────────────────────────────────────────────────────────",
+    "  Même forme que tools.json:maillage — categories, motsCles,",
+    "  minOccurrences, maxParArticle, formats, ancres. Consommé par les mêmes",
+    "  tokens de maillage que tools.json, dans un espace de noms distinct :",
+    "  {{ressource:SLUG|ancre}} (lien inline) et",
+    "  {\"type\":\"ressourceCard\",\"slug\":\"SLUG\"} (carte), résolus au build par",
+    "  js/article-template.js. Un slug absent de ce fichier fait échouer le",
+    "  build, exactement comme pour {{outil:...}}."
+  ],
+  "ressources": [
+    {
+      "type": "coloriage",
+      "identite": {
+        "slug": "mandala-anti-stress",
+        "titre": "Mandala anti-stress à imprimer",
+        "description": "<p>Un coloriage simple, à imprimer et colorier au calme. Le coloriage de mandala est souvent utilisé comme exercice de pleine conscience&nbsp;: se concentrer sur les couleurs et les formes, sans objectif de résultat, peut aider à relâcher la pression le temps de quelques minutes.</p>"
+      },
+      "contenu": {
+        "image": "img/placeholder-coloriage.svg"
+      },
+      "maillage": {
+        "categories": ["Bien-être"],
+        "motsCles": ["mandala", "coloriage", "pleine-conscience", "relaxation"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "un mandala à imprimer",
+          "ce coloriage anti-stress",
+          "un coloriage à télécharger"
+        ]
+      }
+    },
+    {
+      "type": "roue-emotions",
+      "identite": {
+        "slug": "roue-des-emotions",
+        "titre": "La roue des émotions",
+        "description": "<p>Mettre un mot précis sur ce qu'on ressent est souvent la première étape pour mieux le comprendre. Cliquez sur une émotion pour découvrir des nuances plus précises.</p>"
+      },
+      "contenu": {
+        "emotions": [
+          {
+            "nom": "Joie",
+            "couleur": "#f2c94c",
+            "nuances": [
+              { "mot": "Enthousiasme", "definition": "Une énergie tournée vers l'action, l'envie de se lancer." },
+              { "mot": "Fierté", "definition": "La satisfaction d'avoir accompli quelque chose qui compte pour soi." },
+              { "mot": "Soulagement", "definition": "Le relâchement après la disparition d'une tension ou d'une inquiétude." }
+            ]
+          },
+          {
+            "nom": "Tristesse",
+            "couleur": "#4a7fb5",
+            "nuances": [
+              { "mot": "Déception", "definition": "L'écart entre ce qu'on espérait et ce qui s'est réellement passé." },
+              { "mot": "Solitude", "definition": "Le sentiment d'être seul, même parfois entouré." },
+              { "mot": "Nostalgie", "definition": "Une tristesse douce liée au souvenir de quelque chose de révolu." }
+            ]
+          },
+          {
+            "nom": "Colère",
+            "couleur": "#c0392b",
+            "nuances": [
+              { "mot": "Frustration", "definition": "La tension née d'un obstacle qui empêche d'obtenir ce qu'on veut." },
+              { "mot": "Irritation", "definition": "Une colère légère, déclenchée par de petites contrariétés répétées." },
+              { "mot": "Indignation", "definition": "La colère face à quelque chose perçu comme injuste." }
+            ]
+          },
+          {
+            "nom": "Peur",
+            "couleur": "#6c5ce7",
+            "nuances": [
+              { "mot": "Anxiété", "definition": "Une inquiétude diffuse tournée vers ce qui pourrait arriver." },
+              { "mot": "Appréhension", "definition": "La peur ciblée sur un événement précis à venir." },
+              { "mot": "Insécurité", "definition": "Le sentiment de ne pas être en terrain stable ou protégé." }
+            ]
+          },
+          {
+            "nom": "Surprise",
+            "couleur": "#00b894",
+            "nuances": [
+              { "mot": "Étonnement", "definition": "La réaction à quelque chose d'inattendu, sans jugement immédiat." },
+              { "mot": "Confusion", "definition": "La difficulté à comprendre ou situer ce qui vient de se passer." }
+            ]
+          },
+          {
+            "nom": "Dégoût",
+            "couleur": "#7f8c8d",
+            "nuances": [
+              { "mot": "Rejet", "definition": "Le besoin de mettre à distance quelque chose ou quelqu'un." },
+              { "mot": "Mépris", "definition": "Un dégoût tourné vers le comportement ou les valeurs de quelqu'un." }
+            ]
+          }
+        ]
+      },
+      "maillage": {
+        "categories": ["Émotions & identité"],
+        "motsCles": ["roue-des-emotions", "vocabulaire-emotionnel", "intelligence-emotionnelle"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "la roue des émotions",
+          "explorer la roue des émotions",
+          "mettre un mot sur ce que vous ressentez"
+        ]
+      }
+    },
+    {
+      "type": "checklist",
+      "identite": {
+        "slug": "checklist-signes-epuisement",
+        "titre": "Checklist : reconnaître les signes d'épuisement professionnel",
+        "description": "<p>Cochez ce qui vous parle actuellement. Cette liste n'est pas un outil de mesure&nbsp;: elle sert à repérer des signaux qui, cumulés, méritent qu'on s'y arrête.</p>"
+      },
+      "contenu": {
+        "items": [
+          "Je me sens fatigué(e) même après une nuit de sommeil correcte.",
+          "J'ai du mal à me concentrer sur des tâches simples.",
+          "Je suis plus irritable qu'avant avec mes collègues ou mes proches.",
+          "J'ai l'impression que mon travail ne sert plus à rien.",
+          "Je repousse des tâches que je gérais facilement il y a quelques mois.",
+          "Je ressens une tension physique (maux de tête, dos, ventre) en pensant au travail.",
+          "Je me sens de plus en plus distant(e) de mes collègues.",
+          "J'ai du mal à décrocher, même le week-end ou en vacances."
+        ]
+      },
+      "maillage": {
+        "categories": ["Travail"],
+        "motsCles": ["burn-out", "epuisement-professionnel", "souffrance-au-travail"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "cette checklist des signes d'épuisement",
+          "vérifier les signes d'épuisement professionnel"
+        ]
+      }
+    }
+  ]
+}

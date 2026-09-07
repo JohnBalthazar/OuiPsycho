@@ -1605,6 +1605,7 @@ let _secFbApiKey  = '';
 
 let articles = [];
 let clusters = [];   // data/clusters.json — lecture seule depuis Poulet (voir loadClusters)
+let ressourcesCache = []; // ressources.json — lecture seule depuis Poulet (voir loadRessources)
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
@@ -1971,6 +1972,7 @@ function showApp() {
   loadArticles();
   loadRemoteConfig();
   loadClusters();
+  loadRessources();
 }
 
 /* ══════════════════════════════════════════════
@@ -2049,6 +2051,20 @@ async function loadClusters() {
     }
   } catch(e) { /* absent ou hors-ligne — champs désactivés, pas d'erreur */ }
   populateClusterSelect();
+}
+
+async function loadRessources() {
+  ressourcesCache = [];
+  try {
+    const res = await fetch('ressources.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.ressources)) ressourcesCache = data.ressources;
+    }
+  } catch(e) { /* absent ou hors-ligne — reste []. Un article SANS token {{ressource:...}}/
+                  ressourceCard n'est pas affecté ; un article qui en contient fera échouer
+                  la sauvegarde (slug introuvable dans un registre vide), au lieu de publier
+                  un lien mort silencieusement. */ }
 }
 
 function populateClusterSelect() {
@@ -2501,7 +2517,11 @@ function generateArticleHTML(j) {
   // applique alors ses propres valeurs par défaut (catégorie en fil
   // d'Ariane, "À lire aussi" vide) : comportement inchangé pour un article
   // hors cluster, aucune régression.
-  return ArticleTemplate.buildArticleHTML(j);
+  // ressourcesCache (voir loadRessources) : sans lui, {{ressource:...}} et
+  // ressourceCard ne seraient jamais résolus pour un article publié depuis
+  // poulet — même risque de divergence que _gen_static.js/poulet avant
+  // correctif du 2026-09-06 sur data/articles-all.json.
+  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache });
 }
 
 /* ══════════════════════════════════════════════

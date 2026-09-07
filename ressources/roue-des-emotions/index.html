@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La roue des émotions — Oui Psycho!</title>
+  <meta name="description" content="Mettre un mot précis sur ce qu'on ressent est souvent la première étape pour mieux le comprendre. Cliquez sur une émotion pour découvrir des nuances plus précises.">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="https://ouipsycho.fr/ressources/roue-des-emotions/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="La roue des émotions — Oui Psycho!">
+  <meta property="og:description" content="Mettre un mot précis sur ce qu'on ressent est souvent la première étape pour mieux le comprendre. Cliquez sur une émotion pour découvrir des nuances plus précises.">
+  <meta property="og:url"         content="https://ouipsycho.fr/ressources/roue-des-emotions/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container tool-page">
+    <main>
+      <div class="tool-chapeau">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">La roue des émotions</span>
+        </nav>
+        <h1>La roue des émotions</h1>
+      </div>
+
+      <p>Mettre un mot précis sur ce qu'on ressent est souvent la première étape pour mieux le comprendre. Cliquez sur une émotion pour découvrir des nuances plus précises.</p>
+
+      <div class="tool-mount" id="ressource-mount"></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="ressource-data">{"type":"roue-emotions","identite":{"slug":"roue-des-emotions","titre":"La roue des émotions","description":"<p>Mettre un mot précis sur ce qu'on ressent est souvent la première étape pour mieux le comprendre. Cliquez sur une émotion pour découvrir des nuances plus précises.</p>"},"contenu":{"emotions":[{"nom":"Joie","couleur":"#f2c94c","nuances":[{"mot":"Enthousiasme","definition":"Une énergie tournée vers l'action, l'envie de se lancer."},{"mot":"Fierté","definition":"La satisfaction d'avoir accompli quelque chose qui compte pour soi."},{"mot":"Soulagement","definition":"Le relâchement après la disparition d'une tension ou d'une inquiétude."}]},{"nom":"Tristesse","couleur":"#4a7fb5","nuances":[{"mot":"Déception","definition":"L'écart entre ce qu'on espérait et ce qui s'est réellement passé."},{"mot":"Solitude","definition":"Le sentiment d'être seul, même parfois entouré."},{"mot":"Nostalgie","definition":"Une tristesse douce liée au souvenir de quelque chose de révolu."}]},{"nom":"Colère","couleur":"#c0392b","nuances":[{"mot":"Frustration","definition":"La tension née d'un obstacle qui empêche d'obtenir ce qu'on veut."},{"mot":"Irritation","definition":"Une colère légère, déclenchée par de petites contrariétés répétées."},{"mot":"Indignation","definition":"La colère face à quelque chose perçu comme injuste."}]},{"nom":"Peur","couleur":"#6c5ce7","nuances":[{"mot":"Anxiété","definition":"Une inquiétude diffuse tournée vers ce qui pourrait arriver."},{"mot":"Appréhension","definition":"La peur ciblée sur un événement précis à venir."},{"mot":"Insécurité","definition":"Le sentiment de ne pas être en terrain stable ou protégé."}]},{"nom":"Surprise","couleur":"#00b894","nuances":[{"mot":"Étonnement","definition":"La réaction à quelque chose d'inattendu, sans jugement immédiat."},{"mot":"Confusion","definition":"La difficulté à comprendre ou situer ce qui vient de se passer."}]},{"nom":"Dégoût","couleur":"#7f8c8d","nuances":[{"mot":"Rejet","definition":"Le besoin de mettre à distance quelque chose ou quelqu'un."},{"mot":"Mépris","definition":"Un dégoût tourné vers le comportement ou les valeurs de quelqu'un."}]}]},"maillage":{"categories":["Émotions & identité"],"motsCles":["roue-des-emotions","vocabulaire-emotionnel","intelligence-emotionnelle"],"minOccurrences":1,"maxParArticle":1,"formats":["inline","card"],"ancres":["la roue des émotions","explorer la roue des émotions","mettre un mot sur ce que vous ressentez"]}}</script>
+  <script>
+    function notifyResize() {
+      setTimeout(function () {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+    window.addEventListener('load', notifyResize);
+  </script>
+  <script src="assets/ressources-engine.js"></script>
+  <script>
+    RessourcesEngine.render(document.getElementById('ressource-mount'), JSON.parse(document.getElementById('ressource-data').textContent));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

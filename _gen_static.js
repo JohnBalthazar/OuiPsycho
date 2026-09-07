@@ -51,6 +51,15 @@ let CLUSTERS = [];
 try { CLUSTERS = JSON.parse(fs.readFileSync(CLUSTERS_FILE, 'utf8')); } catch (_) {}
 const CLUSTERS_BY_ID = Object.fromEntries(CLUSTERS.map(c => [c.id, c]));
 
+// Chargée ici (avant la boucle articles) car js/article-template.js en a besoin
+// pour résoudre les tokens de maillage {{ressource:...}}/ressourceCard dans le
+// contenu de CHAQUE article — la génération des pages /ressources/{slug}/
+// elles-mêmes n'a lieu que plus bas dans ce fichier, mais la donnée doit être
+// disponible dès maintenant.
+const RESSOURCES_FILE = path.join(__dirname, 'ressources.json');
+let RESSOURCES = [];
+try { RESSOURCES = JSON.parse(fs.readFileSync(RESSOURCES_FILE, 'utf8')).ressources || []; } catch (_) {}
+
 // Pré-passe : appartenance cluster/étape des articles "en ligne" au sens où le
 // reste du site l'entend déjà (cf. bascule scheduled→published plus bas) :
 // status !== 'draft' et date <= TODAY. Alimente le fil de parcours, le widget
@@ -183,7 +192,7 @@ for (const file of jsonFiles) {
   // Options cluster pour le gabarit partagé (js/article-template.js) — vide
   // pour tout article hors cluster, le gabarit applique alors ses propres
   // valeurs par défaut (catégorie en fil d'Ariane, "À lire aussi" vide).
-  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml };
+  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES };
   if (clusterResolved) {
     templateOpts.breadcrumbHref = `theme/${clusterResolved.id}/`;
     templateOpts.breadcrumbLabel = clusterResolved.title;
@@ -720,6 +729,189 @@ for (const outil of TOOLS) {
   if (!fs.existsSync(toolOutDir)) fs.mkdirSync(toolOutDir, { recursive: true });
   fs.writeFileSync(path.join(toolOutDir, 'index.html'), toolHtml, 'utf8');
   console.log(`🛠  outils/${slug}/index.html généré (axe: ${identite.axe})`);
+}
+
+// ── Pages ressource /ressources/{slug}/ (ressources.json) ────────────────────
+// Contenu pratique (coloriage, checklist, roue des émotions) : aucun score,
+// aucun palier, aucune des règles de tools.json ne s'applique — voir
+// ressources.json:_format. Une entrée = une page, pas de garde-fou de
+// génération (aucune famille "echelle-validee" équivalente ici).
+const RESSOURCES_DIR = path.join(__dirname, 'ressources');
+
+for (const ressource of RESSOURCES) {
+  const { identite, contenu } = ressource;
+  const slug = identite.slug;
+  const escLdRes = s => s.replace(/<\/script>/gi, '<\\/script>');
+  const resDataJson = escLdRes(JSON.stringify(ressource));
+  const metaDesc = identite.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+
+  const resHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${identite.titre} — Oui Psycho!</title>
+  <meta name="description" content="${escCard(metaDesc)}">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="${BASE}/ressources/${slug}/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="${escCard(identite.titre)} — Oui Psycho!">
+  <meta property="og:description" content="${escCard(metaDesc)}">
+  <meta property="og:url"         content="${BASE}/ressources/${slug}/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container tool-page">
+    <main>
+      <div class="tool-chapeau">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">${escCard(identite.titre)}</span>
+        </nav>
+        <h1>${escCard(identite.titre)}</h1>
+      </div>
+
+      ${identite.description}
+
+      <div class="tool-mount" id="ressource-mount"></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="ressource-data">${resDataJson}</script>
+  <script>
+    function notifyResize() {
+      setTimeout(function () {
+        window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+      }, 50);
+    }
+    window.addEventListener('load', notifyResize);
+  </script>
+  <script src="assets/ressources-engine.js"></script>
+  <script>
+    RessourcesEngine.render(document.getElementById('ressource-mount'), JSON.parse(document.getElementById('ressource-data').textContent));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+`;
+
+  const resOutDir = path.join(RESSOURCES_DIR, slug);
+  if (!fs.existsSync(resOutDir)) fs.mkdirSync(resOutDir, { recursive: true });
+  fs.writeFileSync(path.join(resOutDir, 'index.html'), resHtml, 'utf8');
+  console.log(`🎨 ressources/${slug}/index.html généré (type: ${ressource.type})`);
 }
 
 // ── Génération du sitemap.xml ─────────────────────────────────────────────────

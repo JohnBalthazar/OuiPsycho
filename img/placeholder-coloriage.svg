@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <rect width="800" height="800" fill="#ffffff"/>
+  <g fill="none" stroke="#1a1a1a" stroke-width="4" stroke-linejoin="round">
+    <circle cx="400" cy="400" r="360"/>
+    <circle cx="400" cy="400" r="300"/>
+    <circle cx="400" cy="400" r="60"/>
+    <g id="petals">
+      <ellipse cx="400" cy="220" rx="55" ry="130"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(45 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(90 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(135 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(180 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(225 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(270 400 400)"/>
+      <ellipse cx="400" cy="220" rx="55" ry="130" transform="rotate(315 400 400)"/>
+    </g>
+    <g id="outer-petals">
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(22.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(67.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(112.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(157.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(202.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(247.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(292.5 400 400)"/>
+      <ellipse cx="400" cy="105" rx="35" ry="80" transform="rotate(337.5 400 400)"/>
+    </g>
+  </g>
+</svg>

@@ -94,8 +94,54 @@
     return result;
   }
 
+  function ressourceIcon(type) {
+    if (type === 'coloriage') return '🎨';
+    if (type === 'roue-emotions') return '🎡';
+    if (type === 'checklist') return '✅';
+    return '🧩';
+  }
+
+  // Résout les tokens de maillage articles ↔ ressources.json — voir
+  // ressources.json:_format. Deux formes, toutes deux résolues au build :
+  //   {{ressource:SLUG|ancre}}                    → lien inline
+  //   {"type":"ressourceCard","slug":"SLUG"}      → carte (forme JSON compacte
+  //                                                  exacte, sans espace)
+  // Un slug absent de ressources.json, ou une ancre absente de
+  // maillage.ancres pour ce slug, fait échouer le build (exception non
+  // rattrapée) plutôt que de publier silencieusement un lien mort ou un
+  // intitulé non validé éditorialement.
+  function resolveRessourceTokens(html, ressources) {
+    const bySlug = {};
+    ressources.forEach(function (r) { bySlug[r.identite.slug] = r; });
+
+    let result = html.replace(/\{"type":"ressourceCard","slug":"([a-z0-9-]+)"\}/g, function (match, slug) {
+      const r = bySlug[slug];
+      if (!r) throw new Error(`ressourceCard : slug "${slug}" absent de ressources.json`);
+      const plain = r.identite.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const excerpt = plain.length > 140 ? plain.slice(0, 140).trim() + '…' : plain;
+      return `<a class="ressource-card" href="ressources/${slug}/">` +
+        `<span class="ressource-card__icon" aria-hidden="true">${ressourceIcon(r.type)}</span>` +
+        `<span class="ressource-card__body">` +
+        `<span class="ressource-card__title">${escCard(r.identite.titre)}</span>` +
+        `<span class="ressource-card__desc">${escCard(excerpt)}</span>` +
+        `</span></a>`;
+    });
+
+    result = result.replace(/\{\{ressource:([a-z0-9-]+)\|([^}]+)\}\}/g, function (match, slug, ancre) {
+      const r = bySlug[slug];
+      if (!r) throw new Error(`{{ressource:${slug}}} : slug absent de ressources.json`);
+      if (r.maillage.ancres.indexOf(ancre) === -1) {
+        throw new Error(`{{ressource:${slug}|${ancre}}} : ancre non déclarée dans maillage.ancres de "${slug}"`);
+      }
+      return `<a href="ressources/${slug}/">${escCard(ancre)}</a>`;
+    });
+
+    return result;
+  }
+
   function buildArticleHTML(j, opts) {
     opts = opts || {};
+    const ressources = opts.ressources || [];
     const TODAY = new Date().toISOString().split('T')[0];
     const YEAR  = new Date().getFullYear();
 
@@ -381,7 +427,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${wrapTables(j.content)}${continueBlockHtml}
+          ${wrapTables(resolveRessourceTokens(j.content, ressources))}${continueBlockHtml}
         </div>
 ${sourcesHtml}
         <div class="author-box">
