@@ -25,6 +25,17 @@
     "  description  string — un ou deux paragraphes affichés en intro de page",
     "               (HTML autorisé : p, strong, em) et réutilisés comme",
     "               résumé pour une carte de maillage.",
+    "  themes       array<string>|absent — UNIQUEMENT pour type \"coloriage\".",
+    "               Tags thématiques libres (ex. \"anxiété sociale\", \"anxiété",
+    "               scolaire\", \"se recentrer\") : alimentent la recherche et",
+    "               les filtres de la galerie /ressources/coloriages/. Un seul",
+    "               axe de tags, volontairement pas de distinction",
+    "               type-de-coloriage / thème-clinique (décision du",
+    "               2026-09-07) — aussi nombreux et variés que nécessaire.",
+    "               Distinct de maillage.motsCles plus bas : motsCles sert au",
+    "               maillage articles↔ressources (build), themes sert à la",
+    "               navigation du lecteur dans la galerie (client). Les deux",
+    "               peuvent se recouper mais n'ont pas la même consommation.",
     "",
     "── contenu selon type ─────────────────────────────────────────────────",
     "  coloriage :    { image } — image string, URL du fichier à imprimer/",
@@ -60,7 +71,8 @@
       "identite": {
         "slug": "mandala-anti-stress",
         "titre": "Mandala anti-stress à imprimer",
-        "description": "<p>Un coloriage simple, à imprimer et colorier au calme. Le coloriage de mandala est souvent utilisé comme exercice de pleine conscience&nbsp;: se concentrer sur les couleurs et les formes, sans objectif de résultat, peut aider à relâcher la pression le temps de quelques minutes.</p>"
+        "description": "<p>Un coloriage simple, à imprimer et colorier au calme. Le coloriage de mandala est souvent utilisé comme exercice de pleine conscience&nbsp;: se concentrer sur les couleurs et les formes, sans objectif de résultat, peut aider à relâcher la pression le temps de quelques minutes.</p>",
+        "themes": ["se recentrer", "anxiété", "pleine conscience"]
       },
       "contenu": {
         "image": "img/placeholder-coloriage.svg"
@@ -75,6 +87,52 @@
           "un mandala à imprimer",
           "ce coloriage anti-stress",
           "un coloriage à télécharger"
+        ]
+      }
+    },
+    {
+      "type": "coloriage",
+      "identite": {
+        "slug": "coloriage-respiration-anxiete-sociale",
+        "titre": "Coloriage respiration — avant une situation sociale",
+        "description": "<p>Un coloriage à garder sous la main avant un moment social qui inquiète (prise de parole, rencontre, entretien). Colorier quelques minutes en respirant lentement peut aider à faire retomber la tension avant d'y aller.</p>",
+        "themes": ["anxiété sociale", "se recentrer"]
+      },
+      "contenu": {
+        "image": "img/placeholder-coloriage.svg"
+      },
+      "maillage": {
+        "categories": ["Troubles Psy"],
+        "motsCles": ["anxiete-sociale", "phobie-sociale", "coloriage", "respiration"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "ce coloriage anti-anxiété sociale",
+          "un coloriage pour se calmer avant une situation sociale"
+        ]
+      }
+    },
+    {
+      "type": "coloriage",
+      "identite": {
+        "slug": "coloriage-avant-controle",
+        "titre": "Coloriage anti-stress avant un contrôle",
+        "description": "<p>Un coloriage pensé pour les enfants et adolescents anxieux avant un contrôle ou un examen. Quelques minutes de coloriage au calme, la veille ou juste avant, peuvent aider à redescendre en pression sans y penser activement.</p>",
+        "themes": ["anxiété scolaire", "se recentrer"]
+      },
+      "contenu": {
+        "image": "img/placeholder-coloriage.svg"
+      },
+      "maillage": {
+        "categories": ["Troubles Psy"],
+        "motsCles": ["anxiete-scolaire", "phobie-scolaire", "coloriage", "enfants"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "ce coloriage anti-stress avant un contrôle",
+          "un coloriage pour les enfants anxieux avant un examen"
         ]
       }
     },

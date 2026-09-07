@@ -2704,7 +2704,36 @@ p:last-child { margin-bottom: 0; }
   max-width: 100%; width: 360px; border: 1px solid var(--color-border);
   border-radius: var(--radius-lg); background: #fff;
 }
-.ressource-coloriage__dl { text-decoration: none; }
+.ressource-coloriage__actions { display: flex; gap: var(--sp-3); flex-wrap: wrap; justify-content: center; }
+.ressource-coloriage__actions a { text-decoration: none; }
+.ressource-coloriage__actions button { font-family: var(--font-body); }
+
+.ressource-share { display: flex; align-items: center; gap: var(--sp-2); flex-wrap: wrap; justify-content: center; }
+.ressource-share__label { font-size: var(--fs-sm); color: var(--color-text-muted); margin-right: var(--sp-1); }
+.ressource-share__btn {
+  display: inline-block; padding: .45rem 1rem; border-radius: var(--radius-full);
+  font-size: var(--fs-sm); font-weight: 700; text-decoration: none; color: #fff;
+}
+.ressource-share__btn--fb  { background: #1877F2; }
+.ressource-share__btn--wa  { background: #25D366; }
+.ressource-share__btn--pin { background: #E60023; }
+.ressource-share__btn--x   { background: #000000; }
+.ressource-share__btn:hover { opacity: .88; }
+
+/* Impression : uniquement l'image du coloriage, sans chrome du site */
+@media print {
+  .ressource-page .site-header,
+  .ressource-page .site-footer,
+  .ressource-page #cookie-banner,
+  .ressource-page #reading-progress,
+  .ressource-page .print-hide,
+  .ressource-page .ressource-coloriage__actions,
+  .ressource-page .ressource-share {
+    display: none !important;
+  }
+  .ressource-page .tool-mount { box-shadow: none !important; border: none !important; padding: 0 !important; }
+  .ressource-page .ressource-coloriage__img { width: 100% !important; max-width: 100% !important; border: none !important; }
+}
 
 .ressource-roue { display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
 .ressource-roue__svg { width: 100%; max-width: 320px; height: auto; }
@@ -2722,6 +2751,45 @@ p:last-child { margin-bottom: 0; }
 .ressource-checklist__item input { margin-top: 4px; width: 18px; height: 18px; flex-shrink: 0; accent-color: var(--color-primary); }
 .ressource-checklist__item label { font-size: var(--fs-base); line-height: 1.55; color: var(--color-text); }
 .ressource-checklist__counter { margin-top: var(--sp-5); font-size: var(--fs-sm); font-weight: 700; color: var(--color-primary-dark); }
+
+/* ── Galerie /ressources/coloriages/ ──────────────────────────────────────── */
+.coloriage-galerie { display: flex; flex-direction: column; gap: var(--sp-5); }
+.coloriage-search {
+  width: 100%; font-family: var(--font-body); font-size: var(--fs-base);
+  padding: .8rem 1.1rem; border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-full); background: #fff;
+}
+.coloriage-search:focus { outline: none; border-color: var(--color-primary); }
+
+.coloriage-filters { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+.coloriage-filter-chip {
+  font-family: var(--font-body); font-size: var(--fs-sm); font-weight: 600;
+  padding: .4rem 1rem; border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border); background: #fff; color: var(--color-text);
+  cursor: pointer; transition: all .15s ease;
+}
+.coloriage-filter-chip:hover { border-color: var(--color-primary); }
+.coloriage-filter-chip.is-active { background: var(--color-primary); border-color: var(--color-primary); color: #fff; }
+
+.coloriage-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--sp-5);
+}
+.coloriage-card {
+  display: flex; flex-direction: column; gap: var(--sp-2);
+  border: 1px solid var(--color-border); border-radius: var(--radius-lg);
+  padding: var(--sp-4); background: #fff; text-decoration: none; color: var(--color-text);
+  transition: border-color .15s ease;
+}
+.coloriage-card:hover { border-color: var(--color-primary); }
+.coloriage-card__img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; background: var(--color-bg); border-radius: var(--radius); }
+.coloriage-card__title { font-weight: 700; color: var(--color-primary-dark); }
+.coloriage-card__themes { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+.coloriage-card__theme {
+  font-size: var(--fs-xs); padding: .15rem .55rem; border-radius: var(--radius-full);
+  background: var(--color-primary-light); color: var(--color-primary-dark);
+}
+.coloriage-empty { text-align: center; color: var(--color-text-muted); padding: var(--sp-6) 0; }
 
 /* ── Carte de maillage vers une ressource, dans le corps d'un article ────── */
 /* {"type":"ressourceCard","slug":"SLUG"} — résolu par js/article-template.js */

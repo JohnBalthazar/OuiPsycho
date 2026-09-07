@@ -23,6 +23,21 @@
     if (typeof window.notifyResize === 'function') window.notifyResize();
   }
 
+  // Réseaux de partage proposés sur une page coloriage — voir décision du
+  // 2026-09-07 (Facebook, WhatsApp, Pinterest, X). Chaque href est un lien
+  // d'intention de partage standard de la plateforme, pas d'appel API.
+  function shareLinks(pageUrl, title, imgUrl) {
+    var u = encodeURIComponent(pageUrl);
+    var t = encodeURIComponent(title);
+    var i = encodeURIComponent(imgUrl);
+    return [
+      { label: 'Facebook', cls: 'fb', href: 'https://www.facebook.com/sharer/sharer.php?u=' + u },
+      { label: 'WhatsApp', cls: 'wa', href: 'https://api.whatsapp.com/send?text=' + t + '%20' + u },
+      { label: 'Pinterest', cls: 'pin', href: 'https://www.pinterest.com/pin/create/button/?url=' + u + '&media=' + i + '&description=' + t },
+      { label: 'X', cls: 'x', href: 'https://twitter.com/intent/tweet?text=' + t + '&url=' + u }
+    ];
+  }
+
   function renderColoriage(mountEl, ressource) {
     mountEl.innerHTML = '';
     var wrap = el('div', 'ressource-coloriage');
@@ -31,12 +46,119 @@
     img.alt = ressource.identite.titre;
     img.loading = 'lazy';
     wrap.appendChild(img);
-    var link = el('a', 'tool-btn tool-btn--primary ressource-coloriage__dl', '⬇️ Télécharger / imprimer');
-    link.href = ressource.contenu.image;
-    link.setAttribute('download', '');
-    link.target = '_blank';
-    link.rel = 'noopener';
-    wrap.appendChild(link);
+
+    var actions = el('div', 'ressource-coloriage__actions');
+    var dl = el('a', 'tool-btn tool-btn--primary', '⬇️ Télécharger');
+    dl.href = ressource.contenu.image;
+    dl.setAttribute('download', '');
+    dl.target = '_blank';
+    dl.rel = 'noopener';
+    actions.appendChild(dl);
+
+    var printBtn = el('button', 'tool-btn tool-btn--ghost', '🖨️ Imprimer');
+    printBtn.type = 'button';
+    printBtn.addEventListener('click', function () { window.print(); });
+    actions.appendChild(printBtn);
+    wrap.appendChild(actions);
+
+    // document.baseURI (pas window.location.href) : la page déclare <base
+    // href="../../">, resoudre contre l'URL du document ignorerait ce <base>
+    // et pointerait vers un chemin qui n'existe pas (ex. .../ressources/
+    // <slug>/img/... au lieu de la racine du site).
+    var imgAbsUrl;
+    try { imgAbsUrl = new URL(ressource.contenu.image, document.baseURI).href; }
+    catch (e) { imgAbsUrl = ressource.contenu.image; }
+
+    var shareWrap = el('div', 'ressource-share');
+    shareWrap.appendChild(el('span', 'ressource-share__label', 'Partager :'));
+    shareLinks(window.location.href, ressource.identite.titre, imgAbsUrl).forEach(function (n) {
+      var a = el('a', 'ressource-share__btn ressource-share__btn--' + n.cls, n.label);
+      a.href = n.href;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      shareWrap.appendChild(a);
+    });
+    wrap.appendChild(shareWrap);
+
+    mountEl.appendChild(wrap);
+    notify();
+  }
+
+  // Galerie /ressources/coloriages/ : recherche texte (titre) + filtre par
+  // thème (identite.themes), combinés en ET. Purement client, aucun état ne
+  // survit au rechargement (pas de query string, pas de localStorage).
+  function renderGalerieColoriages(mountEl, coloriages) {
+    mountEl.innerHTML = '';
+    var wrap = el('div', 'coloriage-galerie');
+
+    var searchInput = el('input', 'coloriage-search');
+    searchInput.type = 'search';
+    searchInput.placeholder = 'Rechercher un coloriage…';
+    searchInput.setAttribute('aria-label', 'Rechercher un coloriage par titre');
+    wrap.appendChild(searchInput);
+
+    var allThemes = [];
+    coloriages.forEach(function (r) {
+      (r.identite.themes || []).forEach(function (t) { if (allThemes.indexOf(t) === -1) allThemes.push(t); });
+    });
+    allThemes.sort(function (a, b) { return a.localeCompare(b, 'fr'); });
+
+    var activeThemes = [];
+    var filtersWrap = el('div', 'coloriage-filters');
+    var chipEls = {};
+    allThemes.forEach(function (theme) {
+      var chip = el('button', 'coloriage-filter-chip', theme);
+      chip.type = 'button';
+      chip.addEventListener('click', function () {
+        var i = activeThemes.indexOf(theme);
+        if (i === -1) { activeThemes.push(theme); chip.classList.add('is-active'); }
+        else { activeThemes.splice(i, 1); chip.classList.remove('is-active'); }
+        applyFilters();
+      });
+      chipEls[theme] = chip;
+      filtersWrap.appendChild(chip);
+    });
+    wrap.appendChild(filtersWrap);
+
+    var grid = el('div', 'coloriage-grid');
+    var cardEls = coloriages.map(function (r) {
+      var card = el('a', 'coloriage-card');
+      card.href = 'ressources/' + r.identite.slug + '/';
+      var img = el('img', 'coloriage-card__img');
+      img.src = r.contenu.image;
+      img.alt = '';
+      img.loading = 'lazy';
+      card.appendChild(img);
+      card.appendChild(el('span', 'coloriage-card__title', r.identite.titre));
+      var themesEl = el('span', 'coloriage-card__themes');
+      (r.identite.themes || []).forEach(function (t) {
+        themesEl.appendChild(el('span', 'coloriage-card__theme', t));
+      });
+      card.appendChild(themesEl);
+      grid.appendChild(card);
+      return { el: card, titre: r.identite.titre.toLowerCase(), themes: r.identite.themes || [] };
+    });
+    wrap.appendChild(grid);
+
+    var emptyMsg = el('p', 'coloriage-empty', 'Aucun coloriage ne correspond à votre recherche.');
+    emptyMsg.style.display = 'none';
+    wrap.appendChild(emptyMsg);
+
+    function applyFilters() {
+      var query = searchInput.value.trim().toLowerCase();
+      var visibleCount = 0;
+      cardEls.forEach(function (c) {
+        var matchesText = !query || c.titre.indexOf(query) !== -1;
+        var matchesThemes = activeThemes.length === 0 || activeThemes.every(function (t) { return c.themes.indexOf(t) !== -1; });
+        var visible = matchesText && matchesThemes;
+        c.el.style.display = visible ? '' : 'none';
+        if (visible) visibleCount++;
+      });
+      emptyMsg.style.display = visibleCount === 0 ? '' : 'none';
+      notify();
+    }
+    searchInput.addEventListener('input', applyFilters);
+
     mountEl.appendChild(wrap);
     notify();
   }
@@ -160,5 +282,5 @@
     mountEl.innerHTML = '<p>Type de ressource inconnu.</p>';
   }
 
-  window.RessourcesEngine = { render: render };
+  window.RessourcesEngine = { render: render, renderGalerieColoriages: renderGalerieColoriages };
 })();

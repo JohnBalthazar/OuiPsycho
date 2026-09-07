@@ -800,7 +800,7 @@ for (const ressource of RESSOURCES) {
     gtag('config', 'G-NR52DCZ6ZJ');
   </script>
 </head>
-<body>
+<body class="ressource-page">
 
   <div id="reading-progress" role="progressbar" aria-label="Progression de lecture" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
 
@@ -826,14 +826,15 @@ for (const ressource of RESSOURCES) {
 
   <div class="container tool-page">
     <main>
-      <div class="tool-chapeau">
+      <div class="tool-chapeau print-hide">
         <nav class="breadcrumb" aria-label="Fil d'Ariane">
-          <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">${escCard(identite.titre)}</span>
+          <a href="index.html">Accueil</a> <span>›</span>
+          ${ressource.type === 'coloriage' ? `<a href="ressources/coloriages/">Coloriages</a> <span>›</span> ` : ''}<span aria-current="page">${escCard(identite.titre)}</span>
         </nav>
         <h1>${escCard(identite.titre)}</h1>
       </div>
 
-      ${identite.description}
+      <div class="ressource-intro print-hide">${identite.description}</div>
 
       <div class="tool-mount" id="ressource-mount"></div>
     </main>
@@ -912,6 +913,128 @@ for (const ressource of RESSOURCES) {
   if (!fs.existsSync(resOutDir)) fs.mkdirSync(resOutDir, { recursive: true });
   fs.writeFileSync(path.join(resOutDir, 'index.html'), resHtml, 'utf8');
   console.log(`🎨 ressources/${slug}/index.html généré (type: ${ressource.type})`);
+}
+
+// ── Galerie /ressources/coloriages/ ───────────────────────────────────────────
+// "coloriages" est un slug réservé à ce niveau : un coloriage individuel ne
+// doit jamais prendre ce slug (collision avec cette page).
+const COLORIAGES = RESSOURCES.filter(r => r.type === 'coloriage');
+if (COLORIAGES.length) {
+  const escLdGal = s => s.replace(/<\/script>/gi, '<\\/script>');
+  const galerieDataJson = escLdGal(JSON.stringify(COLORIAGES));
+  const galerieMeta = `${COLORIAGES.length} coloriage(s) à imprimer, classés par thème (anxiété, sommeil, se recentrer...), à colorier au calme ou avant un moment qui inquiète.`;
+
+  const galerieHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coloriages à imprimer — Oui Psycho!</title>
+  <meta name="description" content="${escCard(galerieMeta)}">
+  <meta name="robots" content="noindex, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <base href="../../">
+  <link rel="canonical" href="${BASE}/ressources/coloriages/">
+  <link rel="icon" type="image/png" href="img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', { 'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
+    } else {
+      gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied', 'wait_for_update': 2000 });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="index.html">Accueil</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="tests.html">🧪 Tests</a>
+        <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container tool-page" style="max-width:960px">
+    <main>
+      <div class="tool-chapeau">
+        <nav class="breadcrumb" aria-label="Fil d'Ariane">
+          <a href="index.html">Accueil</a> <span>›</span> <span aria-current="page">Coloriages</span>
+        </nav>
+        <h1>Coloriages à imprimer</h1>
+        <p class="tool-preambule">${escCard(galerieMeta)}</p>
+      </div>
+
+      <div id="galerie-mount"></div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script type="application/json" id="galerie-data">${galerieDataJson}</script>
+  <script src="assets/ressources-engine.js"></script>
+  <script>
+    RessourcesEngine.renderGalerieColoriages(document.getElementById('galerie-mount'), JSON.parse(document.getElementById('galerie-data').textContent));
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+`;
+
+  const galerieOutDir = path.join(RESSOURCES_DIR, 'coloriages');
+  if (!fs.existsSync(galerieOutDir)) fs.mkdirSync(galerieOutDir, { recursive: true });
+  fs.writeFileSync(path.join(galerieOutDir, 'index.html'), galerieHtml, 'utf8');
+  console.log(`🖼  ressources/coloriages/index.html généré (${COLORIAGES.length} coloriage(s))`);
 }
 
 // ── Génération du sitemap.xml ─────────────────────────────────────────────────
