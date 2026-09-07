@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vérification des outils — Oui Psycho!</title>
+  <style>
+    :root {
+      --bg:#f4f2ee; --panel:#fff; --border:#e0dbd3;
+      --accent:#1a9e6e; --accent-d:#15885d; --accent-light:#e8f7f2;
+      --text:#1a1a1a; --muted:#6b6b6b;
+      --danger:#dc2626; --danger-light:#fee2e2;
+      --warn:#d97706; --warn-light:#fef3c7;
+      --radius:10px;
+      --font:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column;}
+    .hidden{display:none!important;}
+
+    header{background:var(--accent);color:#fff;padding:11px 20px;display:flex;align-items:center;gap:14px;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.18);}
+    header h1{font-size:1.05rem;font-weight:700;}
+    .hdr-sub{font-size:.82rem;opacity:.8;}
+    .spacer{flex:1;}
+
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:7px;font-size:.82rem;font-family:var(--font);font-weight:600;cursor:pointer;border:none;transition:opacity .15s,background .15s;}
+    .btn:disabled{opacity:.4;cursor:not-allowed;}
+    .btn-white{background:#fff;color:var(--accent);}
+    .btn-white:hover{background:#eafaf4;}
+    .btn-ghost{background:rgba(255,255,255,.15);color:#fff;border:1px solid rgba(255,255,255,.3);}
+    .btn-accent{background:var(--accent);color:#fff;}
+    .btn-accent:hover{background:var(--accent-d);}
+    .btn-danger{background:var(--danger);color:#fff;}
+    .btn-danger:hover{background:#b91c1c;}
+    .btn-warn{background:var(--warn);color:#fff;}
+    .btn-warn:hover{background:#b45f04;}
+    .btn-muted{background:var(--bg);color:var(--muted);border:1px solid var(--border);}
+    .btn-muted:hover{border-color:var(--accent);color:var(--accent);}
+    .btn-sm{padding:5px 10px;font-size:.78rem;}
+    .btn-icon{padding:5px 8px;background:none;border:none;cursor:pointer;color:var(--muted);border-radius:6px;font-size:.95rem;line-height:1;transition:background .12s,color .12s;}
+    .btn-icon:hover{background:var(--accent-light);color:var(--accent);}
+    .btn-icon.d:hover{background:var(--danger-light);color:var(--danger);}
+
+    #start{flex:1;display:flex;align-items:center;justify-content:center;padding:40px;}
+    .start-card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:36px 44px;max-width:500px;width:100%;text-align:center;}
+    .start-card .ico{font-size:3rem;display:block;margin-bottom:14px;}
+    .start-card h2{font-size:1.2rem;margin-bottom:8px;}
+    .start-card p{font-size:.88rem;color:var(--muted);line-height:1.55;margin-bottom:20px;}
+    .start-fields{display:flex;flex-direction:column;gap:10px;text-align:left;margin-bottom:16px;}
+    .start-fields label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+    .start-fields input{font-family:var(--font);font-size:.87rem;border:1px solid var(--border);border-radius:7px;padding:9px 12px;width:100%;background:var(--bg);}
+    .start-fields input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,158,110,.1);}
+    .start-hint{font-size:.76rem;color:var(--muted);margin-top:4px;text-align:left;line-height:1.45;}
+
+    #workspace{flex:1;display:grid;grid-template-columns:280px 1fr;overflow:hidden;}
+    .sidebar{background:var(--panel);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+    .sb-head{padding:12px 14px;border-bottom:1px solid var(--border);}
+    .sb-head h2{font-size:.88rem;font-weight:700;}
+    .tool-list{flex:1;overflow-y:auto;padding:6px;}
+    .ti{display:flex;align-items:center;gap:8px;padding:9px 10px;border-radius:8px;cursor:pointer;border:1.5px solid transparent;transition:background .1s;}
+    .ti:hover{background:var(--accent-light);}
+    .ti.active{background:var(--accent-light);border-color:var(--accent);}
+    .ti-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0;}
+    .ti-dot.ok{background:var(--accent);}
+    .ti-dot.blocked{background:var(--danger);}
+    .ti-main{flex:1;overflow:hidden;}
+    .ti-name{font-size:.82rem;font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+    .ti-fam{font-size:.7rem;color:var(--muted);}
+
+    .ed{overflow-y:auto;display:flex;flex-direction:column;}
+    .ed-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);padding:40px;text-align:center;}
+    .ed-empty h2{font-size:1rem;font-weight:700;}
+    .ed-empty p{font-size:.84rem;max-width:340px;line-height:1.5;}
+
+    .ed-toolbar{background:var(--panel);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;gap:10px;position:sticky;top:0;z-index:10;}
+    .ed-title{font-size:.9rem;font-weight:700;flex:1;}
+    .badge{font-size:.7rem;padding:3px 9px;border-radius:20px;font-weight:700;}
+    .badge-maison{background:#ede9fe;color:#5b21b6;}
+    .badge-validee{background:#dbeafe;color:#1e40af;}
+    .badge-ok{background:var(--accent-light);color:var(--accent-d);}
+    .badge-blocked{background:var(--danger-light);color:var(--danger);}
+    .ed-body{padding:22px 26px;display:flex;flex-direction:column;gap:20px;max-width:860px;}
+
+    .sec{background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+    .sec-head{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--border);}
+    .sec-head h3{font-size:.88rem;font-weight:700;flex:1;}
+    .sec-body{padding:14px 16px;display:flex;flex-direction:column;gap:12px;}
+    .sec-note{font-size:.78rem;color:var(--muted);line-height:1.5;padding:10px 16px;background:var(--bg);border-bottom:1px solid var(--border);}
+    .sec-note.warn{background:var(--warn-light);color:#7c4a03;}
+
+    .fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .f{display:flex;flex-direction:column;gap:4px;}
+    .f label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+    .f input,.f textarea,.f select{font-family:var(--font);font-size:.87rem;border:1px solid var(--border);border-radius:7px;padding:7px 10px;color:var(--text);background:var(--bg);transition:border-color .15s;resize:vertical;}
+    .f input:focus,.f textarea:focus,.f select:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,158,110,.1);}
+    .f input:disabled,.f textarea:disabled,.f select:disabled{background:#eee;color:#888;cursor:not-allowed;}
+    .full{grid-column:1/-1;}
+    .ro-value{font-size:.86rem;padding:7px 10px;background:var(--bg);border:1px solid var(--border);border-radius:7px;color:var(--text);white-space:pre-wrap;}
+
+    .icard{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:12px 14px;}
+    .icard-head{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+    .inum{width:22px;height:22px;border-radius:50%;background:var(--accent);color:#fff;font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+    .iid{font-size:.72rem;color:var(--muted);font-weight:700;}
+    .resp-row{display:flex;gap:6px;align-items:center;margin-top:6px;}
+    .resp-row textarea{flex:1;min-height:34px;}
+    .resp-row select{width:150px;}
+
+    .pcard,.rcard{background:var(--bg);border:1px solid var(--border);border-radius:9px;padding:12px 14px;display:flex;flex-direction:column;gap:8px;}
+    .pcard-head{display:flex;gap:8px;align-items:center;}
+    .pcard-head input[type=color]{width:40px;height:32px;border:1px solid var(--border);border-radius:6px;padding:2px;background:#fff;cursor:pointer;}
+
+    .rrow{display:flex;gap:6px;align-items:flex-start;}
+    .rrow input{flex:1;}
+
+    .add-row{background:none;border:1.5px dashed var(--border);color:var(--muted);border-radius:7px;padding:6px;font-size:.78rem;cursor:pointer;font-family:var(--font);}
+    .add-row:hover{border-color:var(--accent);color:var(--accent);}
+
+    .citation{font-size:.82rem;color:var(--muted);font-style:italic;line-height:1.5;}
+
+    #toast{position:fixed;bottom:22px;right:22px;z-index:9999;background:#1a1a1a;color:#fff;padding:10px 18px;border-radius:8px;font-size:.84rem;font-weight:600;box-shadow:0 4px 14px rgba(0,0,0,.3);display:none;}
+    #toast.show{display:flex;align-items:center;gap:8px;animation:fadeUp .2s ease;}
+    #toast.ok{background:var(--accent);}
+    #toast.err{background:var(--danger);}
+    #toast.info{background:#1a5fa8;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+
+    #loading{position:fixed;inset:0;background:rgba(255,255,255,.75);display:none;align-items:center;justify-content:center;z-index:800;}
+    #loading.on{display:flex;}
+    .spin{width:30px;height:30px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:sp .65s linear infinite;}
+    @keyframes sp{to{transform:rotate(360deg)}}
+
+    .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;display:none;align-items:center;justify-content:center;}
+    .modal-bg.on{display:flex;}
+    .modal{background:var(--panel);border-radius:var(--radius);padding:26px 30px;max-width:440px;width:90%;box-shadow:0 8px 30px rgba(0,0,0,.2);}
+    .modal h3{font-size:.95rem;margin-bottom:8px;}
+    .modal p{font-size:.86rem;color:var(--muted);margin-bottom:18px;line-height:1.55;}
+    .modal-acts{display:flex;gap:10px;justify-content:flex-end;}
+
+    ::-webkit-scrollbar{width:5px;} ::-webkit-scrollbar-thumb{background:#ccc;border-radius:3px;}
+  </style>
+</head>
+<body>
+
+<header>
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+  <h1>Vérification des outils</h1>
+  <span class="hdr-sub" id="hdr-info">Connexion…</span>
+  <div class="spacer"></div>
+  <button class="btn btn-ghost btn-sm hidden" id="btn-refresh" onclick="doRefresh()">↻ Actualiser</button>
+  <button class="btn btn-white btn-sm hidden" id="btn-save" onclick="doSave()" disabled>💾 Sauvegarder</button>
+</header>
+
+<div id="start" class="hidden">
+  <div class="start-card">
+    <span class="ico">🔍</span>
+    <h2>Vérification des outils</h2>
+    <p>Renseignez votre dépôt GitHub pour lire et vérifier <code>tools.json</code>.</p>
+    <div class="start-fields">
+      <div>
+        <label>Personal Access Token (PAT)</label>
+        <input type="password" id="cfg-pat" placeholder="ghp_xxxxxxxxxxxxxxxx" autocomplete="off">
+        <div class="start-hint">Même token que poulet.html — scope <strong>Contents: Read &amp; Write</strong>, stocké uniquement dans votre navigateur.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+        <div>
+          <label>Owner GitHub</label>
+          <input type="text" id="cfg-owner" placeholder="JohnBalthazar">
+        </div>
+        <div>
+          <label>Repo</label>
+          <input type="text" id="cfg-repo" placeholder="OuiPsycho">
+        </div>
+      </div>
+      <div>
+        <label>Branche</label>
+        <input type="text" id="cfg-branch" placeholder="main">
+      </div>
+    </div>
+    <button class="btn btn-accent" onclick="doConnect()" style="width:100%">🔗 Connecter et charger tools.json</button>
+    <div id="cfg-err" style="display:none;margin-top:12px;background:var(--danger-light);border:1px solid var(--danger);border-radius:7px;padding:10px 14px;font-size:.82rem;color:var(--danger);text-align:left;"></div>
+  </div>
+</div>
+
+<div id="workspace" class="hidden">
+  <div class="sidebar">
+    <div class="sb-head"><h2>Outils (<span id="tcount">0</span>)</h2></div>
+    <div class="tool-list" id="tool-list"></div>
+  </div>
+  <div class="ed" id="ed">
+    <div class="ed-empty" id="ed-empty">
+      <h2>Aucun outil sélectionné</h2>
+      <p>Choisissez un outil dans la liste pour voir son contenu, vérifier ses items contre une source, ou (pour les outils maison) les modifier.</p>
+    </div>
+    <div id="ed-content" class="hidden" style="display:flex;flex-direction:column;flex:1;">
+      <div class="ed-toolbar">
+        <span class="ed-title" id="ed-title">—</span>
+        <span class="badge" id="ed-fam-badge">—</span>
+        <span class="badge" id="ed-gen-badge">—</span>
+      </div>
+      <div class="ed-body" id="ed-body"></div>
+    </div>
+  </div>
+</div>
+
+<div id="loading"><div class="spin"></div></div>
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h3 id="modal-title">Confirmer</h3>
+    <p id="modal-msg"></p>
+    <div class="modal-acts">
+      <button class="btn btn-muted btn-sm" onclick="closeModal()">Annuler</button>
+      <button class="btn btn-accent btn-sm" id="modal-ok">Confirmer</button>
+    </div>
+  </div>
+</div>
+<div id="toast"></div>
+
+<script>
+'use strict';
+/* ═══════════════════════════════════════
+   STATE
+═══════════════════════════════════════ */
+const S = {
+  fullData: null,   // { _format, outils } — objet complet de tools.json
+  curIndex: null,
+  dirty: false,
+  sha: null         // sha GitHub de tools.json (informatif — githubPutFile re-résout lui-même)
+};
+
+/* ═══════════════════════════════════════
+   GITHUB API (mêmes clés localStorage que poulet.html)
+═══════════════════════════════════════ */
+const GH_OWNER_KEY  = 'ouipsycho_gh_owner';
+const GH_REPO_KEY   = 'ouipsycho_gh_repo';
+const GH_BRANCH_KEY = 'ouipsycho_gh_branch';
+const GH_PAT_KEY    = 'ouipsycho_gh_pat';
+
+function ghBase() {
+  const owner = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+  const repo  = localStorage.getItem(GH_REPO_KEY)  || 'OuiPsycho';
+  return `https://api.github.com/repos/${owner}/${repo}/contents/`;
+}
+function ghHeaders() {
+  const pat = localStorage.getItem(GH_PAT_KEY) || '';
+  return { 'Authorization': 'token ' + pat, 'Content-Type': 'application/json', 'Accept': 'application/vnd.github.v3+json' };
+}
+function ghBranch() { return localStorage.getItem(GH_BRANCH_KEY) || 'main'; }
+
+async function githubGetSha(path) {
+  try {
+    const url = ghBase() + path + '?ref=' + ghBranch() + '&t=' + Date.now();
+    const res = await fetch(url, { headers: ghHeaders() });
+    if (!res.ok) return null;
+    const data = await res.json();
+    return data.sha || null;
+  } catch (e) { return null; }
+}
+
+// Même logique que poulet.html : re-résout le sha et réessaie une fois en cas de 422.
+async function githubPutFile(path, content, message) {
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const doput = async (sha) => {
+    const body = { message, content: encoded, branch: ghBranch() };
+    if (sha) body.sha = sha;
+    return fetch(ghBase() + path, { method: 'PUT', headers: ghHeaders(), body: JSON.stringify(body) });
+  };
+  let sha = await githubGetSha(path);
+  let res = await doput(sha);
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    const msg = err.message || '';
+    const isShaError = res.status === 422 && (msg.includes('does not match') || msg.includes('sha') || msg.includes("wasn't supplied"));
+    if (isShaError) {
+      sha = await githubGetSha(path);
+      res = await doput(sha);
+      if (!res.ok) { const e2 = await res.json().catch(() => ({})); throw new Error(e2.message || res.status); }
+    } else {
+      throw new Error(msg || res.status);
+    }
+  }
+  return res.json();
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
+function showStartScreen(errMsg) {
+  document.getElementById('workspace').classList.add('hidden');
+  document.getElementById('btn-refresh').classList.add('hidden');
+  document.getElementById('btn-save').classList.add('hidden');
+  document.getElementById('start').classList.remove('hidden');
+  document.getElementById('hdr-info').textContent = errMsg || 'Connexion requise';
+  const setVal = (id, key, def) => { const el = document.getElementById(id); if (el) el.value = localStorage.getItem(key) || def; };
+  setVal('cfg-pat', GH_PAT_KEY, '');
+  setVal('cfg-owner', GH_OWNER_KEY, 'JohnBalthazar');
+  setVal('cfg-repo', GH_REPO_KEY, 'OuiPsycho');
+  setVal('cfg-branch', GH_BRANCH_KEY, 'main');
+}
+
+async function doConnect() {
+  const pat = document.getElementById('cfg-pat').value.trim();
+  const owner = document.getElementById('cfg-owner').value.trim() || 'JohnBalthazar';
+  const repo = document.getElementById('cfg-repo').value.trim() || 'OuiPsycho';
+  const branch = document.getElementById('cfg-branch').value.trim() || 'main';
+  const errEl = document.getElementById('cfg-err');
+  errEl.style.display = 'none';
+  if (!pat) { errEl.textContent = 'Entrez votre Personal Access Token.'; errEl.style.display = 'block'; return; }
+  localStorage.setItem(GH_PAT_KEY, pat);
+  localStorage.setItem(GH_OWNER_KEY, owner);
+  localStorage.setItem(GH_REPO_KEY, repo);
+  localStorage.setItem(GH_BRANCH_KEY, branch);
+  setLoading(true);
+  try {
+    await loadToolsJson();
+    document.getElementById('start').classList.add('hidden');
+    document.getElementById('workspace').classList.remove('hidden');
+    document.getElementById('btn-refresh').classList.remove('hidden');
+    document.getElementById('btn-save').classList.remove('hidden');
+  } catch (e) {
+    errEl.textContent = '❌ ' + e.message + ' — vérifiez le PAT, l\'owner et le repo.';
+    errEl.style.display = 'block';
+  } finally { setLoading(false); }
+}
+
+async function init() {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) { showStartScreen(); return; }
+  document.getElementById('workspace').classList.remove('hidden');
+  document.getElementById('btn-refresh').classList.remove('hidden');
+  document.getElementById('btn-save').classList.remove('hidden');
+  setLoading(true);
+  try {
+    await loadToolsJson();
+  } catch (e) {
+    showStartScreen('⚠️ Erreur de connexion GitHub');
+    document.getElementById('cfg-err').textContent = '❌ ' + e.message;
+    document.getElementById('cfg-err').style.display = 'block';
+  } finally { setLoading(false); }
+}
+
+async function doRefresh() {
+  if (S.dirty && !confirm('Modifications non sauvegardées. Recharger quand même ?')) return;
+  setLoading(true);
+  try { await loadToolsJson(); toast('Actualisé', 'ok'); }
+  catch (e) { toast('❌ ' + e.message, 'err'); }
+  finally { setLoading(false); }
+}
+
+// Lecture simple (pas besoin d'auth — tools.json est un fichier public du site).
+async function loadToolsJson() {
+  const res = await fetch('tools.json?t=' + Date.now());
+  if (!res.ok) throw new Error('tools.json introuvable (HTTP ' + res.status + ')');
+  S.fullData = await res.json();
+  S.curIndex = null;
+  S.dirty = false;
+  updSaveBtn();
+  renderList();
+  document.getElementById('hdr-info').textContent = `tools.json — ${S.fullData.outils.length} outil(s)`;
+  document.getElementById('ed-content').classList.add('hidden');
+  document.getElementById('ed-empty').classList.remove('hidden');
+}
+
+/* ═══════════════════════════════════════
+   RÈGLES DÉRIVÉES (doivent rester synchronisées avec _gen_static.js)
+═══════════════════════════════════════ */
+// Garde-fou de génération : seule la famille "echelle-validee" est conditionnée
+// à tracabilite.itemsVerifies === true (voir _gen_static.js, boucle `for (const
+// outil of TOOLS)`). Toute autre famille est toujours générée.
+function isGenerated(outil) {
+  if (outil.identite.famille === 'echelle-validee') return outil.tracabilite.itemsVerifies === true;
+  return true;
+}
+function isEditable(outil) { return outil.identite.famille === 'reperes-maison'; }
+
+/* ═══════════════════════════════════════
+   LISTE
+═══════════════════════════════════════ */
+function renderList() {
+  document.getElementById('tcount').textContent = S.fullData.outils.length;
+  const cont = document.getElementById('tool-list');
+  cont.innerHTML = '';
+  S.fullData.outils.forEach((outil, i) => {
+    const gen = isGenerated(outil);
+    const div = document.createElement('div');
+    div.className = 'ti' + (S.curIndex === i ? ' active' : '');
+    div.innerHTML = `
+      <span class="ti-dot ${gen ? 'ok' : 'blocked'}" title="${gen ? 'Généré' : 'Non généré — items non vérifiés'}"></span>
+      <div class="ti-main">
+        <div class="ti-name">${xe(outil.identite.titre)}</div>
+        <div class="ti-fam">${outil.identite.famille === 'reperes-maison' ? '🏠 maison' : '📜 validée'}</div>
+      </div>`;
+    div.addEventListener('click', () => selectTool(i));
+    cont.appendChild(div);
+  });
+}
+
+function selectTool(i) {
+  if (S.dirty && !confirm('Modifications non sauvegardées sur cet outil. Changer quand même ?')) return;
+  S.curIndex = i;
+  S.dirty = false;
+  updSaveBtn();
+  renderList();
+  renderDetail(i);
+}
+
+/* ═══════════════════════════════════════
+   DÉTAIL
+═══════════════════════════════════════ */
+function renderDetail(i) {
+  const outil = S.fullData.outils[i];
+  document.getElementById('ed-empty').classList.add('hidden');
+  document.getElementById('ed-content').classList.remove('hidden');
+  document.getElementById('ed-title').textContent = outil.identite.titre;
+
+  const famBadge = document.getElementById('ed-fam-badge');
+  famBadge.textContent = outil.identite.famille === 'reperes-maison' ? '🏠 Repères maison' : '📜 Échelle validée';
+  famBadge.className = 'badge ' + (outil.identite.famille === 'reperes-maison' ? 'badge-maison' : 'badge-validee');
+
+  const gen = isGenerated(outil);
+  const genBadge = document.getElementById('ed-gen-badge');
+  genBadge.textContent = gen ? '✅ Généré sur /outils/' + outil.identite.slug + '/' : '⛔ Non généré';
+  genBadge.className = 'badge ' + (gen ? 'badge-ok' : 'badge-blocked');
+
+  const editable = isEditable(outil);
+  const body = document.getElementById('ed-body');
+  body.innerHTML = '';
+
+  if (!editable) {
+    body.appendChild(sectionVerification(outil, i));
+  }
+  body.appendChild(sectionIdentite(outil, editable));
+  body.appendChild(sectionItems(outil, editable));
+  body.appendChild(sectionRestitution(outil, editable));
+  body.appendChild(sectionRessources(outil, i, editable));
+  body.appendChild(sectionTracabilite(outil, editable));
+  body.appendChild(sectionMaillage(outil, editable));
+
+  // Ré-attacher les listeners de saisie (pattern : la donnée est relue depuis
+  // le DOM au moment de "Sauvegarder", pas mutée à chaque frappe — évite de
+  // perdre le focus d'un champ pendant la frappe).
+  body.querySelectorAll('input, select').forEach(el => el.addEventListener('input', setDirty));
+  body.querySelectorAll('textarea').forEach(ta => { autoH(ta); ta.addEventListener('input', () => { autoH(ta); setDirty(); }); });
+}
+
+function sec(title, noteHtml, bodyHtml, noteClass) {
+  const d = document.createElement('div');
+  d.className = 'sec';
+  d.innerHTML = `<div class="sec-head"><h3>${title}</h3></div>` +
+    (noteHtml ? `<div class="sec-note${noteClass ? ' ' + noteClass : ''}">${noteHtml}</div>` : '') +
+    `<div class="sec-body">${bodyHtml}</div>`;
+  return d;
+}
+
+function sectionVerification(outil, i) {
+  const verified = outil.tracabilite.itemsVerifies === true;
+  const html = `
+    <div class="fg">
+      <div class="f"><label>Statut</label><div class="ro-value">${verified ? '🟢 Items vérifiés contre source' : '🔴 Items NON vérifiés contre source'}</div></div>
+      <div class="f"><label>Action</label>
+        <button class="btn btn-sm ${verified ? 'btn-warn' : 'btn-accent'}" onclick="doToggleVerified(${i})">
+          ${verified ? '⚠️ Repasser non-vérifié' : '✅ Marquer comme vérifié'}
+        </button>
+      </div>
+    </div>`;
+  return sec('🔍 Vérification',
+    "Cette famille reproduit un instrument publié : les items ne sont éditables nulle part dans cette page. Comparez le texte ci-dessous mot à mot avec une source primaire avant de marquer comme vérifié.",
+    html, verified ? '' : 'warn');
+}
+
+function sectionIdentite(outil, editable) {
+  const id = outil.identite;
+  const html = `
+    <div class="fg">
+      <div class="f"><label>Slug</label><div class="ro-value">${xe(id.slug)}</div></div>
+      <div class="f"><label>Famille / Type / Axe</label><div class="ro-value">${xe(id.famille)} · ${xe(id.type)} · ${xe(id.axe)}</div></div>
+      <div class="f full"><label>Titre</label>${editable
+        ? `<input id="f-titre" value="${xa(id.titre)}">`
+        : `<div class="ro-value">${xe(id.titre)}</div>`}</div>
+      ${id.metaDescription !== undefined ? `<div class="f full"><label>Meta description</label>${editable
+        ? `<textarea id="f-metadesc">${xe(id.metaDescription)}</textarea>`
+        : `<div class="ro-value">${xe(id.metaDescription)}</div>`}</div>` : ''}
+    </div>`;
+  return sec('🪪 Identité', null, html);
+}
+
+function sectionItems(outil, editable) {
+  const c = outil.contenu;
+  let html = '';
+  if (c.consigne) html += `<div class="f"><label>Consigne</label><div class="ro-value">${xe(c.consigne)}</div></div>`;
+
+  html += c.items.map((item, i) => {
+    let respHtml = '';
+    if (item.reponses) {
+      respHtml = item.reponses.map((r, j) => `
+        <div class="resp-row">
+          ${editable
+            ? `<textarea id="item-${i}-resp-${j}-texte">${xe(r.texte)}</textarea>`
+            : `<div class="ro-value" style="flex:1">${xe(r.texte)}</div>`}
+          ${editable
+            ? `<select id="item-${i}-resp-${j}-palier">${c.paliers.liste.map(p => `<option value="${xa(p)}" ${p === r.palier ? 'selected' : ''}>${xe(p)}</option>`).join('')}</select>`
+            : `<div class="ro-value">${xe(r.palier)}</div>`}
+        </div>`).join('');
+    }
+    return `
+      <div class="icard">
+        <div class="icard-head"><span class="inum">${i + 1}</span><span class="iid">${xe(item.id)}</span></div>
+        ${editable
+          ? `<textarea id="item-${i}-texte" style="font-weight:600">${xe(item.texte)}</textarea>`
+          : `<div class="ro-value" style="font-weight:600">${xe(item.texte)}</div>`}
+        ${respHtml}
+      </div>`;
+  }).join('');
+
+  if (c.echelleReponse && c.echelleReponse.nature === 'libelles-generiques-partages' && c.echelleReponse.options) {
+    html += `<div class="f"><label>Échelle de réponse partagée (${c.echelleReponse.options.length} options — lecture seule, structurelle)</label>
+      <div class="ro-value">${c.echelleReponse.options.map(o => xe(o.texte) + ' = ' + o.points).join(' · ')}</div></div>`;
+  }
+
+  if (c.bareme) {
+    html += `<div class="f"><label>Barème (${c.bareme.echelle.min}–${c.bareme.echelle.max} — lecture seule, structurel)</label>
+      <div class="ro-value">${xe(c.bareme.calcul)}<br>${c.bareme.tranches.map(t => `${xe(t.id)} : ${t.min}–${t.max}`).join(' · ')}</div></div>`;
+  }
+
+  return sec('❓ Items' + (editable ? '' : ' (lecture seule — fidélité à la source)'), null, html);
+}
+
+function sectionRestitution(outil, editable) {
+  const r = outil.restitution;
+  let html = '';
+  if (r.paliers) {
+    html = r.paliers.map((p, i) => `
+      <div class="pcard">
+        <div class="pcard-head">
+          ${editable ? `<input type="color" id="pal-${i}-couleur" value="${xa(p.couleur)}">` : `<div class="ro-value" style="width:40px;background:${xa(p.couleur)}">&nbsp;</div>`}
+          ${editable ? `<input id="pal-${i}-emoji" style="width:52px;text-align:center" value="${xa(p.emoji)}">` : `<div class="ro-value" style="width:52px;text-align:center">${xe(p.emoji)}</div>`}
+          ${editable ? `<input id="pal-${i}-label" style="flex:1" value="${xa(p.label)}">` : `<div class="ro-value" style="flex:1">${xe(p.label)}</div>`}
+        </div>
+        ${editable ? `<textarea id="pal-${i}-texte">${xe(p.texte)}</textarea>` : `<div class="ro-value">${p.texte}</div>`}
+      </div>`).join('');
+  } else if (r.tranches) {
+    html = r.tranches.map(t => `
+      <div class="pcard">
+        <div class="pcard-head">
+          <div class="ro-value" style="width:40px;background:${xa(t.couleur)}">&nbsp;</div>
+          <div class="ro-value" style="width:52px;text-align:center">${xe(t.emoji)}</div>
+          <div class="ro-value" style="flex:1">${xe(t.label)}</div>
+        </div>
+        <div class="ro-value">${t.texte}</div>
+      </div>`).join('');
+  }
+  if (r.complement) {
+    html += `<div class="f"><label>Complément (structurel — lecture seule)</label>
+      <div class="ro-value">déclenché par : ${r.complement.paliersDeclencheurs.join(', ')} · seuil : ${r.complement.seuilItems} item(s)</div></div>`;
+  }
+  return sec('🎯 Résultats' + (editable ? '' : ' (lecture seule — barème structurel)'), null, html);
+}
+
+function sectionRessources(outil, i, editable) {
+  const listHtml = outil.restitution.ressources.map((res, j) => `
+    <div class="rrow" data-res="${j}">
+      ${editable
+        ? `<input placeholder="Contact" value="${xa(res.contact)}" oninput="updRessource(${i},${j},'contact',this.value)">`
+        : `<div class="ro-value" style="flex:1">${xe(res.contact)}</div>`}
+      ${editable
+        ? `<input placeholder="Label" value="${xa(res.label)}" style="flex:2" oninput="updRessource(${i},${j},'label',this.value)">`
+        : `<div class="ro-value" style="flex:2">${xe(res.label)}</div>`}
+      ${editable ? `<button class="btn-icon d" title="Supprimer" onclick="removeRessource(${i},${j})">🗑</button>` : ''}
+    </div>`).join('') || `<div class="ro-value" style="color:var(--muted)">Aucune ressource — le pied de page suffit pour cet outil.</div>`;
+  const addBtn = editable ? `<button class="add-row" onclick="addRessource(${i})">＋ Ajouter une ressource</button>` : '';
+  return sec('🆘 Ressources', "Affichées après le résultat, quel que soit le score — le contenu dépend du sujet de l'outil.", listHtml + addBtn);
+}
+
+function addRessource(i) {
+  S.fullData.outils[i].restitution.ressources.push({ contact: '', label: '' });
+  setDirty();
+  renderDetail(i);
+}
+function removeRessource(i, j) {
+  S.fullData.outils[i].restitution.ressources.splice(j, 1);
+  setDirty();
+  renderDetail(i);
+}
+function updRessource(i, j, field, value) {
+  S.fullData.outils[i].restitution.ressources[j][field] = value;
+  setDirty();
+}
+
+function sectionTracabilite(outil, editable) {
+  const t = outil.tracabilite;
+  const sourcesHtml = t.sources.length
+    ? t.sources.map(s => `<div class="citation">${xe(s.authors)} (${xe(s.year)}). ${xe(s.title)}. <em>${xe(s.journal)}</em>.</div>`).join('')
+    : `<div class="ro-value" style="color:var(--muted)">Aucune source déclarée.</div>`;
+  const html = `
+    <div class="f full"><label>Sources (lecture seule)</label>${sourcesHtml}</div>
+    <div class="fg">
+      <div class="f"><label>Version</label>${editable ? `<input id="f-version" value="${xa(t.version)}">` : `<div class="ro-value">${xe(t.version)}</div>`}</div>
+      <div class="f"><label>Date de révision</label>${editable ? `<input type="date" id="f-daterevision" value="${xa(t.dateRevision)}">` : `<div class="ro-value">${xe(t.dateRevision)}</div>`}</div>
+      <div class="f"><label>À revoir avant</label>${editable ? `<input type="date" id="f-revoiravant" value="${xa(t.revoirAvant)}">` : `<div class="ro-value">${xe(t.revoirAvant)}</div>`}</div>
+      ${t.itemsVerifies !== undefined ? `<div class="f"><label>itemsVerifies</label><div class="ro-value">${t.itemsVerifies === true ? 'true' : 'false'}</div></div>` : ''}
+    </div>`;
+  return sec('📚 Traçabilité', null, html);
+}
+
+function sectionMaillage(outil, editable) {
+  const m = outil.maillage;
+  const html = `
+    <div class="fg">
+      <div class="f full"><label>Catégories (séparées par virgule)</label>${editable ? `<input id="f-categories" value="${xa(m.categories.join(', '))}">` : `<div class="ro-value">${xe(m.categories.join(', '))}</div>`}</div>
+      <div class="f full"><label>Mots-clés (séparés par virgule)</label>${editable ? `<input id="f-motscles" value="${xa(m.motsCles.join(', '))}">` : `<div class="ro-value">${xe(m.motsCles.join(', '))}</div>`}</div>
+      <div class="f full"><label>Ancres autorisées (séparées par virgule)</label>${editable ? `<input id="f-ancres" value="${xa(m.ancres.join(', '))}">` : `<div class="ro-value">${xe(m.ancres.join(', '))}</div>`}</div>
+      <div class="f"><label>Occurrences (min / max par article)</label><div class="ro-value">${m.minOccurrences} / ${m.maxParArticle}</div></div>
+      <div class="f"><label>Formats</label><div class="ro-value">${xe(m.formats.join(', '))}</div></div>
+    </div>`;
+  return sec('🔗 Maillage', null, html);
+}
+
+/* ═══════════════════════════════════════
+   SAUVEGARDE (contenu — outils maison uniquement)
+═══════════════════════════════════════ */
+function collectFormInto(outil) {
+  const val = id => { const el = document.getElementById(id); return el ? el.value : undefined; };
+  const set = (obj, key, id, transform) => { const v = val(id); if (v !== undefined) obj[key] = transform ? transform(v) : v; };
+
+  set(outil.identite, 'titre', 'f-titre');
+  if (outil.identite.metaDescription !== undefined) set(outil.identite, 'metaDescription', 'f-metadesc');
+
+  outil.contenu.items.forEach((item, i) => {
+    set(item, 'texte', `item-${i}-texte`);
+    if (item.reponses) {
+      item.reponses.forEach((r, j) => {
+        set(r, 'texte', `item-${i}-resp-${j}-texte`);
+        set(r, 'palier', `item-${i}-resp-${j}-palier`);
+      });
+    }
+  });
+
+  if (outil.restitution.paliers) {
+    outil.restitution.paliers.forEach((p, i) => {
+      set(p, 'couleur', `pal-${i}-couleur`);
+      set(p, 'emoji', `pal-${i}-emoji`);
+      set(p, 'label', `pal-${i}-label`);
+      set(p, 'texte', `pal-${i}-texte`);
+    });
+  }
+
+  set(outil.tracabilite, 'version', 'f-version');
+  set(outil.tracabilite, 'dateRevision', 'f-daterevision');
+  set(outil.tracabilite, 'revoirAvant', 'f-revoiravant');
+
+  const splitCsv = s => s.split(',').map(x => x.trim()).filter(Boolean);
+  set(outil.maillage, 'categories', 'f-categories', splitCsv);
+  set(outil.maillage, 'motsCles', 'f-motscles', splitCsv);
+  set(outil.maillage, 'ancres', 'f-ancres', splitCsv);
+}
+
+async function writeToolsJson(message) {
+  const content = JSON.stringify(S.fullData, null, 2);
+  await githubPutFile('tools.json', content, message);
+}
+
+async function doSave() {
+  if (S.curIndex === null) return;
+  const outil = S.fullData.outils[S.curIndex];
+  if (!isEditable(outil)) { toast('Cet outil est en lecture seule (echelle-validee)', 'err'); return; }
+  collectFormInto(outil);
+  setLoading(true);
+  try {
+    await writeToolsJson(`update: outil ${outil.identite.slug}`);
+    S.dirty = false;
+    updSaveBtn();
+    toast('✅ Sauvegardé sur GitHub', 'ok');
+    renderList();
+    renderDetail(S.curIndex);
+  } catch (e) {
+    toast('❌ ' + e.message, 'err');
+  } finally { setLoading(false); }
+}
+
+/* ═══════════════════════════════════════
+   BASCULE itemsVerifies (echelle-validee uniquement)
+═══════════════════════════════════════ */
+function doToggleVerified(i) {
+  const outil = S.fullData.outils[i];
+  const cur = outil.tracabilite.itemsVerifies === true;
+  const goingTrue = !cur;
+
+  document.getElementById('modal-title').textContent = goingTrue ? 'Marquer comme vérifié' : 'Repasser en non-vérifié';
+  document.getElementById('modal-msg').textContent = goingTrue
+    ? `Confirmez : chaque item de « ${outil.identite.titre} » (texte, ordre, échelle de réponse, seuils) a été relu et confronté mot à mot à une source primaire. L'outil deviendra publiable au prochain déploiement.`
+    : `Repasser « ${outil.identite.titre} » en non-vérifié ? Il ne sera plus généré tant que le statut n'est pas relevé à nouveau.`;
+  const okBtn = document.getElementById('modal-ok');
+  okBtn.textContent = goingTrue ? '✅ Confirmer la vérification' : '⚠️ Repasser non-vérifié';
+  okBtn.className = 'btn btn-sm ' + (goingTrue ? 'btn-accent' : 'btn-warn');
+  okBtn.onclick = async () => {
+    closeModal();
+    outil.tracabilite.itemsVerifies = goingTrue;
+    if (goingTrue) outil.tracabilite.dateRevision = todayStr();
+    setLoading(true);
+    try {
+      await writeToolsJson(`verif: ${outil.identite.slug} itemsVerifies → ${goingTrue}`);
+      toast(goingTrue ? '✅ Marqué vérifié' : '⚠️ Marqué non vérifié', 'ok');
+      renderList();
+      renderDetail(i);
+    } catch (e) {
+      outil.tracabilite.itemsVerifies = cur; // rollback si l'écriture échoue
+      toast('❌ ' + e.message, 'err');
+      renderDetail(i);
+    } finally { setLoading(false); }
+  };
+  document.getElementById('modal').classList.add('on');
+}
+function closeModal() { document.getElementById('modal').classList.remove('on'); }
+
+/* ═══════════════════════════════════════
+   UTILITAIRES
+═══════════════════════════════════════ */
+function xe(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+function xa(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;'); }
+function autoH(ta) { ta.style.height = 'auto'; ta.style.height = Math.max(34, ta.scrollHeight) + 'px'; }
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+
+function setDirty() { if (!S.dirty) { S.dirty = true; updSaveBtn(); } }
+function updSaveBtn() {
+  const b = document.getElementById('btn-save');
+  if (!b) return;
+  const outil = S.curIndex !== null ? S.fullData.outils[S.curIndex] : null;
+  b.disabled = !S.dirty || !outil || !isEditable(outil);
+  b.textContent = S.dirty ? '💾 Sauvegarder *' : '💾 Sauvegarder';
+  b.style.color = S.dirty ? 'var(--warn)' : '';
+}
+
+function setLoading(on) { document.getElementById('loading').classList.toggle('on', on); }
+function toast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg; t.className = 'show' + (type ? ' ' + type : '');
+  clearTimeout(t._t); t._t = setTimeout(() => t.classList.remove('show'), 3200);
+}
+
+window.addEventListener('beforeunload', e => { if (S.dirty) { e.preventDefault(); e.returnValue = ''; } });
+
+init();
+</script>
+</body>
+</html>
