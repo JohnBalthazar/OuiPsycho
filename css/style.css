@@ -2738,20 +2738,11 @@ p:last-child { margin-bottom: 0; }
 .ressource-roue { display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
 .ressource-roue__step { width: 100%; display: flex; flex-direction: column; align-items: center; gap: var(--sp-5); }
 .ressource-roue__progress { color: var(--color-text-muted); font-size: var(--fs-sm); font-weight: 700; text-align: center; margin: 0; }
-.ressource-roue__svg {
-  width: 100%; max-width: 320px; height: auto;
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,.10));
-}
-.ressource-roue__secteur { cursor: pointer; stroke: var(--color-bg); stroke-width: 4; stroke-linejoin: round; transition: filter .15s ease; }
-.ressource-roue__segment { cursor: pointer; }
-.ressource-roue__segment:hover .ressource-roue__secteur,
-.ressource-roue__segment:focus .ressource-roue__secteur { filter: brightness(0.94); outline: none; }
-.ressource-roue__segment:focus-visible .ressource-roue__secteur { stroke: var(--color-primary); }
-.ressource-roue__icon { pointer-events: none; }
-.ressource-roue__label { font-family: var(--font-body); font-size: 12.5px; font-weight: 800; fill: var(--color-text); pointer-events: none; text-transform: uppercase; letter-spacing: .01em; }
-.ressource-roue__hub circle { fill: #fff; stroke: var(--color-border); stroke-width: 1.5; }
-.ressource-roue__hub-icon { font-size: 20px; }
-.ressource-roue__hub-text { font-family: var(--font-body); font-size: 11px; font-weight: 700; fill: var(--color-text-muted); }
+.ressource-roue__svg { width: 100%; max-width: 320px; height: auto; }
+.ressource-roue__secteur { cursor: pointer; stroke: #fff; stroke-width: 2; transition: opacity .15s ease; }
+.ressource-roue__secteur:hover, .ressource-roue__secteur:focus { opacity: .82; outline: none; }
+.ressource-roue__secteur.is-active { stroke: var(--color-text); stroke-width: 3; }
+.ressource-roue__label { font-family: var(--font-body); font-size: 13px; font-weight: 700; fill: #fff; pointer-events: none; }
 
 .ressource-roue__nuances { width: 100%; max-width: 480px; display: flex; flex-direction: column; gap: var(--sp-3); }
 .ressource-roue__nuance-btn {
