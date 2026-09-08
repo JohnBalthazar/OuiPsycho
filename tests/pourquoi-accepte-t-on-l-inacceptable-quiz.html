@@ -26,10 +26,14 @@
   <meta name="description" content="Douze situations pour explorer votre manière de réagir quand vous sentez que quelqu'un pourrait s'éloigner. Quatre profils, sans étiquette.">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px}
-    .wrap{max-width:620px;margin:0 auto}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F7F9FB;color:#1B2733;line-height:1.55;padding:20px 16px 28px;display:flex;justify-content:center}
+    .wrap{width:100%;max-width:620px}
     .card{background:#fff;border:1px solid #E2E9EF;border-radius:14px;padding:22px 20px;box-shadow:0 1px 3px rgba(31,78,107,.06)}
     .kicker{font-size:.74rem;letter-spacing:.09em;text-transform:uppercase;color:#5B7387;font-weight:700;margin-bottom:6px}
+    .quiz-header{text-align:center;margin-bottom:22px}
+    .quiz-header__img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+    .quiz-header__title{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
+    .quiz-header__desc{font-size:.95rem;color:#4A5C6B}
     h1{font-size:1.32rem;line-height:1.3;color:#1F4E6B;margin-bottom:8px}
     .lead{font-size:.95rem;color:#4A5C6B;margin-bottom:14px}
     .note{background:#F1F7FA;border:1px solid #DDE9F0;border-radius:9px;padding:11px 13px;font-size:.85rem;color:#3F566B;margin-bottom:16px}
@@ -62,7 +66,14 @@
 </head>
 <body>
 <div class="wrap">
-  <div class="card" id="app"></div>
+  <div class="card">
+    <div class="quiz-header">
+      <img class="quiz-header__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/j1fwscaqkapjpkq7n6cx" alt="" loading="lazy">
+      <h1 class="quiz-header__title">Que faites-vous quand le lien vacille ?</h1>
+      <p class="quiz-header__desc">Douze situations très ordinaires. Ce test n'évalue pas votre relation et ne juge personne : il explore votre manière de réagir quand vous sentez que quelqu'un pourrait s'éloigner.</p>
+    </div>
+    <div id="app"></div>
+  </div>
 </div>
 
 <script>
@@ -241,8 +252,6 @@ function reset() {
 function renderIntro() {
   document.getElementById('app').innerHTML =
     '<div class="kicker">Relations</div>' +
-    '<h1>Que faites-vous quand le lien vacille ?</h1>' +
-    '<p class="lead">Douze situations très ordinaires. Ce test n\'évalue pas votre relation et ne juge personne : il explore votre manière de réagir quand vous sentez que quelqu\'un pourrait s\'éloigner.</p>' +
     '<div class="note">Aucun résultat ne pose de diagnostic ni ne qualifie votre entourage. Il s\'agit d\'un outil de réflexion sur vos propres réflexes.</div>' +
     '<button class="again" id="go">Commencer le test</button>' +
     '<p class="mini">Environ 5 minutes · Aucune donnée enregistrée</p>';

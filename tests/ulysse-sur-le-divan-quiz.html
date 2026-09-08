@@ -32,8 +32,14 @@
       color: #f4efe6;
       padding: 24px 16px;
       min-height: 100vh;
+      display: flex;
+      justify-content: center;
     }
-    .quiz-container { max-width: 640px; margin: 0 auto; }
+    .quiz-container { width: 100%; max-width: 640px; }
+    .quiz-header { text-align: center; margin-bottom: 20px; }
+    .quiz-header__img { display: block; width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin-bottom: 16px; }
+    .quiz-header__title { font-size: 1.45em; line-height: 1.35; color: #f0c987; margin-bottom: 10px; }
+    .quiz-header__desc { color: #ece5d8; font-size: 1em; line-height: 1.6; }
     .card {
       background: rgba(244,239,230,0.07);
       border: 1px solid rgba(244,239,230,0.18);
@@ -108,10 +114,13 @@
 </head>
 <body>
   <div class="quiz-container">
+    <div class="quiz-header">
+      <img class="quiz-header__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/oorjm3epvwvsfr0omqqk" alt="" loading="lazy">
+      <h1 class="quiz-header__title">Quel héros de la mythologie grecque êtes-vous&nbsp;?</h1>
+      <p class="quiz-header__desc">Face aux tempêtes de la vie, certains rusent comme Ulysse, d'autres foncent comme Achille, tiennent bon comme Pénélope ou refusent de plier comme Antigone. Huit questions pour découvrir quel héros antique guide votre façon d'affronter l'adversité.</p>
+    </div>
     <!-- Écran d'intro -->
     <div class="card" id="screen-intro">
-      <h1>⚓ Quel héros de la mythologie grecque êtes-vous ?</h1>
-      <p class="intro-text">Face aux tempêtes de la vie, certains rusent comme Ulysse, d'autres foncent comme Achille, tiennent bon comme Pénélope ou refusent de plier comme Antigone. Huit questions pour découvrir quel héros antique guide votre façon d'affronter l'adversité.</p>
       <div class="center"><button class="btn" onclick="startQuiz()">Larguer les amarres ⛵</button></div>
     </div>
 

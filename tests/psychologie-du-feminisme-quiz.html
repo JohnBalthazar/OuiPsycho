@@ -14,11 +14,12 @@
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
-       color:var(--ink);background:var(--bg);line-height:1.55;padding:20px}
+       color:var(--ink);background:var(--bg);line-height:1.55;padding:20px;display:flex;justify-content:center}
   .wrap{max-width:640px;margin:0 auto}
   .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 22px 24px;
         box-shadow:0 6px 22px rgba(120,90,70,.06)}
   h1{font-size:1.35rem;margin:.1em 0 .2em}
+  .head-img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
   .sub{color:var(--muted);font-size:.95rem;margin:0 0 18px}
   .progress{height:8px;background:var(--soft);border-radius:99px;overflow:hidden;margin:0 0 20px}
   .bar{height:100%;width:0;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width .35s ease}
@@ -44,6 +45,7 @@
 <div class="wrap">
   <div class="card">
     <div id="head">
+      <img class="head-img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/gwpvyv2omgkuqpepgp5i" alt="" loading="lazy">
       <h1>Quel genre de féministe êtes-vous ?</h1>
       <p class="sub">7 situations, aucune mauvaise réponse — juste votre tempérament.</p>
     </div>

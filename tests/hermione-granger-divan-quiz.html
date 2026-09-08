@@ -25,8 +25,12 @@
 <meta name="description" content="Quel genre de sorcière êtes-vous ? Un test de personnalité inspiré du monde des sorciers.">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#352a44;background:transparent;line-height:1.55}
-  .quiz{max-width:560px;margin:0 auto;background:#f7f2fb;border:1px solid #e6dcf3;border-radius:16px;padding:26px 24px}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#352a44;background:transparent;line-height:1.55;display:flex;justify-content:center;padding:4px}
+  .quiz{width:100%;max-width:560px;background:#f7f2fb;border:1px solid #e6dcf3;border-radius:16px;padding:26px 24px}
+  .quiz-header{text-align:center;margin-bottom:22px}
+  .quiz-header__img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+  .quiz-header__title{font-size:1.28rem;line-height:1.35;color:#4a3866;margin-bottom:8px}
+  .quiz-header__desc{color:#9277b5;font-size:.92rem;line-height:1.55}
   .progress{height:8px;background:#e9e0f4;border-radius:99px;overflow:hidden;margin-bottom:22px}
   .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#a98ad6,#7c5cbf);border-radius:99px;transition:width .35s ease}
   .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#9277b5;margin-bottom:10px;font-weight:600}
@@ -47,7 +51,14 @@
 </style>
 </head>
 <body>
-<div class="quiz" id="quiz"></div>
+<div class="quiz">
+  <div class="quiz-header">
+    <img class="quiz-header__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhpnhjcevsz5tq2087l1" alt="" loading="lazy">
+    <h1 class="quiz-header__title">Quel genre de sorcière êtes-vous&nbsp;?</h1>
+    <p class="quiz-header__desc">Six questions pour révéler la sorcière qui sommeille en vous. Répondez d'instinct, sans trop réfléchir.</p>
+  </div>
+  <div id="quiz"></div>
+</div>
 <script>
 (function(){
   var questions=[
@@ -103,10 +114,7 @@
   }
 
   function renderIntro(){
-    box.innerHTML='<div class="intro"><span class="emoji">🪄</span>'+
-      '<h2>Quel genre de sorcière êtes-vous ?</h2>'+
-      '<p>Six questions pour révéler la sorcière qui sommeille en vous. Répondez d\'instinct, sans trop réfléchir.</p>'+
-      '<button class="btn" id="start">Entrer à Poudlard</button></div>';
+    box.innerHTML='<div class="intro"><button class="btn" id="start">Entrer à Poudlard</button></div>';
     document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
     notifyResize();
   }

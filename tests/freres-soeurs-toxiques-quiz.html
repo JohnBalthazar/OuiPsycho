@@ -26,9 +26,10 @@
   <meta name="description" content="Dix questions pour identifier la place que vous occupez dans votre relation fraternelle : chamaillerie, bouc émissaire, pilier, emprise ou distance assumée.">
   <style>
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#fff;color:#1c2b33;line-height:1.6;padding:4px}
-    .wrap{max-width:680px;margin:0 auto;background:#fff;border:1px solid #e3e9ed;border-radius:16px;padding:24px 20px 28px}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:#fff;color:#1c2b33;line-height:1.6;padding:4px;display:flex;justify-content:center}
+    .wrap{width:100%;max-width:680px;background:#fff;border:1px solid #e3e9ed;border-radius:16px;padding:24px 20px 28px}
     .head{text-align:center;margin-bottom:18px}
+    .head img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
     .head h1{font-size:1.35rem;color:#1F4E6B;line-height:1.3;margin-bottom:6px}
     .head p{font-size:.9rem;color:#5c6f7c}
     .bar{height:7px;background:#e9eff3;border-radius:99px;overflow:hidden;margin:16px 0 6px}
@@ -64,7 +65,14 @@
   </style>
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="wrap">
+  <div class="head">
+    <img src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge" alt="" loading="lazy">
+    <h1>Dans quelle configuration fraternelle êtes-vous ?</h1>
+    <p>Dix questions pour identifier la place que vous occupez dans votre relation fraternelle : chamaillerie, bouc émissaire, pilier, emprise ou distance assumée.</p>
+  </div>
+  <div id="app"></div>
+</div>
 
 <script>
 var QUESTIONS = [
@@ -220,8 +228,7 @@ function esc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").rep
 function renderQuestion() {
   var q = QUESTIONS[idx];
   var pct = Math.round((idx / QUESTIONS.length) * 100);
-  var html = '<div class="head"><h1>Dans quelle configuration fraternelle êtes-vous ?</h1><p>10 questions — environ 4 minutes</p></div>';
-  html += '<div class="bar"><span style="width:' + pct + '%"></span></div>';
+  var html = '<div class="bar"><span style="width:' + pct + '%"></span></div>';
   html += '<div class="count">Question ' + (idx + 1) + ' / ' + QUESTIONS.length + '</div>';
   html += '<div class="q">' + esc(q.q) + '</div>';
   for (var i = 0; i < q.a.length; i++) {

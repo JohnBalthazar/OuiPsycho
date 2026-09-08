@@ -30,8 +30,9 @@
       --fond:#FFF8F1; --carte:#ffffff; --texte:#332821; --gris:#7c6f65;
     }
     *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55}
+    body{font-family:'Segoe UI',system-ui,-apple-system,sans-serif;background:var(--fond);color:var(--texte);padding:12px;line-height:1.55;display:flex;justify-content:center}
     .quiz{max-width:640px;margin:0 auto;background:var(--carte);border-radius:16px;box-shadow:0 4px 18px rgba(219,107,42,.15);overflow:hidden}
+    .entete-img{display:block;width:100%;height:150px;object-fit:cover}
     .entete{background:linear-gradient(135deg,var(--orange),var(--orange-fonce));color:#fff;padding:26px 24px;text-align:center}
     .entete h1{font-size:1.4rem;margin-bottom:6px}
     .entete p{opacity:.92;font-size:.95rem}
@@ -60,6 +61,7 @@
 </head>
 <body>
   <div class="quiz">
+    <img class="entete-img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zxj5jfrl9zntfpvsabbh" alt="" loading="lazy">
     <div class="entete">
       <h1>Quel maître d'arts martiaux sommeille en vous&nbsp;?</h1>
       <p>Tortue Géniale, Piccolo, Goku ou Végéta : 7 questions pour découvrir votre style de dépassement de soi.</p>

@@ -25,8 +25,12 @@
 <meta name="description" content="Quel genre de Lara Croft êtes-vous ? Téméraire, stratège ou empathique ? Un test de personnalité.">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#3a322e;background:transparent;line-height:1.55}
-  .quiz{max-width:560px;margin:0 auto;background:#fff7f2;border:1px solid #f0ddd0;border-radius:16px;padding:26px 24px}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#3a322e;background:transparent;line-height:1.55;display:flex;justify-content:center;padding:4px}
+  .quiz{width:100%;max-width:560px;background:#fff7f2;border:1px solid #f0ddd0;border-radius:16px;padding:26px 24px}
+  .quiz-header{text-align:center;margin-bottom:22px}
+  .quiz-header__img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+  .quiz-header__title{font-size:1.22rem;line-height:1.35;color:#5a3d2e;margin-bottom:8px}
+  .quiz-header__desc{color:#b08368;font-size:.92rem;line-height:1.55}
   .progress{height:8px;background:#f1e2d8;border-radius:99px;overflow:hidden;margin-bottom:22px}
   .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#e8a07d,#d97a55);border-radius:99px;transition:width .35s ease}
   .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#b08368;margin-bottom:10px;font-weight:600}
@@ -47,7 +51,14 @@
 </style>
 </head>
 <body>
-<div class="quiz" id="quiz"></div>
+<div class="quiz">
+  <div class="quiz-header">
+    <img class="quiz-header__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/o6zaqxwfylbkqj7p5fno" alt="" loading="lazy">
+    <h1 class="quiz-header__title">Quel genre de Lara Croft êtes-vous ?</h1>
+    <p class="quiz-header__desc">Six questions pour révéler l'aventurière qui sommeille en vous. Répondez spontanément, sans trop réfléchir.</p>
+  </div>
+  <div id="quiz"></div>
+</div>
 <script>
 (function(){
   var questions=[
@@ -103,10 +114,7 @@
   }
 
   function renderIntro(){
-    box.innerHTML='<div class="intro"><span class="emoji">🏺</span>'+
-      '<h2>Quel genre de Lara Croft êtes-vous ?</h2>'+
-      '<p>Six questions pour révéler l\'aventurière qui sommeille en vous. Répondez spontanément, sans trop réfléchir.</p>'+
-      '<button class="btn" id="start">Commencer l\'expédition</button></div>';
+    box.innerHTML='<div class="intro"><button class="btn" id="start">Commencer l\'expédition</button></div>';
     document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
     notifyResize();
   }

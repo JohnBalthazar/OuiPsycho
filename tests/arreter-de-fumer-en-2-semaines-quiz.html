@@ -25,8 +25,12 @@
 <meta name="description" content="Test : quel genre de fumeur es-tu ? Découvrez votre rapport à la cigarette et vos clés pour arrêter.">
 <style>
   *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c1c1c;background:transparent;line-height:1.55}
-  .quiz{max-width:560px;margin:0 auto;background:#f8faf5;border:1px solid #c8e0b8;border-radius:16px;padding:26px 24px}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1c1c1c;background:transparent;line-height:1.55;display:flex;justify-content:center;padding:4px}
+  .quiz{width:100%;max-width:560px;background:#f8faf5;border:1px solid #c8e0b8;border-radius:16px;padding:26px 24px}
+  .quiz-header{text-align:center;margin-bottom:22px}
+  .quiz-header__img{display:block;width:100%;height:150px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+  .quiz-header__title{font-size:1.22rem;line-height:1.38;color:#1a3d0a;margin-bottom:8px}
+  .quiz-header__desc{color:#3d7a2a;font-size:.92rem;line-height:1.55}
   .progress{height:8px;background:#d0e8c0;border-radius:99px;overflow:hidden;margin-bottom:22px}
   .progress > span{display:block;height:100%;width:0;background:linear-gradient(90deg,#5cb85c,#2d7a2d);border-radius:99px;transition:width .35s ease}
   .step-info{font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;color:#3d7a2a;margin-bottom:10px;font-weight:600}
@@ -52,7 +56,14 @@
 </style>
 </head>
 <body>
-<div class="quiz" id="quiz"></div>
+<div class="quiz">
+  <div class="quiz-header">
+    <img class="quiz-header__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n9svnz2acigim2stmxes" alt="" loading="lazy">
+    <h1 class="quiz-header__title">Test : quel genre de fumeur es-tu&nbsp;?</h1>
+    <p class="quiz-header__desc">Social, émotionnel, automatique ou dépendant ? 7 questions pour identifier ton profil — et repartir avec des conseils d'arrêt vraiment adaptés à ta situation.</p>
+  </div>
+  <div id="quiz"></div>
+</div>
 <script>
 (function(){
   var questions=[
@@ -126,10 +137,7 @@
   }
 
   function renderIntro(){
-    box.innerHTML='<div class="intro"><span class="emoji">🚭</span>'+
-      '<h2>Quel genre de fumeur es-tu&nbsp;?</h2>'+
-      '<p>Social, émotionnel, automatique ou dépendant ? 7 questions pour identifier ton profil — et repartir avec des conseils d\'arrêt vraiment adaptés à ta situation.</p>'+
-      '<button class="btn" id="start">Commencer le test</button></div>';
+    box.innerHTML='<div class="intro"><button class="btn" id="start">Commencer le test</button></div>';
     document.getElementById('start').onclick=function(){step=0;answers=[];renderQ();};
     notifyResize();
   }

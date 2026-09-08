@@ -41,9 +41,10 @@
       color:var(--encre);
       padding:20px 14px;
       line-height:1.55;
+      display:flex;justify-content:center;
     }
     .quiz{
-      max-width:640px;margin:0 auto;background:#fff;
+      max-width:640px;background:#fff;
       border:2px solid var(--encre);border-radius:14px;
       box-shadow:6px 6px 0 var(--ciel);
       overflow:hidden;
@@ -52,6 +53,7 @@
       background:var(--bleu);color:#fff;padding:20px 22px;
       border-bottom:2px solid var(--encre);
     }
+    .quiz-head__img{display:block;width:100%;height:150px;object-fit:cover;border-radius:10px;border:2px solid var(--encre);margin-bottom:14px}
     .quiz-head h1{font-size:1.25rem;line-height:1.3;letter-spacing:.2px}
     .quiz-head p{font-size:.9rem;opacity:.9;margin-top:6px}
     .quiz-body{padding:22px}
@@ -117,6 +119,7 @@
 <body>
   <div class="quiz">
     <div class="quiz-head">
+      <img class="quiz-head__img" src="https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mjmq83txt8cq4hiatr9q" alt="" loading="lazy">
       <h1>🛡️ Quel Gaulois êtes-vous ?</h1>
       <p>7 questions pour savoir quel irréductible habitant du village sommeille en vous.</p>
     </div>
