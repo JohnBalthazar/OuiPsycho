@@ -139,9 +139,46 @@
     return result;
   }
 
+  // Résout les tokens de maillage articles ↔ cartes.json — voir
+  // cartes.json:_format. Deux formes, toutes deux résolues au build :
+  //   {{carte:SLUG|ancre}}                    → lien inline
+  //   {"type":"carteCard","slug":"SLUG"}      → carte (forme JSON compacte
+  //                                              exacte, sans espace)
+  // Un slug absent de cartes.json, ou une ancre absente de maillage.ancres
+  // pour ce slug, fait échouer le build (exception non rattrapée) plutôt
+  // que de publier silencieusement un lien mort ou un intitulé non validé
+  // éditorialement.
+  function resolveCarteTokens(html, cartes) {
+    const bySlug = {};
+    cartes.forEach(function (c) { bySlug[c.identite.slug] = c; });
+
+    let result = html.replace(/\{"type":"carteCard","slug":"([a-z0-9-]+)"\}/g, function (match, slug) {
+      const c = bySlug[slug];
+      if (!c) throw new Error(`carteCard : slug "${slug}" absent de cartes.json`);
+      return `<a class="carte-inline-card" href="cartes/${slug}/">` +
+        `<span class="carte-inline-card__icon" aria-hidden="true">${escCard(c.identite.emoji || '🗺️')}</span>` +
+        `<span class="carte-inline-card__body">` +
+        `<span class="carte-inline-card__title">${escCard(c.identite.titre)}</span>` +
+        `<span class="carte-inline-card__desc">${escCard(c.identite.description)}</span>` +
+        `</span></a>`;
+    });
+
+    result = result.replace(/\{\{carte:([a-z0-9-]+)\|([^}]+)\}\}/g, function (match, slug, ancre) {
+      const c = bySlug[slug];
+      if (!c) throw new Error(`{{carte:${slug}}} : slug absent de cartes.json`);
+      if (c.maillage.ancres.indexOf(ancre) === -1) {
+        throw new Error(`{{carte:${slug}|${ancre}}} : ancre non déclarée dans maillage.ancres de "${slug}"`);
+      }
+      return `<a href="cartes/${slug}/">${escCard(ancre)}</a>`;
+    });
+
+    return result;
+  }
+
   function buildArticleHTML(j, opts) {
     opts = opts || {};
     const ressources = opts.ressources || [];
+    const cartes = opts.cartes || [];
     const TODAY = new Date().toISOString().split('T')[0];
     const YEAR  = new Date().getFullYear();
 
@@ -429,7 +466,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${wrapTables(resolveRessourceTokens(j.content, ressources))}${continueBlockHtml}
+          ${wrapTables(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes))}${continueBlockHtml}
         </div>
 ${sourcesHtml}
         <div class="author-box">

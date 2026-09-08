@@ -1,0 +1,104 @@
+{
+  "_format": [
+    "cartes.json — registre de maillage pour les cartes interactives du site",
+    "(cartes/<slug>/, listées sur cartes.html). Contrairement à tools.json et",
+    "ressources.json, ce fichier ne pilote AUCUNE génération de page : les",
+    "pages cartes/<slug>/ sont des fichiers HTML sur-mesure (visualisation",
+    "géographique + données propres à chaque carte), déjà publiés en dehors",
+    "de ce registre. cartes.json sert uniquement à décrire ces pages",
+    "existantes pour permettre leur maillage depuis les articles — ajouter",
+    "une entrée ici ne crée pas de page, en retirer une n'en supprime pas.",
+    "",
+    "Racine : { \"_format\": [...], \"cartes\": [ {entrée}, ... ] }",
+    "",
+    "Chaque entrée a : identite, maillage.",
+    "",
+    "── identite ────────────────────────────────────────────────────────────",
+    "  slug         string — doit correspondre exactement au nom de dossier",
+    "               existant sous /cartes/<slug>/ (voir cartes.html pour la",
+    "               liste publiée). Pas de garde-fou automatique si le dossier",
+    "               n'existe pas : à vérifier à la main avant d'ajouter une",
+    "               entrée.",
+    "  titre        string — titre affiché sur la carte de maillage (h de la",
+    "               vignette insérée dans un article), pas forcément identique",
+    "               au <h1> de la page cible.",
+    "  description  string — un court résumé (une phrase), réutilisé comme",
+    "               texte de la carte de maillage. Texte brut, pas de HTML.",
+    "  emoji        string — un seul emoji, utilisé comme icône de la carte",
+    "               de maillage (équivalent de ressourceIcon() pour",
+    "               ressources.json).",
+    "",
+    "── maillage ────────────────────────────────────────────────────────────",
+    "  Même forme que tools.json:maillage et ressources.json:maillage —",
+    "  categories, motsCles, minOccurrences, maxParArticle, formats, ancres.",
+    "  Consommé par js/article-template.js via deux tokens, résolus au",
+    "  build, dans un espace de noms distinct de ressource:/ressourceCard :",
+    "  {{carte:SLUG|ancre}} (lien inline) et",
+    "  {\"type\":\"carteCard\",\"slug\":\"SLUG\"} (carte). Un slug absent de ce",
+    "  fichier, ou une ancre absente de maillage.ancres pour ce slug, fait",
+    "  échouer le build plutôt que de publier un lien mort ou un intitulé non",
+    "  validé éditorialement."
+  ],
+  "cartes": [
+    {
+      "identite": {
+        "slug": "bien-vivre-sante-mentale",
+        "titre": "Où fait-il bon vivre pour la santé mentale en France ?",
+        "description": "9 critères scientifiques, 13 régions métropolitaines : trouvez les territoires les plus favorables à la santé mentale.",
+        "emoji": "🌿"
+      },
+      "maillage": {
+        "categories": ["Bien-être", "Société & psychologie politique"],
+        "motsCles": ["carte-interactive", "regions-france", "bien-etre", "qualite-de-vie", "sante-mentale"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "notre carte interactive des régions où il fait bon vivre",
+          "cette carte de la santé mentale en France",
+          "notre carte des régions les plus favorables au bien-être"
+        ]
+      }
+    },
+    {
+      "identite": {
+        "slug": "ou-dort-on-le-mieux-en-france",
+        "titre": "Où dort-on le mieux en France ?",
+        "description": "9 critères scientifiques, 13 régions métropolitaines : pollution lumineuse, bruit nocturne, accès aux soins du sommeil…",
+        "emoji": "😴"
+      },
+      "maillage": {
+        "categories": ["Sommeil", "Société & psychologie politique"],
+        "motsCles": ["carte-interactive", "regions-france", "sommeil", "pollution-lumineuse", "bruit-nocturne"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "notre carte du sommeil en France",
+          "cette carte interactive des régions où l'on dort le mieux",
+          "notre carte des régions les plus propices au sommeil"
+        ]
+      }
+    },
+    {
+      "identite": {
+        "slug": "stress-socio-economique-en-france",
+        "titre": "Les zones de stress socio-économique en France",
+        "description": "9 critères socio-économiques, 13 régions métropolitaines : chômage, précarité, logement, surendettement…",
+        "emoji": "😰"
+      },
+      "maillage": {
+        "categories": ["Troubles Psy", "Travail", "Société & psychologie politique"],
+        "motsCles": ["carte-interactive", "regions-france", "stress-financier", "precarite", "chomage"],
+        "minOccurrences": 1,
+        "maxParArticle": 1,
+        "formats": ["inline", "card"],
+        "ancres": [
+          "notre carte du stress socio-économique en France",
+          "cette carte des zones de stress socio-économique",
+          "notre carte des territoires les plus touchés par la précarité"
+        ]
+      }
+    }
+  ]
+}

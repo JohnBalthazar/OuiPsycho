@@ -1837,6 +1837,7 @@ let articles = [];
 let clusters = [];   // data/clusters.json — lecture seule depuis Poulet (voir loadClusters)
 let ressourcesCache = []; // ressources.json:ressources — éditable depuis la page Boussole (voir loadRessources / saveRessourcesFile)
 let ressourcesFormatCache = []; // ressources.json:_format — conservé tel quel, jamais généré ni édité ici
+let cartesCache = []; // cartes.json:cartes — lecture seule depuis Poulet (voir loadCartes), sert juste à valider {{carte:...}}/carteCard à la sauvegarde
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let editingQuiz     = null; // article.quiz (filename+card) — l'éditeur classique n'a aucun champ pour ça, préservé tel quel à la sauvegarde
@@ -2206,6 +2207,7 @@ function showApp() {
   loadRemoteConfig();
   loadClusters();
   loadRessources();
+  loadCartes();
 }
 
 /* ══════════════════════════════════════════════
@@ -2303,6 +2305,19 @@ async function loadRessources() {
                   ressourceCard n'est pas affecté ; un article qui en contient fera échouer
                   la sauvegarde (slug introuvable dans un registre vide), au lieu de publier
                   un lien mort silencieusement. */ }
+}
+
+async function loadCartes() {
+  cartesCache = [];
+  try {
+    const res = await fetch('cartes.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.cartes)) cartesCache = data.cartes;
+    }
+  } catch(e) { /* absent ou hors-ligne — reste []. Même comportement que loadRessources :
+                  un article SANS token {{carte:...}}/carteCard n'est pas affecté ; un
+                  article qui en contient fera échouer la sauvegarde. */ }
 }
 
 function populateClusterSelect() {
@@ -2762,8 +2777,9 @@ function generateArticleHTML(j) {
   // ressourcesCache (voir loadRessources) : sans lui, {{ressource:...}} et
   // ressourceCard ne seraient jamais résolus pour un article publié depuis
   // poulet — même risque de divergence que _gen_static.js/poulet avant
-  // correctif du 2026-09-06 sur data/articles-all.json.
-  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache });
+  // correctif du 2026-09-06 sur data/articles-all.json. Même raison pour
+  // cartesCache et {{carte:...}}/carteCard (voir loadCartes).
+  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache });
 }
 
 /* ══════════════════════════════════════════════

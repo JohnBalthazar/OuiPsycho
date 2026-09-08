@@ -66,6 +66,14 @@ const RESSOURCES_FILE = path.join(__dirname, 'ressources.json');
 let RESSOURCES = [];
 try { RESSOURCES = JSON.parse(fs.readFileSync(RESSOURCES_FILE, 'utf8')).ressources || []; } catch (_) {}
 
+// Idem pour {{carte:...}}/carteCard — voir cartes.json:_format. cartes.json
+// ne génère aucune page (les pages cartes/{slug}/ sont déjà publiées à la
+// main) : chargé ici uniquement pour résoudre les tokens de maillage dans
+// le contenu des articles.
+const CARTES_FILE = path.join(__dirname, 'cartes.json');
+let CARTES = [];
+try { CARTES = JSON.parse(fs.readFileSync(CARTES_FILE, 'utf8')).cartes || []; } catch (_) {}
+
 // Pré-passe : appartenance cluster/étape des articles "en ligne" au sens où le
 // reste du site l'entend déjà (cf. bascule scheduled→published plus bas) :
 // status !== 'draft' et date <= TODAY. Alimente le fil de parcours, le widget
@@ -198,7 +206,7 @@ for (const file of jsonFiles) {
   // Options cluster pour le gabarit partagé (js/article-template.js) — vide
   // pour tout article hors cluster, le gabarit applique alors ses propres
   // valeurs par défaut (catégorie en fil d'Ariane, "À lire aussi" vide).
-  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES };
+  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES };
   if (clusterResolved) {
     templateOpts.breadcrumbHref = `theme/${clusterResolved.id}/`;
     templateOpts.breadcrumbLabel = clusterResolved.title;
