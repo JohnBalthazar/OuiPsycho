@@ -126,7 +126,6 @@
     },
     {
       "type": "coloriage",
-      "visible": true,
       "identite": {
         "slug": "coloriage-respiration-anxiete-sociale",
         "titre": "Coloriage respiration — avant une situation sociale",
@@ -137,7 +136,7 @@
         ]
       },
       "contenu": {
-        "image": "img/placeholder-coloriage.svg"
+        "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/coloriages/tzw2xhtu4rxgpfqzp6iv"
       },
       "maillage": {
         "categories": [
