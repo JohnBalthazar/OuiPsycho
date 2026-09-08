@@ -1839,6 +1839,8 @@ let ressourcesCache = []; // ressources.json:ressources — éditable depuis la 
 let ressourcesFormatCache = []; // ressources.json:_format — conservé tel quel, jamais généré ni édité ici
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
+let editingQuiz     = null; // article.quiz (filename+card) — l'éditeur classique n'a aucun champ pour ça, préservé tel quel à la sauvegarde
+let editingQuizCard = null; // article.quizCard (racine, lu par _gen_static.js) — idem
 let tags = [];
 let activeCatFilter   = 'all';
 let activePhotoFilter = 'all'; // 'all' | 'with' | 'without'
@@ -2636,6 +2638,8 @@ function renderArticlesTable() {
 function resetEditor() {
   editingId      = null;
   editingSources = [];
+  editingQuiz     = null;
+  editingQuizCard = null;
   document.getElementById('editor-title').textContent = 'Nouvel article';
   document.getElementById('f-title').value       = '';
   document.getElementById('f-id').value          = '';
@@ -2680,6 +2684,8 @@ function editArticle(id) {
     .then(full => {
       editingId      = id;
       editingSources = full.sources || [];
+      editingQuiz     = full.quiz     || null; // pas de champ éditeur pour ça — round-trip tel quel
+      editingQuizCard = full.quizCard || null;
       document.getElementById('editor-title').textContent = 'Modifier : ' + full.title;
       document.getElementById('f-title').value    = full.title;
       document.getElementById('f-id').value       = full.id;
@@ -2940,11 +2946,13 @@ async function saveArticle() {
     return;
   }
 
-  // Préserver les sources de l'article original (non éditables via le formulaire)
+  // Préserver les sources et le quiz de l'article original (non éditables via le formulaire —
+  // sans ça, republier un article ayant un quiz écraserait silencieusement son quiz/quizCard,
+  // et sa carte sur /tests.html retomberait sur le titre/extrait de l'article au prochain build)
   const sources     = editingSources.length ? editingSources : undefined;
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
-  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(cluster && etape && { cluster, etape }), articles_lies: articlesLies, status };
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(cluster && etape && { cluster, etape }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
   const adminFields = computeAdminIndexFields({ excerpt, metaDescription: metaDesc, image, status, date });
   const summaryData = { id, title, type, excerpt: adminFields.excerpt, date, date_modified, category, image, hasImage: adminFields.hasImage, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: adminFields.metaDescription, articles_lies: articlesLies, status };
 
@@ -3342,11 +3350,20 @@ async function publishImportedArticle() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (pat && content) {
     try {
-      // 1. JSON article — conserve quiz.card mais retire le HTML embarqué si présent
+      // 1. JSON article — conserve quiz.card (bookkeeping poulet, pré-remplissage à la
+      // réédition) mais retire le HTML embarqué si présent. Duplique aussi card en
+      // quizCard à la racine : c'est CE champ que _gen_static.js lit pour régénérer
+      // data/tests.json (voir commentaire "Overrides" dans _gen_static.js) — sans lui,
+      // le titre/texte personnalisés de la carte de test seraient écrasés par le
+      // titre/extrait de l'article dès le prochain build.
       const quizMeta = (data.quiz && typeof data.quiz === 'object')
         ? { filename: quizFilename || data.quiz.filename, ...(data.quiz.card ? { card: data.quiz.card } : {}) }
         : undefined;
-      const dataForGithub = { ...data, ...(quizMeta ? { quiz: quizMeta } : {}) };
+      const dataForGithub = {
+        ...data,
+        ...(quizMeta ? { quiz: quizMeta } : {}),
+        ...(quizMeta && quizMeta.card ? { quizCard: quizMeta.card } : {}),
+      };
       await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
 
       // 2. Mise à jour index
