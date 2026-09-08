@@ -4454,7 +4454,6 @@
   {
     "id": "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
     "title": "Pourquoi certaines personnes s'éloignent-elles dès qu'une relation devient sérieuse ?",
-    "type": "article",
     "excerpt": "",
     "date": "2026-09-09",
     "date_modified": "2026-09-09",
@@ -4484,8 +4483,7 @@
   {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
-    "type": "article",
-    "excerpt": "",
+    "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
     "date": "2026-09-08",
     "date_modified": "2026-09-08",
     "category": "Nos héros sur le divan",
@@ -4505,9 +4503,9 @@
       "Grey's Anatomy",
       "soutien social"
     ],
-    "metaDescription": "",
+    "metaDescription": "Trauma, attachement, résilience : ce que la psychologie révèle sur Meredith Grey, l'héroïne de Grey's Anatomy. Avec un test pour trouver votre profil.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
