@@ -450,6 +450,7 @@ for (const cluster of CLUSTERS) {
         <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="../../tests.html">🧪 Tests</a>
         <a class="nav__link" href="../../boussole/">🧭 Outils</a>
+        <a class="nav__link" href="../../cartes.html">🗺️ Cartes</a>
         <a class="nav__link" href="../../a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="../../index.html#newsletter-widget">Newsletter</a>
       </nav>
@@ -632,6 +633,7 @@ for (const outil of TOOLS) {
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link" href="boussole/">🧭 Outils</a>
+        <a class="nav__link" href="cartes.html">🗺️ Cartes</a>
         <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
@@ -821,6 +823,7 @@ for (const ressource of RESSOURCES) {
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link" href="boussole/">🧭 Outils</a>
+        <a class="nav__link" href="cartes.html">🗺️ Cartes</a>
         <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
@@ -980,6 +983,7 @@ if (COLORIAGES.length) {
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link" href="boussole/">🧭 Outils</a>
+        <a class="nav__link" href="cartes.html">🗺️ Cartes</a>
         <a class="nav__link" href="a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="index.html#newsletter-widget">Newsletter</a>
       </nav>
@@ -1183,6 +1187,7 @@ const boussoleHtml = `<!DOCTYPE html>
         <a class="nav__link" href="../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="../tests.html">🧪 Tests</a>
         <a class="nav__link nav__link--active" href="../boussole/">🧭 Outils</a>
+        <a class="nav__link" href="../cartes.html">🗺️ Cartes</a>
         <a class="nav__link" href="../a-propos.html">Qui sommes-nous ?</a>
         <a class="nav__link nav__cta" href="../index.html#newsletter-widget">Newsletter</a>
       </nav>
