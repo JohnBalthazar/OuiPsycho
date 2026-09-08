@@ -35,7 +35,6 @@
   'use strict';
 
   const BASE = 'https://ouipsycho.fr';
-  const AMAZON_TAG = 'ouipsycho-21';
 
   const AUTHOR_NAME      = 'John Balthazar';
   const AUTHOR_BIO_SHORT = 'Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l\'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d\'écriture.';
@@ -43,9 +42,40 @@
   const AUTHOR_PHOTO_REL = 'images/auteur.jpg';
   const AUTHOR_PAGE_URL  = `${BASE}/a-propos.html`;
   const AUTHOR_BOOK_ASIN = 'B08NWTCT2G';
-  const AUTHOR_BOOK_URL  = AUTHOR_BOOK_ASIN ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}?tag=${AMAZON_TAG}` : '';
+  const AUTHOR_BOOK_URL  = AUTHOR_BOOK_ASIN ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}` : '';
   const AUTHOR_BOOK_SAME_AS = AUTHOR_BOOK_ASIN ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}` : '';
   const RÉDACTION_SET = new Set(['La rédaction Oui Psycho!', 'La rédaction', 'Oui Psycho!', 'Rédaction Oui Psycho!']);
+
+  // Retrait des liens d'affiliation Amazon (audit 2026-09) : les sources
+  // pointent désormais vers Place des Libraires, calculé à partir du même
+  // ASIN/ISBN déjà présent dans les données (rien à ressaisir si on
+  // réactive un jour un programme d'affiliation).
+  function isbn13FromAsin(asin) {
+    if (!/^[0-9]{9}[0-9X]$/.test(asin)) return null;
+    const core = asin.slice(0, 9);
+    const digits = ('978' + core).split('').map(Number);
+    let sum = 0;
+    for (let i = 0; i < 12; i++) sum += digits[i] * (i % 2 === 0 ? 1 : 3);
+    const check = (10 - (sum % 10)) % 10;
+    return '978' + core + check;
+  }
+  // Éditions françaises identifiées manuellement quand l'ASIN d'origine
+  // correspond à une édition anglophone ou n'est pas un ISBN (ex. Kindle).
+  const FR_EDITION_OVERRIDES = {
+    '0898629195': '9782294777639', // Beck — Psychothérapie cognitive de la dépression
+    '0060928972': '9782729606916', // Forward — Le chantage affectif
+    '0440226198': '9782709618410', // de Becker — La peur qui vous sauve
+    '0465087302': '9782729623128', // Herman — Reconstruire après les traumatismes
+    '1476762090': '9791028520342', // Nagoski — Je jouis comme je suis
+    '1492871842': '9782703313199', // Walker — Le trouble de stress post-traumatique complexe
+    '1118692136': '9782352041320', // Maslach & Leiter — Burn-out
+    '1626251703': '9791028519841', // Gibson — Se construire avec des parents immatures
+    'B0DJSBJJTP': '9791037513090', // Haidt — Génération anxieuse
+  };
+  function placeDesLibrairesUrl(asin) {
+    const isbn13 = FR_EDITION_OVERRIDES[asin] || isbn13FromAsin(asin);
+    return isbn13 ? `https://www.placedeslibraires.fr/livre/${isbn13}` : '';
+  }
 
   const MONTHS = ['','janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'];
 
@@ -208,7 +238,6 @@
     }
 
     let sourcesHtml = '';
-    let hasAmazon = false;
     if (j.sources && j.sources.length) {
       const srcItems = j.sources.map(s => {
         if (typeof s === 'string') {
@@ -220,23 +249,21 @@
           : authYear;
         const venue    = s.journal   ? ` <cite>${s.journal}</cite>`
                        : s.publisher ? ` <cite>${s.publisher}</cite>` : '';
-        let amazonBtn  = '';
+        let bookBtn = '';
         if (s.amazon_asin) {
-          hasAmazon = true;
-          const amzUrl = `https://www.amazon.fr/dp/${s.amazon_asin}?tag=${AMAZON_TAG}`;
-          amazonBtn = ` <a href="${amzUrl}" target="_blank" rel="noopener sponsored" class="btn-amazon">🛒 Voir sur Amazon</a>`;
+          const pdlUrl = placeDesLibrairesUrl(s.amazon_asin);
+          if (pdlUrl) {
+            bookBtn = ` <a href="${pdlUrl}" target="_blank" rel="noopener noreferrer" class="btn-book-link">📖 Voir chez un libraire</a>`;
+          }
         }
-        return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.${amazonBtn}</li>`;
+        return `        <li>${anchor}${s.title ? ' — ' + s.title : ''}${venue}.${bookBtn}</li>`;
       }).join('\n');
-      const affiliateNote = hasAmazon
-        ? `\n          <p class="sources-affiliate-note">🛒 Liens affiliés Amazon — vous payez le même prix, une petite commission aide à financer ce site.</p>`
-        : '';
       sourcesHtml = `
         <section class="article-sources" aria-label="Sources et références">
           <h2 class="article-sources__title">📚 Sources &amp; références</h2>
           <ol class="article-sources__list">
 ${srcItems}
-          </ol>${affiliateNote}
+          </ol>
         </section>
 `;
     }
@@ -477,10 +504,10 @@ ${sourcesHtml}
             <div class="author-box__name">${displayAuthor}</div>
             <p class="author-box__bio">${isJohnB ? AUTHOR_BIO_SHORT : 'Rédacteur spécialisé en santé mentale.'}</p>
             <div class="author-box__links">
-              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener sponsored" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
+              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener noreferrer" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
             </div>
           </div>
-        </div>${(isJohnB && AUTHOR_BOOK_URL && !hasAmazon) ? `\n        <p class="sources-affiliate-note">🛒 Lien affilié Amazon — vous payez le même prix, une petite commission aide à financer ce site.</p>` : ''}
+        </div>
 
         <div class="article-tags" aria-label="Mots-clés">${tagsHtml}</div>
 

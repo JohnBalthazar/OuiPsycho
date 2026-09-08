@@ -109,7 +109,7 @@ Liens internes (vers d'autres articles du site) :
 - amazon_asin : ASIN du livre sur Amazon.fr (10 caractères après /dp/ dans l'URL).
   Ex : amazon.fr/dp/2081211475 → "amazon_asin": "2081211475"
   → Ajouter UNIQUEMENT si le livre est disponible sur Amazon.fr.
-  → Génère automatiquement un bouton 🛒 Voir sur Amazon (lien affilié ouipsycho-21).
+  → Génère un lien « Voir chez un libraire » vers Place des Libraires (aucune affiliation).
   → Ne jamais inventer un ASIN — omettre le champ si inconnu.
 
 ## Encodage

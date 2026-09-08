@@ -391,7 +391,7 @@ Liens internes : `<a href="slug-de-larticle/">Texte</a>` — slug + slash final,
 
 **Encodage** : caractères français directs en UTF-8 (`é è ê ë à â ä ù û ü î ï ô ö ç œ æ — « » …`). Jamais d'entités HTML (`&eacute;`) ni de `&#XXXX;`. Em-dash `—`, jamais `--`. Les `"` du HTML s'écrivent `\"` en JSON, les sauts de ligne `\n`.
 
-**Sources** : `authors`, `year`, `title` obligatoires ; `journal` pour les revues, `publisher` pour les livres ; `url` = DOI ou PubMed, omis si incertain ; `amazon_asin` = 10 caractères après `/dp/` sur amazon.fr, **jamais inventé**, champ omis si inconnu.
+**Sources** : `authors`, `year`, `title` obligatoires ; `journal` pour les revues, `publisher` pour les livres ; `url` = DOI ou PubMed, omis si incertain ; `amazon_asin` = 10 caractères après `/dp/` sur amazon.fr, **jamais inventé**, champ omis si inconnu — alimente un lien Place des Libraires (aucune affiliation), plus de bouton Amazon.
 
 ### 5.2 — Quiz : `tests/{id}-quiz.html`
 

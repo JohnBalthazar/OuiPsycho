@@ -1367,6 +1367,23 @@ p:last-child { margin-bottom: 0; }
   transition: background .15s, opacity .15s;
 }
 .btn-amazon:hover { background: #e68900; opacity: 1; }
+/* Bouton lien libraire (Place des Libraires, sans affiliation) */
+.btn-book-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .3em;
+  margin-left: .5em;
+  padding: .15em .55em;
+  font-size: .78em;
+  font-weight: 600;
+  color: #fff !important;
+  background: var(--color-primary);
+  border-radius: 4px;
+  text-decoration: none !important;
+  white-space: nowrap;
+  transition: background .15s, opacity .15s;
+}
+.btn-book-link:hover { background: var(--color-primary-dark); opacity: 1; }
 /* Note de transparence affiliation */
 .sources-affiliate-note {
   margin-top: var(--sp-4);

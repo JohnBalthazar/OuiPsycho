@@ -84,7 +84,7 @@
   <!-- Clusters thématiques (6) -->
   <url>
     <loc>https://ouipsycho.fr/theme/emprise-et-relations-toxiques/</loc>
-    <lastmod>2026-09-06</lastmod>
+    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -125,6 +125,42 @@
     <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/walter-white-sur-le-divan/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/ce-que-votre-metier-dit-de-vous/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/james-bond-psychologie-agent-secret/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/du-crush-au-crash-anatomie-histoires-amour/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/techniques-drague-science/</loc>
+    <lastmod>2026-09-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/dans-la-tete-d-un-pervers-narcissique/</loc>
@@ -182,12 +218,6 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/addiction-au-porno-comment-en-parler/</loc>
-    <lastmod>2026-09-01</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/freins-au-bonheur/</loc>
     <lastmod>2026-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -253,12 +283,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ouipsycho.fr/articles/walter-white-sur-le-divan/</loc>
-    <lastmod>2026-08-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ouipsycho.fr/articles/se-reconstruire-apres-emprise/</loc>
     <lastmod>2026-08-28</lastmod>
     <changefreq>monthly</changefreq>
@@ -313,12 +337,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ouipsycho.fr/articles/james-bond-psychologie-agent-secret/</loc>
-    <lastmod>2026-08-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ouipsycho.fr/articles/argent-et-bonheur/</loc>
     <lastmod>2026-08-14</lastmod>
     <changefreq>monthly</changefreq>
@@ -333,12 +351,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/naitre-parent-revolution-interieure/</loc>
     <lastmod>2026-08-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/ce-que-votre-metier-dit-de-vous/</loc>
-    <lastmod>2026-08-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -433,12 +445,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ouipsycho.fr/articles/du-crush-au-crash-anatomie-histoires-amour/</loc>
-    <lastmod>2026-07-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://ouipsycho.fr/articles/son-goku-sur-le-divan/</loc>
     <lastmod>2026-07-06</lastmod>
     <changefreq>monthly</changefreq>
@@ -447,12 +453,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/tintin-sur-le-divan/</loc>
     <lastmod>2026-07-06</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/techniques-drague-science/</loc>
-    <lastmod>2026-07-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
