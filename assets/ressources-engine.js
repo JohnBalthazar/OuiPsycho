@@ -163,81 +163,244 @@
     notify();
   }
 
-  // Roue en secteurs égaux (SVG) — un clic/Entrée sur un secteur affiche ses
-  // nuances dans un panneau texte. Aucun état ne survit au rechargement.
+  // Durée et déclencheur : options fixes de l'interface, pas du contenu
+  // éditorial — volontairement codées ici plutôt que dans ressources.json
+  // (voir ressources.json:_format).
+  var ROUE_DUREES = [
+    'Depuis quelques minutes',
+    'Depuis ce matin',
+    'Depuis hier',
+    'Depuis plusieurs jours'
+  ];
+  var ROUE_DECLENCHEURS = [
+    'Une personne',
+    'Une situation précise',
+    'Moi-même',
+    'Je ne sais pas / difficile à dire'
+  ];
+
+  // Parcours en 5 étapes : émotion cœur (roue SVG) → nuance précise →
+  // intensité (1-10, restituée telle quelle, jamais classée en palier) →
+  // durée → déclencheur perçu → synthèse + 4 actions. Aucun état ne survit
+  // au rechargement ; purement exploratoire, aucun score.
   function renderRoueEmotions(mountEl, ressource) {
     mountEl.innerHTML = '';
-    var wrap = el('div', 'ressource-roue');
     var emotions = ressource.contenu.emotions;
     var n = emotions.length;
+    var state = { emotion: null, nuance: null, intensite: 5, duree: null, declencheur: null };
 
-    var svgNS = 'http://www.w3.org/2000/svg';
-    var size = 320, cx = size / 2, cy = size / 2, r = size / 2 - 4;
-    var svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
-    svg.setAttribute('class', 'ressource-roue__svg');
-    svg.setAttribute('role', 'img');
-    svg.setAttribute('aria-label', 'Roue des émotions — cliquez un secteur pour voir ses nuances');
+    var wrap = el('div', 'ressource-roue');
+    var stepBox = el('div', 'ressource-roue__step');
+    wrap.appendChild(stepBox);
+    mountEl.appendChild(wrap);
 
-    var detailBox = el('div', 'ressource-roue__detail');
-    detailBox.setAttribute('aria-live', 'polite');
-
-    function angleToPoint(angleDeg, radius) {
-      var rad = (angleDeg - 90) * Math.PI / 180;
-      return [cx + radius * Math.cos(rad), cy + radius * Math.sin(rad)];
+    function goTo(renderFn) {
+      stepBox.innerHTML = '';
+      renderFn(stepBox);
+      notify();
     }
 
-    emotions.forEach(function (emo, i) {
-      var startAngle = (360 / n) * i;
-      var endAngle = (360 / n) * (i + 1);
-      var p1 = angleToPoint(startAngle, r);
-      var p2 = angleToPoint(endAngle, r);
-      var largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
-      var d = 'M ' + cx + ' ' + cy +
-        ' L ' + p1[0] + ' ' + p1[1] +
-        ' A ' + r + ' ' + r + ' 0 ' + largeArc + ' 1 ' + p2[0] + ' ' + p2[1] + ' Z';
+    function progress(labelText) {
+      var p = el('p', 'ressource-roue__progress', labelText);
+      return p;
+    }
 
-      var path = document.createElementNS(svgNS, 'path');
-      path.setAttribute('d', d);
-      path.setAttribute('fill', emo.couleur);
-      path.setAttribute('class', 'ressource-roue__secteur');
-      path.setAttribute('tabindex', '0');
-      path.setAttribute('role', 'button');
-      path.setAttribute('aria-label', emo.nom);
-      svg.appendChild(path);
+    // Étape 1 — roue des émotions cœur
+    function stepRoue(container) {
+      container.appendChild(progress('Étape 1/5 — Quelle est l’émotion la plus proche de ce que vous ressentez ?'));
+      var svgNS = 'http://www.w3.org/2000/svg';
+      var size = 320, cx = size / 2, cy = size / 2, r = size / 2 - 4;
+      var svg = document.createElementNS(svgNS, 'svg');
+      svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
+      svg.setAttribute('class', 'ressource-roue__svg');
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-label', 'Roue des émotions — cliquez un secteur pour continuer');
 
-      var midAngle = (startAngle + endAngle) / 2;
-      var labelPt = angleToPoint(midAngle, r * 0.65);
-      var label = document.createElementNS(svgNS, 'text');
-      label.setAttribute('x', labelPt[0]);
-      label.setAttribute('y', labelPt[1]);
-      label.setAttribute('class', 'ressource-roue__label');
-      label.setAttribute('text-anchor', 'middle');
-      label.setAttribute('dominant-baseline', 'middle');
-      label.textContent = emo.nom;
-      svg.appendChild(label);
-
-      function select() {
-        var secteurs = svg.querySelectorAll('.ressource-roue__secteur');
-        for (var k = 0; k < secteurs.length; k++) secteurs[k].classList.remove('is-active');
-        path.classList.add('is-active');
-        var items = emo.nuances.map(function (nu) {
-          return '<li><strong>' + nu.mot + '</strong> — ' + nu.definition + '</li>';
-        }).join('');
-        detailBox.innerHTML = '<h3>' + emo.nom + '</h3><ul>' + items + '</ul>';
-        notify();
+      function angleToPoint(angleDeg, radius) {
+        var rad = (angleDeg - 90) * Math.PI / 180;
+        return [cx + radius * Math.cos(rad), cy + radius * Math.sin(rad)];
       }
-      path.addEventListener('click', select);
-      path.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
-      });
-    });
 
-    wrap.appendChild(svg);
-    detailBox.innerHTML = '<p class="ressource-roue__hint">Cliquez une émotion pour voir ses nuances.</p>';
-    wrap.appendChild(detailBox);
-    mountEl.appendChild(wrap);
-    notify();
+      emotions.forEach(function (emo, i) {
+        var startAngle = (360 / n) * i;
+        var endAngle = (360 / n) * (i + 1);
+        var p1 = angleToPoint(startAngle, r);
+        var p2 = angleToPoint(endAngle, r);
+        var largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
+        var d = 'M ' + cx + ' ' + cy +
+          ' L ' + p1[0] + ' ' + p1[1] +
+          ' A ' + r + ' ' + r + ' 0 ' + largeArc + ' 1 ' + p2[0] + ' ' + p2[1] + ' Z';
+
+        var path = document.createElementNS(svgNS, 'path');
+        path.setAttribute('d', d);
+        path.setAttribute('fill', emo.couleur);
+        path.setAttribute('class', 'ressource-roue__secteur');
+        path.setAttribute('tabindex', '0');
+        path.setAttribute('role', 'button');
+        path.setAttribute('aria-label', emo.nom);
+        svg.appendChild(path);
+
+        var midAngle = (startAngle + endAngle) / 2;
+        var labelPt = angleToPoint(midAngle, r * 0.65);
+        var label = document.createElementNS(svgNS, 'text');
+        label.setAttribute('x', labelPt[0]);
+        label.setAttribute('y', labelPt[1]);
+        label.setAttribute('class', 'ressource-roue__label');
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('dominant-baseline', 'middle');
+        label.textContent = emo.nom;
+        svg.appendChild(label);
+
+        function select() {
+          state.emotion = emo;
+          goTo(stepNuance);
+        }
+        path.addEventListener('click', select);
+        path.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
+        });
+      });
+
+      container.appendChild(svg);
+    }
+
+    // Étape 2 — nuance précise au sein de l'émotion cœur choisie
+    function stepNuance(container) {
+      container.appendChild(progress('Étape 2/5 — Et plus précisément ?'));
+      var list = el('div', 'ressource-roue__nuances');
+      state.emotion.nuances.forEach(function (nu) {
+        var btn = el('button', 'ressource-roue__nuance-btn');
+        btn.type = 'button';
+        btn.innerHTML = '<strong>' + nu.mot + '</strong><span>' + nu.definition + '</span>';
+        btn.addEventListener('click', function () {
+          state.nuance = nu;
+          goTo(stepIntensite);
+        });
+        list.appendChild(btn);
+      });
+      container.appendChild(list);
+      container.appendChild(backLink(container, stepRoue));
+    }
+
+    // Étape 3 — intensité 1-10, restituée telle quelle (jamais de palier)
+    function stepIntensite(container) {
+      container.appendChild(progress('Étape 3/5 — À quel point, sur 10 ?'));
+      var valueEl = el('p', 'ressource-roue__intensite-value', String(state.intensite) + ' / 10');
+      var slider = el('input');
+      slider.type = 'range';
+      slider.min = '1'; slider.max = '10'; slider.value = String(state.intensite);
+      slider.className = 'ressource-roue__slider';
+      slider.setAttribute('aria-label', 'Intensité ressentie, de 1 à 10');
+      slider.addEventListener('input', function () {
+        state.intensite = Number(slider.value);
+        valueEl.textContent = state.intensite + ' / 10';
+      });
+      var scale = el('div', 'ressource-roue__scale');
+      scale.appendChild(el('span', null, 'léger'));
+      scale.appendChild(el('span', null, 'très intense'));
+
+      var nextBtn = el('button', 'tool-btn tool-btn--primary', 'Continuer →');
+      nextBtn.type = 'button';
+      nextBtn.addEventListener('click', function () { goTo(stepDuree); });
+
+      container.appendChild(valueEl);
+      container.appendChild(slider);
+      container.appendChild(scale);
+      container.appendChild(nextBtn);
+      container.appendChild(backLink(container, stepNuance));
+    }
+
+    // Étape 4 — depuis quand
+    function stepDuree(container) {
+      container.appendChild(progress('Étape 4/5 — Depuis quand ?'));
+      container.appendChild(choiceChips(ROUE_DUREES, function (val) {
+        state.duree = val;
+        goTo(stepDeclencheur);
+      }));
+      container.appendChild(backLink(container, stepIntensite));
+    }
+
+    // Étape 5 — déclencheur perçu (optionnel)
+    function stepDeclencheur(container) {
+      container.appendChild(progress('Étape 5/5 — D’où ça vient, si vous le savez ?'));
+      container.appendChild(choiceChips(ROUE_DECLENCHEURS, function (val) {
+        state.declencheur = val;
+        goTo(stepSynthese);
+      }));
+      container.appendChild(backLink(container, stepDuree));
+    }
+
+    // Synthèse — récapitulatif neutre + 4 actions de suite
+    function stepSynthese(container) {
+      var recap = el('div', 'ressource-roue__recap');
+      recap.innerHTML =
+        '<h3>' + state.nuance.mot + '</h3>' +
+        '<p class="ressource-roue__recap-sub">Nuance de ' + state.emotion.nom + '</p>' +
+        '<ul>' +
+          '<li>Intensité restituée : <strong>' + state.intensite + ' / 10</strong></li>' +
+          '<li>' + state.duree + '</li>' +
+          '<li>Origine perçue : ' + state.declencheur + '</li>' +
+        '</ul>';
+      container.appendChild(recap);
+
+      var actions = el('div', 'ressource-roue__actions');
+      var detail = el('div', 'ressource-roue__detail');
+      detail.setAttribute('aria-live', 'polite');
+
+      function actionBtn(label, onClick) {
+        var b = el('button', 'ressource-roue__action-btn', label);
+        b.type = 'button';
+        b.addEventListener('click', onClick);
+        return b;
+      }
+
+      actions.appendChild(actionBtn('🔍 Comprendre cette émotion', function () {
+        detail.innerHTML = '<p>' + state.nuance.mot + ' — ' + state.nuance.definition + '</p>';
+        notify();
+      }));
+      actions.appendChild(actionBtn('💬 Explorer le besoin derrière', function () {
+        detail.innerHTML = '<p>' + (state.nuance.besoin || 'Ce que ce ressenti cherche peut-être à vous dire mérite un moment d’attention.') + '</p>';
+        notify();
+      }));
+      actions.appendChild(actionBtn('🌬️ Faire redescendre l’intensité', function () {
+        detail.innerHTML = '<p>Une respiration lente peut aider à faire retomber la tension&nbsp;: inspirez 4 secondes, retenez 2 secondes, expirez 6 secondes. Répétez quelques fois, en portant votre attention sur l’air qui sort plutôt que sur ce qui vous a contrarié.</p>';
+        notify();
+      }));
+      var articleLink = el('a', 'ressource-roue__action-btn', '📖 Lire un article lié');
+      articleLink.href = 'theme/emotions/';
+      actions.appendChild(articleLink);
+
+      container.appendChild(actions);
+      container.appendChild(detail);
+
+      var restart = el('button', 'tool-btn tool-btn--ghost', '↺ Recommencer');
+      restart.type = 'button';
+      restart.addEventListener('click', function () {
+        state = { emotion: null, nuance: null, intensite: 5, duree: null, declencheur: null };
+        goTo(stepRoue);
+      });
+      container.appendChild(restart);
+    }
+
+    function choiceChips(options, onPick) {
+      var box = el('div', 'ressource-roue__chips');
+      options.forEach(function (opt) {
+        var chip = el('button', 'ressource-roue__chip', opt);
+        chip.type = 'button';
+        chip.addEventListener('click', function () { onPick(opt); });
+        box.appendChild(chip);
+      });
+      return box;
+    }
+
+    function backLink(container, prevStep) {
+      var a = el('button', 'ressource-roue__back', '← Revenir en arrière');
+      a.type = 'button';
+      a.addEventListener('click', function () { goTo(prevStep); });
+      return a;
+    }
+
+    goTo(stepRoue);
   }
 
   // Pas de sauvegarde de l'état coché : réinitialisée à chaque chargement,

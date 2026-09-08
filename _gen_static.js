@@ -1037,6 +1037,251 @@ if (COLORIAGES.length) {
   console.log(`🖼  ressources/coloriages/index.html généré (${COLORIAGES.length} coloriage(s))`);
 }
 
+// ── Page hub /boussole/ (rubrique "Ma Boussole Intérieure") ──────────────────
+// Vitrine des outils pratiques de ressources.json. Construite dynamiquement à
+// partir de RESSOURCES : n'affiche que ce qui existe réellement (pas de place
+// réservée pour un outil pas encore créé), pas de <base> (ancres #bibliotheque
+// en fragment-only — même raison que theme/{slug}/, voir plus haut).
+const BOUSSOLE_DIR = path.join(__dirname, 'boussole');
+
+const boussoleCategories = [];
+RESSOURCES.forEach(r => {
+  (r.maillage.categories || []).forEach(cat => {
+    let entry = boussoleCategories.find(c => c.nom === cat);
+    if (!entry) { entry = { nom: cat, count: 0 }; boussoleCategories.push(entry); }
+    entry.count++;
+  });
+});
+const CATEGORY_ICONS = {
+  'Bien-être': '🌿',
+  'Troubles Psy': '🧠',
+  'Émotions & identité': '💛',
+  'Travail': '💼',
+};
+
+const roueEntries = RESSOURCES.filter(r => r.type === 'roue-emotions');
+const checklistEntries = RESSOURCES.filter(r => r.type === 'checklist');
+const boussoleTools = [];
+roueEntries.forEach(r => boussoleTools.push({ kind: 'roue', ressource: r }));
+checklistEntries.forEach(r => boussoleTools.push({ kind: 'checklist', ressource: r }));
+if (COLORIAGES.length) boussoleTools.push({ kind: 'coloriages', count: COLORIAGES.length });
+
+function stripHtmlDesc(html) {
+  return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+const boussoleToolCardsHtml = boussoleTools.map(t => {
+  if (t.kind === 'roue') {
+    const r = t.ressource;
+    return `
+      <a class="boussole-tool-card boussole-tool-card--photo" href="../ressources/${r.identite.slug}/">
+        <img class="boussole-tool-card__img" src="../img/boussole/card-roue-emotions.jpg" alt="" loading="lazy">
+        <div class="boussole-tool-card__body">
+          <span class="badge">Émotions &amp; identité</span>
+          <h3>${escCard(r.identite.titre)}</h3>
+          <p>${escCard(stripHtmlDesc(r.identite.description)).slice(0, 130)}…</p>
+          <span class="boussole-tool-card__link">Découvrir →</span>
+        </div>
+      </a>`;
+  }
+  if (t.kind === 'checklist') {
+    const r = t.ressource;
+    return `
+      <a class="boussole-tool-card" href="../ressources/${r.identite.slug}/">
+        <span class="boussole-tool-card__icon">✅</span>
+        <div class="boussole-tool-card__body">
+          <span class="badge badge--accent">${escCard((r.maillage.categories || [])[0] || '')}</span>
+          <h3>${escCard(r.identite.titre)}</h3>
+          <p>${escCard(stripHtmlDesc(r.identite.description)).slice(0, 130)}…</p>
+          <span class="boussole-tool-card__link">Découvrir →</span>
+        </div>
+      </a>`;
+  }
+  // coloriages
+  return `
+      <a class="boussole-tool-card" href="../ressources/coloriages/">
+        <span class="boussole-tool-card__icon">🎨</span>
+        <div class="boussole-tool-card__body">
+          <span class="badge">Bien-être</span>
+          <h3>Coloriages à imprimer</h3>
+          <p>${t.count} coloriage${t.count > 1 ? 's' : ''} calme${t.count > 1 ? 's' : ''} à imprimer, pour souffler au calme ou avant un moment qui inquiète.</p>
+          <span class="boussole-tool-card__link">Découvrir →</span>
+        </div>
+      </a>`;
+}).join('');
+
+const boussoleThemesHtml = boussoleCategories.map(c => `
+      <a class="boussole-theme-item" href="../index.html?cat=${encodeURIComponent(c.nom)}">
+        <span class="boussole-theme-item__icon">${CATEGORY_ICONS[c.nom] || '🔹'}</span>
+        <span class="boussole-theme-item__label">${escCard(c.nom)}</span>
+      </a>`).join('');
+
+const boussoleMeta = "Des outils courts et concrets pour mieux comprendre ce que vous ressentez : roue des émotions, checklists, coloriages à imprimer. Sans compte, sans diagnostic, rien n'est envoyé ni stocké.";
+
+const boussoleHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ma Boussole Intérieure — Oui Psycho!</title>
+  <meta name="description" content="${escCard(boussoleMeta)}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <link rel="canonical" href="${BASE}/boussole/">
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Ma Boussole Intérieure — Oui Psycho!">
+  <meta property="og:description" content="${escCard(boussoleMeta)}">
+  <meta property="og:url"         content="${BASE}/boussole/">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">
+  <meta name="twitter:card"       content="summary_large_image">
+  <link rel="icon" type="image/png" href="../img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Pas de <base> sur cette page : href="#bibliotheque" doit rester une
+       ancre locale (même raison documentée sur theme/{slug}/ plus haut). -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', { 'analytics_storage': 'granted', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied' });
+    } else {
+      gtag('consent', 'default', { 'analytics_storage': 'denied', 'ad_storage': 'denied', 'ad_user_data': 'denied', 'ad_personalization': 'denied', 'wait_for_update': 2000 });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="../index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="../img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="../index.html">Accueil</a>
+        <a class="nav__link" href="../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="../tests.html">🧪 Tests</a>
+        <a class="nav__link" href="../a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="../index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="boussole-hero">
+    <div class="container boussole-hero__inner">
+      <div class="boussole-hero__text">
+        <span class="boussole-hero__eyebrow">🧭 Nouveau sur Oui Psycho!</span>
+        <h1>Ma Boussole Intérieure</h1>
+        <p>Des outils courts et concrets pour mieux comprendre ce que vous ressentez — pas un test, pas un diagnostic : juste de quoi y voir un peu plus clair, à votre rythme.</p>
+        <div class="boussole-hero__ctas">
+          <a class="tool-btn tool-btn--primary" href="../ressources/roue-des-emotions/">Découvrir la roue des émotions →</a>
+          <a class="boussole-hero__link" href="#bibliotheque">Voir tous nos outils</a>
+        </div>
+        <div class="boussole-hero__stats">
+          <div class="boussole-hero__stat"><img src="../img/boussole/icon-1.png" alt=""><span>${RESSOURCES.length} outil${RESSOURCES.length > 1 ? 's' : ''} disponible${RESSOURCES.length > 1 ? 's' : ''}</span></div>
+          <div class="boussole-hero__stat"><img src="../img/boussole/icon-2.png" alt=""><span>100% gratuit, sans compte</span></div>
+          <div class="boussole-hero__stat"><img src="../img/boussole/icon-3.png" alt=""><span>0 diagnostic, 0 étiquette</span></div>
+          <div class="boussole-hero__stat"><img src="../img/boussole/icon-4.png" alt=""><span>Rien n'est envoyé ni stocké</span></div>
+        </div>
+      </div>
+      <div class="boussole-hero__illus" aria-hidden="true">
+        <img class="boussole-hero__illus-decor" src="../img/boussole/hero-decor.jpg" alt="">
+        <img class="boussole-hero__illus-portrait" src="../img/boussole/hero-portrait.jpg" alt="">
+      </div>
+    </div>
+  </section>
+
+  <div class="container boussole-wrap">
+    <section class="boussole-themes" aria-labelledby="boussole-themes-title">
+      <h2 id="boussole-themes-title">Nos outils par thématique</h2>
+      <div class="boussole-themes__grid">${boussoleThemesHtml}
+      </div>
+    </section>
+
+    <section class="boussole-tools" id="bibliotheque" aria-labelledby="boussole-tools-title">
+      <h2 id="boussole-tools-title">Tous nos outils</h2>
+      <div class="boussole-tools__grid">${boussoleToolCardsHtml}
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="../index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="../index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="../index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="../index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="../a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="../politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="../mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="../politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
+`;
+
+if (!fs.existsSync(BOUSSOLE_DIR)) fs.mkdirSync(BOUSSOLE_DIR, { recursive: true });
+fs.writeFileSync(path.join(BOUSSOLE_DIR, 'index.html'), boussoleHtml, 'utf8');
+console.log(`🧭 boussole/index.html généré (${boussoleTools.length} outil(s) en vitrine, ${boussoleCategories.length} thématique(s))`);
+
 // ── Génération du sitemap.xml ─────────────────────────────────────────────────
 // Utilise newIndex (articles publiés/passés déjà filtrés) pour rester en sync
 // avec les pages qui ont robots="index, follow".
@@ -1159,6 +1404,12 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <lastmod>${TODAY}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>${BASE}/boussole/</loc>
+    <lastmod>${TODAY}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>`;
 
 if (sitemapDossiers.length) {
