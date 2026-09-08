@@ -132,6 +132,9 @@
     .card-header h3 { font-size: 1rem; font-weight: 600; color: var(--gray-800); }
     .search-bar { display: flex; align-items: center; gap: 8px; }
     .search-bar input { padding: 8px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius); font-size: .85rem; width: 220px; }
+    .chip-checks { display: flex; flex-wrap: wrap; gap: 6px 14px; padding: 10px 12px; border: 1px solid var(--gray-200); border-radius: var(--radius); }
+    .chip-checks label { font-weight: 400; display: inline-flex; align-items: center; gap: 5px; font-size: .82rem; color: var(--gray-700); }
+    .chip-checks input { width: auto; }
     .filter-bar { display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 20px; border-bottom: 1px solid var(--gray-100); }
     .filter-chip {
       padding: 4px 12px; border-radius: 20px; font-size: .8rem; font-weight: 600;
@@ -535,6 +538,10 @@
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 11l3 3L22 4"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
         Vérification des outils
       </a>
+      <button class="nav-item" onclick="showPage('boussole')">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" stroke-width="2"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 9l-2 6-6 2 2-6 6-2z"/></svg>
+        Boussole (ressources.json)
+      </button>
       <a class="nav-item" href="amazon-affiliates.html" target="_blank">
         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 7H4l1-7z"/></svg>
         Liens Amazon
@@ -741,6 +748,215 @@
         <div class="panel-footer">
           <button class="btn btn-ghost" onclick="closeDossierPanel()">Annuler</button>
           <button class="btn btn-success" id="dp-save-btn" onclick="saveDossier()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Enregistrer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOUSSOLE (ressources.json) — coloriages, checklists, roue des émotions -->
+    <div id="page-boussole" class="page" style="display:none">
+      <div class="topbar">
+        <h1>Boussole <span style="font-size:.9rem;font-weight:400;color:var(--gray-400)">(ressources.json)</span></h1>
+        <div class="topbar-actions">
+          <button class="btn btn-ghost" onclick="loadRessources().then(renderBoussoleAdmin)">↻ Rafraîchir</button>
+          <a class="btn btn-ghost" href="boussole/" target="_blank">👁 Voir la page publique</a>
+        </div>
+      </div>
+      <div style="margin-bottom:16px;padding:14px 20px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:var(--radius);font-size:.85rem;color:#1e40af">
+        ℹ️ Ces contenus n'évaluent rien (aucun score, aucun palier) — distinct de <code>tools.json</code> (voir « Vérification des outils »). La roue des émotions est affichée pour information seulement : ses nuances et le champ « besoin » sont un contenu déjà soigné, non modifiable depuis cet écran.
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 style="margin:0">🎨 Coloriages</h3>
+          <button class="btn btn-primary btn-sm" onclick="openColoriagePanel(null)">+ Nouveau coloriage</button>
+        </div>
+        <table>
+          <thead><tr><th>Image</th><th>Titre</th><th>Thèmes</th><th>Actions</th></tr></thead>
+          <tbody id="coloriages-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-header">
+          <h3 style="margin:0">✅ Checklists</h3>
+          <button class="btn btn-primary btn-sm" onclick="openChecklistPanel(null)">+ Nouvelle checklist</button>
+        </div>
+        <table>
+          <thead><tr><th>Titre</th><th>Items</th><th>Actions</th></tr></thead>
+          <tbody id="checklists-table"><tr class="loading-row"><td colspan="3">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+
+      <div class="card" style="margin-top:20px">
+        <div class="card-header">
+          <h3 style="margin:0">🧭 Roue des émotions <span style="font-size:.75rem;font-weight:400;color:var(--gray-400)">(lecture seule)</span></h3>
+        </div>
+        <table>
+          <thead><tr><th>Titre</th><th>Émotions</th><th>Nuances</th><th>Actions</th></tr></thead>
+          <tbody id="roue-table"><tr class="loading-row"><td colspan="4">Chargement…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- COLORIAGE EDIT PANEL -->
+    <div class="panel-overlay" id="coloriage-panel-overlay">
+      <div class="panel" style="max-width:640px">
+        <div class="panel-header">
+          <h2 id="coloriage-panel-title">Modifier le coloriage</h2>
+          <button class="panel-close" onclick="closeColoriagePanel()">✕</button>
+        </div>
+        <div class="panel-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Titre *</label>
+              <input type="text" id="cp-titre" placeholder="Titre du coloriage" oninput="autoSlugColoriage()">
+            </div>
+            <div class="form-group">
+              <label>Slug *</label>
+              <input type="text" id="cp-slug" placeholder="mon-coloriage">
+              <div class="hint">Identifiant unique, sans espaces ni accents</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description *</label>
+            <textarea id="cp-description" rows="3" placeholder="Un ou deux paragraphes, HTML basique autorisé (p, strong, em)…"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Thèmes</label>
+            <input type="text" id="cp-themes" placeholder="anxiété, se recentrer, pleine conscience (séparés par des virgules)">
+            <div class="hint">Alimentent la recherche et les filtres de la galerie /ressources/coloriages/</div>
+          </div>
+          <div class="form-group">
+            <label>Image à imprimer</label>
+            <div id="cp-img-preview-wrap" class="img-preview-wrap" style="display:none;margin-bottom:8px">
+              <img id="cp-img-preview" src="" alt="Aperçu">
+              <div class="img-preview-actions">
+                <button type="button" onclick="removeColoriageImage()">✕ Supprimer</button>
+              </div>
+            </div>
+            <div class="img-upload-zone" id="cp-img-drop-zone"
+              onclick="document.getElementById('cp-img-file-input').click()"
+              ondragover="handleColoriageDragOver(event)"
+              ondragleave="handleColoriageDragLeave(event)"
+              ondrop="handleColoriageDrop(event)">
+              <div class="upload-icon">🖼️</div>
+              <strong>Cliquer ou glisser-déposer une image</strong>
+              <p>JPG, PNG, WebP · Max 10 Mo</p>
+              <input type="file" id="cp-img-file-input" accept="image/*" style="display:none" onchange="handleColoriageImageFile(this.files[0])">
+            </div>
+            <div class="img-upload-progress" id="cp-img-upload-progress">
+              <div class="img-upload-progress-bar" id="cp-img-upload-bar"></div>
+            </div>
+            <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+              <span style="font-size:.75rem;color:var(--gray-400);white-space:nowrap">ou URL directe :</span>
+              <input type="text" id="cp-image" placeholder="img/..." style="flex:1;font-size:.82rem" oninput="onColoriageImageUrlChange()">
+            </div>
+            <div class="hint" id="cp-img-status"></div>
+          </div>
+          <div class="form-group">
+            <label>Catégories (maillage)</label>
+            <div id="cp-categories" class="chip-checks"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mots-clés (maillage)</label>
+              <input type="text" id="cp-motsCles" placeholder="mandala, coloriage, relaxation">
+            </div>
+            <div class="form-group">
+              <label>Formats de lien</label>
+              <label style="font-weight:400;display:inline-flex;align-items:center;gap:4px;margin-right:12px"><input type="checkbox" id="cp-fmt-inline" checked style="width:auto"> inline</label>
+              <label style="font-weight:400;display:inline-flex;align-items:center;gap:4px"><input type="checkbox" id="cp-fmt-card" checked style="width:auto"> card</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Occurrences min.</label>
+              <input type="number" id="cp-minOcc" min="0" max="10" value="1">
+            </div>
+            <div class="form-group">
+              <label>Max par article</label>
+              <input type="number" id="cp-maxPar" min="1" max="10" value="1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ancres (une par ligne)</label>
+            <textarea id="cp-ancres" rows="3" placeholder="un mandala à imprimer&#10;ce coloriage anti-stress"></textarea>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-ghost" onclick="closeColoriagePanel()">Annuler</button>
+          <button class="btn btn-success" id="cp-save-btn" onclick="saveColoriage()">
+            <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+            Enregistrer
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKLIST EDIT PANEL -->
+    <div class="panel-overlay" id="checklist-panel-overlay">
+      <div class="panel" style="max-width:640px">
+        <div class="panel-header">
+          <h2 id="checklist-panel-title">Modifier la checklist</h2>
+          <button class="panel-close" onclick="closeChecklistPanel()">✕</button>
+        </div>
+        <div class="panel-body">
+          <div class="form-row">
+            <div class="form-group">
+              <label>Titre *</label>
+              <input type="text" id="cl-titre" placeholder="Titre de la checklist" oninput="autoSlugChecklist()">
+            </div>
+            <div class="form-group">
+              <label>Slug *</label>
+              <input type="text" id="cl-slug" placeholder="ma-checklist">
+              <div class="hint">Identifiant unique, sans espaces ni accents</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Description *</label>
+            <textarea id="cl-description" rows="3" placeholder="Un ou deux paragraphes, HTML basique autorisé (p, strong, em)…"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Items *</label>
+            <div id="cl-items-list" style="display:flex;flex-direction:column;gap:8px"></div>
+            <button type="button" class="btn btn-ghost btn-sm" style="margin-top:8px" onclick="addChecklistItemRow('')">+ Ajouter un item</button>
+          </div>
+          <div class="form-group">
+            <label>Catégories (maillage)</label>
+            <div id="cl-categories" class="chip-checks"></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Mots-clés (maillage)</label>
+              <input type="text" id="cl-motsCles" placeholder="burn-out, epuisement-professionnel">
+            </div>
+            <div class="form-group">
+              <label>Formats de lien</label>
+              <label style="font-weight:400;display:inline-flex;align-items:center;gap:4px;margin-right:12px"><input type="checkbox" id="cl-fmt-inline" checked style="width:auto"> inline</label>
+              <label style="font-weight:400;display:inline-flex;align-items:center;gap:4px"><input type="checkbox" id="cl-fmt-card" checked style="width:auto"> card</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Occurrences min.</label>
+              <input type="number" id="cl-minOcc" min="0" max="10" value="1">
+            </div>
+            <div class="form-group">
+              <label>Max par article</label>
+              <input type="number" id="cl-maxPar" min="1" max="10" value="1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Ancres (une par ligne)</label>
+            <textarea id="cl-ancres" rows="3" placeholder="cette checklist des signes d'épuisement"></textarea>
+          </div>
+        </div>
+        <div class="panel-footer">
+          <button class="btn btn-ghost" onclick="closeChecklistPanel()">Annuler</button>
+          <button class="btn btn-success" id="cl-save-btn" onclick="saveChecklist()">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             Enregistrer
           </button>
@@ -1605,7 +1821,8 @@ let _secFbApiKey  = '';
 
 let articles = [];
 let clusters = [];   // data/clusters.json — lecture seule depuis Poulet (voir loadClusters)
-let ressourcesCache = []; // ressources.json — lecture seule depuis Poulet (voir loadRessources)
+let ressourcesCache = []; // ressources.json:ressources — éditable depuis la page Boussole (voir loadRessources / saveRessourcesFile)
+let ressourcesFormatCache = []; // ressources.json:_format — conservé tel quel, jamais généré ni édité ici
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let tags = [];
@@ -1994,6 +2211,7 @@ function showPage(name) {
   if (name === 'messages')    loadAdminMessages();
   if (name === 'about')       loadAboutPage();
   if (name === 'dossiers')    loadDossiers();
+  if (name === 'boussole')    renderBoussoleAdmin();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
     document.getElementById('gh-owner').value      = localStorage.getItem(GH_OWNER_KEY)  || '';
@@ -2060,6 +2278,10 @@ async function loadRessources() {
     if (res.ok) {
       const data = await res.json();
       if (Array.isArray(data.ressources)) ressourcesCache = data.ressources;
+      // Conservé tel quel pour la ré-écriture (voir saveRessourcesFile) : sans
+      // ça, le premier Enregistrer depuis le tableau de bord Boussole
+      // effacerait silencieusement le bloc de documentation _format.
+      if (Array.isArray(data._format)) ressourcesFormatCache = data._format;
     }
   } catch(e) { /* absent ou hors-ligne — reste []. Un article SANS token {{ressource:...}}/
                   ressourceCard n'est pas affecté ; un article qui en contient fera échouer
@@ -5233,6 +5455,566 @@ async function deleteDossier(id) {
     toast('Supprimé localement — configurez le PAT pour synchroniser', 'info');
   }
   renderDossiersTable();
+}
+
+/* ══════════════════════════════════════════════
+   BOUSSOLE (ressources.json) — coloriages, checklists,
+   roue des émotions (lecture seule). Distinct de tools.json /
+   outils-verification.html : ces contenus n'évaluent rien
+   (aucun item/réponse/score/palier) — voir ressources.json:_format.
+══════════════════════════════════════════════ */
+let editingColoriageSlug = null;
+let editingChecklistSlug = null;
+
+// Même liste que le <select> catégorie du panneau dossier (dp-category) —
+// dupliquée ici car ressources.json:maillage.categories est un tableau
+// (plusieurs catégories possibles), donc rendu en cases à cocher et non
+// en select unique.
+const RESSOURCE_CATEGORIES = [
+  'Bien-être', 'Sommeil', 'Troubles Psy', 'Thérapies', 'Relations',
+  'Développement personnel', 'Travail', 'Émotions & identité',
+  'Neurosciences & genre', 'Société & psychologie politique', 'Sexo',
+  'Nos héros sur le divan', 'Les monstres sur le divan'
+];
+
+function ensureCategoryCheckboxes(containerId) {
+  const el = document.getElementById(containerId);
+  if (!el || el.childElementCount) return; // déjà rendu
+  el.innerHTML = RESSOURCE_CATEGORIES.map(c =>
+    `<label><input type="checkbox" value="${escapeAttr(c)}"> ${escapeAttr(c)}</label>`
+  ).join('');
+}
+
+function collectMaillage(prefix) {
+  const categories = Array.from(document.querySelectorAll('#' + prefix + '-categories input:checked')).map(i => i.value);
+  const motsCles = document.getElementById(prefix + '-motsCles').value.split(',').map(s => s.trim()).filter(Boolean);
+  const ancres = document.getElementById(prefix + '-ancres').value.split('\n').map(s => s.trim()).filter(Boolean);
+  const minOccurrences = parseInt(document.getElementById(prefix + '-minOcc').value, 10);
+  const maxParArticle = parseInt(document.getElementById(prefix + '-maxPar').value, 10);
+  const formats = [];
+  if (document.getElementById(prefix + '-fmt-inline').checked) formats.push('inline');
+  if (document.getElementById(prefix + '-fmt-card').checked) formats.push('card');
+  return {
+    categories, motsCles,
+    minOccurrences: Number.isFinite(minOccurrences) ? minOccurrences : 1,
+    maxParArticle: Number.isFinite(maxParArticle) ? maxParArticle : 1,
+    formats, ancres
+  };
+}
+
+function populateMaillage(prefix, m) {
+  m = m || {};
+  document.querySelectorAll('#' + prefix + '-categories input').forEach(b => {
+    b.checked = (m.categories || []).includes(b.value);
+  });
+  document.getElementById(prefix + '-motsCles').value = (m.motsCles || []).join(', ');
+  document.getElementById(prefix + '-ancres').value   = (m.ancres || []).join('\n');
+  document.getElementById(prefix + '-minOcc').value   = m.minOccurrences != null ? m.minOccurrences : 1;
+  document.getElementById(prefix + '-maxPar').value   = m.maxParArticle  != null ? m.maxParArticle  : 1;
+  document.getElementById(prefix + '-fmt-inline').checked = !m.formats || m.formats.includes('inline');
+  document.getElementById(prefix + '-fmt-card').checked   = !m.formats || m.formats.includes('card');
+}
+
+async function saveRessourcesFile(message) {
+  return githubPutFile('ressources.json',
+    JSON.stringify({ _format: ressourcesFormatCache, ressources: ressourcesCache }, null, 2),
+    message);
+}
+
+function renderBoussoleAdmin() {
+  renderColoriagesTable();
+  renderChecklistsTable();
+  renderRoueTable();
+}
+
+function renderColoriagesTable() {
+  const list  = ressourcesCache.filter(x => x.type === 'coloriage');
+  const tbody = document.getElementById('coloriages-table');
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun coloriage</td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map(r => {
+    const img = r.contenu.image
+      ? `<img src="${escapeAttr(r.contenu.image)}" style="width:36px;height:36px;object-fit:cover;border-radius:4px">`
+      : '<span style="display:inline-block;width:36px;height:36px;background:var(--gray-100);border-radius:4px;text-align:center;line-height:36px">🎨</span>';
+    const themes = (r.identite.themes || []).join(', ') || '—';
+    return `<tr>
+      <td>${img}</td>
+      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td style="font-size:.85rem;color:var(--gray-500)">${escapeAttr(themes)}</td>
+      <td>
+        <div class="actions">
+          <a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          <button class="btn btn-primary btn-sm" onclick="openColoriagePanel('${escapeAttr(r.identite.slug)}')">✏️ Éditer</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteColoriage('${escapeAttr(r.identite.slug)}','${escapeAttr(r.identite.titre)}')">🗑️</button>
+        </div>
+      </td>
+    </tr>`;
+  }).join('');
+}
+
+function renderChecklistsTable() {
+  const list  = ressourcesCache.filter(x => x.type === 'checklist');
+  const tbody = document.getElementById('checklists-table');
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center;padding:32px;color:var(--gray-400)">Aucune checklist</td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map(r => `<tr>
+      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td>${(r.contenu.items || []).length} item(s)</td>
+      <td>
+        <div class="actions">
+          <a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          <button class="btn btn-primary btn-sm" onclick="openChecklistPanel('${escapeAttr(r.identite.slug)}')">✏️ Éditer</button>
+          <button class="btn btn-danger btn-sm" onclick="confirmDeleteChecklist('${escapeAttr(r.identite.slug)}','${escapeAttr(r.identite.titre)}')">🗑️</button>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+
+function renderRoueTable() {
+  const list  = ressourcesCache.filter(x => x.type === 'roue-emotions');
+  const tbody = document.getElementById('roue-table');
+  if (!list.length) {
+    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--gray-400)">Aucune roue</td></tr>';
+    return;
+  }
+  tbody.innerHTML = list.map(r => {
+    const emotions = r.contenu.emotions || [];
+    const nuances  = emotions.reduce((sum, e) => sum + (e.nuances || []).length, 0);
+    return `<tr>
+      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td>${emotions.length}</td>
+      <td>${nuances}</td>
+      <td><a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a></td>
+    </tr>`;
+  }).join('');
+}
+
+/* ── Coloriages ── */
+function autoSlugColoriage() {
+  if (editingColoriageSlug) return;
+  document.getElementById('cp-slug').value = slugify(document.getElementById('cp-titre').value);
+}
+
+function openColoriagePanel(slug) {
+  editingColoriageSlug = slug;
+  ensureCategoryCheckboxes('cp-categories');
+  const panel = document.getElementById('coloriage-panel-overlay');
+  const title = document.getElementById('coloriage-panel-title');
+  if (slug) {
+    const r = ressourcesCache.find(x => x.type === 'coloriage' && x.identite.slug === slug);
+    if (!r) return;
+    title.textContent = 'Modifier le coloriage';
+    document.getElementById('cp-titre').value       = r.identite.titre || '';
+    document.getElementById('cp-slug').value        = r.identite.slug || '';
+    document.getElementById('cp-description').value = r.identite.description || '';
+    document.getElementById('cp-themes').value      = (r.identite.themes || []).join(', ');
+    document.getElementById('cp-image').value       = r.contenu.image || '';
+    if (r.contenu.image) showColoriageImagePreview(r.contenu.image); else removeColoriageImage();
+    populateMaillage('cp', r.maillage);
+    document.getElementById('cp-slug').readOnly = true;
+  } else {
+    title.textContent = 'Nouveau coloriage';
+    document.getElementById('cp-titre').value       = '';
+    document.getElementById('cp-slug').value        = '';
+    document.getElementById('cp-description').value = '';
+    document.getElementById('cp-themes').value      = '';
+    document.getElementById('cp-image').value       = '';
+    removeColoriageImage();
+    populateMaillage('cp', {});
+    document.getElementById('cp-slug').readOnly = false;
+  }
+  panel.classList.add('open');
+}
+
+function closeColoriagePanel() {
+  document.getElementById('coloriage-panel-overlay').classList.remove('open');
+  editingColoriageSlug = null;
+}
+
+async function saveColoriage() {
+  const slug           = document.getElementById('cp-slug').value.trim();
+  const titre          = document.getElementById('cp-titre').value.trim();
+  const descriptionRaw = document.getElementById('cp-description').value.trim();
+  const themes         = document.getElementById('cp-themes').value.split(',').map(s => s.trim()).filter(Boolean);
+  const image          = document.getElementById('cp-image').value.trim() || 'img/placeholder-coloriage.svg';
+
+  if (!slug || !titre || !descriptionRaw) {
+    toast('Remplissez les champs obligatoires (titre, slug, description)', 'error');
+    return;
+  }
+  if (!/^[a-z0-9-]+$/.test(slug)) {
+    toast('Le slug ne doit contenir que des lettres minuscules, chiffres et tirets', 'error');
+    return;
+  }
+  const collision = ressourcesCache.find(x => x.identite.slug === slug);
+  if (collision && collision.identite.slug !== editingColoriageSlug) {
+    toast('Une ressource avec ce slug existe déjà', 'error');
+    return;
+  }
+
+  const description = descriptionRaw.startsWith('<p>') ? descriptionRaw : `<p>${descriptionRaw}</p>`;
+  const entry = {
+    type: 'coloriage',
+    identite: { slug, titre, description, themes },
+    contenu: { image },
+    maillage: collectMaillage('cp')
+  };
+
+  if (editingColoriageSlug) {
+    const idx = ressourcesCache.findIndex(x => x.identite.slug === editingColoriageSlug);
+    if (idx > -1) ressourcesCache[idx] = entry; else ressourcesCache.push(entry);
+  } else {
+    ressourcesCache.push(entry);
+  }
+
+  const btn = document.getElementById('cp-save-btn');
+  btn.innerHTML = '<div class="spinner"></div> Enregistrement…';
+  btn.disabled  = true;
+
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await saveRessourcesFile((editingColoriageSlug ? 'update' : 'create') + ': coloriage ' + slug);
+      toast('Coloriage enregistré sur GitHub ✓', 'success');
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('⚠️ Token GitHub manquant — modifications sauvées localement seulement. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer →</a>', 'error', 10000);
+  }
+  closeColoriagePanel();
+  renderBoussoleAdmin();
+
+  btn.innerHTML = '✓ Enregistrer';
+  btn.disabled  = false;
+}
+
+function confirmDeleteColoriage(slug, titre) {
+  document.getElementById('confirm-title').textContent = 'Supprimer ce coloriage ?';
+  document.getElementById('confirm-msg').textContent   = `"${titre}" sera retiré de ressources.json. Le fichier image n'est pas supprimé.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
+  document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteColoriage(slug); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+
+async function deleteColoriage(slug) {
+  ressourcesCache = ressourcesCache.filter(x => x.identite.slug !== slug);
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await saveRessourcesFile('delete: coloriage ' + slug);
+      toast('Coloriage retiré de ressources.json', 'success');
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('Supprimé localement — configurez le PAT pour synchroniser', 'info');
+  }
+  renderBoussoleAdmin();
+}
+
+/* Upload image coloriage — même logique que le panneau dossier
+   (uploadDossierImageToCloudinary/GitHub) : Cloudinary si configuré,
+   sinon dépôt direct dans le repo sous img/coloriages/. */
+function handleColoriageDragOver(e) {
+  e.preventDefault();
+  document.getElementById('cp-img-drop-zone').classList.add('dragover');
+}
+function handleColoriageDragLeave(e) {
+  document.getElementById('cp-img-drop-zone').classList.remove('dragover');
+}
+function handleColoriageDrop(e) {
+  e.preventDefault();
+  document.getElementById('cp-img-drop-zone').classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) handleColoriageImageFile(file);
+  else toast('Fichier non supporté — utilisez JPG, PNG ou WebP', 'error');
+}
+
+async function handleColoriageImageFile(file) {
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('Image trop lourde (max 10 Mo)', 'error'); return; }
+
+  const reader = new FileReader();
+  reader.onload = e => showColoriageImagePreview(e.target.result);
+  reader.readAsDataURL(file);
+
+  const cldCloud  = localStorage.getItem(CLD_CLOUD_KEY);
+  const cldPreset = localStorage.getItem(CLD_PRESET_KEY);
+  const ghPat     = localStorage.getItem(GH_PAT_KEY);
+
+  if (cldCloud && cldPreset) {
+    await uploadColoriageImageToCloudinary(file);
+  } else if (ghPat) {
+    await uploadColoriageImageToGitHub(file);
+  } else {
+    setColoriageImageStatus('⚠️ Configurez Cloudinary (recommandé) ou un PAT GitHub dans Paramètres pour héberger l\'image.', 'warning');
+  }
+}
+
+async function uploadColoriageImageToCloudinary(file) {
+  const cloudName = localStorage.getItem(CLD_CLOUD_KEY);
+  const preset    = localStorage.getItem(CLD_PRESET_KEY);
+  const folder    = 'ouipsycho/coloriages';
+  if (!cloudName || !preset) { toast('Configurez Cloudinary dans Paramètres', 'error'); return; }
+
+  const saveBtn = document.getElementById('cp-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('cp-img-upload-progress');
+  const bar = document.getElementById('cp-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '10%';
+  setColoriageImageStatus('⏳ Upload Cloudinary…', 'info');
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', preset);
+    formData.append('folder', folder);
+
+    bar.style.width = '40%';
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+    bar.style.width = '80%';
+    if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || res.status); }
+    const data = await res.json();
+    bar.style.width = '100%';
+
+    const publicId = data.public_id;
+    const url = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1200/${publicId}`;
+
+    document.getElementById('cp-image').value = url;
+    showColoriageImagePreview(url);
+    setColoriageImageStatus(`✅ Hébergée sur Cloudinary (${Math.round(data.bytes / 1024)} Ko → optimisée automatiquement)`, 'success');
+    toast('Image uploadée sur Cloudinary 🎉', 'success');
+  } catch(e) {
+    setColoriageImageStatus('❌ Erreur Cloudinary : ' + e.message, 'error');
+    toast('Erreur Cloudinary : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+async function uploadColoriageImageToGitHub(file) {
+  const saveBtn = document.getElementById('cp-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('cp-img-upload-progress');
+  const bar = document.getElementById('cp-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '20%';
+  setColoriageImageStatus('⏳ Upload GitHub…', 'info');
+
+  try {
+    const b64  = await fileToBase64(file);
+    bar.style.width = '50%';
+    const slug = document.getElementById('cp-slug').value || 'coloriage';
+    const ext  = file.name.split('.').pop().toLowerCase().replace('jpeg','jpg');
+    const path = `img/coloriages/${slug}-${Date.now()}.${ext}`;
+    await githubPutFile(path, b64, `img: upload ${path}`);
+    bar.style.width = '100%';
+    const owner  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+    const repo   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+    document.getElementById('cp-image').value = url;
+    showColoriageImagePreview(url);
+    setColoriageImageStatus('✅ Image hébergée sur GitHub (conseil : configurez Cloudinary pour de meilleures performances)', 'success');
+    toast('Image uploadée sur GitHub ✓', 'success');
+  } catch(e) {
+    setColoriageImageStatus('❌ Erreur GitHub : ' + e.message, 'error');
+    toast('Erreur upload : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+function showColoriageImagePreview(src) {
+  const wrap = document.getElementById('cp-img-preview-wrap');
+  const img  = document.getElementById('cp-img-preview');
+  const zone = document.getElementById('cp-img-drop-zone');
+  if (!wrap || !img) return;
+  img.src = src;
+  wrap.style.display = 'block';
+  if (zone) zone.style.display = 'none';
+}
+
+function removeColoriageImage() {
+  const wrap  = document.getElementById('cp-img-preview-wrap');
+  const zone  = document.getElementById('cp-img-drop-zone');
+  const img   = document.getElementById('cp-img-preview');
+  const input = document.getElementById('cp-img-file-input');
+  const field = document.getElementById('cp-image');
+  if (wrap)  wrap.style.display  = 'none';
+  if (zone)  zone.style.display  = 'block';
+  if (img)   img.src             = '';
+  if (field) field.value         = '';
+  if (input) input.value         = '';
+  setColoriageImageStatus('', '');
+}
+
+function onColoriageImageUrlChange() {
+  const field = document.getElementById('cp-image');
+  if (!field) return;
+  const url = field.value.trim();
+  if (url && (url.startsWith('http') || url.startsWith('img/'))) {
+    showColoriageImagePreview(url);
+  } else if (!url) {
+    removeColoriageImage();
+  }
+}
+
+function setColoriageImageStatus(msg, type) {
+  const el = document.getElementById('cp-img-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = type === 'success' ? 'var(--success)'
+                 : type === 'error'   ? 'var(--danger)'
+                 : type === 'warning' ? 'var(--warning)'
+                 : 'var(--gray-400)';
+}
+
+/* ── Checklists ── */
+function autoSlugChecklist() {
+  if (editingChecklistSlug) return;
+  document.getElementById('cl-slug').value = slugify(document.getElementById('cl-titre').value);
+}
+
+function addChecklistItemRow(value) {
+  const list = document.getElementById('cl-items-list');
+  const row = document.createElement('div');
+  row.style.cssText = 'display:flex;gap:8px;align-items:center';
+  row.innerHTML =
+    `<input type="text" class="cl-item-input" value="${escapeAttr(value || '')}" placeholder="Je me sens…" style="flex:1">
+     <button type="button" class="btn btn-ghost btn-sm" onclick="this.parentElement.remove()">✕</button>`;
+  list.appendChild(row);
+}
+
+function openChecklistPanel(slug) {
+  editingChecklistSlug = slug;
+  ensureCategoryCheckboxes('cl-categories');
+  const panel = document.getElementById('checklist-panel-overlay');
+  const title = document.getElementById('checklist-panel-title');
+  document.getElementById('cl-items-list').innerHTML = '';
+  if (slug) {
+    const r = ressourcesCache.find(x => x.type === 'checklist' && x.identite.slug === slug);
+    if (!r) return;
+    title.textContent = 'Modifier la checklist';
+    document.getElementById('cl-titre').value       = r.identite.titre || '';
+    document.getElementById('cl-slug').value        = r.identite.slug || '';
+    document.getElementById('cl-description').value = r.identite.description || '';
+    (r.contenu.items || []).forEach(it => addChecklistItemRow(it));
+    populateMaillage('cl', r.maillage);
+    document.getElementById('cl-slug').readOnly = true;
+  } else {
+    title.textContent = 'Nouvelle checklist';
+    document.getElementById('cl-titre').value       = '';
+    document.getElementById('cl-slug').value        = '';
+    document.getElementById('cl-description').value = '';
+    addChecklistItemRow(''); addChecklistItemRow(''); addChecklistItemRow('');
+    populateMaillage('cl', {});
+    document.getElementById('cl-slug').readOnly = false;
+  }
+  panel.classList.add('open');
+}
+
+function closeChecklistPanel() {
+  document.getElementById('checklist-panel-overlay').classList.remove('open');
+  editingChecklistSlug = null;
+}
+
+async function saveChecklist() {
+  const slug           = document.getElementById('cl-slug').value.trim();
+  const titre          = document.getElementById('cl-titre').value.trim();
+  const descriptionRaw = document.getElementById('cl-description').value.trim();
+  const items          = Array.from(document.querySelectorAll('.cl-item-input')).map(i => i.value.trim()).filter(Boolean);
+
+  if (!slug || !titre || !descriptionRaw) {
+    toast('Remplissez les champs obligatoires (titre, slug, description)', 'error');
+    return;
+  }
+  if (!/^[a-z0-9-]+$/.test(slug)) {
+    toast('Le slug ne doit contenir que des lettres minuscules, chiffres et tirets', 'error');
+    return;
+  }
+  if (items.length < 2) {
+    toast('Ajoutez au moins deux items à la checklist', 'error');
+    return;
+  }
+  const collision = ressourcesCache.find(x => x.identite.slug === slug);
+  if (collision && collision.identite.slug !== editingChecklistSlug) {
+    toast('Une ressource avec ce slug existe déjà', 'error');
+    return;
+  }
+
+  const description = descriptionRaw.startsWith('<p>') ? descriptionRaw : `<p>${descriptionRaw}</p>`;
+  const entry = {
+    type: 'checklist',
+    identite: { slug, titre, description },
+    contenu: { items },
+    maillage: collectMaillage('cl')
+  };
+
+  if (editingChecklistSlug) {
+    const idx = ressourcesCache.findIndex(x => x.identite.slug === editingChecklistSlug);
+    if (idx > -1) ressourcesCache[idx] = entry; else ressourcesCache.push(entry);
+  } else {
+    ressourcesCache.push(entry);
+  }
+
+  const btn = document.getElementById('cl-save-btn');
+  btn.innerHTML = '<div class="spinner"></div> Enregistrement…';
+  btn.disabled  = true;
+
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await saveRessourcesFile((editingChecklistSlug ? 'update' : 'create') + ': checklist ' + slug);
+      toast('Checklist enregistrée sur GitHub ✓', 'success');
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('⚠️ Token GitHub manquant — modifications sauvées localement seulement. <a href="#" onclick="showPage(\'settings\')" style="color:#fff;font-weight:700;text-decoration:underline">Configurer →</a>', 'error', 10000);
+  }
+  closeChecklistPanel();
+  renderBoussoleAdmin();
+
+  btn.innerHTML = '✓ Enregistrer';
+  btn.disabled  = false;
+}
+
+function confirmDeleteChecklist(slug, titre) {
+  document.getElementById('confirm-title').textContent = 'Supprimer cette checklist ?';
+  document.getElementById('confirm-msg').textContent   = `"${titre}" sera retirée de ressources.json.`;
+  document.getElementById('confirm-icon').textContent  = '🗑️';
+  document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteChecklist(slug); closeConfirm(); };
+  document.getElementById('confirm-overlay').classList.add('open');
+}
+
+async function deleteChecklist(slug) {
+  ressourcesCache = ressourcesCache.filter(x => x.identite.slug !== slug);
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await saveRessourcesFile('delete: checklist ' + slug);
+      toast('Checklist retirée de ressources.json', 'success');
+    } catch(e) {
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('Supprimé localement — configurez le PAT pour synchroniser', 'info');
+  }
+  renderBoussoleAdmin();
 }
 </script>
 </body>
