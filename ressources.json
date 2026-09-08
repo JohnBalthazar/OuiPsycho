@@ -162,7 +162,6 @@
     },
     {
       "type": "coloriage",
-      "visible": true,
       "identite": {
         "slug": "coloriage-avant-controle",
         "titre": "Coloriage anti-stress avant un contrôle",
@@ -173,7 +172,7 @@
         ]
       },
       "contenu": {
-        "image": "img/placeholder-coloriage.svg"
+        "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/coloriages/iofa69hcomnveyefkgn6"
       },
       "maillage": {
         "categories": [
