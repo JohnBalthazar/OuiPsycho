@@ -738,13 +738,18 @@ for (const outil of TOOLS) {
 // ── Pages ressource /ressources/{slug}/ (ressources.json) ────────────────────
 // Contenu pratique (coloriage, checklist, roue des émotions) : aucun score,
 // aucun palier, aucune des règles de tools.json ne s'applique — voir
-// ressources.json:_format. Une entrée = une page, pas de garde-fou de
-// génération (aucune famille "echelle-validee" équivalente ici).
+// ressources.json:_format. Une entrée = une page, sauf garde-fou de
+// visibilité (visible: false) : mêmes effets que le garde-fou
+// tracabilite.itemsVerifies de tools.json — page non générée.
 const RESSOURCES_DIR = path.join(__dirname, 'ressources');
 
 for (const ressource of RESSOURCES) {
   const { identite, contenu } = ressource;
   const slug = identite.slug;
+  if (ressource.visible === false) {
+    console.log(`  ⏸ ressources/${slug}/ ignoré — masqué (visible: false)`);
+    continue;
+  }
   const escLdRes = s => s.replace(/<\/script>/gi, '<\\/script>');
   const resDataJson = escLdRes(JSON.stringify(ressource));
   const metaDesc = identite.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
@@ -921,10 +926,25 @@ for (const ressource of RESSOURCES) {
   console.log(`🎨 ressources/${slug}/index.html généré (type: ${ressource.type})`);
 }
 
+// Purge des dossiers générés lors d'un run précédent pour un slug qui n'est
+// plus visible (ou plus dans ressources.json) : passer visible à false ne
+// suffit pas à faire disparaître une page déjà écrite sur disque lors d'un
+// run antérieur — sans cette purge, la page resterait accessible par URL
+// directe malgré le masquage. "coloriages" est le seul sous-dossier réservé
+// à ne jamais purger (galerie, pas une ressource individuelle).
+if (fs.existsSync(RESSOURCES_DIR)) {
+  const visibleSlugs = new Set(RESSOURCES.filter(r => r.visible !== false).map(r => r.identite.slug));
+  for (const entry of fs.readdirSync(RESSOURCES_DIR)) {
+    if (entry === 'coloriages' || visibleSlugs.has(entry)) continue;
+    fs.rmSync(path.join(RESSOURCES_DIR, entry), { recursive: true, force: true });
+    console.log(`  🧹 ressources/${entry}/ supprimé — masqué ou retiré de ressources.json`);
+  }
+}
+
 // ── Galerie /ressources/coloriages/ ───────────────────────────────────────────
 // "coloriages" est un slug réservé à ce niveau : un coloriage individuel ne
 // doit jamais prendre ce slug (collision avec cette page).
-const COLORIAGES = RESSOURCES.filter(r => r.type === 'coloriage');
+const COLORIAGES = RESSOURCES.filter(r => r.type === 'coloriage' && r.visible !== false);
 if (COLORIAGES.length) {
   const escLdGal = s => s.replace(/<\/script>/gi, '<\\/script>');
   const galerieDataJson = escLdGal(JSON.stringify(COLORIAGES));
@@ -1053,7 +1073,7 @@ if (COLORIAGES.length) {
 const BOUSSOLE_DIR = path.join(__dirname, 'boussole');
 
 const boussoleCategories = [];
-RESSOURCES.forEach(r => {
+RESSOURCES.filter(r => r.visible !== false).forEach(r => {
   (r.maillage.categories || []).forEach(cat => {
     let entry = boussoleCategories.find(c => c.nom === cat);
     if (!entry) { entry = { nom: cat, count: 0 }; boussoleCategories.push(entry); }
@@ -1067,8 +1087,8 @@ const CATEGORY_ICONS = {
   'Travail': '💼',
 };
 
-const roueEntries = RESSOURCES.filter(r => r.type === 'roue-emotions');
-const checklistEntries = RESSOURCES.filter(r => r.type === 'checklist');
+const roueEntries = RESSOURCES.filter(r => r.type === 'roue-emotions' && r.visible !== false);
+const checklistEntries = RESSOURCES.filter(r => r.type === 'checklist' && r.visible !== false);
 const boussoleTools = [];
 roueEntries.forEach(r => boussoleTools.push({ kind: 'roue', ressource: r }));
 checklistEntries.forEach(r => boussoleTools.push({ kind: 'checklist', ressource: r }));
@@ -1076,6 +1096,18 @@ if (COLORIAGES.length) boussoleTools.push({ kind: 'coloriages', count: COLORIAGE
 
 function stripHtmlDesc(html) {
   return html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+}
+
+// CTA principale du hero : le premier outil réellement visible (jamais un
+// lien figé — celui-ci pointait vers la roue avant l'ajout du masquage et
+// serait resté un lien mort si elle passait en visible:false).
+let heroCtaHtml = `<a class="boussole-hero__link" href="#bibliotheque">Voir tous nos outils</a>`;
+if (boussoleTools.length) {
+  const featured = boussoleTools[0];
+  const heroHref = featured.kind === 'coloriages' ? '../ressources/coloriages/' : `../ressources/${featured.ressource.identite.slug}/`;
+  const heroLabel = featured.kind === 'coloriages' ? 'Découvrir nos coloriages à imprimer →' : `Découvrir « ${featured.ressource.identite.titre} » →`;
+  heroCtaHtml = `<a class="tool-btn tool-btn--primary" href="${heroHref}">${escCard(heroLabel)}</a>
+          <a class="boussole-hero__link" href="#bibliotheque">Voir tous nos outils</a>`;
 }
 
 const boussoleToolCardsHtml = boussoleTools.map(t => {
@@ -1201,11 +1233,10 @@ const boussoleHtml = `<!DOCTYPE html>
         <h1>Ma Boussole Intérieure</h1>
         <p>Des outils courts et concrets pour mieux comprendre ce que vous ressentez — pas un test, pas un diagnostic : juste de quoi y voir un peu plus clair, à votre rythme.</p>
         <div class="boussole-hero__ctas">
-          <a class="tool-btn tool-btn--primary" href="../ressources/roue-des-emotions/">Découvrir la roue des émotions →</a>
-          <a class="boussole-hero__link" href="#bibliotheque">Voir tous nos outils</a>
+          ${heroCtaHtml}
         </div>
         <div class="boussole-hero__stats">
-          <div class="boussole-hero__stat"><img src="../img/boussole/icon-1.png" alt=""><span>${RESSOURCES.length} outil${RESSOURCES.length > 1 ? 's' : ''} disponible${RESSOURCES.length > 1 ? 's' : ''}</span></div>
+          <div class="boussole-hero__stat"><img src="../img/boussole/icon-1.png" alt=""><span>${boussoleTools.length} outil${boussoleTools.length > 1 ? 's' : ''} disponible${boussoleTools.length > 1 ? 's' : ''}</span></div>
           <div class="boussole-hero__stat"><img src="../img/boussole/icon-2.png" alt=""><span>100% gratuit, sans compte</span></div>
           <div class="boussole-hero__stat"><img src="../img/boussole/icon-3.png" alt=""><span>0 diagnostic, 0 étiquette</span></div>
           <div class="boussole-hero__stat"><img src="../img/boussole/icon-4.png" alt=""><span>Rien n'est envoyé ni stocké</span></div>

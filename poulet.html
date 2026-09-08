@@ -821,6 +821,10 @@
             </div>
           </div>
           <div class="form-group">
+            <label style="font-weight:400;display:inline-flex;align-items:center;gap:6px"><input type="checkbox" id="cp-visible" checked style="width:auto"> Visible sur le site</label>
+            <div class="hint">Décoché : la page n'est plus générée et disparaît des listes (galerie, boussole), sans supprimer le contenu.</div>
+          </div>
+          <div class="form-group">
             <label>Description *</label>
             <textarea id="cp-description" rows="3" placeholder="Un ou deux paragraphes, HTML basique autorisé (p, strong, em)…"></textarea>
           </div>
@@ -914,6 +918,10 @@
               <input type="text" id="cl-slug" placeholder="ma-checklist">
               <div class="hint">Identifiant unique, sans espaces ni accents</div>
             </div>
+          </div>
+          <div class="form-group">
+            <label style="font-weight:400;display:inline-flex;align-items:center;gap:6px"><input type="checkbox" id="cl-visible" checked style="width:auto"> Visible sur le site</label>
+            <div class="hint">Décoché : la page n'est plus générée et disparaît des listes (galerie, boussole), sans supprimer le contenu.</div>
           </div>
           <div class="form-group">
             <label>Description *</label>
@@ -5527,6 +5535,44 @@ function renderBoussoleAdmin() {
   renderRoueTable();
 }
 
+// Badge "Masqué" + lien "Voir" désactivé si non généré (visible: false —
+// même garde-fou que tools.json:tracabilite.itemsVerifies, voir _gen_static.js)
+function ressourceTitreCell(r) {
+  const badge = r.visible === false
+    ? ' <span class="badge" style="background:var(--gray-100);color:var(--gray-500)">Masqué</span>'
+    : '';
+  return `<strong>${escapeAttr(r.identite.titre)}</strong>${badge}<div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div>`;
+}
+function ressourceVoirLink(r) {
+  return r.visible === false
+    ? ''
+    : `<a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>`;
+}
+function ressourceToggleBtn(r) {
+  return r.visible === false
+    ? `<button class="btn btn-ghost btn-sm" onclick="toggleRessourceVisible('${escapeAttr(r.identite.slug)}')">👁️ Rendre visible</button>`
+    : `<button class="btn btn-ghost btn-sm" onclick="toggleRessourceVisible('${escapeAttr(r.identite.slug)}')">🙈 Masquer</button>`;
+}
+
+async function toggleRessourceVisible(slug) {
+  const r = ressourcesCache.find(x => x.identite.slug === slug);
+  if (!r) return;
+  r.visible = r.visible === false ? true : false;
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (pat) {
+    try {
+      await saveRessourcesFile((r.visible ? 'update: rendre visible ' : 'update: masquer ') + slug);
+      toast(r.visible ? 'Ressource rendue visible ✓' : 'Ressource masquée ✓', 'success');
+    } catch(e) {
+      r.visible = r.visible === false ? true : false; // rollback si l'écriture échoue
+      toast('Erreur GitHub : ' + e.message, 'error');
+    }
+  } else {
+    toast('⚠️ Token GitHub manquant — modification sauvée localement seulement.', 'error', 8000);
+  }
+  renderBoussoleAdmin();
+}
+
 function renderColoriagesTable() {
   const list  = ressourcesCache.filter(x => x.type === 'coloriage');
   const tbody = document.getElementById('coloriages-table');
@@ -5541,11 +5587,12 @@ function renderColoriagesTable() {
     const themes = (r.identite.themes || []).join(', ') || '—';
     return `<tr>
       <td>${img}</td>
-      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td>${ressourceTitreCell(r)}</td>
       <td style="font-size:.85rem;color:var(--gray-500)">${escapeAttr(themes)}</td>
       <td>
         <div class="actions">
-          <a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          ${ressourceVoirLink(r)}
+          ${ressourceToggleBtn(r)}
           <button class="btn btn-primary btn-sm" onclick="openColoriagePanel('${escapeAttr(r.identite.slug)}')">✏️ Éditer</button>
           <button class="btn btn-danger btn-sm" onclick="confirmDeleteColoriage('${escapeAttr(r.identite.slug)}','${escapeAttr(r.identite.titre)}')">🗑️</button>
         </div>
@@ -5562,11 +5609,12 @@ function renderChecklistsTable() {
     return;
   }
   tbody.innerHTML = list.map(r => `<tr>
-      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td>${ressourceTitreCell(r)}</td>
       <td>${(r.contenu.items || []).length} item(s)</td>
       <td>
         <div class="actions">
-          <a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          ${ressourceVoirLink(r)}
+          ${ressourceToggleBtn(r)}
           <button class="btn btn-primary btn-sm" onclick="openChecklistPanel('${escapeAttr(r.identite.slug)}')">✏️ Éditer</button>
           <button class="btn btn-danger btn-sm" onclick="confirmDeleteChecklist('${escapeAttr(r.identite.slug)}','${escapeAttr(r.identite.titre)}')">🗑️</button>
         </div>
@@ -5585,10 +5633,10 @@ function renderRoueTable() {
     const emotions = r.contenu.emotions || [];
     const nuances  = emotions.reduce((sum, e) => sum + (e.nuances || []).length, 0);
     return `<tr>
-      <td><strong>${escapeAttr(r.identite.titre)}</strong><div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(r.identite.slug)}</div></td>
+      <td>${ressourceTitreCell(r)}</td>
       <td>${emotions.length}</td>
       <td>${nuances}</td>
-      <td><a href="ressources/${escapeAttr(r.identite.slug)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a></td>
+      <td class="actions">${ressourceVoirLink(r)} ${ressourceToggleBtn(r)}</td>
     </tr>`;
   }).join('');
 }
@@ -5610,6 +5658,7 @@ function openColoriagePanel(slug) {
     title.textContent = 'Modifier le coloriage';
     document.getElementById('cp-titre').value       = r.identite.titre || '';
     document.getElementById('cp-slug').value        = r.identite.slug || '';
+    document.getElementById('cp-visible').checked   = r.visible !== false;
     document.getElementById('cp-description').value = r.identite.description || '';
     document.getElementById('cp-themes').value      = (r.identite.themes || []).join(', ');
     document.getElementById('cp-image').value       = r.contenu.image || '';
@@ -5620,6 +5669,7 @@ function openColoriagePanel(slug) {
     title.textContent = 'Nouveau coloriage';
     document.getElementById('cp-titre').value       = '';
     document.getElementById('cp-slug').value        = '';
+    document.getElementById('cp-visible').checked   = true;
     document.getElementById('cp-description').value = '';
     document.getElementById('cp-themes').value      = '';
     document.getElementById('cp-image').value       = '';
@@ -5641,6 +5691,7 @@ async function saveColoriage() {
   const descriptionRaw = document.getElementById('cp-description').value.trim();
   const themes         = document.getElementById('cp-themes').value.split(',').map(s => s.trim()).filter(Boolean);
   const image          = document.getElementById('cp-image').value.trim() || 'img/placeholder-coloriage.svg';
+  const visible        = document.getElementById('cp-visible').checked;
 
   if (!slug || !titre || !descriptionRaw) {
     toast('Remplissez les champs obligatoires (titre, slug, description)', 'error');
@@ -5659,6 +5710,7 @@ async function saveColoriage() {
   const description = descriptionRaw.startsWith('<p>') ? descriptionRaw : `<p>${descriptionRaw}</p>`;
   const entry = {
     type: 'coloriage',
+    visible,
     identite: { slug, titre, description, themes },
     contenu: { image },
     maillage: collectMaillage('cp')
@@ -5911,6 +5963,7 @@ function openChecklistPanel(slug) {
     title.textContent = 'Modifier la checklist';
     document.getElementById('cl-titre').value       = r.identite.titre || '';
     document.getElementById('cl-slug').value        = r.identite.slug || '';
+    document.getElementById('cl-visible').checked   = r.visible !== false;
     document.getElementById('cl-description').value = r.identite.description || '';
     (r.contenu.items || []).forEach(it => addChecklistItemRow(it));
     populateMaillage('cl', r.maillage);
@@ -5919,6 +5972,7 @@ function openChecklistPanel(slug) {
     title.textContent = 'Nouvelle checklist';
     document.getElementById('cl-titre').value       = '';
     document.getElementById('cl-slug').value        = '';
+    document.getElementById('cl-visible').checked   = true;
     document.getElementById('cl-description').value = '';
     addChecklistItemRow(''); addChecklistItemRow(''); addChecklistItemRow('');
     populateMaillage('cl', {});
@@ -5937,6 +5991,7 @@ async function saveChecklist() {
   const titre          = document.getElementById('cl-titre').value.trim();
   const descriptionRaw = document.getElementById('cl-description').value.trim();
   const items          = Array.from(document.querySelectorAll('.cl-item-input')).map(i => i.value.trim()).filter(Boolean);
+  const visible        = document.getElementById('cl-visible').checked;
 
   if (!slug || !titre || !descriptionRaw) {
     toast('Remplissez les champs obligatoires (titre, slug, description)', 'error');
@@ -5959,6 +6014,7 @@ async function saveChecklist() {
   const description = descriptionRaw.startsWith('<p>') ? descriptionRaw : `<p>${descriptionRaw}</p>`;
   const entry = {
     type: 'checklist',
+    visible,
     identite: { slug, titre, description },
     contenu: { items },
     maillage: collectMaillage('cl')

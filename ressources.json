@@ -11,12 +11,23 @@
     "",
     "Racine : { \"_format\": [...], \"ressources\": [ {entrée}, ... ] }",
     "",
-    "Chaque entrée a : type, identite, contenu (forme dépendant de type),",
-    "maillage.",
+    "Chaque entrée a : type, visible, identite, contenu (forme dépendant de",
+    "type), maillage.",
     "",
     "  type      string — \"coloriage\" | \"roue-emotions\" | \"checklist\".",
     "            Décide la forme de contenu et le gabarit de rendu. Toute",
     "            nouvelle valeur de type doit être documentée ici avant usage.",
+    "",
+    "  visible   bool — contrôle la publication, indépendamment du contenu.",
+    "            false : la page /ressources/<slug>/ n'est pas générée (même",
+    "            traitement que la famille \"echelle-validee\" non vérifiée dans",
+    "            tools.json — voir _gen_static.js), et l'entrée disparaît de",
+    "            toute liste dérivée (galerie /ressources/coloriages/, hub",
+    "            /boussole/). Sert à retirer temporairement une ressource dont",
+    "            le contenu existe mais n'est pas encore jugé publiable (ex. un",
+    "            rendu visuel pas encore satisfaisant), sans supprimer les",
+    "            données. Gérable depuis poulet.html (tableau de bord",
+    "            Boussole) sans passer par une édition manuelle du JSON.",
     "",
     "── identite ────────────────────────────────────────────────────────────",
     "  slug         string — identifiant unique, nom de dossier généré sous",
@@ -77,6 +88,7 @@
   "ressources": [
     {
       "type": "coloriage",
+      "visible": true,
       "identite": {
         "slug": "mandala-anti-stress",
         "titre": "Mandala anti-stress à imprimer",
@@ -101,6 +113,7 @@
     },
     {
       "type": "coloriage",
+      "visible": true,
       "identite": {
         "slug": "coloriage-respiration-anxiete-sociale",
         "titre": "Coloriage respiration — avant une situation sociale",
@@ -124,6 +137,7 @@
     },
     {
       "type": "coloriage",
+      "visible": true,
       "identite": {
         "slug": "coloriage-avant-controle",
         "titre": "Coloriage anti-stress avant un contrôle",
@@ -147,6 +161,7 @@
     },
     {
       "type": "roue-emotions",
+      "visible": false,
       "identite": {
         "slug": "roue-des-emotions",
         "titre": "La roue des émotions",
@@ -223,6 +238,7 @@
     },
     {
       "type": "checklist",
+      "visible": true,
       "identite": {
         "slug": "checklist-signes-epuisement",
         "titre": "Checklist : reconnaître les signes d'épuisement professionnel",
