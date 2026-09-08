@@ -59,5 +59,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Diagnostiqueriez-vous à distance ? Testez votre éthique clinique",
+    "desc": "Vous êtes psy. Un président inquiète, les micros se tendent, votre code de déontologie vous ordonne le silence. Parleriez-vous ? 8 dilemmes pour découvrir votre profil éthique face à la règle Goldwater."
+  }
 }

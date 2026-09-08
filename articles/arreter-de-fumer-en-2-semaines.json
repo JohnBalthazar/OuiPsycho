@@ -64,5 +64,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Test : quel genre de fumeur es-tu ?",
+    "desc": "Social, émotionnel, automatique ou dépendant ? 7 questions pour identifier ton profil — et repartir avec des conseils d'arrêt vraiment adaptés à ta situation."
+  }
 }

@@ -80,5 +80,9 @@
   "articles_lies": [
     "est-ce-que-la-taille-compte-vraiment"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Où vous situez-vous vraiment ?",
+    "desc": "Dix questions pour situer votre rapport au porno sur un continuum, calmement. Ce test ne compte pas vos clics et ne mesure ni votre valeur ni votre moralité."
+  }
 }

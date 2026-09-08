@@ -63,5 +63,9 @@
   "cluster": "emprise-et-relations-toxiques",
   "etape": "reconnaitre",
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Tester votre radar intérieur !",
+    "desc": "8 situations. Répondez spontanément — c'est votre première réaction qui compte."
+  }
 }

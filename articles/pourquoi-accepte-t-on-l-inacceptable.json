@@ -93,5 +93,9 @@
     "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
     "dans-la-tete-d-un-pervers-narcissique"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Que faites-vous quand le lien vacille ?",
+    "desc": "Douze situations très ordinaires. Ce test n'évalue pas votre relation et ne juge personne : il explore votre manière de réagir quand vous sentez que quelqu'un pourrait s'éloigner."
+  }
 }

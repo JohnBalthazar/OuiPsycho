@@ -85,5 +85,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel chimiste sommeille en vous ?",
+    "desc": "Dix questions sur votre rapport à la reconnaissance, au contrôle et à la règle. Cinq profils inspirés de Breaking Bad. Aucun matériel de laboratoire requis."
+  }
 }

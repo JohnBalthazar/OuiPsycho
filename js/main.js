@@ -1520,7 +1520,7 @@ async function initTestsRubrique() {
       const safeColor      = /^#[0-9a-f]{3,8}$/i.test(t.color || '') ? t.color : '#1F4E6B';
       const imgHtml = t.image
         ? `<img class="test-card__img" src="${esc(t.image)}" alt="${esc(t.title)}" loading="lazy">`
-        : '';
+        : `<span class="test-card__img-placeholder" aria-hidden="true">🧠</span>`;
       const newBadge = t.isNew
         ? `<span class="test-card__badge-new">Nouveau</span>` : '';
       const articleLink = safeArticleUrl
@@ -1530,7 +1530,6 @@ async function initTestsRubrique() {
           <div class="test-card__head">
             ${imgHtml}
             ${newBadge}
-            <span class="test-card__emoji">${t.emoji || '🧠'}</span>
           </div>
           <div class="test-card__body">
             <h2 class="test-card__title">${esc(t.title)}</h2>

@@ -69,5 +69,9 @@
   "articles_lies": [
     "cinq-reflexes-se-proteger-pervers-narcissique"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Êtes-vous dans une relation toxique ?",
+    "desc": "Huit questions pour poser des mots sur ce que vous vivez. Répondez spontanément, en pensant à votre relation telle qu'elle est aujourd'hui — pas telle que vous voudriez qu'elle soit."
+  }
 }

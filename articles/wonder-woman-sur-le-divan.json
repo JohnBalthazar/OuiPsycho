@@ -70,5 +70,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel genre de Wonder Woman êtes-vous ?",
+    "desc": "Empathique, combative ou sage ? Trouvez votre héroïne intérieure avec ce test de personnalité."
+  }
 }

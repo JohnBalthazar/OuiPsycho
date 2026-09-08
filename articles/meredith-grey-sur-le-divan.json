@@ -66,5 +66,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Test : quelle chirurgienne êtes-vous ?",
+    "desc": "Résiliente, battante, capitaine ou empathique ? 7 questions pour révéler votre profil — et les forces (et défis) qui vont avec."
+  }
 }

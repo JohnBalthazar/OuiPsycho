@@ -43,8 +43,8 @@
   "articles_lies": [],
   "status": "published",
   "quizCard": {
-    "title": "Votre relation maternelle a-t-elle laissé des traces ?",
-    "desc": "Un test clinique pour évaluer l'impact de votre relation maternelle.",
+    "title": "Test : votre relation maternelle a-t-elle laissé des traces ?",
+    "desc": "Un test clinique pour évaluer l'impact de votre relation maternelle sur votre vie adulte.",
     "emoji": "🌸",
     "color": "#BE185D",
     "catLabel": "Relations",

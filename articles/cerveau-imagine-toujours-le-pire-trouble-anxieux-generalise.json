@@ -73,5 +73,9 @@
   ],
   "status": "published",
   "cluster": "anxiete",
-  "etape": "comprendre"
+  "etape": "comprendre",
+  "quizCard": {
+    "title": "Où en êtes-vous ?",
+    "desc": "8 questions pour évaluer la place des scénarios catastrophe dans votre quotidien."
+  }
 }

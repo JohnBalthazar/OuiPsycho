@@ -63,5 +63,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel héros de la mythologie grecque êtes-vous ?",
+    "desc": "Face aux tempêtes de la vie, certains rusent comme Ulysse, d'autres foncent comme Achille, tiennent bon comme Pénélope ou refusent de plier comme Antigone. Huit questions pour découvrir quel héros antique guide votre façon d'affronter l'adversité."
+  }
 }

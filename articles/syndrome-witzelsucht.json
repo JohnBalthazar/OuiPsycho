@@ -49,8 +49,8 @@
   "articles_lies": [],
   "status": "published",
   "quizCard": {
-    "title": "Avez-vous le syndrome de Witzelsucht ?",
-    "desc": "Évaluez si votre sens de l'humour cache quelque chose de plus profond.",
+    "title": "Test : êtes-vous (ou quelqu'un que vous connaissez) atteint du syndrome de Witzelsucht ?",
+    "desc": "Évaluez si votre sens de l'humour cache quelque chose de plus profond — test Witzelsucht.",
     "emoji": "😄",
     "color": "#0369A1",
     "catLabel": "Neuropsychologie",

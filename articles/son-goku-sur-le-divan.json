@@ -67,5 +67,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel maître d'arts martiaux êtes-vous ?",
+    "desc": "Tortue Géniale, Piccolo, Goku ou Végéta : 7 questions pour découvrir votre style de dépassement de soi."
+  }
 }

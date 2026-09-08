@@ -80,5 +80,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Dans quelle configuration fraternelle êtes-vous ?",
+    "desc": "Dix questions pour identifier la place que vous occupez dans votre relation fraternelle : chamaillerie, bouc émissaire, pilier, emprise ou distance assumée."
+  }
 }

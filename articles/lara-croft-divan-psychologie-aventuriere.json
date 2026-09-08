@@ -74,5 +74,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel genre de Lara Croft êtes-vous ?",
+    "desc": "Six questions pour révéler l'aventurière qui sommeille en vous. Répondez spontanément, sans trop réfléchir."
+  }
 }

@@ -61,5 +61,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Quel genre de sorcière êtes-vous ?",
+    "desc": "Six questions pour révéler la sorcière qui sommeille en vous. Répondez d'instinct, sans trop réfléchir."
+  }
 }

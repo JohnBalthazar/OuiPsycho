@@ -63,5 +63,9 @@
   "articles_lies": [
     "techniques-drague-science"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Votre date Tinder est-il un tueur en série ?",
+    "desc": "Dix questions pour situer le curseur — du profil parfaitement clean aux signaux qui méritent qu'on écoute son instinct."
+  }
 }

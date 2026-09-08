@@ -59,5 +59,9 @@
     }
   ],
   "articles_lies": [],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Et vous, quel·le dragueur·se êtes-vous ?",
+    "desc": "Spontané·e, stratège, caméléon ou adepte du slow burn ? 10 questions pour situer votre style de séduction."
+  }
 }

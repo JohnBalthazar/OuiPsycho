@@ -87,5 +87,9 @@
   "articles_lies": [
     "walter-white-sur-le-divan"
   ],
-  "status": "published"
+  "status": "published",
+  "quizCard": {
+    "title": "Traits narcissiques : où vous situez-vous ?",
+    "desc": "10 questions pour vous situer sur le spectre — du narcissisme sain aux zones à surveiller."
+  }
 }
