@@ -205,11 +205,64 @@
       return p;
     }
 
-    // Étape 1 — roue des émotions cœur
+    // Éclaircit une couleur hex vers un pastel (mélange avec du blanc) sans
+    // changer la teinte stockée dans ressources.json — la donnée reste la
+    // couleur "pleine" de l'émotion, l'éclaircissement est un choix de rendu.
+    function lightenHex(hex, amount) {
+      var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+      if (!m) return hex;
+      var mix = function (c) { return Math.round(parseInt(c, 16) + (255 - parseInt(c, 16)) * amount); };
+      return 'rgb(' + mix(m[1]) + ',' + mix(m[2]) + ',' + mix(m[3]) + ')';
+    }
+
+    // Une icône simple (formes SVG basiques, pas de tracé complexe) par
+    // émotion cœur — purement décoratif, la vraie information reste le
+    // libellé texte ; construit dans le repère local (0,0) puis translaté.
+    function emotionIconEls(svgNS, nom) {
+      var els = [];
+      function shape(tag, attrs) {
+        var e = document.createElementNS(svgNS, tag);
+        for (var k in attrs) e.setAttribute(k, attrs[k]);
+        els.push(e);
+        return e;
+      }
+      var STROKE = 'rgba(0,0,0,.55)';
+      if (nom === 'Joie') {
+        shape('circle', { cx: 0, cy: 0, r: 6, fill: STROKE });
+        for (var a = 0; a < 360; a += 45) {
+          var rad = a * Math.PI / 180;
+          shape('line', {
+            x1: 9 * Math.cos(rad), y1: 9 * Math.sin(rad),
+            x2: 15 * Math.cos(rad), y2: 15 * Math.sin(rad),
+            stroke: STROKE, 'stroke-width': 2, 'stroke-linecap': 'round'
+          });
+        }
+      } else if (nom === 'Tristesse') {
+        shape('polygon', { points: '0,-14 -7,-1 7,-1', fill: STROKE });
+        shape('ellipse', { cx: 0, cy: 4, rx: 7, ry: 8, fill: STROKE });
+      } else if (nom === 'Colère') {
+        shape('path', { d: 'M0,14 L8,-6 A8,8 0 1,0 -8,-6 Z', fill: STROKE });
+      } else if (nom === 'Peur') {
+        shape('polygon', { points: '2,-14 -6,2 0,2 -3,14 7,-3 1,-3', fill: STROKE });
+      } else if (nom === 'Surprise') {
+        [0, 60, 120].forEach(function (rot) {
+          shape('line', { x1: 0, y1: -13, x2: 0, y2: 13, stroke: STROKE, 'stroke-width': 2.5, 'stroke-linecap': 'round', transform: 'rotate(' + rot + ')' });
+        });
+      } else if (nom === 'Dégoût') {
+        shape('path', { d: 'M-9,0 Q-4.5,8 0,0 Q4.5,-8 9,0', fill: 'none', stroke: STROKE, 'stroke-width': 2.5, 'stroke-linecap': 'round' });
+      } else {
+        shape('circle', { cx: 0, cy: 0, r: 8, fill: 'none', stroke: STROKE, 'stroke-width': 2 });
+      }
+      return els;
+    }
+
+    // Étape 1 — roue des émotions cœur, en anneau (donut) façon cadran :
+    // couleurs pastel, icône + libellé par secteur, moyeu central avec repère
+    // visuel — remplace l'ancienne roue pleine (camembert uni, sans icônes).
     function stepRoue(container) {
       container.appendChild(progress('Étape 1/5 — Quelle est l’émotion la plus proche de ce que vous ressentez ?'));
       var svgNS = 'http://www.w3.org/2000/svg';
-      var size = 320, cx = size / 2, cy = size / 2, r = size / 2 - 4;
+      var size = 320, cx = size / 2, cy = size / 2, outerR = size / 2 - 34, innerR = outerR * 0.46;
       var svg = document.createElementNS(svgNS, 'svg');
       svg.setAttribute('viewBox', '0 0 ' + size + ' ' + size);
       svg.setAttribute('class', 'ressource-roue__svg');
@@ -221,27 +274,45 @@
         return [cx + radius * Math.cos(rad), cy + radius * Math.sin(rad)];
       }
 
+      // Décalage de -30° : sans lui, les milieux de secteurs tombent pile à
+      // l'est/l'ouest pour n=6, où icône et libellé (empilés le long du même
+      // rayon) finissent côte à côte au lieu de l'un sous l'autre — collision
+      // visuelle constatée à l'écran. Ce décalage évite tout angle de milieu
+      // parfaitement horizontal.
+      var angleOffset = -30;
       emotions.forEach(function (emo, i) {
-        var startAngle = (360 / n) * i;
-        var endAngle = (360 / n) * (i + 1);
-        var p1 = angleToPoint(startAngle, r);
-        var p2 = angleToPoint(endAngle, r);
+        var startAngle = angleOffset + (360 / n) * i;
+        var endAngle = angleOffset + (360 / n) * (i + 1);
+        var po1 = angleToPoint(startAngle, outerR), po2 = angleToPoint(endAngle, outerR);
+        var pi1 = angleToPoint(startAngle, innerR), pi2 = angleToPoint(endAngle, innerR);
         var largeArc = (endAngle - startAngle) > 180 ? 1 : 0;
-        var d = 'M ' + cx + ' ' + cy +
-          ' L ' + p1[0] + ' ' + p1[1] +
-          ' A ' + r + ' ' + r + ' 0 ' + largeArc + ' 1 ' + p2[0] + ' ' + p2[1] + ' Z';
+        var d = 'M ' + pi1[0] + ' ' + pi1[1] +
+          ' L ' + po1[0] + ' ' + po1[1] +
+          ' A ' + outerR + ' ' + outerR + ' 0 ' + largeArc + ' 1 ' + po2[0] + ' ' + po2[1] +
+          ' L ' + pi2[0] + ' ' + pi2[1] +
+          ' A ' + innerR + ' ' + innerR + ' 0 ' + largeArc + ' 0 ' + pi1[0] + ' ' + pi1[1] + ' Z';
+
+        var group = document.createElementNS(svgNS, 'g');
+        group.setAttribute('class', 'ressource-roue__segment');
+        group.setAttribute('tabindex', '0');
+        group.setAttribute('role', 'button');
+        group.setAttribute('aria-label', emo.nom);
 
         var path = document.createElementNS(svgNS, 'path');
         path.setAttribute('d', d);
-        path.setAttribute('fill', emo.couleur);
+        path.setAttribute('fill', lightenHex(emo.couleur, 0.62));
         path.setAttribute('class', 'ressource-roue__secteur');
-        path.setAttribute('tabindex', '0');
-        path.setAttribute('role', 'button');
-        path.setAttribute('aria-label', emo.nom);
-        svg.appendChild(path);
+        group.appendChild(path);
 
         var midAngle = (startAngle + endAngle) / 2;
-        var labelPt = angleToPoint(midAngle, r * 0.65);
+        var iconPt = angleToPoint(midAngle, innerR + (outerR - innerR) * 0.38);
+        var iconGroup = document.createElementNS(svgNS, 'g');
+        iconGroup.setAttribute('transform', 'translate(' + iconPt[0] + ',' + iconPt[1] + ')');
+        iconGroup.setAttribute('class', 'ressource-roue__icon');
+        emotionIconEls(svgNS, emo.nom).forEach(function (elm) { iconGroup.appendChild(elm); });
+        group.appendChild(iconGroup);
+
+        var labelPt = angleToPoint(midAngle, innerR + (outerR - innerR) * 0.76);
         var label = document.createElementNS(svgNS, 'text');
         label.setAttribute('x', labelPt[0]);
         label.setAttribute('y', labelPt[1]);
@@ -249,17 +320,44 @@
         label.setAttribute('text-anchor', 'middle');
         label.setAttribute('dominant-baseline', 'middle');
         label.textContent = emo.nom;
-        svg.appendChild(label);
+        group.appendChild(label);
 
         function select() {
           state.emotion = emo;
           goTo(stepNuance);
         }
-        path.addEventListener('click', select);
-        path.addEventListener('keydown', function (e) {
+        group.addEventListener('click', select);
+        group.addEventListener('keydown', function (e) {
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); select(); }
         });
+        svg.appendChild(group);
       });
+
+      var hub = document.createElementNS(svgNS, 'g');
+      hub.setAttribute('class', 'ressource-roue__hub');
+      hub.setAttribute('aria-hidden', 'true');
+      var hubCircle = document.createElementNS(svgNS, 'circle');
+      hubCircle.setAttribute('cx', cx); hubCircle.setAttribute('cy', cy); hubCircle.setAttribute('r', innerR - 5);
+      hub.appendChild(hubCircle);
+      var hubIcon = document.createElementNS(svgNS, 'text');
+      hubIcon.setAttribute('x', cx); hubIcon.setAttribute('y', cy - 8);
+      hubIcon.setAttribute('class', 'ressource-roue__hub-icon');
+      hubIcon.setAttribute('text-anchor', 'middle');
+      hubIcon.textContent = '🧭';
+      hub.appendChild(hubIcon);
+      var hubText = document.createElementNS(svgNS, 'text');
+      hubText.setAttribute('x', cx); hubText.setAttribute('y', cy + 16);
+      hubText.setAttribute('class', 'ressource-roue__hub-text');
+      hubText.setAttribute('text-anchor', 'middle');
+      var hubLine1 = document.createElementNS(svgNS, 'tspan');
+      hubLine1.setAttribute('x', cx); hubLine1.setAttribute('dy', 0);
+      hubLine1.textContent = 'Choisissez';
+      var hubLine2 = document.createElementNS(svgNS, 'tspan');
+      hubLine2.setAttribute('x', cx); hubLine2.setAttribute('dy', 14);
+      hubLine2.textContent = 'une émotion';
+      hubText.appendChild(hubLine1); hubText.appendChild(hubLine2);
+      hub.appendChild(hubText);
+      svg.appendChild(hub);
 
       container.appendChild(svg);
     }
