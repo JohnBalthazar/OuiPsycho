@@ -53,6 +53,19 @@ function esc(s) {
     .replace(/&/g,'&amp;').replace(/</g,'&lt;')
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
 }
+// Valide une URL avant injection dans un href : accepte http(s)://, une racine
+// "/xxx" (mais pas "//xxx", protocol-relative) et un chemin relatif simple type
+// "tests/xxx.html" ou "articles/xxx/" (format de data/tests.json). Rejette tout
+// autre schéma (javascript:, data:…). Retourne '' si invalide.
+function safeRelUrl(u) {
+  u = String(u || '');
+  if (!u) return '';
+  if (/^https?:\/\//i.test(u)) return u;
+  if (/^\/\//.test(u)) return '';                   // protocol-relative "//evil.com" — refusé
+  if (/^\//.test(u)) return u;                       // racine du site "/xxx"
+  if (/^[a-z][a-z0-9+.-]*:/i.test(u)) return '';     // autre schéma (javascript:, data:…) — refusé
+  return u;                                          // chemin relatif simple ("tests/xxx.html"…)
+}
 function formatDate(d) {
   if (!d) return '';
   return new Date(d).toLocaleDateString('fr-FR', { year:'numeric', month:'long', day:'numeric' });
@@ -1515,8 +1528,8 @@ async function initTestsRubrique() {
     }
 
     grid.innerHTML = published.map(t => {
-      const safeTestUrl    = /^https?:\/\/|^\//i.test(t.testUrl || '')    ? t.testUrl    : '#';
-      const safeArticleUrl = /^https?:\/\/|^\//i.test(t.articleUrl || '') ? t.articleUrl : '';
+      const safeTestUrl    = safeRelUrl(t.testUrl)    || '#';
+      const safeArticleUrl = safeRelUrl(t.articleUrl);
       const safeColor      = /^#[0-9a-f]{3,8}$/i.test(t.color || '') ? t.color : '#1F4E6B';
       const imgHtml = t.image
         ? `<img class="test-card__img" src="${esc(t.image)}" alt="${esc(t.title)}" loading="lazy">`
