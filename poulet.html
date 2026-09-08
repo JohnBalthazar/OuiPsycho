@@ -1795,6 +1795,12 @@
      Ne jamais réintroduire de copie locale du template ici (voir l'incident
      du 2026-09-04 : generateArticleHTML() avait dérivé silencieusement). -->
 <script src="js/article-template.js"></script>
+<!-- Idem pour les pages issues de ressources.json (page individuelle, galerie
+     coloriages, hub boussole) — voir syncRessourcePages() : sans régénération
+     de ces pages après écriture de ressources.json, un changement (image,
+     visibilité) reste invisible sur le site tant que node _gen_static.js
+     n'est pas relancé manuellement (incident du 2026-09-08). -->
+<script src="js/ressource-template.js"></script>
 <script>
 /* ══════════════════════════════════════════════
    CONFIG & STATE
@@ -5529,6 +5535,34 @@ async function saveRessourcesFile(message) {
     message);
 }
 
+// Régénère et pousse les pages HTML dérivées de ressources.json, avec le
+// même gabarit que _gen_static.js (js/ressource-template.js) — à appeler
+// après CHAQUE écriture réussie de ressources.json (save/delete/bascule de
+// visibilité), quel que soit le type. Sans ça, ressources.json serait à
+// jour mais les pages publiques resteraient périmées jusqu'au prochain
+// node _gen_static.js manuel (incident du 2026-09-08).
+async function syncRessourcePages(slug) {
+  const r = ressourcesCache.find(x => x.identite.slug === slug);
+  const shouldExist = !!r && r.visible !== false;
+
+  if (shouldExist) {
+    const html = RessourceTemplate.buildRessourceHTML(r);
+    await githubPutFile(`ressources/${slug}/index.html`, html, 'sync: ressources/' + slug + '/');
+  } else {
+    try { await githubDeleteFile(`ressources/${slug}/index.html`, 'sync: retire ressources/' + slug + '/'); }
+    catch (e) { /* déjà absent (jamais généré, ou déjà masqué) — rien à faire */ }
+  }
+
+  const coloriagesVisibles = ressourcesCache.filter(x => x.type === 'coloriage' && x.visible !== false);
+  if (coloriagesVisibles.length) {
+    const galerieHtml = RessourceTemplate.buildColoriagesGalerieHTML(coloriagesVisibles);
+    await githubPutFile('ressources/coloriages/index.html', galerieHtml, 'sync: galerie coloriages');
+  }
+
+  const boussoleHtml = RessourceTemplate.buildBoussoleHTML(ressourcesCache);
+  await githubPutFile('boussole/index.html', boussoleHtml, 'sync: boussole');
+}
+
 function renderBoussoleAdmin() {
   renderColoriagesTable();
   renderChecklistsTable();
@@ -5562,6 +5596,7 @@ async function toggleRessourceVisible(slug) {
   if (pat) {
     try {
       await saveRessourcesFile((r.visible ? 'update: rendre visible ' : 'update: masquer ') + slug);
+      await syncRessourcePages(slug);
       toast(r.visible ? 'Ressource rendue visible ✓' : 'Ressource masquée ✓', 'success');
     } catch(e) {
       r.visible = r.visible === false ? true : false; // rollback si l'écriture échoue
@@ -5731,6 +5766,7 @@ async function saveColoriage() {
   if (pat) {
     try {
       await saveRessourcesFile((editingColoriageSlug ? 'update' : 'create') + ': coloriage ' + slug);
+      await syncRessourcePages(slug);
       toast('Coloriage enregistré sur GitHub ✓', 'success');
     } catch(e) {
       toast('Erreur GitHub : ' + e.message, 'error');
@@ -5759,6 +5795,7 @@ async function deleteColoriage(slug) {
   if (pat) {
     try {
       await saveRessourcesFile('delete: coloriage ' + slug);
+      await syncRessourcePages(slug);
       toast('Coloriage retiré de ressources.json', 'success');
     } catch(e) {
       toast('Erreur GitHub : ' + e.message, 'error');
@@ -6035,6 +6072,7 @@ async function saveChecklist() {
   if (pat) {
     try {
       await saveRessourcesFile((editingChecklistSlug ? 'update' : 'create') + ': checklist ' + slug);
+      await syncRessourcePages(slug);
       toast('Checklist enregistrée sur GitHub ✓', 'success');
     } catch(e) {
       toast('Erreur GitHub : ' + e.message, 'error');
@@ -6063,6 +6101,7 @@ async function deleteChecklist(slug) {
   if (pat) {
     try {
       await saveRessourcesFile('delete: checklist ' + slug);
+      await syncRessourcePages(slug);
       toast('Checklist retirée de ressources.json', 'success');
     } catch(e) {
       toast('Erreur GitHub : ' + e.message, 'error');
