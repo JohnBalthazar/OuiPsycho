@@ -2798,18 +2798,30 @@ function generateArticleHTML(j) {
   return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache });
 }
 
-// Avertit quand un article régénéré depuis poulet appartient à un cluster
-// thématique : la page statique écrite par generateArticleHTML() n'a pas le
-// fil de parcours / lien vers le hub (voir commentaire ci-dessus), ce qui fait
-// échouer check-clusters.js et bloque TOUS les déploiements suivants (incident
-// du 2026-09-08 : doublon "anxiete" resté visible en ligne car les déploiements
-// échouaient en silence sur deux articles republiés depuis poulet sans ce
-// rattrapage). Reproduire la génération du fil de parcours côté navigateur a
-// été jugé trop risqué (double implémentation Node/navigateur, non testable
-// avant un vrai push) — ce garde-fou se contente de le signaler.
-function warnIfClusterStaticGap(cluster, etape) {
+// Quand un article régénéré depuis poulet appartient à un cluster thématique,
+// la page statique écrite par generateArticleHTML() n'a pas le fil de
+// parcours / lien vers le hub (voir commentaire ci-dessus) — poulet n'a pas
+// accès aux autres articles du cluster pour le recalculer (data/articles-all.json
+// n'a jamais cluster/etape, voir _gen_static.js). Ça fait échouer
+// check-clusters.js et bloque TOUS les déploiements suivants tant que ce n'est
+// pas corrigé (incident du 2026-09-08 : doublon "anxiete" resté visible en
+// ligne pendant des heures car les déploiements échouaient en silence sur deux
+// articles republiés depuis poulet sans rattrapage).
+// Se contenter d'avertir laisse la correction dépendre d'un humain qui voit et
+// suit le toast — exactement la condition qui a produit l'incident. On
+// déclenche donc automatiquement la régénération complète (même mécanisme que
+// le bouton "Régénérer le site", voir pushRegenerateTrigger) : fire-and-forget
+// vis-à-vis de l'appelant, pour ne pas retarder la redirection après
+// sauvegarde. Le PAT est garanti présent ici (on n'atteint ce point qu'après
+// des githubPutFile réussis plus haut).
+async function autoRegenIfClusterArticle(cluster, etape) {
   if (!cluster || !etape) return;
-  toast('⚠️ Cet article appartient à un cluster thématique : sa page statique vient d\'être régénérée SANS le fil de parcours ni le lien vers le hub. Lance <code>node _gen_static.js</code> puis commit/push avant de passer à autre chose, sinon le prochain déploiement échouera (check-clusters.js).', 'warning', 15000);
+  try {
+    await pushRegenerateTrigger();
+    toast('🔄 Article de cluster : régénération complète du site déclenchée automatiquement pour restaurer le fil de parcours et le lien vers le hub (~1-2 min). <a href="https://github.com/JohnBalthazar/OuiPsycho/actions/workflows/regenerate-static.yml" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline">Suivre →</a>', 'info', 12000);
+  } catch (e) {
+    toast('⚠️ Cet article appartient à un cluster thématique et sa page statique manque de fil de parcours / lien vers le hub — la régénération automatique a échoué (' + e.message + '). Lance-la manuellement (Import/Export → "Régénérer le site"), sinon le prochain déploiement échouera (check-clusters.js).', 'error', 20000);
+  }
 }
 
 /* ══════════════════════════════════════════════
@@ -3045,7 +3057,7 @@ async function saveArticle() {
       await githubPutFile(id + '/index.html', redirectHtml, (editingId ? 'update' : 'create') + ': redirection ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
-      warnIfClusterStaticGap(cluster, etape);
+      autoRegenIfClusterArticle(cluster, etape);
       showPage('articles'); // ← redirection uniquement si succès
     } else {
       // Pas de PAT : rester sur l'éditeur et afficher un message d'erreur persistant
@@ -3312,7 +3324,18 @@ async function pushAllToGitHub() {
    simple fichier marqueur via l'API Contents, avec le même PAT (Contents:
    Read & Write) que toutes les autres écritures de poulet. Pas besoin du
    scope Actions : le workflow se déclenche sur push, pas via l'API Actions.
+   Logique de déclenchement séparée de l'UI du bouton (pushRegenerateTrigger)
+   pour pouvoir aussi être appelée automatiquement — voir
+   autoRegenIfClusterArticle() plus bas.
 ══════════════════════════════════════════════ */
+async function pushRegenerateTrigger() {
+  await githubPutFile(
+    '.github/regenerate-trigger.txt',
+    'Déclenché depuis poulet.html le ' + new Date().toISOString(),
+    'chore: déclenche la régénération statique'
+  );
+}
+
 async function triggerStaticRegen() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (!pat) { toast('⚠️ Token GitHub manquant — configurez-le dans Réglages.', 'error'); return; }
@@ -3323,11 +3346,7 @@ async function triggerStaticRegen() {
   btn.innerHTML = '<div class="spinner"></div> Déclenchement…';
 
   try {
-    await githubPutFile(
-      '.github/regenerate-trigger.txt',
-      'Déclenché depuis poulet.html le ' + new Date().toISOString(),
-      'chore: déclenche la régénération statique'
-    );
+    await pushRegenerateTrigger();
     toast('🔄 Régénération lancée sur GitHub Actions (~1-2 min). <a href="https://github.com/JohnBalthazar/OuiPsycho/actions/workflows/regenerate-static.yml" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline">Suivre →</a>', 'info', 10000);
   } catch (e) {
     toast('❌ Erreur : ' + e.message, 'error');
@@ -3497,7 +3516,7 @@ async function publishImportedArticle() {
       } else {
         toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
       }
-      warnIfClusterStaticGap(data.cluster, data.etape);
+      autoRegenIfClusterArticle(data.cluster, data.etape);
 
     } catch(err) {
       toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
