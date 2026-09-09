@@ -3348,6 +3348,9 @@ async function publishImportedArticle() {
   data.date_modified = (data.date_modified && data.date_modified !== origDate)
                         ? data.date_modified
                         : chosenDate;  // article neuf → date_modified = date
+  // jamais antérieure à la date choisie, sinon incohérence bloquée par
+  // verify-robots-consistency.js (incident napoleon-bonaparte-sur-le-divan, 09/09/2026)
+  if (data.date_modified < data.date) data.date_modified = data.date;
   data.status = chosenStatus;
 
   // Désactiver le bouton pendant la publication
