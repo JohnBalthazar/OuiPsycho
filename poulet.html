@@ -1854,6 +1854,8 @@ let clusters = [];   // data/clusters.json — lecture seule depuis Poulet (voir
 let ressourcesCache = []; // ressources.json:ressources — éditable depuis la page Boussole (voir loadRessources / saveRessourcesFile)
 let ressourcesFormatCache = []; // ressources.json:_format — conservé tel quel, jamais généré ni édité ici
 let cartesCache = []; // cartes.json:cartes — lecture seule depuis Poulet (voir loadCartes), sert juste à valider {{carte:...}}/carteCard à la sauvegarde
+let toolsCache = []; // tools.json:outils — lecture seule depuis Poulet (voir loadTools), sert juste à valider {{outil:...}}/toolCard à la sauvegarde
+let toolsGeneratedCache = new Set(); // slugs de toolsCache dont la page /outils/{slug}/ est réellement générée (même règle que _gen_static.js)
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
 let editingQuiz     = null; // article.quiz (filename+card) — l'éditeur classique n'a aucun champ pour ça, préservé tel quel à la sauvegarde
@@ -2224,6 +2226,7 @@ function showApp() {
   loadClusters();
   loadRessources();
   loadCartes();
+  loadTools();
 }
 
 /* ══════════════════════════════════════════════
@@ -2333,6 +2336,30 @@ async function loadCartes() {
     }
   } catch(e) { /* absent ou hors-ligne — reste []. Même comportement que loadRessources :
                   un article SANS token {{carte:...}}/carteCard n'est pas affecté ; un
+                  article qui en contient fera échouer la sauvegarde. */ }
+}
+
+async function loadTools() {
+  toolsCache = [];
+  toolsGeneratedCache = new Set();
+  try {
+    const res = await fetch('tools.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.outils)) {
+        toolsCache = data.outils;
+        // Même règle que _gen_static.js : une entrée "echelle-validee" dont
+        // les items n'ont pas été vérifiés contre une source n'a pas de page
+        // générée — {{outil:...}}/toolCard ne doit jamais pouvoir y renvoyer.
+        toolsGeneratedCache = new Set(
+          toolsCache
+            .filter(o => !(o.identite.famille === 'echelle-validee' && o.tracabilite.itemsVerifies !== true))
+            .map(o => o.identite.slug)
+        );
+      }
+    }
+  } catch(e) { /* absent ou hors-ligne — reste []. Même comportement que loadRessources :
+                  un article SANS token {{outil:...}}/toolCard n'est pas affecté ; un
                   article qui en contient fera échouer la sauvegarde. */ }
 }
 
@@ -2794,8 +2821,9 @@ function generateArticleHTML(j) {
   // ressourceCard ne seraient jamais résolus pour un article publié depuis
   // poulet — même risque de divergence que _gen_static.js/poulet avant
   // correctif du 2026-09-06 sur data/articles-all.json. Même raison pour
-  // cartesCache et {{carte:...}}/carteCard (voir loadCartes).
-  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache });
+  // cartesCache/{{carte:...}} (voir loadCartes) et toolsCache/
+  // toolsGeneratedCache/{{outil:...}} (voir loadTools).
+  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache, tools: toolsCache, toolsGenerated: toolsGeneratedCache });
 }
 
 // Quand un article régénéré depuis poulet appartient à un cluster thématique,

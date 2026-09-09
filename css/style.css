@@ -2874,6 +2874,20 @@ p:last-child { margin-bottom: 0; }
 .carte-inline-card__title { display: block; font-weight: 700; color: var(--color-primary-dark); margin-bottom: var(--sp-1); }
 .carte-inline-card__desc { display: block; font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.55; }
 
+/* ── Carte de maillage vers un outil interactif, dans le corps d'un article ── */
+/* {"type":"toolCard","slug":"SLUG"} — résolu par js/article-template.js */
+.article-body .tool-card { text-decoration: none; }
+.tool-card {
+  display: flex; align-items: flex-start; gap: var(--sp-4);
+  background: var(--color-primary-light); border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg); padding: var(--sp-5); margin: var(--sp-6) 0;
+  color: var(--color-text); transition: border-color .15s ease;
+}
+.tool-card:hover { border-color: var(--color-primary); }
+.tool-card__icon { font-size: 1.6rem; flex-shrink: 0; }
+.tool-card__title { display: block; font-weight: 700; color: var(--color-primary-dark); margin-bottom: var(--sp-1); }
+.tool-card__desc { display: block; font-size: var(--fs-sm); color: var(--color-text-muted); line-height: 1.55; }
+
 /* ── Page hub /boussole/ ("Ma Boussole Intérieure") ──────────────────────── */
 .boussole-hero { background: var(--color-primary-light); padding: 3rem 0 3.5rem; overflow: hidden; }
 .boussole-hero__inner { display: grid; grid-template-columns: 1.15fr .85fr; gap: var(--sp-8); align-items: center; }

@@ -205,10 +205,60 @@
     return result;
   }
 
+  // Résout les tokens de maillage articles ↔ tools.json — voir tools.json:_format
+  // et CLAUDE.md "Maillage articles ↔ outils". Deux formes, toutes deux résolues
+  // au build :
+  //   {{outil:SLUG|ancre}}                  → lien inline
+  //   {"type":"toolCard","slug":"SLUG"}     → carte (forme JSON compacte exacte,
+  //                                            sans espace)
+  // Contrairement à ressource/carte, un slug présent dans tools.json n'a pas
+  // forcément de page générée (famille "echelle-validee" avec
+  // tracabilite.itemsVerifies ≠ true — voir _gen_static.js). generatedSlugs
+  // (Set) doit contenir exactement les slugs dont la page existe réellement :
+  // un slug absent de tools.json, une ancre absente de maillage.ancres, OU un
+  // slug non généré fait échouer le build plutôt que de publier un lien mort.
+  function resolveOutilTokens(html, tools, generatedSlugs) {
+    const bySlug = {};
+    tools.forEach(function (o) { bySlug[o.identite.slug] = o; });
+
+    function requireGenerated(slug, tokenLabel) {
+      const o = bySlug[slug];
+      if (!o) throw new Error(`${tokenLabel} : slug "${slug}" absent de tools.json`);
+      if (!generatedSlugs || !generatedSlugs.has(slug)) {
+        throw new Error(`${tokenLabel} : "${slug}" existe dans tools.json mais sa page n'est pas générée (lien mort évité)`);
+      }
+      return o;
+    }
+
+    let result = html.replace(/\{"type":"toolCard","slug":"([a-z0-9-]+)"\}/g, function (match, slug) {
+      const o = requireGenerated(slug, 'toolCard');
+      const desc = o.identite.metaDescription
+        || `${o.contenu.items.length} questions, résultat immédiat, aucune donnée collectée.`;
+      return `<a class="tool-card" href="outils/${slug}/">` +
+        `<span class="tool-card__icon" aria-hidden="true">🧠</span>` +
+        `<span class="tool-card__body">` +
+        `<span class="tool-card__title">${escCard(o.identite.titre)}</span>` +
+        `<span class="tool-card__desc">${escCard(desc)}</span>` +
+        `</span></a>`;
+    });
+
+    result = result.replace(/\{\{outil:([a-z0-9-]+)\|([^}]+)\}\}/g, function (match, slug, ancre) {
+      const o = requireGenerated(slug, `{{outil:${slug}}}`);
+      if (o.maillage.ancres.indexOf(ancre) === -1) {
+        throw new Error(`{{outil:${slug}|${ancre}}} : ancre non déclarée dans maillage.ancres de "${slug}"`);
+      }
+      return `<a href="outils/${slug}/">${escCard(ancre)}</a>`;
+    });
+
+    return result;
+  }
+
   function buildArticleHTML(j, opts) {
     opts = opts || {};
     const ressources = opts.ressources || [];
     const cartes = opts.cartes || [];
+    const tools = opts.tools || [];
+    const toolsGenerated = opts.toolsGenerated || new Set();
     const TODAY = new Date().toISOString().split('T')[0];
     const YEAR  = new Date().getFullYear();
 
@@ -493,7 +543,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${wrapTables(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes))}${continueBlockHtml}
+          ${wrapTables(resolveOutilTokens(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes), tools, toolsGenerated))}${continueBlockHtml}
         </div>
 ${sourcesHtml}
         <div class="author-box">

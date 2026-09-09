@@ -74,6 +74,20 @@ const CARTES_FILE = path.join(__dirname, 'cartes.json');
 let CARTES = [];
 try { CARTES = JSON.parse(fs.readFileSync(CARTES_FILE, 'utf8')).cartes || []; } catch (_) {}
 
+// Idem pour {{outil:...}}/toolCard — voir tools.json:_format. Contrairement à
+// ressource/carte, un slug présent dans tools.json n'a pas forcément de page
+// générée (ex. famille "echelle-validee" avec itemsVerifies ≠ true — voir la
+// boucle de génération des pages /outils/{slug}/ plus bas dans ce fichier) :
+// TOOLS_GENERATED_SLUGS reprend exactement la même condition, pour qu'un
+// token ne puisse jamais pointer vers une page qui n'existe pas.
+const TOOLS_FILE = path.join(__dirname, 'tools.json');
+let TOOLS = [];
+try { TOOLS = JSON.parse(fs.readFileSync(TOOLS_FILE, 'utf8')).outils || []; } catch (_) {}
+const TOOLS_GENERATED_SLUGS = new Set(
+  TOOLS.filter(o => !(o.identite.famille === 'echelle-validee' && o.tracabilite.itemsVerifies !== true))
+       .map(o => o.identite.slug)
+);
+
 // Pré-passe : appartenance cluster/étape des articles "en ligne" au sens où le
 // reste du site l'entend déjà (cf. bascule scheduled→published plus bas) :
 // status !== 'draft' et date <= TODAY. Alimente le fil de parcours, le widget
@@ -206,7 +220,7 @@ for (const file of jsonFiles) {
   // Options cluster pour le gabarit partagé (js/article-template.js) — vide
   // pour tout article hors cluster, le gabarit applique alors ses propres
   // valeurs par défaut (catégorie en fil d'Ariane, "À lire aussi" vide).
-  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES };
+  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES, tools: TOOLS, toolsGenerated: TOOLS_GENERATED_SLUGS };
   if (clusterResolved) {
     templateOpts.breadcrumbHref = `theme/${clusterResolved.id}/`;
     templateOpts.breadcrumbLabel = clusterResolved.title;
@@ -550,12 +564,10 @@ ${sectionsHtml}
 // ── Pages outil /outils/{slug}/ (tools.json) ──────────────────────────────────
 // Une entrée = une page. Pas de filtre date/status (tools.json n'en a pas) :
 // tout ce qui est dans le fichier est généré. robots=noindex,follow tant que
-// la section /outils/ n'est pas officiellement lancée (rien n'y lie encore
-// depuis un article — voir README de la tâche : "ne touche à aucun article").
-const TOOLS_FILE = path.join(__dirname, 'tools.json');
+// la section /outils/ n'est pas officiellement lancée pour le référencement.
+// TOOLS / TOOLS_GENERATED_SLUGS déjà chargés plus haut (résolution des tokens
+// {{outil:...}} dans le contenu des articles) — voir commentaire associé.
 const OUTILS_DIR = path.join(__dirname, 'outils');
-let TOOLS = [];
-try { TOOLS = JSON.parse(fs.readFileSync(TOOLS_FILE, 'utf8')).outils || []; } catch (_) {}
 
 for (const outil of TOOLS) {
   const { identite, contenu, restitution, tracabilite } = outil;
