@@ -4426,6 +4426,77 @@
     "status": "scheduled"
   },
   {
+    "id": "je-pense-toujours-a-mon-ex-6-mois-apres",
+    "title": "« Je pense toujours à mon ex » 6 mois après : pourquoi est-ce si difficile de tourner la page ?",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-09-11",
+    "date_modified": "2026-09-11",
+    "category": "Relations",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "rupture-amoureuse",
+      "deuil-amoureux",
+      "attachement",
+      "neurosciences",
+      "reconstruction-de-soi"
+    ],
+    "sources": [
+      {
+        "authors": "Fisher H. E., Brown L. L., Aron A., Strong G. & Mashek D.",
+        "year": "2010",
+        "title": "Reward, addiction, and emotion regulation systems associated with rejection in love",
+        "journal": "Journal of Neurophysiology",
+        "url": "https://doi.org/10.1152/jn.00784.2009"
+      },
+      {
+        "authors": "Reynaud M., Karila L., Blecha L. & Benyamina A.",
+        "year": "2010",
+        "title": "Is love passion an addictive disorder ?",
+        "journal": "The American Journal of Drug and Alcohol Abuse",
+        "url": "https://doi.org/10.3109/00952990.2010.495183"
+      },
+      {
+        "authors": "Slotter E. B., Gardner W. L. & Finkel E. J.",
+        "year": "2010",
+        "title": "Who am I without you ? The influence of romantic breakup on the self-concept",
+        "journal": "Personality and Social Psychology Bulletin",
+        "url": "https://doi.org/10.1177/0146167209352250"
+      },
+      {
+        "authors": "Larson G. M. & Sbarra D. A.",
+        "year": "2015",
+        "title": "Participating in research on romantic breakups promotes emotional recovery via changes in self-concept clarity",
+        "journal": "Social Psychological and Personality Science",
+        "url": "https://doi.org/10.1177/1948550614563085"
+      },
+      {
+        "authors": "Marshall T. C.",
+        "year": "2012",
+        "title": "Facebook surveillance of former romantic partners : associations with postbreakup recovery and personal growth",
+        "journal": "Cyberpsychology, Behavior, and Social Networking",
+        "url": "https://doi.org/10.1089/cyber.2012.0125"
+      },
+      {
+        "authors": "Fauré C.",
+        "year": "2016",
+        "title": "Le couple brisé. De la rupture à la reconstruction de soi",
+        "publisher": "Albin Michel",
+        "amazon_asin": "2226317023"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
     "excerpt": "",
