@@ -3066,6 +3066,14 @@ async function saveArticle() {
     // Try to push to GitHub
     const pat = localStorage.getItem(GH_PAT_KEY);
     if (pat) {
+      // Générer la page HTML AVANT tout push : generateArticleHTML() est une
+      // fonction pure (aucun accès réseau) qui peut échouer si le contenu
+      // contient un token {{ressource:...}}/{{carte:...}}/{{outil:...}} mal
+      // formé (slug/ancre invalide). La faire échouer ici, avant le premier
+      // githubPutFile, évite de laisser le site dans un état à moitié publié
+      // (article déjà visible dans l'index public, mais page réelle jamais
+      // écrite ou restée sur son ancienne version).
+      const htmlPage = generateArticleHTML(articleData);
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
       articles = await mergeIndexWithRemote(articles);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
@@ -3078,8 +3086,7 @@ async function saveArticle() {
         .filter(a => a.status !== 'draft' && a.date <= todayStr)
         .map(({ hasImage: _h, ...rest }) => rest);
       await githubPutFile('data/articles.json', JSON.stringify(publicArticles, null, 2), 'update: articles index');
-      // Régénérer et pousser le HTML statique (page réelle sous articles/, stub de redirection à la racine)
-      const htmlPage = generateArticleHTML(articleData);
+      // Page HTML statique (réelle sous articles/) déjà générée plus haut ; stub de redirection à la racine
       await githubPutFile('articles/' + id + '/index.html', htmlPage, (editingId ? 'update' : 'create') + ': page statique ' + id);
       const redirectHtml = '<!DOCTYPE html><html><head><link rel="canonical" href="https://ouipsycho.fr/articles/' + id + '/"><meta http-equiv="refresh" content="0; url=/articles/' + id + '/"></head><body><p><a href="/articles/' + id + '/">Cliquez ici</a></p></body></html>';
       await githubPutFile(id + '/index.html', redirectHtml, (editingId ? 'update' : 'create') + ': redirection ' + id);
@@ -3483,6 +3490,15 @@ async function publishImportedArticle() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (pat && content) {
     try {
+      // Générer la page HTML AVANT tout push : generateArticleHTML() est une
+      // fonction pure (aucun accès réseau) qui peut échouer si le contenu
+      // contient un token {{ressource:...}}/{{carte:...}}/{{outil:...}} mal
+      // formé (slug/ancre invalide). La faire échouer ici, avant le premier
+      // githubPutFile, évite de laisser le site dans un état à moitié publié
+      // (article déjà visible dans l'index public, mais page réelle jamais
+      // écrite ou restée sur son ancienne version).
+      const htmlPage = generateArticleHTML(data);
+
       // 1. JSON article — conserve quiz.card (bookkeeping poulet, pré-remplissage à la
       // réédition) mais retire le HTML embarqué si présent. Duplique aussi card en
       // quizCard à la racine : c'est CE champ que _gen_static.js lit pour régénérer
@@ -3513,8 +3529,7 @@ async function publishImportedArticle() {
         .map(({ hasImage: _h, ...rest }) => rest);
       await githubPutFile('data/articles.json', JSON.stringify(publicArticles, null, 2), 'update: index after import ' + data.id);
 
-      // 3a. Page HTML statique → articles/{id}/index.html (URL canonique)
-      const htmlPage = generateArticleHTML(data);
+      // 3a. Page HTML statique → articles/{id}/index.html (URL canonique) — déjà générée plus haut
       await githubPutFile('articles/' + data.id + '/index.html', htmlPage, 'import: page statique articles/' + data.id);
 
       // 3b. Redirect → {id}/index.html (URL courte)
