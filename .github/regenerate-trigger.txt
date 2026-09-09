@@ -1,3 +1,1 @@
-Ce fichier ne sert qu'à déclencher .github/workflows/regenerate-static.yml.
-Son contenu n'a aucune importance — seul le fait qu'il change compte.
-Poussé automatiquement par le bouton "Régénérer le site" de poulet.html.
+Test de déclenchement (vérification manuelle) le 2026-09-09T19:35:51Z
