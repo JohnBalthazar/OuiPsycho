@@ -60,6 +60,34 @@
     "status": "scheduled"
   },
   {
+    "id": "quest-ce-quun-sexe-symbole",
+    "title": "Qu'est-ce qu'un sexe symbole ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-09-10",
+    "date_modified": "2027-09-10",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexe-symbole",
+      "psychologie-du-desir",
+      "attirance",
+      "objectification",
+      "relations-parasociales",
+      "image-de-soi"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "excerpt": "",
@@ -4545,33 +4573,6 @@
     "articles_lies": [],
     "status": "scheduled",
     "hasImage": false
-  },
-  {
-    "id": "quest-ce-quun-sexe-symbole",
-    "title": "Qu'est-ce qu'un sexe symbole ?",
-    "excerpt": "",
-    "date": "2026-09-10",
-    "date_modified": "2026-09-10",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "sexe-symbole",
-      "psychologie-du-desir",
-      "attirance",
-      "objectification",
-      "relations-parasociales",
-      "image-de-soi"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
   },
   {
     "id": "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
