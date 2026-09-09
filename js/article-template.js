@@ -399,30 +399,30 @@ ${srcItems}
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${j.title} — Oui Psycho!</title>
-  <meta name="description" content="${j.metaDescription}">
-  <meta name="author" content="${displayAuthor}">
+  <title>${escCard(j.title)} — Oui Psycho!</title>
+  <meta name="description" content="${escCard(j.metaDescription)}">
+  <meta name="author" content="${escCard(displayAuthor)}">
   <meta name="robots" content="${robotsMeta}">
   <meta name="theme-color" content="#1F4E6B">
   <base href="../../">
   <link rel="canonical" href="${BASE}/articles/${j.id}/">
   <meta property="og:type"                    content="article">
-  <meta property="og:title"                   content="${j.title} — Oui Psycho!">
-  <meta property="og:description"             content="${j.metaDescription}">
+  <meta property="og:title"                   content="${escCard(j.title)} — Oui Psycho!">
+  <meta property="og:description"             content="${escCard(j.metaDescription)}">
   <meta property="og:url"                     content="${BASE}/articles/${j.id}/">
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
   <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
   <meta property="article:modified_time"      content="${effectiveModified(j)}T00:00:00+01:00">
-  <meta property="article:author"             content="${displayAuthor}">
-  <meta property="article:section"            content="${j.category}">${j.image ? `
+  <meta property="article:author"             content="${escCard(displayAuthor)}">
+  <meta property="article:section"            content="${escCard(j.category)}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
-  <meta property="og:image:alt"               content="${j.title}">
+  <meta property="og:image:alt"               content="${escCard(j.title)}">
   <meta property="og:image:width"             content="1200">
   <meta property="og:image:height"            content="630">` : ''}
   <meta name="twitter:card"                   content="summary_large_image">
-  <meta name="twitter:title"                  content="${j.title} — Oui Psycho!">
-  <meta name="twitter:description"            content="${j.metaDescription}">${j.image ? `
+  <meta name="twitter:title"                  content="${escCard(j.title)} — Oui Psycho!">
+  <meta name="twitter:description"            content="${escCard(j.metaDescription)}">${j.image ? `
   <meta name="twitter:image"                  content="${j.image}">` : ''}
   <script type="application/ld+json">${aLD}<\/script>
   <script type="application/ld+json">${bLD}<\/script>
@@ -513,13 +513,13 @@ ${navHtml}
         <header class="article-header">
           <nav class="breadcrumb" aria-label="Fil d'Ariane">
             <a href="index.html">Accueil</a> <span>›</span>
-            <a href="${breadcrumbHref}">${breadcrumbLabel}</a>
-            <span>›</span> <span aria-current="page">${j.title}</span>
+            <a href="${breadcrumbHref}">${escCard(breadcrumbLabel)}</a>
+            <span>›</span> <span aria-current="page">${escCard(j.title)}</span>
           </nav>
-          <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${j.category}</span>
-          <h1>${j.title}</h1>
+          <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${escCard(j.category)}</span>
+          <h1>${escCard(j.title)}</h1>
           <div class="article-meta">
-            <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${displayAuthor}</strong></span>
+            <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${escCard(displayAuthor)}</strong></span>
             <span class="article-meta-dot">•</span>
             <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `<span class="article-meta-dot">•</span><time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : ''}
             <span class="article-meta-dot">•</span>

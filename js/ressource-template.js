@@ -217,7 +217,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>${identite.titre} — Oui Psycho!</title>
+  <title>${escCard(identite.titre)} — Oui Psycho!</title>
   <meta name="description" content="${escCard(metaDesc)}">
   <meta name="robots" content="noindex, follow">
   <meta name="theme-color" content="#1F4E6B">

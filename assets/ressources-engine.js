@@ -23,6 +23,15 @@
     if (typeof window.notifyResize === 'function') window.notifyResize();
   }
 
+  // Échappe le texte inséré via innerHTML (el(), .innerHTML = ...) quand il
+  // vient de ressources.json — ces valeurs ne doivent jamais être traitées
+  // comme du HTML actif (un "<"/'"' dans un titre/une définition casserait
+  // l'affichage au lieu de rester du texte). Ne touche pas au balisage
+  // volontaire (<strong>, <p>...) écrit en dur autour de ces valeurs.
+  function escHtml(s) {
+    return String(s == null ? '' : s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   // Réseaux de partage proposés sur une page coloriage — voir décision du
   // 2026-09-07 (Facebook, WhatsApp, Pinterest, X). Chaque href est un lien
   // d'intention de partage standard de la plateforme, pas d'appel API.
@@ -107,7 +116,7 @@
     var filtersWrap = el('div', 'coloriage-filters');
     var chipEls = {};
     allThemes.forEach(function (theme) {
-      var chip = el('button', 'coloriage-filter-chip', theme);
+      var chip = el('button', 'coloriage-filter-chip', escHtml(theme));
       chip.type = 'button';
       chip.addEventListener('click', function () {
         var i = activeThemes.indexOf(theme);
@@ -129,10 +138,10 @@
       img.alt = '';
       img.loading = 'lazy';
       card.appendChild(img);
-      card.appendChild(el('span', 'coloriage-card__title', r.identite.titre));
+      card.appendChild(el('span', 'coloriage-card__title', escHtml(r.identite.titre)));
       var themesEl = el('span', 'coloriage-card__themes');
       (r.identite.themes || []).forEach(function (t) {
-        themesEl.appendChild(el('span', 'coloriage-card__theme', t));
+        themesEl.appendChild(el('span', 'coloriage-card__theme', escHtml(t)));
       });
       card.appendChild(themesEl);
       grid.appendChild(card);
@@ -271,7 +280,7 @@
       state.emotion.nuances.forEach(function (nu) {
         var btn = el('button', 'ressource-roue__nuance-btn');
         btn.type = 'button';
-        btn.innerHTML = '<strong>' + nu.mot + '</strong><span>' + nu.definition + '</span>';
+        btn.innerHTML = '<strong>' + escHtml(nu.mot) + '</strong><span>' + escHtml(nu.definition) + '</span>';
         btn.addEventListener('click', function () {
           state.nuance = nu;
           goTo(stepIntensite);
@@ -334,8 +343,8 @@
     function stepSynthese(container) {
       var recap = el('div', 'ressource-roue__recap');
       recap.innerHTML =
-        '<h3>' + state.nuance.mot + '</h3>' +
-        '<p class="ressource-roue__recap-sub">Nuance de ' + state.emotion.nom + '</p>' +
+        '<h3>' + escHtml(state.nuance.mot) + '</h3>' +
+        '<p class="ressource-roue__recap-sub">Nuance de ' + escHtml(state.emotion.nom) + '</p>' +
         '<ul>' +
           '<li>Intensité restituée : <strong>' + state.intensite + ' / 10</strong></li>' +
           '<li>' + state.duree + '</li>' +
@@ -355,11 +364,11 @@
       }
 
       actions.appendChild(actionBtn('🔍 Comprendre cette émotion', function () {
-        detail.innerHTML = '<p>' + state.nuance.mot + ' — ' + state.nuance.definition + '</p>';
+        detail.innerHTML = '<p>' + escHtml(state.nuance.mot) + ' — ' + escHtml(state.nuance.definition) + '</p>';
         notify();
       }));
       actions.appendChild(actionBtn('💬 Explorer le besoin derrière', function () {
-        detail.innerHTML = '<p>' + (state.nuance.besoin || 'Ce que ce ressenti cherche peut-être à vous dire mérite un moment d’attention.') + '</p>';
+        detail.innerHTML = '<p>' + (state.nuance.besoin ? escHtml(state.nuance.besoin) : 'Ce que ce ressenti cherche peut-être à vous dire mérite un moment d’attention.') + '</p>';
         notify();
       }));
       actions.appendChild(actionBtn('🌬️ Faire redescendre l’intensité', function () {
@@ -424,7 +433,7 @@
       input.type = 'checkbox';
       input.id = id;
       input.addEventListener('change', updateCounter);
-      var label = el('label', null, texte);
+      var label = el('label', null, escHtml(texte));
       label.setAttribute('for', id);
       li.appendChild(input);
       li.appendChild(label);
