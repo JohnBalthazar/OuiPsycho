@@ -60,34 +60,6 @@
     "status": "scheduled"
   },
   {
-    "id": "quest-ce-quun-sexe-symbole",
-    "title": "Qu'est-ce qu'un sexe symbole ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2027-09-10",
-    "date_modified": "2027-09-10",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "sexe-symbole",
-      "psychologie-du-desir",
-      "attirance",
-      "objectification",
-      "relations-parasociales",
-      "image-de-soi"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "excerpt": "",
@@ -4503,6 +4475,99 @@
       "attachement",
       "neurosciences",
       "reconstruction-de-soi"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "napoleon-bonaparte-sur-le-divan",
+    "title": "Napoléon Bonaparte sur le divan : Psychologie d'un empereur",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-09-10",
+    "date_modified": "2026-09-09",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "tags": [
+      "napoleon",
+      "pouvoir",
+      "hubris",
+      "personnalite",
+      "histoire"
+    ],
+    "sources": [
+      {
+        "authors": "Owen D. & Davidson J.",
+        "year": "2009",
+        "title": "Hubris syndrome: An acquired personality disorder? A study of US Presidents and UK Prime Ministers over the last 100 years",
+        "journal": "Brain",
+        "url": "https://doi.org/10.1093/brain/awp008"
+      },
+      {
+        "authors": "Tulard J.",
+        "year": "1987",
+        "title": "Napoléon ou le mythe du sauveur",
+        "publisher": "Fayard"
+      },
+      {
+        "authors": "Gueniffey P.",
+        "year": "2013",
+        "title": "Bonaparte (1769-1802)",
+        "publisher": "Gallimard"
+      },
+      {
+        "authors": "Las Cases E. de",
+        "year": "1823",
+        "title": "Le Mémorial de Sainte-Hélène",
+        "publisher": "Gallimard, Bibliothèque de la Pléiade (rééd.)"
+      },
+      {
+        "authors": "Adler A.",
+        "year": "1933",
+        "title": "Le Sens de la vie : étude de psychologie individuelle",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Bohler S.",
+        "year": "2019",
+        "title": "Le Bug humain",
+        "publisher": "Robert Laffont"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
+    "id": "quest-ce-quun-sexe-symbole",
+    "title": "Qu'est-ce qu'un sexe symbole ?",
+    "excerpt": "",
+    "date": "2026-09-10",
+    "date_modified": "2026-09-10",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mnwl8dojyiwktrrtpdzo",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexe-symbole",
+      "psychologie-du-desir",
+      "attirance",
+      "objectification",
+      "relations-parasociales",
+      "image-de-soi"
     ],
     "metaDescription": "",
     "articles_lies": [],
