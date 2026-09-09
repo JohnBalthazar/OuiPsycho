@@ -3470,8 +3470,16 @@ async function publishImportedArticle() {
       // 2. Mise à jour index
       articles = await mergeIndexWithRemote(articles);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
-      await githubPutFile('data/articles.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+      // articles-all.json : format admin complet (avec hasImage)
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
+      // articles.json public : strip hasImage (champ admin uniquement, ne doit pas fuir dans le public)
+      // + exclure brouillons et articles dont la date n'est pas encore arrivée (ne doivent pas fuir avant
+      // publication — même filtre que saveArticle/pushAllToGitHub, oublié ici jusqu'ici)
+      const todayStr = new Date().toISOString().split('T')[0];
+      const publicArticles = articles
+        .filter(a => a.status !== 'draft' && a.date <= todayStr)
+        .map(({ hasImage: _h, ...rest }) => rest);
+      await githubPutFile('data/articles.json', JSON.stringify(publicArticles, null, 2), 'update: index after import ' + data.id);
 
       // 3a. Page HTML statique → articles/{id}/index.html (URL canonique)
       const htmlPage = generateArticleHTML(data);
