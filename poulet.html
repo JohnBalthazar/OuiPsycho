@@ -3148,12 +3148,16 @@ async function ghFetch(url, options, retries = 3) {
   }
 }
 
-/* ── Récupère data/articles.json depuis l'API GitHub (jamais en cache) ── */
+/* ── Récupère data/articles-all.json depuis l'API GitHub (jamais en cache) ──
+   Source complète (tout statut/date), pas data/articles.json (public, filtré) :
+   le merge ci-dessous doit pouvoir retrouver un article scheduled/draft ajouté
+   par une autre session sans passer par l'admin, sinon son entrée d'index est
+   silencieusement perdue au prochain save/push d'une session restée ouverte. ── */
 async function fetchRemoteIndex() {
   try {
     const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
     const res = await ghFetch(
-      ghBase() + 'data/articles.json?ref=' + branch,
+      ghBase() + 'data/articles-all.json?ref=' + branch,
       { headers: ghHeaders() }
     );
     if (!res.ok) return null;
