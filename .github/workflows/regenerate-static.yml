@@ -1,0 +1,100 @@
+name: Régénération statique (node _gen_static.js)
+
+on:
+  push:
+    paths:
+      - '.github/regenerate-trigger.txt'   # poussé par poulet.html (bouton "Régénérer le site")
+  workflow_dispatch:   # déclenchement manuel possible depuis GitHub Actions
+
+permissions:
+  contents: write      # nécessaire pour le push de retour
+
+jobs:
+  regenerate:
+    name: Régénérer et vérifier
+    runs-on: ubuntu-latest
+    outputs:
+      pushed: ${{ steps.commit-push.outputs.pushed }}
+
+    steps:
+      - name: Checkout du dépôt
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Régénérer les pages statiques
+        run: node _gen_static.js
+
+      # Bloque le commit/push si un article publié est en noindex ou un article
+      # planifié (date future) est en index,follow — voir incident du 17/08/2026.
+      - name: Vérifier la cohérence robots/date des articles
+        run: node .github/scripts/verify-robots-consistency.js
+
+      # Bloque le commit/push si le maillage thématique (clusters) est
+      # incohérent avec la sortie générée (lien mort, étape vide affichée,
+      # lien vers du contenu scheduled, etc.) — voir incident du 08/09/2026 :
+      # deux pages republiées depuis poulet.html sans ce rattrapage avaient
+      # cassé ce contrôle et bloqué tous les déploiements pendant des heures.
+      - name: Vérifier le maillage thématique (clusters)
+        run: node .github/scripts/check-clusters.js
+
+      - name: Commit et push si la régénération a produit des changements
+        id: commit-push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --staged --quiet; then
+            echo "Rien à régénérer — le site statique était déjà à jour."
+            echo "pushed=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "build: régénération statique automatique"
+            git push
+            echo "pushed=true" >> $GITHUB_OUTPUT
+          fi
+
+  # Déploie explicitement le site (Pages en mode "GitHub Actions"). Indispensable :
+  # les pushs faits avec GITHUB_TOKEN ne déclenchent pas deploy-pages.yml (même
+  # raison que dans auto-publish.yml).
+  deploy:
+    name: Déployer sur GitHub Pages
+    needs: regenerate
+    if: needs.regenerate.outputs.pushed == 'true'
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy-pages.yml
+
+  # Vérification post-déploiement : le site répond bien après coup — évite qu'un
+  # déploiement resté bloqué en silence passe inaperçu (incident du 08/09/2026).
+  verify:
+    name: Vérifier le déploiement
+    needs: [regenerate, deploy]
+    if: needs.regenerate.outputs.pushed == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vérifier que le site et le sitemap répondent
+        run: |
+          TODAY=$(date -u +%Y-%m-%d)
+          for url in "https://ouipsycho.fr/" "https://ouipsycho.fr/sitemap.xml"; do
+            ok=false
+            for i in $(seq 1 10); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "$url?v=${GITHUB_RUN_ID}-$i")
+              if [ "$code" = "200" ]; then echo "✓ $url → HTTP 200"; ok=true; break; fi
+              echo "  $url → HTTP $code (tentative $i/10), nouvel essai dans 15 s…"
+              sleep 15
+            done
+            if [ "$ok" = "false" ]; then echo "::error::$url toujours indisponible après vérification."; exit 1; fi
+          done
+          if curl -s "https://ouipsycho.fr/sitemap.xml?v=${GITHUB_RUN_ID}" | grep -q "<lastmod>$TODAY</lastmod>"; then
+            echo "✓ Le sitemap en ligne contient bien un lastmod du $TODAY."
+          else
+            echo "::error::Le sitemap en ligne ne contient aucun lastmod du $TODAY — déploiement obsolète ?"
+            exit 1
+          fi

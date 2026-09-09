@@ -221,6 +221,7 @@
     .toast.success { background: var(--success); }
     .toast.error { background: var(--danger); }
     .toast.info { background: var(--primary); }
+    .toast.warning { background: var(--warning); }
     @keyframes slideUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
 
     /* ── KPI CARDS (tableau de bord) ── */
@@ -1540,6 +1541,21 @@
           <div id="push-log" style="font-size:.8rem;font-family:monospace;background:var(--gray-900);color:#4ade80;padding:12px;border-radius:6px;display:none;max-height:200px;overflow-y:auto;"></div>
         </div>
       </div>
+      <div class="card" style="margin-top:20px;">
+        <div class="card-header"><h3>Régénération statique</h3></div>
+        <div class="panel-body" style="display:flex;flex-direction:column;gap:12px;">
+          <p style="font-size:.9rem;color:var(--gray-500);">
+            Régénère toutes les pages statiques du site (<code>node _gen_static.js</code>, articles, hubs de cluster, sitemap…) directement sur GitHub — utile après une édition qui a pu désynchroniser une page (ex. changement de titre d'un article rattaché à un cluster). Ne fait rien de local : lance un job GitHub Actions qui vérifie, régénère, committe et déploie si besoin (~1–2 min).
+          </p>
+          <div>
+            <button class="btn btn-primary" id="regen-btn" onclick="triggerStaticRegen()">
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+              Régénérer le site
+            </button>
+            <a href="https://github.com/JohnBalthazar/OuiPsycho/actions/workflows/regenerate-static.yml" target="_blank" rel="noopener" style="margin-left:10px;font-size:.85rem;color:var(--gray-500);">Voir les régénérations sur GitHub →</a>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- SETTINGS -->
@@ -2782,6 +2798,20 @@ function generateArticleHTML(j) {
   return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache });
 }
 
+// Avertit quand un article régénéré depuis poulet appartient à un cluster
+// thématique : la page statique écrite par generateArticleHTML() n'a pas le
+// fil de parcours / lien vers le hub (voir commentaire ci-dessus), ce qui fait
+// échouer check-clusters.js et bloque TOUS les déploiements suivants (incident
+// du 2026-09-08 : doublon "anxiete" resté visible en ligne car les déploiements
+// échouaient en silence sur deux articles republiés depuis poulet sans ce
+// rattrapage). Reproduire la génération du fil de parcours côté navigateur a
+// été jugé trop risqué (double implémentation Node/navigateur, non testable
+// avant un vrai push) — ce garde-fou se contente de le signaler.
+function warnIfClusterStaticGap(cluster, etape) {
+  if (!cluster || !etape) return;
+  toast('⚠️ Cet article appartient à un cluster thématique : sa page statique vient d\'être régénérée SANS le fil de parcours ni le lien vers le hub. Lance <code>node _gen_static.js</code> puis commit/push avant de passer à autre chose, sinon le prochain déploiement échouera (check-clusters.js).', 'warning', 15000);
+}
+
 /* ══════════════════════════════════════════════
    STATUT DE PUBLICATION
 ══════════════════════════════════════════════ */
@@ -3015,6 +3045,7 @@ async function saveArticle() {
       await githubPutFile(id + '/index.html', redirectHtml, (editingId ? 'update' : 'create') + ': redirection ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
+      warnIfClusterStaticGap(cluster, etape);
       showPage('articles'); // ← redirection uniquement si succès
     } else {
       // Pas de PAT : rester sur l'éditeur et afficher un message d'erreur persistant
@@ -3275,6 +3306,38 @@ async function pushAllToGitHub() {
 }
 
 /* ══════════════════════════════════════════════
+   RÉGÉNÉRATION STATIQUE (à distance, via GitHub Actions)
+   Poulet ne peut pas exécuter node _gen_static.js (script Node, accès disque) —
+   on déclenche donc .github/workflows/regenerate-static.yml en poussant un
+   simple fichier marqueur via l'API Contents, avec le même PAT (Contents:
+   Read & Write) que toutes les autres écritures de poulet. Pas besoin du
+   scope Actions : le workflow se déclenche sur push, pas via l'API Actions.
+══════════════════════════════════════════════ */
+async function triggerStaticRegen() {
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) { toast('⚠️ Token GitHub manquant — configurez-le dans Réglages.', 'error'); return; }
+
+  const btn = document.getElementById('regen-btn');
+  btn.disabled = true;
+  const originalLabel = btn.innerHTML;
+  btn.innerHTML = '<div class="spinner"></div> Déclenchement…';
+
+  try {
+    await githubPutFile(
+      '.github/regenerate-trigger.txt',
+      'Déclenché depuis poulet.html le ' + new Date().toISOString(),
+      'chore: déclenche la régénération statique'
+    );
+    toast('🔄 Régénération lancée sur GitHub Actions (~1-2 min). <a href="https://github.com/JohnBalthazar/OuiPsycho/actions/workflows/regenerate-static.yml" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline">Suivre →</a>', 'info', 10000);
+  } catch (e) {
+    toast('❌ Erreur : ' + e.message, 'error');
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = originalLabel;
+  }
+}
+
+/* ══════════════════════════════════════════════
    IMPORT / EXPORT
 ══════════════════════════════════════════════ */
 function exportAllArticles() {
@@ -3434,6 +3497,7 @@ async function publishImportedArticle() {
       } else {
         toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
       }
+      warnIfClusterStaticGap(data.cluster, data.etape);
 
     } catch(err) {
       toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
