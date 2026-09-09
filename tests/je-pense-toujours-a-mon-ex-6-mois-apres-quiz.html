@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Où en êtes-vous avec votre ex ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/je-pense-toujours-a-mon-ex-6-mois-apres/">
+  <meta name="description" content="Neuf questions pour identifier la façon dont vous restez accroché à votre ex, et ce qui vous aiderait concrètement.">
+  <style>
+    :root{
+      --navy:#1F4E6B;
+      --navy-dark:#163a51;
+      --ink:#23303a;
+      --muted:#5d6f7c;
+      --line:#dfe6ea;
+      --paper:#ffffff;
+      --wash:#f3f7f9;
+      --accent:#c9705a;
+      --radius:14px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:transparent}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    .quiz{
+      max-width:640px;margin:0 auto;background:var(--paper);
+      border:1px solid var(--line);border-radius:var(--radius);
+      padding:26px 22px 24px;
+    }
+    .head{border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px}
+    .head h1{font-size:1.35rem;line-height:1.3;margin:0 0 6px;color:var(--navy);font-weight:700}
+    .head p{margin:0;font-size:.92rem;color:var(--muted)}
+    .bar{height:5px;background:var(--wash);border-radius:99px;overflow:hidden;margin:18px 0 8px}
+    .bar span{display:block;height:100%;width:0;background:var(--navy);border-radius:99px;transition:width .3s ease}
+    .step{font-size:.82rem;color:var(--muted);margin-bottom:18px}
+    .q{font-size:1.08rem;font-weight:600;margin:0 0 16px;color:var(--navy-dark)}
+    .opts{display:flex;flex-direction:column;gap:10px}
+    .opt{
+      display:block;width:100%;text-align:left;cursor:pointer;
+      background:var(--paper);border:1px solid var(--line);border-radius:11px;
+      padding:13px 15px;font:inherit;font-size:.96rem;color:var(--ink);
+      transition:border-color .15s ease,background .15s ease;
+    }
+    .opt:hover{border-color:var(--navy);background:var(--wash)}
+    .opt:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+    .back{
+      margin-top:18px;background:none;border:none;padding:6px 0;cursor:pointer;
+      font:inherit;font-size:.86rem;color:var(--muted);text-decoration:underline;
+    }
+    .back:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+    .res-emoji{font-size:2.4rem;line-height:1;margin-bottom:8px}
+    .res-kicker{font-size:.82rem;color:var(--muted);margin:0 0 4px}
+    .res h2{margin:0 0 12px;font-size:1.3rem;color:var(--navy);line-height:1.3}
+    .res p{margin:0 0 14px;font-size:.98rem}
+    .res h3{font-size:.98rem;margin:20px 0 8px;color:var(--navy-dark)}
+    .res ul{margin:0 0 14px;padding-left:20px}
+    .res li{margin-bottom:7px;font-size:.96rem}
+    .science{
+      background:var(--wash);border-left:3px solid var(--navy);
+      border-radius:0 10px 10px 0;padding:13px 15px;margin:18px 0;
+      font-size:.9rem;color:var(--muted);
+    }
+    .science strong{color:var(--navy-dark)}
+    .mix{font-size:.88rem;color:var(--muted);margin:14px 0 0}
+    .share{margin:22px 0 0;padding-top:18px;border-top:1px solid var(--line)}
+    .share p{font-size:.88rem;color:var(--muted);margin:0 0 10px}
+    .share-links{display:flex;flex-wrap:wrap;gap:9px}
+    .share-links a{
+      text-decoration:none;font-size:.88rem;padding:9px 14px;border-radius:99px;
+      border:1px solid var(--line);color:var(--navy);background:var(--paper);
+    }
+    .share-links a:hover{border-color:var(--navy);background:var(--wash)}
+    .disclaimer{
+      margin-top:20px;padding:14px 15px;border-radius:10px;
+      background:#fbf4f1;border:1px solid #eddcd5;font-size:.86rem;color:#6b4034;
+    }
+    .restart{
+      margin-top:18px;width:100%;background:var(--navy);color:#fff;border:none;
+      border-radius:11px;padding:13px;font:inherit;font-size:.96rem;font-weight:600;cursor:pointer;
+    }
+    .restart:hover{background:var(--navy-dark)}
+    .restart:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+    @media (max-width:420px){
+      .quiz{padding:20px 16px}
+      .head h1{font-size:1.2rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+<div class="quiz">
+  <div class="head">
+    <h1>Où en êtes-vous avec votre ex ?</h1>
+    <p>Neuf questions. Il n'y a pas de bonne réponse, seulement des façons différentes de rester accroché.</p>
+  </div>
+
+  <div id="quiz-body">
+    <div class="bar"><span id="bar-fill"></span></div>
+    <div class="step" id="step"></div>
+    <p class="q" id="question"></p>
+    <div class="opts" id="options"></div>
+    <button class="back" id="back" type="button" hidden>← Question précédente</button>
+  </div>
+
+  <div id="result" class="res" hidden></div>
+</div>
+
+<script>
+(function(){
+  var PAGE = 'https://ouipsycho.fr/articles/je-pense-toujours-a-mon-ex-6-mois-apres/';
+
+  var PROFILS = {
+    routine: {
+      emoji:'🏠',
+      nom:'Le fantôme du quotidien',
+      resume:"Ce qui vous manque, ce n'est pas exactement la personne : c'est la vie qui allait avec. Les dimanches, le café du matin, quelqu'un qui demande si la journée s'est bien passée. Votre chagrin est logistique autant que sentimental, et c'est une très bonne nouvelle : les routines, ça se reconstruit.",
+      conseils:[
+        "Recréez délibérément trois rendez-vous fixes dans la semaine qui n'appartiennent qu'à vous : un sport, un dîner, un rituel du dimanche.",
+        "Changez la géographie du quotidien : autre boulangerie, autre trajet, autre place dans le canapé. Le cerveau associe les lieux aux personnes.",
+        "Réinvestissez un lien mis de côté pendant la relation. L'absence se comble mieux par des liens multiples que par un remplacement unique."
+      ],
+      science:"Après une rupture, ce n'est pas seulement l'humeur qui chute mais la <strong>clarté du concept de soi</strong> (Slotter et al., 2010). Reconstruire des habitudes personnelles n'est pas de l'occupationnel : c'est ce qui restaure l'identité au singulier."
+    },
+    veille: {
+      emoji:'🔍',
+      nom:"L'enquêteur de minuit",
+      resume:"Vous ne pensez pas seulement à votre ex : vous le ou la surveillez. Un profil consulté, une story vérifiée, un compte de contournement. Chaque consultation apaise dix secondes, puis relance la machine. Ce n'est pas de la curiosité, c'est un circuit du manque que vous réamorcez plusieurs fois par jour.",
+      conseils:[
+        "Coupez l'accès plutôt que les souvenirs : masquez le fil, retirez l'application du téléphone pour deux ou trois semaines.",
+        "Quand l'envie de vérifier arrive, notez l'heure et attendez dix minutes avant d'agir. L'objectif n'est pas la volonté, c'est de casser l'automatisme.",
+        "Remplacez le geste, pas seulement l'intention : le réflexe est physique, il lui faut une autre action à occuper."
+      ],
+      science:"Une étude menée auprès de 464 participants a associé la surveillance du profil de l'ex à <strong>plus de détresse, plus de manque et moins de croissance personnelle</strong>, indépendamment des contacts hors ligne (Marshall, 2012)."
+    },
+    montage: {
+      emoji:'🎬',
+      nom:'Le monteur de film',
+      resume:"Vous ne comparez pas votre vie à votre ancienne relation : vous la comparez à un montage. Les rires, le week-end à la mer, la façon dont l'autre disait votre prénom. Les silences, les disputes qui tournaient en rond, l'impression de ramer seul — coupés au montage. Vous vous mesurez à un film que vous avez produit vous-même.",
+      conseils:[
+        "Écrivez, sans filtre, cinq raisons concrètes pour lesquelles cette relation ne fonctionnait pas. Relisez-les au prochain épisode nocturne.",
+        "Datez vos souvenirs : demandez-vous ce qui se passait réellement le mois de la photo que vous idéalisez.",
+        "Méfiez-vous de la phrase « je ne revivrai jamais ça ». Elle décrit l'état de votre mémoire, pas votre avenir."
+      ],
+      science:"Les souvenirs à charge émotionnelle positive se conservent mieux et perdent leur intensité plus lentement que les souvenirs désagréables. <strong>L'idéalisation post-rupture n'est pas un signe d'amour : c'est un biais de mémoire.</strong>"
+    },
+    dossier: {
+      emoji:'📁',
+      nom:'Le dossier non classé',
+      resume:"Votre problème n'est pas la perte, c'est l'incohérence. Un départ flou, une raison vague, trois versions contradictoires — et un esprit qui rouvre le dossier chaque nuit pour trouver le détail qui expliquerait tout. Le cerveau humain encaisse assez bien une perte. Il encaisse beaucoup moins bien une histoire sans fin.",
+      conseils:[
+        "Écrivez la lettre qui demande pourquoi, en entier. Puis ne l'envoyez pas : l'objectif était de sortir la boucle de votre tête.",
+        "Envisagez sérieusement l'hypothèse la plus banale — « l'autre n'était plus amoureux » — et regardez si elle suffit à expliquer les faits. Souvent, oui.",
+        "Distinguez réfléchir et ruminer : réfléchir a un début et une fin, ruminer repasse les mêmes scènes en donnant l'illusion du travail."
+      ],
+      science:"Reparler de sa rupture de façon structurée et répétée <strong>accélère la récupération émotionnelle</strong>, et le mécanisme identifié est la restauration de la clarté du soi (Larson &amp; Sbarra, 2015). Verbaliser aide ; ruminer, non."
+    },
+    convalescence: {
+      emoji:'🌿',
+      nom:'La convalescence qui s\'ignore',
+      resume:"Vous allez plutôt mieux, et cela vous inquiète presque. Vous pensez encore à votre ex, mais les pensées traversent au lieu de s'installer. Vous êtes probablement plus avancé que vous ne le croyez — et la principale gêne vient désormais du regard des autres, ou du vôtre, qui trouve que ça devrait être terminé.",
+      conseils:[
+        "Cessez de mesurer votre progression au calendrier des autres : aucune donnée scientifique ne fixe de durée normale au chagrin d'amour.",
+        "Surveillez la texture des pensées, pas leur fréquence : une pensée qui passe n'a rien à voir avec une heure de vérification.",
+        "Attendez-vous aux rechutes datées — anniversaire, fêtes, lieux. Elles ne défont pas le chemin parcouru."
+      ],
+      science:"Les trajectoires de récupération après une séparation sont <strong>très dispersées d'une personne à l'autre</strong> : aller mieux par à-coups, avec des rechutes ponctuelles, est le scénario habituel et non un échec."
+    }
+  };
+
+  var QUESTIONS = [
+    { q:"Il est 23 h 30 et vous ne dormez pas. Que fait votre cerveau ?", o:[
+      {t:"Il rejoue la dernière conversation en cherchant le moment précis où tout a basculé.", p:"dossier"},
+      {t:"Il diffuse un best-of : les rires, le week-end à la mer. Jamais les disputes.", p:"montage"},
+      {t:"Il vous rappelle que personne ne vous a demandé si votre journée s'était bien passée.", p:"routine"},
+      {t:"Il vous propose « juste un coup d'œil » à son profil.", p:"veille"},
+      {t:"Il est surtout occupé par demain — et vous vous demandez si c'est normal d'aller si bien.", p:"convalescence"}
+    ]},
+    { q:"Un ami vous demande sincèrement comment vous allez. Vous répondez :", o:[
+      {t:"« Ça va, franchement. Enfin je crois. C'est peut-être ça, le problème. »", p:"convalescence"},
+      {t:"« J'ai vu qu'il ou elle était parti en week-end. Avec qui, mystère. »", p:"veille"},
+      {t:"« Ça irait si je comprenais ce qui s'est passé. »", p:"dossier"},
+      {t:"« Bizarrement, ce sont les trucs bêtes qui manquent. Le café du matin. »", p:"routine"},
+      {t:"« Je me demande si je n'ai pas laissé filer la meilleure relation de ma vie. »", p:"montage"}
+    ]},
+    { q:"Vous tombez sur une photo de vous deux. Premier réflexe :", o:[
+      {t:"Aller voir si le compte est encore actif quelque part.", p:"veille"},
+      {t:"Zoomer sur le décor pour retrouver la date exacte.", p:"dossier"},
+      {t:"La regarder trente secondes et vous dire que vous ne serez plus jamais aussi bien.", p:"montage"},
+      {t:"Repenser au restaurant d'à côté, celui des dimanches.", p:"routine"},
+      {t:"Sentir un pincement, passer à autre chose, puis vous en vouloir un peu.", p:"convalescence"}
+    ]},
+    { q:"Ce qui vous coûte le plus, aujourd'hui :", o:[
+      {t:"Les dimanches après-midi qui ne ressemblent plus à rien.", p:"routine"},
+      {t:"Ne pas avoir eu de vraie explication.", p:"dossier"},
+      {t:"Ne pas savoir si vous lui manquez.", p:"veille"},
+      {t:"Le regard des autres, qui vous trouvent long à la détente.", p:"convalescence"},
+      {t:"L'idée qu'on ne retombe pas amoureux deux fois comme ça.", p:"montage"}
+    ]},
+    { q:"Vous avez fait ça récemment. Soyez honnête :", o:[
+      {t:"Relu vos anciens messages en sautant volontairement les mauvais.", p:"montage"},
+      {t:"Créé un compte pour voir ses stories sans apparaître.", p:"veille"},
+      {t:"Refait le trajet jusqu'à son quartier « par hasard ». Deux fois.", p:"routine"},
+      {t:"Rangé les dernières affaires sans trop y penser, puis pleuré en fermant le carton.", p:"convalescence"},
+      {t:"Rédigé un message de 800 mots pour demander pourquoi. Jamais envoyé.", p:"dossier"}
+    ]},
+    { q:"Si vous n'aviez droit qu'à une seule chose, vous choisiriez :", o:[
+      {t:"Savoir ce qu'il ou elle fait en ce moment précis.", p:"veille"},
+      {t:"Retrouver vos habitudes d'avant, pas forcément la personne.", p:"routine"},
+      {t:"Une réponse claire à la question « pourquoi ».", p:"dossier"},
+      {t:"Qu'on vous laisse tranquille avec vos délais de reconstruction.", p:"convalescence"},
+      {t:"Revivre une seule journée. La plus belle.", p:"montage"}
+    ]},
+    { q:"Votre relation, vue d'aujourd'hui, c'est :", o:[
+      {t:"Une vie commune très concrète qui s'est arrêtée net.", p:"routine"},
+      {t:"Une histoire rare, que vous n'égalerez pas.", p:"montage"},
+      {t:"Une énigme non résolue.", p:"dossier"},
+      {t:"Compliquée, mais finie. Et vous commencez à le digérer.", p:"convalescence"},
+      {t:"Un fil que vous n'arrivez pas à couper, même à distance.", p:"veille"}
+    ]},
+    { q:"On vous propose une soirée où il ou elle pourrait être présent :", o:[
+      {t:"Vous y allez, avec trois phrases préparées pour « la discussion ».", p:"dossier"},
+      {t:"Vous y allez en espérant secrètement le déclic, le regard, la suite.", p:"montage"},
+      {t:"Vous hésitez, puis constatez que ça ne vous angoisse plus tant que ça.", p:"convalescence"},
+      {t:"Vous y allez surtout pour observer.", p:"veille"},
+      {t:"Vous y allez, mais l'ambiance vous rappellera trop vos soirées d'avant.", p:"routine"}
+    ]},
+    { q:"Dans six mois de plus, vous vous imaginez :", o:[
+      {t:"Avec un téléphone nettement moins consulté.", p:"veille"},
+      {t:"Enfin en paix avec l'absence d'explication.", p:"dossier"},
+      {t:"Toujours en train de comparer — et ça vous inquiète.", p:"montage"},
+      {t:"Avec de nouvelles habitudes bien à vous.", p:"routine"},
+      {t:"À peu près comme aujourd'hui, en un peu mieux. Et ça vous convient.", p:"convalescence"}
+    ]}
+  ];
+
+  var idx = 0;
+  var reponses = [];
+  var ordres = [];
+
+  var elBody = document.getElementById('quiz-body');
+  var elRes = document.getElementById('result');
+  var elQ = document.getElementById('question');
+  var elO = document.getElementById('options');
+  var elStep = document.getElementById('step');
+  var elBar = document.getElementById('bar-fill');
+  var elBack = document.getElementById('back');
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function melange(n){
+    var a = [];
+    for (var i=0;i<n;i++) a.push(i);
+    for (var j=a.length-1;j>0;j--){
+      var k = Math.floor(Math.random()*(j+1));
+      var tmp = a[j]; a[j] = a[k]; a[k] = tmp;
+    }
+    return a;
+  }
+
+  function rendreQuestion(){
+    var q = QUESTIONS[idx];
+    if (!ordres[idx]) ordres[idx] = melange(q.o.length);
+    elStep.textContent = 'Question ' + (idx+1) + ' sur ' + QUESTIONS.length;
+    elBar.style.width = Math.round((idx / QUESTIONS.length) * 100) + '%';
+    elQ.textContent = q.q;
+    elO.innerHTML = '';
+    ordres[idx].forEach(function(pos){
+      var opt = q.o[pos];
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'opt';
+      b.textContent = opt.t;
+      b.addEventListener('click', function(){ repondre(opt.p); });
+      elO.appendChild(b);
+    });
+    elBack.hidden = (idx === 0);
+    notifyResize();
+  }
+
+  function repondre(profil){
+    reponses[idx] = profil;
+    if (idx < QUESTIONS.length - 1) {
+      idx++;
+      rendreQuestion();
+    } else {
+      afficherResultat();
+    }
+  }
+
+  elBack.addEventListener('click', function(){
+    if (idx > 0){ idx--; rendreQuestion(); }
+  });
+
+  function calculer(){
+    var scores = {}, dernier = {};
+    Object.keys(PROFILS).forEach(function(k){ scores[k] = 0; dernier[k] = -1; });
+    reponses.forEach(function(p, i){
+      if (!p) return;
+      scores[p]++;
+      dernier[p] = i;
+    });
+    var gagnant = null;
+    Object.keys(scores).forEach(function(k){
+      if (gagnant === null) { gagnant = k; return; }
+      if (scores[k] > scores[gagnant]) { gagnant = k; return; }
+      if (scores[k] === scores[gagnant] && dernier[k] > dernier[gagnant]) { gagnant = k; }
+    });
+    var second = null;
+    Object.keys(scores).forEach(function(k){
+      if (k === gagnant) return;
+      if (second === null || scores[k] > scores[second]) second = k;
+    });
+    return { gagnant: gagnant, second: second, scores: scores };
+  }
+
+  function afficherResultat(){
+    var r = calculer();
+    var p = PROFILS[r.gagnant];
+    elBar.style.width = '100%';
+
+    var texte = "Mon profil : " + p.nom + ". Et vous, où en êtes-vous avec votre ex ?";
+    var u = encodeURIComponent(PAGE);
+    var t = encodeURIComponent(texte);
+    var tu = encodeURIComponent(texte + ' ' + PAGE);
+
+    var mixte = '';
+    if (r.second && r.scores[r.second] >= r.scores[r.gagnant] - 1) {
+      mixte = '<p class="mix">Votre profil est mixte : « ' + PROFILS[r.second].nom +
+              ' » arrive juste derrière. Les deux se travaillent en parallèle.</p>';
+    }
+
+    var conseils = p.conseils.map(function(c){ return '<li>' + c + '</li>'; }).join('');
+
+    elRes.innerHTML =
+      '<div class="res-emoji">' + p.emoji + '</div>' +
+      '<p class="res-kicker">Votre profil dominant</p>' +
+      '<h2>' + p.nom + '</h2>' +
+      '<p>' + p.resume + '</p>' +
+      mixte +
+      '<h3>Ce qui vous aiderait concrètement</h3>' +
+      '<ul>' + conseils + '</ul>' +
+      '<div class="science">' + p.science + '</div>' +
+      '<div class="share">' +
+        '<p>Partager votre résultat :</p>' +
+        '<div class="share-links">' +
+          '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+          '<a href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+          '<a href="https://wa.me/?text=' + tu + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+        '</div>' +
+      '</div>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. ' +
+      'Seul un professionnel de santé peut évaluer votre situation. ' +
+      'En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+      '<button class="restart" id="restart" type="button">Recommencer le test</button>';
+
+    elBody.hidden = true;
+    elRes.hidden = false;
+
+    document.getElementById('restart').addEventListener('click', function(){
+      idx = 0; reponses = []; ordres = [];
+      elRes.hidden = true; elRes.innerHTML = '';
+      elBody.hidden = false;
+      rendreQuestion();
+      notifyResize();
+    });
+
+    if (typeof gtag === 'function') {
+      gtag('event', 'quiz_complete', { quiz_id: 'je-pense-toujours-a-mon-ex-6-mois-apres-quiz', profil: p.nom });
+    }
+    notifyResize();
+  }
+
+  rendreQuestion();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
