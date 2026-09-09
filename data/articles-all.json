@@ -2,6 +2,7 @@
   {
     "id": "anxiete-sociale-phobie-sociale",
     "title": "Anxiété sociale : quand le regard des autres paralyse",
+    "type": "article",
     "excerpt": "",
     "date": "2027-09-19",
     "date_modified": "2027-09-19",
@@ -31,6 +32,7 @@
   {
     "id": "symptomes-physiques-anxiete",
     "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
+    "type": "article",
     "excerpt": "",
     "date": "2027-09-11",
     "date_modified": "2027-09-11",
@@ -60,6 +62,7 @@
   {
     "id": "quest-ce-quun-sexe-symbole",
     "title": "Qu'est-ce qu'un sexe symbole ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-09-10",
     "date_modified": "2027-09-10",
@@ -87,6 +90,7 @@
   {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-06-03",
     "date_modified": "2027-06-03",
@@ -114,6 +118,7 @@
   {
     "id": "traits-personnalite-presidents",
     "title": "Psychologie des présidents : les 5 traits de personnalité de tous les chefs d'État",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-28",
     "date_modified": "2027-05-28",
@@ -140,6 +145,7 @@
   {
     "id": "profiler-mythe-realite-psychologie-criminelle",
     "title": "Profiler : dans la tête des vrais experts du crime (et leurs faux secrets)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-27",
     "date_modified": "2027-05-27",
@@ -168,6 +174,7 @@
   {
     "id": "tdah-adulte-commencer-sans-jamais-finir",
     "title": "TDAH ou procrastination ? Pourquoi vous commencez tout sans jamais finir",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-21",
     "date_modified": "2027-05-21",
@@ -198,6 +205,7 @@
   {
     "id": "paranoia-definition-symptomes-traitements",
     "title": "Paranoïa : définition, symptômes et traitements d'un trouble mal compris",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-20",
     "date_modified": "2027-05-20",
@@ -224,6 +232,7 @@
   {
     "id": "shrek-sur-le-divan",
     "title": "Shrek sur le divan : psychologie d'un ogre des marais",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-18",
     "date_modified": "2027-05-18",
@@ -250,6 +259,7 @@
   {
     "id": "biais-cognitifs-7-pieges-du-cerveau",
     "title": "Biais cognitifs : les 7 pièges que votre cerveau vous tend chaque jour",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-14",
     "date_modified": "2027-05-14",
@@ -276,6 +286,7 @@
   {
     "id": "pathologies-psychiatriques-cinema",
     "title": "Pathologies psychiatriques au cinéma : vraie clinique ou psychiatrie hollywoodienne ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-13",
     "date_modified": "2027-05-13",
@@ -302,6 +313,7 @@
   {
     "id": "leonard-de-vinci-sur-le-divan",
     "title": "Léonard de Vinci sur le divan : psychologie d'un génie",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-11",
     "date_modified": "2027-05-11",
@@ -328,6 +340,7 @@
   {
     "id": "pourquoi-tomber-amoureux-du-meme-type-de-personne",
     "title": "Pourquoi tombe-t-on toujours amoureux du même type de personne ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-07",
     "date_modified": "2027-05-07",
@@ -354,6 +367,7 @@
   {
     "id": "depression-a-change-ma-vie",
     "title": "Dépression : pourquoi certains disent qu'elle a changé leur vie",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-06",
     "date_modified": "2027-05-06",
@@ -380,6 +394,7 @@
   {
     "id": "le-diable-sur-le-divan",
     "title": "Le diable sur le divan : psychologie d'un ange déchu",
+    "type": "article",
     "excerpt": "",
     "date": "2027-05-04",
     "date_modified": "2027-05-04",
@@ -406,6 +421,7 @@
   {
     "id": "schizophrenie-symptomes-causes-traitements",
     "title": "Schizophrénie : symptômes, causes et traitements, au-delà des clichés",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-30",
     "date_modified": "2027-04-30",
@@ -432,6 +448,7 @@
   {
     "id": "syndrome-de-diogene",
     "title": "Le syndrome de Diogène, c'est quoi ? Les accumulateurs passent sur le divan",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-29",
     "date_modified": "2027-04-29",
@@ -458,6 +475,7 @@
   {
     "id": "zeus-sur-le-divan",
     "title": "Zeus sur le divan : psychologie d'un dieu grec",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-27",
     "date_modified": "2027-04-27",
@@ -485,6 +503,7 @@
   {
     "id": "kairos-science-hasard",
     "title": "Le Kaïros et la science : pourquoi le hasard n'existe pas",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-23",
     "date_modified": "2027-04-23",
@@ -511,6 +530,7 @@
   {
     "id": "couples-qui-durent-5-secrets-science",
     "title": "Les couples qui durent : 5 secrets méconnus validés par la science",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-22",
     "date_modified": "2027-04-22",
@@ -538,6 +558,7 @@
   {
     "id": "draco-malfoy-sur-le-divan",
     "title": "Draco Malfoy sur le divan : Psychologie d'un Serpentard",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-20",
     "date_modified": "2027-04-20",
@@ -564,6 +585,7 @@
   {
     "id": "petites-phrases-gros-degats",
     "title": "« C'est pas grave » : ces petites phrases qui font de gros dégâts",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-16",
     "date_modified": "2027-04-16",
@@ -590,6 +612,7 @@
   {
     "id": "vierge-marie-sur-le-divan",
     "title": "La Vierge Marie sur le divan : psychologie d'une icône maternelle",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-13",
     "date_modified": "2027-04-13",
@@ -616,6 +639,7 @@
   {
     "id": "trouble-dissociatif-identite",
     "title": "« Nous sommes plusieurs » : ces personnes qui partagent un même corps",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-09",
     "date_modified": "2027-04-09",
@@ -642,6 +666,7 @@
   {
     "id": "absorber-emotions-des-autres-eponge-emotionnelle",
     "title": "Pourquoi certaines personnes absorbent les émotions des autres (et comment s'en protéger)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-08",
     "date_modified": "2027-04-08",
@@ -668,6 +693,7 @@
   {
     "id": "sherlock-holmes-divan-detective-addict",
     "title": "Sherlock Holmes sur le divan : psychologie d'un détective addict",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-06",
     "date_modified": "2027-04-06",
@@ -694,6 +720,7 @@
   {
     "id": "difficulte-prendre-decisions-pas-manque-confiance",
     "title": "Vous avez du mal à prendre des décisions ? Ce n'est pas toujours un manque de confiance en soi",
+    "type": "article",
     "excerpt": "",
     "date": "2027-04-02",
     "date_modified": "2027-04-02",
@@ -720,6 +747,7 @@
   {
     "id": "mercredi-addams-sur-le-divan",
     "title": "Mercredi Addams sur le divan : psychologie d'une petite fille hors norme",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-30",
     "date_modified": "2027-03-30",
@@ -746,6 +774,7 @@
   {
     "id": "rumination-mentale-cerveau-ne-sarrete-jamais",
     "title": "Pourquoi votre cerveau ne s'arrête jamais de penser : les mécanismes cachés de la rumination mentale",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-26",
     "date_modified": "2027-03-26",
@@ -772,6 +801,7 @@
   {
     "id": "hpi-invisible-identification-tardive-adulte",
     "title": "Pourquoi certains HPI passent inaperçus pendant des décennies (et pourquoi ce n'est pas un échec)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-25",
     "date_modified": "2027-03-25",
@@ -802,6 +832,7 @@
   {
     "id": "dieu-sur-le-divan",
     "title": "Dieu sur le divan : psychologie d'un vieux barbu vivant au-dessus des nuages",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-23",
     "date_modified": "2027-03-23",
@@ -828,6 +859,7 @@
   {
     "id": "analyser-une-personnalite-en-7-points-cles",
     "title": "Analyser une personnalité en 7 points clés",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-19",
     "date_modified": "2027-03-19",
@@ -854,6 +886,7 @@
   {
     "id": "peut-on-etre-tout-le-temps-heureux",
     "title": "Peut-on être tout le temps heureux ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-18",
     "date_modified": "2027-03-18",
@@ -880,6 +913,7 @@
   {
     "id": "abbe-pierre-sur-le-divan",
     "title": "L'abbé Pierre sur le divan : anatomie d'une impunité",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-16",
     "date_modified": "2027-03-16",
@@ -905,6 +939,7 @@
   {
     "id": "enseignements-psychologie-histoires-disney",
     "title": "Ce que les histoires Disney nous apprennent vraiment : 6 leçons de psychologie",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-12",
     "date_modified": "2027-03-12",
@@ -931,6 +966,7 @@
   {
     "id": "plus-grands-psychologues-histoire",
     "title": "Les 5 plus grands psychologues qui ont marqué l'histoire",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-11",
     "date_modified": "2027-03-11",
@@ -957,6 +993,7 @@
   {
     "id": "barbie-sur-le-divan",
     "title": "Barbie sur le divan : quand la poupée parfaite pense à la mort",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-09",
     "date_modified": "2027-03-09",
@@ -984,6 +1021,7 @@
   {
     "id": "sept-secrets-jamais-partages",
     "title": "Les 7 secrets que les gens ne partagent (presque) jamais",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-05",
     "date_modified": "2027-03-05",
@@ -1010,6 +1048,7 @@
   {
     "id": "phrases-cultes-developpement-personnel-science",
     "title": "Les meilleures phrases des livres de développement personnel, passées au crible de la science",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-04",
     "date_modified": "2027-03-04",
@@ -1036,6 +1075,7 @@
   {
     "id": "vaiana-sur-le-divan",
     "title": "Vaiana sur le divan : psychologie d'une navigatrice héroïque",
+    "type": "article",
     "excerpt": "",
     "date": "2027-03-02",
     "date_modified": "2027-03-02",
@@ -1063,6 +1103,7 @@
   {
     "id": "loto-pourquoi-croire-gagner",
     "title": "Loto : pourquoi croit-on toujours que l'on peut gagner ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-26",
     "date_modified": "2027-02-26",
@@ -1089,6 +1130,7 @@
   {
     "id": "plateformes-psy-en-ligne-comparatif",
     "title": "Que valent les plateformes de psy en ligne ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-25",
     "date_modified": "2027-02-25",
@@ -1115,6 +1157,7 @@
   {
     "id": "dark-vador-sur-le-divan",
     "title": "Dark Vador sur le divan : psychologie d'un seigneur des ténèbres",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-23",
     "date_modified": "2027-02-23",
@@ -1140,6 +1183,7 @@
   {
     "id": "monde-juste-merite-cerveau",
     "title": "Dans la vie, a-t-on vraiment ce que l'on mérite ? Pourquoi notre cerveau adore croire que oui",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-19",
     "date_modified": "2027-02-19",
@@ -1166,6 +1210,7 @@
   {
     "id": "peur-engagement-relation-serieuse",
     "title": "Pourquoi certaines personnes prennent peur dès qu'une relation devient sérieuse : ce que révèle la psychologie",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-18",
     "date_modified": "2027-02-18",
@@ -1192,6 +1237,7 @@
   {
     "id": "joker-sur-le-divan",
     "title": "Le Joker sur le divan : psychologie d'un clown dérangé",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-16",
     "date_modified": "2027-02-16",
@@ -1217,6 +1263,7 @@
   {
     "id": "confiance-en-soi-science",
     "title": "Confiance en soi : ce que dit vraiment la science (et ce qui ne marche pas)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-12",
     "date_modified": "2027-02-12",
@@ -1243,6 +1290,7 @@
   {
     "id": "7-signes-personne-narcissique",
     "title": "Les 7 signes qui révèlent une personne narcissique (et que beaucoup ignorent)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-11",
     "date_modified": "2027-02-11",
@@ -1273,6 +1321,7 @@
   {
     "id": "kurt-cobain-sur-le-divan",
     "title": "Kurt Cobain sur le divan : psychologie d'une icône",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-09",
     "date_modified": "2027-02-09",
@@ -1298,6 +1347,7 @@
   {
     "id": "comment-fonctionnent-les-hommes-conseils-aux-femmes",
     "title": "Comment fonctionnent les hommes ? Leurs conseils adressés aux femmes",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-05",
     "date_modified": "2027-02-05",
@@ -1323,6 +1373,7 @@
   {
     "id": "piege-du-perfectionnisme",
     "title": "Le piège du perfectionnisme : pourquoi « faire toujours mieux » ne vous rassure jamais",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-04",
     "date_modified": "2027-02-04",
@@ -1348,6 +1399,7 @@
   {
     "id": "le-petit-prince-sur-le-divan",
     "title": "Le petit prince sur le divan : psychologie d'un souvenir d'enfant",
+    "type": "article",
     "excerpt": "",
     "date": "2027-02-02",
     "date_modified": "2027-02-02",
@@ -1374,6 +1426,7 @@
   {
     "id": "tdah-adulte-la-revelation",
     "title": "TDAH adulte : la révélation",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-29",
     "date_modified": "2027-01-29",
@@ -1404,6 +1457,7 @@
   {
     "id": "parents-emotionnellement-immatures-faire-plaisir",
     "title": "Parents émotionnellement immatures : pourquoi leurs enfants veulent toujours faire plaisir",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-28",
     "date_modified": "2027-01-28",
@@ -1432,6 +1486,7 @@
   {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-26",
     "date_modified": "2027-01-26",
@@ -1458,6 +1513,7 @@
   {
     "id": "amie-toxique-10-signes-manipulation",
     "title": "Amie toxique : 10 signes qu'elle vous manipule (et comment réagir)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-22",
     "date_modified": "2027-01-22",
@@ -1484,6 +1540,7 @@
   {
     "id": "traumatismes-invisibles-enfance",
     "title": "Traumatismes invisibles : parentification, négligence émotionnelle et blessures d'enfance",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-21",
     "date_modified": "2027-01-21",
@@ -1510,6 +1567,7 @@
   {
     "id": "spider-man-sur-le-divan",
     "title": "Spider-man sur le divan : psychologie d'un homme araignée",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-19",
     "date_modified": "2027-01-19",
@@ -1536,6 +1594,7 @@
   {
     "id": "fatigue-mentale-epuise-sans-rien-faire",
     "title": "Fatigue mentale : pourquoi suis-je épuisé alors que je ne fais « rien » ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-15",
     "date_modified": "2027-01-15",
@@ -1562,6 +1621,7 @@
   {
     "id": "signes-astrologiques-compatibilite-amoureuse",
     "title": "Signes astrologiques et compatibilité amoureuse : ce que dit vraiment la science",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-14",
     "date_modified": "2027-01-14",
@@ -1588,6 +1648,7 @@
   {
     "id": "batman-sur-le-divan",
     "title": "Batman sur le divan : psychologie d'un homme chauve-souris",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-12",
     "date_modified": "2027-01-12",
@@ -1614,6 +1675,7 @@
   {
     "id": "meditation-sport-psychotherapie-comparatif",
     "title": "Méditation, sport, psychothérapie, rien du tout : le comparatif ultime",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-08",
     "date_modified": "2027-01-08",
@@ -1640,6 +1702,7 @@
   {
     "id": "tdah-trouble-deficit-attention-hyperactivite",
     "title": "TDAH : Trouble du Déficit de l'Attention avec ou sans Hyperactivité",
+    "type": "dossier",
     "excerpt": "",
     "date": "2027-01-07",
     "date_modified": "2027-01-07",
@@ -1672,6 +1735,7 @@
   {
     "id": "tarzan-sur-le-divan-psychologie-homme-en-slip",
     "title": "Tarzan sur le divan : psychologie d'un homme en slip",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-05",
     "date_modified": "2027-01-05",
@@ -1698,6 +1762,7 @@
   {
     "id": "chronotype-matin-soir",
     "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-01",
     "date_modified": "2027-01-01",
@@ -1727,6 +1792,7 @@
   {
     "id": "depression-ce-nest-pas-une-fatalite",
     "title": "Dépression : ce n'est pas une fatalité",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-01",
     "date_modified": "2027-01-01",
@@ -1753,6 +1819,7 @@
   {
     "id": "hypersensibilite-test",
     "title": "Hypersensibilité : le test et ce qu'il faut en penser",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-01",
     "date_modified": "2027-01-01",
@@ -1782,6 +1849,7 @@
   {
     "id": "syndrome-imposteur",
     "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-01",
     "date_modified": "2027-01-01",
@@ -1811,6 +1879,7 @@
   {
     "id": "test-tdah-adulte-asrs",
     "title": "Test TDAH adulte : ce que mesure l'ASRS (et ses limites)",
+    "type": "article",
     "excerpt": "",
     "date": "2027-01-01",
     "date_modified": "2027-01-01",
@@ -1841,6 +1910,7 @@
   {
     "id": "luffy-sur-le-divan",
     "title": "Monkey D. Luffy sur le divan : psychologie du héros de One Piece",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-29",
     "date_modified": "2026-12-29",
@@ -1867,6 +1937,7 @@
   {
     "id": "pere-noel-sur-le-divan",
     "title": "Le Père Noël sur le divan : psychologie d'un vieux barbu se déplaçant en traîneau",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-22",
     "date_modified": "2026-12-22",
@@ -1893,6 +1964,7 @@
   {
     "id": "couple-heureux-sans-faire-lamour",
     "title": "Peut-on vraiment être heureux en couple sans faire l'amour ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-18",
     "date_modified": "2026-12-18",
@@ -1919,6 +1991,7 @@
   {
     "id": "couple-quand-faut-il-se-quitter",
     "title": "Couple : quand faut-il se quitter ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-17",
     "date_modified": "2026-12-17",
@@ -1944,6 +2017,7 @@
   {
     "id": "doctor-doom-sur-le-divan-psychologie-savant-fou",
     "title": "Doctor Doom sur le divan : Psychologie d'un savant fou",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-16",
     "date_modified": "2026-12-16",
@@ -1970,6 +2044,7 @@
   {
     "id": "picsou-sur-le-divan",
     "title": "Picsou sur le divan : psychologie d'un canard millionnaire",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-15",
     "date_modified": "2026-12-15",
@@ -1996,6 +2071,7 @@
   {
     "id": "therapie-visio-telephone-presentiel",
     "title": "Visio, téléphone ou cabinet : la thérapie est-elle aussi efficace à distance ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-11",
     "date_modified": "2026-12-11",
@@ -2022,6 +2098,7 @@
   {
     "id": "loki-sur-le-divan-psychologie-dieu-malice",
     "title": "Loki sur le divan : psychologie d'un dieu de la malice",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-08",
     "date_modified": "2026-12-08",
@@ -2048,6 +2125,7 @@
   {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-04",
     "date_modified": "2026-12-04",
@@ -2076,6 +2154,7 @@
   {
     "id": "cinq-reflexes-se-proteger-pervers-narcissique",
     "title": "Les 5 réflexes qui permettent de se protéger d'un pervers narcissique?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-03",
     "date_modified": "2026-12-03",
@@ -2102,6 +2181,7 @@
   {
     "id": "meilleurs-livres-tdah-comparatif",
     "title": "Comparatif exhaustif des meilleurs livres TDAH",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-02",
     "date_modified": "2026-12-02",
@@ -2132,6 +2212,7 @@
   {
     "id": "elisabeth-bennet-sur-le-divan",
     "title": "Elisabeth Bennet sur le divan : Psychologie d'une jeune britannique",
+    "type": "article",
     "excerpt": "",
     "date": "2026-12-01",
     "date_modified": "2026-12-01",
@@ -2158,6 +2239,7 @@
   {
     "id": "psy-rembourse-secu-mon-soutien-psy",
     "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-27",
     "date_modified": "2026-11-27",
@@ -2184,6 +2266,7 @@
   {
     "id": "hygiene-de-sommeil",
     "title": "Hygiène de sommeil : les 10 règles qui changent tout",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-26",
     "date_modified": "2026-11-26",
@@ -2213,6 +2296,7 @@
   {
     "id": "refaire-confiance-apres-pervers-narcissique",
     "title": "Comment (se) refaire confiance après un pervers narcissique ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-26",
     "date_modified": "2026-11-26",
@@ -2239,6 +2323,7 @@
   {
     "id": "difference-de-libido-quand-le-couple-craque",
     "title": "Différence de libido : quand le couple craque",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-25",
     "date_modified": "2026-11-25",
@@ -2265,6 +2350,7 @@
   {
     "id": "inspecteur-gadget-sur-le-divan",
     "title": "Inspecteur Gadget sur le divan : psychologie d'un inspecteur en 2D",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-24",
     "date_modified": "2026-11-24",
@@ -2291,6 +2377,7 @@
   {
     "id": "applications-gratuites-sante-mentale",
     "title": "Les meilleures applis gratuites pour la santé mentale",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-20",
     "date_modified": "2026-11-20",
@@ -2317,6 +2404,7 @@
   {
     "id": "tdah-amenagements-travail-rqth",
     "title": "TDAH au travail : RQTH, aménagements de poste, ce qui existe vraiment",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-20",
     "date_modified": "2026-11-20",
@@ -2347,6 +2435,7 @@
   {
     "id": "experience-mort-imminente-science",
     "title": "Expérience de mort imminente : que dit la science ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-19",
     "date_modified": "2026-11-19",
@@ -2373,6 +2462,7 @@
   {
     "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
     "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-18",
     "date_modified": "2026-11-18",
@@ -2401,6 +2491,7 @@
   {
     "id": "diagnostic-tdah-france",
     "title": "Diagnostic TDAH en France : parcours, délais, coûts",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-17",
     "date_modified": "2026-11-17",
@@ -2431,6 +2522,7 @@
   {
     "id": "freud-sur-le-divan",
     "title": "Freud sur le divan : psychologie d'un psychanalyste",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-17",
     "date_modified": "2026-11-17",
@@ -2457,6 +2549,7 @@
   {
     "id": "tcc-insomnie-restriction-sommeil",
     "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-16",
     "date_modified": "2026-11-16",
@@ -2486,6 +2579,7 @@
   {
     "id": "autisme-adulte-diagnostic-tardif",
     "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-14",
     "date_modified": "2026-11-14",
@@ -2516,6 +2610,7 @@
   {
     "id": "comment-survivre-a-une-rupture",
     "title": "Comment survivre à une rupture ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-13",
     "date_modified": "2026-11-13",
@@ -2542,6 +2637,7 @@
   {
     "id": "ia-peut-elle-pousser-au-suicide",
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-12",
     "date_modified": "2026-11-12",
@@ -2568,6 +2664,7 @@
   {
     "id": "hpi-tdah-confusion-diagnostic",
     "title": "HPI et TDAH : pourquoi on les confond si souvent",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-11",
     "date_modified": "2026-11-11",
@@ -2598,6 +2695,7 @@
   {
     "id": "jesus-sur-le-divan",
     "title": "Jésus sur le divan : psychologie d'un messie",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-10",
     "date_modified": "2026-11-10",
@@ -2624,6 +2722,7 @@
   {
     "id": "punition-par-le-silence",
     "title": "La punition par le silence : pourquoi elle fait si mal",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-09",
     "date_modified": "2026-11-09",
@@ -2653,6 +2752,7 @@
   {
     "id": "charge-mentale",
     "title": "Charge mentale : la définir, la mesurer, la répartir",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-07",
     "date_modified": "2026-11-07",
@@ -2682,6 +2782,7 @@
   {
     "id": "psychologie-positive-peut-elle-nous-sauver",
     "title": "La psychologie positive peut-elle nous sauver ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-06",
     "date_modified": "2026-11-06",
@@ -2708,6 +2809,7 @@
   {
     "id": "fonctions-executives",
     "title": "Fonctions exécutives : le chef d'orchestre fatigué du cerveau",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-05",
     "date_modified": "2026-11-05",
@@ -2737,6 +2839,7 @@
   {
     "id": "se-debarrasser-anxiete-pour-toujours",
     "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-05",
     "date_modified": "2026-11-05",
@@ -2767,6 +2870,7 @@
   {
     "id": "styles-attachement",
     "title": "Styles d'attachement : anxieux, évitant, sécure ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-04",
     "date_modified": "2026-11-04",
@@ -2796,6 +2900,7 @@
   {
     "id": "la-grande-faucheuse-sur-le-divan",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-03",
     "date_modified": "2026-11-03",
@@ -2823,6 +2928,7 @@
   {
     "id": "tdah-femme-adulte",
     "title": "TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-02",
     "date_modified": "2026-11-02",
@@ -2853,6 +2959,7 @@
   {
     "id": "manager-toxique-signes",
     "title": "Manager toxique : 7 signes qui ne trompent pas",
+    "type": "article",
     "excerpt": "",
     "date": "2026-11-01",
     "date_modified": "2026-11-01",
@@ -2882,6 +2989,7 @@
   {
     "id": "roue-des-emotions",
     "title": "La roue des émotions : nommer pour apaiser",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-30",
     "date_modified": "2026-10-30",
@@ -2911,6 +3019,7 @@
   {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-30",
     "date_modified": "2026-10-30",
@@ -2937,6 +3046,7 @@
   {
     "id": "traumatismes-stress-post-traumatique-sequelles-solutions",
     "title": "Traumatismes : Post Traumatique, Séquelle et Solutions",
+    "type": "dossier",
     "excerpt": "",
     "date": "2026-10-29",
     "date_modified": "2026-10-29",
@@ -2965,6 +3075,7 @@
   {
     "id": "coherence-cardiaque-365",
     "title": "Cohérence cardiaque : la méthode 365 expliquée simplement",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-28",
     "date_modified": "2026-10-28",
@@ -2994,6 +3105,7 @@
   {
     "id": "rumination-mentale",
     "title": "Rumination mentale : arrêter de ressasser",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-27",
     "date_modified": "2026-10-27",
@@ -3023,6 +3135,7 @@
   {
     "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
     "title": "Pourquoi certaines personnes culpabilisent-elles lorsqu'elles prennent du temps pour elles ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-25",
     "date_modified": "2026-10-25",
@@ -3049,6 +3162,7 @@
   {
     "id": "pleurer-pour-un-rien",
     "title": "Pleurer pour un rien : ce que ça veut dire",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-24",
     "date_modified": "2026-10-24",
@@ -3078,6 +3192,7 @@
   {
     "id": "arsene-lupin-divan",
     "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-23",
     "date_modified": "2026-10-23",
@@ -3104,6 +3219,7 @@
   {
     "id": "stereotypes-nationaux-personnalite",
     "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-22",
     "date_modified": "2026-10-22",
@@ -3130,6 +3246,7 @@
   {
     "id": "honte-emotion",
     "title": "La honte au quotidien : la repérer et la nommer sur le moment",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-21",
     "date_modified": "2026-10-21",
@@ -3159,6 +3276,7 @@
   {
     "id": "michel-fourniret-sur-le-divan",
     "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-20",
     "date_modified": "2026-10-20",
@@ -3186,6 +3304,7 @@
   {
     "id": "culpabilite-chronique",
     "title": "Culpabilité chronique : se sentir coupable de tout",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-18",
     "date_modified": "2026-10-18",
@@ -3215,6 +3334,7 @@
   {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-16",
     "date_modified": "2026-10-16",
@@ -3242,6 +3362,7 @@
   {
     "id": "democratie-ou-dictature-que-prefere-votre-cerveau",
     "title": "Démocratie ou Dictature : Que préfère votre cerveau ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-15",
     "date_modified": "2026-10-15",
@@ -3269,6 +3390,7 @@
   {
     "id": "gerer-sa-colere",
     "title": "Gérer sa colère sans l'étouffer",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-15",
     "date_modified": "2026-10-15",
@@ -3298,6 +3420,7 @@
   {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-13",
     "date_modified": "2026-10-13",
@@ -3325,6 +3448,7 @@
   {
     "id": "alexithymie",
     "title": "Alexithymie : ne pas trouver les mots de ses émotions",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-12",
     "date_modified": "2026-10-12",
@@ -3354,6 +3478,7 @@
   {
     "id": "dependance-affective",
     "title": "Dépendance affective : aimer jusqu'à s'oublier",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-11",
     "date_modified": "2026-10-11",
@@ -3383,6 +3508,7 @@
   {
     "id": "se-reveiller-3h-du-matin",
     "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-10",
     "date_modified": "2026-10-10",
@@ -3412,6 +3538,7 @@
   {
     "id": "5-traits-insoupconnes-meilleur-ami",
     "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-09",
     "date_modified": "2026-10-09",
@@ -3439,6 +3566,7 @@
   {
     "id": "innovations-sante-mentale-futur-imminent",
     "title": "Quelles innovations en santé mentale dans un futur imminent ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-08",
     "date_modified": "2026-10-08",
@@ -3466,6 +3594,7 @@
   {
     "id": "brown-out-perte-de-sens-travail",
     "title": "Brown-out : perdre le sens de son travail",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-07",
     "date_modified": "2026-10-07",
@@ -3495,6 +3624,7 @@
   {
     "id": "comprendre-ses-emotions-guide",
     "title": "Comprendre et réguler ses émotions : le guide",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-06",
     "date_modified": "2026-10-06",
@@ -3524,6 +3654,7 @@
   {
     "id": "severus-rogue-sur-le-divan",
     "title": "Severus Rogue sur le divan : psychologie d'un sorcier de sang-mêlé",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-06",
     "date_modified": "2026-10-06",
@@ -3551,6 +3682,7 @@
   {
     "id": "love-bombing",
     "title": "Love bombing : l'amour à haute dose comme piège",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-05",
     "date_modified": "2026-10-05",
@@ -3580,6 +3712,7 @@
   {
     "id": "crise-angoisse-nuit",
     "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-04",
     "date_modified": "2026-10-04",
@@ -3609,6 +3742,7 @@
   {
     "id": "paralysie-du-sommeil",
     "title": "Paralysie du sommeil : réveillé, conscient, immobile",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-03",
     "date_modified": "2026-10-03",
@@ -3638,6 +3772,7 @@
   {
     "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
     "title": "Espérance de vie et sexualité : ce que dit la science",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-02",
     "date_modified": "2026-10-02",
@@ -3665,6 +3800,7 @@
   {
     "id": "bien-dormir-guide-complet",
     "title": "Bien dormir : le guide complet du sommeil réparateur",
+    "type": "article",
     "excerpt": "",
     "date": "2026-10-01",
     "date_modified": "2026-10-01",
@@ -3694,6 +3830,7 @@
   {
     "id": "blues-du-dimanche-soir",
     "title": "Pourquoi je stresse le dimanche soir avant le travail ? Des solutions !",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-30",
     "date_modified": "2026-09-30",
@@ -3724,6 +3861,7 @@
   {
     "id": "dette-de-sommeil",
     "title": "Dette de sommeil : peut-on la rattraper le week-end ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-30",
     "date_modified": "2026-09-30",
@@ -3753,6 +3891,7 @@
   {
     "id": "benedict-bridgerton-sur-le-divan",
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-29",
     "date_modified": "2026-09-29",
@@ -3780,6 +3919,7 @@
   {
     "id": "toc-ou-anxiete-difference",
     "title": "TOC ou anxiété : comment faire la différence",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-29",
     "date_modified": "2026-09-29",
@@ -3809,6 +3949,7 @@
   {
     "id": "bore-out-ennui-au-travail",
     "title": "Bore-out : quand l'ennui au travail rend malade",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-28",
     "date_modified": "2026-09-28",
@@ -3838,6 +3979,7 @@
   {
     "id": "est-ce-que-la-taille-compte-vraiment",
     "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-27",
     "date_modified": "2026-09-27",
@@ -3864,6 +4006,7 @@
   {
     "id": "reprise-travail-apres-burn-out",
     "title": "Reprendre le travail après un burn-out sans rechuter",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-27",
     "date_modified": "2026-09-27",
@@ -3893,6 +4036,7 @@
   {
     "id": "sieste-duree-ideale",
     "title": "La sieste : durée idéale et mode d'emploi",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-27",
     "date_modified": "2026-09-27",
@@ -3922,6 +4066,7 @@
   {
     "id": "anxiolytiques-effets-alternatives",
     "title": "Anxiolytiques : ce qu'ils font vraiment (et les alternatives)",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-26",
     "date_modified": "2026-09-26",
@@ -3951,6 +4096,7 @@
   {
     "id": "bon-travail-collegues-chiants",
     "title": "Comment faire du bon travail avec des collègues chiants ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-26",
     "date_modified": "2026-09-26",
@@ -3978,6 +4124,7 @@
   {
     "id": "ecran-sante-mentale",
     "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-25",
     "date_modified": "2026-09-25",
@@ -4005,6 +4152,7 @@
   {
     "id": "arret-travail-burn-out",
     "title": "Arrêt de travail pour burn-out : le parcours réel en France",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
@@ -4034,6 +4182,7 @@
   {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
@@ -4063,6 +4212,7 @@
   {
     "id": "psychologie-du-masculinisme",
     "title": "Psychologie du masculinisme : dans la tête de la manosphère",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-24",
     "date_modified": "2026-09-24",
@@ -4090,6 +4240,7 @@
   {
     "id": "agoraphobie-comprendre",
     "title": "Agoraphobie : ce n'est pas la peur de la foule",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-23",
     "date_modified": "2026-09-23",
@@ -4119,6 +4270,7 @@
   {
     "id": "james-belmont-heart-of-the-beast",
     "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-23",
     "date_modified": "2026-09-23",
@@ -4146,6 +4298,7 @@
   {
     "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
@@ -4173,6 +4326,7 @@
   {
     "id": "violences-psychologiques-couple",
     "title": "Violences psychologiques dans le couple : ce que dit la loi française",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-22",
     "date_modified": "2026-09-22",
@@ -4202,6 +4356,7 @@
   {
     "id": "cauchemars-recurrents",
     "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
@@ -4231,6 +4386,7 @@
   {
     "id": "harcelement-moral-travail",
     "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-21",
     "date_modified": "2026-09-21",
@@ -4260,6 +4416,7 @@
   {
     "id": "anxiete-de-sante-hypocondrie",
     "title": "Anxiété de santé : quand on n'est pas « hypocondriaque » pour rien - je vous l'avais bien dit !",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-20",
     "date_modified": "2026-09-20",
@@ -4289,6 +4446,7 @@
   {
     "id": "pourquoi-vous-vous-sentez-mal-alors-que-tout-va-bien",
     "title": "Pourquoi vous vous sentez mal alors que « tout va bien »",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-19",
     "date_modified": "2026-09-19",
@@ -4315,6 +4473,7 @@
   {
     "id": "bienfaits-meconnus-du-sexe",
     "title": "Les bienfaits méconnus du sexe",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-18",
     "date_modified": "2026-09-18",
@@ -4342,6 +4501,7 @@
   {
     "id": "bon-parent-adolescent",
     "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-17",
     "date_modified": "2026-09-17",
@@ -4369,6 +4529,7 @@
   {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-16",
     "date_modified": "2026-09-16",
@@ -4396,6 +4557,7 @@
   {
     "id": "luc-skywalker-sur-le-divan",
     "title": "Luc Skywalker sur le divan : psychologie d'un Jedi",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-15",
     "date_modified": "2026-09-15",
@@ -4423,6 +4585,7 @@
   {
     "id": "anxiete-anticipatoire",
     "title": "Anxiété anticipatoire : pourquoi on n'ose plus décider",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-14",
     "date_modified": "2026-09-14",
@@ -4452,6 +4615,7 @@
   {
     "id": "se-remettre-d-une-rupture-amoureuse",
     "title": "Comment se remettre d'une rupture amoureuse ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-13",
     "date_modified": "2026-09-13",
@@ -4480,6 +4644,7 @@
   {
     "id": "je-pense-toujours-a-mon-ex-6-mois-apres",
     "title": "« Je pense toujours à mon ex » 6 mois après : pourquoi est-ce si difficile de tourner la page ?",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-12",
     "date_modified": "2026-09-12",
@@ -4506,6 +4671,7 @@
   {
     "id": "napoleon-bonaparte-sur-le-divan",
     "title": "Napoléon Bonaparte sur le divan : Psychologie d'un empereur",
+    "type": "article",
     "excerpt": "",
     "date": "2026-09-10",
     "date_modified": "2026-09-10",
@@ -4532,6 +4698,7 @@
   {
     "id": "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
     "title": "Pourquoi certaines personnes s'éloignent-elles dès qu'une relation devient sérieuse ?",
+    "type": "article",
     "excerpt": "Tout allait bien. Trop bien. Puis vous avez prononcé le mot « week-end prolongé », et la personne s'est évaporée avec l'élégance d'un chat qu'on voulait câliner. Ce n'est ni de la lâcheté ni un manque de sentiments : c'est un système de sécurité qui s'est déclenché.",
     "date": "2026-09-09",
     "date_modified": "2026-09-09",
@@ -4561,6 +4728,7 @@
   {
     "id": "meredith-grey-sur-le-divan",
     "title": "Meredith Grey sur le divan : psychologie d'une chirurgienne",
+    "type": "article",
     "excerpt": "Noyade, crash, deuils en série… et toujours debout. Comment Meredith Grey encaisse-t-elle l'impossible ? Derrière la blouse se cache une magnifique leçon de psychologie sur le trauma, l'attachement et la résilience.",
     "date": "2026-09-08",
     "date_modified": "2026-09-08",
@@ -4588,6 +4756,7 @@
   {
     "id": "dans-la-tete-d-un-pervers-narcissique",
     "title": "Dans la tête d'un pervers narcissique : comment voit-il le monde ?",
+    "type": "article",
     "excerpt": "Il ne se lève pas le matin en se disant qu'il va détruire quelqu'un. Il se lève en se disant qu'il a raison. C'est précisément le problème. Visite guidée d'une vision du monde où l'autre n'est jamais tout à fait une personne.",
     "date": "2026-09-06",
     "date_modified": "2026-09-06",
@@ -4616,6 +4785,7 @@
   {
     "id": "pourquoi-accepte-t-on-l-inacceptable",
     "title": "Pourquoi accepte-t-on l'inacceptable ?",
+    "type": "article",
     "excerpt": "Personne ne signe jamais pour l'inacceptable. On signe pour quelque chose de très acceptable, puis on renégocie un tout petit peu, deux cents fois. Voici la mécanique du glissement — et comment repérer le sien.",
     "date": "2026-09-05",
     "date_modified": "2026-09-05",
@@ -4645,6 +4815,7 @@
   {
     "id": "gaslighting-manipulation",
     "title": "Gaslighting : quand on vous fait douter de votre propre mémoire",
+    "type": "article",
     "excerpt": "« Tu inventes », « ça ne s'est jamais passé comme ça », « tu es trop sensible » : le gaslighting ne crie pas, il réécrit. À force, on finit par ne plus faire confiance à sa propre mémoire — c'est précisément le but.",
     "date": "2026-09-04",
     "date_modified": "2026-09-04",
@@ -4674,6 +4845,7 @@
   {
     "id": "souffrance-au-travail-guide",
     "title": "Souffrance au travail : reconnaître, agir, se protéger",
+    "type": "article",
     "excerpt": "Burn-out, bore-out, brown-out, charge mentale, manager toxique : la souffrance au travail prend des formes très différentes selon les personnes. Ce guide fait le point sur chacune d'elles, et sur ce qu'on peut faire, concrètement.",
     "date": "2026-09-03",
     "date_modified": "2026-09-03",
@@ -4703,6 +4875,7 @@
   {
     "id": "freres-soeurs-toxiques",
     "title": "Frères et sœurs toxiques : que faire quand la famille nous fait du mal ?",
+    "type": "article",
     "excerpt": "On choisit ses amis, jamais sa fratrie. Et quand le lien le plus long d'une vie devient une source d'épuisement, personne ne nous a donné le mode d'emploi. Repères cliniques pour distinguer la chamaillerie de la maltraitance — et sortir de l'impasse.",
     "date": "2026-09-02",
     "date_modified": "2026-09-02",
@@ -4729,6 +4902,7 @@
   {
     "id": "pleurer-de-colere",
     "title": "Pourquoi certaines personnes pleurent-elles lorsqu'elles sont en colère ?",
+    "type": "article",
     "excerpt": "Vous vouliez répliquer, vous avez pleuré. Ces larmes de rage ne sont ni un bug ni une faiblesse : elles obéissent à une logique très précise. Explication, et surtout, quoi faire quand ça monte.",
     "date": "2026-09-02",
     "date_modified": "2026-09-02",
@@ -4755,6 +4929,7 @@
   {
     "id": "hermione-granger-divan-psychologie-sorciere",
     "title": "Hermione Granger sur le divan : psychologie d'une sorcière",
+    "type": "article",
     "excerpt": "Première de la classe, née-moldue, militante des droits des elfes : et si on installait Hermione Granger sur le divan ? Analyse — sérieuse mais complice — de la sorcière la plus studieuse de Poudlard, suivie d'un quiz pour révéler votre profil.",
     "date": "2026-09-01",
     "date_modified": "2026-09-01",
@@ -4783,6 +4958,7 @@
   {
     "id": "addiction-au-porno-comment-en-parler",
     "title": "Addiction au porno : comment en parler ?",
+    "type": "article",
     "excerpt": "Le porno ne rend pas forcément accro — mais il peut discrètement éteindre le désir, recalibrer les attentes et installer un silence gênant dans le couple. Voici où se situe la ligne, ce que dit le cerveau, et comment aborder le sujet sans drame ni sermon.",
     "date": "2026-08-31",
     "date_modified": "2026-09-01",
@@ -4811,6 +4987,7 @@
   {
     "id": "walter-white-sur-le-divan",
     "title": "Walter White (Breaking Bad) : pourquoi un homme ordinaire devient monstre ?",
+    "type": "article",
     "excerpt": "Un professeur de chimie discret devient en deux ans un baron de la drogue. Sans morsure d'araignée, sans traumatisme spectaculaire. Juste un homme, ses compétences et ses raisons. Décryptage psychologique d'une descente parfaitement logique.",
     "date": "2026-08-30",
     "date_modified": "2026-09-08",
@@ -4837,6 +5014,7 @@
   {
     "id": "freins-au-bonheur",
     "title": "5 freins au bonheur que la psychologie a identifiés (et comment les lever)",
+    "type": "article",
     "excerpt": "On le cherche partout — dans les voyages, les relations, la réussite. Pourtant le bonheur nous échappe souvent sans que l'on comprenne pourquoi. La psychologie contemporaine a identifié cinq grands obstacles mentaux qui, insidieusement, nous éloignent de lui.",
     "date": "2026-08-28",
     "date_modified": "2026-09-08",
@@ -4867,6 +5045,7 @@
   {
     "id": "se-reconstruire-apres-emprise",
     "title": "Se reconstruire après une relation d'emprise",
+    "type": "article",
     "excerpt": "Partir est un moment, se reconstruire est un processus. Pourquoi ça prend du temps, dans quel ordre les choses reviennent, et à partir de quand se faire accompagner.",
     "date": "2026-08-28",
     "date_modified": "2026-08-28",
@@ -4892,6 +5071,7 @@
   {
     "id": "arreter-de-fumer-en-2-semaines",
     "title": "Arrêter de fumer en 2 semaines ? Impossible ! T'es sûr ?",
+    "type": "article",
     "excerpt": "« Impossible d'arrêter en deux semaines ! » C'est ce que ton cerveau te raconte. Sauf que la science dit l'inverse : le gros du manque physique se joue justement sur ces 2 semaines. On t'explique — et un test te dit quel genre de fumeur tu es.",
     "date": "2026-08-27",
     "date_modified": "2026-08-27",
@@ -4919,6 +5099,7 @@
   {
     "id": "lara-croft-divan-psychologie-aventuriere",
     "title": "Lara Croft sur le divan : psychologie d'une aventurière",
+    "type": "article",
     "excerpt": "Archéologue intrépide, orpheline endurcie, icône scrutée de tous : et si on installait Lara Croft sur le divan ? Petite analyse — sérieuse mais pas trop — de l'aventurière la plus célèbre du jeu vidéo, suivie d'un quiz pour situer votre profil.",
     "date": "2026-08-25",
     "date_modified": "2026-08-25",
@@ -4947,6 +5128,7 @@
   {
     "id": "vrais-jumeaux-idees-recues",
     "title": "Vraies et fausses idées sur les vrais jumeaux !",
+    "type": "article",
     "excerpt": "Même ADN, même caractère, télépathie et langage secret : la gémellité traîne derrière elle un stock d'idées reçues impressionnant. La science française, de René Zazzo à l'INED, en démonte l'essentiel — et garde quelques surprises.",
     "date": "2026-08-23",
     "date_modified": "2026-08-23",
@@ -4973,6 +5155,7 @@
   {
     "id": "refus-scolaire-anxieux-enfant-refuse-ecole",
     "title": "Refus scolaire anxieux : quand votre enfant ne peut plus franchir la grille",
+    "type": "article",
     "excerpt": "Maux de ventre chaque matin, crises au moment de partir, week-ends parfaitement normaux. Ce n'est ni un caprice ni de l'école buissonnière : c'est un trouble anxieux qui se soigne, à condition d'agir vite.",
     "date": "2026-08-21",
     "date_modified": "2026-08-21",
@@ -4999,6 +5182,7 @@
   {
     "id": "mussolini-sur-le-divan",
     "title": "Mussolini sur le divan : psychologie d'un fasciste",
+    "type": "article",
     "excerpt": "Comédien de génie ou paranoïaque mégalomane ? Derrière la mâchoire saillante et les discours au balcon, la psychologie tente de comprendre Benito Mussolini. Et son cas est très différent de celui d'Hitler.",
     "date": "2026-08-20",
     "date_modified": "2026-08-20",
@@ -5026,6 +5210,7 @@
   {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
     "title": "Pourquoi certaines personnes ne répondent plus aux messages sans explication",
+    "type": "article",
     "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
     "date": "2026-08-19",
     "date_modified": "2026-09-04",
@@ -5054,6 +5239,7 @@
   {
     "id": "psychose-definition-symptomes-traitements",
     "title": "Psychose : définition, symptômes et traitements — au-delà des idées reçues",
+    "type": "article",
     "excerpt": "Ni psychopathie, ni folie de cinéma : la psychose est un syndrome fréquent, douloureux et qui peut être pris en charge. Définition, symptômes, lectures psychodynamiques, recherches récentes et rétablissement.",
     "date": "2026-08-18",
     "date_modified": "2026-08-18",
@@ -5082,6 +5268,7 @@
   {
     "id": "meilleurs-sports-sante-mentale",
     "title": "Quels sont les meilleurs sports pour la santé mentale ?",
+    "type": "article",
     "excerpt": "Et si le meilleur antidépresseur se trouvait dans vos baskets ? La science a comparé des dizaines d'activités pour identifier celles qui font vraiment du bien au moral. Spoiler : il y en a forcément une pour vous.",
     "date": "2026-08-17",
     "date_modified": "2026-08-17",
@@ -5110,6 +5297,7 @@
   {
     "id": "argent-et-bonheur",
     "title": "L'argent fait-il le bonheur ? La réponse va vous surprendre",
+    "type": "article",
     "excerpt": "On nous répète que l'argent ne fait pas le bonheur. Mais la science dit quelque chose de plus nuancé — et de bien plus intéressant. Les recherches récentes bouleversent ce que l'on croyait savoir sur le lien entre richesse et bien-être.",
     "date": "2026-08-14",
     "date_modified": "2026-08-14",
@@ -5137,6 +5325,7 @@
   {
     "id": "dexter-psychologie-tueur-en-serie",
     "title": "Dexter sur le divan : psychologie d'un tueur en série",
+    "type": "article",
     "excerpt": "Dexter Morgan est laborantin en criminalistique le jour, serial killer la nuit — et pourtant, on l'adore. La série a transformé un meurtrier psychopathe en anti-héros attachant. Mais qu'est-ce que la psychologie dit vraiment de Dexter ? Et qu'est-ce que notre attachement à ce personnage dit de nous ?",
     "date": "2026-08-13",
     "date_modified": "2026-08-13",
@@ -5164,6 +5353,7 @@
   {
     "id": "naitre-parent-revolution-interieure",
     "title": "Naître parent : une révolution intérieure",
+    "type": "article",
     "excerpt": "On croit que devenir parent, c'est accueillir un enfant. C'est aussi, et peut-être surtout, traverser une métamorphose profonde de soi — identitaire, émotionnelle, et souvent inconsciente. Une révolution que personne ne nous a vraiment préparés à vivre.",
     "date": "2026-08-11",
     "date_modified": "2026-08-11",
@@ -5191,6 +5381,7 @@
   {
     "id": "ce-que-votre-metier-dit-de-vous",
     "title": "Ce que votre métier révèle de votre personnalité (test inclus)",
+    "type": "article",
     "excerpt": "Quand on vous demande qui vous êtes, vous répondez souvent par ce que vous faites. Mais votre métier est-il vraiment un portrait fidèle de votre personnalité ? La psychologie du travail a des réponses — et elles sont plus nuancées qu'on ne le croit.",
     "date": "2026-08-07",
     "date_modified": "2026-09-08",
@@ -5218,6 +5409,7 @@
   {
     "id": "reine-des-neiges-psychologie-heroine-glace",
     "title": "La Reine des neiges sur le divan : psychologie d'une héroïne de glace",
+    "type": "article",
     "excerpt": "Et si Elsa n'était pas qu'une princesse à paillettes ? Derrière les flocons se cache le portrait saisissant d'une jeune femme qui a appris à craindre ses propres émotions. Analyse psychologique d'une héroïne pas si givrée — avec un test pour savoir laquelle sommeille en vous.",
     "date": "2026-08-06",
     "date_modified": "2026-08-06",
@@ -5246,6 +5438,7 @@
   {
     "id": "meres-toxiques-comprendre-pour-se-reconstruire",
     "title": "Mères toxiques : comprendre pour se reconstruire",
+    "type": "article",
     "excerpt": "Mères toxiques : quelles formes prend la toxicité maternelle, quelles traces laisse-t-elle et comment se reconstruire ? Psychologie et pistes thérapeutiques.",
     "date": "2026-08-04",
     "date_modified": "2026-08-04",
@@ -5273,6 +5466,7 @@
   {
     "id": "gaston-lagaffe-psychopathologie",
     "title": "Gaston Lagaffe sur le divan : Psychologie d'un employé de bureau",
+    "type": "article",
     "excerpt": "Gaston Lagaffe, génie du chaos et champion de la sieste au bureau, n'est pas qu'un personnage comique : c'est un cas clinique d'une richesse rare. Paresse chronique, créativité débordante, conflits avec l'autorité… Et si Gaston nous tendait un miroir bien peu flatteur sur le monde du travail moderne ?",
     "date": "2026-07-31",
     "date_modified": "2026-07-31",
@@ -5301,6 +5495,7 @@
   {
     "id": "friluftsliv-bonheur-norvegien",
     "title": "Le friluftsliv : la recette secrète norvégienne du bonheur ?",
+    "type": "article",
     "excerpt": "Et si la clé du bonheur se trouvait dans une forêt sous la pluie ? Le friluftsliv, cette philosophie norvégienne de la vie en plein air, n'est pas une tendance Instagram de plus — c'est une pratique enracinée dans la culture scandinave depuis des siècles, et la science commence à lui donner sérieusement raison.",
     "date": "2026-07-30",
     "date_modified": "2026-07-30",
@@ -5328,6 +5523,7 @@
   {
     "id": "horoscope-pourquoi-on-y-croit",
     "title": "Pourquoi votre horoscope tombe toujours juste (et ce n’est pas écrit dans les étoiles)",
+    "type": "article",
     "excerpt": "Votre horoscope tombe étonnamment juste ? La science a pourtant tranché. Entre effet Barnum et biais de confirmation, voici ce que votre signe révèle surtout… de votre cerveau. (Avec un test pour le prouver.)",
     "date": "2026-07-28",
     "date_modified": "2026-07-28",
@@ -5355,6 +5551,7 @@
   {
     "id": "survivre-relation-toxique",
     "title": "Survivre à une relation toxique ?",
+    "type": "article",
     "excerpt": "Elle peut être douce et pourtant vous épuiser. Qu'est-ce qu'une relation toxique, que disent les témoignages et la science, et comment y survivre ? Décryptage, avec un test à la clé.",
     "date": "2026-07-26",
     "date_modified": "2026-09-01",
@@ -5383,6 +5580,7 @@
   {
     "id": "wonder-woman-sur-le-divan",
     "title": "Wonder Woman sur le divan : Psychologie d’une super héroïne",
+    "type": "article",
     "excerpt": "Lasso de vérité, double identité, syndrome de la « femme forte »… Et si la plus célèbre des super-héroïnes, inventée par un vrai psychologue, en disait long sur nous ?",
     "date": "2026-07-24",
     "date_modified": "2026-07-24",
@@ -5410,6 +5608,7 @@
   {
     "id": "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
     "title": "Pourquoi votre cerveau imagine toujours le pire ? Le trouble anxieux généralisé expliqué par la psychologie et les neurosciences",
+    "type": "article",
     "excerpt": "Votre cerveau écrit des scénarios catastrophe pendant que le reste du monde dort ? La science a une explication — et surtout des solutions. Plongée dans les mécanismes du trouble anxieux généralisé, de l'amygdale à l'intolérance à l'incertitude.",
     "date": "2026-07-23",
     "date_modified": "2026-09-01",
@@ -5440,6 +5639,7 @@
   {
     "id": "portrait-robot-prince-charmant-2026",
     "title": "Portrait-robot du prince charmant en 2026 : ce que les femmes préfèrent vraiment",
+    "type": "article",
     "excerpt": "Grand, riche, ténébreux ? Oubliez le cliché. À la lumière des études les plus récentes sur les préférences féminines, la science dessine un prince charmant version 2026 très différent — et bien plus rassurant.",
     "date": "2026-07-23",
     "date_modified": "2026-07-23",
@@ -5467,6 +5667,7 @@
   {
     "id": "ulysse-sur-le-divan",
     "title": "Ulysse sur le divan : psychologie d'un héros de mythe",
+    "type": "article",
     "excerpt": "Vingt ans loin de chez lui, une guerre, un naufrage permanent et un retour incognito : Ulysse est le premier cas clinique de la littérature. Stress post-traumatique, syndrome d'Ulysse, contrat d'Ulysse — la psychologie moderne lui doit beaucoup.",
     "date": "2026-07-20",
     "date_modified": "2026-09-04",
@@ -5491,6 +5692,7 @@
   {
     "id": "regle-goldwater-diagnostiquer-trump",
     "title": "Pourquoi les psys refusent de diagnostiquer Trump : la règle Goldwater sur le divan",
+    "type": "article",
     "excerpt": "Des milliers de cliniciens voudraient parler, leur code de déontologie leur ordonne de se taire. Retour sur la règle Goldwater, née d’un scandale de 1964 et dynamitée par l’ère Trump.",
     "date": "2026-07-19",
     "date_modified": "2026-07-19",
@@ -5518,6 +5720,7 @@
   {
     "id": "notre-radar-interieur",
     "title": "Notre radar intérieur : osez vous faire confiance",
+    "type": "article",
     "excerpt": "Nous avons tous un détecteur de danger psychique qui repère les gens toxiques et les situations à risque bien avant notre raisonnement. Encore faut-il savoir l'écouter. Mode d'emploi.",
     "date": "2026-07-17",
     "date_modified": "2026-07-17",
@@ -5545,6 +5748,7 @@
   {
     "id": "james-bond-psychologie-agent-secret",
     "title": "James Bond est-il un psychopathe ? Analyse d'un agent secret",
+    "type": "article",
     "excerpt": "Séducteur invétéré, tueur sans remords, buveur de Martini sous contrôle apparent — James Bond est l'homme le plus cool du monde. Mais à y regarder de plus près, 007 présente un profil psychologique qui ferait tiquer n'importe quel thérapeute. Analyse sans mandat officiel.",
     "date": "2026-07-16",
     "date_modified": "2026-09-08",
@@ -5572,6 +5776,7 @@
   {
     "id": "femme-parfaite-pour-les-hommes-2026",
     "title": "La femme parfaite selon les hommes en 2026 : ce qu'en dit la science",
+    "type": "article",
     "excerpt": "Que cherchent vraiment les hommes chez une femme en 2026 ? Psychologie évolutionniste, construction sociale et injonctions contradictoires : analyse scientifique et féministe.",
     "date": "2026-07-14",
     "date_modified": "2026-07-14",
@@ -5599,6 +5804,7 @@
   {
     "id": "mickey-sur-le-divan",
     "title": "Mickey sur le divan : psychologie d'une souris qui a réussi",
+    "type": "article",
     "excerpt": "Pourquoi une souris dessinée déclenche-t-elle autant d'affection chez des milliards d'humains ? Derrière le sourire de Mickey se cachent la néoténie, l'instinct parental, l'anthropomorphisme et la psychologie de la nostalgie. Une réussite qui n'a rien d'un hasard.",
     "date": "2026-07-12",
     "date_modified": "2026-07-12",
@@ -5625,6 +5831,7 @@
   {
     "id": "date-tinder-tueur-en-serie",
     "title": "Votre date Tinder est-il un tueur en série ?",
+    "type": "article",
     "excerpt": "Spoiler : presque certainement pas. Mais derrière la blague se cachent de vrais red flags — love bombing, contrôle, mépris — qu'il vaut mieux savoir repérer dès le premier rendez-vous.",
     "date": "2026-07-10",
     "date_modified": "2026-07-10",
@@ -5654,6 +5861,7 @@
   {
     "id": "film-horreur-pourquoi-aime-t-on-se-faire-peur",
     "title": "Film d'horreur : pourquoi aime-t-on se faire peur ?",
+    "type": "article",
     "excerpt": "Pourquoi aime-t-on se faire peur au cinéma ? Adrénaline, catharsis, contrôle du danger : la psychologie explique l'attrait des films d'horreur.",
     "date": "2026-07-09",
     "date_modified": "2026-07-09",
@@ -5681,6 +5889,7 @@
   {
     "id": "du-crush-au-crash-anatomie-histoires-amour",
     "title": "Crush ou véritable amour ? Les signes que ça va s'effondrer",
+    "type": "article",
     "excerpt": "De l'attraction initiale à la rupture ou à la longévité : la psychologie et les neurosciences décortiquent les étapes d'une histoire d'amour, sans en épuiser le mystère.",
     "date": "2026-07-07",
     "date_modified": "2026-09-08",
@@ -5708,6 +5917,7 @@
   {
     "id": "son-goku-sur-le-divan",
     "title": "Dragon Ball Z : Son Goku sur le divan",
+    "type": "article",
     "excerpt": "Il meurt, revient et sourit encore. Derrière le combattant increvable de Dragon Ball Z se cache un formidable cas d'école : résilience, quête initiatique et motivation intrinsèque. Son Goku passe sur le divan.",
     "date": "2026-07-06",
     "date_modified": "2026-07-06",
@@ -5734,6 +5944,7 @@
   {
     "id": "techniques-drague-science",
     "title": "Techniques de drague : ce que dit vraiment la science",
+    "type": "dossier",
     "excerpt": "Oubliez les « techniques » des pickup artists. La psychologie de l'attirance désigne cinq leviers qui marchent vraiment — et quelques classiques qui font surtout fuir.",
     "date": "2026-07-05",
     "date_modified": "2026-09-08",
@@ -5760,6 +5971,7 @@
   {
     "id": "ia-revolution-travail-emploi",
     "title": "L'IA et l'emploi : quand la machine nous oblige à nous réinventer",
+    "type": "dossier",
     "excerpt": "L'intelligence artificielle supprime des emplois à un rythme inédit — plus de 150 000 postes disparus dans la tech en 2024 — et ravive une angoisse aussi vieille que la révolution industrielle. Mais comme à chaque grande transformation, ce bouleversement porte aussi en lui les germes d'un renouveau. Ce que nous perdons en certitudes, nous pouvons le regagner en sens.",
     "date": "2026-07-04",
     "date_modified": "2026-07-08",
@@ -5788,6 +6000,7 @@
   {
     "id": "tintin-sur-le-divan",
     "title": "Tintin (et ses amis) sur le divan : psychologie d'un reporter en culotte courte",
+    "type": "article",
     "excerpt": "Tintin ne pleure jamais, Haddock explose pour un rien, Tournesol vit dans sa bulle et la Castafiore occupe tout l'espace. Et si la bande à Hergé était un séminaire de psychologie déguisé en aventure ? On installe tout Moulinsart sur le divan.",
     "date": "2026-07-03",
     "date_modified": "2026-07-06",
@@ -5818,6 +6031,7 @@
   {
     "id": "asterix-obelix-psychopathologie-complice",
     "title": "Astérix et Obélix sur le divan : Psychologie d'irréductibles gaulois",
+    "type": "article",
     "excerpt": "Un village entier qui refuse de céder, un chef porté sur un bouclier bancal, un barde qu'on attache à chaque fête — et si derrière les fous rires, la bande à Astérix nous parlait de nous ? On passe les Gaulois au scanner de la psycho. Par Toutatis, les résultats sont édifiants.",
     "date": "2026-06-30",
     "date_modified": "2026-07-04",
@@ -5846,6 +6060,7 @@
   {
     "id": "coloriage-therapie-crayons-meilleur-psy",
     "title": "Coloriage thérapie : et si vos crayons de couleur étaient votre meilleur psy ?",
+    "type": "article",
     "excerpt": "Best-sellers estampillés « anti-stress », les albums de coloriage pour adultes tiennent-ils leurs promesses ? Ce que dit vraiment la science — et ce qu'un crayon ne remplacera jamais.",
     "date": "2026-06-28",
     "date_modified": "2026-06-28",
@@ -5873,6 +6088,7 @@
   {
     "id": "syndrome-witzelsucht",
     "title": "Votre collègue enchaine les blagues qui ne font rire que lui : il est peut être atteint du syndrome de Witzelsucht",
+    "type": "article",
     "excerpt": "Vous avez tous un collègue qui abuse des jeux de mots et vit dans son propre one man show. Bonne nouvelle : il est peut-être atteint d'un syndrome neurologique rarissime. Décryptage compassionnel.",
     "date": "2026-06-26",
     "date_modified": "2026-07-08",
@@ -5900,6 +6116,7 @@
   {
     "id": "psychologie-du-feminisme",
     "title": "Psychologie du féminisme : ce que la science dit de nos résistances (et de nos élans)",
+    "type": "article",
     "excerpt": "Sexisme bienveillant, privilège invisible, besoin de croire en un monde juste : et si le féminisme était d'abord une affaire de mécaniques mentales ? Petit voyage décontracté dans la tête de tout le monde.",
     "date": "2026-06-25",
     "date_modified": "2026-06-25",
@@ -5927,6 +6144,7 @@
   {
     "id": "chaleur-temperature-cerveau-sante-mentale",
     "title": "À partir de quelle température le cerveau est-il KO ? Impact de la canicule sur la santé mentale",
+    "type": "article",
     "excerpt": "Sous la canicule, notre cerveau lève le pied : attention, mémoire et humeur déclinent. Et avec des étés de plus en plus chauds, l'enjeu devient urgent. Ce que dit la science.",
     "date": "2026-06-23",
     "date_modified": "2026-06-23",
@@ -5953,6 +6171,7 @@
   {
     "id": "et-si-vous-etiez-hpi",
     "title": "Et si vous étiez HPI ?",
+    "type": "article",
     "excerpt": "Vous vous êtes toujours senti·e un peu décalé·e. Trop sensible, trop curieux·se, trop dans votre tête. Les tests en ligne vous disent que vous êtes surdoué·e. Et si c'était vrai — ou pas tout à fait ? Ce que la science sait vraiment du haut potentiel intellectuel.",
     "date": "2026-06-22",
     "date_modified": "2026-09-01",
@@ -5984,6 +6203,7 @@
   {
     "id": "ce-que-les-peres-devraient-dire",
     "title": "Ce que tous les pères devraient dire à leur enfant",
+    "type": "article",
     "excerpt": "Derrière le silence des pères se cache souvent l'essentiel — ce qui manque, ce qui blesse, et ce qui aurait pu tout changer. Voici les mots que la psychologie nous invite à prononcer, avant qu'il soit trop tard.",
     "date": "2026-06-21",
     "date_modified": "2026-06-21",
@@ -6011,6 +6231,7 @@
   {
     "id": "peut-on-changer-de-personnalite",
     "title": "Peut-on vraiment changer de personnalité ?",
+    "type": "article",
     "excerpt": "Timide depuis toujours, anxieux·se depuis l'enfance, introverti·e jusqu'à la moelle — et si tout ça n'était pas gravé dans le marbre ? La psychologie moderne a une réponse surprenante : oui, on peut changer. Mais pas comme on le croit.",
     "date": "2026-06-20",
     "date_modified": "2026-06-20",
@@ -6038,6 +6259,7 @@
   {
     "id": "addiction-ia-cerveau-cloud",
     "title": "IA Addict : la nouvelle addiction aux intelligences artificielles",
+    "type": "article",
     "excerpt": "On lui demande quoi manger, quoi répondre à notre patron, comment se sentir mieux. L'IA est devenue le confident universel, le coach, le psy, le GPS de nos pensées. Pratique ? Indéniablement. Inquiétant ? La science commence à dire oui.",
     "date": "2026-06-19",
     "date_modified": "2026-06-19",
@@ -6065,6 +6287,7 @@
   {
     "id": "accords-tolteques-psychologie-neurosciences",
     "title": "Les quatre accords toltèques : la sagesse ancestrale à l'épreuve de la science",
+    "type": "article",
     "excerpt": "Publiés en 1997, les quatre accords toltèques de Don Miguel Ruiz sont devenus un phénomène mondial de développement personnel. Mais que valent-ils à l'aune de la psychologie contemporaine et des neurosciences ? Moins ésotériques qu'ils n'y paraissent.",
     "date": "2026-06-18",
     "date_modified": "2026-06-18",
@@ -6092,6 +6315,7 @@
   {
     "id": "hitler-sur-le-divan",
     "title": "Hitler sur le divan : psychologie d'un nazi",
+    "type": "article",
     "excerpt": "Que se passait-il dans la tête d'Adolf Hitler ? Entre rapports secrets de psychologues américains, diagnostics posthumes et cocktails pharmaceutiques, la science a tenté de percer le mystère du dictateur. Spoiler : c'est plus compliqué qu'un simple « il était fou ».",
     "date": "2026-06-17",
     "date_modified": "2026-07-04",
@@ -6119,6 +6343,7 @@
   {
     "id": "collegue-pervers-sortir-zone-rouge",
     "title": "Collègue pervers : sortir de la zone rouge ?",
+    "type": "article",
     "excerpt": "Il sourit en réunion et vous démolit en coulisses. Vous doutez de vous, vous dormez mal, vous vous demandez si vous exagérez. Spoiler : non. Voici ce que dit la psychologie pour sortir de l'emprise d'un collègue toxique — avec un test pour situer la relation.",
     "date": "2026-06-16",
     "date_modified": "2026-06-16",
@@ -6146,6 +6371,7 @@
   {
     "id": "mentalistes-comment-ils-decryptent-nos-pensees",
     "title": "Comment les mentalistes décryptent nos pensées",
+    "type": "article",
     "excerpt": "Ils devinent votre mot secret, révèlent votre prénom sans vous avoir jamais rencontré, ou vous font choisir librement une carte qu'ils avaient « prédite ». Les mentalistes ne lisent pas dans les pensées — mais ils en savent long sur la psychologie humaine. Et ce qu'ils savent devrait vous intéresser.",
     "date": "2026-06-15",
     "date_modified": "2026-06-15",
@@ -6173,6 +6399,7 @@
   {
     "id": "dunning-kruger",
     "title": "Le syndrome du génie raté : pourquoi on se croit meilleur qu'on n'est",
+    "type": "article",
     "excerpt": "M. Choupoune arrive avec ses plans de fusée thermonucléaire. Il ne doute de rien — et c'est précisément ça, le problème. L'effet Dunning-Kruger explique pourquoi les moins compétents sont souvent les plus sûrs d'eux, et pourquoi on est tous un peu M. Choupoune.",
     "date": "2026-06-14",
     "date_modified": "2026-06-14",
@@ -6205,6 +6432,7 @@
   {
     "id": "pourquoi-sommes-nous-fascines-par-les-chats",
     "title": "Pourquoi sommes-nous fascinés par les chats ?",
+    "type": "article",
     "excerpt": "600 millions de chats domestiques dans le monde. Des milliards de vidéos visionnées chaque année. Une vénération qui remonte à 11 000 ans. La fascination humaine pour le chat n'est pas anecdotique — elle est profonde, multidimensionnelle, et la science commence à en comprendre les mécanismes.",
     "date": "2026-06-13",
     "date_modified": "2026-06-13",
@@ -6232,6 +6460,7 @@
   {
     "id": "brandolini",
     "title": "Le principe de Brandolini : pourquoi réfuter une connerie prend dix fois plus de temps que de la dire",
+    "type": "article",
     "excerpt": "Une affirmation fausse se lance en cinq secondes. La démonter prend une heure — si tout va bien. Ce n'est pas de la mauvaise foi, ce n'est pas de l'ignorance. C'est de la physique cognitive. Et une fois qu'on l'a compris, on ne regarde plus jamais pareil une réunion de travail ou un fil d'actualité.",
     "date": "2026-06-12",
     "date_modified": "2026-06-12",
@@ -6264,6 +6493,7 @@
   {
     "id": "animaux-sante-mentale",
     "title": "Nos animaux sont-ils nos meilleurs psys ?",
+    "type": "article",
     "excerpt": "Un chien qui pose sa tête sur vos genoux. Un chat qui ronronne dans votre cou. Un cheval qui avance au même rythme que vous. Ce n'est pas que du réconfort — c'est de la biochimie. La science s'intéresse sérieusement aux bienfaits des animaux sur notre santé mentale, et les résultats sont étonnamment solides.",
     "date": "2026-06-11",
     "date_modified": "2026-06-11",
@@ -6291,6 +6521,7 @@
   {
     "id": "harry-potter-psychopathologie-complice",
     "title": "Harry Potter sur le divan : Psychologie d’un sorcier",
+    "type": "dossier",
     "excerpt": "Fans de la saga depuis toujours, on a quand même une question qui nous chatouille : et si on passait Harry Potter au scanner de la psy ? Détraqueurs, cicatrice qui brûle, rêves de Voldemort… Ce type a clairement besoin d’un suivi. Et nous aussi, peut-être.",
     "date": "2026-06-10",
     "date_modified": "2026-07-04",
@@ -6319,6 +6550,7 @@
   {
     "id": "therapie-par-le-rire",
     "title": "La thérapie par le rire, ce n'est pas une blague !",
+    "type": "article",
     "excerpt": "Un enfant rit jusqu'à 300 fois par jour. Un adulte ? Une vingtaine. Et ce chiffre ne fait que diminuer depuis des décennies. La gélothérapie — ou thérapie par le rire — s'emploie à inverser la tendance avec un sérieux… désarmant.",
     "date": "2026-06-09",
     "date_modified": "2026-06-22",
@@ -6346,6 +6578,7 @@
   {
     "id": "a-quoi-sert-la-honte",
     "title": "À quoi sert la honte ?",
+    "type": "article",
     "excerpt": "On la fuit, on s'en défend, on l'intériorise jusqu'à la confondre avec soi-même. La psychologie lui reconnaît une utilité — à condition de comprendre la différence entre la honte qui protège et celle qui dévore.",
     "date": "2026-06-08",
     "date_modified": "2026-06-08",
@@ -6383,6 +6616,7 @@
   {
     "id": "cerveau-a-t-il-un-genre",
     "title": "Le cerveau a-t-il un genre ?",
+    "type": "article",
     "excerpt": "Cerveau masculin, cerveau féminin : mythe ou réalité ? La neuroscience contemporaine a une réponse bien plus nuancée — et bien plus intéressante — que les deux camps en présence. Plus de 90 % des cerveaux humains sont des mosaïques inclassifiables : voici ce que ça veut dire vraiment.",
     "date": "2026-06-07",
     "date_modified": "2026-06-07",
@@ -6415,6 +6649,7 @@
   {
     "id": "age-ideal-avoir-enfants",
     "title": "Quel est le meilleur âge pour avoir des enfants ?",
+    "type": "article",
     "excerpt": "La biologie dit « avant 35 ans ». La psychologie dit « quand vous êtes prêt·e ». La sociologie dit « ça dépend de votre situation ». Et votre belle-mère dit probablement autre chose. Tour d'horizon de ce que la science sait vraiment — et de ce qu'elle ne peut pas décider à votre place.",
     "date": "2026-06-06",
     "date_modified": "2026-06-06",
@@ -6441,6 +6676,7 @@
   {
     "id": "choisir-son-therapeute",
     "title": "Comment choisir son thérapeute — et savoir s'il est vraiment bon",
+    "type": "article",
     "excerpt": "Psychologue, psychiatre, sophrologue, psychanalyste : le marché du \"aller mieux\" est une jungle. Le guide honnête pour choisir le bon professionnel — et reconnaître les red flags qui doivent vous faire fuir.",
     "date": "2026-06-05",
     "date_modified": "2026-08-28",
@@ -6475,6 +6711,7 @@
   {
     "id": "therapie-cognitive-comportementale",
     "title": "La TCC expliquée : comment elle reprogramme les pensées négatives",
+    "type": "article",
     "excerpt": "La thérapie cognitivo-comportementale est l'approche la plus validée scientifiquement en psychologie. Mais comment fonctionne-t-elle vraiment ? Quels changements produit-elle dans le cerveau ? Et pour qui est-elle faite ?",
     "date": "2026-06-05",
     "date_modified": "2026-06-05",
@@ -6502,6 +6739,7 @@
   {
     "id": "monde-dirige-par-femmes",
     "title": "Et si le monde était (mieux) dirigé par des femmes ?",
+    "type": "article",
     "excerpt": "Pandémie, guerres, climat, économie : que disent vraiment les données sur les femmes au pouvoir ? Entre enthousiasme fondé et nuances nécessaires, la science a commencé à répondre.",
     "date": "2026-06-04",
     "date_modified": "2026-06-04",
@@ -6540,6 +6778,7 @@
   {
     "id": "a-partir-de-quel-age-est-on-vieux",
     "title": "À partir de quel âge est-on vieux ? La science répond — et sa réponse va vous surprendre",
+    "type": "article",
     "excerpt": "La réponse intuitive, c'est 65 ans — l'âge de la retraite, les cheveux blancs, le regard des autres. Mais quand on pose la question à 14 000 personnes sur vingt-cinq ans d'étude, la vieillesse commence à 75. Et quand on mesure ce que l'âge qu'on se donne fait réellement à notre cerveau et à notre santé, tout devient plus compliqué — et franchement plus encourageant.",
     "date": "2026-06-02",
     "date_modified": "2026-06-02",
@@ -6567,6 +6806,7 @@
   {
     "id": "crise-angoisse",
     "title": "Crise d'angoisse : quelles solutions quand ça arrive ?",
+    "type": "article",
     "excerpt": "Le cœur qui s'emballe, la respiration qui se coupe, la certitude que quelque chose de grave se passe… La crise d'angoisse est terrifiante. Pourtant, elle est gérable. Voici comment.",
     "date": "2026-05-20",
     "date_modified": "2026-09-01",
@@ -6597,6 +6837,7 @@
   {
     "id": "trouble-anxieux-generalise",
     "title": "Le trouble anxieux généralisé : quand l'inquiétude devient permanente",
+    "type": "article",
     "excerpt": "Se faire du souci, c'est normal. Mais quand l'inquiétude est constante, incontrôlable et envahit tous les aspects de la vie, on parle de trouble anxieux généralisé. Comprendre ce trouble, c'est déjà commencer à s'en libérer.",
     "date": "2026-05-15",
     "date_modified": "2026-09-01",
@@ -6627,6 +6868,7 @@
   {
     "id": "reconnaitre-depression",
     "title": "Dépression : 10 signes qui ne trompent pas",
+    "type": "article",
     "excerpt": "La dépression ne ressemble pas toujours à ce qu'on imagine. Ce n'est pas juste « avoir le blues » ou « être fatigué ». C'est une maladie sérieuse avec des signes précis — et les reconnaître est la première étape vers la guérison.",
     "date": "2026-05-10",
     "date_modified": "2026-06-05",
@@ -6653,6 +6895,7 @@
   {
     "id": "sortir-depression",
     "title": "Comment sortir de la dépression ? Les approches qui fonctionnent vraiment",
+    "type": "article",
     "excerpt": "Sortir de la dépression n'est pas une question de volonté. C'est une question de traitement adapté. Voici ce que la science dit sur les approches les plus efficaces — et comment retrouver le chemin vers le mieux.",
     "date": "2026-05-05",
     "date_modified": "2026-06-05",
@@ -6680,6 +6923,7 @@
   {
     "id": "johatsu",
     "title": "Les évaporés : quand disparaître semble la seule issue",
+    "type": "article",
     "excerpt": "Au Japon, ils ont un nom : les jōhatsu, « ceux qui s'évaporent ». Chaque année, 80 000 personnes s'effacent volontairement de leur propre existence — sans lettre, sans cri. Et si cette tentation de ne plus exister, sans mourir, était bien plus universelle qu'on ne le croit ?",
     "date": "2026-05-01",
     "date_modified": "2026-06-05",
@@ -6712,6 +6956,7 @@
   {
     "id": "meditation-pleine-conscience",
     "title": "Méditation pleine conscience : le guide complet pour débutants",
+    "type": "article",
     "excerpt": "La méditation de pleine conscience (mindfulness) est l'outil de bien-être mental le mieux documenté de ces 30 dernières années. Pas besoin d'être bouddhiste ni de méditer des heures. Voici comment commencer.",
     "date": "2026-04-28",
     "date_modified": "2026-04-28",
@@ -6739,6 +6984,7 @@
   {
     "id": "burnout-epuisement-professionnel",
     "title": "Burnout : reconnaître l'épuisement professionnel avant qu'il ne vous brise",
+    "type": "article",
     "excerpt": "Le burnout ne survient pas du jour au lendemain. Il s'installe progressivement, silencieusement, jusqu'au point de rupture. Apprendre à le reconnaître tôt — et agir — peut vous épargner des mois de reconstruction.",
     "date": "2026-04-20",
     "date_modified": "2026-08-31",
@@ -6769,6 +7015,7 @@
   {
     "id": "techniques-anti-stress",
     "title": "7 techniques anti-stress validées par la science",
+    "type": "article",
     "excerpt": "Pas besoin de vacances aux Maldives pour déstresser. Ces 7 techniques, toutes validées par des études sérieuses, peuvent transformer votre rapport au stress en quelques semaines — et certaines agissent en quelques minutes.",
     "date": "2026-04-15",
     "date_modified": "2026-08-31",
@@ -6800,6 +7047,7 @@
   {
     "id": "sommeil-sante-mentale",
     "title": "Sommeil et santé mentale : ce que l'on ne vous a jamais dit !",
+    "type": "article",
     "excerpt": "Mal dormir rend anxieux. L'anxiété empêche de dormir. Ce cercle vicieux entre sommeil et santé mentale est l'un des plus importants à comprendre — et à briser. Voici comment.",
     "date": "2026-04-10",
     "date_modified": "2026-09-01",
@@ -6831,6 +7079,7 @@
   {
     "id": "vaincre-insomnie",
     "title": "Vaincre l'insomnie : les méthodes qui marchent vraiment",
+    "type": "article",
     "excerpt": "L'insomnie touche un Français sur trois. Les somnifères ne sont pas la solution à long terme. La TCC-I, la restriction de sommeil et d'autres techniques ont fait leurs preuves — voici le guide complet.",
     "date": "2026-04-05",
     "date_modified": "2026-09-01",
@@ -6861,6 +7110,7 @@
   {
     "id": "quelle-therapie-choisir",
     "title": "Quelle thérapie choisir ? Le vrai guide pour ne pas se perdre et se (re)trouver",
+    "type": "article",
     "excerpt": "TCC, psychanalyse, EMDR, ACT, Gestalt… Il existe des dizaines d'approches thérapeutiques. Comment s'y retrouver ? Quelles sont les plus efficaces pour quels problèmes ? Le guide clair que vous cherchiez.",
     "date": "2026-04-03",
     "date_modified": "2026-06-03",
@@ -6889,6 +7139,7 @@
   {
     "id": "resilience-emotionnelle",
     "title": "Développer sa résilience : l'art de rebondir après les épreuves",
+    "type": "article",
     "excerpt": "La résilience n'est pas une qualité innée réservée aux forts. C'est une compétence qui s'apprend et se cultive. Voici comment développer votre capacité à traverser les tempêtes sans vous briser.",
     "date": "2026-03-20",
     "date_modified": "2026-09-01",
@@ -6919,6 +7170,7 @@
   {
     "id": "communication-non-violente",
     "title": "Communication non-violente : transformer vos relations en 4 étapes",
+    "type": "article",
     "excerpt": "La CNV de Marshall Rosenberg est l'une des approches relationnelles les plus puissantes et les plus pratiques. Quatre étapes simples pour exprimer vos besoins sans blesser, et entendre ceux des autres sans vous défendre.",
     "date": "2026-03-15",
     "date_modified": "2026-06-04",
@@ -6946,6 +7198,7 @@
   {
     "id": "relation-toxique-signes",
     "title": "Relation toxique : les 8 signes qui ne trompent pas",
+    "type": "article",
     "excerpt": "Une relation toxique ne commence pas forcément par des coups. Elle commence par des petites phrases, des regards, des culpabilisations subtiles. Voici les 8 signaux d'alarme à reconnaître avant que la situation ne s'aggrave.",
     "date": "2026-03-05",
     "date_modified": "2026-06-04",
@@ -6973,6 +7226,7 @@
   {
     "id": "estime-de-soi",
     "title": "L'estime de soi : comprendre et reconstruire la relation avec soi-même",
+    "type": "article",
     "excerpt": "L'estime de soi n'est pas de l'arrogance. C'est la conviction profonde d'avoir de la valeur — indépendamment de ce qu'on accomplit, de l'approbation des autres ou de son apparence. Voici comment elle se construit, se détruit et se répare.",
     "date": "2026-02-28",
     "date_modified": "2026-06-04",

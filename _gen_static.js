@@ -253,6 +253,7 @@ const newIndex = jsonFiles.map(file => {
   return {
     id:              j.id,
     title:           j.title,
+    type:            j.type             || 'article',
     excerpt:         j.excerpt          || '',
     date:            j.date,
     date_modified:   j.date_modified    || j.date,
@@ -292,6 +293,7 @@ const allIndex = jsonFiles.map(file => {
   return {
     id:              j.id,
     title:           j.title,
+    type:            j.type             || 'article',
     excerpt:         isPublic ? (j.excerpt         || '') : '',
     date:            j.date,
     date_modified:   j.date_modified    || j.date,
