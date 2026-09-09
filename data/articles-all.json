@@ -1,5 +1,35 @@
 [
   {
+    "id": "symptomes-physiques-anxiete",
+    "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-09-11",
+    "date_modified": "2027-09-11",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rt4azdla8u6czbjcy8vf",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "symptomes-anxiete",
+      "somatisation",
+      "troubles-anxieux"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "crise-angoisse-nuit",
+      "coherence-cardiaque-365",
+      "trouble-anxieux-generalise"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "excerpt": "",
@@ -4392,35 +4422,6 @@
     "metaDescription": "",
     "articles_lies": [
       "dans-la-tete-d-un-pervers-narcissique"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "symptomes-physiques-anxiete",
-    "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
-    "excerpt": "",
-    "date": "2026-09-11",
-    "date_modified": "2026-09-11",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rt4azdla8u6czbjcy8vf",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "anxiete",
-      "symptomes-anxiete",
-      "somatisation",
-      "troubles-anxieux"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "crise-angoisse-nuit",
-      "coherence-cardiaque-365",
-      "trouble-anxieux-generalise"
     ],
     "status": "scheduled"
   },
