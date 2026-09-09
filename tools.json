@@ -427,7 +427,7 @@
         "paliers": {
           "liste": ["sain", "modere", "marque", "severe"],
           "calcul": "palier choisi le plus souvent parmi les 8 réponses (mode)",
-          "regleEgalite": "en cas d'égalité entre plusieurs paliers, celui qui apparaît le plus loin dans contenu.paliers.liste l'emporte (le plus sévère)"
+          "regleEgalite": "en cas d'égalité entre plusieurs paliers, celui qui apparaît le plus loin dans contenu.paliers.liste l'emporte (le plus marqué)"
         }
       },
       "restitution": {
@@ -456,7 +456,7 @@
           {
             "id": "severe",
             "emoji": "🛟",
-            "label": "Un syndrome de l'imposteur sévère",
+            "label": "Un syndrome de l'imposteur très marqué",
             "couleur": "#b23a48",
             "texte": "<p>Vos réponses décrivent un doute permanent sur votre propre légitimité, au point d'influencer fortement votre façon de travailler et de vous percevoir. Ce vécu, bien documenté par la recherche, n'a rien d'un caprice ni d'une fragilité personnelle.</p><p>Un accompagnement par un professionnel formé aux approches cognitivo-comportementales peut vraiment aider à déconstruire ces schémas de pensée installés. Vous méritez de vous accorder ce soutien.</p>"
           }
