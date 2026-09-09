@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seriez-vous plutôt empereur, roi, dictateur ou président ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/napoleon-bonaparte-sur-le-divan/">
+  <meta name="description" content="Douze questions pour découvrir votre style de pouvoir : conquérant, héritier, contrôleur ou négociateur. Un test de réflexion, sans diagnostic.">
+  <style>
+    :root{
+      --encre:#152430;
+      --bleu:#1F4E6B;
+      --bleu-clair:#2E6F92;
+      --or:#A8842C;
+      --or-clair:#D9BE72;
+      --papier:#FBF8F1;
+      --papier-ombre:#F1EADB;
+      --trait:#DFD4BE;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:transparent}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--encre);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+    }
+    .cadre{
+      max-width:660px;margin:0 auto;
+      background:var(--papier);
+      border:1px solid var(--trait);
+      border-radius:14px;
+      padding:26px 22px 28px;
+    }
+    .serif{font-family:Georgia,"Iowan Old Style","Times New Roman",serif}
+    h1{
+      font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+      font-size:1.5rem;line-height:1.25;margin:0 0 10px;color:var(--bleu);
+    }
+    p{margin:0 0 14px}
+    .chapeau{color:#44586a;font-size:.97rem}
+
+    .filet{height:2px;border:0;background:linear-gradient(90deg,var(--or) 0%,var(--or-clair) 55%,transparent 100%);margin:0 0 18px;border-radius:2px}
+
+    .btn{
+      display:inline-block;border:0;cursor:pointer;font:inherit;
+      background:var(--bleu);color:#fff;padding:13px 24px;border-radius:10px;
+      font-weight:600;transition:background .15s ease;
+    }
+    .btn:hover{background:var(--bleu-clair)}
+    .btn:focus-visible,.opt:focus-visible,.part a:focus-visible{outline:3px solid var(--or);outline-offset:2px}
+    .btn-fant{background:transparent;color:var(--bleu);border:1px solid var(--bleu);padding:11px 20px}
+    .btn-fant:hover{background:#e9f0f4}
+
+    .jauge{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .jauge-piste{flex:1;height:6px;background:var(--papier-ombre);border-radius:99px;overflow:hidden}
+    .jauge-part{height:100%;width:0;background:var(--or);border-radius:99px;transition:width .3s ease}
+    .jauge-num{font-family:Georgia,serif;font-size:.85rem;color:#6b7c88;white-space:nowrap}
+
+    .question{font-family:Georgia,"Iowan Old Style",serif;font-size:1.22rem;line-height:1.35;margin:0 0 18px;color:var(--encre)}
+
+    .opt{
+      display:block;width:100%;text-align:left;font:inherit;cursor:pointer;
+      background:#fff;border:1px solid var(--trait);border-left:4px solid var(--trait);
+      border-radius:10px;padding:14px 16px;margin-bottom:10px;
+      transition:border-color .15s ease,transform .1s ease;
+    }
+    .opt:hover{border-color:var(--bleu-clair);border-left-color:var(--or)}
+    .opt:active{transform:scale(.995)}
+
+    .retour{background:none;border:0;font:inherit;color:#6b7c88;cursor:pointer;padding:6px 0;text-decoration:underline}
+
+    .badge{font-family:Georgia,serif;font-size:.85rem;color:var(--or);margin:0 0 6px}
+    .res-titre{font-family:Georgia,serif;font-size:1.6rem;color:var(--bleu);margin:0 0 4px}
+    .res-sous{font-style:italic;color:#44586a;margin:0 0 16px}
+    .res-emoji{font-size:2.4rem;line-height:1;margin-bottom:6px}
+
+    .bloc{background:#fff;border:1px solid var(--trait);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+    .bloc h3{font-family:Georgia,serif;font-size:1rem;margin:0 0 6px;color:var(--bleu)}
+    .bloc p{margin:0;font-size:.96rem}
+
+    .repartition{margin:14px 0 4px}
+    .rep-ligne{display:flex;align-items:center;gap:10px;margin-bottom:6px;font-size:.88rem;color:#44586a}
+    .rep-nom{width:92px;flex:none}
+    .rep-piste{flex:1;height:8px;background:var(--papier-ombre);border-radius:99px;overflow:hidden}
+    .rep-part{height:100%;background:var(--bleu-clair);border-radius:99px}
+    .rep-ligne.fort .rep-part{background:var(--or)}
+
+    .part{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 14px}
+    .part a{
+      text-decoration:none;font-size:.9rem;font-weight:600;color:var(--bleu);
+      background:#fff;border:1px solid var(--trait);border-radius:99px;padding:9px 14px;
+    }
+    .part a:hover{border-color:var(--bleu-clair)}
+
+    .disclaimer{
+      font-size:.86rem;color:#4a5a66;background:#fff;border:1px dashed var(--trait);
+      border-radius:10px;padding:12px 14px;margin:14px 0 16px;line-height:1.55;
+    }
+    .pied{margin-top:6px}
+
+    @media (max-width:480px){
+      .cadre{padding:20px 16px 24px;border-radius:12px}
+      h1{font-size:1.3rem}
+      .question{font-size:1.1rem}
+      .rep-nom{width:78px}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none!important}
+    }
+  </style>
+</head>
+<body>
+  <div class="cadre">
+    <div id="app"></div>
+  </div>
+
+<script>
+(function(){
+  var URL_ART = "https://ouipsycho.fr/articles/napoleon-bonaparte-sur-le-divan/";
+
+  var profils = {
+    E: {
+      nom: "L'Empereur",
+      emoji: "🦅",
+      sous: "Le pouvoir comme élan",
+      desc: "Vous n'attendez pas qu'on vous donne la place : vous la prenez, et vous la justifiez ensuite par les résultats. Vous décidez vite, vous entraînez les autres, et l'immobilité vous est physiquement pénible. Votre légitimité, vous la fabriquez en avançant.",
+      force: "Vous créez du mouvement là où tout le monde attendait un consensus. Dans une équipe bloquée, vous êtes la personne la plus utile de la pièce.",
+      angle: "L'hubris. À force de réussir, on cesse de vous contredire — et vous cessez d'écouter ceux qui essaient encore. C'est exactement comme ça qu'on part en Russie en octobre.",
+      conseil: "Nommez officiellement quelqu'un dont le rôle est de vous dire non, et écoutez-le en public. Napoléon avait un Caulaincourt ; il ne l'a simplement pas écouté."
+    },
+    R: {
+      nom: "Le Souverain",
+      emoji: "👑",
+      sous: "Le pouvoir comme héritage",
+      desc: "Vous vous voyez moins comme un décideur que comme un dépositaire : quelque chose vous a été confié, et votre travail consiste à le transmettre intact. Vous tenez à la parole donnée, aux formes, à la durée. On vous sait fiable, et ça vous suffit.",
+      force: "Vous êtes le point fixe. Dans les périodes agitées, votre calme vaut plus que dix plans d'action.",
+      angle: "La distance. À force de préserver, on finit par laisser pourrir — et à force d'incarner une fonction, on oublie de se demander si elle sert encore à quelque chose.",
+      conseil: "Allez chercher activement l'avis de ceux qui n'ont rien à perdre : les nouveaux, les plus jeunes, ceux qui ne vous doivent rien."
+    },
+    D: {
+      nom: "Le Stratège autoritaire",
+      emoji: "♟️",
+      sous: "Le pouvoir comme antidote au chaos",
+      desc: "Rassurez-vous, vous n'êtes pas un tyran : vous êtes allergique à l'incertitude. Vous avez besoin de la vue d'ensemble, du planning, de savoir qui fait quoi et à quelle heure. Quand vous lâchez prise, ce n'est pas de la confiance, c'est de l'épuisement.",
+      force: "Rien ne tombe. Les délais sont tenus, les détails sont vus, et vous anticipez les problèmes que les autres découvriront dans trois semaines.",
+      angle: "Le contrôle fatigue — vous d'abord. Et une équipe à qui l'on ne laisse jamais décider finit par ne plus rien décider du tout, ce qui vous confirme dans l'idée qu'il faut tout tenir.",
+      conseil: "Déléguez une chose par semaine et interdisez-vous d'aller vérifier. L'inconfort que vous ressentirez est l'information la plus intéressante du test."
+    },
+    P: {
+      nom: "Le Président",
+      emoji: "🗳️",
+      sous: "Le pouvoir comme mandat",
+      desc: "Pour vous, l'autorité se prête, elle ne se possède pas. Vous consultez, vous arbitrez, vous cherchez la solution que le plus grand nombre pourra porter. Vous savez que la meilleure décision mal acceptée ne vaut rien.",
+      force: "Vous fabriquez de l'adhésion. Les décisions que vous prenez tiennent, parce que les gens s'y reconnaissent.",
+      angle: "La décision diluée. À trop chercher l'accord de tous, on tranche trop tard, et le compromis finit par ne satisfaire personne — vous compris.",
+      conseil: "Fixez une date de décision avant d'ouvrir la discussion. Consulter est une méthode ; consulter sans fin est une façon élégante d'éviter le conflit."
+    }
+  };
+
+  var ordreProfils = ["E","R","D","P"];
+
+  var questions = [
+    { q: "Un projet démarre. Personne ne prend les commandes.",
+      o: [
+        {t:"Vous proposez un tour de table pour que chacun dise ce qu'il veut porter.", p:"P"},
+        {t:"Vous vous levez, vous distribuez les rôles, vous commencez avant la fin de la réunion.", p:"E"},
+        {t:"Vous attendez : celui dont c'est le rôle finira bien par s'en saisir.", p:"R"},
+        {t:"Vous préparez le plan seul, dans votre coin, et vous l'annoncez une fois qu'il est ficelé.", p:"D"}
+      ]},
+    { q: "Votre rapport aux règles, en une phrase.",
+      o: [
+        {t:"Elles sont utiles — surtout quand c'est moi qui les fixe.", p:"D"},
+        {t:"Elles existent depuis longtemps, il y a sûrement une bonne raison.", p:"R"},
+        {t:"Tout se négocie, avec un peu de méthode et de patience.", p:"P"},
+        {t:"Elles sont faites pour être réécrites. Par moi, de préférence.", p:"E"}
+      ]},
+    { q: "On vous contredit devant tout le monde.",
+      o: [
+        {t:"Vous répondez sur-le-champ, avec trois arguments et un exemple.", p:"E"},
+        {t:"Vous notez. Silencieusement. Pour plus tard.", p:"D"},
+        {t:"Vous laissez passer : votre position n'a pas besoin d'être défendue.", p:"R"},
+        {t:"Vous remerciez et vous proposez d'en reparler à froid.", p:"P"}
+      ]},
+    { q: "Vacances à organiser avec cinq amis.",
+      o: [
+        {t:"Vous montez un sondage avec trois destinations et une date limite.", p:"P"},
+        {t:"Vous refaites le planning jour par jour, activités et horaires compris.", p:"D"},
+        {t:"Vous proposez la maison familiale, comme chaque année.", p:"R"},
+        {t:"Vous avez déjà réservé. C'est mieux, et tout le monde vous remerciera.", p:"E"}
+      ]},
+    { q: "Le pouvoir, au fond, c'est surtout…",
+      o: [
+        {t:"une charge que l'on porte pour d'autres.", p:"R"},
+        {t:"une énergie, quelque chose qui se dépense.", p:"E"},
+        {t:"un mandat, avec une date de début et une date de fin.", p:"P"},
+        {t:"une nécessité : sans quelqu'un aux commandes, c'est le chaos.", p:"D"}
+      ]},
+    { q: "Vous venez de commettre une erreur qui coûte cher.",
+      o: [
+        {t:"Vous corrigez discrètement, avant que quiconque s'en aperçoive.", p:"D"},
+        {t:"Vous l'annoncez à l'équipe et vous cherchez ensemble la sortie.", p:"P"},
+        {t:"Vous en faites une leçon publique, quitte à en tirer une bonne histoire.", p:"E"},
+        {t:"Vous assumez la responsabilité sans entrer dans le détail.", p:"R"}
+      ]},
+    { q: "Votre espace de travail ressemble à…",
+      o: [
+        {t:"une bataille de papiers, mais vous savez exactement où tout se trouve.", p:"E"},
+        {t:"un bureau sobre, deux ou trois objets qui ont une histoire.", p:"R"},
+        {t:"un espace ouvert, avec une salle de réunion à portée de main.", p:"P"},
+        {t:"un plan de travail rangé au millimètre, chaque chose à sa place.", p:"D"}
+      ]},
+    { q: "Ce qui vous ferait le plus mal.",
+      o: [
+        {t:"Qu'on ne vous fasse plus confiance.", p:"P"},
+        {t:"Qu'on vous oublie.", p:"E"},
+        {t:"Qu'on salisse votre nom.", p:"R"},
+        {t:"Que les choses vous échappent.", p:"D"}
+      ]},
+    { q: "Un proche vous demande un service au pire moment.",
+      o: [
+        {t:"Vous dites oui, mais à vos conditions et sur votre créneau.", p:"D"},
+        {t:"Vous confiez ça à quelqu'un de plus disponible.", p:"R"},
+        {t:"Vous dites oui et vous ajoutez ça à une journée déjà pleine.", p:"E"},
+        {t:"Vous cherchez avec lui un arrangement qui tienne pour vous deux.", p:"P"}
+      ]},
+    { q: "Dans votre équipe, l'information…",
+      o: [
+        {t:"circule vite, quitte à ce que certains suivent en courant.", p:"E"},
+        {t:"suit la voie hiérarchique, c'est plus propre.", p:"R"},
+        {t:"circule selon les besoins : vous décidez qui sait quoi.", p:"D"},
+        {t:"est accessible à tous, sans filtre.", p:"P"}
+      ]},
+    { q: "On vous propose un poste immense, mais risqué.",
+      o: [
+        {t:"Vous demandez du temps et l'avis de trois personnes de confiance.", p:"P"},
+        {t:"Vous acceptez avant la fin de la phrase.", p:"E"},
+        {t:"Vous acceptez, à condition d'avoir les mains totalement libres.", p:"D"},
+        {t:"Vous demandez d'abord ce que ça engage sur dix ans.", p:"R"}
+      ]},
+    { q: "Dans cent ans, vous aimeriez qu'on dise…",
+      o: [
+        {t:"« Rien ne tenait debout avant lui. »", p:"D"},
+        {t:"« Il a transmis quelque chose d'intact. »", p:"R"},
+        {t:"« Il a changé le cours des choses. »", p:"E"},
+        {t:"« Il a fait parler des gens qui ne se parlaient plus. »", p:"P"}
+      ]}
+  ];
+
+  var app = document.getElementById('app');
+  var index = 0;
+  var scores = {E:0,R:0,D:0,P:0};
+  var historique = [];
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function ecranAccueil(){
+    app.innerHTML =
+      '<h1>Seriez-vous plutôt empereur, roi, dictateur ou président ?</h1>' +
+      '<hr class="filet">' +
+      '<p class="chapeau">Douze situations très ordinaires — une réunion qui patine, des vacances à organiser, une erreur à assumer — pour repérer votre manière spontanée d\'exercer une autorité. Comptez trois minutes. Répondez vite : la première réaction est la bonne.</p>' +
+      '<button class="btn" id="go">Commencer le test</button>';
+    document.getElementById('go').addEventListener('click', function(){
+      index = 0; scores = {E:0,R:0,D:0,P:0}; historique = [];
+      ecranQuestion();
+    });
+    notifyResize();
+  }
+
+  function ecranQuestion(){
+    var q = questions[index];
+    var pct = Math.round((index / questions.length) * 100);
+    var html =
+      '<div class="jauge"><div class="jauge-piste"><div class="jauge-part" style="width:' + pct + '%"></div></div>' +
+      '<span class="jauge-num">' + (index + 1) + ' / ' + questions.length + '</span></div>' +
+      '<p class="question">' + esc(q.q) + '</p>';
+    for (var i = 0; i < q.o.length; i++) {
+      html += '<button class="opt" data-i="' + i + '">' + esc(q.o[i].t) + '</button>';
+    }
+    if (index > 0) { html += '<button class="retour" id="prev">Revenir à la question précédente</button>'; }
+    app.innerHTML = html;
+
+    var btns = app.querySelectorAll('.opt');
+    for (var j = 0; j < btns.length; j++) {
+      btns[j].addEventListener('click', function(){
+        var choix = questions[index].o[parseInt(this.getAttribute('data-i'), 10)];
+        scores[choix.p]++;
+        historique.push(choix.p);
+        index++;
+        if (index < questions.length) { ecranQuestion(); } else { ecranResultat(); }
+      });
+    }
+    var prev = document.getElementById('prev');
+    if (prev) {
+      prev.addEventListener('click', function(){
+        index--;
+        scores[historique.pop()]--;
+        ecranQuestion();
+      });
+    }
+    notifyResize();
+  }
+
+  function gagnant(){
+    var best = ordreProfils[0];
+    for (var i = 1; i < ordreProfils.length; i++) {
+      if (scores[ordreProfils[i]] > scores[best]) { best = ordreProfils[i]; }
+    }
+    return best;
+  }
+
+  function ecranResultat(){
+    var cle = gagnant();
+    var p = profils[cle];
+    var total = questions.length;
+
+    var rep = '<div class="repartition">';
+    for (var i = 0; i < ordreProfils.length; i++) {
+      var k = ordreProfils[i];
+      var pc = Math.round((scores[k] / total) * 100);
+      rep += '<div class="rep-ligne' + (k === cle ? ' fort' : '') + '">' +
+             '<span class="rep-nom">' + profils[k].nom.replace(/^L[ae]? ?'?/, '') + '</span>' +
+             '<span class="rep-piste"><span class="rep-part" style="width:' + pc + '%"></span></span>' +
+             '<span>' + pc + '&nbsp;%</span></div>';
+    }
+    rep += '</div>';
+
+    var texte = "Mon style de pouvoir : " + p.nom + " " + p.emoji + " — et vous ?";
+    var eU = encodeURIComponent(URL_ART);
+    var eT = encodeURIComponent(texte);
+    var eTU = encodeURIComponent(texte + " " + URL_ART);
+
+    app.innerHTML =
+      '<p class="badge">Votre profil dominant</p>' +
+      '<div class="res-emoji">' + p.emoji + '</div>' +
+      '<h2 class="res-titre">' + p.nom + '</h2>' +
+      '<p class="res-sous">' + p.sous + '</p>' +
+      '<hr class="filet">' +
+      '<p>' + p.desc + '</p>' +
+      rep +
+      '<div class="bloc"><h3>Votre force</h3><p>' + p.force + '</p></div>' +
+      '<div class="bloc"><h3>Votre angle mort</h3><p>' + p.angle + '</p></div>' +
+      '<div class="bloc"><h3>Le petit exercice</h3><p>' + p.conseil + '</p></div>' +
+      '<div class="part">' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + eU + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + eT + '&url=' + eU + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + eTU + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+      '<div class="pied"><button class="btn btn-fant" id="rejouer">Recommencer le test</button></div>';
+
+    document.getElementById('rejouer').addEventListener('click', function(){
+      index = 0; scores = {E:0,R:0,D:0,P:0}; historique = [];
+      ecranQuestion();
+    });
+    notifyResize();
+  }
+
+  ecranAccueil();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
