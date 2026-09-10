@@ -4673,17 +4673,17 @@
     "title": "Jeanne d'Arc sur le divan : psychologie d'une divine bergère",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-09-11",
     "date_modified": "2026-09-11",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "jeanne-d-arc",
       "entendre-des-voix",
@@ -4691,49 +4691,9 @@
       "histoire-de-la-psychiatrie",
       "adolescence"
     ],
-    "sources": [
-      {
-        "authors": "Baratta A., Halleguen O. & Weiner L.",
-        "year": "2009",
-        "title": "Jeanne d'Arc et ses voix : pathologie psychiatrique ou phénomène contextuel ?",
-        "journal": "L'Information psychiatrique, 85(10), 907-916",
-        "url": "https://doi.org/10.3917/inpsy.8510.0907"
-      },
-      {
-        "authors": "Evrard R. & Le Maléfan P.",
-        "year": "2013",
-        "title": "Que changent les « entendeurs de voix » à l'écoute des hallucinations ? I : Genèse d'un mouvement",
-        "journal": "Annales Médico-Psychologiques, 171(9), 623-628"
-      },
-      {
-        "authors": "Maijer K., Begemann M. J. H., Palmen S. J. M. C., Leucht S. & Sommer I. E. C.",
-        "year": "2018",
-        "title": "Auditory hallucinations across the lifespan: a systematic review and meta-analysis",
-        "journal": "Psychological Medicine, 48(6), 879-888",
-        "url": "https://doi.org/10.1017/S0033291717002367"
-      },
-      {
-        "authors": "Beaune C.",
-        "year": "2004",
-        "title": "Jeanne d'Arc",
-        "publisher": "Perrin"
-      },
-      {
-        "authors": "D'Orsi G. & Tinuper P.",
-        "year": "2006",
-        "title": "« I heard voices… » From semiology, a historical review, and a new hypothesis on the presumed epilepsy of Joan of Arc",
-        "journal": "Epilepsy & Behavior, 9(1), 152-157"
-      },
-      {
-        "authors": "Foote-Smith E. & Bayne L.",
-        "year": "1991",
-        "title": "Joan of Arc",
-        "journal": "Epilepsia, 32(6), 810-815"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "napoleon-bonaparte-sur-le-divan",
