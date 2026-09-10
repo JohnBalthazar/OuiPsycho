@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Êtes-vous plutôt bergère ou guerrière ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/jeanne-darc-sur-le-divan/">
+  <meta name="description" content="Dix questions pour situer votre boussole intérieure entre l'écoute de Domrémy et l'élan d'Orléans. Un quiz de réflexion, pas un diagnostic.">
+  <style>
+    :root{
+      --ink:#14212B;
+      --deep:#1F4E6B;
+      --slate:#5A7387;
+      --ember:#B24A26;
+      --brass:#A8823C;
+      --line:#DCE3E8;
+      --card:#FFFFFF;
+      --vellum:#FCFAF5;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:transparent}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--ink);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:640px;margin:0 auto;padding:4px 2px 8px}
+    .card{
+      background:var(--card);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:22px 20px 24px;
+    }
+
+    /* progression */
+    .meter{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .meter-track{flex:1;height:3px;background:var(--line);border-radius:2px;overflow:hidden}
+    .meter-fill{height:100%;width:0;background:var(--deep);transition:width .28s ease}
+    .meter-count{font-size:.78rem;color:var(--slate);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+    /* question */
+    .q{
+      font-family:Georgia,"Iowan Old Style","Times New Roman",serif;
+      font-size:1.32rem;
+      line-height:1.35;
+      margin:0 0 18px;
+      font-weight:600;
+      letter-spacing:-.01em;
+    }
+    .opts{display:flex;flex-direction:column;gap:9px}
+    .opt{
+      width:100%;
+      text-align:left;
+      font:inherit;
+      font-size:.98rem;
+      color:var(--ink);
+      background:var(--vellum);
+      border:1px solid var(--line);
+      border-left:3px solid var(--line);
+      border-radius:9px;
+      padding:13px 15px;
+      cursor:pointer;
+      transition:border-color .15s ease,background .15s ease,transform .1s ease;
+    }
+    .opt:hover{background:#fff;border-left-color:var(--brass)}
+    .opt:active{transform:translateY(1px)}
+    .opt:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+
+    .back{
+      margin-top:16px;background:none;border:none;padding:4px 0;
+      font:inherit;font-size:.85rem;color:var(--slate);cursor:pointer;
+    }
+    .back:hover{color:var(--deep);text-decoration:underline}
+    .back:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+
+    /* accueil */
+    .lead{font-family:Georgia,"Iowan Old Style",serif;font-size:1.5rem;line-height:1.28;margin:0 0 10px;letter-spacing:-.015em}
+    .sub{color:var(--slate);font-size:.95rem;margin:0 0 20px}
+    .cta{
+      font:inherit;font-size:1rem;font-weight:600;color:#fff;background:var(--deep);
+      border:none;border-radius:9px;padding:13px 26px;cursor:pointer;
+    }
+    .cta:hover{background:#16405a}
+    .cta:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
+
+    /* résultat */
+    .band{
+      background:var(--deep);color:#fff;
+      margin:-22px -20px 20px;padding:22px 20px 20px;
+      border-radius:13px 13px 0 0;
+      border-bottom:4px solid var(--brass);
+    }
+    .band-kicker{font-size:.8rem;color:#B9D2E2;margin:0 0 6px}
+    .band-name{font-family:Georgia,"Iowan Old Style",serif;font-size:1.75rem;line-height:1.2;margin:0;letter-spacing:-.02em}
+    .band-line{margin:10px 0 0;font-size:.95rem;color:#DCE9F1;font-style:italic}
+    .res p{font-size:1rem;margin:0 0 14px}
+    .res h3{
+      font-family:Georgia,"Iowan Old Style",serif;font-size:1.02rem;margin:22px 0 7px;color:var(--deep);
+    }
+    .tally{font-size:.85rem;color:var(--slate);margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line)}
+
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 0}
+    .share a{
+      text-decoration:none;font-size:.88rem;color:var(--ink);
+      background:var(--vellum);border:1px solid var(--line);border-radius:20px;
+      padding:8px 15px;
+    }
+    .share a:hover{border-color:var(--brass);background:#fff}
+    .share a:focus-visible{outline:2px solid var(--deep);outline-offset:2px}
+
+    .again{
+      margin-top:16px;font:inherit;font-size:.92rem;font-weight:600;color:var(--deep);
+      background:none;border:1px solid var(--deep);border-radius:9px;padding:10px 20px;cursor:pointer;
+    }
+    .again:hover{background:var(--deep);color:#fff}
+    .again:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+    .disclaimer{
+      margin:20px 0 0;padding:14px 16px;
+      background:var(--vellum);border:1px solid var(--line);border-left:3px solid var(--ember);
+      border-radius:0 9px 9px 0;font-size:.86rem;color:#3C4A55;line-height:1.5;
+    }
+
+    @media (max-width:420px){
+      .card{padding:18px 15px 20px}
+      .band{margin:-18px -15px 18px;padding:18px 15px 16px}
+      .q{font-size:1.18rem}
+      .band-name{font-size:1.5rem}
+    }
+    @media (prefers-reduced-motion:reduce){
+      *{transition:none !important}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="card"></div>
+</div>
+
+<script>
+(function(){
+  var CANON = "https://ouipsycho.fr/articles/jeanne-darc-sur-le-divan/";
+
+  var QUESTIONS = [
+    {
+      q: "Un ami vous annonce qu'il plaque tout pour élever des chèvres dans le Cantal.",
+      a: [
+        {t:"« Raconte-moi ça depuis le début. » Vous voulez d'abord comprendre d'où ça vient.", p:"berg"},
+        {t:"Vous ouvrez un tableur : combien de chèvres, quel budget, quelle échéance ?", p:"chin"},
+        {t:"« Enfin ! Tu tournes autour depuis des années. Vas-y. »", p:"band"},
+        {t:"« Super. Je viens t'aider à monter la clôture le week-end prochain. »", p:"guer"}
+      ]
+    },
+    {
+      q: "Une réunion s'enlise depuis quarante minutes.",
+      a: [
+        {t:"Vous rappelez pourquoi tout le monde est là, et ça repart.", p:"band"},
+        {t:"Vous observez surtout qui parle, qui se tait, et pourquoi.", p:"berg"},
+        {t:"Vous coupez court : « On tranche maintenant. »", p:"guer"},
+        {t:"Vous proposez un vote, une date et un responsable.", p:"chin"}
+      ]
+    },
+    {
+      q: "Comment prenez-vous les décisions qui comptent vraiment ?",
+      a: [
+        {t:"Vous en parlez à trois personnes soigneusement choisies.", p:"chin"},
+        {t:"Vous décidez vite. Vous ajusterez en marchant.", p:"guer"},
+        {t:"Vous attendez le déclic — et après, plus rien ne vous arrête.", p:"band"},
+        {t:"Une longue marche, seul, et la réponse finit par arriver.", p:"berg"}
+      ]
+    },
+    {
+      q: "On conteste votre position devant tout le monde.",
+      a: [
+        {t:"Vous répondez du tac au tac.", p:"guer"},
+        {t:"Vous cherchez ce que la personne veut réellement obtenir.", p:"chin"},
+        {t:"Vous encaissez, vous notez, vous répondrez à froid.", p:"berg"},
+        {t:"Vous reformulez votre position — en plus clair et en plus ferme.", p:"band"}
+      ]
+    },
+    {
+      q: "Le silence, pour vous, c'est plutôt…",
+      a: [
+        {t:"Un moment où les idées se mettent en ordre toutes seules.", p:"band"},
+        {t:"Un temps mort qu'il faut remplir.", p:"guer"},
+        {t:"Un luxe. Le vrai.", p:"berg"},
+        {t:"Un outil : celui qui parle en premier a souvent perdu.", p:"chin"}
+      ]
+    },
+    {
+      q: "Votre pire cauchemar au travail ?",
+      a: [
+        {t:"Une équipe où personne ne dit ce qu'il pense vraiment.", p:"chin"},
+        {t:"Attendre six mois une validation qui ne vient jamais.", p:"guer"},
+        {t:"L'open space, le téléphone, les notifications, tout ça en même temps.", p:"berg"},
+        {t:"Devoir avancer sans comprendre à quoi ça sert.", p:"band"}
+      ]
+    },
+    {
+      q: "Enfant, on disait de vous que vous étiez…",
+      a: [
+        {t:"Têtu comme une mule.", p:"band"},
+        {t:"Un peu vieux avant l'âge, un peu trop sérieux.", p:"chin"},
+        {t:"Rêveur, souvent ailleurs.", p:"berg"},
+        {t:"Casse-cou, toujours le premier à sauter.", p:"guer"}
+      ]
+    },
+    {
+      q: "Une injustice éclate sous vos yeux, au travail.",
+      a: [
+        {t:"Vous soutenez discrètement la personne concernée, sans faire de bruit.", p:"berg"},
+        {t:"Vous écrivez, vous signez, vous assumez.", p:"band"},
+        {t:"Vous montez au créneau tout de suite, quitte à y laisser des plumes.", p:"guer"},
+        {t:"Vous cherchez qui, dans l'organigramme, peut réellement faire bouger les choses.", p:"chin"}
+      ]
+    },
+    {
+      q: "Votre rapport à l'effort physique ?",
+      a: [
+        {t:"Une routine, un objectif chiffré, un suivi.", p:"chin"},
+        {t:"Marcher longtemps, seul, sans musique.", p:"berg"},
+        {t:"Vous ne sentez plus la fatigue quand ça compte vraiment.", p:"band"},
+        {t:"Tout donner, de préférence à plusieurs.", p:"guer"}
+      ]
+    },
+    {
+      q: "Une semaine coupé du monde : qu'est-ce qui vous manquerait le plus ?",
+      a: [
+        {t:"Le sentiment d'être utile à quelque chose de plus grand que vous.", p:"band"},
+        {t:"Le mouvement. Juste le mouvement.", p:"guer"},
+        {t:"Franchement ? Rien.", p:"berg"},
+        {t:"Les conversations qui font avancer les dossiers.", p:"chin"}
+      ]
+    }
+  ];
+
+  var PROFILES = {
+    berg: {
+      name: "La bergère de Domrémy",
+      line: "Votre force naît du silence, pas du vacarme.",
+      share: "Je suis « la bergère de Domrémy »",
+      body: [
+        "Vous fonctionnez à l'intériorité. Avant d'agir, vous avez besoin de comprendre, de sentir, de laisser décanter — et cette lenteur apparente n'en est pas une : c'est du traitement de fond. Là où d'autres réagissent, vous observez, et vous voyez souvent arriver ce que personne n'avait vu.",
+        "En psychologie, on parlerait volontiers d'un fonctionnement à haut seuil de réflexivité : vous êtes votre premier interlocuteur. Vos décisions, quand elles tombent, sont rarement improvisées — et rarement regrettées."
+      ],
+      revers: "Le risque, c'est la décantation infinie. À force d'attendre le bon moment, vous laissez parfois passer le seul qui existait. Et votre silence, que vous vivez comme de la prudence, peut être lu par les autres comme du désaccord ou du retrait.",
+      cultiver: "Fixez-vous des échéances de décision, même arbitraires. Et dites une fois de plus par semaine ce que vous pensez à voix haute — vous serez surpris du poids que ça a."
+    },
+    guer: {
+      name: "La guerrière d'Orléans",
+      line: "Vous décidez en marchant, et vous marchez vite.",
+      share: "Je suis « la guerrière d'Orléans »",
+      body: [
+        "Vous êtes du côté de l'élan. L'action vous clarifie l'esprit plus sûrement que la réflexion, et l'attente vous coûte physiquement. Face à un problème, votre premier réflexe est de le prendre à bras-le-corps — franchement, directement, sans passer par quatre chemins.",
+        "Cette franchise a une vraie valeur : dans les groupes qui s'enlisent, vous êtes souvent la personne qui débloque. Vous dites tout haut ce que tout le monde pensait tout bas, et vous encaissez ensuite sans en faire une affaire personnelle."
+      ],
+      revers: "Le tempo. Vous confondez parfois vitesse et direction, et vous partez à l'assaut d'une position qui ne valait pas le siège. Certains conflits que vous ouvrez frontalement se seraient réglés seuls en trois jours.",
+      cultiver: "La règle des vingt-quatre heures avant les décisions irréversibles. Non pour vous freiner, mais pour vérifier que l'urgence que vous ressentez est bien celle de la situation."
+    },
+    band: {
+      name: "L'étendard",
+      line: "Bergère ET guerrière — l'intériorité au service de l'élan.",
+      share: "Je suis « l'étendard » : bergère ET guerrière",
+      body: [
+        "Vous êtes l'alliage. Vous avez besoin de comprendre profondément avant d'agir — mais une fois la conviction installée, plus rien ne vous fait dévier. C'est exactement l'architecture de Jeanne : cinq ans de silence à Domrémy, puis deux ans qui changent un royaume.",
+        "Ce qui vous met en mouvement n'est ni le plaisir de l'action ni le confort de la réflexion : c'est le sens. Vous supportez très bien la difficulté quand vous savez pourquoi, et très mal la facilité quand vous ne voyez pas à quoi ça sert."
+      ],
+      revers: "La conviction est un excellent moteur et un très mauvais frein. Quand vous vous êtes engagé, les signaux qui contredisent votre lecture ont tendance à ne plus vous atteindre. C'est aussi cela, l'histoire de Jeanne — et on connaît la fin.",
+      cultiver: "Désignez quelqu'un dont le rôle explicite est de vous contredire, et écoutez-le pour de bon. Une conviction qui résiste à la contradiction en sort renforcée ; une conviction qui ne la supporte pas n'en était pas une."
+    },
+    chin: {
+      name: "La stratège de Chinon",
+      line: "Avant la bataille, il y a toujours une audience à obtenir.",
+      share: "Je suis « la stratège de Chinon »",
+      body: [
+        "Vous savez une chose que beaucoup ignorent : avoir raison ne suffit jamais. Il faut encore que ça circule, que ça arrive à la bonne personne, au bon moment, dans les bons termes. Vous lisez les rapports de force comme d'autres lisent une notice, et vous jouez en trois coups d'avance.",
+        "On vous prend parfois pour un tiède. C'est une erreur d'appréciation : vous avez des convictions solides, vous les servez simplement par un autre chemin. Jeanne aussi a dû convaincre une cour entière avant de pouvoir monter à cheval."
+      ],
+      revers: "À force de calculer le bon moment et la bonne formulation, vous finissez parfois par ne rien dire du tout. Et la tactique, quand elle tourne à vide, coupe de ce qu'on voulait défendre au départ.",
+      cultiver: "Notez ce à quoi vous ne renoncerez jamais, quel que soit le rapport de force. Vous saurez ainsi quand la stratégie sert vos convictions — et quand elle a commencé à les remplacer."
+    }
+  };
+
+  var ORDER = ["berg","guer","band","chin"];
+
+  var state = { i:0, answers:[] };
+  var card = document.getElementById('card');
+
+  function notifyResize() {
+    setTimeout(function() {
+      window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderIntro(){
+    card.innerHTML =
+      '<p class="lead">Êtes-vous plutôt bergère ou guerrière ?</p>' +
+      '<p class="sub">Jeanne était les deux : l\'écoute de Domrémy et l\'élan d\'Orléans. Dix questions pour situer votre propre boussole. Aucune armure requise.</p>' +
+      '<button class="cta" id="start">Commencer</button>';
+    document.getElementById('start').addEventListener('click', function(){
+      state.i = 0; state.answers = []; renderQuestion();
+    });
+    notifyResize();
+  }
+
+  function renderQuestion(){
+    var n = state.i, item = QUESTIONS[n];
+    var pct = Math.round((n / QUESTIONS.length) * 100);
+    var html =
+      '<div class="meter">' +
+        '<div class="meter-track"><div class="meter-fill" style="width:' + pct + '%"></div></div>' +
+        '<span class="meter-count">' + (n+1) + ' / ' + QUESTIONS.length + '</span>' +
+      '</div>' +
+      '<p class="q">' + esc(item.q) + '</p>' +
+      '<div class="opts">';
+    for (var k = 0; k < item.a.length; k++){
+      html += '<button class="opt" data-p="' + item.a[k].p + '">' + esc(item.a[k].t) + '</button>';
+    }
+    html += '</div>';
+    if (n > 0) html += '<button class="back" id="back">← Question précédente</button>';
+    card.innerHTML = html;
+
+    var opts = card.querySelectorAll('.opt');
+    for (var j = 0; j < opts.length; j++){
+      opts[j].addEventListener('click', function(){
+        state.answers[state.i] = this.getAttribute('data-p');
+        state.i++;
+        if (state.i >= QUESTIONS.length) renderResult(); else renderQuestion();
+      });
+    }
+    var back = document.getElementById('back');
+    if (back) back.addEventListener('click', function(){ state.i--; renderQuestion(); });
+    notifyResize();
+  }
+
+  function computeProfile(){
+    var t = {berg:0, guer:0, band:0, chin:0};
+    for (var i = 0; i < state.answers.length; i++) t[state.answers[i]]++;
+    var best = ORDER[0];
+    for (var k = 0; k < ORDER.length; k++){ if (t[ORDER[k]] > t[best]) best = ORDER[k]; }
+    // Bergère et guerrière à égalité en tête : c'est précisément l'étendard.
+    if (t.berg === t.guer && t.berg >= t.band && t.berg >= t.chin && t.berg > 0) best = "band";
+    return { key: best, tally: t };
+  }
+
+  function renderResult(){
+    var r = computeProfile(), p = PROFILES[r.key], t = r.tally;
+    var shareText = encodeURIComponent(p.share + " — et vous, plutôt bergère ou guerrière ?");
+    var shareUrl = encodeURIComponent(CANON);
+
+    var html =
+      '<div class="band">' +
+        '<p class="band-kicker">Votre profil</p>' +
+        '<p class="band-name">' + esc(p.name) + '</p>' +
+        '<p class="band-line">' + esc(p.line) + '</p>' +
+      '</div>' +
+      '<div class="res">';
+    for (var i = 0; i < p.body.length; i++) html += '<p>' + esc(p.body[i]) + '</p>';
+    html +=
+        '<h3>Votre revers de médaille</h3><p>' + esc(p.revers) + '</p>' +
+        '<h3>Ce qu\'il y a à cultiver</h3><p>' + esc(p.cultiver) + '</p>' +
+        '<p class="tally">Répartition de vos réponses — écoute : ' + t.berg +
+          ' · élan : ' + t.guer +
+          ' · conviction : ' + t.band +
+          ' · stratégie : ' + t.chin + '.</p>' +
+      '</div>' +
+      '<div class="share">' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + shareUrl + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + shareText + '&url=' + shareUrl + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + shareText + '%20' + shareUrl + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<button class="again" id="again">Recommencer le test</button>' +
+      '<p class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. ' +
+      'Seul un professionnel de santé peut évaluer votre situation. ' +
+      'En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</p>';
+
+    card.innerHTML = html;
+    document.getElementById('again').addEventListener('click', function(){
+      state.i = 0; state.answers = []; renderQuestion(); notifyResize();
+    });
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
