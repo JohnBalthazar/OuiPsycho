@@ -1,5 +1,19 @@
 [
   {
+    "id": "napoleon-bonaparte-sur-le-divan-quiz",
+    "title": "Napoléon Bonaparte sur le divan : Psychologie d'un empereur",
+    "desc": "Il n'était pas petit, il ne dormait pas quatre heures, et il n'avait pas de « complexe » — du moins pas celui qu'on croit. Ce que la…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/napoleon-bonaparte-sur-le-divan-quiz.html",
+    "articleUrl": "articles/napoleon-bonaparte-sur-le-divan/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "meredith-grey-sur-le-divan-quiz",
     "title": "Test : quelle chirurgienne êtes-vous ?",
     "desc": "Résiliente, battante, capitaine ou empathique ? 7 questions pour révéler votre profil — et les forces (et défis) qui vont avec.",
