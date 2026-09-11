@@ -1,5 +1,19 @@
 [
   {
+    "id": "jeanne-darc-sur-le-divan-quiz",
+    "title": "Jeanne d'Arc sur le divan : psychologie d'une divine bergère",
+    "desc": "Épilepsie, schizophrénie, anorexie, ou simple crise d'adolescence ? Six siècles après le bûcher, la psychiatrie continue d'ouvrir le…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/jeanne-darc-sur-le-divan-quiz.html",
+    "articleUrl": "articles/jeanne-darc-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zhyghr8ac0efwocjbppq",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "napoleon-bonaparte-sur-le-divan-quiz",
     "title": "Napoléon Bonaparte sur le divan : Psychologie d'un empereur",
     "desc": "Il n'était pas petit, il ne dormait pas quatre heures, et il n'avait pas de « complexe » — du moins pas celui qu'on croit. Ce que la…",

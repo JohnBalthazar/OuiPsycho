@@ -1,5 +1,31 @@
 [
   {
+    "id": "jeanne-darc-sur-le-divan",
+    "title": "Jeanne d'Arc sur le divan : psychologie d'une divine bergère",
+    "type": "article",
+    "excerpt": "Épilepsie, schizophrénie, anorexie, ou simple crise d'adolescence ? Six siècles après le bûcher, la psychiatrie continue d'ouvrir le dossier de la Pucelle. Ce qu'on y trouve en dit beaucoup sur elle — et encore plus sur nous.",
+    "date": "2026-09-11",
+    "date_modified": "2026-09-11",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zhyghr8ac0efwocjbppq",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "jeanne-d-arc",
+      "entendre-des-voix",
+      "hallucinations",
+      "histoire-de-la-psychiatrie",
+      "adolescence"
+    ],
+    "metaDescription": "Épilepsie, schizophrénie, anorexie ou crise d'ado ? Ce que la psychiatrie dit vraiment des voix de Jeanne d'Arc, et ce que ça change pour nous.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "napoleon-bonaparte-sur-le-divan",
     "title": "Napoléon Bonaparte sur le divan : Psychologie d'un empereur",
     "type": "article",
