@@ -1,5 +1,19 @@
 [
   {
+    "id": "je-pense-toujours-a-mon-ex-6-mois-apres-quiz",
+    "title": "« Je pense toujours à mon ex » 6 mois après : pourquoi est-ce si difficile de tourner la page ?",
+    "desc": "Six mois après, l'entourage estime que le dossier devrait être clos. Votre cerveau, lui, n'a jamais entendu parler de cette règle. Ce que…",
+    "emoji": "💬",
+    "color": "#b5546a",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/je-pense-toujours-a-mon-ex-6-mois-apres-quiz.html",
+    "articleUrl": "articles/je-pense-toujours-a-mon-ex-6-mois-apres/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w2eiy9q4var7v4xxp1to",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "jeanne-darc-sur-le-divan-quiz",
     "title": "Jeanne d'Arc sur le divan : psychologie d'une divine bergère",
     "desc": "Épilepsie, schizophrénie, anorexie, ou simple crise d'adolescence ? Six siècles après le bûcher, la psychiatrie continue d'ouvrir le…",
