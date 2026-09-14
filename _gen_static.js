@@ -49,13 +49,25 @@ const CATS_CARD = {
 const jsonFiles = fs.readdirSync(DIR).filter(f => f.endsWith('.json'));
 
 // ── Clusters thématiques (maillage) ──────────────────────────────────────────
-// Source de vérité : data/clusters.json. Un article s'y rattache via les champs
-// additifs j.cluster (slug) + j.etape (une des clés de cluster.etapes) — absents
-// par défaut, donc totalement neutres pour tout article qui ne les renseigne pas.
+// Source de vérité : data/clusters.json. Un article s'y rattache via
+// j.clusters (liste de { cluster, etape } — un article peut appartenir à
+// plusieurs parcours) — absente par défaut, donc totalement neutre pour tout
+// article qui ne la renseigne pas. Ancien format j.cluster/j.etape (un seul
+// rattachement, champs scalaires) encore lu en repli le temps de la migration
+// des articles existants — voir getMemberships().
 const CLUSTERS_FILE = path.join(__dirname, 'data', 'clusters.json');
 let CLUSTERS = [];
 try { CLUSTERS = JSON.parse(fs.readFileSync(CLUSTERS_FILE, 'utf8')); } catch (_) {}
 const CLUSTERS_BY_ID = Object.fromEntries(CLUSTERS.map(c => [c.id, c]));
+
+// Rattachements bruts d'un article (non validés contre clusters.json ici —
+// voir l'appelant pour le filtrage par étape valide). Le 1er élément de la
+// liste est toujours le rattachement "principal" (fil d'Ariane JSON-LD).
+function getMemberships(j) {
+  if (Array.isArray(j.clusters)) return j.clusters.filter(m => m && m.cluster && m.etape);
+  if (j.cluster && j.etape) return [{ cluster: j.cluster, etape: j.etape }];
+  return [];
+}
 
 // Chargée ici (avant la boucle articles) car js/article-template.js en a besoin
 // pour résoudre les tokens de maillage {{ressource:...}}/ressourceCard dans le
@@ -110,14 +122,15 @@ const HOME_SHARE_IMAGE = CONFIG.homeShareImage || DEFAULT_HOME_SHARE_IMAGE;
 const clusterMembers = {}; // { clusterId: { etapeSlug: [{ id, title }] } }
 for (const file of jsonFiles) {
   const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
-  if (!j.cluster || !j.etape) continue;
   if ((j.status || 'published') === 'draft') continue;
   if (j.date > TODAY) continue;
-  const cluster = CLUSTERS_BY_ID[j.cluster];
-  if (!cluster || !cluster.etapes || !cluster.etapes[j.etape]) continue; // rattachement invalide, ignoré ici (voir verify-robots-consistency.js)
-  if (!clusterMembers[j.cluster]) clusterMembers[j.cluster] = {};
-  if (!clusterMembers[j.cluster][j.etape]) clusterMembers[j.cluster][j.etape] = [];
-  clusterMembers[j.cluster][j.etape].push({ id: j.id, title: j.title, image: j.image || '' });
+  for (const m of getMemberships(j)) {
+    const cluster = CLUSTERS_BY_ID[m.cluster];
+    if (!cluster || !cluster.etapes || !cluster.etapes[m.etape]) continue; // rattachement invalide, ignoré ici (voir verify-robots-consistency.js)
+    if (!clusterMembers[m.cluster]) clusterMembers[m.cluster] = {};
+    if (!clusterMembers[m.cluster][m.etape]) clusterMembers[m.cluster][m.etape] = [];
+    clusterMembers[m.cluster][m.etape].push({ id: j.id, title: j.title, image: j.image || '' });
+  }
 }
 
 for (const file of jsonFiles) {
@@ -139,105 +152,119 @@ for (const file of jsonFiles) {
     console.log(`✓ articles/${j.id} — status scheduled → published`);
   }
 
-  // Cluster thématique résolu (maillage) — null si l'article n'a pas de cluster,
-  // ou si le cluster/l'étape déclarés ne résolvent pas (donnée invalide, déjà
-  // signalée par verify-robots-consistency.js). Dans tous ces cas, additif : les
-  // variables *ClusterHtml/*WidgetHtml ci-dessous restent vides et l'article se
-  // génère à l'identique de l'existant.
-  const clusterResolved = (j.cluster && j.etape && CLUSTERS_BY_ID[j.cluster] &&
-    CLUSTERS_BY_ID[j.cluster].etapes && CLUSTERS_BY_ID[j.cluster].etapes[j.etape])
-    ? CLUSTERS_BY_ID[j.cluster]
-    : null;
+  // Clusters thématiques résolus (maillage) — liste vide si l'article n'a
+  // aucun cluster, ou si les rattachements déclarés ne résolvent pas (donnée
+  // invalide, déjà signalée par verify-robots-consistency.js). Un article
+  // peut appartenir à plusieurs clusters (voir getMemberships()) ; le premier
+  // rattachement valide est le "principal" (fil d'Ariane JSON-LD). Dans tous
+  // les cas, additif : les variables *ClusterHtml/*WidgetHtml ci-dessous
+  // restent vides pour un article hors cluster, aucune régression.
+  const resolvedMemberships = getMemberships(j)
+    .map(m => ({ etape: m.etape, clusterId: m.cluster, cluster: CLUSTERS_BY_ID[m.cluster] }))
+    .filter(m => m.cluster && m.cluster.etapes && m.cluster.etapes[m.etape]);
 
-  // Fil de parcours (sous le h1) — n'affiche que les étapes ayant au moins un
-  // article en ligne ; l'étape courante n'est pas cliquable ; rendu horizontal
-  // qui s'enveloppe librement, sans plafond de lignes (voir .cluster-trail).
+  // Fil de parcours (sous le h1) — un bloc par cluster d'appartenance,
+  // n'affiche que les étapes ayant au moins un article en ligne ; l'étape
+  // courante n'est pas cliquable ; rendu horizontal qui s'enveloppe
+  // librement, sans plafond de lignes (voir .cluster-trail). data-cluster
+  // permet à check-clusters.js d'associer chaque bloc à SON cluster quand il
+  // y en a plusieurs sur une même page.
   let clusterTrailHtml = '';
-  if (clusterResolved) {
+  for (const { etape, clusterId, cluster: clusterResolved } of resolvedMemberships) {
     const stageSlugs = Object.keys(clusterResolved.etapes).filter(s =>
-      clusterMembers[j.cluster] && clusterMembers[j.cluster][s] && clusterMembers[j.cluster][s].length
+      clusterMembers[clusterId] && clusterMembers[clusterId][s] && clusterMembers[clusterId][s].length
     );
-    if (stageSlugs.length) {
-      const stepsHtml = stageSlugs.map(s => {
-        const label = escCard(clusterResolved.etapes[s]);
-        if (s === j.etape) {
-          return `<span class="cluster-trail__step cluster-trail__step--current" aria-current="step">${label}</span>`;
-        }
-        // Une seule étape publiée à cette étape : lien direct vers l'article
-        // plutôt que vers l'ancre du hub (évite un détour pour rien). Dès 2
-        // articles ou plus, on renvoie vers l'ancre comme avant — seul le fil
-        // de parcours des pages article est concerné ; le sommaire de la page
-        // hub garde ses ancres dans tous les cas (voir tocHtml plus bas).
-        const stageMembers = clusterMembers[j.cluster][s];
-        const stepHref = stageMembers.length === 1
-          ? `articles/${escCard(stageMembers[0].id)}/`
-          : `theme/${escCard(clusterResolved.id)}/#etape-${s}`;
-        return `<a class="cluster-trail__step" href="${stepHref}">${label}</a>`;
-      }).join('<span class="cluster-trail__sep" aria-hidden="true">→</span>');
-      clusterTrailHtml = `\n          <nav class="cluster-trail" aria-label="Parcours : ${escCard(clusterResolved.title)}">` +
-        `<a class="cluster-trail__hub" href="theme/${escCard(clusterResolved.id)}/">${escCard(clusterResolved.title)}</a>` +
-        `<span class="cluster-trail__sep" aria-hidden="true">→</span>${stepsHtml}</nav>`;
-    }
+    if (!stageSlugs.length) continue;
+    const stepsHtml = stageSlugs.map(s => {
+      const label = escCard(clusterResolved.etapes[s]);
+      if (s === etape) {
+        return `<span class="cluster-trail__step cluster-trail__step--current" aria-current="step">${label}</span>`;
+      }
+      // Une seule étape publiée à cette étape : lien direct vers l'article
+      // plutôt que vers l'ancre du hub (évite un détour pour rien). Dès 2
+      // articles ou plus, on renvoie vers l'ancre comme avant — seul le fil
+      // de parcours des pages article est concerné ; le sommaire de la page
+      // hub garde ses ancres dans tous les cas (voir tocHtml plus bas).
+      const stageMembers = clusterMembers[clusterId][s];
+      const stepHref = stageMembers.length === 1
+        ? `articles/${escCard(stageMembers[0].id)}/`
+        : `theme/${escCard(clusterId)}/#etape-${s}`;
+      return `<a class="cluster-trail__step" href="${stepHref}">${label}</a>`;
+    }).join('<span class="cluster-trail__sep" aria-hidden="true">→</span>');
+    clusterTrailHtml += `\n          <nav class="cluster-trail" data-cluster="${escCard(clusterId)}" aria-label="Parcours : ${escCard(clusterResolved.title)}">` +
+      `<a class="cluster-trail__hub" href="theme/${escCard(clusterId)}/">${escCard(clusterResolved.title)}</a>` +
+      `<span class="cluster-trail__sep" aria-hidden="true">→</span>${stepsHtml}</nav>`;
   }
 
   // Widget sidebar "Pour continuer" — remplace le shell vide "À lire aussi" pour
   // les articles en cluster. loadRelated() n'est alors plus appelée côté client
   // (js/main.js) pour ces articles, donc ce contenu statique n'est jamais écrasé.
+  // Un seul widget (une seule zone dans le gabarit) : les liens de tous les
+  // clusters d'appartenance sont regroupés dans une même liste.
   let relatedWidgetHtml = '<h2 class="widget__title">À lire aussi</h2>';
-  if (clusterResolved) {
-    const stageOrder = Object.keys(clusterResolved.etapes);
-    const currentIdx = stageOrder.indexOf(j.etape);
-    let nextStageSlug = null;
-    for (let i = currentIdx + 1; i < stageOrder.length; i++) {
-      const s = stageOrder[i];
-      if (clusterMembers[j.cluster] && clusterMembers[j.cluster][s] && clusterMembers[j.cluster][s].length) {
-        nextStageSlug = s;
-        break;
-      }
-    }
+  if (resolvedMemberships.length) {
     const widgetLinks = [];
-    if (nextStageSlug) {
-      widgetLinks.push(`<a href="theme/${escCard(clusterResolved.id)}/#etape-${nextStageSlug}">Étape suivante : ${escCard(clusterResolved.etapes[nextStageSlug])}</a>`);
+    for (const { etape, clusterId, cluster: clusterResolved } of resolvedMemberships) {
+      const stageOrder = Object.keys(clusterResolved.etapes);
+      const currentIdx = stageOrder.indexOf(etape);
+      let nextStageSlug = null;
+      for (let i = currentIdx + 1; i < stageOrder.length; i++) {
+        const s = stageOrder[i];
+        if (clusterMembers[clusterId] && clusterMembers[clusterId][s] && clusterMembers[clusterId][s].length) {
+          nextStageSlug = s;
+          break;
+        }
+      }
+      if (nextStageSlug) {
+        widgetLinks.push(`<a href="theme/${escCard(clusterId)}/#etape-${nextStageSlug}">Étape suivante : ${escCard(clusterResolved.etapes[nextStageSlug])}</a>`);
+      }
+      widgetLinks.push(`<a href="theme/${escCard(clusterId)}/">Voir tout le parcours « ${escCard(clusterResolved.title)} »</a>`);
     }
-    widgetLinks.push(`<a href="theme/${escCard(clusterResolved.id)}/">Voir tout le parcours « ${escCard(clusterResolved.title)} »</a>`);
     relatedWidgetHtml = `<h2 class="widget__title">Pour continuer</h2>\n        <div class="widget-links">\n          ${widgetLinks.join('\n          ')}\n        </div>`;
   }
 
-  // Bloc "Pour continuer" en fin d'article-body — jusqu'à 3 liens piochés dans
-  // le cluster (hors article courant), répartis par étape pour varier les
-  // angles plutôt que de prendre 3 articles de la même étape. Un <p> (pas un
-  // <h2>/<h3>) pour le titre : évite que buildTOC() (js/main.js) ne le capture
-  // comme une section du contenu.
+  // Bloc "Pour continuer" en fin d'article-body — un bloc par cluster
+  // d'appartenance (chacun avec son propre lien vers son hub), jusqu'à 3
+  // liens piochés dans CE cluster (hors article courant) par bloc, répartis
+  // par étape pour varier les angles plutôt que de prendre 3 articles de la
+  // même étape. Titre différencié seulement s'il y a plusieurs clusters
+  // (sinon "Pour continuer" comme avant). Un <p> (pas un <h2>/<h3>) pour le
+  // titre : évite que buildTOC() (js/main.js) ne le capture comme une
+  // section du contenu.
   let continueBlockHtml = '';
-  if (clusterResolved) {
+  for (const { clusterId, cluster: clusterResolved } of resolvedMemberships) {
     const stageOrder = Object.keys(clusterResolved.etapes);
     const picks = [];
     for (const s of stageOrder) {
-      const members = (clusterMembers[j.cluster] && clusterMembers[j.cluster][s]) || [];
+      const members = (clusterMembers[clusterId] && clusterMembers[clusterId][s]) || [];
       for (const m of members) {
         if (m.id === j.id) continue;
         picks.push(m);
       }
     }
     const chosen = picks.slice(0, 3);
-    if (chosen.length >= 2) {
-      const items = chosen.map(m => {
-        const thumbStyle = m.image ? ` style="background-image:url('${escCard(m.image)}')"` : '';
-        const thumbFallback = m.image ? '' : '🧠';
-        return `<li class="article-continue__item"><a href="articles/${escCard(m.id)}/" class="article-continue__link"><span class="article-continue__thumb"${thumbStyle} aria-hidden="true">${thumbFallback}</span><span class="article-continue__link-title">${escCard(m.title)}</span></a></li>`;
-      }).join('\n              ');
-      continueBlockHtml = `\n          <div class="article-continue">\n            <p class="article-continue__title">Pour continuer</p>\n            <ul class="article-continue__list">\n              ${items}\n            </ul>\n            <a class="article-continue__hub-link" href="theme/${escCard(clusterResolved.id)}/">Voir le parcours complet « ${escCard(clusterResolved.title)} » →</a>\n          </div>`;
-    }
+    if (chosen.length < 2) continue;
+    const items = chosen.map(m => {
+      const thumbStyle = m.image ? ` style="background-image:url('${escCard(m.image)}')"` : '';
+      const thumbFallback = m.image ? '' : '🧠';
+      return `<li class="article-continue__item"><a href="articles/${escCard(m.id)}/" class="article-continue__link"><span class="article-continue__thumb"${thumbStyle} aria-hidden="true">${thumbFallback}</span><span class="article-continue__link-title">${escCard(m.title)}</span></a></li>`;
+    }).join('\n              ');
+    const blockTitle = resolvedMemberships.length > 1 ? `Pour continuer — ${escCard(clusterResolved.title)}` : 'Pour continuer';
+    continueBlockHtml += `\n          <div class="article-continue" data-cluster="${escCard(clusterId)}">\n            <p class="article-continue__title">${blockTitle}</p>\n            <ul class="article-continue__list">\n              ${items}\n            </ul>\n            <a class="article-continue__hub-link" href="theme/${escCard(clusterId)}/">Voir le parcours complet « ${escCard(clusterResolved.title)} » →</a>\n          </div>`;
   }
 
   // Options cluster pour le gabarit partagé (js/article-template.js) — vide
   // pour tout article hors cluster, le gabarit applique alors ses propres
   // valeurs par défaut (catégorie en fil d'Ariane, "À lire aussi" vide).
   const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES, tools: TOOLS, toolsGenerated: TOOLS_GENERATED_SLUGS };
-  if (clusterResolved) {
-    templateOpts.breadcrumbHref = `theme/${clusterResolved.id}/`;
-    templateOpts.breadcrumbLabel = clusterResolved.title;
-    templateOpts.breadcrumbLevel2 = { "@type": "ListItem", "position": 2, "name": clusterResolved.title, "item": `${BASE}/theme/${clusterResolved.id}/` };
+  // Fil d'Ariane JSON-LD : un seul niveau possible (schéma à une seule
+  // BreadcrumbList) — toujours celui du cluster "principal", c'est-à-dire le
+  // premier rattachement valide de la liste.
+  const primaryMembership = resolvedMemberships[0];
+  if (primaryMembership) {
+    templateOpts.breadcrumbHref = `theme/${primaryMembership.clusterId}/`;
+    templateOpts.breadcrumbLabel = primaryMembership.cluster.title;
+    templateOpts.breadcrumbLevel2 = { "@type": "ListItem", "position": 2, "name": primaryMembership.cluster.title, "item": `${BASE}/theme/${primaryMembership.clusterId}/` };
   }
 
   const html = ArticleTemplate.buildArticleHTML(j, templateOpts);
@@ -361,13 +388,13 @@ for (const cluster of CLUSTERS) {
 
   for (const file of jsonFiles) {
     const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
-    if (j.cluster !== cluster.id) continue;
-    if (!j.etape || !cluster.etapes || !cluster.etapes[j.etape]) continue;
+    const membership = getMemberships(j).find(m => m.cluster === cluster.id && cluster.etapes && cluster.etapes[m.etape]);
+    if (!membership) continue;
     if ((j.status || 'published') !== 'published') continue; // jamais scheduled/draft
     if (j.date > TODAY) continue;
 
-    if (!byStage[j.etape]) byStage[j.etape] = [];
-    byStage[j.etape].push({
+    if (!byStage[membership.etape]) byStage[membership.etape] = [];
+    byStage[membership.etape].push({
       id: j.id, title: j.title, excerpt: j.excerpt || '', category: j.category,
       date: j.date, date_modified: j.date_modified || j.date,
       image: j.image || '', imagePosition: j.imagePosition || '50% 50%',

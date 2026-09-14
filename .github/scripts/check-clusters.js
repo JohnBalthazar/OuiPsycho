@@ -44,6 +44,17 @@ const byId      = Object.fromEntries(articles.map(a => [a.id, a]));
 const isPublishedStrict = a => (a.status || 'published') === 'published' && a.date <= TODAY;
 const isLive            = a => (a.status || 'published') !== 'draft' && a.date <= TODAY; // règle utilisée par le fil de parcours / widget / bloc de fin
 
+// Rattachements d'un article — un article peut appartenir à plusieurs clusters
+// (a.clusters, liste de { cluster, etape }) ; ancien format a.cluster/a.etape
+// (un seul rattachement, champs scalaires) encore lu en repli le temps de la
+// migration des articles existants. Le 1er élément est le rattachement
+// "principal" (celui qui pilote le fil d'Ariane JSON-LD — voir check 5).
+function getMemberships(a) {
+  if (Array.isArray(a.clusters)) return a.clusters.filter(m => m && m.cluster && m.etape);
+  if (a.cluster && a.etape) return [{ cluster: a.cluster, etape: a.etape }];
+  return [];
+}
+
 function readPage(p) { return fs.existsSync(p) ? fs.readFileSync(p, 'utf8') : null; }
 function articleHtmlPath(id)    { return path.join(ARTICLES_DIR, id, 'index.html'); }
 function hubHtmlPath(clusterId) { return path.join(THEME_DIR, clusterId, 'index.html'); }
@@ -59,6 +70,32 @@ function extractBlock(html, openTagRegex) {
   const start = m.index;
   const closeIdx = html.indexOf(closeTag, start);
   return closeIdx === -1 ? null : html.slice(start, closeIdx + closeTag.length);
+}
+
+// Un article multi-cluster affiche plusieurs blocs <nav class="cluster-trail">
+// / <div class="article-continue"> sur une même page (un par cluster
+// d'appartenance) — extractBlock() ne récupère que le premier. Utilisé pour
+// le fil de parcours et le bloc de fin d'article, PAS pour le widget sidebar
+// (#related-articles), qui reste un container unique quel que soit le nombre
+// de clusters (voir _gen_static.js).
+function extractAllBlocks(html, openTagRegex) {
+  const re = new RegExp(openTagRegex.source, 'g');
+  const blocks = [];
+  let m;
+  while ((m = re.exec(html))) {
+    const tag = m[0].startsWith('<nav') ? 'nav' : 'div';
+    const closeTag = `</${tag}>`;
+    const closeIdx = html.indexOf(closeTag, m.index);
+    if (closeIdx === -1) break;
+    blocks.push(html.slice(m.index, closeIdx + closeTag.length));
+    re.lastIndex = closeIdx + closeTag.length;
+  }
+  return blocks;
+}
+
+// Associe un bloc à SON cluster via l'attribut data-cluster (voir _gen_static.js).
+function blockForCluster(blocks, clusterId) {
+  return blocks.find(b => b.includes(`data-cluster="${clusterId}"`)) || null;
 }
 
 function extractHrefs(htmlFragment) {
@@ -88,11 +125,13 @@ for (const cluster of clusters) {
   const liveMembers      = {}; // étape -> [article] — règle "en ligne" (fil de parcours / widget / bloc de fin)
   const publishedMembers = {}; // étape -> [article] — règle stricte (hub)
   for (const a of articles) {
-    if (a.cluster !== clusterId || !a.etape || !cluster.etapes[a.etape]) continue;
-    if (isLive(a))            (liveMembers[a.etape]      ??= []).push(a);
-    if (isPublishedStrict(a)) (publishedMembers[a.etape] ??= []).push(a);
+    const membership = getMemberships(a).find(m => m.cluster === clusterId && cluster.etapes[m.etape]);
+    if (!membership) continue;
+    if (isLive(a))            (liveMembers[membership.etape]      ??= []).push(a);
+    if (isPublishedStrict(a)) (publishedMembers[membership.etape] ??= []).push(a);
   }
-  const publishedClusterArticles = articles.filter(a => a.cluster === clusterId && isPublishedStrict(a));
+  const publishedClusterArticles = articles.filter(a =>
+    getMemberships(a).some(m => m.cluster === clusterId) && isPublishedStrict(a));
 
   // 1. Aucun lien interne (dans nos composants) pointant vers une page inexistante
   (function checkNoBrokenLinks() {
@@ -100,9 +139,9 @@ for (const cluster of clusters) {
     for (const a of publishedClusterArticles) {
       const html = readPage(articleHtmlPath(a.id));
       if (!html) { broken.push(`${a.id} : page HTML introuvable`); continue; }
-      const trail   = extractBlock(html, /<nav class="cluster-trail"/);
+      const trail   = blockForCluster(extractAllBlocks(html, /<nav class="cluster-trail"/), clusterId);
       const widget  = extractBlock(html, /<div class="widget-links">/);
-      const continu = extractBlock(html, /<div class="article-continue">/);
+      const continu = blockForCluster(extractAllBlocks(html, /<div class="article-continue"/), clusterId);
       for (const frag of [trail, widget, continu]) {
         for (const href of extractHrefs(frag)) {
           const r = resolveInternalHref(href);
@@ -153,7 +192,7 @@ for (const cluster of clusters) {
 
     for (const a of publishedClusterArticles) {
       const html = readPage(articleHtmlPath(a.id));
-      const trail = html && extractBlock(html, /<nav class="cluster-trail"/);
+      const trail = html && blockForCluster(extractAllBlocks(html, /<nav class="cluster-trail"/), clusterId);
       if (!trail) continue;
       for (const s of stageOrder) {
         const label = cluster.etapes[s];
@@ -188,7 +227,7 @@ for (const cluster of clusters) {
     for (const a of publishedClusterArticles) {
       const html = readPage(articleHtmlPath(a.id));
       if (!html) continue;
-      const continu = extractBlock(html, /<div class="article-continue">/);
+      const continu = blockForCluster(extractAllBlocks(html, /<div class="article-continue"/), clusterId);
       checkArticleLinks(continu, `${a.id} (Pour continuer)`);
       // Le fil de parcours ne pointe jamais vers un article scheduled : soit
       // l'ancre du hub, soit (étape à 1 seul article) l'article lui-même —
@@ -210,9 +249,14 @@ for (const cluster of clusters) {
   })();
 
   // 5. JSON-LD BreadcrumbList présent et valide sur les articles publiés du cluster
+  //    Un seul niveau 2 possible par page (un seul BreadcrumbList) : ne
+  //    vérifié que pour le cluster PRINCIPAL de l'article (1er de la liste des
+  //    rattachements) — un cluster secondaire n'y figure jamais, à raison.
   (function checkBreadcrumbJsonLd() {
     const problems = [];
     for (const a of publishedClusterArticles) {
+      const primary = getMemberships(a)[0];
+      if (!primary || primary.cluster !== clusterId) continue;
       const html = readPage(articleHtmlPath(a.id));
       if (!html) { problems.push(`${a.id} : page introuvable`); continue; }
       const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => m[1]);
@@ -247,7 +291,7 @@ if (clusters.length === 0) {
   const leakTrail = [];
   const leakContinue = [];
   const leakWidget = [];
-  const nonClusterPublished = articles.filter(a => !a.cluster && isPublishedStrict(a));
+  const nonClusterPublished = articles.filter(a => !getMemberships(a).length && isPublishedStrict(a));
 
   for (const a of nonClusterPublished) {
     const html = readPage(articleHtmlPath(a.id));

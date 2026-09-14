@@ -446,10 +446,12 @@ async function initArticle() {
         const article = await res.json();
         initShareButtons(article);
         buildTOC();
-        // Articles en cluster : le widget "À lire aussi" est déjà rempli
-        // statiquement par _gen_static.js ("Pour continuer") — ne pas
-        // l'écraser en appelant loadRelated().
-        if (!article.cluster) loadRelated(article);
+        // Articles en cluster (un ou plusieurs, voir article.clusters — ancien
+        // format article.cluster encore lu en repli) : le widget "À lire aussi"
+        // est déjà rempli statiquement par _gen_static.js ("Pour continuer") —
+        // ne pas l'écraser en appelant loadRelated().
+        const hasCluster = (Array.isArray(article.clusters) && article.clusters.length) || article.cluster;
+        if (!hasCluster) loadRelated(article);
         // Injecter l'image si ajoutée après la génération de la page statique
         injectArticleImage(article);
         // Section commentaires

@@ -55,16 +55,33 @@ for (const file of jsonFiles) {
     errors.push(`${j.id} : date_modified (${j.date_modified}) antérieure à date (${j.date})`);
   }
 
-  // Rattachement cluster/étape : le cluster doit exister, et l'étape doit être
-  // une des étapes déclarées pour ce cluster précis.
-  if (j.cluster) {
-    const cluster = clustersById[j.cluster];
+  // Rattachement(s) cluster/étape : un article peut appartenir à plusieurs
+  // clusters (j.clusters, liste de { cluster, etape }) — ancien format
+  // j.cluster/j.etape (un seul rattachement) encore lu en repli le temps de
+  // la migration des articles existants. Chaque cluster doit exister, et
+  // chaque étape doit être une des étapes déclarées pour SON cluster.
+  const memberships = Array.isArray(j.clusters)
+    ? j.clusters
+    : (j.cluster || j.etape) ? [{ cluster: j.cluster, etape: j.etape }] : [];
+  for (const m of memberships) {
+    if (!m.cluster) {
+      errors.push(`${j.id} : entrée de clusters[] sans champ "cluster"`);
+      continue;
+    }
+    const cluster = clustersById[m.cluster];
     if (!cluster) {
-      errors.push(`${j.id} : cluster "${j.cluster}" introuvable dans data/clusters.json`);
-    } else if (!j.etape) {
-      errors.push(`${j.id} : cluster "${j.cluster}" renseigné sans etape`);
-    } else if (!cluster.etapes || !cluster.etapes[j.etape]) {
-      errors.push(`${j.id} : etape "${j.etape}" invalide pour le cluster "${j.cluster}"`);
+      errors.push(`${j.id} : cluster "${m.cluster}" introuvable dans data/clusters.json`);
+    } else if (!m.etape) {
+      errors.push(`${j.id} : cluster "${m.cluster}" renseigné sans etape`);
+    } else if (!cluster.etapes || !cluster.etapes[m.etape]) {
+      errors.push(`${j.id} : etape "${m.etape}" invalide pour le cluster "${m.cluster}"`);
+    }
+  }
+  if (memberships.length > 1) {
+    const seen = new Set();
+    for (const m of memberships) {
+      if (m.cluster && seen.has(m.cluster)) errors.push(`${j.id} : cluster "${m.cluster}" rattaché deux fois dans clusters[]`);
+      if (m.cluster) seen.add(m.cluster);
     }
   }
 
