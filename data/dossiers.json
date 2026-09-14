@@ -1,5 +1,21 @@
 [
   {
+    "id": "rupture-guide-complet",
+    "type": "dossier",
+    "title": "Rupture : le guide complet",
+    "subtitle": "Rupture amoureuse : mieux comprendre pour la dépasser",
+    "excerpt": "La rupture amoureuse, qu’elle soit choisie ou subie, bouleverse nos habitudes, nos projets et notre rapport à nous-mêmes.\nEntre douleur, souvenirs et difficulté à tourner la page, elle s’apparente à un véritable processus de deuil. Ce dossier explore les mécanismes de la séparation, son impact psychologique et les chemins possibles vers la reconstruction.",
+    "category": "Relations",
+    "image": "",
+    "readTime": 20,
+    "chapterCount": 3,
+    "date": "2026-09-14",
+    "status": "published",
+    "tags": [
+      "#RuptureAmoureuse #Amour #Séparation #DeuilAmoureux #Reconstruction #Psychologie #Relations #CœurBrisé #TournerLaPage #BienÊtreÉmotionnel"
+    ]
+  },
+  {
     "id": "anxiete-guide-complet",
     "type": "dossier",
     "title": "L'anxiété : comprendre et surmonter",
