@@ -7,7 +7,12 @@
   "imageLayout": "top",
   "image": "",
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "diagnostiquer"
+    }
+  ],
   "id": "test-tdah-adulte-asrs",
   "title": "Test TDAH adulte : ce que mesure l'ASRS (et ses limites)",
   "excerpt": "L'ASRS est l'outil de dépistage du TDAH adulte le plus utilisé au monde. Ce qu'il mesure vraiment, comment il fonctionne, et pourquoi un score élevé n'est jamais un diagnostic à lui seul.",
@@ -38,7 +43,6 @@
       "journal": "Psychological Medicine"
     }
   ],
-  "etape": "diagnostiquer",
   "articles_lies": [
     "tdah-trouble-deficit-attention-hyperactivite",
     "diagnostic-tdah-france",

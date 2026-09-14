@@ -36,8 +36,12 @@
       "publisher": "INSV"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "hygiene-de-sommeil",
     "tcc-insomnie-restriction-sommeil",

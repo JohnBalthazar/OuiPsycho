@@ -36,8 +36,12 @@
       "journal": "Journal of Nervous and Mental Disease"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "crise-angoisse",
     "anxiete-sociale-phobie-sociale",

@@ -46,7 +46,15 @@
       "url": "https://psycnet.apa.org/record/2006-12208-011"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "agir",
-  "articles_lies": ["souffrance-au-travail-guide", "charge-mentale", "reprise-travail-apres-burn-out"]
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "agir"
+    }
+  ],
+  "articles_lies": [
+    "souffrance-au-travail-guide",
+    "charge-mentale",
+    "reprise-travail-apres-burn-out"
+  ]
 }

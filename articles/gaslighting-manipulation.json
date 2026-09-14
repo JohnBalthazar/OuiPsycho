@@ -36,8 +36,12 @@
       "journal": "American Sociological Review"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "dans-la-tete-d-un-pervers-narcissique",
     "7-signes-personne-narcissique",

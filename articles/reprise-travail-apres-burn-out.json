@@ -42,8 +42,12 @@
       "publisher": "Réseau Burnout"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "rebondir",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "rebondir"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "arret-travail-burn-out",

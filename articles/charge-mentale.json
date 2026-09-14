@@ -42,8 +42,12 @@
       "publisher": "Ipsos France"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "burnout-epuisement-professionnel",

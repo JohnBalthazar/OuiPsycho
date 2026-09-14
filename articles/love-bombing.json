@@ -42,8 +42,12 @@
       "publisher": "Stein and Day"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "dependance-affective",
     "styles-attachement",

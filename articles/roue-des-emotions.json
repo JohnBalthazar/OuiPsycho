@@ -42,8 +42,12 @@
       "journal": "Transactional Analysis Journal"
     }
   ],
-  "cluster": "emotions",
-  "etape": "reguler",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "reguler"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "alexithymie",

@@ -36,8 +36,12 @@
       "journal": "Journal of Sleep Research"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "dette-de-sommeil",
     "bien-dormir-guide-complet",

@@ -43,8 +43,12 @@
       "journal": "The Leadership Quarterly"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "harcelement-moral-travail",

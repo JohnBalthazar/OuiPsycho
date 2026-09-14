@@ -28,8 +28,12 @@
     "Ils peuvent mimer des pathologies cardiaques ou digestives, ce qui pousse beaucoup de personnes vers les urgences avant le diagnostic d'anxiété.",
     "Apprendre à reconnaître ces signaux corporels aide à intervenir plus tôt, avant que l'anxiété ne s'intensifie."
   ],
-  "cluster": "anxiete",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "crise-angoisse-nuit",
     "coherence-cardiaque-365",

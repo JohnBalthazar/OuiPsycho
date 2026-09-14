@@ -48,8 +48,12 @@
       "journal": "Chronobiology International"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "bien-dormir-guide-complet",
     "sieste-duree-ideale",

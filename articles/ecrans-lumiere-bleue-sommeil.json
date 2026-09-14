@@ -36,8 +36,12 @@
       "journal": "Proceedings of the National Academy of Sciences (PNAS)"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "bien-dormir-guide-complet",
     "hygiene-de-sommeil",

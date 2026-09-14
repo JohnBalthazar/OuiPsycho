@@ -42,8 +42,12 @@
       "publisher": "Inserm — La science pour la santé"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "trouble-anxieux-generalise",
     "anxiete-anticipatoire",

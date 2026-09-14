@@ -37,8 +37,12 @@
       "url": "https://www.has-sante.fr/upload/docs/application/pdf/2015-06/fiche_memo_rapport_elaboration_arret_benzodiazepines__2015_06_17.pdf"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "coherence-cardiaque-365",
     "se-debarrasser-anxiete-pour-toujours",

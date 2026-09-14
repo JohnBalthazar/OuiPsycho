@@ -7,7 +7,12 @@
   "imageLayout": "top",
   "image": "",
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "comprendre"
+    }
+  ],
   "id": "fonctions-executives",
   "title": "Fonctions exécutives : le chef d'orchestre fatigué du cerveau",
   "excerpt": "Mémoire de travail, inhibition, planification : les fonctions exécutives orchestrent nos actions au quotidien. Comprendre ce système éclaire pourquoi le TDAH n'est pas qu'un problème d'attention.",
@@ -43,7 +48,6 @@
       "journal": "Child Development Perspectives"
     }
   ],
-  "etape": "comprendre",
   "articles_lies": [
     "tdah-trouble-deficit-attention-hyperactivite",
     "tdah-femme-adulte",

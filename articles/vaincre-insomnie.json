@@ -29,8 +29,12 @@
     "L'anxiété de performance (vouloir absolument dormir) est le pire ennemi du sommeil",
     "Les somnifères réduisent le sommeil profond et créent une dépendance à long terme"
   ],
-  "cluster": "sommeil",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "tcc-insomnie-restriction-sommeil",
     "bien-dormir-guide-complet",

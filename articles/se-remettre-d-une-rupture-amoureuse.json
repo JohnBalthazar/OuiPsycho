@@ -88,8 +88,12 @@
       "url": "https://doi.org/10.1177/0146167209352250"
     }
   ],
-  "cluster": "rupture-guide-complet",
-  "etape": "passer-a-autre-chose",
+  "clusters": [
+    {
+      "cluster": "rupture-guide-complet",
+      "etape": "passer-a-autre-chose"
+    }
+  ],
   "articles_lies": [
     "dans-la-tete-d-un-pervers-narcissique"
   ],

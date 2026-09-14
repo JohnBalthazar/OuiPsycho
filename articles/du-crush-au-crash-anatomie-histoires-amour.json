@@ -41,6 +41,10 @@
   ],
   "articles_lies": [],
   "status": "published",
-  "cluster": "rupture-guide-complet",
-  "etape": "comprendre"
+  "clusters": [
+    {
+      "cluster": "rupture-guide-complet",
+      "etape": "comprendre"
+    }
+  ]
 }

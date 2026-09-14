@@ -36,8 +36,12 @@
       "publisher": "American Psychiatric Publishing"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "anxiete-sociale-phobie-sociale",
     "anxiete-de-sante-hypocondrie",

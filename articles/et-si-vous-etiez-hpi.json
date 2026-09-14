@@ -78,6 +78,10 @@
     "tdah-trouble-deficit-attention-hyperactivite"
   ],
   "status": "published",
-  "cluster": "neuroatypie-adulte",
-  "etape": "reconnaitre"
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "reconnaitre"
+    }
+  ]
 }

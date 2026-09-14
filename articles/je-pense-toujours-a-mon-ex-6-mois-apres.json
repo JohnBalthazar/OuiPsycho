@@ -73,8 +73,12 @@
       "amazon_asin": "2226317023"
     }
   ],
-  "cluster": "rupture-guide-complet",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "rupture-guide-complet",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [],
   "status": "published"
 }

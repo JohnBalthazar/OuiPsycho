@@ -42,8 +42,12 @@
       "publisher": "Culture RH"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "bore-out-ennui-au-travail",

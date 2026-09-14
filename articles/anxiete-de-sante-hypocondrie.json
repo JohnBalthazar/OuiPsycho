@@ -42,8 +42,12 @@
       "journal": "ACM Transactions on Information Systems"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "agoraphobie-comprendre",
     "toc-ou-anxiete-difference",

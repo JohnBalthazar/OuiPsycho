@@ -36,8 +36,12 @@
       "journal": "Psychotherapy: Theory, Research & Practice"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "manager-toxique-signes",

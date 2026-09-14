@@ -36,8 +36,12 @@
       "journal": "Behavioral Sleep Medicine"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "paralysie-du-sommeil",
     "bien-dormir-guide-complet",

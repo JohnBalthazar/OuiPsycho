@@ -42,8 +42,12 @@
       "journal": "Annals of Internal Medicine"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "approfondir",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "approfondir"
+    }
+  ],
   "articles_lies": [
     "sieste-duree-ideale",
     "se-reveiller-3h-du-matin",

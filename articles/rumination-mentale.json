@@ -36,8 +36,12 @@
       "journal": "Journal of Abnormal Psychology"
     }
   ],
-  "cluster": "emotions",
-  "etape": "reguler",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "reguler"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "gerer-sa-colere",

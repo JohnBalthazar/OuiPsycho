@@ -28,8 +28,16 @@
     "Six facteurs contribuent au burnout au-delà de la simple charge de travail",
     "La prévention passe par des limites non-négociables posées dès maintenant"
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "reconnaitre",
-  "articles_lies": ["souffrance-au-travail-guide", "arret-travail-burn-out", "reprise-travail-apres-burn-out"],
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "reconnaitre"
+    }
+  ],
+  "articles_lies": [
+    "souffrance-au-travail-guide",
+    "arret-travail-burn-out",
+    "reprise-travail-apres-burn-out"
+  ],
   "status": "published"
 }

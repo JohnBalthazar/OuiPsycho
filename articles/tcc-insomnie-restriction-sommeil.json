@@ -36,8 +36,12 @@
       "journal": "Sleep"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "vaincre-insomnie",
     "bien-dormir-guide-complet",

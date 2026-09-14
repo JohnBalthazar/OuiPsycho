@@ -69,8 +69,12 @@
       "publisher": "HarperCollins"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [],
   "status": "scheduled"
 }

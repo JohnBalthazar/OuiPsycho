@@ -42,8 +42,12 @@
       "journal": "Development and Psychopathology"
     }
   ],
-  "cluster": "emotions",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "alexithymie",

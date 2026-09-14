@@ -36,8 +36,12 @@
       "journal": "Psychotherapy and Psychosomatics"
     }
   ],
-  "cluster": "emotions",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "hypersensibilite-test",

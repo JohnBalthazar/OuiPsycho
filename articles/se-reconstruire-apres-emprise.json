@@ -54,8 +54,12 @@
       "publisher": "Syros"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "consulter",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "consulter"
+    }
+  ],
   "articles_lies": [],
   "status": "published"
 }

@@ -48,8 +48,12 @@
       "publisher": "Empreinte Humaine"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "burnout-epuisement-professionnel",

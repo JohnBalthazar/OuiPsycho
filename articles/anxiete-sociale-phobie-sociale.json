@@ -42,8 +42,12 @@
       "publisher": "Santé publique France"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "agoraphobie-comprendre",
     "crise-angoisse-nuit",

@@ -56,8 +56,12 @@
       "journal": "Psychotherapy: Theory, Research & Practice"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "charge-mentale",
     "harcelement-moral-travail",

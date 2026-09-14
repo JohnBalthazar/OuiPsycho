@@ -42,8 +42,12 @@
       "publisher": "République française"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "punition-par-le-silence",
     "survivre-relation-toxique",

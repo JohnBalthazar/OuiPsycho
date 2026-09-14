@@ -65,6 +65,10 @@
     "autisme-adulte-diagnostic-tardif"
   ],
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
-  "etape": "reconnaitre"
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "reconnaitre"
+    }
+  ]
 }

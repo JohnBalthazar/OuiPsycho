@@ -7,7 +7,12 @@
   "imageLayout": "top",
   "image": "",
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "reconnaitre"
+    }
+  ],
   "id": "autisme-adulte-diagnostic-tardif",
   "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
   "excerpt": "De plus en plus d'adultes, souvent des femmes, découvrent leur autisme après des décennies de vie sans réponse. Pourquoi ce diagnostic arrive si tard — et ce qu'il change une fois posé.",
@@ -56,7 +61,6 @@
       "journal": "Autism in Adulthood"
     }
   ],
-  "etape": "reconnaitre",
   "articles_lies": [
     "hpi-invisible-identification-tardive-adulte",
     "tdah-femme-adulte",

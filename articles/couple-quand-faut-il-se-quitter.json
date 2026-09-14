@@ -65,8 +65,12 @@
       "url": "https://doi.org/10.1177/1745691611414724"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "pourquoi",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "pourquoi"
+    }
+  ],
   "articles_lies": [],
   "status": "scheduled"
 }

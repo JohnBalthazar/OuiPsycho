@@ -74,6 +74,10 @@
     "diagnostic-tdah-france"
   ],
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
-  "etape": "vivre-avec"
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "vivre-avec"
+    }
+  ]
 }

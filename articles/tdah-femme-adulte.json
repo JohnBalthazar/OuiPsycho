@@ -7,7 +7,12 @@
   "imageLayout": "top",
   "image": "",
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "reconnaitre"
+    }
+  ],
   "id": "tdah-femme-adulte",
   "title": "TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard",
   "excerpt": "Diagnostiqué presque exclusivement chez les garçons hyperactifs pendant des décennies, le TDAH féminin reste largement invisible. Ce que la science comprend aujourd'hui de ce retard diagnostique.",
@@ -38,7 +43,6 @@
       "journal": "Primary Care Companion for CNS Disorders"
     }
   ],
-  "etape": "reconnaitre",
   "articles_lies": [
     "tdah-trouble-deficit-attention-hyperactivite",
     "fonctions-executives",

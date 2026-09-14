@@ -29,8 +29,12 @@
     "Les créneaux d'inquiétude programmés réduisent l'omniprésence de l'anxiété"
   ],
   "status": "published",
-  "cluster": "anxiete",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
     "toc-ou-anxiete-difference",

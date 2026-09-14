@@ -61,6 +61,10 @@
     "coherence-cardiaque-365"
   ],
   "status": "scheduled",
-  "cluster": "anxiete",
-  "etape": "vivre-avec"
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "vivre-avec"
+    }
+  ]
 }

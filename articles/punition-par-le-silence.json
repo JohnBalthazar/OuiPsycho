@@ -36,8 +36,12 @@
       "journal": "Journal of Personality and Social Psychology"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "gaslighting-manipulation",
     "relation-toxique-signes",

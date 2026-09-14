@@ -36,8 +36,12 @@
       "publisher": "INSV"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "bien-dormir-guide-complet",
     "ecrans-lumiere-bleue-sommeil",

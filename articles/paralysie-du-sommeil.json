@@ -36,8 +36,12 @@
       "journal": "Sleep Medicine Reviews"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "cauchemars-recurrents",
     "bien-dormir-guide-complet",

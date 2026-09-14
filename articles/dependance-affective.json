@@ -28,8 +28,12 @@
     "Elle rend plus difficile de quitter une relation insatisfaisante, voire toxique, par peur du vide qu'un départ ferait ressentir.",
     "Travailler l'estime de soi indépendamment du regard du partenaire est le levier central pour en sortir."
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "pourquoi",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "pourquoi"
+    }
+  ],
   "articles_lies": [
     "styles-attachement",
     "love-bombing",

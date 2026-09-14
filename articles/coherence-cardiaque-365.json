@@ -42,8 +42,12 @@
       "journal": "Frontiers in Psychology"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "symptomes-physiques-anxiete",
     "anxiolytiques-effets-alternatives",

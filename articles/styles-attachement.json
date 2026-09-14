@@ -48,8 +48,12 @@
       "journal": "Affective Development in Infancy"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "dependance-affective",
     "pourquoi-tomber-amoureux-du-meme-type-de-personne",

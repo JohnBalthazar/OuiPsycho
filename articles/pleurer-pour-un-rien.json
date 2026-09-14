@@ -42,8 +42,12 @@
       "publisher": "Oxford University Press"
     }
   ],
-  "cluster": "emotions",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "hypersensibilite-test",

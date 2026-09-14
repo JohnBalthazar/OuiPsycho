@@ -81,8 +81,12 @@
       "amazon_asin": "2738134114"
     }
   ],
-  "cluster": "emotions",
-  "etape": "comprendre",
+  "clusters": [
+    {
+      "cluster": "emotions",
+      "etape": "comprendre"
+    }
+  ],
   "articles_lies": [
     "comprendre-ses-emotions-guide",
     "rumination-mentale",

@@ -64,8 +64,12 @@
       "journal": "American Sociological Review"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "cinq-reflexes-se-proteger-pervers-narcissique"
   ],

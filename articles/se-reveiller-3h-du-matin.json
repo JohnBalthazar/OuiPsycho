@@ -36,8 +36,12 @@
       "publisher": "Ameli"
     }
   ],
-  "cluster": "sommeil",
-  "etape": "reconnaitre",
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "reconnaitre"
+    }
+  ],
   "articles_lies": [
     "bien-dormir-guide-complet",
     "vaincre-insomnie",

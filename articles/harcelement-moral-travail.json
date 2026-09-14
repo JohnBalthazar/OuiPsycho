@@ -43,8 +43,12 @@
       "publisher": "Légifrance / Code du travail"
     }
   ],
-  "cluster": "souffrance-au-travail",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "souffrance-au-travail",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "souffrance-au-travail-guide",
     "manager-toxique-signes",

@@ -42,8 +42,12 @@
       "journal": "Journal of Consulting and Clinical Psychology"
     }
   ],
-  "cluster": "anxiete",
-  "etape": "agir",
+  "clusters": [
+    {
+      "cluster": "anxiete",
+      "etape": "agir"
+    }
+  ],
   "articles_lies": [
     "cerveau-imagine-toujours-le-pire-trouble-anxieux-generalise",
     "toc-ou-anxiete-difference",

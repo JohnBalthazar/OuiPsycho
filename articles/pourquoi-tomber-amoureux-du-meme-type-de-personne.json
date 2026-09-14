@@ -85,8 +85,12 @@
       "publisher": "Payot (éd. française)"
     }
   ],
-  "cluster": "emprise-et-relations-toxiques",
-  "etape": "pourquoi",
+  "clusters": [
+    {
+      "cluster": "emprise-et-relations-toxiques",
+      "etape": "pourquoi"
+    }
+  ],
   "articles_lies": [],
   "status": "scheduled"
 }

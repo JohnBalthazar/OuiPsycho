@@ -35,6 +35,10 @@
     "vaincre-insomnie"
   ],
   "status": "published",
-  "cluster": "sommeil",
-  "etape": "comprendre"
+  "clusters": [
+    {
+      "cluster": "sommeil",
+      "etape": "comprendre"
+    }
+  ]
 }

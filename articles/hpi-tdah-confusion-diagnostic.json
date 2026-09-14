@@ -7,7 +7,12 @@
   "imageLayout": "top",
   "image": "",
   "status": "scheduled",
-  "cluster": "neuroatypie-adulte",
+  "clusters": [
+    {
+      "cluster": "neuroatypie-adulte",
+      "etape": "reconnaitre"
+    }
+  ],
   "id": "hpi-tdah-confusion-diagnostic",
   "title": "HPI et TDAH : pourquoi on les confond si souvent",
   "excerpt": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre. Comment les distinguer — et pourquoi ils coexistent parfois.",
@@ -38,7 +43,6 @@
       "journal": "Pédiatrie Pratique"
     }
   ],
-  "etape": "reconnaitre",
   "articles_lies": [
     "et-si-vous-etiez-hpi",
     "tdah-trouble-deficit-attention-hyperactivite",
