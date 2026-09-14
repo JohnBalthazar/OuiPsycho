@@ -750,6 +750,11 @@
             <div class="hint" style="margin-bottom:8px">Chaque dossier est un cluster thématique : les articles s'y rattachent par étape depuis leur propre panneau (menu « Thème »). Au moins une étape est requise.</div>
             <div id="dp-etapes-list"></div>
             <button type="button" class="btn btn-ghost btn-sm" onclick="addEtapeRow()">+ Ajouter une étape</button>
+            <label style="display:flex;align-items:center;gap:8px;cursor:pointer;font-weight:600;margin-top:14px">
+              <input type="checkbox" id="dp-show-on-dossiers" checked style="width:16px;height:16px;accent-color:var(--primary);cursor:pointer;flex-shrink:0">
+              <span>Afficher aussi sur la page Dossiers publique</span>
+            </label>
+            <div class="hint">À décocher si un vrai guide rédigé (ex. « Rupture : le guide complet ») couvre déjà ce sujet — sinon les deux cartes apparaîtront côte à côte sur la page Dossiers. Le cluster reste accessible directement via sa page hub, et rattachable aux articles, dans tous les cas.</div>
           </div>
           <div class="form-group" id="dp-members-group">
             <label>Articles rattachés</label>
@@ -5723,14 +5728,28 @@ async function loadDossiers() {
 }
 
 function renderDossiersTable() {
-  const q   = (document.getElementById('dossiers-search')?.value || '').toLowerCase();
-  const list = adminDossiers.filter(d =>
+  const q = (document.getElementById('dossiers-search')?.value || '').toLowerCase();
+
+  // Clusters sans ligne miroir dans dossiers.json (case "Afficher aussi sur
+  // la page Dossiers publique" décochée à la création) : sans ça, ils
+  // seraient invisibles dans cet admin — pas d'entrée dans adminDossiers,
+  // donc jamais listés, jamais réouvrables en édition.
+  const hiddenClusters = clusters
+    .filter(c => !adminDossiers.some(d => d.id === c.id))
+    .map(c => ({
+      id: c.id, title: c.title, category: c.category, date: c.date,
+      chapterCount: Object.keys(c.etapes || {}).length, status: 'published',
+      _path: 'theme', _hidden: true,
+    }));
+  const combined = [...adminDossiers, ...hiddenClusters];
+
+  const list = combined.filter(d =>
     !q ||
     (d.title    || '').toLowerCase().includes(q) ||
     (d.category || '').toLowerCase().includes(q)
   );
   const countEl = document.getElementById('dossiers-count');
-  if (countEl) countEl.textContent = `(${adminDossiers.length})`;
+  if (countEl) countEl.textContent = `(${combined.length})`;
   if (!list.length) {
     document.getElementById('dossiers-table').innerHTML =
       '<tr><td colspan="6" style="text-align:center;padding:32px;color:var(--gray-400)">Aucun dossier</td></tr>';
@@ -5751,10 +5770,14 @@ function renderDossiersTable() {
     const img = d.image
       ? `<img src="${escapeAttr(d.image)}" style="width:36px;height:36px;object-fit:cover;border-radius:4px;vertical-align:middle;margin-right:8px">`
       : '<span style="display:inline-block;width:36px;height:36px;background:var(--gray-100);border-radius:4px;vertical-align:middle;margin-right:8px;text-align:center;line-height:36px">📚</span>';
+    const clusterBadge = d._hidden
+      ? '<span style="display:inline-block;margin-left:6px;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:1px 8px;font-size:.7rem;font-weight:700">🧩 Cluster (masqué)</span>'
+      : d._path === 'theme' ? '<span style="display:inline-block;margin-left:6px;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:1px 8px;font-size:.7rem;font-weight:700">🧩 Cluster</span>' : '';
+    const viewHref = d._path === 'theme' ? 'theme/' : 'dossiers/';
     return `<tr>
       <td>
         ${img}<strong>${escapeAttr(d.title || '—')}</strong>
-        ${d._path === 'theme' ? '<span style="display:inline-block;margin-left:6px;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:1px 8px;font-size:.7rem;font-weight:700">🧩 Cluster</span>' : ''}
+        ${clusterBadge}
         <div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(d.id)}</div>
       </td>
       <td><span class="badge ${catCls}">${escapeAttr(cat)}</span></td>
@@ -5763,9 +5786,9 @@ function renderDossiersTable() {
       <td>${badge}</td>
       <td>
         <div class="actions">
-          <a href="dossiers/${escapeAttr(d.id)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
+          <a href="${viewHref}${escapeAttr(d.id)}/" target="_blank" class="btn btn-ghost btn-sm">👁 Voir</a>
           <button class="btn btn-primary btn-sm" onclick="openDossierPanel('${escapeAttr(d.id)}')">✏️ Éditer</button>
-          <button class="btn btn-danger btn-sm" onclick="confirmDeleteDossier('${escapeAttr(d.id)}','${escapeAttr(d.title || '')}')">🗑️</button>
+          ${d._hidden ? '' : `<button class="btn btn-danger btn-sm" onclick="confirmDeleteDossier('${escapeAttr(d.id)}','${escapeAttr(d.title || '')}')">🗑️</button>`}
         </div>
       </td>
     </tr>`;
@@ -5783,9 +5806,19 @@ function openDossierPanel(id) {
   document.getElementById('dp-cluster-members').innerHTML = '';
   document.getElementById('dp-attach-picker').innerHTML   = '';
   document.getElementById('dp-attach-search').value       = '';
+  document.getElementById('dp-show-on-dossiers').checked  = true;
   if (id) {
-    const d = adminDossiers.find(x => x.id === id);
-    if (!d) return;
+    let d = adminDossiers.find(x => x.id === id);
+    if (!d) {
+      // Cluster sans ligne miroir (case décochée à la création) : reconstruire
+      // une entrée synthétique depuis clusters.json pour pré-remplir le panneau.
+      const c = clusters.find(x => x.id === id);
+      if (!c) return;
+      d = { id: c.id, title: c.title, subtitle: '', excerpt: c.excerpt || '', category: c.category || '',
+        status: 'published', readTime: 20, chapterCount: Object.keys(c.etapes || {}).length,
+        date: c.date || '', image: '', tags: [], _path: 'theme' };
+      document.getElementById('dp-show-on-dossiers').checked = false;
+    }
     dossierPanelMode = d._path === 'theme' ? 'cluster' : 'legacy';
     title.textContent = 'Modifier le dossier';
     document.getElementById('dp-id').value           = d.id           || '';
@@ -6030,15 +6063,31 @@ async function saveDossier() {
     ? { id, _path: 'theme', type: 'dossier', title, subtitle, excerpt, category, image, readTime, date, status, tags, chapterCount }
     : { id, type: 'dossier', title, subtitle, excerpt, category, image, readTime, chapterCount, date, status, tags };
 
-  if (editingDossierId) {
+  if (!editingDossierId && (adminDossiers.find(d => d.id === id) || clusters.find(c => c.id === id))) {
+    toast('Un dossier avec ce slug existe déjà', 'error');
+    return;
+  }
+
+  if (isCluster) {
+    // Case "Afficher aussi sur la page Dossiers publique" — à décocher quand
+    // un vrai guide rédigé couvre déjà ce sujet (ex. anxiété), pour ne pas
+    // afficher deux cartes côte à côte. Le cluster reste enregistré dans
+    // clusters.json et rattachable aux articles dans tous les cas ; seule
+    // la ligne miroir dans dossiers.json (donc la visibilité publique sur
+    // la page Dossiers) dépend de cette case.
+    const showOnDossiers = document.getElementById('dp-show-on-dossiers').checked;
+    if (showOnDossiers) {
+      const idx = adminDossiers.findIndex(d => d.id === id);
+      if (idx > -1) adminDossiers[idx] = { ...adminDossiers[idx], ...dossierData };
+      else adminDossiers.unshift(dossierData);
+    } else {
+      adminDossiers = adminDossiers.filter(d => d.id !== id);
+    }
+  } else if (editingDossierId) {
     const idx = adminDossiers.findIndex(d => d.id === editingDossierId);
     if (idx > -1) adminDossiers[idx] = { ...adminDossiers[idx], ...dossierData };
     else adminDossiers.push(dossierData);
   } else {
-    if (adminDossiers.find(d => d.id === id) || clusters.find(c => c.id === id)) {
-      toast('Un dossier avec ce slug existe déjà', 'error');
-      return;
-    }
     adminDossiers.unshift(dossierData);
   }
 
