@@ -1708,6 +1708,43 @@
           </div>
 
           <div class="settings-section">
+            <h3>📤 Partage sur les réseaux sociaux</h3>
+            <div class="form-group" style="max-width:420px">
+              <label>Image affichée quand quelqu'un partage ouipsycho.fr <span style="font-weight:400">(WhatsApp, Facebook, SMS…)</span></label>
+              <!-- Prévisualisation -->
+              <div id="hs-img-preview-wrap" class="img-preview-wrap" style="display:none;margin-bottom:8px">
+                <img id="hs-img-preview" src="" alt="Aperçu">
+                <div class="img-preview-actions">
+                  <button type="button" onclick="removeHomeShareImage()">✕ Supprimer</button>
+                </div>
+              </div>
+              <!-- Zone de dépôt -->
+              <div class="img-upload-zone" id="hs-img-drop-zone"
+                onclick="document.getElementById('hs-img-file-input').click()"
+                ondragover="handleHomeShareDragOver(event)"
+                ondragleave="handleHomeShareDragLeave(event)"
+                ondrop="handleHomeShareDrop(event)">
+                <div class="upload-icon">🖼️</div>
+                <strong>Cliquer ou glisser-déposer une image</strong>
+                <p>JPG, PNG, WebP · Max 10 Mo · idéalement 1200×630</p>
+                <input type="file" id="hs-img-file-input" accept="image/*" style="display:none" onchange="handleHomeShareImageFile(this.files[0])">
+              </div>
+              <div class="img-upload-progress" id="hs-img-upload-progress">
+                <div class="img-upload-progress-bar" id="hs-img-upload-bar"></div>
+              </div>
+              <!-- URL manuelle (fallback) -->
+              <div style="margin-top:8px;display:flex;align-items:center;gap:8px">
+                <span style="font-size:.75rem;color:var(--gray-400);white-space:nowrap">ou URL directe :</span>
+                <input type="text" id="hs-image" placeholder="https://..." style="flex:1;font-size:.82rem"
+                  oninput="onHomeShareImageUrlChange()">
+              </div>
+              <div class="hint" id="hs-img-status"></div>
+              <div class="hint">Si vide, l'image actuelle reste utilisée. Après un changement, WhatsApp/Facebook peuvent continuer d'afficher l'ancienne image pendant un moment (cache) — utilisez le <a href="https://developers.facebook.com/tools/debug/" target="_blank" rel="noopener">Sharing Debugger</a> en y collant https://ouipsycho.fr/ pour forcer la mise à jour.</div>
+            </div>
+            <button class="btn btn-primary" id="hs-save-btn" onclick="saveHomeShareSettings()">Enregistrer</button>
+          </div>
+
+          <div class="settings-section">
             <h3>🧹 Données</h3>
             <button class="btn btn-danger" onclick="clearAllData()">Effacer toutes les données locales</button>
           </div>
@@ -1850,6 +1887,7 @@ const CLD_CLOUD_KEY   = 'ouipsycho_cld_cloud';
 const CLD_PRESET_KEY  = 'ouipsycho_cld_preset';
 const CLD_FOLDER_KEY  = 'ouipsycho_cld_folder';
 const CONTACT_EMAIL_KEY = 'ouipsycho_contact_email';
+const HOME_SHARE_IMAGE_KEY = 'ouipsycho_home_share_image';
 const FB_PROJECT_KEY  = 'ouipsycho_fb_project';
 const FB_APIKEY_KEY   = 'ouipsycho_fb_apikey';
 const FB_EMAIL_KEY    = 'ouipsycho_fb_email';
@@ -2042,6 +2080,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   document.getElementById('fb-apikey').value     = localStorage.getItem(FB_APIKEY_KEY)     || '';
   document.getElementById('fb-email').value      = localStorage.getItem(FB_EMAIL_KEY)      || '';
   document.getElementById('contact-email').value = localStorage.getItem(CONTACT_EMAIL_KEY) || '';
+  const hsImageInit = localStorage.getItem(HOME_SHARE_IMAGE_KEY) || '';
+  document.getElementById('hs-image').value = hsImageInit;
+  if (hsImageInit) showHomeShareImagePreview(hsImageInit);
   // Initialize keypoints
   for (let i = 0; i < 5; i++) addKeypoint();
 });
@@ -2279,6 +2320,9 @@ function showPage(name) {
     document.getElementById('fb-apikey').value     = localStorage.getItem(FB_APIKEY_KEY)     || '';
     document.getElementById('fb-email').value      = localStorage.getItem(FB_EMAIL_KEY)      || '';
     document.getElementById('contact-email').value = localStorage.getItem(CONTACT_EMAIL_KEY) || '';
+    const hsImage = localStorage.getItem(HOME_SHARE_IMAGE_KEY) || '';
+    document.getElementById('hs-image').value = hsImage;
+    if (hsImage) showHomeShareImagePreview(hsImage); else removeHomeShareImage();
   }
 }
 
@@ -3950,6 +3994,7 @@ async function loadRemoteConfig() {
     if (cfg.firebaseApiKey)    localStorage.setItem(FB_APIKEY_KEY,     cfg.firebaseApiKey);
     if (cfg.brevoListId)       localStorage.setItem(BREVO_LIST_KEY,    String(cfg.brevoListId));
     if (cfg.contactEmail)      localStorage.setItem(CONTACT_EMAIL_KEY, cfg.contactEmail);
+    if (cfg.homeShareImage)    localStorage.setItem(HOME_SHARE_IMAGE_KEY, cfg.homeShareImage);
     // Rafraîchir les champs si la page Paramètres est visible
     document.getElementById('cld-cloud-name').value  = localStorage.getItem(CLD_CLOUD_KEY)  || '';
     document.getElementById('cld-preset').value      = localStorage.getItem(CLD_PRESET_KEY) || '';
@@ -3960,6 +4005,9 @@ async function loadRemoteConfig() {
     document.getElementById('fb-project').value = localStorage.getItem(FB_PROJECT_KEY) || '';
     document.getElementById('fb-apikey').value  = localStorage.getItem(FB_APIKEY_KEY)  || '';
     document.getElementById('fb-email').value   = localStorage.getItem(FB_EMAIL_KEY)   || '';
+    const hsImage = localStorage.getItem(HOME_SHARE_IMAGE_KEY) || '';
+    document.getElementById('hs-image').value = hsImage;
+    if (hsImage) showHomeShareImagePreview(hsImage); else removeHomeShareImage();
   } catch(e) { /* hors ligne ou fichier absent */ }
 }
 
@@ -3994,6 +4042,8 @@ async function pushConfigToGitHub() {
 
   // Hash du mot de passe (SHA-256 + sel — safe à stocker publiquement)
   const adminPassHash = localStorage.getItem(ADMIN_PASS_KEY) || remote.adminPassHash || '';
+  // URL publique de l'image de partage (Cloudinary/GitHub) — pas un secret
+  const homeShareImage = pick(HOME_SHARE_IMAGE_KEY, 'homeShareImage');
 
   const cfg = {
     cloudName:         pick(CLD_CLOUD_KEY,  'cloudName'),
@@ -4005,6 +4055,9 @@ async function pushConfigToGitHub() {
     firebaseProjectId: pick(FB_PROJECT_KEY,    'firebaseProjectId'),
     firebaseApiKey:    pick(FB_APIKEY_KEY,      'firebaseApiKey'),
     contactEmail:      pick(CONTACT_EMAIL_KEY, 'contactEmail'),
+    // Image de partage de la page d'accueil (og:image/twitter:image) — absente
+    // tant que rien n'a été choisi, _gen_static.js garde alors l'image par défaut
+    ...(homeShareImage ? { homeShareImage } : {}),
     // Hash du mot de passe admin (SHA-256 + sel, sens unique, safe à publier)
     ...(adminPassHash ? { adminPassHash } : {}),
     // NOTE : pat_enc retiré — le PAT GitHub reste en localStorage uniquement (sécurité)
@@ -5317,6 +5370,180 @@ async function saveContactSettings() {
   if (email) localStorage.setItem(CONTACT_EMAIL_KEY, email);
   toast('Email de contact enregistré ✅', 'success');
   await pushConfigToGitHub();
+}
+
+/* ══════════════════════════════════════════════
+   PARTAGE RÉSEAUX SOCIAUX — image og:image/twitter:image
+   de la page d'accueil (Paramètres)
+══════════════════════════════════════════════ */
+async function saveHomeShareSettings() {
+  const url = document.getElementById('hs-image').value.trim();
+  localStorage.setItem(HOME_SHARE_IMAGE_KEY, url);
+  toast('Image de partage enregistrée ✅', 'success');
+  await pushConfigToGitHub();
+}
+
+function handleHomeShareDragOver(e) {
+  e.preventDefault();
+  document.getElementById('hs-img-drop-zone').classList.add('dragover');
+}
+function handleHomeShareDragLeave(e) {
+  document.getElementById('hs-img-drop-zone').classList.remove('dragover');
+}
+function handleHomeShareDrop(e) {
+  e.preventDefault();
+  document.getElementById('hs-img-drop-zone').classList.remove('dragover');
+  const file = e.dataTransfer.files[0];
+  if (file && file.type.startsWith('image/')) handleHomeShareImageFile(file);
+  else toast('Fichier non supporté — utilisez JPG, PNG ou WebP', 'error');
+}
+
+async function handleHomeShareImageFile(file) {
+  if (!file) return;
+  if (file.size > 10 * 1024 * 1024) { toast('Image trop lourde (max 10 Mo)', 'error'); return; }
+
+  // Prévisualisation immédiate (locale)
+  const reader = new FileReader();
+  reader.onload = e => showHomeShareImagePreview(e.target.result);
+  reader.readAsDataURL(file);
+
+  const cldCloud  = localStorage.getItem(CLD_CLOUD_KEY);
+  const cldPreset = localStorage.getItem(CLD_PRESET_KEY);
+  const ghPat     = localStorage.getItem(GH_PAT_KEY);
+
+  if (cldCloud && cldPreset) {
+    await uploadHomeShareImageToCloudinary(file);
+  } else if (ghPat) {
+    await uploadHomeShareImageToGitHub(file);
+  } else {
+    setHomeShareImageStatus('⚠️ Configurez Cloudinary (recommandé) ou un PAT GitHub pour héberger l\'image.', 'warning');
+  }
+}
+
+async function uploadHomeShareImageToCloudinary(file) {
+  const cloudName = localStorage.getItem(CLD_CLOUD_KEY);
+  const preset    = localStorage.getItem(CLD_PRESET_KEY);
+  const folder    = localStorage.getItem(CLD_FOLDER_KEY) || 'ouipsycho/articles';
+  if (!cloudName || !preset) { toast('Configurez Cloudinary dans Paramètres', 'error'); return; }
+
+  const saveBtn = document.getElementById('hs-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('hs-img-upload-progress');
+  const bar = document.getElementById('hs-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '10%';
+  setHomeShareImageStatus('⏳ Upload Cloudinary…', 'info');
+
+  try {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('upload_preset', preset);
+    formData.append('folder', folder);
+
+    bar.style.width = '40%';
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+    bar.style.width = '80%';
+    if (!res.ok) { const e = await res.json(); throw new Error(e.error?.message || res.status); }
+    const data = await res.json();
+    bar.style.width = '100%';
+
+    const publicId = data.public_id;
+    const url = `https://res.cloudinary.com/${cloudName}/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/${publicId}`;
+
+    document.getElementById('hs-image').value = url;
+    showHomeShareImagePreview(url);
+    setHomeShareImageStatus(`✅ Hébergée sur Cloudinary (${Math.round(data.bytes / 1024)} Ko → optimisée automatiquement)`, 'success');
+    toast('Image uploadée sur Cloudinary 🎉', 'success');
+  } catch(e) {
+    setHomeShareImageStatus('❌ Erreur Cloudinary : ' + e.message, 'error');
+    toast('Erreur Cloudinary : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+async function uploadHomeShareImageToGitHub(file) {
+  const saveBtn = document.getElementById('hs-save-btn');
+  if (saveBtn) { saveBtn.disabled = true; saveBtn.title = 'Upload image en cours…'; }
+
+  const progress = document.getElementById('hs-img-upload-progress');
+  const bar = document.getElementById('hs-img-upload-bar');
+  progress.style.display = 'block';
+  bar.style.width = '20%';
+  setHomeShareImageStatus('⏳ Upload GitHub…', 'info');
+
+  try {
+    const b64  = await fileToBase64(file);
+    bar.style.width = '50%';
+    const ext  = file.name.split('.').pop().toLowerCase().replace('jpeg','jpg');
+    const path = `img/site/partage-accueil-${Date.now()}.${ext}`;
+    await githubPutFile(path, b64, `img: upload ${path}`);
+    bar.style.width = '100%';
+    const owner  = localStorage.getItem(GH_OWNER_KEY) || 'JohnBalthazar';
+    const repo   = localStorage.getItem(GH_REPO_KEY) || 'OuiPsycho';
+    const branch = localStorage.getItem(GH_BRANCH_KEY) || 'main';
+    const url = `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${path}`;
+    document.getElementById('hs-image').value = url;
+    showHomeShareImagePreview(url);
+    setHomeShareImageStatus('✅ Image hébergée sur GitHub (conseil : configurez Cloudinary pour de meilleures performances)', 'success');
+    toast('Image uploadée sur GitHub ✓', 'success');
+  } catch(e) {
+    setHomeShareImageStatus('❌ Erreur GitHub : ' + e.message, 'error');
+    toast('Erreur upload : ' + e.message, 'error');
+  } finally {
+    if (saveBtn) { saveBtn.disabled = false; saveBtn.title = ''; }
+    setTimeout(() => { progress.style.display = 'none'; bar.style.width = '0%'; }, 1500);
+  }
+}
+
+function showHomeShareImagePreview(src) {
+  const wrap = document.getElementById('hs-img-preview-wrap');
+  const img  = document.getElementById('hs-img-preview');
+  const zone = document.getElementById('hs-img-drop-zone');
+  if (!wrap || !img) return;
+  img.src = src;
+  wrap.style.display = 'block';
+  if (zone) zone.style.display = 'none';
+}
+
+function removeHomeShareImage() {
+  const wrap  = document.getElementById('hs-img-preview-wrap');
+  const zone  = document.getElementById('hs-img-drop-zone');
+  const img   = document.getElementById('hs-img-preview');
+  const input = document.getElementById('hs-img-file-input');
+  const field = document.getElementById('hs-image');
+  if (wrap)  wrap.style.display  = 'none';
+  if (zone)  zone.style.display  = 'block';
+  if (img)   img.src             = '';
+  if (field) field.value         = '';
+  if (input) input.value         = '';
+  setHomeShareImageStatus('', '');
+}
+
+function onHomeShareImageUrlChange() {
+  const field = document.getElementById('hs-image');
+  if (!field) return;
+  const url = field.value.trim();
+  if (url && (url.startsWith('http') || url.startsWith('/'))) {
+    showHomeShareImagePreview(url);
+  } else if (!url) {
+    removeHomeShareImage();
+  }
+}
+
+function setHomeShareImageStatus(msg, type) {
+  const el = document.getElementById('hs-img-status');
+  if (!el) return;
+  el.textContent = msg;
+  el.style.color = type === 'success' ? 'var(--success)'
+                 : type === 'error'   ? 'var(--danger)'
+                 : type === 'warning' ? 'var(--warning)'
+                 : 'var(--gray-400)';
 }
 
 /* ══════════════════════════════════════════════

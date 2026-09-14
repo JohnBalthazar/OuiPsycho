@@ -88,6 +88,19 @@ const TOOLS_GENERATED_SLUGS = new Set(
        .map(o => o.identite.slug)
 );
 
+// Config publique du site (data/config.json), déjà utilisée par poulet.html
+// pour Cloudinary/GitHub/Firebase. Sert ici uniquement à lire homeShareImage,
+// réglable depuis Paramètres → Partage sur les réseaux sociaux, pour l'image
+// affichée quand quelqu'un partage ouipsycho.fr (WhatsApp, Facebook…) — cette
+// balise était figée en dur dans index.html avant ce champ.
+const CONFIG_FILE = path.join(__dirname, 'data', 'config.json');
+let CONFIG = {};
+try { CONFIG = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8')); } catch (_) {}
+// Image historique, conservée comme repli tant que homeShareImage n'a jamais
+// été renseigné — ne rien changer visuellement avant que l'utilisateur choisisse.
+const DEFAULT_HOME_SHARE_IMAGE = 'https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200,h_630,c_fill/ouipsycho/articles/izywwrmitgneg9p1ll5a';
+const HOME_SHARE_IMAGE = CONFIG.homeShareImage || DEFAULT_HOME_SHARE_IMAGE;
+
 // Pré-passe : appartenance cluster/étape des articles "en ligne" au sens où le
 // reste du site l'entend déjà (cf. bascule scheduled→published plus bas) :
 // status !== 'draft' et date <= TODAY. Alimente le fil de parcours, le widget
@@ -1161,6 +1174,11 @@ if (newIndex.length > 0) {
       '\n      ' + renderFeaturedStatic(featured) + '\n      '
     );
     if (!h) return null;
+
+    // a-bis) Image de partage (og:image/twitter:image) — réglable depuis
+    // Paramètres → Partage sur les réseaux sociaux (data/config.json:homeShareImage)
+    h = h.replace(/(<meta property="og:image"\s+content=")[^"]*(")/, `$1${HOME_SHARE_IMAGE}$2`);
+    h = h.replace(/(<meta name="twitter:image"\s+content=")[^"]*(")/, `$1${HOME_SHARE_IMAGE}$2`);
 
     // b) Révèle le titre "Derniers articles" (supprime style="display:none")
     h = h.replace('id="articles-section-header" style="display:none"', 'id="articles-section-header"');
