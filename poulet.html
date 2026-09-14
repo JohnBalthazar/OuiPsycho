@@ -2368,6 +2368,13 @@ async function loadClusters() {
     }
   } catch(e) { /* absent ou hors-ligne — champs désactivés, pas d'erreur */ }
   populateClusterSelect();
+  // showPage('dossiers') appelle loadDossiers() et loadClusters() en parallèle
+  // (pas de dépendance normale entre les deux) : sans ce re-render, le tableau
+  // Dossiers peut se construire avec `clusters` encore vide (juste réinitialisé
+  // ci-dessus) si loadDossiers() gagne la course, et les clusters sans ligne
+  // miroir (voir renderDossiersTable() → hiddenClusters) restent alors invisibles
+  // jusqu'au prochain rafraîchissement manuel.
+  renderDossiersTable();
 }
 
 async function loadRessources() {
