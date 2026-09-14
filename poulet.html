@@ -751,6 +751,16 @@
             <div id="dp-etapes-list"></div>
             <button type="button" class="btn btn-ghost btn-sm" onclick="addEtapeRow()">+ Ajouter une étape</button>
           </div>
+          <div class="form-group" id="dp-members-group">
+            <label>Articles rattachés</label>
+            <div class="hint" id="dp-members-new-hint" style="display:none">Enregistrez d'abord ce cluster, puis rouvrez-le en édition pour y rattacher des articles.</div>
+            <div id="dp-cluster-members"></div>
+            <div id="dp-attach-wrap" style="margin-top:10px">
+              <input type="text" id="dp-attach-search" placeholder="Chercher un article à rattacher…" oninput="filterAttachPicker()"
+                style="width:100%;box-sizing:border-box;font-size:.85rem;padding:7px 10px;border:1.5px solid var(--gray-200);border-radius:var(--radius)">
+              <div id="dp-attach-picker" style="max-height:180px;overflow-y:auto;margin-top:6px"></div>
+            </div>
+          </div>
           <div class="hint" id="dp-etapes-legacy-note" style="display:none">⚠️ Ce dossier est un guide rédigé à la main (contenu dans <code>dossiers/[slug]/index.html</code>), pas un parcours multi-articles — aucune étape à gérer ici.</div>
         </div>
         <div class="panel-footer">
@@ -5542,6 +5552,10 @@ function openDossierPanel(id) {
   const panel = document.getElementById('dossier-panel-overlay');
   const title = document.getElementById('dossier-panel-title');
   clearEtapesRows();
+  clusterMembersCache = {};
+  document.getElementById('dp-cluster-members').innerHTML = '';
+  document.getElementById('dp-attach-picker').innerHTML   = '';
+  document.getElementById('dp-attach-search').value       = '';
   if (id) {
     const d = adminDossiers.find(x => x.id === id);
     if (!d) return;
@@ -5565,6 +5579,7 @@ function openDossierPanel(id) {
       const etapes  = cluster && cluster.etapes ? cluster.etapes : {};
       const keys    = Object.keys(etapes);
       if (keys.length) keys.forEach(k => addEtapeRow(k, etapes[k])); else addEtapeRow();
+      loadClusterMembersUI(d.id);
     }
   } else {
     dossierPanelMode = 'cluster';
@@ -5589,10 +5604,15 @@ function openDossierPanel(id) {
 }
 
 function applyDossierPanelMode() {
-  const isCluster = dossierPanelMode === 'cluster';
-  document.getElementById('dp-etapes-group').style.display      = isCluster ? '' : 'none';
-  document.getElementById('dp-etapes-legacy-note').style.display = isCluster ? 'none' : '';
-  document.getElementById('dp-chaptercount-group').style.display = isCluster ? 'none' : '';
+  const isCluster  = dossierPanelMode === 'cluster';
+  const isExisting = isCluster && !!editingDossierId;
+  document.getElementById('dp-etapes-group').style.display       = isCluster ? '' : 'none';
+  document.getElementById('dp-etapes-legacy-note').style.display  = isCluster ? 'none' : '';
+  document.getElementById('dp-chaptercount-group').style.display  = isCluster ? 'none' : '';
+  document.getElementById('dp-members-group').style.display       = isCluster ? '' : 'none';
+  document.getElementById('dp-members-new-hint').style.display    = isExisting ? 'none' : '';
+  document.getElementById('dp-cluster-members').style.display     = isExisting ? '' : 'none';
+  document.getElementById('dp-attach-wrap').style.display          = isExisting ? '' : 'none';
 }
 
 function addEtapeRow(key, label) {
@@ -5603,8 +5623,9 @@ function addEtapeRow(key, label) {
   row.innerHTML =
     `<input type="text" class="etape-key" placeholder="clé (ex : comprendre)" style="flex:1;font-size:.82rem" value="${escapeAttr(key || '')}">` +
     `<input type="text" class="etape-label" placeholder="Libellé affiché (ex : Comprendre)" style="flex:2;font-size:.82rem" value="${escapeAttr(label || '')}">` +
-    `<button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.etape-row').remove()">✕</button>`;
+    `<button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.etape-row').remove();renderClusterMembers()">✕</button>`;
   list.appendChild(row);
+  renderClusterMembers();
 }
 
 function clearEtapesRows() {
@@ -5621,6 +5642,125 @@ function readEtapesFromForm() {
     if (key && label) etapes[key] = label;
   }
   return etapes;
+}
+
+/* ── Articles rattachés à un cluster existant ──────────────────────────────
+   Membres lus depuis theme/{id}/index.html, la page hub déjà publique —
+   aucun appel API supplémentaire, mais seuls les articles strictement
+   publiés y figurent (voir _gen_static.js : un article planifié/brouillon
+   déjà rattaché n'apparaît qu'après sa publication + régénération). */
+let clusterMembersCache = {}; // etape -> [{id, title}]
+
+async function loadClusterMembersUI(clusterId) {
+  clusterMembersCache = {};
+  try {
+    const res = await fetch('theme/' + clusterId + '/index.html?t=' + Date.now());
+    if (res.ok) {
+      const html = await res.text();
+      const doc  = new DOMParser().parseFromString(html, 'text/html');
+      doc.querySelectorAll('section.theme-stage').forEach(section => {
+        const etape = (section.id || '').replace(/^etape-/, '');
+        clusterMembersCache[etape] = [...section.querySelectorAll('h2.card__title a')].map(a => ({
+          id: (a.getAttribute('href') || '').split('articles/')[1]?.replace(/\/$/, '') || '',
+          title: a.textContent.trim(),
+        }));
+      });
+    }
+  } catch(e) { /* hub pas encore généré (cluster tout juste créé) — reste vide */ }
+  renderClusterMembers();
+}
+
+function renderClusterMembers() {
+  const box  = document.getElementById('dp-cluster-members');
+  const rows = [...document.querySelectorAll('#dp-etapes-list .etape-row')];
+  const keys = rows.map(r => slugify(r.querySelector('.etape-key').value.trim())).filter(Boolean);
+  if (!box || !keys.length) { if (box) box.innerHTML = ''; return; }
+  box.innerHTML = keys.map(key => {
+    const row   = rows.find(r => slugify(r.querySelector('.etape-key').value.trim()) === key);
+    const label = row ? row.querySelector('.etape-label').value.trim() : key;
+    const list  = clusterMembersCache[key] || [];
+    const items = list.length
+      ? list.map(a => `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px 0;font-size:.82rem">
+          <span title="${escapeAttr(a.title)}">${escapeAttr(a.title)}</span>
+          <button type="button" class="btn btn-ghost btn-sm" onclick="detachArticleFromCluster('${escapeAttr(a.id)}')">Retirer</button>
+        </div>`).join('')
+      : '<div class="hint">Aucun article publié pour cette étape</div>';
+    return `<div style="margin-bottom:10px"><strong style="font-size:.82rem">${escapeAttr(label)}</strong>${items}</div>`;
+  }).join('');
+}
+
+function filterAttachPicker() {
+  const picker = document.getElementById('dp-attach-picker');
+  const q = (document.getElementById('dp-attach-search')?.value || '').toLowerCase().trim();
+  if (!picker) return;
+  if (!q) { picker.innerHTML = ''; return; }
+
+  const rows = [...document.querySelectorAll('#dp-etapes-list .etape-row')];
+  const etapeOpts = rows.map(r => {
+    const key   = slugify(r.querySelector('.etape-key').value.trim());
+    const label = r.querySelector('.etape-label').value.trim();
+    return key && label ? `<option value="${escapeAttr(key)}">${escapeAttr(label)}</option>` : '';
+  }).join('');
+  if (!etapeOpts) { picker.innerHTML = '<div class="hint">Ajoutez au moins une étape avant de rattacher un article</div>'; return; }
+
+  const attachedIds = new Set(Object.values(clusterMembersCache).flat().map(a => a.id));
+  const results = articles.filter(a => a.title.toLowerCase().includes(q)).slice(0, 15);
+  picker.innerHTML = results.length
+    ? results.map(a => `
+      <div style="display:flex;align-items:center;gap:6px;padding:4px 0;border-bottom:1px solid var(--gray-100)">
+        <span style="flex:1;font-size:.8rem" title="${escapeAttr(a.title)}">${escapeAttr(a.title)}${attachedIds.has(a.id) ? ' <span class="hint">(déjà rattaché)</span>' : ''}</span>
+        <select id="attach-etape-${escapeAttr(a.id)}" style="font-size:.78rem">${etapeOpts}</select>
+        <button type="button" class="btn btn-primary btn-sm" onclick="attachArticleToCluster('${escapeAttr(a.id)}')">+ Rattacher</button>
+      </div>`).join('')
+    : '<div class="hint">Aucun résultat</div>';
+}
+
+async function setArticleCluster(id, cluster, etape) {
+  const res = await fetch('articles/' + id + '.json?t=' + Date.now());
+  if (!res.ok) throw new Error('article introuvable (' + id + ')');
+  const full = await res.json();
+  const { cluster: oldCluster, etape: oldEtape, ...rest } = full;
+  const articleData = (cluster && etape) ? { ...rest, cluster, etape } : rest;
+  await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2),
+    cluster ? ('update: rattacher ' + id + ' au cluster ' + cluster) : ('update: détacher ' + id + ' du cluster'));
+  await autoRegenIfClusterArticle(cluster || oldCluster, etape || oldEtape);
+}
+
+async function attachArticleToCluster(articleId) {
+  const select = document.getElementById('attach-etape-' + articleId);
+  const etape  = select?.value;
+  if (!etape) { toast('Choisissez une étape', 'error'); return; }
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) { toast('⚠️ Token GitHub manquant — configurez-le d\'abord.', 'error'); return; }
+
+  const meta = articles.find(a => a.id === articleId);
+  try {
+    await setArticleCluster(articleId, editingDossierId, etape);
+    Object.keys(clusterMembersCache).forEach(k => {
+      clusterMembersCache[k] = (clusterMembersCache[k] || []).filter(a => a.id !== articleId);
+    });
+    (clusterMembersCache[etape] ||= []).push({ id: articleId, title: meta ? meta.title : articleId });
+    document.getElementById('dp-attach-search').value = '';
+    document.getElementById('dp-attach-picker').innerHTML = '';
+    renderClusterMembers();
+    toast('Article rattaché — régénération du site en cours (~1-2 min) avant que ce soit visible publiquement', 'success', 8000);
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
+}
+
+async function detachArticleFromCluster(articleId) {
+  const meta = articles.find(a => a.id === articleId);
+  if (!confirm('Retirer "' + (meta ? meta.title : articleId) + '" de ce cluster ?')) return;
+  const pat = localStorage.getItem(GH_PAT_KEY);
+  if (!pat) { toast('⚠️ Token GitHub manquant — configurez-le d\'abord.', 'error'); return; }
+
+  try {
+    await setArticleCluster(articleId, null, null);
+    Object.keys(clusterMembersCache).forEach(k => {
+      clusterMembersCache[k] = (clusterMembersCache[k] || []).filter(a => a.id !== articleId);
+    });
+    renderClusterMembers();
+    toast('Article retiré du cluster — régénération du site en cours (~1-2 min)', 'success', 8000);
+  } catch(e) { toast('Erreur : ' + e.message, 'error'); }
 }
 
 function closeDossierPanel() {
