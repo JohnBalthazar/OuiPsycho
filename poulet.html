@@ -637,7 +637,7 @@
         </table>
       </div>
       <div style="margin-top:16px;padding:14px 20px;background:#fffbeb;border:1px solid #fde68a;border-radius:var(--radius);font-size:.85rem;color:#92400e">
-        ⚠️ <strong>Note :</strong> Le contenu HTML des dossiers (chapitres) est dans <code>dossiers/[slug]/index.html</code>. Cet admin gère uniquement les métadonnées (titre, image, statut…).
+        ⚠️ <strong>Note :</strong> un nouveau dossier créé ici est un <strong>cluster</strong> — un parcours composé d'articles existants, rattachés un par un depuis leur propre panneau (menu « Thème »), pas de contenu rédigé à part. Les dossiers marqués 🧩 Cluster fonctionnent ainsi. Les 2 dossiers plus anciens sans ce badge sont des guides rédigés à la main dans <code>dossiers/[slug]/index.html</code> — cet admin gère uniquement leurs métadonnées (titre, image, statut…), pas leur contenu.
       </div>
     </div>
 
@@ -701,7 +701,7 @@
               <label>Temps de lecture (min)</label>
               <input type="number" id="dp-readTime" min="1" max="120" value="20">
             </div>
-            <div class="form-group">
+            <div class="form-group" id="dp-chaptercount-group">
               <label>Nombre de chapitres</label>
               <input type="number" id="dp-chapterCount" min="1" max="20" value="5">
             </div>
@@ -745,6 +745,13 @@
             <label>Tags</label>
             <input type="text" id="dp-tags" placeholder="anxiété, stress, TCC (séparés par des virgules)">
           </div>
+          <div class="form-group" id="dp-etapes-group">
+            <label>Étapes du parcours</label>
+            <div class="hint" style="margin-bottom:8px">Chaque dossier est un cluster thématique : les articles s'y rattachent par étape depuis leur propre panneau (menu « Thème »). Au moins une étape est requise.</div>
+            <div id="dp-etapes-list"></div>
+            <button type="button" class="btn btn-ghost btn-sm" onclick="addEtapeRow()">+ Ajouter une étape</button>
+          </div>
+          <div class="hint" id="dp-etapes-legacy-note" style="display:none">⚠️ Ce dossier est un guide rédigé à la main (contenu dans <code>dossiers/[slug]/index.html</code>), pas un parcours multi-articles — aucune étape à gérer ici.</div>
         </div>
         <div class="panel-footer">
           <button class="btn btn-ghost" onclick="closeDossierPanel()">Annuler</button>
@@ -2248,7 +2255,7 @@ function showPage(name) {
   if (name === 'comments')    loadAdminComments();
   if (name === 'messages')    loadAdminMessages();
   if (name === 'about')       loadAboutPage();
-  if (name === 'dossiers')    loadDossiers();
+  if (name === 'dossiers')    { loadDossiers(); loadClusters(); }
   if (name === 'boussole')    renderBoussoleAdmin();
   if (name === 'settings') {
     document.getElementById('gh-pat').value        = localStorage.getItem(GH_PAT_KEY)    || '';
@@ -2293,9 +2300,11 @@ function refreshArticles() {
 }
 
 /* ══════════════════════════════════════════════
-   CLUSTERS (maillage thématique) — lecture seule depuis Poulet.
-   Aucune écriture dans data/clusters.json à ce stade : seuls les champs
-   cluster/etape de l'article édité sont concernés (voir saveArticle()).
+   CLUSTERS (maillage thématique). Chargé ici en lecture seule pour peupler
+   le menu « Thème (cluster) » du panneau article (cluster/etape de
+   l'article édité, voir saveArticle()). La création/édition d'un cluster
+   lui-même se fait depuis la page Dossiers — chaque dossier créé dans
+   Poulet EST un cluster (voir saveDossier()), qui écrit ici.
 ══════════════════════════════════════════════ */
 async function loadClusters() {
   clusters = [];
@@ -5508,6 +5517,7 @@ function renderDossiersTable() {
     return `<tr>
       <td>
         ${img}<strong>${escapeAttr(d.title || '—')}</strong>
+        ${d._path === 'theme' ? '<span style="display:inline-block;margin-left:6px;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:1px 8px;font-size:.7rem;font-weight:700">🧩 Cluster</span>' : ''}
         <div style="font-size:.72rem;color:var(--gray-400);margin-top:2px">${escapeAttr(d.id)}</div>
       </td>
       <td><span class="badge ${catCls}">${escapeAttr(cat)}</span></td>
@@ -5525,13 +5535,17 @@ function renderDossiersTable() {
   }).join('');
 }
 
+let dossierPanelMode = 'cluster'; // 'cluster' (data/clusters.json + miroir) | 'legacy' (guide rédigé à la main, dossiers.json seul)
+
 function openDossierPanel(id) {
   editingDossierId = id;
   const panel = document.getElementById('dossier-panel-overlay');
   const title = document.getElementById('dossier-panel-title');
+  clearEtapesRows();
   if (id) {
     const d = adminDossiers.find(x => x.id === id);
     if (!d) return;
+    dossierPanelMode = d._path === 'theme' ? 'cluster' : 'legacy';
     title.textContent = 'Modifier le dossier';
     document.getElementById('dp-id').value           = d.id           || '';
     document.getElementById('dp-title').value        = d.title        || '';
@@ -5546,7 +5560,14 @@ function openDossierPanel(id) {
     document.getElementById('dp-tags').value         = (d.tags || []).join(', ');
     document.getElementById('dp-id').readOnly = true;
     if (d.image) showDossierImagePreview(d.image); else removeDossierImage();
+    if (dossierPanelMode === 'cluster') {
+      const cluster = clusters.find(c => c.id === d.id);
+      const etapes  = cluster && cluster.etapes ? cluster.etapes : {};
+      const keys    = Object.keys(etapes);
+      if (keys.length) keys.forEach(k => addEtapeRow(k, etapes[k])); else addEtapeRow();
+    }
   } else {
+    dossierPanelMode = 'cluster';
     title.textContent = 'Nouveau dossier';
     document.getElementById('dp-id').value           = '';
     document.getElementById('dp-title').value        = '';
@@ -5561,8 +5582,45 @@ function openDossierPanel(id) {
     document.getElementById('dp-tags').value         = '';
     document.getElementById('dp-id').readOnly = false;
     removeDossierImage();
+    addEtapeRow();
   }
+  applyDossierPanelMode();
   panel.classList.add('open');
+}
+
+function applyDossierPanelMode() {
+  const isCluster = dossierPanelMode === 'cluster';
+  document.getElementById('dp-etapes-group').style.display      = isCluster ? '' : 'none';
+  document.getElementById('dp-etapes-legacy-note').style.display = isCluster ? 'none' : '';
+  document.getElementById('dp-chaptercount-group').style.display = isCluster ? 'none' : '';
+}
+
+function addEtapeRow(key, label) {
+  const list = document.getElementById('dp-etapes-list');
+  const row = document.createElement('div');
+  row.className = 'etape-row';
+  row.style.cssText = 'display:flex;gap:8px;margin-bottom:6px;align-items:center';
+  row.innerHTML =
+    `<input type="text" class="etape-key" placeholder="clé (ex : comprendre)" style="flex:1;font-size:.82rem" value="${escapeAttr(key || '')}">` +
+    `<input type="text" class="etape-label" placeholder="Libellé affiché (ex : Comprendre)" style="flex:2;font-size:.82rem" value="${escapeAttr(label || '')}">` +
+    `<button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.etape-row').remove()">✕</button>`;
+  list.appendChild(row);
+}
+
+function clearEtapesRows() {
+  const list = document.getElementById('dp-etapes-list');
+  if (list) list.innerHTML = '';
+}
+
+function readEtapesFromForm() {
+  const rows   = [...document.querySelectorAll('#dp-etapes-list .etape-row')];
+  const etapes = {};
+  for (const row of rows) {
+    const label = row.querySelector('.etape-label').value.trim();
+    const key   = slugify(row.querySelector('.etape-key').value.trim());
+    if (key && label) etapes[key] = label;
+  }
+  return etapes;
 }
 
 function closeDossierPanel() {
@@ -5578,30 +5636,52 @@ async function saveDossier() {
   const category     = document.getElementById('dp-category').value;
   const status       = document.getElementById('dp-status').value;
   const readTime     = parseInt(document.getElementById('dp-readTime').value) || 20;
-  const chapterCount = parseInt(document.getElementById('dp-chapterCount').value) || 5;
   const date         = document.getElementById('dp-date').value;
   const image        = document.getElementById('dp-image').value.trim();
   const tagsRaw      = document.getElementById('dp-tags').value;
   const tags         = tagsRaw.split(',').map(t => t.trim()).filter(Boolean);
+  const isCluster    = dossierPanelMode === 'cluster';
 
   if (!id || !title || !category) {
     toast('Remplissez les champs obligatoires (slug, titre, catégorie)', 'error');
     return;
   }
 
-  const dossierData = { id, type: 'dossier', title, subtitle, excerpt, category,
-    image, readTime, chapterCount, date, status, tags };
+  let etapes, chapterCount;
+  if (isCluster) {
+    etapes = readEtapesFromForm();
+    if (Object.keys(etapes).length === 0) {
+      toast('Ajoutez au moins une étape (clé + libellé)', 'error');
+      return;
+    }
+    chapterCount = Object.keys(etapes).length;
+  } else {
+    chapterCount = parseInt(document.getElementById('dp-chapterCount').value) || 5;
+  }
+
+  const dossierData = isCluster
+    ? { id, _path: 'theme', type: 'dossier', title, subtitle, excerpt, category, image, readTime, date, status, tags, chapterCount }
+    : { id, type: 'dossier', title, subtitle, excerpt, category, image, readTime, chapterCount, date, status, tags };
 
   if (editingDossierId) {
     const idx = adminDossiers.findIndex(d => d.id === editingDossierId);
     if (idx > -1) adminDossiers[idx] = { ...adminDossiers[idx], ...dossierData };
     else adminDossiers.push(dossierData);
   } else {
-    if (adminDossiers.find(d => d.id === id)) {
+    if (adminDossiers.find(d => d.id === id) || clusters.find(c => c.id === id)) {
       toast('Un dossier avec ce slug existe déjà', 'error');
       return;
     }
     adminDossiers.unshift(dossierData);
+  }
+
+  let clustersToWrite = null;
+  if (isCluster) {
+    const clusterData = { id, title, excerpt, intro: '', category, date, etapes, chapters: [] };
+    const cIdx = clusters.findIndex(c => c.id === id);
+    clustersToWrite = cIdx > -1
+      ? clusters.map((c, i) => i === cIdx ? { ...c, ...clusterData } : c)
+      : [...clusters, clusterData];
   }
 
   const btn = document.getElementById('dp-save-btn');
@@ -5611,6 +5691,13 @@ async function saveDossier() {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (pat) {
     try {
+      if (clustersToWrite) {
+        await githubPutFile('data/clusters.json',
+          JSON.stringify(clustersToWrite, null, 2),
+          (clusters.find(c => c.id === id) ? 'update' : 'create') + ': cluster ' + id);
+        clusters = clustersToWrite;
+        populateClusterSelect();
+      }
       await githubPutFile('data/dossiers.json',
         JSON.stringify(adminDossiers, null, 2),
         (editingDossierId ? 'update' : 'create') + ': dossier ' + id);
@@ -5631,8 +5718,12 @@ async function saveDossier() {
 }
 
 function confirmDeleteDossier(id, title) {
+  const d = adminDossiers.find(x => x.id === id);
+  const isCluster = d && d._path === 'theme';
   document.getElementById('confirm-title').textContent = 'Supprimer ce dossier ?';
-  document.getElementById('confirm-msg').textContent   = `"${title}" sera retiré de la liste. Le fichier HTML n'est pas supprimé.`;
+  document.getElementById('confirm-msg').textContent   = isCluster
+    ? `"${title}" sera retiré de la liste publique des Dossiers. Le cluster (data/clusters.json) et les articles qui y sont rattachés ne sont PAS supprimés — le hub theme/${id}/ reste accessible directement.`
+    : `"${title}" sera retiré de la liste. Le fichier HTML n'est pas supprimé.`;
   document.getElementById('confirm-icon').textContent  = '🗑️';
   document.getElementById('confirm-ok-btn').onclick    = async () => { await deleteDossier(id); closeConfirm(); };
   document.getElementById('confirm-overlay').classList.add('open');
