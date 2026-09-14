@@ -1121,18 +1121,11 @@
                   <option>Les monstres sur le divan</option>
                 </select>
               </div>
-              <div class="form-group">
-                <label>Thème (cluster)</label>
-                <select id="f-cluster" onchange="onClusterChange()">
-                  <option value="">Aucun</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Étape</label>
-                <select id="f-etape" disabled>
-                  <option value="">-- Choisir un thème d'abord --</option>
-                </select>
-                <div class="hint">Le fil de parcours et la page hub n'apparaissent qu'après la prochaine exécution de <code>node _gen_static.js</code>.</div>
+              <div class="form-group" id="f-clusters-group">
+                <label>Thèmes (clusters)</label>
+                <div id="f-clusters-list"></div>
+                <button type="button" class="btn btn-ghost btn-sm" onclick="addClusterRow()">+ Ajouter un thème</button>
+                <div class="hint">Un article peut appartenir à plusieurs thèmes. Le premier de la liste est le « principal » (celui qui pilote le fil d'Ariane) — utilisez ▲ pour en faire une autre le principal. Le fil de parcours et la page hub n'apparaissent qu'après la prochaine exécution de <code>node _gen_static.js</code>.</div>
               </div>
               <div class="form-group">
                 <label id="f-date-label">Date de publication</label>
@@ -2432,22 +2425,31 @@ async function loadTools() {
                   article qui en contient fera échouer la sauvegarde. */ }
 }
 
+// Un article peut appartenir à plusieurs clusters (voir f-clusters-list) —
+// liste répétable d'une paire thème/étape par ligne. populateClusterSelect()
+// est appelée au chargement et après création/édition d'un cluster depuis
+// le panneau Dossier (voir saveDossier()) : elle doit alors rafraîchir les
+// menus déjà affichés sans perdre leur sélection en cours.
 function populateClusterSelect() {
-  const sel = document.getElementById('f-cluster');
-  if (!sel) return;
-  const current = sel.value;
-  sel.innerHTML = '<option value="">Aucun</option>' +
-    clusters.map(c => `<option value="${escapeAttr(c.id)}">${escapeAttr(c.title || c.id)}</option>`).join('');
-  sel.disabled = clusters.length === 0;
-  sel.value = clusters.some(c => c.id === current) ? current : '';
-  onClusterChange();
+  const rows = [...document.querySelectorAll('#f-clusters-list .cluster-row')];
+  rows.forEach(row => {
+    const sel = row.querySelector('.cluster-row__cluster');
+    const current = sel.value;
+    populateClusterRowSelect(sel, current);
+    onClusterRowChange(sel, row.querySelector('.cluster-row__etape').value);
+  });
 }
 
-function onClusterChange() {
-  const clusterSel = document.getElementById('f-cluster');
-  const etapeSel    = document.getElementById('f-etape');
-  if (!clusterSel || !etapeSel) return;
-  const cluster = clusters.find(c => c.id === clusterSel.value);
+function populateClusterRowSelect(sel, current) {
+  sel.innerHTML = '<option value="">-- Choisir un thème --</option>' +
+    clusters.map(c => `<option value="${escapeAttr(c.id)}">${escapeAttr(c.title || c.id)}</option>`).join('');
+  sel.value = clusters.some(c => c.id === current) ? current : '';
+}
+
+function onClusterRowChange(sel, presetEtape) {
+  const row = sel.closest('.cluster-row');
+  const etapeSel = row.querySelector('.cluster-row__etape');
+  const cluster = clusters.find(c => c.id === sel.value);
   const etapes  = cluster && cluster.etapes && typeof cluster.etapes === 'object' ? cluster.etapes : null;
   if (!etapes) {
     etapeSel.innerHTML = '<option value="">-- Choisir un thème d\'abord --</option>';
@@ -2455,11 +2457,56 @@ function onClusterChange() {
     etapeSel.value     = '';
     return;
   }
-  const current = etapeSel.value;
   etapeSel.innerHTML = '<option value="">-- Choisir --</option>' +
     Object.entries(etapes).map(([slug, label]) => `<option value="${escapeAttr(slug)}">${escapeAttr(label)}</option>`).join('');
   etapeSel.disabled = false;
-  etapeSel.value    = Object.prototype.hasOwnProperty.call(etapes, current) ? current : '';
+  etapeSel.value    = presetEtape && Object.prototype.hasOwnProperty.call(etapes, presetEtape) ? presetEtape : '';
+}
+
+function addClusterRow(clusterId, etape) {
+  const list = document.getElementById('f-clusters-list');
+  const row = document.createElement('div');
+  row.className = 'cluster-row';
+  row.style.cssText = 'display:flex;gap:8px;margin-bottom:8px;align-items:center';
+  row.innerHTML =
+    `<span class="cluster-row__badge" style="display:none;font-size:.68rem;font-weight:700;color:var(--primary);white-space:nowrap">★ Principal</span>` +
+    `<select class="cluster-row__cluster" style="flex:2;font-size:.85rem" onchange="onClusterRowChange(this)"></select>` +
+    `<select class="cluster-row__etape" style="flex:2;font-size:.85rem" disabled><option value="">-- Choisir un thème d'abord --</option></select>` +
+    `<button type="button" class="btn btn-ghost btn-sm" onclick="promoteClusterRow(this)" title="Définir comme principal (fil d'Ariane)">▲</button>` +
+    `<button type="button" class="btn btn-ghost btn-sm" onclick="this.closest('.cluster-row').remove();refreshClusterRows()">✕</button>`;
+  list.appendChild(row);
+  const sel = row.querySelector('.cluster-row__cluster');
+  populateClusterRowSelect(sel, clusterId);
+  if (clusterId) onClusterRowChange(sel, etape);
+  refreshClusterRows();
+}
+
+function promoteClusterRow(btn) {
+  const row = btn.closest('.cluster-row');
+  row.parentNode.prepend(row);
+  refreshClusterRows();
+}
+
+function refreshClusterRows() {
+  [...document.querySelectorAll('#f-clusters-list .cluster-row')].forEach((row, i) => {
+    row.querySelector('.cluster-row__badge').style.display = i === 0 ? '' : 'none';
+  });
+}
+
+function clearClusterRows() {
+  const list = document.getElementById('f-clusters-list');
+  if (list) list.innerHTML = '';
+}
+
+function readClustersFromForm() {
+  const rows = [...document.querySelectorAll('#f-clusters-list .cluster-row')];
+  const result = [];
+  for (const row of rows) {
+    const cluster = row.querySelector('.cluster-row__cluster').value;
+    const etape   = row.querySelector('.cluster-row__etape').value;
+    if (cluster && etape) result.push({ cluster, etape });
+  }
+  return result;
 }
 
 /* ══════════════════════════════════════════════
@@ -2784,9 +2831,7 @@ function resetEditor() {
   document.getElementById('f-content').value     = '';
   initWysEditor('');
   document.getElementById('f-category').value    = '';
-  const _clusterSel = document.getElementById('f-cluster');
-  if (_clusterSel) _clusterSel.value = '';
-  onClusterChange();
+  clearClusterRows();
   document.getElementById('f-date').value        = new Date().toISOString().split('T')[0];
   setArticleStatus('published');
   document.getElementById('f-readTime').value    = 7;
@@ -2830,11 +2875,10 @@ function editArticle(id) {
       document.getElementById('f-content').value  = full.content   || '';
       initWysEditor(full.content || '');
       document.getElementById('f-category').value = full.category  || '';
-      const _clusterSel2 = document.getElementById('f-cluster');
-      if (_clusterSel2) _clusterSel2.value = full.cluster || '';
-      onClusterChange();
-      const _etapeSel2 = document.getElementById('f-etape');
-      if (_etapeSel2 && full.etape) _etapeSel2.value = full.etape;
+      clearClusterRows();
+      const fullMemberships = Array.isArray(full.clusters) ? full.clusters.filter(m => m && m.cluster && m.etape)
+        : (full.cluster && full.etape) ? [{ cluster: full.cluster, etape: full.etape }] : [];
+      fullMemberships.forEach(m => addClusterRow(m.cluster, m.etape));
       document.getElementById('f-date').value     = full.date      || '';
       document.getElementById('f-readTime').value = full.readTime  || 7;
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
@@ -2921,8 +2965,8 @@ function generateArticleHTML(j) {
 // vis-à-vis de l'appelant, pour ne pas retarder la redirection après
 // sauvegarde. Le PAT est garanti présent ici (on n'atteint ce point qu'après
 // des githubPutFile réussis plus haut).
-async function autoRegenIfClusterArticle(cluster, etape) {
-  if (!cluster || !etape) return;
+async function autoRegenIfClusterArticle(hasClusterActivity) {
+  if (!hasClusterActivity) return;
   try {
     await pushRegenerateTrigger();
     toast('🔄 Article de cluster : régénération complète du site déclenchée automatiquement pour restaurer le fil de parcours et le lien vers le hub (~1-2 min). <a href="https://github.com/JohnBalthazar/OuiPsycho/actions/workflows/regenerate-static.yml" target="_blank" rel="noopener" style="color:#fff;font-weight:700;text-decoration:underline">Suivre →</a>', 'info', 12000);
@@ -3095,8 +3139,7 @@ async function saveArticle() {
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints    = getKeypoints();
-  const cluster      = document.getElementById('f-cluster')?.value || '';
-  const etape        = document.getElementById('f-etape')?.value || '';
+  const clustersList = readClustersFromForm();
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
   // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf).
@@ -3117,7 +3160,7 @@ async function saveArticle() {
   const sources     = editingSources.length ? editingSources : undefined;
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
-  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(cluster && etape && { cluster, etape }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
   const adminFields = computeAdminIndexFields({ excerpt, metaDescription: metaDesc, image, status, date });
   const summaryData = { id, title, type, excerpt: adminFields.excerpt, date, date_modified, category, image, hasImage: adminFields.hasImage, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: adminFields.metaDescription, articles_lies: articlesLies, status };
 
@@ -3171,7 +3214,7 @@ async function saveArticle() {
       await githubPutFile(id + '/index.html', redirectHtml, (editingId ? 'update' : 'create') + ': redirection ' + id);
       const statusMsg = { published: '🎉 Article publié !', scheduled: `⏰ Article planifié pour le ${formatDate(date)}`, draft: '📝 Brouillon enregistré' };
       toast(statusMsg[status] || 'Article enregistré !', 'success');
-      autoRegenIfClusterArticle(cluster, etape);
+      autoRegenIfClusterArticle(clustersList.length > 0);
       showPage('articles'); // ← redirection uniquement si succès
     } else {
       // Pas de PAT : rester sur l'éditeur et afficher un message d'erreur persistant
@@ -3650,7 +3693,7 @@ async function publishImportedArticle() {
       } else {
         toast('🎉 Article "' + data.id + '" importé et publié (JSON + HTML + index) !', 'success');
       }
-      autoRegenIfClusterArticle(data.cluster, data.etape);
+      autoRegenIfClusterArticle((Array.isArray(data.clusters) && data.clusters.length > 0) || !!(data.cluster && data.etape));
 
     } catch(err) {
       toast('Importé localement. Erreur GitHub : ' + err.message, 'error');
@@ -5975,15 +6018,42 @@ function filterAttachPicker() {
     : '<div class="hint">Aucun résultat</div>';
 }
 
-async function setArticleCluster(id, cluster, etape) {
+// Rattachements bruts d'un article — voir _gen_static.js:getMemberships(),
+// même logique dupliquée ici (lecture seule, aucun risque de divergence :
+// un article peut avoir clusters[] OU l'ancien cluster/etape scalaire, jamais
+// les deux à la fois côté écriture, voir addArticleToCluster/removeArticleFromCluster).
+function getArticleMemberships(full) {
+  if (Array.isArray(full.clusters)) return full.clusters.filter(m => m && m.cluster && m.etape);
+  if (full.cluster && full.etape) return [{ cluster: full.cluster, etape: full.etape }];
+  return [];
+}
+
+// Ajoute (ou déplace vers une nouvelle étape) UN rattachement, sans toucher
+// aux autres clusters déjà rattachés à cet article — contrairement à l'ancien
+// setArticleCluster() (un seul cluster possible, donc toujours un écrasement).
+async function addArticleToCluster(id, clusterId, etape) {
   const res = await fetch('articles/' + id + '.json?t=' + Date.now());
   if (!res.ok) throw new Error('article introuvable (' + id + ')');
   const full = await res.json();
-  const { cluster: oldCluster, etape: oldEtape, ...rest } = full;
-  const articleData = (cluster && etape) ? { ...rest, cluster, etape } : rest;
+  const { cluster: _oc, etape: _oe, clusters: _ocl, ...rest } = full;
+  const nextClusters = [...getArticleMemberships(full).filter(m => m.cluster !== clusterId), { cluster: clusterId, etape }];
+  await githubPutFile('articles/' + id + '.json', JSON.stringify({ ...rest, clusters: nextClusters }, null, 2),
+    'update: rattacher ' + id + ' au cluster ' + clusterId);
+  await autoRegenIfClusterArticle(true);
+}
+
+// Retire UN rattachement (celui du cluster ouvert dans le panneau), sans
+// toucher aux autres clusters de cet article.
+async function removeArticleFromCluster(id, clusterId) {
+  const res = await fetch('articles/' + id + '.json?t=' + Date.now());
+  if (!res.ok) throw new Error('article introuvable (' + id + ')');
+  const full = await res.json();
+  const { cluster: _oc, etape: _oe, clusters: _ocl, ...rest } = full;
+  const remaining = getArticleMemberships(full).filter(m => m.cluster !== clusterId);
+  const articleData = remaining.length ? { ...rest, clusters: remaining } : rest;
   await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2),
-    cluster ? ('update: rattacher ' + id + ' au cluster ' + cluster) : ('update: détacher ' + id + ' du cluster'));
-  await autoRegenIfClusterArticle(cluster || oldCluster, etape || oldEtape);
+    'update: détacher ' + id + ' du cluster ' + clusterId);
+  await autoRegenIfClusterArticle(true); // toujours régénérer : au minimum le hub de ce cluster perd un article
 }
 
 async function attachArticleToCluster(articleId) {
@@ -5995,7 +6065,7 @@ async function attachArticleToCluster(articleId) {
 
   const meta = articles.find(a => a.id === articleId);
   try {
-    await setArticleCluster(articleId, editingDossierId, etape);
+    await addArticleToCluster(articleId, editingDossierId, etape);
     Object.keys(clusterMembersCache).forEach(k => {
       clusterMembersCache[k] = (clusterMembersCache[k] || []).filter(a => a.id !== articleId);
     });
@@ -6014,7 +6084,7 @@ async function detachArticleFromCluster(articleId) {
   if (!pat) { toast('⚠️ Token GitHub manquant — configurez-le d\'abord.', 'error'); return; }
 
   try {
-    await setArticleCluster(articleId, null, null);
+    await removeArticleFromCluster(articleId, editingDossierId);
     Object.keys(clusterMembersCache).forEach(k => {
       clusterMembersCache[k] = (clusterMembersCache[k] || []).filter(a => a.id !== articleId);
     });
