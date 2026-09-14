@@ -81,10 +81,10 @@
     <priority>0.8</priority>
   </url>
 
-  <!-- Clusters thématiques (6) -->
+  <!-- Clusters thématiques (7) -->
   <url>
     <loc>https://ouipsycho.fr/theme/emprise-et-relations-toxiques/</loc>
-    <lastmod>2026-09-08</lastmod>
+    <lastmod>2026-09-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -118,6 +118,12 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://ouipsycho.fr/theme/rupture-guide-complet/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 
   <!-- Articles (93 publiés — généré automatiquement) -->
   <url>
@@ -128,7 +134,13 @@
   </url>
   <url>
     <loc>https://ouipsycho.fr/articles/se-remettre-d-une-rupture-amoureuse/</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/articles/meredith-grey-sur-le-divan/</loc>
+    <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -153,12 +165,6 @@
   <url>
     <loc>https://ouipsycho.fr/articles/pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse/</loc>
     <lastmod>2026-09-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://ouipsycho.fr/articles/meredith-grey-sur-le-divan/</loc>
-    <lastmod>2026-09-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
