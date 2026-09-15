@@ -66,5 +66,11 @@
     }
   ],
   "articles_lies": [],
-  "status": "scheduled"
+  "status": "scheduled",
+  "clusters": [
+    {
+      "cluster": "rupture-guide-complet",
+      "etape": "comprendre"
+    }
+  ]
 }
