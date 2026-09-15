@@ -54,12 +54,16 @@
       "publisher": "Syros"
     }
   ],
+  "articles_lies": [],
+  "status": "published",
   "clusters": [
     {
       "cluster": "emprise-et-relations-toxiques",
       "etape": "consulter"
+    },
+    {
+      "cluster": "rupture-guide-complet",
+      "etape": "passer-a-autre-chose"
     }
-  ],
-  "articles_lies": [],
-  "status": "published"
+  ]
 }
