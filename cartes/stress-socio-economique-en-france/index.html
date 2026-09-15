@@ -1858,7 +1858,7 @@
         var nav  = document.getElementById('nav-menu');
         var open = this.getAttribute('aria-expanded') === 'true';
         this.setAttribute('aria-expanded', String(!open));
-        if (nav) nav.classList.toggle('open', !open);
+        if (nav) nav.classList.toggle('nav--open', !open);
       });
     }
     window.addEventListener('scroll', function() {
