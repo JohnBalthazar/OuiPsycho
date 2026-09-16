@@ -30,6 +30,34 @@
     "status": "scheduled"
   },
   {
+    "id": "bon-parent-adolescent",
+    "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-09-17",
+    "date_modified": "2027-09-17",
+    "category": "Société & psychologie politique",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "parentalité",
+      "adolescence",
+      "winnicott",
+      "autorité",
+      "autonomie",
+      "éducation"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "symptomes-physiques-anxiete",
     "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
     "type": "article",
@@ -4499,49 +4527,21 @@
     "status": "scheduled"
   },
   {
-    "id": "bon-parent-adolescent",
-    "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-17",
-    "date_modified": "2026-09-17",
-    "category": "Société & psychologie politique",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "parentalité",
-      "adolescence",
-      "winnicott",
-      "autorité",
-      "autonomie",
-      "éducation"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "wolverine-sur-le-divan",
     "title": "Wolverine sur le divan : psychologie d'un homme qui guérit de tout, sauf de sa mémoire",
     "type": "article",
     "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
     "date": "2026-09-17",
     "date_modified": "2026-09-17",
     "category": "Nos héros sur le divan",
     "image": "",
-    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
-    "author": "John Balthazar",
     "tags": [
       "wolverine",
       "psychotraumatisme",
@@ -4549,9 +4549,46 @@
       "colere",
       "resilience"
     ],
-    "metaDescription": "",
+    "sources": [
+      {
+        "authors": "Alleaume B., Goutaudier N. & Fouques D.",
+        "year": "2023",
+        "title": "Résilience et croissance post-traumatique : enjeux théoriques et cliniques",
+        "journal": "L'Évolution psychiatrique",
+        "url": "https://doi.org/10.1016/j.evopsy.2023.01.006"
+      },
+      {
+        "authors": "Orth U. & Wieland E.",
+        "year": "2006",
+        "title": "Anger, hostility, and posttraumatic stress disorder in trauma-exposed adults: a meta-analysis",
+        "journal": "Journal of Consulting and Clinical Psychology, 74(4), 698-706",
+        "url": "https://doi.org/10.1037/0022-006X.74.4.698"
+      },
+      {
+        "authors": "Sartory G., Cwik J., Knuppertz H. et al.",
+        "year": "2013",
+        "title": "In search of the trauma memory: a meta-analysis of functional neuroimaging studies of symptom provocation in posttraumatic stress disorder",
+        "journal": "PLOS ONE, 8(3), e58150",
+        "url": "https://doi.org/10.1371/journal.pone.0058150"
+      },
+      {
+        "authors": "Seligowski A. V., Lee D. J., Bardeen J. R. & Orcutt H. K.",
+        "year": "2015",
+        "title": "Emotion regulation and posttraumatic stress symptoms: a meta-analysis",
+        "journal": "Cognitive Behaviour Therapy, 44(2), 87-102",
+        "url": "https://doi.org/10.1080/16506073.2014.980753"
+      },
+      {
+        "authors": "Fédération Addiction & Centre national de ressources et de résilience (Cn2r)",
+        "year": "2025",
+        "title": "Trouble de stress post-traumatique et trouble de l'usage de substances : guide méthodologique",
+        "publisher": "Fédération Addiction / Cn2r",
+        "url": "https://cn2r.fr/wp-content/uploads/2025/06/Dossier_TUS_TSPT.pdf"
+      }
+    ],
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "scheduled",
+    "hasImage": false
   },
   {
     "id": "nouveautes-sante-mentale-2026",
