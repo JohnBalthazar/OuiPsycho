@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quelle est votre armure émotionnelle ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/wolverine-sur-le-divan/">
+  <meta name="description" content="Dix questions pour identifier la protection que vous mettez entre vous et ce qui fait mal : les griffes, la carapace, les gants, le sourire ou le plan.">
+  <style>
+    :root{
+      --oc-bleu:#1F4E6B;
+      --oc-bleu-clair:#2E6D91;
+      --oc-fond:#FBF9F5;
+      --oc-carte:#FFFFFF;
+      --oc-texte:#1D2A33;
+      --oc-gris:#5C6B75;
+      --oc-bord:#E3DED4;
+      --oc-accent:#8A3324;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      background:var(--oc-fond);
+      color:var(--oc-texte);
+      line-height:1.6;
+      padding:22px 16px 26px;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{max-width:640px;margin:0 auto}
+    .card{
+      background:var(--oc-carte);
+      border:1px solid var(--oc-bord);
+      border-radius:16px;
+      padding:26px 22px;
+      box-shadow:0 2px 14px rgba(31,78,107,.06);
+    }
+    .eyebrow{
+      font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+      color:var(--oc-accent);font-weight:700;margin-bottom:10px;
+    }
+    h1{font-size:1.55rem;line-height:1.25;color:var(--oc-bleu);margin-bottom:12px}
+    h2{font-size:1.32rem;line-height:1.3;color:var(--oc-bleu);margin-bottom:8px}
+    h3{font-size:1rem;color:var(--oc-bleu);margin:18px 0 6px}
+    p{margin-bottom:12px}
+    .lead{color:var(--oc-gris);font-size:1.02rem}
+    .meta{font-size:.85rem;color:var(--oc-gris);margin-bottom:18px}
+    .btn{
+      display:inline-block;background:var(--oc-bleu);color:#fff;border:none;
+      font:inherit;font-weight:600;padding:13px 26px;border-radius:999px;
+      cursor:pointer;transition:background .15s ease;
+    }
+    .btn:hover{background:var(--oc-bleu-clair)}
+    .btn-ghost{
+      background:transparent;color:var(--oc-bleu);border:1.5px solid var(--oc-bleu);
+      padding:11px 22px;
+    }
+    .btn-ghost:hover{background:rgba(31,78,107,.07)}
+    .progress{height:6px;background:var(--oc-bord);border-radius:999px;overflow:hidden;margin-bottom:8px}
+    .progress span{display:block;height:100%;background:var(--oc-bleu);border-radius:999px;transition:width .3s ease}
+    .step{font-size:.8rem;color:var(--oc-gris);margin-bottom:16px;letter-spacing:.02em}
+    .q{font-size:1.16rem;font-weight:650;line-height:1.4;margin-bottom:16px;color:var(--oc-texte)}
+    .opts{list-style:none;display:flex;flex-direction:column;gap:9px}
+    .opt{
+      width:100%;text-align:left;font:inherit;line-height:1.45;
+      background:#fff;border:1.5px solid var(--oc-bord);border-radius:12px;
+      padding:13px 15px;cursor:pointer;color:var(--oc-texte);
+      transition:border-color .15s ease,background .15s ease,transform .1s ease;
+    }
+    .opt:hover{border-color:var(--oc-bleu);background:rgba(31,78,107,.04)}
+    .opt:active{transform:scale(.995)}
+    .back{
+      margin-top:16px;background:none;border:none;font:inherit;font-size:.88rem;
+      color:var(--oc-gris);cursor:pointer;text-decoration:underline;padding:0;
+    }
+    .badge{
+      display:inline-block;background:rgba(138,51,36,.10);color:var(--oc-accent);
+      font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+      padding:5px 12px;border-radius:999px;margin-bottom:12px;
+    }
+    .emoji{font-size:2.6rem;line-height:1;display:block;margin-bottom:8px}
+    .block{
+      background:var(--oc-fond);border:1px solid var(--oc-bord);
+      border-radius:12px;padding:14px 16px;margin:14px 0;
+    }
+    .block h3{margin-top:0}
+    .block p:last-child{margin-bottom:0}
+    .also{font-size:.92rem;color:var(--oc-gris);margin-top:14px}
+    .share{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 4px}
+    .share a{
+      flex:1 1 auto;text-align:center;text-decoration:none;font-size:.9rem;font-weight:600;
+      padding:10px 14px;border-radius:999px;border:1.5px solid var(--oc-bord);
+      color:var(--oc-bleu);background:#fff;transition:border-color .15s ease;
+    }
+    .share a:hover{border-color:var(--oc-bleu)}
+    .disclaimer{
+      font-size:.86rem;line-height:1.55;color:var(--oc-gris);
+      background:rgba(138,51,36,.07);border:1px solid rgba(138,51,36,.26);
+      border-radius:12px;padding:13px 15px;margin-top:18px;
+    }
+    .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+    @media (max-width:420px){
+      h1{font-size:1.35rem}
+      .card{padding:22px 17px}
+      .btn{width:100%;text-align:center}
+      .actions .btn{flex:1 1 100%}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+  <div class="card" id="app"></div>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var PAGE_URL = "https://ouipsycho.fr/articles/wolverine-sur-le-divan/";
+
+  var PROFILS = {
+    logan: {
+      emoji:"🗡️",
+      nom:"Les griffes",
+      figure:"Logan",
+      titre:"L'armure de la colère",
+      resume:"Vous ne vous effondrez pas : vous montez au front. Avant même d'avoir eu peur, vous êtes déjà tendu, prêt, en train d'agir. Votre système d'alarme est rapide, efficace, et il se déclenche parfois pour un claquement de porte.",
+      force:"Une capacité d'action que les autres n'ont pas dans l'urgence. Quand il faut protéger quelqu'un ou trancher vite, vous êtes déjà debout.",
+      angle:"La colère est rarement l'émotion de départ : elle recouvre presque toujours quelque chose de moins confortable — la peur, l'impuissance, la honte. Une armure aussi rapide protège efficacement, mais elle vous prive de l'information utile qui se trouvait dessous.",
+      piste:"La prochaine fois que ça monte, comptez dix secondes et cherchez ce qu'il y avait une seconde avant la colère. Ce n'est pas de la complaisance, c'est du renseignement."
+    },
+    colossus: {
+      emoji:"🛡️",
+      nom:"La carapace",
+      figure:"Colossus",
+      titre:"L'armure du silence",
+      resume:"Vous encaissez. Vous ne dramatisez pas, vous ne vous plaignez pas, et « ça va » est votre réponse par défaut, y compris les jours où c'est faux. Votre entourage vous trouve solide — et vous l'êtes, jusqu'au moment où vous ne l'êtes plus.",
+      force:"Une fiabilité qui tient les autres debout. Dans une crise, votre calme fait baisser la tension de tout le monde.",
+      angle:"Le blindage ne trie pas : il bloque aussi ce qui fait du bien. À force de ne rien montrer, on finit seul avec ce qu'on porte, et l'épuisement arrive d'un coup, sans prévenir.",
+      piste:"Choisissez une personne, une seule, et dites-lui une fois par semaine une chose vraie et inconfortable. Pas un bilan complet : une phrase suffit à rouvrir un canal."
+    },
+    malicia: {
+      emoji:"🧤",
+      nom:"Les gants",
+      figure:"Malicia",
+      titre:"L'armure de la distance",
+      resume:"Vous protégez les autres de vous autant que vous vous protégez d'eux. Quand ça devient intime, quelque chose recule — pas par froideur, mais par une conviction ancienne : trop de proximité finit mal, pour l'un ou pour l'autre.",
+      force:"Une délicatesse rare. Vous ne vous imposez jamais, vous sentez les limites des gens, et ceux que vous laissez entrer savent que c'est un choix, pas un hasard.",
+      angle:"L'évitement est le meilleur ami du mal-être : il soulage aujourd'hui et confirme la croyance pour demain. Chaque relation tenue à distance renforce l'idée qu'il valait mieux la tenir à distance.",
+      piste:"Repérez une relation où vous êtes à mi-distance et avancez d'un cran, une seule fois. L'objectif n'est pas de vous exposer, c'est de tester la croyance."
+    },
+    diablo: {
+      emoji:"😄",
+      nom:"Le sourire",
+      figure:"Diablo",
+      titre:"L'armure de l'humour",
+      resume:"Vous voyez la vanne avant tout le monde, et elle arrive souvent au moment exact où l'air devenait irrespirable. Vous rendez les situations tenables — pour les autres, et surtout pour vous.",
+      force:"Un humour qui soude et qui soulage. L'humour tourné vers le lien est l'une des rares stratégies dont les effets sur le bien-être sont solidement documentés.",
+      angle:"La blague est aussi une sortie de secours. Si elle arrive systématiquement avant la phrase difficile, elle empêche la conversation d'avoir lieu — et vos proches finissent par ne plus savoir quand vous êtes sérieux.",
+      piste:"Quand vous sentez la vanne arriver dans un moment lourd, gardez-la trente secondes. Souvent, quelque chose d'important s'installe dans ce silence."
+    },
+    xavier: {
+      emoji:"♟️",
+      nom:"Le plan",
+      figure:"Charles Xavier",
+      titre:"L'armure du contrôle",
+      resume:"Vous anticipez. Vous avez déjà vu trois coups d'avance, listé les risques et prévu la solution de repli. Comprendre vous calme — et vous préférez nettement comprendre que ressentir.",
+      force:"Une lucidité précieuse. Vous évitez à votre entourage des problèmes qu'il n'a même pas vus arriver, et vous gardez la tête froide quand les autres paniquent.",
+      angle:"Analyser une émotion n'est pas la traverser. L'intellectualisation permet de tenir longtemps à distance quelque chose qui, tôt ou tard, demandera à être ressenti plutôt qu'expliqué. Et vouloir tout prévoir finit par ressembler à porter la vie des autres.",
+      piste:"Une fois par semaine, autorisez-vous une décision prise sans tableau comparatif. Puis observez ce qui s'est réellement passé — vous aimez les données, en voilà."
+    }
+  };
+
+  var QUESTIONS = [
+    {
+      q:"Quelqu'un vous met en difficulté publiquement, en réunion.",
+      o:[
+        {t:"Je réponds tout de suite, le ton monte, tant pis.", p:"logan"},
+        {t:"Je garde mon calme et je prépare une réponse argumentée.", p:"xavier"},
+        {t:"Je désamorce par une vanne, tout le monde rit, on passe.", p:"diablo"},
+        {t:"Je ne montre rien. Pas devant eux, en tout cas.", p:"colossus"},
+        {t:"Je me retire, et je réduis ensuite les contacts.", p:"malicia"}
+      ]
+    },
+    {
+      q:"On vous demande comment vous allez, un jour où ça ne va pas.",
+      o:[
+        {t:"« Ça va. » C'est plus simple pour tout le monde.", p:"colossus"},
+        {t:"Je réponds par une blague sur ma semaine.", p:"diablo"},
+        {t:"Je fais un point factuel : ce qui coince, ce que je prévois.", p:"xavier"},
+        {t:"Je grogne vaguement et je change de sujet.", p:"logan"},
+        {t:"J'évite les gens les jours comme ça.", p:"malicia"}
+      ]
+    },
+    {
+      q:"Un bruit fort et inattendu éclate derrière vous.",
+      o:[
+        {t:"J'identifie la source, j'évalue, je reprends.", p:"xavier"},
+        {t:"Je suis déjà retourné, tendu, avant d'avoir réfléchi.", p:"logan"},
+        {t:"Rien. Je ne sursaute pas.", p:"colossus"},
+        {t:"Mon cœur s'emballe et ça dure longtemps après.", p:"malicia"},
+        {t:"Je sursaute et j'en ris dans la seconde.", p:"diablo"}
+      ]
+    },
+    {
+      q:"Dans une relation proche, ce qui vous coûte le plus :",
+      o:[
+        {t:"Laisser quelqu'un s'approcher vraiment.", p:"malicia"},
+        {t:"Devoir dépendre de quelqu'un.", p:"logan"},
+        {t:"Dire que j'ai besoin d'aide.", p:"colossus"},
+        {t:"Rester sérieux plus de dix minutes d'affilée.", p:"diablo"},
+        {t:"Accepter que l'autre fasse ses propres erreurs.", p:"xavier"}
+      ]
+    },
+    {
+      q:"Votre sommeil, ces derniers mois :",
+      o:[
+        {t:"Je m'endors en refaisant ma journée et la suivante.", p:"xavier"},
+        {t:"Agité, avec des réveils en sursaut.", p:"logan"},
+        {t:"Je m'endors devant un écran, ça évite de penser.", p:"diablo"},
+        {t:"Je dors. Je ne me pose pas la question.", p:"colossus"},
+        {t:"Je repousse le moment d'aller me coucher.", p:"malicia"}
+      ]
+    },
+    {
+      q:"Un souvenir désagréable remonte sans prévenir.",
+      o:[
+        {t:"Je le referme. On avance.", p:"colossus"},
+        {t:"Je m'occupe : je bouge, je travaille, je m'épuise.", p:"logan"},
+        {t:"J'en fais une anecdote drôle, ça le rend inoffensif.", p:"diablo"},
+        {t:"Je l'analyse jusqu'à comprendre ce qui s'est joué.", p:"xavier"},
+        {t:"J'évite soigneusement tout ce qui pourrait le réveiller.", p:"malicia"}
+      ]
+    },
+    {
+      q:"Dans un groupe, votre rôle spontané :",
+      o:[
+        {t:"Celui qui organise et qui voit venir.", p:"xavier"},
+        {t:"Celui qui détend l'atmosphère.", p:"diablo"},
+        {t:"Celui qui règle le problème quand ça dégénère.", p:"logan"},
+        {t:"Celui sur qui on compte sans avoir à demander.", p:"colossus"},
+        {t:"Celui qui observe depuis le bord.", p:"malicia"}
+      ]
+    },
+    {
+      q:"Une phrase qui vous ressemble :",
+      o:[
+        {t:"« Je m'en occupe, laissez-moi faire. »", p:"logan"},
+        {t:"« Vaut mieux que je reste à distance. »", p:"malicia"},
+        {t:"« Ce n'est rien. »", p:"colossus"},
+        {t:"« Il doit y avoir une solution, réfléchissons. »", p:"xavier"},
+        {t:"« Bon, au moins on en rira plus tard. »", p:"diablo"}
+      ]
+    },
+    {
+      q:"Ce que vos proches vous reprochent le plus souvent :",
+      o:[
+        {t:"De ne jamais rien dire de ce que je ressens.", p:"colossus"},
+        {t:"De ne jamais prendre les choses au sérieux.", p:"diablo"},
+        {t:"De vouloir tout contrôler, y compris leur vie.", p:"xavier"},
+        {t:"De m'emporter pour des détails.", p:"logan"},
+        {t:"D'être difficile à atteindre.", p:"malicia"}
+      ]
+    },
+    {
+      q:"Si vous baissiez complètement la garde, le pire qui pourrait arriver :",
+      o:[
+        {t:"Qu'on me touche exactement là où ça fait mal.", p:"malicia"},
+        {t:"Que je n'arrive plus à me relever ensuite.", p:"logan"},
+        {t:"Qu'on découvre que je ne suis pas si solide.", p:"colossus"},
+        {t:"Que tout s'effondre faute d'avoir anticipé.", p:"xavier"},
+        {t:"Qu'il n'y ait soudain plus rien de drôle.", p:"diablo"}
+      ]
+    }
+  ];
+
+  var app = document.getElementById('app');
+  var index = 0;
+  var reponses = [];
+
+  function notifyResize(){
+    setTimeout(function(){
+      window.parent.postMessage({ type:'quiz-resize', height: document.body.scrollHeight }, '*');
+    }, 50);
+  }
+
+  function esc(s){
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function renderIntro(){
+    app.innerHTML =
+      '<p class="eyebrow">Nos héros sur le divan</p>' +
+      '<h1>Quelle est votre armure émotionnelle ?</h1>' +
+      '<p class="lead">Tout le monde en porte une. Les griffes, la carapace, les gants, le sourire ou le plan : cinq façons très efficaces de se protéger — et cinq factures différentes à payer.</p>' +
+      '<p class="meta">10 questions · environ 4 minutes · aucune donnée enregistrée</p>' +
+      '<button class="btn" id="start">Commencer le test</button>';
+    document.getElementById('start').addEventListener('click', function(){
+      index = 0; reponses = []; renderQuestion();
+    });
+    notifyResize();
+  }
+
+  function renderQuestion(){
+    var item = QUESTIONS[index];
+    var pct = Math.round((index / QUESTIONS.length) * 100);
+    var html =
+      '<div class="progress"><span style="width:' + pct + '%"></span></div>' +
+      '<p class="step">Question ' + (index + 1) + ' sur ' + QUESTIONS.length + '</p>' +
+      '<p class="q">' + esc(item.q) + '</p>' +
+      '<ul class="opts">';
+    for (var i = 0; i < item.o.length; i++){
+      html += '<li><button class="opt" data-i="' + i + '">' + esc(item.o[i].t) + '</button></li>';
+    }
+    html += '</ul>';
+    if (index > 0){ html += '<button class="back" id="back">← Question précédente</button>'; }
+    app.innerHTML = html;
+
+    var boutons = app.querySelectorAll('.opt');
+    for (var j = 0; j < boutons.length; j++){
+      boutons[j].addEventListener('click', function(e){
+        var i = parseInt(e.currentTarget.getAttribute('data-i'), 10);
+        reponses[index] = QUESTIONS[index].o[i].p;
+        index++;
+        if (index >= QUESTIONS.length){ renderResultat(); } else { renderQuestion(); }
+      });
+    }
+    var back = document.getElementById('back');
+    if (back){
+      back.addEventListener('click', function(){ index--; renderQuestion(); });
+    }
+    window.scrollTo(0, 0);
+    notifyResize();
+  }
+
+  function calculer(){
+    var scores = {};
+    var cles = Object.keys(PROFILS);
+    for (var k = 0; k < cles.length; k++){ scores[cles[k]] = 0; }
+    for (var r = 0; r < reponses.length; r++){ scores[reponses[r]]++; }
+    var meilleur = cles[0], second = null;
+    for (var c = 1; c < cles.length; c++){
+      if (scores[cles[c]] > scores[meilleur]) { meilleur = cles[c]; }
+    }
+    for (var d = 0; d < cles.length; d++){
+      if (cles[d] === meilleur) { continue; }
+      if (second === null || scores[cles[d]] > scores[second]) { second = cles[d]; }
+    }
+    return { principal: meilleur, secondaire: second, scores: scores };
+  }
+
+  function renderResultat(){
+    var res = calculer();
+    var p = PROFILS[res.principal];
+    var s = PROFILS[res.secondaire];
+
+    var texte = "Mon armure émotionnelle : " + p.nom + " (" + p.figure + "). Et vous ?";
+    var u = encodeURIComponent(PAGE_URL);
+    var t = encodeURIComponent(texte);
+    var tu = encodeURIComponent(texte + " " + PAGE_URL);
+
+    app.innerHTML =
+      '<div class="progress"><span style="width:100%"></span></div>' +
+      '<p class="step">Résultat</p>' +
+      '<span class="emoji">' + p.emoji + '</span>' +
+      '<p class="badge">' + esc(p.titre) + '</p>' +
+      '<h2>Votre armure : ' + esc(p.nom) + '</h2>' +
+      '<p class="meta">Votre figure : ' + esc(p.figure) + '</p>' +
+      '<p>' + esc(p.resume) + '</p>' +
+      '<div class="block"><h3>Ce qu\'elle vous apporte</h3><p>' + esc(p.force) + '</p></div>' +
+      '<div class="block"><h3>Ce qu\'elle vous coûte</h3><p>' + esc(p.angle) + '</p></div>' +
+      '<div class="block"><h3>Une piste concrète</h3><p>' + esc(p.piste) + '</p></div>' +
+      '<p class="also">Votre seconde armure : <strong>' + esc(s.nom) + '</strong> — ' + esc(s.titre) + '. On en porte rarement une seule, et c\'est plutôt une bonne nouvelle : plusieurs protections valent mieux qu\'une seule, portée en permanence.</p>' +
+      '<div class="share">' +
+        '<a href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+        '<a href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+        '<a href="https://wa.me/?text=' + tu + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+      '</div>' +
+      '<div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+      '<div class="actions"><button class="btn btn-ghost" id="restart">↻ Recommencer le test</button></div>';
+
+    document.getElementById('restart').addEventListener('click', function(){
+      index = 0; reponses = []; renderIntro();
+    });
+    window.scrollTo(0, 0);
+    notifyResize();
+  }
+
+  renderIntro();
+  window.addEventListener('load', notifyResize);
+})();
+</script>
+</body>
+</html>
