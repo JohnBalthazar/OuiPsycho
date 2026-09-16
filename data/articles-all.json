@@ -30,34 +30,6 @@
     "status": "scheduled"
   },
   {
-    "id": "bon-parent-adolescent",
-    "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2027-09-17",
-    "date_modified": "2027-09-17",
-    "category": "Société & psychologie politique",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "parentalité",
-      "adolescence",
-      "winnicott",
-      "autorité",
-      "autonomie",
-      "éducation"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "symptomes-physiques-anxiete",
     "title": "Boule au ventre, gorge serrée : les symptômes physiques de l'anxiété",
     "type": "article",
@@ -4589,6 +4561,34 @@
     "articles_lies": [],
     "status": "scheduled",
     "hasImage": false
+  },
+  {
+    "id": "bon-parent-adolescent",
+    "title": "Qu'est-ce qu'être un (suffisamment) bon parent pour un.e adolescent.e ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-17",
+    "date_modified": "2026-09-17",
+    "category": "Société & psychologie politique",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/twyj5v4pumcogsxxtwfp",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "parentalité",
+      "adolescence",
+      "winnicott",
+      "autorité",
+      "autonomie",
+      "éducation"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
   },
   {
     "id": "nouveautes-sante-mentale-2026",
