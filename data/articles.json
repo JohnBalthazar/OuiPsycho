@@ -1,5 +1,31 @@
 [
   {
+    "id": "wolverine-sur-le-divan",
+    "title": "Wolverine sur le divan (Avengers) : psychologie d'un homme qui guérit de tout, sauf de sa mémoire",
+    "type": "article",
+    "excerpt": "Il cicatrise en quelques secondes, mais se réveille en hurlant. Flashbacks, colère, alcool, fuite des attachements : Wolverine est un manuel de psychotraumatisme déguisé en super-héros.",
+    "date": "2026-09-17",
+    "date_modified": "2026-09-17",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sxyob57v65mj2va6k5uy",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "wolverine",
+      "psychotraumatisme",
+      "tspt",
+      "colere",
+      "resilience"
+    ],
+    "metaDescription": "Wolverine sur le divan : mémoire traumatique, colère, alcool, évitement et croissance post-traumatique. Ce que la psychologie dit de Logan. Quiz inclus.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "nouveautes-sante-mentale-2026",
     "title": "Quelles sont les vraies nouveautés en santé mentale en 2026 ?",
     "type": "article",

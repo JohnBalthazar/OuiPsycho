@@ -1,5 +1,19 @@
 [
   {
+    "id": "wolverine-sur-le-divan-quiz",
+    "title": "Wolverine sur le divan (Avengers) : psychologie d'un homme qui guérit de tout, sauf de sa mémoire",
+    "desc": "Il cicatrise en quelques secondes, mais se réveille en hurlant. Flashbacks, colère, alcool, fuite des attachements : Wolverine est un…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/wolverine-sur-le-divan-quiz.html",
+    "articleUrl": "articles/wolverine-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sxyob57v65mj2va6k5uy",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "je-pense-toujours-a-mon-ex-6-mois-apres-quiz",
     "title": "« Je pense toujours à mon ex » 6 mois après : pourquoi est-ce si difficile de tourner la page ?",
     "desc": "Six mois après, l'entourage estime que le dossier devrait être clos. Votre cerveau, lui, n'a jamais entendu parler de cette règle. Ce que…",
