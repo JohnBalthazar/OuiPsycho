@@ -2154,6 +2154,36 @@
     "status": "scheduled"
   },
   {
+    "id": "harcelement-moral-travail",
+    "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-09",
+    "date_modified": "2026-12-09",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dh6ab6vkdnsrfxfvf1yx",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "harcelement-moral",
+      "droit-du-travail",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "manager-toxique-signes",
+      "arret-travail-burn-out"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "loki-sur-le-divan-psychologie-dieu-malice",
     "title": "Loki sur le divan : psychologie d'un dieu de la malice",
     "type": "article",
@@ -4298,6 +4328,34 @@
     "status": "scheduled"
   },
   {
+    "id": "james-belmont-heart-of-the-beast",
+    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "stress-post-traumatique",
+      "cinema",
+      "resilience",
+      "lien-homme-animal",
+      "veterans",
+      "chien-assistance"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
     "type": "article",
@@ -4325,34 +4383,6 @@
       "hygiene-de-sommeil",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "james-belmont-heart-of-the-beast",
-    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "stress-post-traumatique",
-      "cinema",
-      "resilience",
-      "lien-homme-animal",
-      "veterans",
-      "chien-assistance"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -4436,36 +4466,6 @@
       "punition-par-le-silence",
       "survivre-relation-toxique",
       "se-reconstruire-apres-emprise"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "harcelement-moral-travail",
-    "title": "Harcèlement moral au travail : ce que dit la loi et quoi faire",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-21",
-    "date_modified": "2026-09-21",
-    "category": "Travail",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dh6ab6vkdnsrfxfvf1yx",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "harcelement-moral",
-      "droit-du-travail",
-      "souffrance-au-travail"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "manager-toxique-signes",
-      "arret-travail-burn-out"
     ],
     "status": "scheduled"
   },
