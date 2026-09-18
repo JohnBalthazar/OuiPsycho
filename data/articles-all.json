@@ -3777,8 +3777,8 @@
     "date": "2026-10-07",
     "date_modified": "2026-10-07",
     "category": "Travail",
-    "image": "",
-    "hasImage": false,
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zzfrlwk1krd4gvjkro5o",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
@@ -4270,6 +4270,34 @@
     "status": "scheduled"
   },
   {
+    "id": "james-belmont-heart-of-the-beast",
+    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/puztnabshdhvrd2hsn1x",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "stress-post-traumatique",
+      "cinema",
+      "resilience",
+      "lien-homme-animal",
+      "veterans",
+      "chien-assistance"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
     "type": "article",
@@ -4297,34 +4325,6 @@
       "hygiene-de-sommeil",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "james-belmont-heart-of-the-beast",
-    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/puztnabshdhvrd2hsn1x",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "stress-post-traumatique",
-      "cinema",
-      "resilience",
-      "lien-homme-animal",
-      "veterans",
-      "chien-assistance"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
