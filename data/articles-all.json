@@ -2151,6 +2151,36 @@
     "status": "scheduled"
   },
   {
+    "id": "cauchemars-recurrents",
+    "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-05",
+    "date_modified": "2026-12-05",
+    "category": "Sommeil",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rtt1bypxwebhfvrwj3wn",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "cauchemars",
+      "sommeil-paradoxal",
+      "therapie-imagerie-mentale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "paralysie-du-sommeil",
+      "bien-dormir-guide-complet",
+      "sommeil-sante-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "psychologue-psychiatre-psychotherapeute-differences",
     "title": "Psychologue, psychiatre, psychothérapeute : quelles différences ? Qui choisir ?",
     "type": "article",
@@ -4378,36 +4408,6 @@
       "punition-par-le-silence",
       "survivre-relation-toxique",
       "se-reconstruire-apres-emprise"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "cauchemars-recurrents",
-    "title": "Cauchemars récurrents : à quoi ils servent, comment les calmer",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-21",
-    "date_modified": "2026-09-21",
-    "category": "Sommeil",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/rtt1bypxwebhfvrwj3wn",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "cauchemars",
-      "sommeil-paradoxal",
-      "therapie-imagerie-mentale"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "paralysie-du-sommeil",
-      "bien-dormir-guide-complet",
-      "sommeil-sante-mentale"
     ],
     "status": "scheduled"
   },
