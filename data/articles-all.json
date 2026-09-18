@@ -4067,34 +4067,6 @@
     "status": "scheduled"
   },
   {
-    "id": "benedict-bridgerton-sur-le-divan",
-    "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-29",
-    "date_modified": "2026-09-29",
-    "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "bridgerton",
-      "psychologie de la fratrie",
-      "quête d'identité",
-      "hypersensibilité",
-      "syndrome de l'imposteur",
-      "développement personnel"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "toc-ou-anxiete-difference",
     "title": "TOC ou anxiété : comment faire la différence",
     "type": "article",
@@ -4298,6 +4270,34 @@
     "status": "scheduled"
   },
   {
+    "id": "james-belmont-heart-of-the-beast",
+    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "stress-post-traumatique",
+      "cinema",
+      "resilience",
+      "lien-homme-animal",
+      "veterans",
+      "chien-assistance"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
     "type": "article",
@@ -4325,34 +4325,6 @@
       "hygiene-de-sommeil",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "james-belmont-heart-of-the-beast",
-    "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Nos héros sur le divan",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "stress-post-traumatique",
-      "cinema",
-      "resilience",
-      "lien-homme-animal",
-      "veterans",
-      "chien-assistance"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
@@ -4437,6 +4409,34 @@
       "survivre-relation-toxique",
       "se-reconstruire-apres-emprise"
     ],
+    "status": "scheduled"
+  },
+  {
+    "id": "benedict-bridgerton-sur-le-divan",
+    "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-21",
+    "date_modified": "2026-09-21",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "bridgerton",
+      "psychologie de la fratrie",
+      "quête d'identité",
+      "hypersensibilité",
+      "syndrome de l'imposteur",
+      "développement personnel"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
     "status": "scheduled"
   },
   {
