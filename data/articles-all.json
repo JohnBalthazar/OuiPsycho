@@ -4384,34 +4384,6 @@
     "status": "scheduled"
   },
   {
-    "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
-    "title": "Louis XIV sur le divan : psychologie d'un roi",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-22",
-    "date_modified": "2026-09-22",
-    "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k3hxdenqbrw45ncbifq0",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "louis-xiv",
-      "psychologie",
-      "histoire",
-      "pouvoir",
-      "narcissisme",
-      "controle"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "violences-psychologiques-couple",
     "title": "Violences psychologiques dans le couple : ce que dit la loi française",
     "type": "article",
@@ -4472,30 +4444,128 @@
     "status": "scheduled"
   },
   {
-    "id": "pourquoi-certaines-personnes-font-plus-jeunes",
-    "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
+    "id": "louis-xiv-sur-le-divan-psychologie-d-un-roi",
+    "title": "Louis XIV sur le divan : psychologie d'un roi",
     "type": "article",
     "excerpt": "",
     "date": "2026-09-19",
     "date_modified": "2026-09-19",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k3hxdenqbrw45ncbifq0",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "louis-xiv",
+      "psychologie",
+      "histoire",
+      "pouvoir",
+      "narcissisme",
+      "controle"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "pourquoi-certaines-personnes-font-plus-jeunes",
+    "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-09-19",
+    "date_modified": "2026-09-19",
     "category": "Bien-être",
     "image": "",
-    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
-    "author": "John Balthazar",
     "tags": [
       "vieillissement",
       "âge subjectif",
       "estime de soi",
       "psychologie de la santé"
     ],
-    "metaDescription": "",
+    "sources": [
+      {
+        "authors": "Radio-Canada (d'après Christensen K. et al.)",
+        "year": "2009",
+        "title": "La longévité par l'apparence",
+        "journal": "Radio-Canada",
+        "url": "https://ici.radio-canada.ca/nouvelle/457088/longevite-apparence"
+      },
+      {
+        "authors": "Échosciences Occitanie / Université de Montpellier (entretien avec Yannick Stephan)",
+        "year": "2016",
+        "title": "Se sentir plus jeune pour vieillir moins vite",
+        "journal": "Échosciences Occitanie",
+        "url": "https://www.echosciences-sud.fr/articles/se-sentir-plus-jeune-pour-vieillir-moins-vite"
+      },
+      {
+        "authors": "Futura-Sciences",
+        "year": "2016",
+        "title": "Ce gène qui peut vous faire paraître plus vieux que votre âge",
+        "journal": "Futura-Sciences",
+        "url": "https://www.futura-sciences.com/sante/actualites/vie-ce-gene-peut-vous-faire-paraitre-plus-vieux-votre-age-62657/"
+      },
+      {
+        "authors": "Santé sur le Net",
+        "year": "2024",
+        "title": "MC1R : ce gène qui nous rendrait plus âgé",
+        "journal": "Santé sur le Net",
+        "url": "https://www.sante-sur-le-net.com/mc1r-gene-qui-rendrait-plus-age/"
+      },
+      {
+        "authors": "Santélog (d'après Chey J. et al.)",
+        "year": "2018",
+        "title": "Vieillissement : se sentir jeune, est-ce vraiment être moins vieux ?",
+        "journal": "Santélog",
+        "url": "https://www.santelog.com/actualites/vieillissement-se-sentir-jeune-est-ce-vraiment-etre-moins-vieux"
+      },
+      {
+        "authors": "Christensen K., Thinggaard M., McGue M. et al.",
+        "year": "2009",
+        "title": "Perceived age as a clinically useful biomarker of ageing: cohort study",
+        "journal": "BMJ",
+        "url": "https://doi.org/10.1136/bmj.b5262"
+      },
+      {
+        "authors": "Levy B. R., Slade M. D., Kunkel S. R. & Kasl S. V.",
+        "year": "2002",
+        "title": "Longevity increased by positive self-perceptions of aging",
+        "journal": "Journal of Personality and Social Psychology",
+        "url": "https://doi.org/10.1037/0022-3514.83.2.261"
+      },
+      {
+        "authors": "Gunn D. A., Rexbye H., Griffiths C. E. M. et al.",
+        "year": "2009",
+        "title": "Why some women look young for their age",
+        "journal": "PLoS ONE",
+        "url": "https://doi.org/10.1371/journal.pone.0008021"
+      },
+      {
+        "authors": "Stephan Y., Sutin A. R. & Terracciano A.",
+        "year": "2016",
+        "title": "Feeling older and risk of hospitalization: Evidence from three longitudinal cohorts",
+        "journal": "Health Psychology"
+      },
+      {
+        "authors": "Langer E. J.",
+        "year": "2009",
+        "title": "Counterclockwise: Mindful Health and the Power of Possibility",
+        "publisher": "Ballantine Books"
+      }
+    ],
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "scheduled",
+    "hasImage": false
   },
   {
     "id": "bienfaits-meconnus-du-sexe",
