@@ -2629,6 +2629,32 @@
     "status": "published"
   },
   {
+    "id": "pourquoi-vous-vous-sentez-mal-alors-que-tout-va-bien",
+    "title": "Pourquoi vous vous sentez mal alors que « tout va bien »",
+    "type": "article",
+    "excerpt": "Un travail correct, des proches, la santé — et pourtant ce vide diffus le soir venu. Cet état a un nom, il est mesuré depuis vingt ans, et il ne fait pas de vous quelqu'un d'ingrat.",
+    "date": "2026-03-17",
+    "date_modified": "2026-09-18",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/meea78l53km1oz947ouq",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "langueur",
+      "sante-mentale-positive",
+      "besoins-psychologiques",
+      "mal-etre",
+      "depression"
+    ],
+    "metaDescription": "Se sentir mal sans raison apparente porte un nom : la langueur. Ce que la recherche dit de cet état, de ses causes et de la frontière avec la dépression.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "communication-non-violente",
     "title": "Communication non-violente : transformer vos relations en 4 étapes",
     "type": "article",
