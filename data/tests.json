@@ -1,5 +1,19 @@
 [
   {
+    "id": "louis-xiv-sur-le-divan-quiz",
+    "title": "Louis XIV sur le divan : psychologie d'un roi",
+    "desc": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/louis-xiv-sur-le-divan-quiz.html",
+    "articleUrl": "articles/louis-xiv-sur-le-divan-psychologie-d-un-roi/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k3hxdenqbrw45ncbifq0",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "wolverine-sur-le-divan-quiz",
     "title": "Wolverine sur le divan (Avengers) : psychologie d'un homme qui guérit de tout, sauf de sa mémoire",
     "desc": "Il cicatrise en quelques secondes, mais se réveille en hurlant. Flashbacks, colère, alcool, fuite des attachements : Wolverine est un…",
