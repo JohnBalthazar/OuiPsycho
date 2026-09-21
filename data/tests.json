@@ -1,5 +1,19 @@
 [
   {
+    "id": "benedict-bridgerton-sur-le-divan-quiz",
+    "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
+    "desc": "Éternel deuxième, artiste contrarié, Benedict Bridgerton incarne la quête de sens d'une âme sensible coincée entre devoir aristocratique et…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/benedict-bridgerton-sur-le-divan-quiz.html",
+    "articleUrl": "articles/benedict-bridgerton-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "louis-xiv-sur-le-divan-quiz",
     "title": "Louis XIV sur le divan : psychologie d'un roi",
     "desc": "Derrière le Roi-Soleil, un enfant qui a fui dans la nuit et un adulte qui contrôlait tout. On allonge Louis XIV sur le divan — et le miroir…",
