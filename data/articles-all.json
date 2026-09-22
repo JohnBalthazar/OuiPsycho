@@ -1990,6 +1990,36 @@
     "status": "scheduled"
   },
   {
+    "id": "ecrans-lumiere-bleue-sommeil",
+    "title": "Écrans et lumière bleue : ce que dit vraiment la science",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-20",
+    "date_modified": "2026-12-20",
+    "category": "Sommeil",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hdxrvpzva8rvndr2drvo",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "lumiere-bleue",
+      "ecrans",
+      "melatonine"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "bien-dormir-guide-complet",
+      "hygiene-de-sommeil",
+      "dette-de-sommeil"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "est-ce-que-la-taille-compte-vraiment",
     "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
     "type": "article",
@@ -4323,36 +4353,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "ecrans-lumiere-bleue-sommeil",
-    "title": "Écrans et lumière bleue : ce que dit vraiment la science",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Sommeil",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/hdxrvpzva8rvndr2drvo",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "sommeil",
-      "lumiere-bleue",
-      "ecrans",
-      "melatonine"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "bien-dormir-guide-complet",
-      "hygiene-de-sommeil",
-      "dette-de-sommeil"
-    ],
     "status": "scheduled"
   },
   {
