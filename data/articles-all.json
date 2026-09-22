@@ -1990,6 +1990,33 @@
     "status": "scheduled"
   },
   {
+    "id": "est-ce-que-la-taille-compte-vraiment",
+    "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-19",
+    "date_modified": "2026-12-19",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/x4rb5ggmyathjokv50ft",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "sexualite",
+      "image-du-corps",
+      "estime-de-soi",
+      "dysmorphophobie",
+      "couple"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "couple-heureux-sans-faire-lamour",
     "title": "Peut-on vraiment être heureux en couple sans faire l'amour ?",
     "type": "article",
@@ -4208,33 +4235,6 @@
       "brown-out-perte-de-sens-travail",
       "charge-mentale"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "est-ce-que-la-taille-compte-vraiment",
-    "title": "Est-ce que la taille ça compte vraiment ? La science et la psychologie répondent !",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-27",
-    "date_modified": "2026-09-27",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/x4rb5ggmyathjokv50ft",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "sexualite",
-      "image-du-corps",
-      "estime-de-soi",
-      "dysmorphophobie",
-      "couple"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
