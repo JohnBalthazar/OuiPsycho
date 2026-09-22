@@ -4356,6 +4356,32 @@
     "status": "scheduled"
   },
   {
+    "id": "pourquoi-certaines-personnes-font-plus-jeunes",
+    "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ghxp3ev4l1admre7qdtt",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "vieillissement",
+      "âge subjectif",
+      "estime de soi",
+      "psychologie de la santé"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "cleopatre-sur-le-divan-psychologie-reine-egyptienne",
     "title": "Cléopâtre sur le divan : psychologie d'une reine égyptienne",
     "type": "article",
@@ -4379,32 +4405,6 @@
       "effet-de-halo",
       "machiavelisme",
       "heros-sur-le-divan"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "pourquoi-certaines-personnes-font-plus-jeunes",
-    "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-23",
-    "date_modified": "2026-09-23",
-    "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ghxp3ev4l1admre7qdtt",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "vieillissement",
-      "âge subjectif",
-      "estime de soi",
-      "psychologie de la santé"
     ],
     "metaDescription": "",
     "articles_lies": [],
