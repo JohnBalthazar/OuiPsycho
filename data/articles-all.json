@@ -2097,6 +2097,34 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologie-du-masculinisme",
+    "title": "Psychologie du masculinisme : dans la tête de la manosphère",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-13",
+    "date_modified": "2026-12-13",
+    "category": "Émotions & identité",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/d5xkqvfkzujmwbrfcjw6",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "masculinisme",
+      "manosphere",
+      "masculinite",
+      "psychologie-sociale",
+      "radicalisation",
+      "jeunes-hommes"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "james-belmont-heart-of-the-beast",
     "title": "James Belmont sur le divan : psychologie du héros de Heart Of The Beast",
     "type": "article",
@@ -4325,34 +4353,6 @@
       "hygiene-de-sommeil",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "psychologie-du-masculinisme",
-    "title": "Psychologie du masculinisme : dans la tête de la manosphère",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-24",
-    "date_modified": "2026-09-24",
-    "category": "Émotions & identité",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/d5xkqvfkzujmwbrfcjw6",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 9,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "masculinisme",
-      "manosphere",
-      "masculinite",
-      "psychologie-sociale",
-      "radicalisation",
-      "jeunes-hommes"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
