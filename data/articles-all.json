@@ -1990,6 +1990,34 @@
     "status": "scheduled"
   },
   {
+    "id": "ecran-sante-mentale",
+    "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-21",
+    "date_modified": "2026-12-21",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bsagrlaoi5xke3gxrtir",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "écrans",
+      "santé mentale",
+      "réseaux sociaux",
+      "bien-être numérique",
+      "sommeil",
+      "adolescents"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "ecrans-lumiere-bleue-sommeil",
     "title": "Écrans et lumière bleue : ce que dit vraiment la science",
     "type": "article",
@@ -4325,34 +4353,6 @@
       "se-debarrasser-anxiete-pour-toujours",
       "toc-ou-anxiete-difference"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "ecran-sante-mentale",
-    "title": "Écran et santé mentale : c'est la vie ou c'est fatal ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-25",
-    "date_modified": "2026-09-25",
-    "category": "Bien-être",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bsagrlaoi5xke3gxrtir",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "écrans",
-      "santé mentale",
-      "réseaux sociaux",
-      "bien-être numérique",
-      "sommeil",
-      "adolescents"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
