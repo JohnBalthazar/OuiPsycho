@@ -4360,17 +4360,17 @@
     "title": "Le Cobenfy en France en 2026",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-09-25",
     "date_modified": "2026-09-25",
     "category": "Troubles Psy",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ap7kkahuvztputdxyinr",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 10,
+    "author": "John Balthazar",
     "tags": [
       "schizophrenie",
       "antipsychotiques",
@@ -4378,102 +4378,9 @@
       "medicaments",
       "effets-secondaires"
     ],
-    "sources": [
-      {
-        "authors": "Le Quotidien du Médecin",
-        "year": "2024",
-        "title": "Les États-Unis autorisent Cobenfy, une nouvelle approche dans la schizophrénie",
-        "journal": "Le Quotidien du Médecin",
-        "url": "https://www.lequotidiendumedecin.fr/specialites/psychiatrie/les-etats-unis-autorisent-cobenfy-une-nouvelle-approche-dans-la-schizophrenie"
-      },
-      {
-        "authors": "Le Quotidien du Pharmacien",
-        "year": "2024",
-        "title": "Schizophrénie : enfin un médicament qui pourrait changer la donne",
-        "journal": "Le Quotidien du Pharmacien",
-        "url": "https://www.lequotidiendupharmacien.fr/medicament-parapharmacie/medicament/schizophrenie-enfin-un-medicament-qui-pourrait-changer-la-donne"
-      },
-      {
-        "authors": "APMnews / L'Encéphale",
-        "year": "2024",
-        "title": "Homologation américaine d'un nouveau type d'antipsychotique dans la schizophrénie",
-        "journal": "L'Encéphale — Brèves",
-        "url": "https://www.encephale.com/Actualites/Breves/2024/Homologation-americaine-nouveau-type-antipsychotique-schizophrenie"
-      },
-      {
-        "authors": "RTBF",
-        "year": "2024",
-        "title": "Première commercialisation en 70 ans d'un médicament contre la schizophrénie",
-        "journal": "RTBF Actus",
-        "url": "https://www.rtbf.be/article/premiere-commercialisation-en-70-ans-d-un-medicament-contre-la-schizophrenie-autorisee-11440578"
-      },
-      {
-        "authors": "Scientific European",
-        "year": "2025",
-        "title": "Cobenfy (KarXT) : un antipsychotique plus atypique pour le traitement de la schizophrénie",
-        "journal": "Scientific European (édition française)",
-        "url": "https://www.scientificeuropean.fr/m%C3%A9decine/cobenfy-karxt-un-antipsychotique-plus-atypique-pour-le-traitement-de-la-schizophr%C3%A9nie/"
-      },
-      {
-        "authors": "ANSM",
-        "year": "2025",
-        "title": "Dossier thématique — Antipsychotiques",
-        "journal": "Agence nationale de sécurité du médicament et des produits de santé",
-        "url": "https://ansm.sante.fr/dossiers-thematiques/sante-mentale/antipsychotiques"
-      },
-      {
-        "authors": "Haute Autorité de Santé",
-        "year": "2021",
-        "title": "Accès précoce à un médicament",
-        "journal": "HAS",
-        "url": "https://www.has-sante.fr/jcms/r_1500918/fr/acces-precoce-a-un-medicament"
-      },
-      {
-        "authors": "Brannan S. K., Sawchak S., Miller A. C. et al.",
-        "year": "2021",
-        "title": "Muscarinic cholinergic receptor agonist and peripheral antagonist for schizophrenia",
-        "journal": "New England Journal of Medicine",
-        "url": "https://doi.org/10.1056/NEJMoa2017015"
-      },
-      {
-        "authors": "Kaul I., Sawchak S., Correll C. U. et al.",
-        "year": "2024",
-        "title": "Efficacy and safety of the muscarinic receptor agonist KarXT (xanomeline–trospium) in schizophrenia (EMERGENT-2)",
-        "journal": "The Lancet",
-        "url": "https://doi.org/10.1016/S0140-6736(23)02190-6"
-      },
-      {
-        "authors": "Kaul I., Sawchak S., Walling D. P. et al.",
-        "year": "2024",
-        "title": "Efficacy and safety of xanomeline-trospium chloride in schizophrenia: a randomized clinical trial (EMERGENT-3)",
-        "journal": "JAMA Psychiatry",
-        "url": "https://doi.org/10.1001/jamapsychiatry.2024.0785"
-      },
-      {
-        "authors": "Huhn M., Nikolakopoulou A., Schneider-Thoma J. et al.",
-        "year": "2019",
-        "title": "Comparative efficacy and tolerability of 32 oral antipsychotics for the acute treatment of adults with multi-episode schizophrenia: a systematic review and network meta-analysis",
-        "journal": "The Lancet",
-        "url": "https://doi.org/10.1016/S0140-6736(19)31135-3"
-      },
-      {
-        "authors": "U.S. Food and Drug Administration",
-        "year": "2024",
-        "title": "FDA approves drug with new mechanism of action for treatment of schizophrenia",
-        "journal": "FDA News Release",
-        "url": "https://www.fda.gov/news-events/press-announcements/fda-approves-drug-new-mechanism-action-treatment-schizophrenia"
-      },
-      {
-        "authors": "Psychiatric News",
-        "year": "2025",
-        "title": "Early reports from clinicians suggest Cobenfy can work",
-        "journal": "Psychiatric News",
-        "url": "https://psychiatryonline.org/doi/10.1176/appi.pn.2025.05.5.19"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "pourquoi-certaines-personnes-font-plus-jeunes",
