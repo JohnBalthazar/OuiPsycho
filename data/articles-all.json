@@ -4356,6 +4356,88 @@
     "status": "scheduled"
   },
   {
+    "id": "cleopatre-sur-le-divan-psychologie-reine-egyptienne",
+    "title": "Cléopâtre sur le divan : psychologie d'une reine égyptienne",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-09-23",
+    "date_modified": "2026-09-23",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "cleopatre",
+      "egypte-antique",
+      "pouvoir",
+      "seduction",
+      "effet-de-halo",
+      "machiavelisme",
+      "heros-sur-le-divan"
+    ],
+    "sources": [
+      {
+        "authors": "Plutarque",
+        "year": "2001",
+        "title": "Vies parallèles (Vie d'Antoine)",
+        "publisher": "Gallimard, coll. Quarto"
+      },
+      {
+        "authors": "Schwentzel C.-G.",
+        "year": "2014",
+        "title": "Cléopâtre, la déesse-reine",
+        "publisher": "Payot"
+      },
+      {
+        "authors": "Chauveau M.",
+        "year": "1998",
+        "title": "Cléopâtre, au-delà du mythe",
+        "publisher": "Liana Levi"
+      },
+      {
+        "authors": "Guédeney N. & Guédeney A.",
+        "year": "2015",
+        "title": "L'attachement : approche théorique. Du bébé à la personne âgée (4e éd.)",
+        "publisher": "Elsevier Masson"
+      },
+      {
+        "authors": "Goffman E.",
+        "year": "1973",
+        "title": "La Mise en scène de la vie quotidienne. 1. La présentation de soi",
+        "publisher": "Éditions de Minuit"
+      },
+      {
+        "authors": "French D. C., Lanquart J.-P., Rotsaert M. & Loas G.",
+        "year": "2024",
+        "title": "Traduction et étude de validation de la version française de l'échelle « Short Dark Triad, SD3 » (Échelle Courte de la Triade Noire)",
+        "journal": "Annales Médico-psychologiques, revue psychiatrique",
+        "url": "https://doi.org/10.1016/j.amp.2022.01.006"
+      },
+      {
+        "authors": "Thorndike E. L.",
+        "year": "1920",
+        "title": "A constant error in psychological ratings",
+        "journal": "Journal of Applied Psychology",
+        "url": "https://doi.org/10.1037/h0071663"
+      },
+      {
+        "authors": "Paulhus D. L. & Williams K. M.",
+        "year": "2002",
+        "title": "The Dark Triad of personality: Narcissism, Machiavellianism, and psychopathy",
+        "journal": "Journal of Research in Personality",
+        "url": "https://doi.org/10.1016/S0092-6566(02)00505-6"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "pourquoi-certaines-personnes-font-plus-jeunes",
     "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
     "type": "article",
