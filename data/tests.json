@@ -1,5 +1,19 @@
 [
   {
+    "id": "cleopatre-sur-le-divan-psychologie-reine-egyptienne-quiz",
+    "title": "Cléopâtre sur le divan : psychologie d'une reine égyptienne",
+    "desc": "Séductrice fatale, manipulatrice de génie ou reine stratège prise dans une famille où l'on s'entretuait ? Allongeons Cléopâtre sur le…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/cleopatre-sur-le-divan-psychologie-reine-egyptienne-quiz.html",
+    "articleUrl": "articles/cleopatre-sur-le-divan-psychologie-reine-egyptienne/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/imoagxu0xstk225bm350",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "benedict-bridgerton-sur-le-divan-quiz",
     "title": "Benedict Bridgerton sur le divan : Psychologie d'un aristocrate",
     "desc": "Éternel deuxième, artiste contrarié, Benedict Bridgerton incarne la quête de sens d'une âme sensible coincée entre devoir aristocratique et…",
