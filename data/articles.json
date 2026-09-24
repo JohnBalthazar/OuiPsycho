@@ -1,5 +1,30 @@
 [
   {
+    "id": "pourquoi-certaines-personnes-font-plus-jeunes",
+    "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
+    "type": "article",
+    "excerpt": "On croit que tout se joue dans les gènes et le pot de crème à 89 €. Erreur. La science montre que l'âge qu'on paraît est un véritable indicateur de santé — et que la psychologie y pèse bien plus lourd qu'on ne l'imagine. Votre tête dépend aussi de ce que vous avez dans la tête.",
+    "date": "2026-09-24",
+    "date_modified": "2026-09-24",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ghxp3ev4l1admre7qdtt",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "vieillissement",
+      "âge subjectif",
+      "estime de soi",
+      "psychologie de la santé"
+    ],
+    "metaDescription": "Génétique, soleil, sommeil… et surtout psychologie : ce que la science dit vraiment des gens qui font plus jeunes que leur âge. Et comment les rejoindre.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "cleopatre-sur-le-divan-psychologie-reine-egyptienne",
     "title": "Cléopâtre sur le divan : psychologie d'une reine égyptienne",
     "type": "article",
