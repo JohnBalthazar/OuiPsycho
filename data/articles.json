@@ -1,5 +1,31 @@
 [
   {
+    "id": "cobenfy-france-2026",
+    "title": "Le Cobenfy en France en 2026",
+    "type": "article",
+    "excerpt": "Premier antipsychotique à ne pas bloquer la dopamine, le Cobenfy suscite un immense espoir chez les personnes vivant avec une schizophrénie. Mais est-il disponible en France, que promet-il vraiment et quels effets secondaires faut-il connaître ?",
+    "date": "2026-09-25",
+    "date_modified": "2026-09-25",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ap7kkahuvztputdxyinr",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "author": "John Balthazar",
+    "tags": [
+      "schizophrenie",
+      "antipsychotiques",
+      "cobenfy",
+      "medicaments",
+      "effets-secondaires"
+    ],
+    "metaDescription": "Cobenfy (xanoméline-trospium) : disponibilité en France en 2026, efficacité, effets secondaires et comparatif avec Haldol, Risperdal, Abilify ou Xeplion.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "pourquoi-certaines-personnes-font-plus-jeunes",
     "title": "Pourquoi certaines personnes font plus jeunes que leur âge ?",
     "type": "article",
