@@ -4235,6 +4235,34 @@
     "status": "scheduled"
   },
   {
+    "id": "de-gaulle-sur-le-divan",
+    "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-10-02",
+    "date_modified": "2026-10-02",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/b2e3lyuq1knrf30ow4lt",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "de-gaulle",
+      "leadership",
+      "charisme",
+      "psychobiographie",
+      "hubris",
+      "histoire"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "bien-dormir-guide-complet",
     "title": "Bien dormir : le guide complet du sommeil réparateur",
     "type": "article",
@@ -5035,34 +5063,6 @@
       "harcelement-moral-travail",
       "burnout-epuisement-professionnel"
     ],
-    "status": "published"
-  },
-  {
-    "id": "de-gaulle-sur-le-divan",
-    "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
-    "type": "article",
-    "excerpt": "Dès 1932, un officier inconnu décrivait le chef qu'il allait devenir. Froideur calculée, tendresse cachée, charisme wébérien et départ sans histoires : ce que la psychologie peut dire, prudemment, de Charles de Gaulle.",
-    "date": "2026-09-02",
-    "date_modified": "2026-09-26",
-    "category": "Nos héros sur le divan",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/b2e3lyuq1knrf30ow4lt",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "John Balthazar",
-    "tags": [
-      "de-gaulle",
-      "leadership",
-      "charisme",
-      "psychobiographie",
-      "hubris",
-      "histoire"
-    ],
-    "metaDescription": "De Gaulle vu par la psychologie : caractère, distance, charisme selon Weber, syndrome d'hubris. Portrait d'un chef hors norme, et quiz sur votre style.",
-    "articles_lies": [],
     "status": "published"
   },
   {
