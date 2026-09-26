@@ -4240,17 +4240,17 @@
     "title": "Dr House sur le divan : Psychologie d'un docteur brillant, cynique et provocateur",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-09-29",
     "date_modified": "2026-09-29",
     "category": "Nos héros sur le divan",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kx49foxywhexdt7boea0",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 7,
+    "author": "John Balthazar",
     "tags": [
       "dr-house",
       "cynisme",
@@ -4258,74 +4258,9 @@
       "relation-soignant-soigne",
       "series-medicales"
     ],
-    "sources": [
-      {
-        "authors": "Levy A. G., Scherer A. M., Zikmund-Fisher B. J. et al.",
-        "year": "2018",
-        "title": "Prevalence of and factors associated with patient nondisclosure of medically relevant information to clinicians",
-        "journal": "JAMA Network Open",
-        "url": "https://doi.org/10.1001/jamanetworkopen.2018.5293"
-      },
-      {
-        "authors": "Bair M. J., Robinson R. L., Katon W. & Kroenke K.",
-        "year": "2003",
-        "title": "Depression and pain comorbidity: a literature review",
-        "journal": "Archives of Internal Medicine",
-        "url": "https://doi.org/10.1001/archinte.163.20.2433"
-      },
-      {
-        "authors": "Neuvonen E., Rusanen M., Solomon A. et al.",
-        "year": "2014",
-        "title": "Late-life cynical distrust, risk of incident dementia, and mortality in a population-based cohort",
-        "journal": "Neurology"
-      },
-      {
-        "authors": "Everson S. A., Kauhanen J., Kaplan G. A. et al.",
-        "year": "1997",
-        "title": "Hostility and increased risk of mortality and acute myocardial infarction: the mediating role of behavioral risk factors",
-        "journal": "American Journal of Epidemiology"
-      },
-      {
-        "authors": "Hojat M., Louis D. Z., Markham F. W. et al.",
-        "year": "2011",
-        "title": "Physicians' empathy and clinical outcomes for diabetic patients",
-        "journal": "Academic Medicine"
-      },
-      {
-        "authors": "Graber M. L., Franklin N. & Gordon R.",
-        "year": "2005",
-        "title": "Diagnostic error in internal medicine",
-        "journal": "Archives of Internal Medicine",
-        "url": "https://doi.org/10.1001/archinte.165.13.1493"
-      },
-      {
-        "authors": "Dahms K., Sharkova Y., Heitland P., Pankuweit S. & Schaefer J. R.",
-        "year": "2014",
-        "title": "Cobalt intoxication diagnosed with the help of Dr House",
-        "journal": "The Lancet"
-      },
-      {
-        "authors": "Wicclair M. R.",
-        "year": "2008",
-        "title": "The pedagogical value of House, M.D.: can a fictional unethical physician be used to teach ethics?",
-        "journal": "The American Journal of Bioethics"
-      },
-      {
-        "authors": "Czarny M. J., Faden R. R. & Sugarman J.",
-        "year": "2010",
-        "title": "Bioethics and professionalism in popular television medical dramas",
-        "journal": "Journal of Medical Ethics"
-      },
-      {
-        "authors": "Jacoby H. (dir.)",
-        "year": "2009",
-        "title": "House and Philosophy: Everybody Lies",
-        "publisher": "Wiley"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "toc-ou-anxiete-difference",
