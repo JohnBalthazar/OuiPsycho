@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel docteur êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/dr-house-sur-le-divan/">
+  <meta name="description" content="Diagnosticien génial, allié bienveillant, gardien du cadre ? Dix questions pour découvrir quel médecin de Dr House vous ressemble.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F4F7F9;color:#1d2a33;line-height:1.55;padding:16px}
+    .quiz{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(31,78,107,.10);overflow:hidden}
+    .head{background:linear-gradient(135deg,#1F4E6B,#2E7D8C);color:#fff;padding:22px 24px}
+    .head h1{font-size:1.35rem;line-height:1.3}
+    .head p{opacity:.9;font-size:.95rem;margin-top:4px}
+    .body{padding:22px 24px 26px}
+    .progress{height:6px;background:#E3ECF1;border-radius:3px;overflow:hidden;margin-bottom:8px}
+    .bar{height:100%;background:#E8894A;width:0;transition:width .3s}
+    .count{font-size:.82rem;color:#5b6e7a;margin-bottom:14px}
+    .q{font-size:1.1rem;font-weight:600;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#F7FAFB;border:2px solid #DCE6EC;border-radius:10px;padding:12px 14px;margin-bottom:10px;font-size:.97rem;color:#1d2a33;cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .opt:hover,.opt:focus{border-color:#2E7D8C;background:#EEF6F7;outline:none}
+    .btn{display:inline-block;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit}
+    .btn:hover{background:#163A50}
+    .back{background:none;border:none;color:#5b6e7a;font-size:.88rem;cursor:pointer;margin-top:6px;font-family:inherit;text-decoration:underline}
+    .emoji{font-size:2.6rem;text-align:center}
+    .rtitle{text-align:center;font-size:1.3rem;color:#1F4E6B;margin:6px 0 2px}
+    .rsub{text-align:center;color:#5b6e7a;font-size:.9rem;margin-bottom:14px}
+    .rtext p{margin-bottom:10px}
+    .vig{background:#FFF4EC;border-left:4px solid #E8894A;padding:10px 14px;border-radius:6px;margin:12px 0;font-size:.95rem}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .share a{flex:1 1 auto;text-align:center;text-decoration:none;padding:10px 12px;border-radius:8px;font-size:.9rem;font-weight:600;color:#fff}
+    .fb{background:#1877F2}.tw{background:#111}.wa{background:#25A244}
+    .disc{font-size:.85rem;color:#4a5a64;background:#F4F7F9;border-radius:8px;padding:12px 14px;margin:14px 0}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="head">
+      <h1>🩺 Quel docteur êtes-vous ?</h1>
+      <p>Dix questions pour savoir qui vous seriez à Princeton-Plainsboro.</p>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+<script>
+var PAGE_URL = 'https://ouipsycho.fr/articles/dr-house-sur-le-divan/';
+
+var PROFILES = {
+  A: { emoji: '🧩', name: 'Le Diagnosticien génial', sub: 'façon Gregory House',
+       text: ['Vous voyez ce que les autres ne voient pas, et vous le faites savoir. Les énigmes vous nourrissent, la routine vous éteint, et votre esprit critique est une vraie ressource : vous ne vous contentez jamais de la première explication venue.',
+              'Votre humour tranchant protège souvent quelque chose de plus fragile. Avoir raison est confortable ; ce n\'est pas la même chose qu\'être entouré.'],
+       vig: 'Point de vigilance : le cynisme fatigue ceux qui vous entourent… et vous-même. Laisser voir un peu de vulnérabilité ne fera pas baisser votre QI.' },
+  B: { emoji: '🤝', name: 'L\'Allié bienveillant', sub: 'façon James Wilson',
+       text: ['Vous êtes la personne qu\'on appelle quand ça va mal. Vous savez écouter, apaiser, trouver les mots — et vous comprenez que derrière un patient difficile, il y a souvent une peur.',
+              'Votre force, c\'est le lien. C\'est aussi elle qui vous rend fidèle à des personnes qui ne vous rendent pas toujours autant qu\'elles reçoivent.'],
+       vig: 'Point de vigilance : à force de prendre soin des autres, on s\'oublie. Dire non est aussi une compétence relationnelle.' },
+  C: { emoji: '📋', name: 'Le Gardien du cadre', sub: 'façon Lisa Cuddy',
+       text: ['Vous voyez l\'ensemble : les règles, les responsabilités, l\'équipe, les conséquences. Là où d\'autres improvisent, vous structurez, et c\'est souvent grâce à vous que tout tient debout.',
+              'On vous trouve parfois rigide ; c\'est rarement l\'avis de ceux qui portent la responsabilité finale. Vous savez aussi, quand il le faut, fermer les yeux pour la bonne cause.'],
+       vig: 'Point de vigilance : absorber tous les conflits des autres use. Vous avez le droit de déléguer… et de décrocher.' },
+  D: { emoji: '💛', name: 'L\'Idéaliste', sub: 'façon Allison Cameron',
+       text: ['Pour vous, soigner est d\'abord une question d\'éthique et de justice. Vous défendez le droit des patients à savoir, à choisir, à être respectés — même quand cela complique tout.',
+              'Votre sensibilité est une boussole précieuse dans une équipe : vous rappelez pourquoi on fait ce métier.'],
+       vig: 'Point de vigilance : l\'implication émotionnelle a un coût. Garder une juste distance, ce n\'est pas moins aimer, c\'est tenir plus longtemps.' },
+  E: { emoji: '🔬', name: 'Le Rationnel ambitieux', sub: 'façon Eric Foreman',
+       text: ['Les preuves d\'abord, les opinions ensuite. Vous êtes rigoureux, efficace, et vous gardez la tête froide quand tout le monde s\'agite. Vous savez où vous allez, et vous comptez y arriver.',
+              'Votre sang-froid rassure ; votre ambition pousse l\'équipe vers le haut.'],
+       vig: 'Point de vigilance : à trop viser l\'objectif, on oublie parfois les gens sur le chemin. La reconnaissance se gagne aussi par la relation.' }
+};
+
+var QUESTIONS = [
+  { q: 'Un collègue vous soumet un cas compliqué. Votre premier réflexe ?', a: [
+    ['A', 'Je prends le dossier… et je ne le rends plus. Enfin un vrai puzzle.'],
+    ['B', 'J\'écoute d\'abord ce qui l\'inquiète, lui.'],
+    ['C', 'Je vérifie qu\'on reste dans le protocole et qu\'on a les autorisations.'],
+    ['D', 'Je veux rencontrer le patient et comprendre son histoire.'],
+    ['E', 'Je liste les examens objectifs à faire. Point.'] ] },
+  { q: 'Votre rapport aux règles ?', a: [
+    ['A', 'Des suggestions pour gens sans imagination.'],
+    ['B', 'Je les contourne parfois… pour protéger quelqu\'un.'],
+    ['C', 'Elles existent pour de bonnes raisons, et il faut quelqu\'un pour les tenir.'],
+    ['D', 'Je les respecte, sauf quand elles blessent quelqu\'un.'],
+    ['E', 'Je les applique. Et je les réécrirai quand je serai chef.'] ] },
+  { q: 'En réunion, on vous reconnaît à…', a: [
+    ['A', 'Mes piques. Et mes pieds sur la table.'],
+    ['B', 'Mon art de désamorcer les tensions.'],
+    ['C', 'Mon ordre du jour. Minuté.'],
+    ['D', 'Mes questions sur l\'éthique de la décision.'],
+    ['E', 'Mon air de « j\'ai déjà la réponse, mais allez-y ».'] ] },
+  { q: 'Un patient vous ment, visiblement.', a: [
+    ['A', 'Évidemment. Tout le monde ment. On va fouiller chez lui.'],
+    ['B', 'Il a sûrement peur. Je lui laisse une porte ouverte.'],
+    ['C', 'Je note, je documente, je préviens qui de droit.'],
+    ['D', 'Ça me touche, mais je cherche ce qu\'il essaie de protéger.'],
+    ['E', 'Je le confronte aux résultats : les analyses, elles, ne mentent pas.'] ] },
+  { q: 'Votre plus grand défaut, selon vos proches ?', a: [
+    ['A', '« Insupportable. » Ils ont raison, mais c\'est leur problème.'],
+    ['B', 'Trop gentil·le, incapable de dire non.'],
+    ['C', 'Contrôlant·e, jamais vraiment en pause.'],
+    ['D', 'Trop impliqué·e émotionnellement.'],
+    ['E', 'Ambitieux·se au point d\'oublier les autres.'] ] },
+  { q: 'Vendredi soir, après une semaine infernale :', a: [
+    ['A', 'Piano, whisky, et une série médicale — pour en relever les erreurs.'],
+    ['B', 'Dîner avec mon meilleur ami, même s\'il est pénible.'],
+    ['C', 'Je boucle les dossiers en retard, puis je m\'effondre.'],
+    ['D', 'Je repense à un patient, je n\'arrive pas à décrocher.'],
+    ['E', 'Sport, puis je prépare la semaine suivante.'] ] },
+  { q: 'Vous avez commis une erreur. Vous…', a: [
+    ['A', 'Une erreur ? Disons une étape vers la bonne réponse.'],
+    ['B', 'M\'excuse sincèrement et en parle ouvertement.'],
+    ['C', 'Analyse ce qui a failli dans l\'organisation pour que ça ne se reproduise pas.'],
+    ['D', 'Culpabilise longtemps.'],
+    ['E', 'Corrige vite et avance. Ruminer ne soigne personne.'] ] },
+  { q: 'Quelle phrase pourrait être la vôtre ?', a: [
+    ['A', '« Le patient m\'intéresse. Enfin, surtout sa maladie. »'],
+    ['B', '« Et toi, comment tu vas, vraiment ? »'],
+    ['C', '« Qui signe ? »'],
+    ['D', '« Il a le droit de savoir. »'],
+    ['E', '« Montrez-moi les preuves. »'] ] },
+  { q: 'Ce qui vous motive vraiment :', a: [
+    ['A', 'Avoir raison quand tout le monde a tort.'],
+    ['B', 'Que les gens autour de moi aillent bien.'],
+    ['C', 'Que l\'ensemble tienne debout.'],
+    ['D', 'Faire ce qui est juste.'],
+    ['E', 'Progresser et être reconnu·e pour ma compétence.'] ] },
+  { q: 'Votre superpouvoir en équipe :', a: [
+    ['A', 'Voir ce que personne ne voit.'],
+    ['B', 'Être la personne qu\'on appelle quand ça va mal.'],
+    ['C', 'Arbitrer — et encaisser les conflits des autres.'],
+    ['D', 'Rappeler pourquoi on fait ce métier.'],
+    ['E', 'Garder la tête froide.'] ] }
+];
+
+var app = document.getElementById('app');
+var current = 0, answers = [], order = [];
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+function renderIntro() {
+  app.innerHTML =
+    '<p style="margin-bottom:14px">Génie solitaire, allié fidèle, gardien du cadre, idéaliste ou rationnel ? Choisissez à chaque fois la réponse qui vous ressemble le plus — pas celle qui ferait bonne impression en entretien d\'embauche.</p>' +
+    '<div class="center"><button class="btn" id="start">Commencer le quiz</button></div>';
+  document.getElementById('start').onclick = function() { start(); };
+  notifyResize();
+}
+
+function start() {
+  current = 0; answers = [];
+  order = QUESTIONS.map(function(q) { return shuffle(q.a); });
+  renderQuestion();
+}
+
+function renderQuestion() {
+  var q = QUESTIONS[current];
+  var html =
+    '<div class="progress"><div class="bar" style="width:' + (current / QUESTIONS.length * 100) + '%"></div></div>' +
+    '<div class="count">Question ' + (current + 1) + ' sur ' + QUESTIONS.length + '</div>' +
+    '<div class="q">' + esc(q.q) + '</div>';
+  order[current].forEach(function(opt) {
+    html += '<button class="opt" data-p="' + opt[0] + '">' + esc(opt[1]) + '</button>';
+  });
+  if (current > 0) html += '<button class="back" id="back">← Question précédente</button>';
+  app.innerHTML = html;
+  Array.prototype.forEach.call(app.querySelectorAll('.opt'), function(b) {
+    b.onclick = function() { choose(b.getAttribute('data-p')); };
+  });
+  var back = document.getElementById('back');
+  if (back) back.onclick = function() { current--; answers.pop(); renderQuestion(); };
+  notifyResize();
+}
+
+function choose(p) {
+  answers.push(p);
+  current++;
+  if (current < QUESTIONS.length) renderQuestion(); else renderResult();
+}
+
+function renderResult() {
+  var counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+  answers.forEach(function(p) { counts[p]++; });
+  var max = Math.max.apply(null, Object.keys(counts).map(function(k) { return counts[k]; }));
+  var tied = Object.keys(counts).filter(function(k) { return counts[k] === max; });
+  // En cas d'égalité, la réponse la plus récente parmi les profils ex æquo départage
+  var best = tied[0];
+  for (var i = answers.length - 1; i >= 0; i--) { if (tied.indexOf(answers[i]) !== -1) { best = answers[i]; break; } }
+  var P = PROFILES[best];
+  var shareText = 'Je suis « ' + P.name + ' » (' + P.sub + ') au quiz Oui Psycho « Quel docteur êtes-vous ? » 🩺';
+  var u = encodeURIComponent(PAGE_URL), t = encodeURIComponent(shareText);
+
+  app.innerHTML =
+    '<div class="progress"><div class="bar" style="width:100%"></div></div>' +
+    '<div class="emoji">' + P.emoji + '</div>' +
+    '<h2 class="rtitle">' + esc(P.name) + '</h2>' +
+    '<div class="rsub">' + esc(P.sub) + ' · ' + max + ' réponse' + (max > 1 ? 's' : '') + ' sur ' + QUESTIONS.length + '</div>' +
+    '<div class="rtext">' + P.text.map(function(p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' +
+    '<div class="vig">' + esc(P.vig) + '</div>' +
+    '<div class="share">' +
+      '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+      '<a class="tw" href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+      '<a class="wa" href="https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + PAGE_URL) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+    '</div>' +
+    '<div class="disc">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+    '<div class="center"><button class="btn" id="restart">Recommencer</button></div>';
+  document.getElementById('restart').onclick = function() { start(); notifyResize(); };
+  notifyResize();
+}
+
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
