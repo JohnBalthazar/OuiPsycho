@@ -1543,6 +1543,34 @@
     "status": "scheduled"
   },
   {
+    "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
+    "title": "Espérance de vie et sexualité : ce que dit la science",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-01-27",
+    "date_modified": "2027-01-27",
+    "category": "Sexo",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ib6iephopzzmx31jabnp",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexualité",
+      "longévité",
+      "santé",
+      "bien-être",
+      "couple",
+      "science"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "lucky-luke-sur-le-divan",
     "title": "Lucky Luke sur le divan : psychologie d'un cowboy",
     "type": "article",
@@ -4259,34 +4287,6 @@
       "bien-dormir-guide-complet",
       "sommeil-sante-mentale"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "esperance-de-vie-et-sexualite-ce-que-dit-la-science",
-    "title": "Espérance de vie et sexualité : ce que dit la science",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-10-02",
-    "date_modified": "2026-10-02",
-    "category": "Sexo",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ib6iephopzzmx31jabnp",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "sexualité",
-      "longévité",
-      "santé",
-      "bien-être",
-      "couple",
-      "science"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
