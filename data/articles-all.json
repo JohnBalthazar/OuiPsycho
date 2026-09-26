@@ -1994,6 +1994,90 @@
     "status": "scheduled"
   },
   {
+    "id": "terminator-sur-le-divan",
+    "title": "Terminator sur le divan : Psychologie d'un cyborg",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-12-26",
+    "date_modified": "2026-12-26",
+    "category": "Nos héros sur le divan",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "tags": [
+      "terminator",
+      "intelligence-artificielle",
+      "vallee-de-l-etrange",
+      "attachement",
+      "stress-post-traumatique"
+    ],
+    "sources": [
+      {
+        "authors": "Gray H. M., Gray K. & Wegner D. M.",
+        "year": "2007",
+        "title": "Dimensions of mind perception",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1134475"
+      },
+      {
+        "authors": "Mori M. (trad. MacDorman K. F. & Kageki N.)",
+        "year": "2012",
+        "title": "The uncanny valley",
+        "journal": "IEEE Robotics & Automation Magazine",
+        "url": "https://doi.org/10.1109/MRA.2012.2192811"
+      },
+      {
+        "authors": "Epley N., Waytz A. & Cacioppo J. T.",
+        "year": "2007",
+        "title": "On seeing human: a three-factor theory of anthropomorphism",
+        "journal": "Psychological Review",
+        "url": "https://doi.org/10.1037/0033-295X.114.4.864"
+      },
+      {
+        "authors": "Dietvorst B. J., Simmons J. P. & Massey C.",
+        "year": "2015",
+        "title": "Algorithm aversion: people erroneously avoid algorithms after seeing them err",
+        "journal": "Journal of Experimental Psychology: General",
+        "url": "https://doi.org/10.1037/xge0000033"
+      },
+      {
+        "authors": "Parasuraman R. & Manzey D. H.",
+        "year": "2010",
+        "title": "Complacency and bias in human use of automation: an attentional integration",
+        "journal": "Human Factors",
+        "url": "https://doi.org/10.1177/0018720810376055"
+      },
+      {
+        "authors": "Weizenbaum J.",
+        "year": "1966",
+        "title": "ELIZA — a computer program for the study of natural language communication between man and machine",
+        "journal": "Communications of the ACM"
+      },
+      {
+        "authors": "Bowlby J.",
+        "year": "1969",
+        "title": "Attachment and Loss, vol. 1 : Attachment",
+        "publisher": "Basic Books"
+      },
+      {
+        "authors": "Parlement européen et Conseil de l'Union européenne",
+        "year": "2024",
+        "title": "Règlement (UE) 2024/1689 établissant des règles harmonisées concernant l'intelligence artificielle (AI Act)",
+        "publisher": "Journal officiel de l'Union européenne"
+      }
+    ],
+    "articles_lies": [
+      "dr-house-sur-le-divan"
+    ],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "toc-ou-anxiete-difference",
     "title": "TOC ou anxiété : comment faire la différence",
     "type": "article",
