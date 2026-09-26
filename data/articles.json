@@ -637,8 +637,6 @@
     "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
     "type": "article",
     "excerpt": "Dès 1932, un officier inconnu décrivait le chef qu'il allait devenir. Froideur calculée, tendresse cachée, charisme wébérien et départ sans histoires : ce que la psychologie peut dire, prudemment, de Charles de Gaulle.",
-    "metaDescription": "De Gaulle vu par la psychologie : caractère, distance, charisme selon Weber, syndrome d'hubris. Portrait d'un chef hors norme, et quiz sur votre style.",
-    "author": "John Balthazar",
     "date": "2026-09-02",
     "date_modified": "2026-09-02",
     "category": "Nos héros sur le divan",
@@ -648,6 +646,7 @@
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "de-gaulle",
       "leadership",
@@ -656,46 +655,9 @@
       "hubris",
       "histoire"
     ],
-    "sources": [
-      {
-        "authors": "de Gaulle C.",
-        "year": "1932",
-        "title": "Le Fil de l'épée",
-        "publisher": "Berger-Levrault"
-      },
-      {
-        "authors": "de Gaulle C.",
-        "year": "1954",
-        "title": "Mémoires de guerre, tome 1 : L'Appel (1940-1942)",
-        "publisher": "Plon"
-      },
-      {
-        "authors": "Lacouture J.",
-        "year": "1984",
-        "title": "De Gaulle, tome 1 : Le Rebelle (1890-1944)",
-        "publisher": "Seuil"
-      },
-      {
-        "authors": "Weber M.",
-        "year": "1959",
-        "title": "Le Savant et le politique (trad. J. Freund)",
-        "publisher": "Plon"
-      },
-      {
-        "authors": "Owen D. & Davidson J.",
-        "year": "2009",
-        "title": "Hubris syndrome: An acquired personality disorder? A study of US Presidents and UK Prime Ministers over the last 100 years",
-        "journal": "Brain"
-      },
-      {
-        "authors": "Watts A. L., Lilienfeld S. O., Smith S. F. et al.",
-        "year": "2013",
-        "title": "The double-edged sword of grandiose narcissism: Implications for successful and unsuccessful leadership among U.S. presidents",
-        "journal": "Psychological Science"
-      }
-    ],
+    "metaDescription": "De Gaulle vu par la psychologie : caractère, distance, charisme selon Weber, syndrome d'hubris. Portrait d'un chef hors norme, et quiz sur votre style.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "freres-soeurs-toxiques",

@@ -140,6 +140,20 @@
     "status": "published"
   },
   {
+    "id": "de-gaulle-sur-le-divan-quiz",
+    "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
+    "desc": "Dès 1932, un officier inconnu décrivait le chef qu'il allait devenir. Froideur calculée, tendresse cachée, charisme wébérien et départ sans…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/de-gaulle-sur-le-divan-quiz.html",
+    "articleUrl": "articles/de-gaulle-sur-le-divan/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "freres-soeurs-toxiques-quiz",
     "title": "Dans quelle configuration fraternelle êtes-vous ?",
     "desc": "Dix questions pour identifier la place que vous occupez dans votre relation fraternelle : chamaillerie, bouc émissaire, pilier, emprise ou distance assumée.",
