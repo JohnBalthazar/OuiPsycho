@@ -3364,36 +3364,6 @@
     "status": "scheduled"
   },
   {
-    "id": "roue-des-emotions",
-    "title": "La roue des émotions : nommer pour apaiser",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-10-30",
-    "date_modified": "2026-10-30",
-    "category": "Émotions & identité",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "John Balthazar",
-    "tags": [
-      "emotions",
-      "roue-des-emotions",
-      "regulation-emotionnelle",
-      "vocabulaire-emotionnel"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "comprendre-ses-emotions-guide",
-      "alexithymie",
-      "gerer-sa-colere"
-    ],
-    "status": "scheduled"
-  },
-  {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
     "type": "article",
@@ -3506,6 +3476,36 @@
       "comprendre-ses-emotions-guide",
       "gerer-sa-colere",
       "roue-des-emotions"
+    ],
+    "status": "scheduled"
+  },
+  {
+    "id": "roue-des-emotions",
+    "title": "La roue des émotions : nommer pour apaiser",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-10-26",
+    "date_modified": "2026-10-26",
+    "category": "Émotions & identité",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "roue-des-emotions",
+      "regulation-emotionnelle",
+      "vocabulaire-emotionnel"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "alexithymie",
+      "gerer-sa-colere"
     ],
     "status": "scheduled"
   },
