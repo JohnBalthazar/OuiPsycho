@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel chef d'État seriez-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/de-gaulle-sur-le-divan/">
+  <meta name="description" content="Connétable, conciliateur, tribun ou technocrate ? Sept questions pour découvrir quel genre de chef d'État sommeille en vous.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:#f6f3ee;color:#1d2b36;line-height:1.5;padding:16px}
+    .card{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 2px 14px rgba(31,78,107,.12);padding:28px 24px}
+    h1{font-size:1.45rem;color:#1F4E6B;margin-bottom:8px}
+    h2{font-size:1.2rem;color:#1F4E6B;margin-bottom:14px}
+    .lead{color:#51606b;margin-bottom:20px}
+    .btn{display:inline-block;border:none;cursor:pointer;background:#1F4E6B;color:#fff;font-size:1rem;font-weight:600;padding:12px 22px;border-radius:10px;transition:background .2s}
+    .btn:hover{background:#163a50}
+    .btn.ghost{background:transparent;color:#1F4E6B;border:2px solid #1F4E6B}
+    .progress{height:6px;background:#e4e9ed;border-radius:6px;overflow:hidden;margin-bottom:18px}
+    .bar{height:100%;background:#c0392b;width:0;transition:width .3s}
+    .count{font-size:.85rem;color:#7a8791;margin-bottom:6px}
+    .opts{display:flex;flex-direction:column;gap:10px}
+    .opt{text-align:left;background:#f4f7f9;border:2px solid #dbe3e9;border-radius:10px;padding:13px 15px;font-size:.98rem;cursor:pointer;color:#1d2b36;transition:border-color .15s,background .15s}
+    .opt:hover{border-color:#1F4E6B;background:#eaf1f6}
+    .emoji{font-size:2.6rem;margin-bottom:6px}
+    .profile p{margin-bottom:12px}
+    .mix{font-size:.9rem;color:#51606b;margin:14px 0}
+    .mix div{display:flex;align-items:center;gap:8px;margin:5px 0}
+    .mix span.l{width:110px;flex-shrink:0}
+    .mix .track{flex:1;height:8px;background:#e4e9ed;border-radius:6px;overflow:hidden}
+    .mix .fill{height:100%;background:#1F4E6B}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+    .share a{text-decoration:none;font-size:.9rem;font-weight:600;padding:9px 14px;border-radius:8px;color:#fff}
+    .fb{background:#1877f2}.tw{background:#111}.wa{background:#25a244}
+    .disclaimer{font-size:.85rem;background:#fdf6e3;border-left:4px solid #e0a800;padding:12px 14px;border-radius:6px;margin:16px 0;color:#5a4a1a}
+    .hidden{display:none}
+  </style>
+</head>
+<body>
+<div class="card">
+  <div id="intro">
+    <h1>Quel chef d'État seriez-vous ?</h1>
+    <p class="lead">Sept situations, quatre façons de gouverner. Répondez vite, sans consulter vos conseillers.</p>
+    <button class="btn" onclick="start()">Commencer</button>
+  </div>
+
+  <div id="quiz" class="hidden">
+    <div class="count" id="count"></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <h2 id="question"></h2>
+    <div class="opts" id="opts"></div>
+  </div>
+
+  <div id="result" class="hidden">
+    <div class="emoji" id="rEmoji"></div>
+    <h2 id="rTitle"></h2>
+    <div class="profile" id="rText"></div>
+    <div class="mix" id="rMix"></div>
+    <div class="share" id="share"></div>
+    <div class="disclaimer">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic.
+      Seul un professionnel de santé peut évaluer votre situation.
+      En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>
+    <button class="btn ghost" onclick="restart()">Recommencer</button>
+  </div>
+</div>
+
+<script>
+var QUESTIONS = [
+  { q: "La réunion dure depuis quarante-cinq minutes et rien n'avance. Vous…", a: [
+    ["A", "vous levez, annoncez la décision et quittez la salle. Ils comprendront plus tard."],
+    ["B", "proposez une pause café, puis une synthèse où chacun retrouve un bout de son idée."],
+    ["C", "prenez la parole cinq minutes. À la fin, deux personnes ont la larme à l'œil."],
+    ["D", "partagez votre écran : un tableur de quatorze onglets, code couleur compris."]
+  ]},
+  { q: "Un nouveau sondage vous place au plus bas.", a: [
+    ["A", "Un pays ne se sonde pas. Vous ne l'ouvrez même pas."],
+    ["B", "Vous l'étudiez ligne par ligne pour trouver où recoller les morceaux."],
+    ["C", "Vous filez sur un marché de province serrer trois cents mains."],
+    ["D", "Vous recalculez la marge d'erreur. Elle est trop large, évidemment."]
+  ]},
+  { q: "Une crise éclate un dimanche après-midi.", a: [
+    ["A", "Vous disparaissez vingt-quatre heures sans prévenir personne, puis revenez avec un discours historique."],
+    ["B", "Vous appelez les syndicats, le patronat, les élus locaux et votre belle-mère."],
+    ["C", "Vous êtes sur place avant les journalistes, manches retroussées."],
+    ["D", "Cellule de crise, tableau de bord, indicateurs mis à jour toutes les heures."]
+  ]},
+  { q: "Un ancien fidèle vous critique à la télévision.", a: [
+    ["A", "Un silence glacial. Il ne sera plus jamais invité à déjeuner."],
+    ["B", "Vous l'invitez justement à déjeuner. On se réconcilie au fromage."],
+    ["C", "Vous répondez le soir même, avec une formule qui fera la une le lendemain."],
+    ["D", "Vous lui envoyez une note de six pages qui démonte ses arguments un par un."]
+  ]},
+  { q: "Votre lieu de retraite idéal ?", a: [
+    ["A", "Une grande maison isolée, face à la forêt, pour écrire ses mémoires en trois tomes."],
+    ["B", "Une petite ville où tout le monde vous salue au marché du samedi."],
+    ["C", "La retraite ? Vous préparez déjà votre retour."],
+    ["D", "Un cabinet de conseil. Il reste tant de processus à optimiser."]
+  ]},
+  { q: "La phrase qu'on retiendra de vous :", a: [
+    ["A", "Une formule sibylline, que chacun interprète à sa façon."],
+    ["B", "« Nous avons trouvé un terrain d'entente. »"],
+    ["C", "Un cri, lancé devant une foule immense."],
+    ["D", "« Les chiffres parlent d'eux-mêmes. » (Ils parlent surtout par votre bouche.)"]
+  ]},
+  { q: "Sur une île déserte, vous emportez…", a: [
+    ["A", "Chateaubriand, en édition complète."],
+    ["B", "Un jeu de tarot. Il faudra bien trouver trois partenaires."],
+    ["C", "Un mégaphone, au cas où des naufragés passeraient."],
+    ["D", "Le dernier rapport de la Cour des comptes, annoté."]
+  ]}
+];
+
+var PROFILES = {
+  A: { emoji: "🎖️", title: "Le Connétable",
+    text: "<p>Vous gouvernez de haut et de loin. Les réunions vous ennuient, les compromis vous fatiguent, et vous avez une idée très précise de ce que votre pays (ou votre service, ou votre copropriété) devrait devenir.</p><p>Votre force : tenir un cap quand tout le monde panique. Votre angle mort : les gens finissent par se demander si vous les entendez. De Gaulle aurait apprécié. Il vous aurait sans doute trouvé un peu bavard.</p>" },
+  B: { emoji: "🤝", title: "Le Conciliateur",
+    text: "<p>Autour de vous, personne ne claque la porte. Vous connaissez le prénom des enfants de vos adversaires et vous savez qu'une bonne décision se prend souvent à table.</p><p>La IVe République vous aurait adoré. Le risque existe, bien sûr, de passer tellement de temps à écouter tout le monde que la décision arrive après la crise. Mais les équipes que vous dirigez tiennent, et ce n'est pas rien.</p>" },
+  C: { emoji: "📣", title: "Le Tribun",
+    text: "<p>Une salle vide vous déprime, une foule vous recharge. Vous sentez l'humeur du public avant les sondeurs et vous savez trouver le mot qui fait lever les gens de leur chaise.</p><p>Max Weber vous classerait parmi les charismatiques pur jus. Attention quand même : l'enthousiasme s'use, et le lendemain de meeting ressemble parfois à un lendemain de fête.</p>" },
+  D: { emoji: "📊", title: "Le Technocrate",
+    text: "<p>Les grands discours vous laissent froid. Ce qui vous émeut, c'est un indicateur qui repart dans le vert.</p><p>Vous préparez vos dossiers mieux que quiconque et vos décisions tiennent à l'examen. On vous reproche parfois de parler en acronymes et d'oublier que les électeurs ne lisent pas les annexes. Un peu de poésie ne nuirait pas à vos notes de synthèse, même en police Arial 11.</p>" }
+};
+
+var LABELS = { A: "Connétable", B: "Conciliateur", C: "Tribun", D: "Technocrate" };
+var ORDER = ["A", "B", "C", "D"];
+var current = 0, votes = {};
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function show(id) {
+  ["intro", "quiz", "result"].forEach(function(s) {
+    document.getElementById(s).classList.toggle("hidden", s !== id);
+  });
+}
+
+function start() {
+  current = 0; votes = { A: 0, B: 0, C: 0, D: 0 };
+  show("quiz"); render();
+}
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+
+function render() {
+  var item = QUESTIONS[current];
+  document.getElementById("count").textContent = "Question " + (current + 1) + " sur " + QUESTIONS.length;
+  document.getElementById("bar").style.width = (current / QUESTIONS.length * 100) + "%";
+  document.getElementById("question").textContent = item.q;
+  var box = document.getElementById("opts");
+  box.innerHTML = "";
+  shuffle(item.a).forEach(function(o) {
+    var b = document.createElement("button");
+    b.className = "opt"; b.textContent = o[1];
+    b.onclick = function() { answer(o[0]); };
+    box.appendChild(b);
+  });
+  notifyResize();
+}
+
+function answer(p) {
+  votes[p]++; current++;
+  if (current < QUESTIONS.length) render(); else showResult();
+}
+
+function showResult() {
+  document.getElementById("bar").style.width = "100%";
+  var best = ORDER.reduce(function(m, k) { return votes[k] > votes[m] ? k : m; }, "A");
+  var pr = PROFILES[best];
+  document.getElementById("rEmoji").textContent = pr.emoji;
+  document.getElementById("rTitle").textContent = "Vous êtes " + pr.title;
+  document.getElementById("rText").innerHTML = pr.text;
+
+  var mix = "<strong>Votre dosage :</strong>";
+  ORDER.forEach(function(k) {
+    var pct = Math.round(votes[k] / QUESTIONS.length * 100);
+    mix += '<div><span class="l">' + LABELS[k] + '</span><span class="track"><span class="fill" style="display:block;width:' + pct + '%"></span></span><span>' + pct + ' %</span></div>';
+  });
+  document.getElementById("rMix").innerHTML = mix;
+
+  var url = "https://ouipsycho.fr/articles/de-gaulle-sur-le-divan/";
+  var txt = "Je suis " + pr.title + " ! Et vous, quel chef d'État seriez-vous ?";
+  var eu = encodeURIComponent(url), et = encodeURIComponent(txt);
+  document.getElementById("share").innerHTML =
+    '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + eu + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+    '<a class="tw" href="https://twitter.com/intent/tweet?text=' + et + '&url=' + eu + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+    '<a class="wa" href="https://wa.me/?text=' + encodeURIComponent(txt + " " + url) + '" target="_blank" rel="noopener">💬 WhatsApp</a>';
+
+  show("result");
+  notifyResize();
+}
+
+function restart() {
+  show("intro");
+  notifyResize();
+}
+
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
