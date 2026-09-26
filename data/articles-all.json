@@ -1963,6 +1963,36 @@
     "status": "scheduled"
   },
   {
+    "id": "toc-ou-anxiete-difference",
+    "title": "TOC ou anxiété : comment faire la différence",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-12-23",
+    "date_modified": "2026-12-23",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mm0dwa8ma5cof6kxkmko",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "toc",
+      "trouble-anxieux-generalise",
+      "troubles-anxieux"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "trouble-anxieux-generalise",
+      "anxiete-anticipatoire",
+      "anxiete-de-sante-hypocondrie"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "pere-noel-sur-le-divan",
     "title": "Le Père Noël sur le divan : psychologie d'un vieux barbu se déplaçant en traîneau",
     "type": "article",
@@ -4260,36 +4290,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "toc-ou-anxiete-difference",
-    "title": "TOC ou anxiété : comment faire la différence",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-09-29",
-    "date_modified": "2026-09-29",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mm0dwa8ma5cof6kxkmko",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "anxiete",
-      "toc",
-      "trouble-anxieux-generalise",
-      "troubles-anxieux"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "trouble-anxieux-generalise",
-      "anxiete-anticipatoire",
-      "anxiete-de-sante-hypocondrie"
-    ],
     "status": "scheduled"
   },
   {
