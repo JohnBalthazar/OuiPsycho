@@ -1,5 +1,34 @@
 [
   {
+    "id": "anxiolytiques-effets-alternatives",
+    "title": "Anxiolytiques : ce qu'ils font vraiment (et les alternatives)",
+    "type": "article",
+    "excerpt": "Les anxiolytiques calment vite, mais pas pour toujours : la Haute Autorité de Santé recommande une durée maximale de 12 semaines pour les benzodiazépines. Ce qu'ils font sur le corps, leurs limites, et les alternatives validées.",
+    "date": "2026-09-26",
+    "date_modified": "2026-09-26",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vp5g0zbh5s6ahgggc75u",
+    "imagePosition": "64% 45%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "anxiolytiques",
+      "benzodiazepines",
+      "traitement-anxiete"
+    ],
+    "metaDescription": "Anxiolytiques (benzodiazépines) : mécanisme, durée maximale recommandée par la HAS, risques de dépendance et alternatives sans accoutumance.",
+    "articles_lies": [
+      "coherence-cardiaque-365",
+      "se-debarrasser-anxiete-pour-toujours",
+      "toc-ou-anxiete-difference"
+    ],
+    "status": "published"
+  },
+  {
     "id": "cobenfy-france-2026",
     "title": "Le Cobenfy en France en 2026",
     "type": "article",
