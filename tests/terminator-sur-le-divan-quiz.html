@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {'analytics_storage':'granted','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied'});
+    } else {
+      gtag('consent', 'default', {'analytics_storage':'denied','ad_storage':'denied','ad_user_data':'denied','ad_personalization':'denied','wait_for_update':2000});
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-NR52DCZ6ZJ');</script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quel cyborg êtes-vous ?</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://ouipsycho.fr/articles/terminator-sur-le-divan/">
+  <meta name="description" content="Protecteur, caméléon, stratège ou survivante ? Dix questions pour découvrir quelle créature de Terminator vous ressemble.">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#F4F7F9;color:#1d2a33;line-height:1.55;padding:16px}
+    .quiz{max-width:640px;margin:0 auto;background:#fff;border-radius:14px;box-shadow:0 4px 18px rgba(31,78,107,.10);overflow:hidden}
+    .head{background:linear-gradient(135deg,#1F4E6B,#2E7D8C);color:#fff;padding:22px 24px}
+    .head h1{font-size:1.35rem;line-height:1.3}
+    .head p{opacity:.9;font-size:.95rem;margin-top:4px}
+    .body{padding:22px 24px 26px}
+    .progress{height:6px;background:#E3ECF1;border-radius:3px;overflow:hidden;margin-bottom:8px}
+    .bar{height:100%;background:#E8894A;width:0;transition:width .3s}
+    .count{font-size:.82rem;color:#5b6e7a;margin-bottom:14px}
+    .q{font-size:1.1rem;font-weight:600;margin-bottom:16px}
+    .opt{display:block;width:100%;text-align:left;background:#F7FAFB;border:2px solid #DCE6EC;border-radius:10px;padding:12px 14px;margin-bottom:10px;font-size:.97rem;color:#1d2a33;cursor:pointer;transition:border-color .15s,background .15s;font-family:inherit}
+    .opt:hover,.opt:focus{border-color:#2E7D8C;background:#EEF6F7;outline:none}
+    .btn{display:inline-block;background:#1F4E6B;color:#fff;border:none;border-radius:10px;padding:12px 22px;font-size:1rem;font-weight:600;cursor:pointer;font-family:inherit}
+    .btn:hover{background:#163A50}
+    .back{background:none;border:none;color:#5b6e7a;font-size:.88rem;cursor:pointer;margin-top:6px;font-family:inherit;text-decoration:underline}
+    .emoji{font-size:2.6rem;text-align:center}
+    .rtitle{text-align:center;font-size:1.3rem;color:#1F4E6B;margin:6px 0 2px}
+    .rsub{text-align:center;color:#5b6e7a;font-size:.9rem;margin-bottom:14px}
+    .rtext p{margin-bottom:10px}
+    .vig{background:#FFF4EC;border-left:4px solid #E8894A;padding:10px 14px;border-radius:6px;margin:12px 0;font-size:.95rem}
+    .share{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+    .share a{flex:1 1 auto;text-align:center;text-decoration:none;padding:10px 12px;border-radius:8px;font-size:.9rem;font-weight:600;color:#fff}
+    .fb{background:#1877F2}.tw{background:#111}.wa{background:#25A244}
+    .disc{font-size:.85rem;color:#4a5a64;background:#F4F7F9;border-radius:8px;padding:12px 14px;margin:14px 0}
+    .center{text-align:center}
+  </style>
+</head>
+<body>
+  <div class="quiz">
+    <div class="head">
+      <h1>🤖 Quel cyborg êtes-vous ?</h1>
+      <p>Dix questions pour savoir qui vous seriez le jour du Jugement dernier.</p>
+    </div>
+    <div class="body" id="app"></div>
+  </div>
+
+<script>
+var PAGE_URL = 'https://ouipsycho.fr/articles/terminator-sur-le-divan/';
+
+var PROFILES = {
+  A: { emoji: '🛡️', name: 'Le Protecteur loyal', sub: 'façon T-800 reprogrammé',
+       text: ['Vous êtes celui ou celle sur qui on peut compter. Pas forcément le plus expansif, mais toujours là quand ça compte. Vous montrez votre affection par des actes plutôt que par des mots, et votre fiabilité rassure tout votre entourage.',
+              'Vous apprenez les codes émotionnels des autres avec patience, parfois avec maladresse — un pouce levé vaut mieux qu\'un long discours.'],
+       vig: 'Point de vigilance : protéger tout le monde ne dispense pas de dire ce que vous ressentez. Vous avez le droit d\'avoir besoin des autres, vous aussi.' },
+  B: { emoji: '🎯', name: 'La Machine à objectifs', sub: 'façon T-800 de 1984',
+       text: ['Quand vous avez un but, rien ne vous arrête. Concentration totale, endurance hors norme, efficacité redoutable : vous allez au bout de ce que vous entreprenez, là où d\'autres abandonnent au premier obstacle.',
+              'Votre détermination est une force rare, surtout dans les projets au long cours.'],
+       vig: 'Point de vigilance : à force de foncer, on oublie de vérifier si la mission a encore du sens. Et le repos n\'est pas une panne.' },
+  C: { emoji: '💧', name: 'Le Caméléon', sub: 'façon T-1000',
+       text: ['Vous vous adaptez à tout : chaque milieu, chaque personne, chaque situation. Vous sentez très vite ce que l\'on attend de vous et savez changer de registre en un instant. En société, vous êtes insaisissable et souvent fascinant·e.',
+              'Cette souplesse est un vrai talent social et professionnel.'],
+       vig: 'Point de vigilance : à force d\'épouser toutes les formes, on peut perdre la sienne. Qui êtes-vous quand personne ne vous regarde ?' },
+  D: { emoji: '🧠', name: 'Le Stratège', sub: 'façon Skynet',
+       text: ['Vous voyez loin, vous anticipez tout, vous avez toujours trois coups d\'avance. L\'organisation, la logique et la vue d\'ensemble sont votre terrain de jeu, et on vient vous chercher quand il faut un plan.',
+              'Votre esprit analytique est précieux… tant qu\'il reste au service des humains.'],
+       vig: 'Point de vigilance : vouloir tout contrôler protège de l\'imprévu, mais isole. Les gens ne sont pas des variables — et c\'est tant mieux.' },
+  E: { emoji: '🔥', name: 'L\'Humaine blindée', sub: 'façon Sarah Connor',
+       text: ['Zéro pour cent cyborg, cent pour cent survivant·e. La vie vous a endurci·e, vous êtes prêt·e à tout, et votre vigilance vous a sûrement sorti·e de situations difficiles. Vous vous battez pour ceux que vous aimez.',
+              'Votre courage force le respect, et votre humanité reste intacte sous l\'armure.'],
+       vig: 'Point de vigilance : rester en alerte permanente épuise. Si vous dormez mal ou ne baissez jamais la garde, en parler à un professionnel peut vraiment aider.' }
+};
+
+var QUESTIONS = [
+  { q: 'Lundi matin, 7 heures. Votre réveil sonne :', a: [
+    ['A', 'Je me lève et je prépare le petit-déjeuner de toute la maison.'],
+    ['B', 'Je suis déjà debout. Mission du jour : chargée.'],
+    ['C', 'Ça dépend de qui je dois être aujourd\'hui.'],
+    ['D', 'J\'ai planifié ma semaine dimanche soir, au quart d\'heure près.'],
+    ['E', 'Je dormais d\'un œil. Comme d\'habitude.'] ] },
+  { q: 'Un ami vous appelle en pleine crise :', a: [
+    ['A', 'J\'arrive. Tout de suite. Je ne pose pas de questions.'],
+    ['B', 'Je règle le problème concret, vite et bien.'],
+    ['C', 'Je trouve exactement le ton qu\'il a besoin d\'entendre.'],
+    ['D', 'J\'analyse la situation et je lui propose un plan en trois étapes.'],
+    ['E', 'Je sors l\'artillerie : je suis prêt·e à me battre pour lui.'] ] },
+  { q: 'Votre réplique culte :', a: [
+    ['A', '« Je ne te laisserai pas tomber. »'],
+    ['B', '« I\'ll be back. »'],
+    ['C', '« … » (vous avez déjà pris l\'apparence de quelqu\'un d\'autre)'],
+    ['D', '« Tout se passe conformément à mes prévisions. »'],
+    ['E', '« Il n\'y a pas de destin, sauf celui qu\'on se fait. »'] ] },
+  { q: 'Face à un obstacle imprévu :', a: [
+    ['A', 'Je me mets entre l\'obstacle et les gens que j\'aime.'],
+    ['B', 'Je passe à travers. Littéralement.'],
+    ['C', 'Je le contourne en changeant de forme.'],
+    ['D', 'Je l\'avais prévu. Plan B activé.'],
+    ['E', 'Je l\'avais senti venir. Je suis toujours prêt·e au pire.'] ] },
+  { q: 'Vos émotions, pour vous, c\'est :', a: [
+    ['A', 'Un langage que j\'apprends, lentement, grâce aux autres.'],
+    ['B', 'Une distraction. On verra après la mission.'],
+    ['C', 'Un outil : je sais lire et refléter celles des autres.'],
+    ['D', 'Des données à intégrer dans l\'équation.'],
+    ['E', 'Une tempête sous contrôle. Tant bien que mal.'] ] },
+  { q: 'En soirée, on vous reconnaît à :', a: [
+    ['A', 'Vous surveillez que tout le monde rentre bien.'],
+    ['B', 'Vous êtes venu·e pour une raison précise, et vous repartez après.'],
+    ['C', 'Vous vous fondez dans chaque groupe.'],
+    ['D', 'Vous observez, vous cartographiez les alliances.'],
+    ['E', 'Vous repérez les sorties de secours en entrant.'] ] },
+  { q: 'Ce que vous pensez de l\'intelligence artificielle :', a: [
+    ['A', 'Un outil utile, si elle reste au service des humains.'],
+    ['B', 'Elle fait gagner du temps. C\'est tout ce qui compte.'],
+    ['C', 'J\'aime tester jusqu\'où elle peut imiter les gens.'],
+    ['D', 'Fascinante. J\'aimerais bien comprendre ses rouages… et les piloter.'],
+    ['E', 'Je l\'ai à l\'œil. On ne sait jamais.'] ] },
+  { q: 'Votre plus grand défaut, selon vos proches :', a: [
+    ['A', 'Vous vous sacrifiez trop.'],
+    ['B', 'Vous ne savez pas lâcher prise.'],
+    ['C', 'On ne sait jamais qui vous êtes vraiment.'],
+    ['D', 'Vous êtes un peu control freak.'],
+    ['E', 'Vous êtes méfiant·e envers tout le monde.'] ] },
+  { q: 'En vacances, vous êtes plutôt :', a: [
+    ['A', 'Celui ou celle qui porte les bagages de tout le monde.'],
+    ['B', 'Programme sportif chargé, et sommet atteint coûte que coûte.'],
+    ['C', 'Immersion totale : vous vivez comme les locaux.'],
+    ['D', 'Itinéraire optimisé sur tableur partagé.'],
+    ['E', 'Kit de survie dans le coffre. Au cas où.'] ] },
+  { q: 'Votre superpouvoir :', a: [
+    ['A', 'La loyauté indestructible.'],
+    ['B', 'L\'endurance infinie.'],
+    ['C', 'L\'adaptation instantanée.'],
+    ['D', 'L\'anticipation totale.'],
+    ['E', 'La résilience.'] ] }
+];
+
+
+var app = document.getElementById('app');
+var current = 0, answers = [], order = [];
+
+function shuffle(arr) {
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; }
+  return a;
+}
+
+function notifyResize() {
+  setTimeout(function() {
+    window.parent.postMessage({ type: 'quiz-resize', height: document.body.scrollHeight }, '*');
+  }, 50);
+}
+
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+
+function renderIntro() {
+  app.innerHTML =
+    '<p style="margin-bottom:14px">Protecteur, machine à objectifs, caméléon, stratège ou humaine blindée ? Choisissez à chaque fois la réponse qui vous ressemble le plus. Aucune donnée ne sera transmise à Skynet.</p>' +
+    '<div class="center"><button class="btn" id="start">Commencer le quiz</button></div>';
+  document.getElementById('start').onclick = function() { start(); };
+  notifyResize();
+}
+
+function start() {
+  current = 0; answers = [];
+  order = QUESTIONS.map(function(q) { return shuffle(q.a); });
+  renderQuestion();
+}
+
+function renderQuestion() {
+  var q = QUESTIONS[current];
+  var html =
+    '<div class="progress"><div class="bar" style="width:' + (current / QUESTIONS.length * 100) + '%"></div></div>' +
+    '<div class="count">Question ' + (current + 1) + ' sur ' + QUESTIONS.length + '</div>' +
+    '<div class="q">' + esc(q.q) + '</div>';
+  order[current].forEach(function(opt) {
+    html += '<button class="opt" data-p="' + opt[0] + '">' + esc(opt[1]) + '</button>';
+  });
+  if (current > 0) html += '<button class="back" id="back">← Question précédente</button>';
+  app.innerHTML = html;
+  Array.prototype.forEach.call(app.querySelectorAll('.opt'), function(b) {
+    b.onclick = function() { choose(b.getAttribute('data-p')); };
+  });
+  var back = document.getElementById('back');
+  if (back) back.onclick = function() { current--; answers.pop(); renderQuestion(); };
+  notifyResize();
+}
+
+function choose(p) {
+  answers.push(p);
+  current++;
+  if (current < QUESTIONS.length) renderQuestion(); else renderResult();
+}
+
+function renderResult() {
+  var counts = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+  answers.forEach(function(p) { counts[p]++; });
+  var max = Math.max.apply(null, Object.keys(counts).map(function(k) { return counts[k]; }));
+  var tied = Object.keys(counts).filter(function(k) { return counts[k] === max; });
+  // En cas d'égalité, la réponse la plus récente parmi les profils ex æquo départage
+  var best = tied[0];
+  for (var i = answers.length - 1; i >= 0; i--) { if (tied.indexOf(answers[i]) !== -1) { best = answers[i]; break; } }
+  var P = PROFILES[best];
+  var shareText = 'Je suis « ' + P.name + ' » (' + P.sub + ') au quiz Oui Psycho « Quel cyborg êtes-vous ? » 🤖';
+  var u = encodeURIComponent(PAGE_URL), t = encodeURIComponent(shareText);
+
+  app.innerHTML =
+    '<div class="progress"><div class="bar" style="width:100%"></div></div>' +
+    '<div class="emoji">' + P.emoji + '</div>' +
+    '<h2 class="rtitle">' + esc(P.name) + '</h2>' +
+    '<div class="rsub">' + esc(P.sub) + ' · ' + max + ' réponse' + (max > 1 ? 's' : '') + ' sur ' + QUESTIONS.length + '</div>' +
+    '<div class="rtext">' + P.text.map(function(p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' +
+    '<div class="vig">' + esc(P.vig) + '</div>' +
+    '<div class="share">' +
+      '<a class="fb" href="https://www.facebook.com/sharer/sharer.php?u=' + u + '" target="_blank" rel="noopener">👍 Facebook</a>' +
+      '<a class="tw" href="https://twitter.com/intent/tweet?text=' + t + '&url=' + u + '" target="_blank" rel="noopener">🐦 Twitter</a>' +
+      '<a class="wa" href="https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + PAGE_URL) + '" target="_blank" rel="noopener">💬 WhatsApp</a>' +
+    '</div>' +
+    '<div class="disc">⚕️ <strong>Rappel important :</strong> Ce questionnaire est un outil de réflexion, pas un diagnostic. Seul un professionnel de santé peut évaluer votre situation. En cas de détresse, appelez le <strong>3114</strong> (gratuit, 24h/24).</div>' +
+    '<div class="center"><button class="btn" id="restart">Recommencer</button></div>';
+  document.getElementById('restart').onclick = function() { start(); notifyResize(); };
+  notifyResize();
+}
+
+renderIntro();
+window.addEventListener('load', notifyResize);
+</script>
+</body>
+</html>
