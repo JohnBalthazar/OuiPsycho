@@ -1,5 +1,34 @@
 [
   {
+    "id": "sieste-duree-ideale",
+    "title": "La sieste : durée idéale et mode d'emploi",
+    "type": "article",
+    "excerpt": "20 minutes qui boostent la vigilance, ou 45 minutes qui laissent groggy pour le reste de l'après-midi : la durée d'une sieste change tout. Le secret n'est pas de dormir plus, mais de se réveiller au bon moment du cycle.",
+    "date": "2026-09-27",
+    "date_modified": "2026-09-27",
+    "category": "Sommeil",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vb5g56zgkvo0r9ynxwcx",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "sieste",
+      "vigilance",
+      "inertie-du-sommeil"
+    ],
+    "metaDescription": "Sieste : durée idéale (10-20 min), pourquoi les siestes de 30-45 min sont un piège, et comment éviter l'inertie du sommeil au réveil.",
+    "articles_lies": [
+      "dette-de-sommeil",
+      "bien-dormir-guide-complet",
+      "chronotype-matin-soir"
+    ],
+    "status": "published"
+  },
+  {
     "id": "anxiolytiques-effets-alternatives",
     "title": "Anxiolytiques : ce qu'ils font vraiment (et les alternatives)",
     "type": "article",
