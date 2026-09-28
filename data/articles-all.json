@@ -4353,7 +4353,7 @@
     "id": "bore-out-ennui-au-travail",
     "title": "Bore-out : quand l'ennui au travail rend malade",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "S'ennuyer à un poste qu'on juge « confortable » peut sembler un faux problème. C'est pourtant une souffrance documentée, aussi épuisante à sa façon qu'un excès de travail — et beaucoup plus difficile à avouer.",
     "date": "2026-09-28",
     "date_modified": "2026-09-28",
     "category": "Travail",
@@ -4371,13 +4371,13 @@
       "souffrance-au-travail",
       "sens-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Bore-out : ennui chronique, désintérêt, sentiment de vide au travail. Définition, signes et pistes concrètes pour en sortir sans culpabiliser.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "brown-out-perte-de-sens-travail",
       "charge-mentale"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "sieste-duree-ideale",
