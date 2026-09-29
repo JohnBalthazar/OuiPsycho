@@ -1,5 +1,31 @@
 [
   {
+    "id": "dr-house-sur-le-divan",
+    "title": "Dr House sur le divan : Psychologie d'un docteur brillant, cynique et provocateur",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-29",
+    "date_modified": "2026-09-29",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kx49foxywhexdt7boea0",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "dr-house",
+      "cynisme",
+      "douleur-chronique",
+      "relation-soignant-soigne",
+      "series-medicales"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "bore-out-ennui-au-travail",
     "title": "Bore-out : quand l'ennui au travail rend malade",
     "type": "article",
@@ -92,7 +118,7 @@
     "type": "article",
     "excerpt": "Premier antipsychotique à ne pas bloquer la dopamine, le Cobenfy suscite un immense espoir chez les personnes vivant avec une schizophrénie. Mais est-il disponible en France, que promet-il vraiment et quels effets secondaires faut-il connaître ?",
     "date": "2026-09-25",
-    "date_modified": "2026-09-25",
+    "date_modified": "2026-09-29",
     "category": "Troubles Psy",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ap7kkahuvztputdxyinr",
     "imagePosition": "50% 50%",
