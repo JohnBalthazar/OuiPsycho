@@ -4296,7 +4296,7 @@
     "id": "dette-de-sommeil",
     "title": "Dette de sommeil : peut-on la rattraper le week-end ?",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Faire la grasse matinée le samedi pour compenser une semaine de nuits courtes semble logique. La science montre que ça ne marche que très partiellement — et parfois, ça aggrave même le problème.",
     "date": "2026-09-30",
     "date_modified": "2026-09-30",
     "category": "Sommeil",
@@ -4314,13 +4314,13 @@
       "jetlag-social",
       "recuperation"
     ],
-    "metaDescription": "",
+    "metaDescription": "Dette de sommeil : peut-on vraiment la rattraper le week-end ? Ce que montrent les études, et pourquoi mieux vaut la prévenir que la compenser.",
     "articles_lies": [
       "sieste-duree-ideale",
       "se-reveiller-3h-du-matin",
       "bien-dormir-guide-complet"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "dr-house-sur-le-divan",

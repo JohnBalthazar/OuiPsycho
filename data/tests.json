@@ -1,5 +1,19 @@
 [
   {
+    "id": "dette-de-sommeil-quiz",
+    "title": "Dette de sommeil : peut-on la rattraper le week-end ?",
+    "desc": "Faire la grasse matinée le samedi pour compenser une semaine de nuits courtes semble logique. La science montre que ça ne marche que très…",
+    "emoji": "😴",
+    "color": "#3d5a80",
+    "catLabel": "Sommeil",
+    "duration": "5 min",
+    "testUrl": "tests/dette-de-sommeil-quiz.html",
+    "articleUrl": "articles/dette-de-sommeil/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/gmqbpur4wn22yuhsrm81",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "dr-house-sur-le-divan-quiz",
     "title": "Dr House sur le divan : Psychologie d'un docteur brillant, cynique et provocateur",
     "desc": "Génial, odieux, accro au Vicodin : le Dr House fascine depuis vingt ans. Derrière le cynisme, une douleur chronique, une solitude et une…",
@@ -206,7 +220,7 @@
     "testUrl": "tests/walter-white-sur-le-divan-quiz.html",
     "articleUrl": "articles/walter-white-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/fhs0gjnercz7z8asbuan",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
