@@ -1,11 +1,40 @@
 [
   {
+    "id": "dette-de-sommeil",
+    "title": "Dette de sommeil : peut-on la rattraper le week-end ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-09-30",
+    "date_modified": "2026-09-30",
+    "category": "Sommeil",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/gmqbpur4wn22yuhsrm81",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "dette-de-sommeil",
+      "jetlag-social",
+      "recuperation"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "sieste-duree-ideale",
+      "se-reveiller-3h-du-matin",
+      "bien-dormir-guide-complet"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "dr-house-sur-le-divan",
     "title": "Dr House sur le divan : Psychologie d'un docteur brillant, cynique et provocateur",
     "type": "article",
     "excerpt": "Génial, odieux, accro au Vicodin : le Dr House fascine depuis vingt ans. Derrière le cynisme, une douleur chronique, une solitude et une question qui dérange : peut-on bien soigner sans aimer les gens ?",
     "date": "2026-09-29",
-    "date_modified": "2026-09-29",
+    "date_modified": "2026-09-30",
     "category": "Nos héros sur le divan",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kx49foxywhexdt7boea0",
     "imagePosition": "50% 50%",
