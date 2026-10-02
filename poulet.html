@@ -1132,6 +1132,14 @@
                 <input type="date" id="f-date" oninput="onDateChange()">
               </div>
               <div class="form-group">
+                <label>Mise à jour</label>
+                <div style="display:flex;gap:8px;align-items:center">
+                  <input type="date" id="f-date-modified" style="flex:1;min-width:0">
+                  <button type="button" class="btn btn-ghost btn-sm" id="f-date-modified-today" onclick="setDateModifiedToday()">Aujourd'hui</button>
+                </div>
+                <div class="hint" id="f-date-modified-hint">Facultatif. Si renseigné, l'article affiche « Mis à jour le… » à la place de la date de publication. Laissez vide pour une simple correction.</div>
+              </div>
+              <div class="form-group">
                 <label>Statut</label>
                 <div class="status-btn-group">
                   <button type="button" id="status-btn-published" class="btn btn-success btn-sm active-status"
@@ -2840,6 +2848,7 @@ function resetEditor() {
   document.getElementById('f-category').value    = '';
   clearClusterRows();
   document.getElementById('f-date').value        = new Date().toISOString().split('T')[0];
+  document.getElementById('f-date-modified').value = '';
   setArticleStatus('published');
   document.getElementById('f-readTime').value    = 7;
   document.getElementById('f-author').value      = 'La rédaction Oui Psycho!';
@@ -2887,6 +2896,8 @@ function editArticle(id) {
         : (full.cluster && full.etape) ? [{ cluster: full.cluster, etape: full.etape }] : [];
       fullMemberships.forEach(m => addClusterRow(m.cluster, m.etape));
       document.getElementById('f-date').value     = full.date      || '';
+      // Champ « Mise à jour » : vide tant que date_modified ne dépasse pas date
+      document.getElementById('f-date-modified').value = (full.date_modified && full.date_modified > full.date) ? full.date_modified : '';
       document.getElementById('f-readTime').value = full.readTime  || 7;
       document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
       document.getElementById('f-image').value    = full.image     || '';
@@ -3003,6 +3014,12 @@ function setArticleStatus(status) {
   });
   document.getElementById('status-hint').textContent = configs[status].hint;
 
+  // Une mise à jour n'a pas de sens avant publication : champ ignoré tant que planifié
+  const modEl = document.getElementById('f-date-modified');
+  const modBtn = document.getElementById('f-date-modified-today');
+  if (modEl) modEl.disabled = status === 'scheduled';
+  if (modBtn) modBtn.disabled = status === 'scheduled';
+
   // Mettre à jour le bouton "Publier" dans la topbar
   const lblEl = document.getElementById('save-btn-label');
   const saveBtn = document.getElementById('save-btn');
@@ -3014,6 +3031,10 @@ function setArticleStatus(status) {
     saveBtn.className = 'btn btn-sm ' + (status === 'draft' ? 'btn-ghost' : status === 'scheduled' ? 'btn-warning' : 'btn-success');
     saveBtn.style.fontWeight = '600';
   }
+}
+
+function setDateModifiedToday() {
+  document.getElementById('f-date-modified').value = new Date().toISOString().split('T')[0];
 }
 
 // Auto-détecte le statut selon la date choisie
@@ -3149,15 +3170,24 @@ async function saveArticle() {
   const clustersList = readClustersFromForm();
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
-  // date_modified : aujourd'hui si c'est une édition, sinon = date de publication (article neuf).
-  // Ne doit jamais précéder date (verify-robots-consistency.js bloque le déploiement
-  // sinon) : pour un article planifié (date future), on aligne sur date plutôt que
-  // sur aujourd'hui, qui serait antérieur.
+  // date_modified : valeur du champ « Mise à jour » si renseigné, sinon = date de publication.
+  // Jamais tamponné automatiquement : une simple correction ne doit pas faire passer
+  // l'article pour « mis à jour ». Champ ignoré pour un article planifié.
   const today         = new Date().toISOString().split('T')[0];
-  const date_modified = editingId ? (date > today ? date : today) : date;
+  const modifiedInput = status === 'scheduled' ? '' : document.getElementById('f-date-modified').value;
+  const date_modified = modifiedInput || date;
 
   if (!id || !title || !content || !category) {
     toast('Remplissez les champs obligatoires (slug, titre, contenu, catégorie)', 'error');
+    return;
+  }
+  // Ne doit jamais précéder date (verify-robots-consistency.js bloque le déploiement sinon)
+  if (modifiedInput && modifiedInput < date) {
+    toast('La date de mise à jour ne peut pas précéder la date de publication', 'error');
+    return;
+  }
+  if (modifiedInput && modifiedInput > today) {
+    toast('La date de mise à jour ne peut pas être dans le futur', 'error');
     return;
   }
 
@@ -3987,9 +4017,11 @@ function updatePreview() {
   const content = document.getElementById('f-content').value;
   const date = document.getElementById('f-date').value;
   const readTime = document.getElementById('f-readTime').value;
+  const modified = articleStatus === 'scheduled' ? '' : document.getElementById('f-date-modified').value;
+  const dateLabel = (modified && modified > date) ? 'Mis à jour le ' + formatDate(modified) : 'Publié le ' + formatDate(date);
   document.getElementById('preview-pane').innerHTML = DOMPurify.sanitize(`
     <h1>${title}</h1>
-    <div class="meta">Mis à jour le ${formatDate(date)} · ${readTime} min de lecture</div>
+    <div class="meta">${dateLabel} · ${readTime} min de lecture</div>
     ${content}
   `);
 }

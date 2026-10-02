@@ -521,7 +521,7 @@ ${navHtml}
           <div class="article-meta">
             <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${escCard(displayAuthor)}</strong></span>
             <span class="article-meta-dot">•</span>
-            <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `<span class="article-meta-dot">•</span><time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : ''}
+            ${fdMod ? `<time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : `<time datetime="${j.date}">Publié le ${fd}</time>`}
             <span class="article-meta-dot">•</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
