@@ -4238,7 +4238,7 @@
     "id": "de-gaulle-sur-le-divan",
     "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
     "type": "article",
-    "excerpt": "Dès 1932, un officier inconnu décrivait le chef qu'il allait devenir. Froideur calculée, tendresse cachée, charisme wébérien et départ sans histoires : ce que la psychologie peut dire, prudemment, de Charles de Gaulle.",
+    "excerpt": "",
     "date": "2026-10-02",
     "date_modified": "2026-10-02",
     "category": "Nos héros sur le divan",
@@ -4258,9 +4258,9 @@
       "hubris",
       "histoire"
     ],
-    "metaDescription": "De Gaulle vu par la psychologie : caractère, distance, charisme selon Weber, syndrome d'hubris. Portrait d'un chef hors norme, et quiz sur votre style.",
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "published"
+    "status": "scheduled"
   },
   {
     "id": "bien-dormir-guide-complet",
