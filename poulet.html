@@ -6,7 +6,7 @@
   <title>Admin — Oui Psycho!</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #1F4E6B;
@@ -370,6 +370,19 @@
     .wysiwyg-editor blockquote { border-left: 4px solid var(--accent); padding: 8px 14px; margin: 1em 0; color: var(--gray-600); font-style: italic; background: var(--gray-50); border-radius: 0 var(--radius) var(--radius) 0; }
     .wysiwyg-editor a { color: var(--primary); text-decoration: underline; }
     .wysiwyg-editor strong, .wysiwyg-editor b { font-weight: 700; }
+    .wysiwyg-toolbar select {
+      padding: 3px 4px; border: 1px solid var(--gray-200); border-radius: 4px;
+      background: #fff; cursor: pointer; font-size: .8rem; color: var(--gray-700);
+      font-family: inherit; line-height: 1.3;
+    }
+    /* Taille et police du texte — mêmes classes que css/style.css (.article-body) */
+    .txt-size-sm { font-size: .85em; }
+    .txt-size-lg { font-size: 1.2em; }
+    .txt-size-xl { font-size: 1.45em; }
+    .txt-font-sans  { font-family: 'Nunito', system-ui, sans-serif; }
+    .txt-font-titre { font-family: 'Playfair Display', Georgia, serif; }
+    .txt-font-serif { font-family: Georgia, 'Times New Roman', serif; }
+    .txt-font-mono  { font-family: 'Courier New', Courier, monospace; }
 
     /* ── IMAGE LAYOUT ── */
     .img-layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
@@ -1053,6 +1066,22 @@
                     <button type="button" onclick="wysBlock('h3')" title="Titre 3">H3</button>
                     <button type="button" onclick="wysBlock('p')" title="Paragraphe normal">¶</button>
                     <div class="wysep"></div>
+                    <select onchange="wysTxtClass('size', this.value); this.selectedIndex = 0" title="Taille du texte sélectionné">
+                      <option value="" selected disabled hidden>Taille</option>
+                      <option value="sm">Petit</option>
+                      <option value="normal">Normal</option>
+                      <option value="lg">Grand</option>
+                      <option value="xl">Très grand</option>
+                    </select>
+                    <select onchange="wysTxtClass('font', this.value); this.selectedIndex = 0" title="Police du texte sélectionné">
+                      <option value="" selected disabled hidden>Police</option>
+                      <option value="normal">Par défaut</option>
+                      <option value="sans">Nunito</option>
+                      <option value="titre">Playfair Display</option>
+                      <option value="serif">Georgia</option>
+                      <option value="mono">Monospace</option>
+                    </select>
+                    <div class="wysep"></div>
                     <button type="button" onclick="wys('insertUnorderedList')" title="Liste à puces">• Liste</button>
                     <button type="button" onclick="wys('insertOrderedList')" title="Liste numérotée">1. Liste</button>
                     <div class="wysep"></div>
@@ -1060,7 +1089,7 @@
                     <button type="button" onclick="wysLink()" title="Insérer un lien">🔗 Lien</button>
                     <button type="button" onclick="wys('insertHorizontalRule')" title="Ligne de séparation">― Ligne</button>
                     <div class="wysep"></div>
-                    <button type="button" onclick="wys('removeFormat')" title="Supprimer mise en forme">✕ Format</button>
+                    <button type="button" onclick="wysClearFormat()" title="Supprimer mise en forme">✕ Format</button>
                     <button type="button" onclick="document.execCommand('undo')" title="Annuler (Ctrl+Z)">↩</button>
                     <button type="button" onclick="document.execCommand('redo')" title="Rétablir (Ctrl+Y)">↪</button>
                   </div>
@@ -4749,6 +4778,100 @@ function wysLink() {
     const label = prompt('Texte du lien :', url) || url;
     document.execCommand('insertHTML', false, `<a href="${url}" target="_blank" rel="noopener">${label}</a>`);
   }
+  syncEditorToTextarea();
+}
+
+/* Taille / police : <span class="txt-size-*"> ou <span class="txt-font-*"> sur la sélection.
+   Les classes sont définies dans css/style.css (.article-body) et dans le <style> de cette page. */
+const WYS_TXT_VALUES = { size: ['sm', 'lg', 'xl'], font: ['sans', 'titre', 'serif', 'mono'] };
+const WYS_MARK = '__wys_mark__';
+let _wysSavedRange = null;
+
+// Ouvrir un <select> de la barre d'outils fait perdre la sélection : on la mémorise en continu
+document.addEventListener('selectionchange', () => {
+  const editor = document.getElementById('wysiwyg-editor');
+  const sel = window.getSelection();
+  if (!editor || !sel.rangeCount) return;
+  const r = sel.getRangeAt(0);
+  if (editor.contains(r.commonAncestorContainer)) _wysSavedRange = r.cloneRange();
+});
+
+/** Remet le focus et la dernière sélection dans l'éditeur ; false si rien n'est sélectionné */
+function wysRestoreSelection() {
+  const editor = document.getElementById('wysiwyg-editor');
+  const saved = _wysSavedRange;
+  editor.focus();
+  if (!saved || !editor.contains(saved.commonAncestorContainer)) return false;
+  const sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(saved);
+  return !sel.isCollapsed;
+}
+
+function wysStripTxtClass(el, group) {
+  [...el.classList].filter(c => c.startsWith('txt-' + group + '-')).forEach(c => el.classList.remove(c));
+  if (!el.classList.length) el.removeAttribute('class');
+  if (el.tagName === 'SPAN' && !el.attributes.length) el.replaceWith(...el.childNodes);
+}
+
+/** Pose la classe txt-{group}-{value} sur la sélection (value vide = retour au réglage par défaut) */
+function wysApplyTxtClass(group, value) {
+  const editor = document.getElementById('wysiwyg-editor');
+  const groupSel = `span[class*="txt-${group}-"]`;
+  // fontName découpe proprement la sélection (y compris sur plusieurs paragraphes) en <font> marqueurs,
+  // remplacés ensuite par nos <span>
+  document.execCommand('styleWithCSS', false, false);
+  document.execCommand('fontName', false, WYS_MARK);
+  const touched = [];
+  editor.querySelectorAll(`font[face="${WYS_MARK}"]`).forEach(mark => {
+    mark.querySelectorAll(groupSel).forEach(s => wysStripTxtClass(s, group));
+    // Sortir le marqueur d'un span parent du même groupe, sinon les tailles (en em) se cumulent
+    let anc;
+    while ((anc = mark.parentElement.closest(groupSel)) && editor.contains(anc)) {
+      const r = document.createRange();
+      r.setStartAfter(mark); r.setEndAfter(anc);
+      const tail = r.extractContents();
+      r.setStartBefore(mark); r.setEndAfter(anc);
+      const middle = r.extractContents();
+      const tailEl = tail.firstChild, midEl = middle.firstChild;
+      anc.after(middle, tail);
+      wysStripTxtClass(midEl, group);
+      [anc, tailEl].forEach(el => { if (el && !el.textContent && !el.querySelector('img,br')) el.remove(); });
+    }
+    if (value) {
+      const span = document.createElement('span');
+      span.className = `txt-${group}-${value}`;
+      span.append(...mark.childNodes);
+      mark.replaceWith(span);
+      touched.push(span);
+    } else {
+      touched.push(...mark.childNodes);
+      mark.replaceWith(...mark.childNodes);
+    }
+  });
+  if (touched.length) {
+    const r = document.createRange();
+    r.setStartBefore(touched[0]);
+    r.setEndAfter(touched[touched.length - 1]);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(r);
+  }
+  editor.normalize(); // recolle les fragments de texte laissés par les découpes
+}
+
+function wysTxtClass(group, value) {
+  if (!wysRestoreSelection()) { toast('Sélectionnez d\'abord le texte à modifier.', 'info'); return; }
+  wysApplyTxtClass(group, WYS_TXT_VALUES[group].includes(value) ? value : '');
+  syncEditorToTextarea();
+}
+
+function wysClearFormat() {
+  if (wysRestoreSelection()) {
+    wysApplyTxtClass('size', '');
+    wysApplyTxtClass('font', '');
+  }
+  document.execCommand('removeFormat');
   syncEditorToTextarea();
 }
 

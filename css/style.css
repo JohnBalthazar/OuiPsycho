@@ -1325,6 +1325,14 @@ p:last-child { margin-bottom: 0; }
   border-top: 2px solid var(--color-border-light);
   margin: var(--sp-10) 0;
 }
+/* Taille et police posées depuis l'éditeur (poulet.html) */
+.article-body .txt-size-sm { font-size: .85em; }
+.article-body .txt-size-lg { font-size: 1.2em; }
+.article-body .txt-size-xl { font-size: 1.45em; }
+.article-body .txt-font-sans  { font-family: var(--font-body); }
+.article-body .txt-font-titre { font-family: var(--font-heading); }
+.article-body .txt-font-serif { font-family: Georgia, 'Times New Roman', serif; }
+.article-body .txt-font-mono  { font-family: 'Courier New', Courier, monospace; }
 /* Sources & références */
 .article-sources {
   margin-top: var(--sp-10);
