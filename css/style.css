@@ -1333,6 +1333,24 @@ p:last-child { margin-bottom: 0; }
 .article-body .txt-font-titre { font-family: var(--font-heading); }
 .article-body .txt-font-serif { font-family: Georgia, 'Times New Roman', serif; }
 .article-body .txt-font-mono  { font-family: 'Courier New', Courier, monospace; }
+/* Encart « Vu sur le terrain » (anecdote) — posé depuis l'éditeur (poulet.html) */
+.article-body .terrain {
+  margin: var(--sp-8) 0;
+  padding: var(--sp-1) 0 var(--sp-1) var(--sp-5);
+  border-left: 2px solid var(--color-accent);
+}
+.article-body .terrain:first-child { margin-top: 0; }
+.article-body .terrain::before {
+  content: 'Vu sur le terrain';
+  display: block;
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--color-accent-dark);
+}
+.article-body .terrain p:last-child { margin-bottom: 0; }
 /* Sources & références */
 .article-sources {
   margin-top: var(--sp-10);

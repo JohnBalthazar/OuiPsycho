@@ -383,6 +383,14 @@
     .txt-font-titre { font-family: 'Playfair Display', Georgia, serif; }
     .txt-font-serif { font-family: Georgia, 'Times New Roman', serif; }
     .txt-font-mono  { font-family: 'Courier New', Courier, monospace; }
+    /* Encart « Vu sur le terrain » — même classe que css/style.css (.article-body) */
+    .terrain { margin: 1em 0; padding: 2px 0 2px 14px; border-left: 2px solid var(--accent); }
+    .terrain::before {
+      content: 'Vu sur le terrain'; display: block; margin-bottom: .4em;
+      font-family: 'Inter', system-ui, sans-serif; font-size: .7rem; font-weight: 700;
+      letter-spacing: .08em; text-transform: uppercase; color: var(--accent-dark);
+    }
+    .terrain p:last-child { margin-bottom: 0; }
 
     /* ── IMAGE LAYOUT ── */
     .img-layout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-top: 10px; }
@@ -1086,6 +1094,7 @@
                     <button type="button" onclick="wys('insertOrderedList')" title="Liste numérotée">1. Liste</button>
                     <div class="wysep"></div>
                     <button type="button" onclick="wysBlock('blockquote')" title="Citation">❝ Citation</button>
+                    <button type="button" onclick="wysTerrain()" title="Encart « Vu sur le terrain » : met les paragraphes sélectionnés dans l'encart, ou les en sort">🩺 Terrain</button>
                     <button type="button" onclick="wysLink()" title="Insérer un lien">🔗 Lien</button>
                     <button type="button" onclick="wys('insertHorizontalRule')" title="Ligne de séparation">― Ligne</button>
                     <div class="wysep"></div>
@@ -4872,6 +4881,41 @@ function wysClearFormat() {
     wysApplyTxtClass('font', '');
   }
   document.execCommand('removeFormat');
+  syncEditorToTextarea();
+}
+
+/** Encart « Vu sur le terrain » : enveloppe les paragraphes sélectionnés dans <div class="terrain">,
+    ou retire l'encart si la sélection est déjà dedans. Le libellé vient du CSS (::before). */
+function wysTerrain() {
+  const editor = document.getElementById('wysiwyg-editor');
+  wysRestoreSelection();
+  const sel = window.getSelection();
+  if (!sel.rangeCount) return;
+  const range = sel.getRangeAt(0);
+  if (!editor.contains(range.commonAncestorContainer)) return;
+  const blocks = [...editor.childNodes].filter(n => {
+    if (range.collapsed) return range.intersectsNode(n);
+    // Chevauchement strict : un triple-clic déborde au début du paragraphe suivant, qu'on n'embarque pas
+    const nr = document.createRange();
+    nr.selectNodeContents(n);
+    return range.compareBoundaryPoints(Range.START_TO_END, nr) > 0 && range.compareBoundaryPoints(Range.END_TO_START, nr) < 0;
+  });
+  if (!blocks.length) return;
+  const existing = blocks.find(n => n.nodeType === 1 && n.classList.contains('terrain'));
+  if (existing) {
+    existing.replaceWith(...existing.childNodes);
+  } else {
+    const box = document.createElement('div');
+    box.className = 'terrain';
+    blocks[0].before(box);
+    box.append(...blocks);
+    // Garder un paragraphe après l'encart, sinon impossible d'écrire à la suite
+    if (!box.nextSibling) {
+      const p = document.createElement('p');
+      p.innerHTML = '<br>';
+      box.after(p);
+    }
+  }
   syncEditorToTextarea();
 }
 
