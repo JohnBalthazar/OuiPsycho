@@ -192,7 +192,7 @@
     "testUrl": "tests/freres-soeurs-toxiques-quiz.html",
     "articleUrl": "articles/freres-soeurs-toxiques/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wveye5ihphrs4jfkpjge",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

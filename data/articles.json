@@ -1,5 +1,34 @@
 [
   {
+    "id": "paralysie-du-sommeil",
+    "title": "Paralysie du sommeil : réveillé, conscient, immobile",
+    "type": "article",
+    "excerpt": "L'esprit se réveille, le corps reste bloqué. Parfois une sensation de présence dans la pièce. Terrifiante mais bénigne, la paralysie du sommeil touche jusqu'à un tiers de la population — et s'explique entièrement par la science.",
+    "date": "2026-10-03",
+    "date_modified": "2026-10-03",
+    "category": "Sommeil",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kgzotdq714yax7znfdj8",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "sommeil",
+      "paralysie-du-sommeil",
+      "sommeil-paradoxal",
+      "parasomnie"
+    ],
+    "metaDescription": "Paralysie du sommeil : mécanisme (atonie musculaire du sommeil paradoxal), prévalence, déclencheurs et comment la prévenir concrètement.",
+    "articles_lies": [
+      "cauchemars-recurrents",
+      "bien-dormir-guide-complet",
+      "sommeil-sante-mentale"
+    ],
+    "status": "published"
+  },
+  {
     "id": "de-gaulle-sur-le-divan",
     "title": "De Gaulle sur le divan : psychologie d'un résistant et chef d'État",
     "type": "article",
