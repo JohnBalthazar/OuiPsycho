@@ -1,5 +1,34 @@
 [
   {
+    "id": "crise-angoisse-nuit",
+    "title": "Crise d'angoisse la nuit : pourquoi elle frappe vers 3 h",
+    "type": "article",
+    "excerpt": "Cœur qui s'emballe, souffle coupé, certitude de mourir — à 3 h du matin, seul dans le noir. La crise d'angoisse nocturne existe bel et bien, avec des mécanismes propres, différents de l'angoisse diurne.",
+    "date": "2026-10-04",
+    "date_modified": "2026-10-04",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/iwjviiqmxovnpixputzt",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "crise-d-angoisse",
+      "sommeil",
+      "troubles-anxieux"
+    ],
+    "metaDescription": "Crise d'angoisse la nuit : pourquoi elle survient souvent vers 3h du matin, comment la distinguer d'un cauchemar, et les gestes qui aident à la traverser.",
+    "articles_lies": [
+      "crise-angoisse",
+      "anxiete-sociale-phobie-sociale",
+      "symptomes-physiques-anxiete"
+    ],
+    "status": "published"
+  },
+  {
     "id": "paralysie-du-sommeil",
     "title": "Paralysie du sommeil : réveillé, conscient, immobile",
     "type": "article",
