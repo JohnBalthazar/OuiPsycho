@@ -1,5 +1,32 @@
 [
   {
+    "id": "severus-rogue-sur-le-divan",
+    "title": "Severus Rogue sur le divan : psychologie d'un sorcier de sang-mêlé",
+    "type": "article",
+    "excerpt": "Héros admirable ou bourreau mesquin ? Severus Rogue est l'un des cas les plus riches de la fiction populaire. Attachement, harcèlement, deuil figé et complexité morale : décryptage sans complaisance, plus un test pour trouver votre profil de sorcier.",
+    "date": "2026-10-06",
+    "date_modified": "2026-10-06",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/lxvforz1rxjdtbmvhbau",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "severus-rogue",
+      "nos-heros",
+      "psychologie-des-personnages",
+      "harcelement",
+      "attachement",
+      "complexite-morale"
+    ],
+    "metaDescription": "Severus Rogue sur le divan : attachement, harcèlement, deuil figé et complexité morale. La psychologie d'un héros ambigu, sans le sanctifier ni le condamner.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "love-bombing",
     "title": "Love bombing : l'amour à haute dose comme piège",
     "type": "article",
