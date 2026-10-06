@@ -4121,17 +4121,17 @@
     "title": "Ducobu sur le divan : psychologie d'un cancre",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-10-07",
     "date_modified": "2026-10-07",
     "category": "Nos héros sur le divan",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 9,
+    "author": "John Balthazar",
     "tags": [
       "ducobu",
       "cancre",
@@ -4141,43 +4141,9 @@
       "peur-de-l-echec",
       "nos-heros-sur-le-divan"
     ],
-    "sources": [
-      {
-        "authors": "Pennac D.",
-        "year": "2007",
-        "title": "Chagrin d'école",
-        "publisher": "Gallimard"
-      },
-      {
-        "authors": "Dweck C. S.",
-        "year": "2010",
-        "title": "Changer d'état d'esprit : une nouvelle psychologie de la réussite",
-        "publisher": "Mardaga"
-      },
-      {
-        "authors": "Rosenthal R. & Jacobson L.",
-        "year": "1971",
-        "title": "Pygmalion à l'école : l'attente du maître et le développement intellectuel des élèves",
-        "publisher": "Casterman"
-      },
-      {
-        "authors": "Haute Autorité de santé",
-        "year": "2024",
-        "title": "Trouble du neurodéveloppement / TDAH : diagnostic et prise en charge des enfants et adolescents — Recommandation de bonne pratique",
-        "publisher": "HAS",
-        "url": "https://www.has-sante.fr/upload/docs/application/pdf/2024-09/tdah_enfant_recommandations_mel.pdf"
-      },
-      {
-        "authors": "Covington M. V.",
-        "year": "1984",
-        "title": "The self-worth theory of achievement motivation: findings and implications",
-        "journal": "The Elementary School Journal",
-        "url": "https://doi.org/10.1086/461388"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "severus-rogue-sur-le-divan",
