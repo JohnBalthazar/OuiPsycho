@@ -1,5 +1,33 @@
 [
   {
+    "id": "5-traits-insoupconnes-meilleur-ami",
+    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-10-09",
+    "date_modified": "2027-10-09",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wktui8owx9nndinxcmpf",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "amitié",
+      "relations",
+      "psychologie",
+      "soutien social",
+      "attachement",
+      "bien-être"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "anxiete-sociale-phobie-sociale",
     "title": "Anxiété sociale : quand le regard des autres paralyse",
     "type": "article",
@@ -4028,34 +4056,6 @@
       "vaincre-insomnie",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "5-traits-insoupconnes-meilleur-ami",
-    "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-10-09",
-    "date_modified": "2026-10-09",
-    "category": "Relations",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wktui8owx9nndinxcmpf",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 4,
-    "author": "La rédaction Oui Psycho!",
-    "tags": [
-      "amitié",
-      "relations",
-      "psychologie",
-      "soutien social",
-      "attachement",
-      "bien-être"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
