@@ -4059,6 +4059,36 @@
     "status": "scheduled"
   },
   {
+    "id": "brown-out-perte-de-sens-travail",
+    "title": "Brown-out : perdre le sens de son travail",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-10-09",
+    "date_modified": "2026-10-09",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zzfrlwk1krd4gvjkro5o",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "brown-out",
+      "souffrance-au-travail",
+      "sens-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "bore-out-ennui-au-travail",
+      "manager-toxique-signes"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "innovations-sante-mentale-futur-imminent",
     "title": "Quelles innovations en santé mentale dans un futur imminent ?",
     "type": "article",
@@ -4084,36 +4114,6 @@
     ],
     "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
-    "id": "brown-out-perte-de-sens-travail",
-    "title": "Brown-out : perdre le sens de son travail",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-10-07",
-    "date_modified": "2026-10-07",
-    "category": "Travail",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zzfrlwk1krd4gvjkro5o",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "brown-out",
-      "souffrance-au-travail",
-      "sens-au-travail"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "bore-out-ennui-au-travail",
-      "manager-toxique-signes"
-    ],
     "status": "scheduled"
   },
   {
