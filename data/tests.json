@@ -1,5 +1,19 @@
 [
   {
+    "id": "ducobu-sur-le-divan-psychologie-cancre-quiz",
+    "title": "Ducobu sur le divan : psychologie d'un cancre",
+    "desc": "Antisèches, ruses et copie de Léonie : Ducobu travaille dur… pour ne surtout pas apprendre. À l'occasion de Ducobu et le fantôme de…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/ducobu-sur-le-divan-psychologie-cancre-quiz.html",
+    "articleUrl": "articles/ducobu-sur-le-divan-psychologie-cancre/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xilxv5rolndjmmny0tha",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "quel-genre-de-sorcier-quiz",
     "title": "Severus Rogue sur le divan : psychologie d'un sorcier de sang-mêlé",
     "desc": "Héros admirable ou bourreau mesquin ? Severus Rogue est l'un des cas les plus riches de la fiction populaire. Attachement, harcèlement,…",
@@ -178,7 +192,7 @@
     "testUrl": "tests/dans-la-tete-d-un-pervers-narcissique-quiz.html",
     "articleUrl": "articles/dans-la-tete-d-un-pervers-narcissique/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/vtlxkpx5uchhyg0vklag",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

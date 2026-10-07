@@ -1,5 +1,33 @@
 [
   {
+    "id": "ducobu-sur-le-divan-psychologie-cancre",
+    "title": "Ducobu sur le divan : psychologie d'un cancre",
+    "type": "article",
+    "excerpt": "Antisèches, ruses et copie de Léonie : Ducobu travaille dur… pour ne surtout pas apprendre. À l'occasion de Ducobu et le fantôme de Saint-Potache, on allonge le plus célèbre cancre du cinéma sur le divan.",
+    "date": "2026-10-07",
+    "date_modified": "2026-10-07",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xilxv5rolndjmmny0tha",
+    "imagePosition": "40% 56%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "ducobu",
+      "cancre",
+      "echec-scolaire",
+      "motivation",
+      "effet-pygmalion",
+      "peur-de-l-echec",
+      "nos-heros-sur-le-divan"
+    ],
+    "metaDescription": "Ducobu et le fantôme de Saint-Potache : analyse psychologique du cancre. Peur de l'échec, effet Pygmalion, étiquette, TDAH… et quiz : quel cancre êtes-vous ?",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "severus-rogue-sur-le-divan",
     "title": "Severus Rogue sur le divan : psychologie d'un sorcier de sang-mêlé",
     "type": "article",
