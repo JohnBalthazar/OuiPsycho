@@ -1,5 +1,32 @@
 [
   {
+    "id": "innovations-sante-mentale-futur-imminent",
+    "title": "Quelles innovations en santé mentale dans un futur imminent ?",
+    "type": "article",
+    "excerpt": "Psilocybine au seuil de l'approbation, stimulation magnétique accélérée, biomarqueurs et réalité virtuelle : la psychiatrie s'apprête à changer de visage. Voici les innovations en santé mentale qui pourraient arriver d'ici un à trois ans, et leurs limites.",
+    "date": "2026-10-08",
+    "date_modified": "2026-10-08",
+    "category": "Thérapies",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/syycijfwt5mspqmmy79j",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sante-mentale",
+      "innovation",
+      "psychedeliques",
+      "neuromodulation",
+      "psychiatrie",
+      "realite-virtuelle"
+    ],
+    "metaDescription": "Psilocybine bientôt autorisée, stimulation cérébrale en cinq jours, biomarqueurs, réalité virtuelle : les innovations en santé mentale qui arrivent bientôt.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "ducobu-sur-le-divan-psychologie-cancre",
     "title": "Ducobu sur le divan : psychologie d'un cancre",
     "type": "article",
