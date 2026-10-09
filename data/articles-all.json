@@ -4062,7 +4062,7 @@
     "id": "brown-out-perte-de-sens-travail",
     "title": "Brown-out : perdre le sens de son travail",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "On continue à travailler, parfois beaucoup, mais on ne croit plus à ce qu'on produit. Le brown-out n'épuise pas le corps comme le burn-out : il vide le travail de son sens, jusqu'à le rendre absurde.",
     "date": "2026-10-09",
     "date_modified": "2026-10-09",
     "category": "Travail",
@@ -4080,13 +4080,13 @@
       "souffrance-au-travail",
       "sens-au-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Brown-out : définition, signes et différences avec le burn-out. Comprendre la perte de sens au travail et savoir comment y remédier concrètement.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "bore-out-ennui-au-travail",
       "manager-toxique-signes"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "innovations-sante-mentale-futur-imminent",
