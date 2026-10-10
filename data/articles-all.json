@@ -4032,7 +4032,7 @@
     "id": "se-reveiller-3h-du-matin",
     "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Toujours la même heure, nuit après nuit. Ce réveil qui semble programmé n'est pas un hasard : il correspond à un mécanisme hormonal précis, souvent amplifié par le stress — et il se travaille.",
     "date": "2026-10-10",
     "date_modified": "2026-10-10",
     "category": "Sommeil",
@@ -4050,13 +4050,13 @@
       "insomnie-de-maintien",
       "cortisol"
     ],
-    "metaDescription": "",
+    "metaDescription": "Se réveiller à 3h du matin : pourquoi cette heure précise, le rôle du cortisol, et les leviers concrets pour retrouver des nuits complètes.",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "vaincre-insomnie",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "brown-out-perte-de-sens-travail",
