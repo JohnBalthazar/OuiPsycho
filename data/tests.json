@@ -1,5 +1,19 @@
 [
   {
+    "id": "dependance-affective-quiz",
+    "title": "Dépendance affective : aimer jusqu'à s'oublier",
+    "desc": "Ce n'est pas « trop aimer ». C'est avoir besoin de l'autre pour exister, se sentir vide dès qu'il s'éloigne, et rester bien après que la…",
+    "emoji": "💬",
+    "color": "#b5546a",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/dependance-affective-quiz.html",
+    "articleUrl": "articles/dependance-affective/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zgeaknazbckc6h70pnq0",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "ducobu-sur-le-divan-psychologie-cancre-quiz",
     "title": "Ducobu sur le divan : psychologie d'un cancre",
     "desc": "Antisèches, ruses et copie de Léonie : Ducobu travaille dur… pour ne surtout pas apprendre. À l'occasion de Ducobu et le fantôme de…",
@@ -164,7 +178,7 @@
     "testUrl": "tests/napoleon-bonaparte-sur-le-divan-quiz.html",
     "articleUrl": "articles/napoleon-bonaparte-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/qcah2tnfrfk9fpou6efd",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

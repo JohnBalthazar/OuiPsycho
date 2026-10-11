@@ -1,5 +1,34 @@
 [
   {
+    "id": "dependance-affective",
+    "title": "Dépendance affective : aimer jusqu'à s'oublier",
+    "type": "article",
+    "excerpt": "Ce n'est pas « trop aimer ». C'est avoir besoin de l'autre pour exister, se sentir vide dès qu'il s'éloigne, et rester bien après que la relation a cessé de faire du bien. La dépendance affective se distingue de l'amour — et se travaille.",
+    "date": "2026-10-11",
+    "date_modified": "2026-10-11",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zgeaknazbckc6h70pnq0",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "dependance-affective",
+      "estime-de-soi",
+      "emprise"
+    ],
+    "metaDescription": "Dépendance affective : définition, différence avec la codépendance, origines et pistes concrètes pour retrouver son autonomie affective.",
+    "articles_lies": [
+      "styles-attachement",
+      "love-bombing",
+      "se-reconstruire-apres-emprise"
+    ],
+    "status": "published"
+  },
+  {
     "id": "se-reveiller-3h-du-matin",
     "title": "Se réveiller à 3 h du matin : ce que ça révèle vraiment",
     "type": "article",
