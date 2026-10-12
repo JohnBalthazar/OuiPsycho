@@ -3972,7 +3972,7 @@
     "id": "alexithymie",
     "title": "Alexithymie : ne pas trouver les mots de ses émotions",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Ressentir quelque chose, sans pouvoir dire quoi. L'alexithymie touche 5 à 15% de la population : ce n'est pas de la froideur ni un manque d'empathie, mais une réelle difficulté à identifier et nommer ses propres états intérieurs.",
     "date": "2026-10-12",
     "date_modified": "2026-10-12",
     "category": "Émotions & identité",
@@ -3990,13 +3990,13 @@
       "regulation-emotionnelle",
       "sante-mentale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Alexithymie : définition, origine du terme (Sifneos, 1973), lien avec l'autisme et la dépression, et pistes concrètes pour réapprendre à nommer ses émotions.",
     "articles_lies": [
       "comprendre-ses-emotions-guide",
       "hypersensibilite-test",
       "rumination-mentale"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "dependance-affective",
