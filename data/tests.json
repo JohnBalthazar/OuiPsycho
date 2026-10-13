@@ -1,5 +1,19 @@
 [
   {
+    "id": "bart-simpson-divan-tdah-quiz",
+    "title": "Bart Simpson sur le divan : Psychologie du TDAH",
+    "desc": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/bart-simpson-divan-tdah-quiz.html",
+    "articleUrl": "articles/bart-simpson-divan-tdah/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uu076razwkpifdteak2o",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "dependance-affective-quiz",
     "title": "Dépendance affective : aimer jusqu'à s'oublier",
     "desc": "Ce n'est pas « trop aimer ». C'est avoir besoin de l'autre pour exister, se sentir vide dès qu'il s'éloigne, et rester bien après que la…",
@@ -150,7 +164,7 @@
     "testUrl": "tests/je-pense-toujours-a-mon-ex-6-mois-apres-quiz.html",
     "articleUrl": "articles/je-pense-toujours-a-mon-ex-6-mois-apres/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/w2eiy9q4var7v4xxp1to",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

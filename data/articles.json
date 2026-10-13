@@ -1,5 +1,32 @@
 [
   {
+    "id": "bart-simpson-divan-tdah",
+    "title": "Bart Simpson sur le divan : Psychologie du TDAH",
+    "type": "article",
+    "excerpt": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la télévision ? Bart passe sur le divan.",
+    "date": "2026-10-13",
+    "date_modified": "2026-10-13",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uu076razwkpifdteak2o",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "tdah",
+      "bart-simpson",
+      "les-simpsons",
+      "attention",
+      "enfance",
+      "pop-culture"
+    ],
+    "metaDescription": "Bart Simpson et le TDAH : ce que le garnement de Springfield illustre (et rate) du trouble de l'attention. Analyse psychologique + quiz Simpsons.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "alexithymie",
     "title": "Alexithymie : ne pas trouver les mots de ses émotions",
     "type": "article",
