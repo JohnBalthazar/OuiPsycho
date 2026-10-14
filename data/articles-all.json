@@ -3914,7 +3914,7 @@
     "id": "gerer-sa-colere",
     "title": "Gérer sa colère sans l'étouffer",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "La colère n'est pas le problème à éliminer : c'est souvent le signal d'une blessure ou d'une peur plus vulnérable, difficile à exprimer directement. Apprendre à l'écouter change tout à la façon de la gérer.",
     "date": "2026-10-14",
     "date_modified": "2026-10-14",
     "category": "Émotions & identité",
@@ -3932,13 +3932,13 @@
       "regulation-emotionnelle",
       "communication"
     ],
-    "metaDescription": "",
+    "metaDescription": "Gérer sa colère : pourquoi c'est souvent une émotion secondaire, ce qu'elle signale vraiment, et des techniques concrètes pour la réguler sans la réprimer.",
     "articles_lies": [
       "comprendre-ses-emotions-guide",
       "rumination-mentale",
       "culpabilite-chronique"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "bart-simpson-divan-tdah",

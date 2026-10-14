@@ -1,5 +1,34 @@
 [
   {
+    "id": "gerer-sa-colere",
+    "title": "Gérer sa colère sans l'étouffer",
+    "type": "article",
+    "excerpt": "La colère n'est pas le problème à éliminer : c'est souvent le signal d'une blessure ou d'une peur plus vulnérable, difficile à exprimer directement. Apprendre à l'écouter change tout à la façon de la gérer.",
+    "date": "2026-10-14",
+    "date_modified": "2026-10-14",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "colere",
+      "regulation-emotionnelle",
+      "communication"
+    ],
+    "metaDescription": "Gérer sa colère : pourquoi c'est souvent une émotion secondaire, ce qu'elle signale vraiment, et des techniques concrètes pour la réguler sans la réprimer.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "rumination-mentale",
+      "culpabilite-chronique"
+    ],
+    "status": "published"
+  },
+  {
     "id": "bart-simpson-divan-tdah",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
     "type": "article",

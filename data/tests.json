@@ -1,5 +1,19 @@
 [
   {
+    "id": "gerer-sa-colere-quiz",
+    "title": "Gérer sa colère sans l'étouffer",
+    "desc": "La colère n'est pas le problème à éliminer : c'est souvent le signal d'une blessure ou d'une peur plus vulnérable, difficile à exprimer…",
+    "emoji": "🧠",
+    "color": "#1F4E6B",
+    "catLabel": "Émotions & identité",
+    "duration": "5 min",
+    "testUrl": "tests/gerer-sa-colere-quiz.html",
+    "articleUrl": "articles/gerer-sa-colere/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "bart-simpson-divan-tdah-quiz",
     "title": "Bart Simpson sur le divan : Psychologie du TDAH",
     "desc": "Impulsif, distrait, génial dès qu'un projet le passionne : et si le sale gosse de Springfield était le portrait le plus fidèle du TDAH à la…",
