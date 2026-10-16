@@ -1,5 +1,32 @@
 [
   {
+    "id": "nouvelles-formes-sexualite",
+    "title": "Les nouvelles formes de sexualité : tour d'horizon",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-10-16",
+    "date_modified": "2026-10-16",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uhght6jkqtmhhmhrvrwh",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "sexualité",
+      "polyamour",
+      "asexualité",
+      "identité sexuelle",
+      "fluidité",
+      "relations"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "democratie-ou-dictature-que-prefere-votre-cerveau",
     "title": "Démocratie ou Dictature : Que préfère votre cerveau ?",
     "type": "article",
@@ -34,7 +61,7 @@
     "date": "2026-10-14",
     "date_modified": "2026-10-14",
     "category": "Émotions & identité",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bsococ5tx0fry37rg7v4",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
