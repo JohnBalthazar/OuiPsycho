@@ -3271,8 +3271,9 @@ async function saveArticle() {
       // (article déjà visible dans l'index public, mais page réelle jamais
       // écrite ou restée sur son ancienne version).
       const htmlPage = generateArticleHTML(articleData);
+      const remoteIndex = await requireRemoteIndex();
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
-      articles = await mergeIndexWithRemote(articles);
+      articles = mergeIndexWithRemote(articles, remoteIndex, [id]);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       // articles-all.json : format admin complet (avec hasImage)
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: articles index');
@@ -3322,8 +3323,9 @@ async function deleteArticle(id) {
   const pat = localStorage.getItem(GH_PAT_KEY);
   if (pat) {
     try {
+      const remoteIndex = await requireRemoteIndex();
       await githubDeleteFile('articles/' + id + '.json', 'delete: article ' + id);
-      articles = await mergeIndexWithRemote(articles, id);  // id = deletedId, ne sera pas restauré du remote
+      articles = mergeIndexWithRemote(articles, remoteIndex, [], id);  // id = deletedId, ne sera pas restauré du remote
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       const todayStrDel = new Date().toISOString().split('T')[0];
       const publicAfterDelete = articles.filter(a => a.status !== 'draft' && a.date <= todayStrDel);
@@ -3405,19 +3407,36 @@ async function fetchRemoteIndex() {
   }
 }
 
-/* ── Fusionne l'index local avec le remote :
-     - Les articles locaux écrasent leur équivalent remote (même id)
-     - Les articles présents uniquement en remote sont conservés
-       (ils ont été ajoutés par git push sans passer par l'admin)
-     - deletedId : id à exclure même s'il est en remote (suppression explicite)
-── */
-async function mergeIndexWithRemote(localArticles, deletedId = null) {
+/* ── Version stricte : lève une erreur si l'index distant est illisible.
+   Sans index distant, la seule base disponible serait la copie locale, chargée
+   à l'ouverture de poulet et potentiellement périmée — l'envoyer écraserait
+   ce qui a changé en ligne entre-temps. À appeler AVANT le premier
+   githubPutFile, pour ne pas laisser une publication à moitié faite. ── */
+async function requireRemoteIndex() {
   const remote = await fetchRemoteIndex();
-  if (!remote) return localArticles;  // fallback si le réseau échoue
+  if (!remote) throw new Error('index en ligne illisible (GitHub) — index non envoyé, réessayez');
+  return remote;
+}
 
+/* ── Fusionne l'index local avec le remote :
+     - Le remote fait foi pour tous les articles…
+     - …sauf ownIds (articles réellement écrits par cette opération), dont la
+       version locale remplace l'entrée remote ou s'y ajoute
+     - deletedId : id à exclure même s'il est en remote (suppression explicite)
+   Avant le 2026-10-16, la version locale gagnait pour TOUS les articles : une
+   session ouverte avant une publication automatique (scheduled → published)
+   réécrivait l'ancienne entrée (status scheduled, excerpt masqué) et bloquait
+   le déploiement (verify-robots-consistency.js). ── */
+function mergeIndexWithRemote(localArticles, remote, ownIds = [], deletedId = null) {
+  const own = new Set(ownIds);
   const localMap = new Map(localArticles.map(a => [a.id, a]));
-  const remoteOnly = remote.filter(a => !localMap.has(a.id) && a.id !== deletedId);
-  const merged = [...localArticles, ...remoteOnly];
+  const remoteIds = new Set(remote.map(a => a.id));
+  const merged = remote
+    .filter(a => a.id !== deletedId)
+    .map(a => (own.has(a.id) && localMap.has(a.id)) ? localMap.get(a.id) : a);
+  for (const id of own) {
+    if (id !== deletedId && !remoteIds.has(id) && localMap.has(id)) merged.push(localMap.get(id));
+  }
   merged.sort((a, b) => new Date(b.date || '1970') - new Date(a.date || '1970'));
   return merged;
 }
@@ -3538,7 +3557,10 @@ async function pushAllToGitHub() {
   }));
   try {
     addLog('→ Fusion avec le remote…');
-    const mergedIndex = await mergeIndexWithRemote(indexData);
+    const remoteIndex = await requireRemoteIndex();
+    // Seuls les articles dont le fichier vient d'être poussé (contenu en mémoire)
+    // imposent leur entrée locale ; les autres reprennent l'entrée remote
+    const mergedIndex = mergeIndexWithRemote(indexData, remoteIndex, withContent.map(a => a.id));
     // articles-all.json : format admin complet (avec hasImage)
     await githubPutFile('data/articles-all.json', JSON.stringify(mergedIndex, null, 2), msg + ' (index)');
     // articles.json public : strip hasImage (champ admin uniquement) + exclure brouillons et dates futures
@@ -3710,10 +3732,11 @@ async function publishImportedArticle() {
         ...(quizMeta ? { quiz: quizMeta } : {}),
         ...(quizMeta && quizMeta.card ? { quizCard: quizMeta.card } : {}),
       };
+      const remoteIndex = await requireRemoteIndex();
       await githubPutFile('articles/' + data.id + '.json', JSON.stringify(dataForGithub, null, 2), 'import: article ' + data.id);
 
       // 2. Mise à jour index
-      articles = await mergeIndexWithRemote(articles);
+      articles = mergeIndexWithRemote(articles, remoteIndex, [data.id]);
       localStorage.setItem(ARTICLES_KEY, JSON.stringify(articles));
       // articles-all.json : format admin complet (avec hasImage)
       await githubPutFile('data/articles-all.json', JSON.stringify(articles, null, 2), 'update: index after import ' + data.id);
