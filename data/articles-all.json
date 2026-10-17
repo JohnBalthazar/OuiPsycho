@@ -3825,6 +3825,37 @@
     "status": "published"
   },
   {
+    "id": "pourquoi-attires-par-ceux-qui-nous-donnent-peu-d-attention",
+    "title": "Pourquoi est-on attiré par ceux qui nous donnent peu d'attention ?",
+    "type": "article",
+    "excerpt": "Cette personne répond une fois sur trois, et c'est elle qu'on attend. Ni masochisme ni malchance : l'attirance pour les personnes peu disponibles repose sur des mécanismes bien connus — et ce qui s'apprend se désapprend.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "attachement-anxieux",
+      "renforcement-intermittent",
+      "indisponibilite-emotionnelle",
+      "dependance-affective",
+      "relations-amoureuses"
+    ],
+    "metaDescription": "Renforcement intermittent, attachement anxieux, peur de l'intimité : pourquoi on s'attache à ceux qui donnent peu, et comment sortir de ce schéma.",
+    "articles_lies": [
+      "pourquoi-certaines-personnes-s-eloignent-quand-la-relation-devient-serieuse",
+      "dependance-affective",
+      "pourquoi-accepte-t-on-l-inacceptable"
+    ],
+    "status": "published"
+  },
+  {
     "id": "rumination-mentale",
     "title": "Rumination mentale : arrêter de ressasser",
     "type": "article",
