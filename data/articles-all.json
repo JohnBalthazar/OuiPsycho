@@ -3828,7 +3828,7 @@
     "id": "comprendre-ses-emotions-guide",
     "title": "Comprendre et réguler ses émotions : le guide",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Hypersensibilité, alexithymie, colère qui déborde, culpabilité qui ne lâche pas : nos émotions ont toutes une fonction, même les plus inconfortables. Ce guide fait le tour des situations les plus fréquentes, pour apprendre à les nommer avant de les réguler.",
     "date": "2026-10-17",
     "date_modified": "2026-10-17",
     "category": "Émotions & identité",
@@ -3846,13 +3846,13 @@
       "hypersensibilite",
       "estime-de-soi"
     ],
-    "metaDescription": "",
+    "metaDescription": "Comprendre ses émotions : hypersensibilité, alexithymie, colère, culpabilité, honte, rumination. Un guide complet pour nommer et réguler ce que l'on ressent.",
     "articles_lies": [
       "hypersensibilite-test",
       "gerer-sa-colere",
       "resilience-emotionnelle"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "nouvelles-formes-sexualite",

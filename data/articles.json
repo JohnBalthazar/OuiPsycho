@@ -1,5 +1,34 @@
 [
   {
+    "id": "comprendre-ses-emotions-guide",
+    "title": "Comprendre et réguler ses émotions : le guide",
+    "type": "article",
+    "excerpt": "Hypersensibilité, alexithymie, colère qui déborde, culpabilité qui ne lâche pas : nos émotions ont toutes une fonction, même les plus inconfortables. Ce guide fait le tour des situations les plus fréquentes, pour apprendre à les nommer avant de les réguler.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/utjk0pnudfocdsolzjek",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "La rédaction Oui Psycho!",
+    "tags": [
+      "emotions",
+      "regulation-emotionnelle",
+      "hypersensibilite",
+      "estime-de-soi"
+    ],
+    "metaDescription": "Comprendre ses émotions : hypersensibilité, alexithymie, colère, culpabilité, honte, rumination. Un guide complet pour nommer et réguler ce que l'on ressent.",
+    "articles_lies": [
+      "hypersensibilite-test",
+      "gerer-sa-colere",
+      "resilience-emotionnelle"
+    ],
+    "status": "published"
+  },
+  {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon 2026",
     "type": "article",
