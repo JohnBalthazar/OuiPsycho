@@ -71,6 +71,9 @@
     '1118692136': '9782352041320', // Maslach & Leiter — Burn-out
     '1626251703': '9791028519841', // Gibson — Se construire avec des parents immatures
     'B0DJSBJJTP': '9791037513090', // Haidt — Génération anxieuse
+    '0465056520': '9782491552008', // Perry & Szalavitz — Le garçon qui fut élevé comme un chien
+    '0465075975': '9782226208927', // Bowlby — Le lien, la psychanalyse et l'art d'être parent (A Secure Base)
+    '2246281512': '9782757846261', // Gould — Le Pouce du panda (éd. Points ; Grasset 1982 épuisé)
   };
   function placeDesLibrairesUrl(asin) {
     const isbn13 = FR_EDITION_OVERRIDES[asin] || isbn13FromAsin(asin);
