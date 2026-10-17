@@ -29,6 +29,151 @@
     "status": "published"
   },
   {
+    "id": "culpabilite-chronique",
+    "title": "Culpabilité chronique : se sentir coupable de tout",
+    "type": "article",
+    "excerpt": "S'excuser d'exister, se sentir responsable de ce qui ne dépend pas de soi, culpabiliser même au repos : quand la culpabilité perd tout lien avec une faute réelle, elle cesse d'être utile et devient un fardeau permanent.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "culpabilite",
+      "estime-de-soi",
+      "regulation-emotionnelle"
+    ],
+    "metaDescription": "Culpabilité chronique : différence avec la culpabilité normale, mécanismes psychologiques, et pistes concrètes pour s'en libérer durablement.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "honte-emotion",
+      "roue-des-emotions"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "honte-emotion",
+    "title": "La honte au quotidien : la repérer et la nommer sur le moment",
+    "type": "article",
+    "excerpt": "Elle ne s'annonce jamais comme telle : une bouffée de chaleur, l'envie de disparaître, un silence gêné qu'on n'explique pas. La honte se glisse dans des moments très concrets — au travail, en famille, dans le regard d'un proche — bien avant qu'on ait le temps de la nommer.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "honte",
+      "estime-de-soi",
+      "regulation-emotionnelle"
+    ],
+    "metaDescription": "La honte au quotidien : comment la reconnaître sur le moment, dans quels contextes elle surgit le plus souvent, et comment la nommer avant qu'elle ne s'installe.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "culpabilite-chronique",
+      "a-quoi-sert-la-honte"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "hypersensibilite-test",
+    "title": "Hypersensibilité : le test et ce qu'il faut en penser",
+    "type": "article",
+    "excerpt": "Bruits, lumières, émotions des autres : tout semble arriver plus fort. L'hypersensibilité, ou haute sensibilité, concerne 15 à 20% de la population — un trait réel, documenté, ni un défaut ni un superpouvoir.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "hypersensibilite",
+      "sensibilite-sensorielle",
+      "temperament"
+    ],
+    "metaDescription": "Hypersensibilité (personne hautement sensible) : définition scientifique, origine du concept, signes concrets et un test pour évaluer votre profil.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "alexithymie",
+      "roue-des-emotions"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "pleurer-pour-un-rien",
+    "title": "Pleurer pour un rien : ce que ça veut dire",
+    "type": "article",
+    "excerpt": "Une publicité, une chanson, un regard un peu trop gentil — et les larmes montent, sans raison apparente. Ce n'est ni un dérèglement ni un signe de fragilité : ces larmes « pour rien » répondent à une logique physiologique bien réelle.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "larmes",
+      "regulation-emotionnelle",
+      "hypersensibilite"
+    ],
+    "metaDescription": "Pleurer sans raison apparente : ce que ça révèle, la fonction physiologique des larmes émotionnelles, et quand s'inquiéter (ou non) de pleurer facilement.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "hypersensibilite-test",
+      "pleurer-de-colere"
+    ],
+    "status": "published"
+  },
+  {
+    "id": "rumination-mentale",
+    "title": "Rumination mentale : arrêter de ressasser",
+    "type": "article",
+    "excerpt": "Repasser la même scène en boucle, chercher ce qu'on aurait dû dire, refaire le film sans jamais avancer : la rumination mentale ne résout rien, mais entretient et prolonge le mal-être qu'elle prétend traiter.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "emotions",
+      "rumination",
+      "regulation-emotionnelle",
+      "depression"
+    ],
+    "metaDescription": "Rumination mentale : ce que la recherche en dit depuis Nolen-Hoeksema, pourquoi elle entretient la dépression et l'anxiété, et comment y mettre fin.",
+    "articles_lies": [
+      "comprendre-ses-emotions-guide",
+      "gerer-sa-colere",
+      "roue-des-emotions"
+    ],
+    "status": "published"
+  },
+  {
     "id": "nouvelles-formes-sexualite",
     "title": "Les nouvelles formes de sexualité : tour d'horizon 2026",
     "type": "article",
