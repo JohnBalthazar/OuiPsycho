@@ -87,6 +87,36 @@
     "status": "published"
   },
   {
+    "id": "hpi-tdah-confusion-diagnostic",
+    "title": "HPI et TDAH : pourquoi on les confond si souvent",
+    "type": "article",
+    "excerpt": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre. Comment les distinguer — et pourquoi ils coexistent parfois.",
+    "date": "2026-10-17",
+    "date_modified": "2026-10-17",
+    "category": "Émotions & identité",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "hpi",
+      "tdah",
+      "haut-potentiel",
+      "diagnostic-differentiel",
+      "comorbidite"
+    ],
+    "metaDescription": "HPI et TDAH : symptômes qui se recoupent, ce qui les distingue réellement, et pourquoi le haut potentiel peut masquer un TDAH sous-jacent.",
+    "articles_lies": [
+      "et-si-vous-etiez-hpi",
+      "tdah-trouble-deficit-attention-hyperactivite",
+      "hpi-invisible-identification-tardive-adulte"
+    ],
+    "status": "published"
+  },
+  {
     "id": "hypersensibilite-test",
     "title": "Hypersensibilité : le test et ce qu'il faut en penser",
     "type": "article",

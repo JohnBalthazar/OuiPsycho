@@ -6,7 +6,7 @@
   "imageGravity": "none",
   "imageLayout": "top",
   "image": "",
-  "status": "scheduled",
+  "status": "published",
   "clusters": [
     {
       "cluster": "neuroatypie-adulte",
@@ -17,8 +17,8 @@
   "title": "HPI et TDAH : pourquoi on les confond si souvent",
   "excerpt": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre. Comment les distinguer — et pourquoi ils coexistent parfois.",
   "metaDescription": "HPI et TDAH : symptômes qui se recoupent, ce qui les distingue réellement, et pourquoi le haut potentiel peut masquer un TDAH sous-jacent.",
-  "date": "2026-11-11",
-  "date_modified": "2026-11-11",
+  "date": "2026-10-17",
+  "date_modified": "2026-10-17",
   "category": "Émotions & identité",
   "tags": [
     "hpi",

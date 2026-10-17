@@ -1,5 +1,19 @@
 [
   {
+    "id": "hpi-tdah-confusion-diagnostic-quiz",
+    "title": "HPI et TDAH : pourquoi on les confond si souvent",
+    "desc": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre.…",
+    "emoji": "🧠",
+    "color": "#1F4E6B",
+    "catLabel": "Émotions & identité",
+    "duration": "5 min",
+    "testUrl": "tests/hpi-tdah-confusion-diagnostic-quiz.html",
+    "articleUrl": "articles/hpi-tdah-confusion-diagnostic/",
+    "image": "",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "gerer-sa-colere-quiz",
     "title": "Gérer sa colère sans l'étouffer",
     "desc": "La colère n'est pas le problème à éliminer : c'est souvent le signal d'une blessure ou d'une peur plus vulnérable, difficile à exprimer…",
