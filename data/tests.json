@@ -178,7 +178,7 @@
     "testUrl": "tests/wolverine-sur-le-divan-quiz.html",
     "articleUrl": "articles/wolverine-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/sxyob57v65mj2va6k5uy",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
