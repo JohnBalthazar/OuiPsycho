@@ -3616,7 +3616,7 @@
     "id": "diagnostic-tdah-france",
     "title": "Diagnostic TDAH en France : parcours, délais, coûts",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Qui peut poser le diagnostic, par où commencer, combien ça coûte réellement, combien de temps il faut attendre : ce qu'il faut savoir avant de se lancer dans le parcours.",
     "date": "2026-10-19",
     "date_modified": "2026-10-19",
     "category": "Troubles Psy",
@@ -3635,13 +3635,13 @@
       "psychiatre",
       "france"
     ],
-    "metaDescription": "",
+    "metaDescription": "Diagnostic TDAH adulte en France : parcours public et privé, psychiatre et bilan neuropsychologique, délais d'attente et coûts réels.",
     "articles_lies": [
       "test-tdah-adulte-asrs",
       "tdah-trouble-deficit-attention-hyperactivite",
       "autisme-adulte-diagnostic-tardif"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "comprendre-ses-emotions-guide",
