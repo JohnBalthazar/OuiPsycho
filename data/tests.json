@@ -1,5 +1,19 @@
 [
   {
+    "id": "michel-fourniret-sur-le-divan-quiz",
+    "title": "Michel Fourniret sur le divan : psychologie d'un tueur en série",
+    "desc": "Courtois, cultivé, « sans histoires » : l'ogre des Ardennes ne ressemblait pas au monstre qu'on imagine. Psychopathie, sadisme, couple…",
+    "emoji": "👹",
+    "color": "#7a3b3b",
+    "catLabel": "Les monstres sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/michel-fourniret-sur-le-divan-quiz.html",
+    "articleUrl": "articles/michel-fourniret-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wtwqhdkymucvinihjpvv",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "hpi-tdah-confusion-diagnostic-quiz",
     "title": "HPI et TDAH : pourquoi on les confond si souvent",
     "desc": "Agitation, ennui en cours, difficulté à se concentrer sur ce qui n'intéresse pas : HPI et TDAH peuvent se ressembler à s'y méprendre.…",
@@ -164,7 +178,7 @@
     "testUrl": "tests/louis-xiv-sur-le-divan-quiz.html",
     "articleUrl": "articles/louis-xiv-sur-le-divan-psychologie-d-un-roi/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k3hxdenqbrw45ncbifq0",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
