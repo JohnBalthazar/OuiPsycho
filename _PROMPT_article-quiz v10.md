@@ -227,7 +227,7 @@ Liens sources externes :
 <a href="https://URL-EXACTE" target="_blank" rel="noopener noreferrer" class="ref-link" title="Auteur (Année) — Description">Texte affiché</a>
 
 Liens internes :
-<a href="slug-de-larticle/">Texte du lien</a>   — juste le slug + slash final, pas de préfixe
+<a href="/articles/slug-de-larticle/">Texte du lien</a>   — toujours le préfixe /articles/ + slash final (jamais href="slug/" seul : simple redirection depuis le 21/06/2026)
 
 ## Règles pour les sources
 

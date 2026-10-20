@@ -176,7 +176,7 @@ Liens sources externes :
 <a href="https://URL-EXACTE" target="_blank" rel="noopener noreferrer" class="ref-link" title="Auteur (Année) — Description">Texte affiché</a>
 
 Liens internes :
-<a href="slug-de-larticle/">Texte du lien</a>   ← juste le slug + slash final, pas de préfixe
+<a href="/articles/slug-de-larticle/">Texte du lien</a>   ← toujours le préfixe /articles/ + slash final (jamais href="slug/" seul : simple redirection depuis le 21/06/2026)
 
 ## Encodage
 
@@ -226,7 +226,7 @@ git push
 
 | Bug | Cause | Correction |
 |---|---|---|
-| **404 sur ouipsycho.fr/{id}/** | Le JSON `articles/{id}.json` n'a jamais été importé/créé | Importer via l'admin ou lancer `node _gen_static.js` |
+| **404 sur ouipsycho.fr/articles/{id}/** | Le JSON `articles/{id}.json` n'a jamais été importé/créé | Importer via l'admin ou lancer `node _gen_static.js` |
 | **Iframe vide / blanche** | Le fichier `tests/{id}-quiz.html` n'a pas été déposé | Déposer le Bloc 2 dans la zone ② de l'admin |
 | **Test absent de tests.html** | `quiz.card` absent du JSON **ou** import sans PAT configuré | Vérifier que `quiz.card` est bien rempli dans le Bloc 1 |
 

@@ -27,7 +27,7 @@ Nb de questions    : 8              ← 6 à 10 recommandé
 
 Site : ouipsycho.fr — blog de vulgarisation en santé mentale
 Stack : HTML statique généré depuis des fichiers JSON (node _gen_static.js)
-Articles servis à : ouipsycho.fr/{id}/
+Articles servis à : ouipsycho.fr/articles/{id}/
 
 ## Ce que tu dois produire
 
@@ -116,8 +116,10 @@ Liens vers des sources externes :
 <a href="https://URL-EXACTE" target="_blank" rel="noopener noreferrer" class="ref-link" title="Auteur (Année) — Description">Texte affiché</a>
 
 Liens internes (vers d'autres articles du site) :
-<a href="slug-de-larticle/">Texte du lien</a>
-→ Pas de préfixe, juste le slug avec un slash final.
+<a href="/articles/slug-de-larticle/">Texte du lien</a>
+→ Toujours le préfixe /articles/ (avec la barre au début) et un slash final.
+  Jamais href="slug/" seul : depuis la migration du 21/06/2026, cette adresse
+  n'est plus qu'une page de redirection.
 
 ## Règles pour les sources
 
