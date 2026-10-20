@@ -1812,7 +1812,7 @@ async function initDossierPage() {
     setMeta('property', 'og:description', dossier.metaDescription || dossier.excerpt || '');
     setMeta('property', 'og:url',         window.location.href);
     if (dossier.image) setMeta('property', 'og:image', dossier.image);
-    setMeta('name', 'robots', 'index, follow');
+    setMeta('name', 'robots', 'index, follow, max-image-preview:large');
 
     container.innerHTML = buildDossierHTML(dossier);
     buildDossierTOC(dossier);

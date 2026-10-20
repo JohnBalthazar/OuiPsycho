@@ -445,7 +445,7 @@ ${COOKIE_BANNER('politique-de-confidentialite.html')}
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ma Boussole Intérieure — Oui Psycho!</title>
   <meta name="description" content="${escCard(boussoleMeta)}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#1F4E6B">
   <link rel="canonical" href="${BASE}/boussole/">
   <meta property="og:type"        content="website">
