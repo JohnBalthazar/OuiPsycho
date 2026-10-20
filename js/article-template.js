@@ -36,6 +36,29 @@
 
   const BASE = 'https://ouipsycho.fr';
 
+  // Valeurs robots des pages indexables : liste FERMÉE, définie ici seulement.
+  // Réutilisée par _gen_static.js (détection sitemap) et par
+  // .github/scripts/verify-robots-consistency.js (garde-fou de déploiement) :
+  // toute autre valeur y est traitée comme non indexable / bloquante.
+  // ROBOTS_INDEXABLE est la valeur écrite par les gabarits ; "index, follow"
+  // reste acceptée pour les pages pas encore migrées (seconde passe).
+  const ROBOTS_INDEXABLE = 'index, follow, max-image-preview:large';
+  const ROBOTS_INDEXABLE_VALUES = Object.freeze(['index, follow', ROBOTS_INDEXABLE]);
+
+  // Variante d'une image Cloudinary : remplace le segment de transformation
+  // (ex. "f_auto,q_auto,w_1200") par `transform`. Toute URL non Cloudinary
+  // (ou sans /upload/) est renvoyée telle quelle. Passer par ce helper pour
+  // toute variante d'image — jamais de concaténation à la main.
+  const CLD_TRANSFORM_SEG = /^[a-z]{1,4}_[^,\/]+(,[a-z]{1,4}_[^,\/]+)*$/;
+  function cloudinaryVariant(url, transform) {
+    if (typeof url !== 'string' || !/^https:\/\/res\.cloudinary\.com\//.test(url)) return url;
+    const idx = url.indexOf('/upload/');
+    if (idx === -1) return url;
+    const parts = url.slice(idx + 8).split('/');
+    while (parts.length > 1 && CLD_TRANSFORM_SEG.test(parts[0])) parts.shift();
+    return `${url.slice(0, idx + 8)}${transform}/${parts.join('/')}`;
+  }
+
   // Infos auteur : data/authors.json est la seule source (nom, titre, bios,
   // photo, diplômes). Ce module ne garde que le nom de l'auteur par défaut,
   // vers qui sont rabattus les articles signés « La rédaction ».
@@ -324,13 +347,21 @@
     // _gen_static.js (qui ne génère jamais un article à date future) ;
     // nécessaire pour poulet.html, qui publie tout de suite le fichier
     // HTML même pour un article "scheduled".
-    const robotsMeta = (j.status === 'scheduled' && j.date > TODAY) ? 'noindex, nofollow' : 'index, follow';
+    const robotsMeta = (j.status === 'scheduled' && j.date > TODAY) ? 'noindex, nofollow' : ROBOTS_INDEXABLE;
 
     const heroPos   = j.imagePosition || 'center center';
     const heroZoom  = parseFloat(j.imageZoom) || 1;
     const heroStyle = `object-position:${escCard(heroPos)}${heroZoom > 1 ? `;transform:scale(${heroZoom});transform-origin:${escCard(heroPos)}` : ''}`;
+    // Formats d'image (Google Discover / données structurées Article).
+    // Sources Cloudinary ≈ 1376×768 : 4:3 et 1:1 plafonnés à 768 px de haut,
+    // jamais d'agrandissement. L'image principale = la variante 16:9.
+    const img169 = j.image ? cloudinaryVariant(j.image, 'f_auto,q_auto,w_1200,h_675,c_fill,g_auto') : '';
+    const img43  = j.image ? cloudinaryVariant(j.image, 'f_auto,q_auto,w_1024,h_768,c_fill,g_auto') : '';
+    const img11  = j.image ? cloudinaryVariant(j.image, 'f_auto,q_auto,w_768,h_768,c_fill,g_auto') : '';
+    const imgOg  = j.image ? cloudinaryVariant(j.image, 'f_auto,q_auto,w_1200,h_630,c_fill,g_auto') : '';
+
     const heroImageHtml = (j.image && (j.imageLayout || 'top') === 'top')
-      ? `\n          <div class="article-hero-image">\n            <img src="${escCard(j.image)}" alt="${escCard(j.title)}" loading="lazy" style="${heroStyle}">\n          </div>`
+      ? `\n          <div class="article-hero-image">\n            <img src="${escCard(img169)}" alt="${escCard(j.title)}" width="1200" height="675" loading="eager" fetchpriority="high" style="${heroStyle}">\n          </div>`
       : '';
 
     let kpHtml = '';
@@ -408,7 +439,11 @@ ${srcItems}
       "articleSection":   j.category,
       "wordCount":        wordCount
     };
-    if (j.image) aLDobj.image = { "@type": "ImageObject", "url": j.image, "width": 1200, "height": 630 };
+    if (j.image) aLDobj.image = [
+      { "@type": "ImageObject", "url": img169, "width": 1200, "height": 675 },
+      { "@type": "ImageObject", "url": img43,  "width": 1024, "height": 768 },
+      { "@type": "ImageObject", "url": img11,  "width": 768,  "height": 768 }
+    ];
     const srcWithUrl = (j.sources || []).filter(s => typeof s === 'object' && s.url);
     if (srcWithUrl.length) {
       aLDobj.citation = srcWithUrl.map(s => {
@@ -485,14 +520,14 @@ ${srcItems}
   <meta property="article:modified_time"      content="${modifiedIso}">
   <meta property="article:author"             content="${escCard(displayAuthor)}">
   <meta property="article:section"            content="${escCard(j.category)}">${j.image ? `
-  <meta property="og:image"                   content="${j.image}">
+  <meta property="og:image"                   content="${imgOg}">
   <meta property="og:image:alt"               content="${escCard(j.title)}">
   <meta property="og:image:width"             content="1200">
   <meta property="og:image:height"            content="630">` : ''}
   <meta name="twitter:card"                   content="summary_large_image">
   <meta name="twitter:title"                  content="${escCard(j.title)} — Oui Psycho!">
   <meta name="twitter:description"            content="${escCard(j.metaDescription)}">${j.image ? `
-  <meta name="twitter:image"                  content="${j.image}">` : ''}
+  <meta name="twitter:image"                  content="${imgOg}">` : ''}
   <script type="application/ld+json">${aLD}<\/script>
   <script type="application/ld+json">${bLD}<\/script>
   <link rel="icon" type="image/png" href="img/logo-brain.png">
@@ -718,5 +753,5 @@ ${authorBoxHtml}${sourcesHtml}
 `;
   }
 
-  return { buildArticleHTML, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard };
+  return { buildArticleHTML, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard, cloudinaryVariant, ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES };
 });

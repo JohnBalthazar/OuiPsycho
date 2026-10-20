@@ -30,6 +30,25 @@ JSON compact une ligne, UTF-8, pas d'entités HTML.
 Consent Mode v2 et notifyResize() vivent dans le layout, jamais
 dupliqués dans un fichier de données.
 
+## Robots et images (Google Discover)
+
+- Valeurs robots indexables : liste FERMÉE `ROBOTS_INDEXABLE_VALUES`, définie
+  une seule fois dans `js/article-template.js` : `"index, follow"` et
+  `"index, follow, max-image-preview:large"` (= `ROBOTS_INDEXABLE`, la valeur
+  écrite par les gabarits). Réutilisée par `_gen_static.js` (détection
+  sitemap, `isIndexableHtml`) et `.github/scripts/verify-robots-consistency.js`
+  (garde-fou de déploiement). Toute autre valeur n'est pas indexable et
+  bloque le déploiement pour un article publié. Ajouter une valeur = l'ajouter
+  à cette liste, nulle part ailleurs.
+- Toute variante d'image Cloudinary passe par `cloudinaryVariant(url, transform)`
+  (`js/article-template.js`) — jamais de segment de transformation concaténé
+  à la main. Les URL non Cloudinary sont renvoyées intactes.
+- Formats retenus (sources ≈ 1376×768, jamais d'agrandissement) :
+  image principale 1200×675 (`w_1200,h_675,c_fill,g_auto`, eager +
+  fetchpriority high) ; og:image/twitter:image 1200×630
+  (`w_1200,h_630,c_fill,g_auto`) ; JSON-LD `image` = 16:9 1200×675 (même URL
+  que l'image principale), 4:3 1024×768, 1:1 768×768.
+
 ## Auteur
 
 Tout nouvel article affiche la signature auteur ; data/authors.json est la seule source des infos auteur.

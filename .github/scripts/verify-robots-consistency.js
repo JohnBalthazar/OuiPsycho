@@ -7,6 +7,9 @@
 // Usage : node .github/scripts/verify-robots-consistency.js
 const fs   = require('fs');
 const path = require('path');
+// Liste fermée des valeurs robots indexables : définie une seule fois dans
+// js/article-template.js (ROBOTS_INDEXABLE_VALUES), partagée avec _gen_static.js.
+const { ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES } = require('../../js/article-template.js');
 
 const ROOT         = path.join(__dirname, '..', '..');
 const DIR          = path.join(ROOT, 'articles');
@@ -95,11 +98,13 @@ for (const file of jsonFiles) {
   const robots = m ? m[1] : null;
   const shouldBeIndexable = j.date <= TODAY;
 
-  if (shouldBeIndexable && robots !== 'index, follow') {
-    errors.push(`${j.id} : publié (date ${j.date}) mais robots="${robots}" — devrait être "index, follow"`);
+  const isIndexable = ROBOTS_INDEXABLE_VALUES.includes(robots);
+
+  if (shouldBeIndexable && !isIndexable) {
+    errors.push(`${j.id} : publié (date ${j.date}) mais robots="${robots}" — devrait être "${ROBOTS_INDEXABLE}"`);
   }
-  if (!shouldBeIndexable && robots === 'index, follow') {
-    errors.push(`${j.id} : planifié pour le ${j.date} (futur) mais robots="index, follow" — devrait être "noindex, nofollow"`);
+  if (!shouldBeIndexable && isIndexable) {
+    errors.push(`${j.id} : planifié pour le ${j.date} (futur) mais robots="${robots}" — devrait être "noindex, nofollow"`);
   }
 
   // La page racine doit toujours être un simple stub de redirection, jamais une copie du contenu.

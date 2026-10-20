@@ -463,7 +463,7 @@ for (const cluster of CLUSTERS) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escCard(cluster.title)} — Oui Psycho!</title>
   <meta name="description" content="${escCard(cluster.excerpt || cluster.title)}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${ArticleTemplate.ROBOTS_INDEXABLE}">
   <meta name="theme-color" content="#1F4E6B">
   <link rel="canonical" href="${BASE}/theme/${cluster.id}/">
   <meta property="og:type"        content="website">
@@ -673,7 +673,7 @@ for (const author of AUTHORS) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${escCard(author.name)}, ${escCard(author.jobTitle.charAt(0).toLowerCase() + author.jobTitle.slice(1))} — Oui Psycho!</title>
   <meta name="description" content="${escCard(author.shortBio || '')}">
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="${ArticleTemplate.ROBOTS_INDEXABLE}">
   <meta name="theme-color" content="#1F4E6B">
   <link rel="canonical" href="${pageUrl}">
   <meta property="og:type"        content="profile">
@@ -1123,6 +1123,14 @@ console.log(`🧭 boussole/index.html généré (${boussoleVisibleCount} ressour
 // avec les pages qui ont robots="index, follow".
 const SITEMAP_FILE = path.join(__dirname, 'sitemap.xml');
 
+// Indexable = balise robots dont la valeur figure dans la liste fermée
+// ArticleTemplate.ROBOTS_INDEXABLE_VALUES (même liste que
+// verify-robots-consistency.js). Toute autre valeur : hors sitemap.
+function isIndexableHtml(html) {
+  const m = html.match(/<meta name="robots" content="([^"]+)">/);
+  return !!m && ArticleTemplate.ROBOTS_INDEXABLE_VALUES.includes(m[1]);
+}
+
 // lastmod d'un article = max(date, date_modified), plafonné à aujourd'hui
 function sitemapLastmod(a) {
   const candidates = [a.date, a.date_modified].filter(Boolean);
@@ -1145,7 +1153,7 @@ if (fs.existsSync(DIR)) {
     const htmlPath = path.join(DIR, slug, 'index.html');
     if (!fs.existsSync(htmlPath)) continue;
     const html = fs.readFileSync(htmlPath, 'utf8');
-    if (!html.includes('content="index, follow"')) continue; // pas indexable
+    if (!isIndexableHtml(html)) continue; // pas indexable
     const pubM  = html.match(/article:published_time[^>]*content="([^T"]+)/);
     const modM  = html.match(/article:modified_time[^>]*content="([^T"]+)/);
     const pub   = pubM ? pubM[1] : TODAY;
@@ -1163,7 +1171,7 @@ if (fs.existsSync(DOSSIER_DIR)) {
     const htmlPath = path.join(DOSSIER_DIR, slug, 'index.html');
     if (!fs.existsSync(htmlPath)) continue;
     const html = fs.readFileSync(htmlPath, 'utf8');
-    if (!html.includes('content="index, follow"')) continue;
+    if (!isIndexableHtml(html)) continue;
     const pubM = html.match(/article:published_time[^>]*content="([^T"]+)/);
     const modM = html.match(/article:modified_time[^>]*content="([^T"]+)/);
     const pub  = pubM ? pubM[1] : TODAY;
