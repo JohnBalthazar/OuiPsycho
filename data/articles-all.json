@@ -3589,17 +3589,17 @@
     "title": "TDAH de l'adulte : quels traitements en France en 2026 ?",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-10-21",
     "date_modified": "2026-10-21",
     "category": "Troubles Psy",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 11,
+    "author": "John Balthazar",
     "tags": [
       "tdah",
       "tdah-adulte",
@@ -3608,192 +3608,9 @@
       "lisdexamfetamine",
       "traitement"
     ],
-    "sources": [
-      {
-        "authors": "Haute Autorité de santé",
-        "year": "2025",
-        "title": "XURTA (lisdexamfétamine) – Avis de la Commission de la transparence du 8 octobre 2025",
-        "publisher": "HAS",
-        "url": "https://www.has-sante.fr/upload/docs/evamed/CT-21359_XURTA_PIC_INS_AvisDef_CT21359.pdf"
-      },
-      {
-        "authors": "Base de données publique des médicaments",
-        "year": "2026",
-        "title": "XURTA, gélule – Résumé des informations",
-        "publisher": "ANSM / HAS / Assurance maladie",
-        "url": "https://base-donnees-publique.medicaments.gouv.fr/medicament/68136124/extrait"
-      },
-      {
-        "authors": "HyperSupers TDAH France",
-        "year": "2026",
-        "title": "Les traitements médicamenteux du TDAH de l'adulte",
-        "publisher": "HyperSupers – TDAH France",
-        "url": "https://www.tdah-france.fr/Les-traitements-medicamenteux-du-TDAH-de-l-adulte.html"
-      },
-      {
-        "authors": "HyperSupers TDAH France",
-        "year": "2025",
-        "title": "XURTA (lisdexamfétamine) : avis de la Commission de la transparence de la HAS",
-        "publisher": "HyperSupers – TDAH France",
-        "url": "https://www.tdah-france.fr/XURTA-Lisdexamfetamine-Avis-CT-HAS.html"
-      },
-      {
-        "authors": "HyperSupers TDAH France",
-        "year": "2022",
-        "title": "Ritaline LP chez l'adulte, un traitement enfin remboursé !",
-        "publisher": "HyperSupers – TDAH France",
-        "url": "https://www.tdah-france.fr/Ritaline-LP-chez-l-adulte-un-traitement-enfin-rembourse.html"
-      },
-      {
-        "authors": "VIDAL",
-        "year": "2023",
-        "title": "Briviact, Concerta LP et Medikinet LM : prise en charge étendue à de nouvelles populations d'âge",
-        "journal": "VIDAL Actualités",
-        "url": "https://www.vidal.fr/actualites/30321-briviact-concerta-lp-et-medikinet-lm-prise-en-charge-etendue-a-de-nouvelles-populations-d-age.html"
-      },
-      {
-        "authors": "Milert O.",
-        "year": "2025",
-        "title": "TDAH : 5 points clés sur Xurta, un dérivé amphétaminique",
-        "journal": "Le Moniteur des pharmacies",
-        "url": "https://www.lemoniteurdespharmacies.fr/therapeutique/medicaments/fiches-medicaments/tdah-5-points-cles-sur-xurta-un-derive-amphetaminique"
-      },
-      {
-        "authors": "ANSM",
-        "year": "2026",
-        "title": "Strattera – Liste des spécialités en accès dérogatoire",
-        "publisher": "Agence nationale de sécurité du médicament",
-        "url": "https://ansm.sante.fr/tableau-acces-derogatoire/strattera"
-      },
-      {
-        "authors": "ANSM",
-        "year": "2026",
-        "title": "Qelbree – Liste des spécialités en accès dérogatoire",
-        "publisher": "Agence nationale de sécurité du médicament",
-        "url": "https://ansm.sante.fr/tableau-acces-derogatoire/qelbree"
-      },
-      {
-        "authors": "ANSM",
-        "year": "2025",
-        "title": "Clonidine hydrochloride LP – Liste des spécialités en accès dérogatoire",
-        "publisher": "Agence nationale de sécurité du médicament",
-        "url": "https://ansm.sante.fr/tableau-acces-derogatoire/clonidine-hydrochloride"
-      },
-      {
-        "authors": "Haute Autorité de santé",
-        "year": "2011",
-        "title": "Strattera – Avis de la Commission de la transparence du 19 janvier 2011",
-        "publisher": "HAS",
-        "url": "https://has-sante.fr/upload/docs/application/pdf/2011-02/strattera_-_ct-_8904.pdf"
-      },
-      {
-        "authors": "Cortese S., Adamo N., Del Giovane C. et al.",
-        "year": "2018",
-        "title": "Comparative efficacy and tolerability of medications for attention-deficit hyperactivity disorder in children, adolescents, and adults: a systematic review and network meta-analysis",
-        "journal": "The Lancet Psychiatry",
-        "url": "https://doi.org/10.1016/S2215-0366(18)30269-4"
-      },
-      {
-        "authors": "Service de psychiatrie de l'enfant et de l'adolescent, CHU Grenoble Alpes",
-        "year": "2022",
-        "title": "Le méthylphénidate – fiche d'information",
-        "publisher": "CHU Grenoble Alpes",
-        "url": "https://www.chu-grenoble.fr/sites/default/files/content/service/documents/2023-02/Fiche%20ttt%20MPH%20-%2018-01-2022%20V2.pdf"
-      },
-      {
-        "authors": "Zèbres & Cie",
-        "year": "2025",
-        "title": "TDAH : un nouveau traitement enfin disponible en France",
-        "publisher": "Zèbres & Cie",
-        "url": "https://www.zebre-et-compagnie.fr/tdah-un-nouveau-traitement-enfin-disponible-en-france/"
-      },
-      {
-        "authors": "Food and Drug Administration",
-        "year": "2015",
-        "title": "Kapvay (clonidine hydrochloride extended-release) – Prescribing information",
-        "publisher": "FDA",
-        "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2015/022331s015lbl.pdf"
-      },
-      {
-        "authors": "DrugCentral",
-        "year": "s.d.",
-        "title": "Atomoxetine – Prescribing information (adverse reactions in adults)",
-        "publisher": "DrugCentral",
-        "url": "https://drugcentral.org/label/47137273-b9c1-4cb4-99ca-2dab9690b560/view"
-      },
-      {
-        "authors": "Findling R. L. et al.",
-        "year": "2021",
-        "title": "Viloxazine in the Management of CNS Disorders: A Historical Overview and Current Status",
-        "journal": "CNS Drugs",
-        "url": "https://doi.org/10.1007/s40263-021-00825-w"
-      },
-      {
-        "authors": "Drugs.com",
-        "year": "2022",
-        "title": "Qelbree (viloxazine) FDA approval history",
-        "publisher": "Drugs.com",
-        "url": "https://www.drugs.com/history/qelbree.html"
-      },
-      {
-        "authors": "Cour fédérale du Canada",
-        "year": "2010",
-        "title": "Eli Lilly Canada Inc. c. Apotex Inc., 2010 CF 1065",
-        "publisher": "Cour fédérale du Canada",
-        "url": "https://decisions.fca-caf.ca/fc-cf/decisions/en/58614/1/document.do"
-      },
-      {
-        "authors": "The Carlat Report",
-        "year": "s.d.",
-        "title": "Atomoxetine (Strattera) fact sheet",
-        "publisher": "The Carlat Report",
-        "url": "https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ATOMOXETINE-(Strattera)-Fact-Sheet-[G].pdf"
-      },
-      {
-        "authors": "The Conversation",
-        "year": "2019",
-        "title": "Ritalin at 75: what does the future hold?",
-        "publisher": "The Conversation",
-        "url": "https://theconversation.com/ritalin-at-75-what-does-the-future-hold-121591"
-      },
-      {
-        "authors": "Embryo Project Encyclopedia",
-        "year": "s.d.",
-        "title": "Ritalin for ADHD Treatment",
-        "publisher": "Arizona State University",
-        "url": "https://embryo.asu.edu/pages/ritalin-adhd-treatment"
-      },
-      {
-        "authors": "Shire / New River Pharmaceuticals",
-        "year": "2007",
-        "title": "FDA approval of Vyvanse (lisdexamfetamine dimesylate)",
-        "publisher": "Communiqué de presse (SEC)",
-        "url": "https://www.sec.gov/Archives/edgar/data/1288379/000114036107004290/ex99_1.htm"
-      },
-      {
-        "authors": "Assemblée nationale",
-        "year": "2026",
-        "title": "Pétition n° 6055 pour le remboursement du Xurta (lisdexamfétamine) dans le traitement du TDAH",
-        "publisher": "Plateforme des pétitions de l'Assemblée nationale",
-        "url": "https://petitions.assemblee-nationale.fr/initiatives/i-6055?locale=fr"
-      },
-      {
-        "authors": "Agence européenne des médicaments",
-        "year": "2015",
-        "title": "Intuniv (guanfacine) – EPAR",
-        "publisher": "EMA",
-        "url": "https://www.ema.europa.eu/fr/medicines/human/EPAR/intuniv"
-      }
-    ],
-    "clusters": [
-      {
-        "cluster": "neuroatypie-adulte",
-        "etape": "vivre-avec"
-      }
-    ],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "michel-fourniret-sur-le-divan",
