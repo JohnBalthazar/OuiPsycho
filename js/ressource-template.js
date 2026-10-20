@@ -23,14 +23,19 @@
  */
 (function (root, factory) {
   if (typeof module === 'object' && module.exports) {
-    module.exports = factory();
+    module.exports = factory(require('./article-template.js'));
   } else {
-    root.RessourceTemplate = factory();
+    root.RessourceTemplate = factory(root.ArticleTemplate); // article-template.js chargé avant
   }
-})(typeof self !== 'undefined' ? self : this, function () {
+})(typeof self !== 'undefined' ? self : this, function (ArticleTemplate) {
   'use strict';
 
   const BASE = 'https://ouipsycho.fr';
+  // Image de partage du hub /boussole/ (og:image) — image de l'article
+  // comprendre-ses-emotions-guide, au format og 1200x630 (voir CLAUDE.md).
+  const BOUSSOLE_SHARE_IMAGE = ArticleTemplate.cloudinaryVariant(
+    'https://res.cloudinary.com/druutw29p/image/upload/ouipsycho/articles/utjk0pnudfocdsolzjek',
+    'w_1200,h_630,c_fill,g_auto');
   const YEAR = new Date().getFullYear();
 
   function escCard(s) {
@@ -454,7 +459,12 @@ ${COOKIE_BANNER('politique-de-confidentialite.html')}
   <meta property="og:url"         content="${BASE}/boussole/">
   <meta property="og:locale"      content="fr_FR">
   <meta property="og:site_name"   content="Oui Psycho!">
+  <meta property="og:image"        content="${BOUSSOLE_SHARE_IMAGE}">
+  <meta property="og:image:alt"    content="Ma Boussole Intérieure — Oui Psycho!">
+  <meta property="og:image:width"  content="1200">
+  <meta property="og:image:height" content="630">
   <meta name="twitter:card"       content="summary_large_image">
+  <meta name="twitter:image"      content="${BOUSSOLE_SHARE_IMAGE}">
   <link rel="icon" type="image/png" href="../img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
