@@ -4080,15 +4080,43 @@ function updateSeoCounter() {
 /* ══════════════════════════════════════════════
    PREVIEW
 ══════════════════════════════════════════════ */
+// Aperçu = la vraie page lecteur (même gabarit que la publication, voir
+// generateArticleHTML), ouverte dans un nouvel onglet : l'éditeur reste en
+// place, rien n'est poussé sur GitHub. Seuls ajustements propres à l'aperçu :
+// <base> pointé vers la racine du site (la page n'est pas servie depuis
+// articles/<slug>/), GA désactivé, bandeau « Aperçu ».
 function togglePreview() {
-  const card = document.getElementById('preview-card');
-  if (card.style.display === 'none') {
-    updatePreview();
-    card.style.display = 'block';
-    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  } else {
-    card.style.display = 'none';
-  }
+  syncEditorToTextarea();
+  const v = id => document.getElementById(id)?.value?.trim() || '';
+  const status = v('f-status') || 'published';
+  const date = v('f-date');
+  const modifiedInput = status === 'scheduled' ? '' : v('f-date-modified');
+  const isDossier = document.getElementById('f-is-dossier')?.checked || false;
+  const clustersList = readClustersFromForm();
+  const sources = editingSources.length ? editingSources : undefined;
+  const articleData = {
+    id: v('f-id') || 'apercu', title: v('f-title') || 'Sans titre', type: isDossier ? 'dossier' : 'article',
+    excerpt: v('f-excerpt'), content: v('f-content'), date, date_modified: modifiedInput || date,
+    category: v('f-category'), image: v('f-image'),
+    imagePosition: v('f-imagePosition') || '50% 50%', imageZoom: parseFloat(v('f-imageZoom') || 1),
+    imageGravity: v('f-imageGravity') || 'none', imageLayout: v('f-imageLayout') || 'top',
+    readTime: parseInt(v('f-readTime')) || 7, author: v('f-author') || 'John Balthazar', tags,
+    metaDescription: v('f-metaDescription'), keypoints: getKeypoints(),
+    ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }),
+    articles_lies: getRelatedArticles(), status,
+    ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard })
+  };
+  let html;
+  try { html = generateArticleHTML(articleData); }
+  catch (e) { toast('Aperçu impossible : ' + e.message, 'error'); return; }
+  const siteRoot = new URL('./', location.href).href;
+  html = html
+    .replace('<base href="../../">', '<base href="' + siteRoot + '">\n  <script>window["ga-disable-G-NR52DCZ6ZJ"] = true;<\/script>')
+    .replace('<body>', '<body>\n<div style="position:fixed;bottom:12px;left:12px;z-index:99999;background:#111;color:#fff;font:600 12px/1 sans-serif;padding:8px 12px;border-radius:999px;opacity:.85;pointer-events:none">Aperçu — non publié</div>');
+  const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+  const win = window.open(url, '_blank');
+  if (!win) toast('Le navigateur a bloqué l’ouverture de l’aperçu (autorisez les fenêtres pop-up pour ce site).', 'error', 8000);
+  setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 function updatePreview() {
   syncEditorToTextarea();

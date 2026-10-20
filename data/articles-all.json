@@ -1,5 +1,32 @@
 [
   {
+    "id": "stereotypes-nationaux-personnalite",
+    "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-10-22",
+    "date_modified": "2027-10-22",
+    "category": "Société & psychologie politique",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/simmf3wzrnuc14uebuhb",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "stéréotypes",
+      "personnalité nationale",
+      "biais cognitifs",
+      "psychologie sociale",
+      "cultures"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "5-traits-insoupconnes-meilleur-ami",
     "title": "Quels sont les 5 traits insoupçonnés d'un·e meilleur·e ami·e",
     "type": "article",
@@ -3586,33 +3613,6 @@
     "status": "scheduled"
   },
   {
-    "id": "stereotypes-nationaux-personnalite",
-    "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-10-22",
-    "date_modified": "2026-10-22",
-    "category": "Société & psychologie politique",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/simmf3wzrnuc14uebuhb",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "John Balthazar",
-    "tags": [
-      "stéréotypes",
-      "personnalité nationale",
-      "biais cognitifs",
-      "psychologie sociale",
-      "cultures"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
-    "status": "scheduled"
-  },
-  {
     "id": "tdah-adulte-traitements-france-2026",
     "title": "TDAH de l'adulte : quels traitements en France en 2026 ?",
     "type": "article",
@@ -3948,7 +3948,7 @@
     "excerpt": "Polyamour, asexualité, sexualité fluide… Le paysage des désirs et des identités sexuelles s'est considérablement élargi ces dernières décennies. Mais que nous dit vraiment la science sur ces nouvelles façons d'aimer et de vivre sa sexualité ? Tour d'horizon psychologique et sans tabou.",
     "date": "2026-10-16",
     "date_modified": "2026-10-16",
-    "category": "Bien-être",
+    "category": "Sexo",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uhght6jkqtmhhmhrvrwh",
     "hasImage": true,
     "imagePosition": "50% 50%",
