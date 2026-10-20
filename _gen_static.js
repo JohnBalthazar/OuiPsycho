@@ -1181,6 +1181,21 @@ if (fs.existsSync(DOSSIER_DIR)) {
   }
 }
 
+// Cartes interactives : scan cartes/*/index.html (pages écrites à la main,
+// cartes.json ne sert qu'au maillage et peut ne pas toutes les lister).
+// Pas de lastmod : ces pages ne portent aucune date fiable, et une date
+// inventée (TODAY à chaque build) n'apprend rien à Google.
+const CARTES_DIR = path.join(__dirname, 'cartes');
+const sitemapCartes = [];
+if (fs.existsSync(CARTES_DIR)) {
+  for (const slug of fs.readdirSync(CARTES_DIR).sort()) {
+    const htmlPath = path.join(CARTES_DIR, slug, 'index.html');
+    if (!fs.existsSync(htmlPath)) continue;
+    if (!isIndexableHtml(fs.readFileSync(htmlPath, 'utf8'))) continue;
+    sitemapCartes.push(slug);
+  }
+}
+
 let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
@@ -1255,6 +1270,25 @@ let sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;
+
+if (sitemapCartes.length) {
+  sitemapXml += `
+
+  <!-- Cartes interactives (${sitemapCartes.length}) -->
+  <url>
+    <loc>${BASE}/cartes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>`;
+  for (const slug of sitemapCartes) {
+    sitemapXml += `
+  <url>
+    <loc>${BASE}/cartes/${slug}/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>`;
+  }
+}
 
 if (sitemapDossiers.length) {
   sitemapXml += `\n\n  <!-- Dossiers (${sitemapDossiers.length}) -->`;

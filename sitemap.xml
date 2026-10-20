@@ -73,6 +73,28 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Cartes interactives (3) -->
+  <url>
+    <loc>https://ouipsycho.fr/cartes.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/cartes/bien-vivre-sante-mentale/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/cartes/ou-dort-on-le-mieux-en-france/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ouipsycho.fr/cartes/stress-socio-economique-en-france/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Dossiers (1) -->
   <url>
     <loc>https://ouipsycho.fr/dossiers/anxiete-guide-complet/</loc>
