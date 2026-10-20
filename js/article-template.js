@@ -36,15 +36,64 @@
 
   const BASE = 'https://ouipsycho.fr';
 
-  const AUTHOR_NAME      = 'John Balthazar';
-  const AUTHOR_BIO_SHORT = 'Infirmier ayant exercé plusieurs années en psychiatrie, John Balthazar est l\'auteur de « Mon mari est une pantoufle, des brèves de psychiatrie ». Il écrit sous pseudonyme pour préserver la séparation entre son activité hospitalière et son travail d\'écriture.';
-  const AUTHOR_PHOTO_ABS = `${BASE}/images/auteur.jpg`;
-  const AUTHOR_PHOTO_REL = 'images/auteur.jpg';
-  const AUTHOR_PAGE_URL  = `${BASE}/a-propos.html`;
-  const AUTHOR_BOOK_ASIN = 'B08NWTCT2G';
-  const AUTHOR_BOOK_URL  = AUTHOR_BOOK_ASIN ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}` : '';
-  const AUTHOR_BOOK_SAME_AS = AUTHOR_BOOK_ASIN ? `https://www.amazon.fr/dp/${AUTHOR_BOOK_ASIN}` : '';
+  // Infos auteur : data/authors.json est la seule source (nom, titre, bios,
+  // photo, diplômes). Ce module ne garde que le nom de l'auteur par défaut,
+  // vers qui sont rabattus les articles signés « La rédaction ».
+  const AUTHOR_NAME   = 'John Balthazar';
   const RÉDACTION_SET = new Set(['La rédaction Oui Psycho!', 'La rédaction', 'Oui Psycho!', 'Rédaction Oui Psycho!']);
+
+  // Résout l'auteur affiché d'un article. entry = l'entrée de authors.json
+  // dont name correspond, ou null (auteur invité : nom seul, sans lien ni
+  // encadré).
+  function resolveAuthor(j, authors) {
+    const name  = (!j.author || RÉDACTION_SET.has(j.author)) ? AUTHOR_NAME : j.author;
+    const entry = (authors || []).find(a => a.name === name) || null;
+    return { name, entry };
+  }
+  function authorPagePath(entry) { return `auteur/${entry.slug}/`; }
+  function authorPersonId(entry) { return `${BASE}/${authorPagePath(entry)}#person`; }
+  function absUrl(u) { return /^https?:\/\//.test(u) ? u : `${BASE}/${u.replace(/^\/+/, '')}`; }
+  // Référence Person utilisée dans le JSON-LD des articles : même @id que la
+  // Person complète de la page auteur (voir personLd).
+  function authorRefLd(entry) {
+    return { "@type": "Person", "@id": authorPersonId(entry), "name": entry.name, "url": `${BASE}/${authorPagePath(entry)}`, "jobTitle": entry.jobTitle };
+  }
+  // Person complète — page /auteur/<slug>/ (mainEntity de la ProfilePage).
+  function personLd(entry) {
+    const p = authorRefLd(entry);
+    if (entry.shortBio) p.description = entry.shortBio;
+    if (entry.image) p.image = absUrl(entry.image);
+    if (entry.sameAs && entry.sameAs.length) p.sameAs = entry.sameAs;
+    if (entry.credentials && entry.credentials.length) {
+      p.hasCredential = entry.credentials.map(c => ({ "@type": "EducationalOccupationalCredential", "name": c }));
+    }
+    return p;
+  }
+
+  // Horodatage ISO 8601 de minuit (heure de Paris) pour une date YYYY-MM-DD,
+  // avec le décalage réellement en vigueur ce jour-là (+01:00 l'hiver,
+  // +02:00 l'été) — calculé via Intl, jamais codé en dur. Minuit précède
+  // toujours le changement d'heure (2h/3h du matin) : le jour de bascule
+  // garde le décalage de la veille, d'où le second passage.
+  const PARIS_FMT = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Europe/Paris', hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'
+  });
+  function parisOffsetMs(ts) {
+    const p = {};
+    for (const part of PARIS_FMT.formatToParts(new Date(ts))) p[part.type] = part.value;
+    return Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second) - ts;
+  }
+  function parisMidnightIso(d) {
+    const [y, m, day] = d.split('-').map(Number);
+    const wall = Date.UTC(y, m - 1, day);
+    let off = parisOffsetMs(wall - 3600000);
+    off = parisOffsetMs(wall - off);
+    const mins = Math.round(off / 60000);
+    const sign = mins < 0 ? '-' : '+';
+    const abs  = Math.abs(mins);
+    return `${d}T00:00:00${sign}${String(Math.floor(abs / 60)).padStart(2, '0')}:${String(abs % 60).padStart(2, '0')}`;
+  }
 
   // Retrait des liens d'affiliation Amazon (audit 2026-09) : les sources
   // pointent désormais vers Place des Libraires, calculé à partir du même
@@ -268,8 +317,8 @@
     const ci = CAT[j.category] || { color: '#555', bg: '#f5f5f5', enc: encodeURIComponent(j.category || '') };
     const fd = fmtDate(j.date);
 
-    const displayAuthor = (!j.author || RÉDACTION_SET.has(j.author)) ? AUTHOR_NAME : j.author;
-    const isJohnB = displayAuthor === AUTHOR_NAME;
+    const { name: displayAuthor, entry: authorEntry } = resolveAuthor(j, opts.authors);
+    const footerAuthorEntry = resolveAuthor({}, opts.authors).entry;
 
     // noindex tant que la date n'est pas atteinte. Sans effet pour
     // _gen_static.js (qui ne génère jamais un article à date future) ;
@@ -335,27 +384,24 @@ ${srcItems}
 
     const wordCount = (j.content || '').replace(/<[^>]+>/g,'').split(/\s+/).length;
 
-    const authorLd = { "@type": "Person", "name": displayAuthor };
-    if (isJohnB) {
-      authorLd.url   = AUTHOR_PAGE_URL;
-      authorLd.image = { "@type": "ImageObject", "url": AUTHOR_PHOTO_ABS, "width": 800, "height": 800 };
-      if (AUTHOR_BOOK_SAME_AS) authorLd.sameAs = [AUTHOR_BOOK_SAME_AS];
-    }
+    const authorLd = authorEntry ? authorRefLd(authorEntry) : { "@type": "Person", "name": displayAuthor };
+    const publishedIso = parisMidnightIso(j.date);
+    const modifiedIso  = parisMidnightIso(effectiveModified(j));
 
     const aLDobj = {
       "@context":         "https://schema.org",
       "@type":            "BlogPosting",
       "headline":         j.title,
       "description":      j.metaDescription,
-      "datePublished":    `${j.date}T00:00:00+02:00`,
-      "dateModified":     `${effectiveModified(j)}T00:00:00+02:00`,
+      "datePublished":    publishedIso,
+      "dateModified":     modifiedIso,
       "inLanguage":       "fr-FR",
       "author":           authorLd,
       "publisher": {
         "@type": "Organization",
         "name":  "Oui Psycho!",
         "url":   `${BASE}/`,
-        "logo":  { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.svg` }
+        "logo":  { "@type": "ImageObject", "url": `${BASE}/img/logo-brain.png` }
       },
       "mainEntityOfPage": { "@type": "WebPage", "@id": `${BASE}/articles/${j.id}/` },
       "keywords":         (j.tags || []).join(', '),
@@ -397,6 +443,26 @@ ${srcItems}
     const modDate = effectiveModified(j);
     const fdMod    = modDate !== j.date ? fmtDate(modDate) : null;
 
+    // Signature sous le H1 et encadré auteur : uniquement pour un auteur
+    // présent dans authors.json. Un invité n'a que son nom, sans lien.
+    const jobTitleInline = authorEntry && authorEntry.jobTitle
+      ? authorEntry.jobTitle.charAt(0).toLowerCase() + authorEntry.jobTitle.slice(1) : '';
+    const bylineHtml = authorEntry
+      ? `${authorEntry.image ? `<img src="${escCard(authorEntry.image)}" alt="${escCard(authorEntry.name)}" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}<span>Par <a class="article-meta-author__link" href="${authorPagePath(authorEntry)}">${escCard(authorEntry.name)}</a>${jobTitleInline ? `, ${escCard(jobTitleInline)}` : ''}</span>`
+      : `<span>Par <strong>${escCard(displayAuthor)}</strong></span>`;
+    const authorBoxHtml = authorEntry ? `
+        <aside class="author-box" aria-label="À propos de l'auteur">
+          ${authorEntry.image ? `<img src="${escCard(authorEntry.image)}" alt="${escCard(authorEntry.name)}" class="author-box__avatar" width="72" height="72" loading="lazy">` : ''}
+          <div class="author-box__content">
+            <div class="author-box__name">${escCard(authorEntry.name)}</div>
+            <p class="author-box__bio">${escCard(authorEntry.shortBio || '')}</p>
+            <div class="author-box__links">
+              <a href="${authorPagePath(authorEntry)}" class="author-box__link">Voir tous ses articles →</a>
+            </div>
+          </div>
+        </aside>
+` : '';
+
     return `<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -415,8 +481,8 @@ ${srcItems}
   <meta property="og:url"                     content="${BASE}/articles/${j.id}/">
   <meta property="og:locale"                  content="fr_FR">
   <meta property="og:site_name"               content="Oui Psycho!">
-  <meta property="article:published_time"     content="${j.date}T00:00:00+01:00">
-  <meta property="article:modified_time"      content="${effectiveModified(j)}T00:00:00+01:00">
+  <meta property="article:published_time"     content="${publishedIso}">
+  <meta property="article:modified_time"      content="${modifiedIso}">
   <meta property="article:author"             content="${escCard(displayAuthor)}">
   <meta property="article:section"            content="${escCard(j.category)}">${j.image ? `
   <meta property="og:image"                   content="${j.image}">
@@ -522,10 +588,12 @@ ${navHtml}
           <span class="badge badge--large" style="color:${ci.color};background:${ci.bg}">${escCard(j.category)}</span>
           <h1>${escCard(j.title)}</h1>
           <div class="article-meta">
-            <span class="article-meta-author">${isJohnB ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="article-meta-author__avatar" width="36" height="36" loading="lazy">` : ''}Par <strong>${escCard(displayAuthor)}</strong></span>
-            <span class="article-meta-dot">•</span>
-            ${fdMod ? `<time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : `<time datetime="${j.date}">Publié le ${fd}</time>`}
-            <span class="article-meta-dot">•</span>
+            <span class="article-meta-author">${bylineHtml}</span>
+            <span class="article-meta-dot">·</span>
+            <time datetime="${j.date}">Publié le ${fd}</time>${fdMod ? `
+            <span class="article-meta-dot">·</span>
+            <time datetime="${modDate}">Mis à jour le ${fdMod}</time>` : ''}
+            <span class="article-meta-dot">·</span>
             <span>⏱ ${j.readTime} min de lecture</span>
             <div class="article-meta-share" id="share-top" aria-label="Partager">
               <button class="share-icon-btn share-icon-btn--wa" data-platform="whatsapp" title="Partager sur WhatsApp" aria-label="WhatsApp">
@@ -548,19 +616,7 @@ ${kpHtml}
         <div class="article-body">
           ${wrapTables(resolveOutilTokens(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes), tools, toolsGenerated))}${continueBlockHtml}
         </div>
-${sourcesHtml}
-        <div class="author-box">
-          ${isJohnB
-            ? `<img src="${AUTHOR_PHOTO_REL}" alt="John Balthazar, auteur de Oui Psycho!" class="author-box__avatar" width="72" height="72" loading="lazy">`
-            : '<div class="author-box__avatar-placeholder" aria-hidden="true">✍️</div>'}
-          <div class="author-box__content">
-            <div class="author-box__name">${displayAuthor}</div>
-            <p class="author-box__bio">${isJohnB ? AUTHOR_BIO_SHORT : 'Rédacteur spécialisé en santé mentale.'}</p>
-            <div class="author-box__links">
-              <a href="a-propos.html" class="author-box__link">En savoir plus sur l'auteur →</a>${isJohnB && AUTHOR_BOOK_URL ? `\n              <a href="${AUTHOR_BOOK_URL}" target="_blank" rel="noopener noreferrer" class="author-box__link author-box__link--book">📖 Le livre</a>` : ''}
-            </div>
-          </div>
-        </div>
+${authorBoxHtml}${sourcesHtml}
 
         <div class="article-tags" aria-label="Mots-clés">${tagsHtml}</div>
 
@@ -631,7 +687,8 @@ ${sourcesHtml}
         <div class="footer-col">
           <h4>À propos</h4>
           <ul class="footer-links">
-            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="a-propos.html">Qui sommes-nous ?</a></li>${footerAuthorEntry ? `
+            <li><a href="${authorPagePath(footerAuthorEntry)}">L'auteur, ${escCard(footerAuthorEntry.name)}</a></li>` : ''}
             <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
           </ul>
@@ -661,5 +718,5 @@ ${sourcesHtml}
 `;
   }
 
-  return { buildArticleHTML };
+  return { buildArticleHTML, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard };
 });

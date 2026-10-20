@@ -1205,7 +1205,7 @@
               </div>
               <div class="form-group">
                 <label>Auteur</label>
-                <input type="text" id="f-author" value="La rédaction Oui Psycho!">
+                <input type="text" id="f-author" value="John Balthazar">
               </div>
               <div class="form-group">
                 <label>Image de l'article</label>
@@ -1955,6 +1955,7 @@ let ressourcesCache = []; // ressources.json:ressources — éditable depuis la 
 let ressourcesFormatCache = []; // ressources.json:_format — conservé tel quel, jamais généré ni édité ici
 let cartesCache = []; // cartes.json:cartes — lecture seule depuis Poulet (voir loadCartes), sert juste à valider {{carte:...}}/carteCard à la sauvegarde
 let toolsCache = []; // tools.json:outils — lecture seule depuis Poulet (voir loadTools), sert juste à valider {{outil:...}}/toolCard à la sauvegarde
+let authorsCache = []; // data/authors.json:authors — lecture seule depuis Poulet (voir loadAuthors), signature + encadré auteur des articles
 let toolsGeneratedCache = new Set(); // slugs de toolsCache dont la page /outils/{slug}/ est réellement générée (même règle que _gen_static.js)
 let editingId      = null;
 let editingSources = [];   // sources de l'article en cours d'édition (préservées à la sauvegarde)
@@ -2330,6 +2331,7 @@ function showApp() {
   loadRessources();
   loadCartes();
   loadTools();
+  loadAuthors();
 }
 
 /* ══════════════════════════════════════════════
@@ -2476,6 +2478,21 @@ async function loadTools() {
   } catch(e) { /* absent ou hors-ligne — reste []. Même comportement que loadRessources :
                   un article SANS token {{outil:...}}/toolCard n'est pas affecté ; un
                   article qui en contient fera échouer la sauvegarde. */ }
+}
+
+// data/authors.json — seule source des infos auteur. Sans lui, la page
+// générée perdrait silencieusement signature et encadré auteur (divergence
+// avec _gen_static.js) : generateArticleHTML() refuse alors de produire la
+// page, ce qui bloque la sauvegarde avant tout push.
+async function loadAuthors() {
+  authorsCache = [];
+  try {
+    const res = await fetch('data/authors.json?t=' + Date.now());
+    if (res.ok) {
+      const data = await res.json();
+      if (Array.isArray(data.authors)) authorsCache = data.authors;
+    }
+  } catch(e) { /* absent ou hors-ligne — reste [], la sauvegarde échouera (voir generateArticleHTML) */ }
 }
 
 // Un article peut appartenir à plusieurs clusters (voir f-clusters-list) —
@@ -2889,7 +2906,7 @@ function resetEditor() {
   document.getElementById('f-date-modified').value = '';
   setArticleStatus('published');
   document.getElementById('f-readTime').value    = 7;
-  document.getElementById('f-author').value      = 'La rédaction Oui Psycho!';
+  document.getElementById('f-author').value      = 'John Balthazar';
   document.getElementById('f-image').value       = '';
   document.getElementById('f-metaDescription').value = '';
   tags = [];
@@ -2937,7 +2954,7 @@ function editArticle(id) {
       // Champ « Mise à jour » : vide tant que date_modified ne dépasse pas date
       document.getElementById('f-date-modified').value = (full.date_modified && full.date_modified > full.date) ? full.date_modified : '';
       document.getElementById('f-readTime').value = full.readTime  || 7;
-      document.getElementById('f-author').value   = full.author    || 'La rédaction Oui Psycho!';
+      document.getElementById('f-author').value   = full.author    || 'John Balthazar';
       document.getElementById('f-image').value    = full.image     || '';
       document.getElementById('f-imagePosition').value = full.imagePosition || '50% 50%';
       document.getElementById('f-imageZoom').value     = full.imageZoom     || 1;
@@ -3002,7 +3019,8 @@ function generateArticleHTML(j) {
   // correctif du 2026-09-06 sur data/articles-all.json. Même raison pour
   // cartesCache/{{carte:...}} (voir loadCartes) et toolsCache/
   // toolsGeneratedCache/{{outil:...}} (voir loadTools).
-  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache, tools: toolsCache, toolsGenerated: toolsGeneratedCache });
+  if (!authorsCache.length) throw new Error('data/authors.json non chargé : impossible de générer la signature auteur. Rechargez la page.');
+  return ArticleTemplate.buildArticleHTML(j, { ressources: ressourcesCache, cartes: cartesCache, tools: toolsCache, toolsGenerated: toolsGeneratedCache, authors: authorsCache });
 }
 
 // Quand un article régénéré depuis poulet appartient à un cluster thématique,
@@ -3197,7 +3215,7 @@ async function saveArticle() {
   const category = document.getElementById('f-category').value;
   const date     = document.getElementById('f-date').value;
   const readTime = parseInt(document.getElementById('f-readTime').value) || 7;
-  const author   = document.getElementById('f-author').value.trim() || 'La rédaction Oui Psycho!';
+  const author   = document.getElementById('f-author').value.trim() || 'John Balthazar';
   const image         = document.getElementById('f-image').value.trim();
   const imagePosition = document.getElementById('f-imagePosition')?.value?.trim() || '50% 50%';
   const imageZoom     = parseFloat(document.getElementById('f-imageZoom')?.value    || 1);

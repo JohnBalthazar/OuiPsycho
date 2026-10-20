@@ -92,6 +92,17 @@ try { CARTES = JSON.parse(fs.readFileSync(CARTES_FILE, 'utf8')).cartes || []; } 
 // boucle de génération des pages /outils/{slug}/ plus bas dans ce fichier) :
 // TOOLS_GENERATED_SLUGS reprend exactement la même condition, pour qu'un
 // token ne puisse jamais pointer vers une page qui n'existe pas.
+// data/authors.json — seule source des infos auteur (signature, encadré,
+// JSON-LD Person, page /auteur/{slug}/). Obligatoire : sans lui, toutes les
+// signatures disparaîtraient silencieusement, d'où l'échec du build.
+const AUTHORS = JSON.parse(fs.readFileSync(path.join(__dirname, 'data', 'authors.json'), 'utf8')).authors;
+if (!Array.isArray(AUTHORS) || !AUTHORS.length) throw new Error('data/authors.json : aucun auteur');
+// Lien « L'auteur » des pieds de page générés ici (hubs, outils) : auteur par défaut.
+const FOOTER_AUTHOR = ArticleTemplate.resolveAuthor({}, AUTHORS).entry;
+if (!FOOTER_AUTHOR) throw new Error('data/authors.json : auteur par défaut absent');
+const FOOTER_AUTHOR_HREF  = ArticleTemplate.authorPagePath(FOOTER_AUTHOR);
+const FOOTER_AUTHOR_LABEL = `L'auteur, ${ArticleTemplate.escCard(FOOTER_AUTHOR.name)}`;
+
 const TOOLS_FILE = path.join(__dirname, 'tools.json');
 let TOOLS = [];
 try { TOOLS = JSON.parse(fs.readFileSync(TOOLS_FILE, 'utf8')).outils || []; } catch (_) {}
@@ -256,7 +267,7 @@ for (const file of jsonFiles) {
   // Options cluster pour le gabarit partagé (js/article-template.js) — vide
   // pour tout article hors cluster, le gabarit applique alors ses propres
   // valeurs par défaut (catégorie en fil d'Ariane, "À lire aussi" vide).
-  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES, tools: TOOLS, toolsGenerated: TOOLS_GENERATED_SLUGS };
+  const templateOpts = { clusterTrailHtml, relatedWidgetHtml, continueBlockHtml, ressources: RESSOURCES, cartes: CARTES, tools: TOOLS, toolsGenerated: TOOLS_GENERATED_SLUGS, authors: AUTHORS };
   // Fil d'Ariane JSON-LD : un seul niveau possible (schéma à une seule
   // BreadcrumbList) — toujours celui du cluster "principal", c'est-à-dire le
   // premier rattachement valide de la liste.
@@ -566,6 +577,7 @@ ${sectionsHtml}
           <h4>À propos</h4>
           <ul class="footer-links">
             <li><a href="../../a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="../../${FOOTER_AUTHOR_HREF}">${FOOTER_AUTHOR_LABEL}</a></li>
             <li><a href="../../politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="../../mentions-legales.html">Mentions légales</a></li>
           </ul>
@@ -599,6 +611,248 @@ ${sectionsHtml}
   fs.writeFileSync(path.join(hubOutDir, 'index.html'), hubHtml, 'utf8');
   console.log(`🧩 theme/${cluster.id}/index.html généré (${stageOrder.filter(s => byStage[s] && byStage[s].length).length} étape(s) avec contenu)`);
   hubSitemapEntries.push({ slug: cluster.id, lastmod: hubLastmod });
+}
+
+// ── Pages auteur /auteur/{slug}/ (data/authors.json) ──────────────────────────
+// Même gabarit que les pages hub (pas de <base>, liens préfixés ../../).
+// Liste uniquement les articles status === 'published' ET date <= TODAY —
+// jamais un article planifié, même à échéance (même règle que les hubs).
+const AUTHOR_DIR = path.join(__dirname, 'auteur');
+const authorSitemapEntries = []; // { slug, lastmod } — consommé par la section sitemap plus bas
+
+for (const author of AUTHORS) {
+  const authored = [];
+  let authorLastmod = '';
+  for (const file of jsonFiles) {
+    const j = JSON.parse(fs.readFileSync(path.join(DIR, file), 'utf8'));
+    if (j.status !== 'published') continue;
+    if (j.date > TODAY) continue;
+    const { entry } = ArticleTemplate.resolveAuthor(j, AUTHORS);
+    if (!entry || entry.slug !== author.slug) continue;
+    authored.push({
+      id: j.id, title: j.title, excerpt: j.excerpt || '', category: j.category,
+      date: j.date, date_modified: j.date_modified || j.date,
+      image: j.image || '', imagePosition: j.imagePosition || '50% 50%',
+      imageZoom: j.imageZoom || 1, imageGravity: j.imageGravity || 'none',
+      readTime: j.readTime,
+    });
+    const artLastmod = effectiveModified(j);
+    if (artLastmod > authorLastmod) authorLastmod = artLastmod;
+  }
+  authored.sort((a, b) => b.date.localeCompare(a.date) || a.id.localeCompare(b.id));
+  if (!authorLastmod || authorLastmod > TODAY) authorLastmod = TODAY;
+
+  const pagePath  = ArticleTemplate.authorPagePath(author);
+  const pageUrl   = `${BASE}/${pagePath}`;
+  const imgAbs    = author.image ? (/^https?:\/\//.test(author.image) ? author.image : `${BASE}/${author.image}`) : '';
+  const imgRel    = author.image ? (/^https?:\/\//.test(author.image) ? author.image : `../../${author.image}`) : '';
+  const authorCard = a => renderCardStatic(a).replace(/href="articles\//g, 'href="../../articles/');
+  const bioHtml   = String(author.longBio || '').split(/\n\s*\n/).filter(Boolean)
+    .map(p => `      <p>${escCard(p)}</p>`).join('\n');
+  const linkOrText = it => it.url
+    ? `<a href="${escCard(it.url)}" target="_blank" rel="noopener noreferrer">${escCard(it.title)}</a>`
+    : escCard(it.title);
+  const credentialsHtml = (author.credentials || []).map(c => `\n          <li>${escCard(c)}</li>`).join('');
+  const booksHtml = (author.books || []).map(b => `\n          <li>${linkOrText(b)}</li>`).join('');
+  const pubsHtml  = (author.publications || []).map(p => `\n          <li>${linkOrText(p)}</li>`).join('');
+
+  const profileLd = JSON.stringify({
+    "@context":   "https://schema.org",
+    "@type":      "ProfilePage",
+    "url":        pageUrl,
+    "name":       `${author.name} — ${author.jobTitle}`,
+    "inLanguage": "fr-FR",
+    "dateModified": ArticleTemplate.parisMidnightIso(authorLastmod),
+    "mainEntity": ArticleTemplate.personLd(author)
+  }).replace(/<\/script>/gi, '<\\/script>');
+
+  const authorHtml = `<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${escCard(author.name)}, ${escCard(author.jobTitle.charAt(0).toLowerCase() + author.jobTitle.slice(1))} — Oui Psycho!</title>
+  <meta name="description" content="${escCard(author.shortBio || '')}">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#1F4E6B">
+  <link rel="canonical" href="${pageUrl}">
+  <meta property="og:type"        content="profile">
+  <meta property="og:title"       content="${escCard(author.name)} — Oui Psycho!">
+  <meta property="og:description" content="${escCard(author.shortBio || '')}">
+  <meta property="og:url"         content="${pageUrl}">
+  <meta property="og:locale"      content="fr_FR">
+  <meta property="og:site_name"   content="Oui Psycho!">${imgAbs ? `
+  <meta property="og:image"       content="${escCard(imgAbs)}">
+  <meta property="og:image:alt"   content="${escCard(author.name)}">` : ''}
+  <meta name="twitter:card"       content="summary">
+  <script type="application/ld+json">${profileLd}</script>
+  <link rel="icon" type="image/png" href="../../img/logo-brain.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="../../css/style.css">
+  <!-- Google Consent Mode v2 (RGPD/Europe) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    var _pc = (function(){ try { return localStorage.getItem('pc_consent'); } catch(e){ return null; } })();
+    if (_pc === '1') {
+      gtag('consent', 'default', {
+        'analytics_storage':    'granted',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+      });
+    } else {
+      gtag('consent', 'default', {
+        'analytics_storage':    'denied',
+        'ad_storage':           'denied',
+        'ad_user_data':         'denied',
+        'ad_personalization':   'denied',
+        'wait_for_update':      2000
+      });
+    }
+    gtag('set', 'url_passthrough', true);
+    gtag('set', 'ads_data_redaction', true);
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NR52DCZ6ZJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NR52DCZ6ZJ');
+  </script>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <div class="header-top">
+      <a href="../../index.html" class="logo" aria-label="Oui Psycho! — Accueil">
+        <img src="../../img/logo-brain.png" alt="" class="logo__img" width="40" height="40">
+        <span>Oui Psycho!</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="nav-menu">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
+        <a class="nav__link" href="../../index.html">Accueil</a>
+        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
+        <a class="nav__link" href="../../tests.html">🧪 Tests</a>
+        <a class="nav__link" href="../../boussole/">🧭 Outils</a>
+        <a class="nav__link" href="../../cartes.html">🗺️ Cartes</a>
+        <a class="nav__link" href="../../a-propos.html">Qui sommes-nous ?</a>
+        <a class="nav__link nav__cta" href="../../index.html#newsletter-widget">Newsletter</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container author-page">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../index.html">Accueil</a> <span>›</span>
+      <a href="../../a-propos.html">Qui sommes-nous ?</a> <span>›</span>
+      <span aria-current="page">${escCard(author.name)}</span>
+    </nav>
+
+    <header class="author-page__header">${imgRel ? `
+      <img src="${escCard(imgRel)}" alt="${escCard(author.name)}" class="author-page__photo" width="160" height="160">` : ''}
+      <div>
+        <h1 class="author-page__name">${escCard(author.name)}</h1>
+        <p class="author-page__job">${escCard(author.jobTitle)}</p>
+      </div>
+    </header>
+
+    <section class="author-page__bio" aria-label="Présentation">
+${bioHtml}
+    </section>
+${credentialsHtml ? `
+    <aside class="author-page__box" aria-labelledby="author-parcours">
+      <h2 id="author-parcours">Formation et parcours</h2>
+      <ul>${credentialsHtml}
+      </ul>
+    </aside>
+` : ''}${booksHtml ? `
+    <section class="author-page__section" aria-labelledby="author-livres">
+      <h2 id="author-livres">Livres</h2>
+      <ul class="author-page__list">${booksHtml}
+      </ul>
+    </section>
+` : ''}${pubsHtml ? `
+    <section class="author-page__section" aria-labelledby="author-publications">
+      <h2 id="author-publications">Publications</h2>
+      <ul class="author-page__list">${pubsHtml}
+      </ul>
+    </section>
+` : ''}
+    <section class="author-page__section" aria-labelledby="author-articles">
+      <h2 id="author-articles">Ses articles <span class="author-page__count">(${authored.length})</span></h2>
+      <div class="theme-cards-grid">${authored.map(authorCard).join('')}
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-disclaimer">
+        ⚕️ <strong>Avertissement :</strong> Le contenu de ce site est fourni à titre informatif uniquement
+        et ne remplace pas l'avis d'un professionnel de santé. En cas de détresse, appelez le
+        <strong>3114</strong> (24h/24, gratuit).
+      </div>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../../index.html" class="logo">
+            <span class="logo__icon" aria-hidden="true">🧠</span>
+            <span>Oui Psycho!</span>
+          </a>
+          <p>Blog de vulgarisation dédié à la santé mentale. Rendre la psychologie accessible à tous, avec bienveillance et rigueur.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Thématiques</h4>
+          <ul class="footer-links">
+            <li><a href="../../index.html?cat=Bien-%C3%AAtre">Bien-être</a></li>
+            <li><a href="../../index.html?cat=Sommeil">Sommeil</a></li>
+            <li><a href="../../index.html?cat=Troubles%20Psy">Troubles Psy</a></li>
+            <li><a href="../../index.html?cat=Th%C3%A9rapies">Thérapies</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>À propos</h4>
+          <ul class="footer-links">
+            <li><a href="../../a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="../../${FOOTER_AUTHOR_HREF}">${FOOTER_AUTHOR_LABEL}</a></li>
+            <li><a href="../../politique-de-confidentialite.html">Confidentialité</a></li>
+            <li><a href="../../mentions-legales.html">Mentions légales</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© ${YEAR} Oui Psycho!. Tous droits réservés.</span>
+        <span>Fait avec ❤️ pour la santé mentale</span>
+      </div>
+    </div>
+  </footer>
+
+  <div id="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+    <div class="cookie-modal">
+      <span class="cookie-emoji">🍪</span>
+      <h2 id="cookie-title">Votre vie privée, votre choix</h2>
+      <p class="cookie-text">Nous utilisons des cookies analytiques pour mieux comprendre votre navigation et vous proposer du contenu adapté sur Oui Psycho!</p>
+      <a class="cookie-privacy-link" href="../../politique-de-confidentialite.html">Politique de confidentialité</a>
+      <button class="btn-cookie btn-cookie--accept" id="cookie-accept">✓&nbsp; Accepter et continuer</button>
+      <button class="btn-cookie-decline" id="cookie-decline">Non merci, continuer sans accepter</button>
+    </div>
+  </div>
+
+  <script src="../../js/main.js"></script>
+</body>
+</html>
+`;
+
+  const authorOutDir = path.join(AUTHOR_DIR, author.slug);
+  if (!fs.existsSync(authorOutDir)) fs.mkdirSync(authorOutDir, { recursive: true });
+  fs.writeFileSync(path.join(authorOutDir, 'index.html'), authorHtml, 'utf8');
+  console.log(`✍️  ${pagePath}index.html généré (${authored.length} article(s) publié(s))`);
+  authorSitemapEntries.push({ slug: author.slug, lastmod: authorLastmod });
 }
 
 // ── Pages outil /outils/{slug}/ (tools.json) ──────────────────────────────────
@@ -756,6 +1010,7 @@ for (const outil of TOOLS) {
           <h4>À propos</h4>
           <ul class="footer-links">
             <li><a href="a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="${FOOTER_AUTHOR_HREF}">${FOOTER_AUTHOR_LABEL}</a></li>
             <li><a href="politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="mentions-legales.html">Mentions légales</a></li>
           </ul>
@@ -1016,6 +1271,19 @@ if (hubSitemapEntries.length) {
     <lastmod>${h.lastmod}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>`;
+  }
+}
+
+if (authorSitemapEntries.length) {
+  sitemapXml += `\n\n  <!-- Pages auteur (${authorSitemapEntries.length}) -->`;
+  for (const a of authorSitemapEntries) {
+    sitemapXml += `
+  <url>
+    <loc>${BASE}/auteur/${a.slug}/</loc>
+    <lastmod>${a.lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>`;
   }
 }

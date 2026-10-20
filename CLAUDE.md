@@ -30,6 +30,10 @@ JSON compact une ligne, UTF-8, pas d'entités HTML.
 Consent Mode v2 et notifyResize() vivent dans le layout, jamais
 dupliqués dans un fichier de données.
 
+## Auteur
+
+Tout nouvel article affiche la signature auteur ; data/authors.json est la seule source des infos auteur.
+
 ## Outils — invariants non négociables
 
 Le référentiel des outils est `tools.json`, dont l'en-tête documente

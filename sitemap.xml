@@ -125,6 +125,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Pages auteur (1) -->
+  <url>
+    <loc>https://ouipsycho.fr/auteur/john-balthazar/</loc>
+    <lastmod>2026-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
   <!-- Articles (136 publiés — généré automatiquement) -->
   <url>
     <loc>https://ouipsycho.fr/articles/michel-fourniret-sur-le-divan/</loc>

@@ -172,6 +172,7 @@
           <h4>À propos</h4>
           <ul class="footer-links">
             <li><a href="${prefix}a-propos.html">Qui sommes-nous ?</a></li>
+            <li><a href="${prefix}auteur/john-balthazar/">L'auteur, John Balthazar</a></li>
             <li><a href="${prefix}politique-de-confidentialite.html">Confidentialité</a></li>
             <li><a href="${prefix}mentions-legales.html">Mentions légales</a></li>
           </ul>
