@@ -3558,6 +3558,34 @@
     "status": "scheduled"
   },
   {
+    "id": "changement-heure-effets-physiques-psychiques",
+    "title": "Changement d'heure : quels effets physiques et psychiques ? Est-ce vraiment une bonne idée ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-10-22",
+    "date_modified": "2026-10-22",
+    "category": "Bien-être",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "changement-d-heure",
+      "sommeil",
+      "rythme-circadien",
+      "chronobiologie",
+      "humeur",
+      "depression-saisonniere"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "stereotypes-nationaux-personnalite",
     "title": "Pourquoi sommes-nous convaincus que les Italiens sont chaleureux ou les Allemands rigoureux ?",
     "type": "article",
@@ -3583,99 +3611,6 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "changement-heure-effets-physiques-psychiques",
-    "title": "Changement d'heure : quels effets physiques et psychiques ? Est-ce vraiment une bonne idée ?",
-    "type": "article",
-    "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
-    "date": "2026-10-22",
-    "date_modified": "2026-10-22",
-    "category": "Bien-être",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 7,
-    "tags": [
-      "changement-d-heure",
-      "sommeil",
-      "rythme-circadien",
-      "chronobiologie",
-      "humeur",
-      "depression-saisonniere"
-    ],
-    "sources": [
-      {
-        "authors": "Kantermann T., Juda M., Merrow M. & Roenneberg T.",
-        "year": "2007",
-        "title": "The human circadian clock's seasonal adjustment is disrupted by daylight saving time",
-        "journal": "Current Biology",
-        "url": "https://doi.org/10.1016/j.cub.2007.10.025"
-      },
-      {
-        "authors": "Janszky I. & Ljung R.",
-        "year": "2008",
-        "title": "Shifts to and from daylight saving time and incidence of myocardial infarction",
-        "journal": "New England Journal of Medicine",
-        "url": "https://doi.org/10.1056/NEJMc0807104"
-      },
-      {
-        "authors": "Manfredini R., Fabbian F., Cappadona R. et al.",
-        "year": "2019",
-        "title": "Daylight Saving Time and Acute Myocardial Infarction: A Meta-Analysis",
-        "journal": "Journal of Clinical Medicine",
-        "url": "https://doi.org/10.3390/jcm8030404"
-      },
-      {
-        "authors": "Fritz J., VoPham T., Wright K. P. & Vetter C.",
-        "year": "2020",
-        "title": "A Chronobiological Evaluation of the Acute Effects of Daylight Saving Time on Traffic Accident Risk",
-        "journal": "Current Biology",
-        "url": "https://doi.org/10.1016/j.cub.2019.12.045"
-      },
-      {
-        "authors": "Barnes C. M. & Wagner D. T.",
-        "year": "2009",
-        "title": "Changing to daylight saving time cuts into sleep and increases workplace injuries",
-        "journal": "Journal of Applied Psychology",
-        "url": "https://doi.org/10.1037/a0015320"
-      },
-      {
-        "authors": "Wagner D. T., Barnes C. M., Lim V. K. G. & Ferris D. L.",
-        "year": "2012",
-        "title": "Lost sleep and cyberloafing: Evidence from the laboratory and a daylight saving time quasi-experiment",
-        "journal": "Journal of Applied Psychology",
-        "url": "https://doi.org/10.1037/a0027557"
-      },
-      {
-        "authors": "Hansen B. T., Sønderskov K. M., Hageman I., Dinesen P. T. & Østergaard S. D.",
-        "year": "2017",
-        "title": "Daylight Savings Time Transitions and the Incidence Rate of Unipolar Depressive Episodes",
-        "journal": "Epidemiology",
-        "url": "https://doi.org/10.1097/EDE.0000000000000580"
-      },
-      {
-        "authors": "Roenneberg T., Wirz-Justice A., Skene D. J. et al.",
-        "year": "2019",
-        "title": "Why Should We Abolish Daylight Saving Time?",
-        "journal": "Journal of Biological Rhythms",
-        "url": "https://doi.org/10.1177/0748730419854197"
-      },
-      {
-        "authors": "Rishi M. A., Ahmed O., Barrantes Perez J. H. et al.",
-        "year": "2020",
-        "title": "Daylight saving time: an American Academy of Sleep Medicine position statement",
-        "journal": "Journal of Clinical Sleep Medicine",
-        "url": "https://doi.org/10.5664/jcsm.8780"
-      }
-    ],
-    "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
   },
   {
     "id": "tdah-adulte-traitements-france-2026",
