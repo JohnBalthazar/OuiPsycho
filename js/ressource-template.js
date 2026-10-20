@@ -35,7 +35,7 @@
   // comprendre-ses-emotions-guide, au format og 1200x630 (voir CLAUDE.md).
   const BOUSSOLE_SHARE_IMAGE = ArticleTemplate.cloudinaryVariant(
     'https://res.cloudinary.com/druutw29p/image/upload/ouipsycho/articles/utjk0pnudfocdsolzjek',
-    'w_1200,h_630,c_fill,g_auto');
+    'f_auto,q_auto,w_1200,h_630,c_fill,g_auto');
   const YEAR = new Date().getFullYear();
 
   function escCard(s) {

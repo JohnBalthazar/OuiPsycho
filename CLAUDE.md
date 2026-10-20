@@ -48,6 +48,10 @@ dupliqués dans un fichier de données.
   fetchpriority high) ; og:image/twitter:image 1200×630
   (`w_1200,h_630,c_fill,g_auto`) ; JSON-LD `image` = 16:9 1200×675 (même URL
   que l'image principale), 4:3 1024×768, 1:1 768×768.
+- Chaque transformation commence par `f_auto,q_auto,` (ex. og :
+  `f_auto,q_auto,w_1200,h_630,c_fill,g_auto`). `cloudinaryVariant` ne
+  l'ajoute pas : sans lui, Cloudinary sert l'original (PNG jusqu'à
+  1,6 Mo au lieu d'un JPEG/WebP ≈ 80 Ko).
 
 ## Auteur
 
