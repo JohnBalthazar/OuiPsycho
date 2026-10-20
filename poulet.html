@@ -2495,6 +2495,28 @@ async function loadAuthors() {
   } catch(e) { /* absent ou hors-ligne — reste [], la sauvegarde échouera (voir generateArticleHTML) */ }
 }
 
+// Relit les gabarits partagés (et data/authors.json) sur le serveur juste
+// avant de générer une page. Un onglet poulet resté ouvert garde sinon en
+// mémoire la version chargée à l'ouverture : incident du 2026-10-20,
+// nouvelles-formes-sexualite publiée avec le gabarit d'avant la signature
+// auteur, modifié 4 h plus tôt. Échec réseau = exception, la publication
+// s'arrête avant tout push plutôt que de partir avec un gabarit périmé.
+const _templateSrc = {};
+async function refreshTemplates() {
+  for (const path of ['js/article-template.js', 'js/ressource-template.js']) {
+    const res = await fetch(path + '?t=' + Date.now(), { cache: 'no-store' });
+    if (!res.ok) throw new Error(path + ' injoignable (HTTP ' + res.status + ')');
+    const src = await res.text();
+    if (_templateSrc[path] === src) continue;
+    const s = document.createElement('script');
+    s.text = src; // UMD : réassigne window.ArticleTemplate / window.RessourceTemplate
+    document.head.appendChild(s);
+    s.remove();
+    _templateSrc[path] = src;
+  }
+  await loadAuthors();
+}
+
 // Un article peut appartenir à plusieurs clusters (voir f-clusters-list) —
 // liste répétable d'une paire thème/étape par ligne. populateClusterSelect()
 // est appelée au chargement et après création/édition d'un cluster depuis
@@ -3288,6 +3310,7 @@ async function saveArticle() {
       // githubPutFile, évite de laisser le site dans un état à moitié publié
       // (article déjà visible dans l'index public, mais page réelle jamais
       // écrite ou restée sur son ancienne version).
+      await refreshTemplates();
       const htmlPage = generateArticleHTML(articleData);
       const remoteIndex = await requireRemoteIndex();
       await githubPutFile('articles/' + id + '.json', JSON.stringify(articleData, null, 2), (editingId ? 'update' : 'create') + ': article ' + id);
@@ -3734,6 +3757,7 @@ async function publishImportedArticle() {
       // githubPutFile, évite de laisser le site dans un état à moitié publié
       // (article déjà visible dans l'index public, mais page réelle jamais
       // écrite ou restée sur son ancienne version).
+      await refreshTemplates();
       const htmlPage = generateArticleHTML(data);
 
       // 1. JSON article — conserve quiz.card (bookkeeping poulet, pré-remplissage à la
@@ -4085,7 +4109,12 @@ function updateSeoCounter() {
 // place, rien n'est poussé sur GitHub. Seuls ajustements propres à l'aperçu :
 // <base> pointé vers la racine du site (la page n'est pas servie depuis
 // articles/<slug>/), GA désactivé, bandeau « Aperçu ».
-function togglePreview() {
+async function togglePreview() {
+  // Onglet ouvert tout de suite (dans le clic, sinon bloqué comme pop-up),
+  // rempli après relecture du gabarit (voir refreshTemplates).
+  const win = window.open('', '_blank');
+  if (!win) { toast('Le navigateur a bloqué l’ouverture de l’aperçu (autorisez les fenêtres pop-up pour ce site).', 'error', 8000); return; }
+  win.document.write('<p style="font-family:sans-serif;padding:24px">Préparation de l’aperçu…</p>');
   syncEditorToTextarea();
   const v = id => document.getElementById(id)?.value?.trim() || '';
   const status = v('f-status') || 'published';
@@ -4107,15 +4136,14 @@ function togglePreview() {
     ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard })
   };
   let html;
-  try { html = generateArticleHTML(articleData); }
-  catch (e) { toast('Aperçu impossible : ' + e.message, 'error'); return; }
+  try { await refreshTemplates(); html = generateArticleHTML(articleData); }
+  catch (e) { win.close(); toast('Aperçu impossible : ' + e.message, 'error'); return; }
   const siteRoot = new URL('./', location.href).href;
   html = html
     .replace('<base href="../../">', '<base href="' + siteRoot + '">\n  <script>window["ga-disable-G-NR52DCZ6ZJ"] = true;<\/script>')
     .replace('<body>', '<body>\n<div style="position:fixed;bottom:12px;left:12px;z-index:99999;background:#111;color:#fff;font:600 12px/1 sans-serif;padding:8px 12px;border-radius:999px;opacity:.85;pointer-events:none">Aperçu — non publié</div>');
   const url = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
-  const win = window.open(url, '_blank');
-  if (!win) toast('Le navigateur a bloqué l’ouverture de l’aperçu (autorisez les fenêtres pop-up pour ce site).', 'error', 8000);
+  win.location.replace(url);
   setTimeout(() => URL.revokeObjectURL(url), 60000);
 }
 function updatePreview() {
@@ -6581,6 +6609,7 @@ async function saveRessourcesFile(message) {
 async function syncRessourcePages(slug) {
   const r = ressourcesCache.find(x => x.identite.slug === slug);
   const shouldExist = !!r && r.visible !== false;
+  await refreshTemplates();
 
   if (shouldExist) {
     const html = RessourceTemplate.buildRessourceHTML(r);
