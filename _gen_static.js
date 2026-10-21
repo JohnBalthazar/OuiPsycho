@@ -527,7 +527,7 @@ for (const cluster of CLUSTERS) {
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="../../index.html">Accueil</a>
-        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="../../tests.html">🧪 Tests</a>
         <a class="nav__link" href="../../boussole/">🧭 Outils</a>
@@ -736,7 +736,7 @@ for (const author of AUTHORS) {
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="../../index.html">Accueil</a>
-        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../../nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="../../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="../../tests.html">🧪 Tests</a>
         <a class="nav__link" href="../../boussole/">🧭 Outils</a>
@@ -951,7 +951,7 @@ for (const outil of TOOLS) {
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link" href="boussole/">🧭 Outils</a>

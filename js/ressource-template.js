@@ -135,7 +135,7 @@
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="${prefix}index.html">Accueil</a>
-        <a class="nav__link" href="${prefix}nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="${prefix}nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="${prefix}les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="${prefix}tests.html">🧪 Tests</a>
         <a class="nav__link" href="${prefix}boussole/">🧭 Outils</a>
@@ -432,7 +432,7 @@ ${COOKIE_BANNER('politique-de-confidentialite.html')}
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="../index.html">Accueil</a>
-        <a class="nav__link" href="../nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="../nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="../les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="../tests.html">🧪 Tests</a>
         <a class="nav__link nav__link--active" href="../boussole/">🧭 Outils</a>

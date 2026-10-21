@@ -587,7 +587,7 @@ ${srcItems}
       </button>
       <nav class="header-nav" id="nav-menu" aria-label="Navigation principale">
         <a class="nav__link" href="index.html">Accueil</a>
-        <a class="nav__link" href="nos-heros-sur-le-divan.html">🛋️ Nos héros</a>
+        <a class="nav__link" href="nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="nav__link" href="les-monstres-sur-le-divan.html">🖤 Les monstres</a>
         <a class="nav__link" href="tests.html">🧪 Tests</a>
         <a class="nav__link" href="boussole/">🧭 Outils</a>
@@ -604,7 +604,6 @@ ${navHtml}
         <div class="cat-nav__divider" aria-hidden="true"></div>
         <a class="cat-nav__btn${j.category === 'Société' || j.category === 'Société & psychologie politique' ? ' active' : ''}" href="societe.html">🌍 Société</a>
         <a class="cat-nav__btn${j.category === 'Sexo' ? ' active' : ''}" href="sexo.html">❤️ Sexo</a>
-        <a class="cat-nav__btn${j.category === 'Nos héros sur le divan' ? ' active' : ''}" href="nos-heros-sur-le-divan.html">🦸 Nos héros</a>
         <a class="cat-nav__btn" href="dossiers.html">📚 Dossiers</a>
       </div>
     </nav>
