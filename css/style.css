@@ -138,6 +138,10 @@ p:last-child { margin-bottom: 0; }
 @media (min-width: 1024px) {
   .layout { grid-template-columns: 1fr var(--sidebar-w); }
 }
+/* Sans ça, un élément de grille ne rétrécit pas sous la largeur de son contenu :
+   un tableau large (.table-wrap) élargissait toute la page sur mobile au lieu
+   de défiler dans son cadre. */
+.layout > * { min-width: 0; }
 .sr-only {
   position: absolute; width: 1px; height: 1px;
   padding: 0; margin: -1px; overflow: hidden;
@@ -1437,6 +1441,20 @@ p:last-child { margin-bottom: 0; }
   -webkit-overflow-scrolling: touch; /* défilement fluide iOS */
   margin: 24px 0;
   border-radius: var(--radius-lg);
+}
+/* Sous 560px, un tableau (min-width 520px) dépasse toujours son cadre :
+   on signale qu'il défile. Au-dessus, ce n'est pas garanti, donc pas de mention. */
+@media (max-width: 560px) {
+  .table-wrap::before {
+    content: "← Faites glisser le tableau →";
+    display: block;
+    position: sticky;
+    left: 0;
+    padding-bottom: 6px;
+    font-size: .8rem;
+    color: var(--color-text-muted);
+    text-align: center;
+  }
 }
 .article-body table {
   width: 100%;
