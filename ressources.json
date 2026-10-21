@@ -91,7 +91,7 @@
       "identite": {
         "slug": "mandala-anti-stress",
         "titre": "Mandala anti-stress à imprimer",
-        "description": "<p>Un coloriage simple, à imprimer et colorier au calme. Le coloriage de mandala est souvent utilisé comme exercice de pleine conscience&nbsp;: se concentrer sur les couleurs et les formes, sans objectif de résultat, peut aider à relâcher la pression le temps de quelques minutes.</p>",
+        "description": "<p>Un coloriage simple, à imprimer et colorier au calme. Le coloriage de mandala est souvent utilisé comme exercice de pleine conscience : se concentrer sur les couleurs et les formes, sans objectif de résultat, peut aider à relâcher la pression le temps de quelques minutes.</p>",
         "themes": [
           "se recentrer",
           "anxiété",
@@ -352,7 +352,7 @@
       "identite": {
         "slug": "checklist-signes-epuisement",
         "titre": "Checklist : reconnaître les signes d'épuisement professionnel",
-        "description": "<p>Cochez ce qui vous parle actuellement. Cette liste n'est pas un outil de mesure&nbsp;: elle sert à repérer des signaux qui, cumulés, méritent qu'on s'y arrête.</p>"
+        "description": "<p>Cochez ce qui vous parle actuellement. Cette liste n'est pas un outil de mesure : elle sert à repérer des signaux qui, cumulés, méritent qu'on s'y arrête.</p>"
       },
       "contenu": {
         "items": [
