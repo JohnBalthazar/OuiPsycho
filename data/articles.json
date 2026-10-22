@@ -1,5 +1,32 @@
 [
   {
+    "id": "changement-heure-effets-physiques-psychiques",
+    "title": "Changement d'heure : quels effets physiques et psychiques ? Est-ce vraiment une bonne idée ?",
+    "type": "article",
+    "excerpt": "Dimanche, on nous offre une heure. Cadeau empoisonné ? Sommeil, cœur, humeur, accidents… on fait le point sur ce que le changement d'heure fait vraiment à notre corps et à notre tête, avec un détour par l'an 2320.",
+    "date": "2026-10-22",
+    "date_modified": "2026-10-22",
+    "category": "Bien-être",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/s9nn3rs590ohjdqdyso5",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "changement-d-heure",
+      "sommeil",
+      "rythme-circadien",
+      "chronobiologie",
+      "humeur",
+      "depression-saisonniere"
+    ],
+    "metaDescription": "Sommeil, cœur, humeur, accidents : les vrais effets du changement d'heure sur le corps et le psychisme, et pourquoi les scientifiques veulent l'abolir.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "tdah-adulte-traitements-france-2026",
     "title": "TDAH de l'adulte : quels traitements en France en 2026 ?",
     "type": "article",

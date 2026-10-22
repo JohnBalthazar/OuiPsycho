@@ -164,7 +164,7 @@
     "testUrl": "tests/benedict-bridgerton-sur-le-divan-quiz.html",
     "articleUrl": "articles/benedict-bridgerton-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/dio4leevm8h7bknlo7gb",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
