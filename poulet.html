@@ -1023,6 +1023,10 @@
         <div class="topbar-actions">
           <button class="btn btn-ghost" onclick="showPage('articles')">Annuler</button>
           <button class="btn btn-ghost" onclick="togglePreview()">👁 Aperçu</button>
+          <button class="btn btn-ghost" onclick="copyArticleForClaude()" title="Copie titre, chapô, meta description, points clés, contenu et notes au format HTML, avec les consignes de correction">📋 Copier pour Claude</button>
+          <button class="btn btn-ghost" onclick="downloadArticleHtml()" title="Même contenu, téléchargé en fichier .html">⬇ .html</button>
+          <button class="btn btn-ghost" onclick="openHtmlImport()" title="Coller le HTML corrigé par Claude (ou choisir le fichier)">⬆ Import HTML</button>
+          <button class="btn btn-ghost" id="undo-import-btn" onclick="undoHtmlImport()" style="display:none;color:var(--danger);border-color:var(--danger)" title="Remet les champs tels qu'ils étaient avant l'import">↩ Annuler l'import</button>
           <button class="btn btn-success" onclick="saveArticle()" id="save-btn">
             <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
             <span id="save-btn-label">Publier</span>
@@ -1895,6 +1899,29 @@
       <button class="btn btn-ghost" onclick="document.getElementById('reply-overlay').classList.remove('open')">Annuler</button>
       <button class="btn btn-ghost" id="reply-delete-btn" style="color:var(--danger);border-color:var(--danger)">✕ Supprimer la réponse</button>
       <button class="btn btn-primary" onclick="submitAdminReply()">✓ Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- IMPORT HTML (aller-retour de correction avec Claude Desktop) -->
+<div class="panel-overlay" id="html-import-overlay">
+  <div class="panel" style="max-width:760px">
+    <div class="panel-header">
+      <h2>⬆ Importer le HTML corrigé</h2>
+      <button class="panel-close" onclick="closeHtmlImport()" aria-label="Fermer">×</button>
+    </div>
+    <div class="panel-body">
+      <div class="form-group">
+        <label>Collez la réponse de Claude (le bloc de code entier ; le texte autour est ignoré)</label>
+        <textarea id="html-import-text" class="tall" oninput="analyzeHtmlImport()" placeholder="<!-- OUIPSYCHO:DEBUT titre --> …"></textarea>
+        <div class="hint">ou <a href="#" onclick="document.getElementById('html-import-file').click();return false">choisir un fichier .html</a> — seules les sections entre marqueurs OUIPSYCHO sont lues. Rien n'est enregistré avant « Publier ».</div>
+        <input type="file" id="html-import-file" accept=".html,.htm,.txt" style="display:none" onchange="loadHtmlImportFile(event)">
+      </div>
+      <div id="html-import-report"></div>
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-ghost" onclick="closeHtmlImport()">Annuler</button>
+      <button class="btn btn-primary" id="html-import-apply" onclick="applyHtmlImport()" disabled>Appliquer à l'éditeur</button>
     </div>
   </div>
 </div>
@@ -2947,6 +2974,8 @@ function resetEditor() {
   resetKeypoints();
   document.getElementById('f-footnotes').value = '';
   document.getElementById('footnotes-warning').textContent = '';
+  _htmlImportUndo = null; // sinon « Annuler l'import » remettrait un autre article
+  document.getElementById('undo-import-btn').style.display = 'none';
   initRelatedPicker([]);
   updateSeoCounter();
   const _b = document.getElementById('custom-html-banner');
@@ -4124,6 +4153,313 @@ function updateFootnotesWarning() {
   const text = msgs.join(' · ');
   if (el) el.textContent = text;
   return text;
+}
+
+/* ══════════════════════════════════════════════
+   EXPORT / IMPORT HTML — aller-retour de correction avec Claude Desktop
+   Chaque champ texte lu par le lecteur est placé entre deux marqueurs
+   <!-- OUIPSYCHO:DEBUT x --> / <!-- OUIPSYCHO:FIN x -->. À l'import, seul ce
+   qui est entre marqueurs est lu, par découpage de chaîne (jamais réécrit
+   via le DOM) : un export réimporté tel quel redonne exactement les mêmes
+   champs. Slug, date, catégorie, image, clusters, sources, quiz : jamais
+   exportés, jamais touchés. Le contenu est publié tel quel (pas de
+   DOMPurify : il supprimerait iframes de quiz, scripts de redimensionnement
+   et onclick des mini-tests existants) — d'où le contrôle de l'import :
+   tout élément exécutable (script, on…=, javascript:, iframe, object,
+   embed) doit déjà exister à l'identique avant import, sinon refus.
+══════════════════════════════════════════════ */
+const HTML_IO_TEXT_FIELDS = [ // texte brut : échappé à l'export, décodé à l'import
+  { key: 'titre',            label: 'Titre',            id: 'f-title' },
+  { key: 'chapo',            label: 'Chapô',            id: 'f-excerpt' },
+  { key: 'meta-description', label: 'Meta description', id: 'f-metaDescription' },
+];
+let _htmlImportParsed = null;   // résultat de la dernière analyse valide
+var _htmlImportUndo   = null;   // état de l'éditeur avant le dernier import (var : lu par resetEditor, défini plus haut)
+
+function htmlIoEscape(s) {
+  return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+function htmlIoDecode(s) {
+  const t = document.createElement('textarea');
+  t.innerHTML = s;
+  return t.value;
+}
+function htmlIoSection(key, body) {
+  return `<!-- OUIPSYCHO:DEBUT ${key} -->${body}<!-- OUIPSYCHO:FIN ${key} -->`;
+}
+function htmlIoList(items) {
+  return '\n<ul>\n' + items.map(x => `  <li>${x}</li>`).join('\n') + '\n</ul>\n';
+}
+
+// État courant des champs exportables (contenu repris de l'éditeur visuel)
+function readHtmlIoFields() {
+  syncEditorToTextarea();
+  return {
+    'titre':            document.getElementById('f-title').value,
+    'chapo':            document.getElementById('f-excerpt').value,
+    'meta-description': document.getElementById('f-metaDescription').value,
+    'points-cles':      getKeypoints(),
+    'contenu':          document.getElementById('f-content').value,
+    'notes':            getFootnotes(),
+  };
+}
+
+function buildArticleHtmlExport() {
+  const f = readHtmlIoFields();
+  const slug = document.getElementById('f-id').value.trim() || 'article';
+  const consignes = `<!--
+CONSIGNES DE CORRECTION — Oui Psycho!
+
+Ce fichier contient un article à corriger : orthographe, grammaire, accords,
+ponctuation, typographie, et style uniquement quand une phrase est fautive ou
+peu claire. Ne changez ni le sens, ni les faits, ni les chiffres, ni l'ordre
+des paragraphes.
+
+Règles impératives :
+1. Ne modifiez que le texte situé entre un marqueur <!-- OUIPSYCHO:DEBUT x -->
+   et son marqueur <!-- OUIPSYCHO:FIN x -->. Ne supprimez, ne renommez et ne
+   déplacez aucun marqueur.
+2. Conservez à l'identique toutes les balises et tous leurs attributs (class,
+   id, style, href, target, rel, title, data-…), ainsi que les <iframe>, les
+   <script> et leur contenu, les boutons, les SVG et les tableaux.
+3. Conservez à l'identique les codes {{…}}, les blocs {"type":"…"} et les
+   appels de note [^1], [^2]… : ni ajout, ni suppression, ni renumérotation.
+4. N'ajoutez aucun lien, aucune balise, aucun script.
+5. N'écrivez pas d'entités HTML (&nbsp;, &eacute;…) : tapez les caractères
+   directement. Laissez celles qui existent déjà.
+6. Titre, chapô et meta description sont du texte brut, sans balise. La meta
+   description doit rester entre 140 et 160 caractères.
+7. Les sections « points-cles » et « notes » sont des listes : gardez un <li>
+   par élément, dans le même ordre, sans en ajouter ni en retirer.
+8. Une section sans faute reste telle quelle.
+9. Renvoyez le fichier COMPLET, du premier au dernier marqueur, dans un seul
+   bloc de code html, puis la liste de vos corrections sous ce bloc.
+-->`;
+  return `<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>À corriger — ${htmlIoEscape(slug)}</title>
+</head>
+<body>
+${consignes}
+
+<h1>${htmlIoSection('titre', htmlIoEscape(f['titre']))}</h1>
+
+<h2>Chapô</h2>
+<p>${htmlIoSection('chapo', htmlIoEscape(f['chapo']))}</p>
+
+<h2>Meta description</h2>
+<p>${htmlIoSection('meta-description', htmlIoEscape(f['meta-description']))}</p>
+
+<h2>Points clés</h2>
+${htmlIoSection('points-cles', htmlIoList(f['points-cles']))}
+
+<h2>Contenu</h2>
+${htmlIoSection('contenu', '\n' + f['contenu'] + '\n')}
+
+<h2>Notes de bas de page</h2>
+${htmlIoSection('notes', htmlIoList(f['notes']))}
+</body>
+</html>
+`;
+}
+
+async function copyArticleForClaude() {
+  const html = buildArticleHtmlExport();
+  try {
+    await navigator.clipboard.writeText(html);
+  } catch (e) {
+    const t = document.createElement('textarea');
+    t.value = html; document.body.appendChild(t); t.select();
+    const ok = document.execCommand('copy'); t.remove();
+    if (!ok) { toast('Copie impossible : utilisez « ⬇ .html »', 'error'); return; }
+  }
+  toast('📋 Copié — collez-le dans Claude Desktop (les consignes sont incluses)', 'success', 6000);
+}
+
+function downloadArticleHtml() {
+  const html = buildArticleHtmlExport();
+  const slug = document.getElementById('f-id').value.trim() || 'article';
+  const url = URL.createObjectURL(new Blob([html], { type: 'text/html;charset=utf-8' }));
+  const a = document.createElement('a'); a.href = url; a.download = slug + '.html';
+  a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+// Extrait les sections présentes. Renvoie { fields, errors } ; un champ
+// absent de l'import n'est pas dans fields (il restera inchangé).
+function parseHtmlImport(src) {
+  const fields = {}, errors = [];
+  const keys = ['titre', 'chapo', 'meta-description', 'points-cles', 'contenu', 'notes'];
+  for (const key of keys) {
+    const re = new RegExp(`<!--\\s*OUIPSYCHO:DEBUT ${key}\\s*-->([\\s\\S]*?)<!--\\s*OUIPSYCHO:FIN ${key}\\s*-->`, 'g');
+    const found = [...src.matchAll(re)];
+    if (found.length > 1) { errors.push(`section « ${key} » présente ${found.length} fois`); continue; }
+    if (!found.length) {
+      if (new RegExp(`OUIPSYCHO:(DEBUT|FIN) ${key}\\b`).test(src)) errors.push(`section « ${key} » : marqueur de début ou de fin manquant`);
+      continue;
+    }
+    const body = found[0][1];
+    if (key === 'contenu') {
+      fields[key] = body.replace(/^\r?\n/, '').replace(/\r?\n$/, '');
+    } else if (key === 'points-cles' || key === 'notes') {
+      fields[key] = [...body.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(m => m[1].trim()).filter(Boolean);
+    } else {
+      fields[key] = htmlIoDecode(body).trim();
+    }
+  }
+  if (!Object.keys(fields).length && !errors.length) errors.push('aucun marqueur OUIPSYCHO trouvé : collez le bloc renvoyé par Claude en entier');
+  return { fields, errors };
+}
+
+// Éléments exécutables, extraits tels quels pour comparaison exacte
+function htmlIoExecutables(html) {
+  const list = [];
+  for (const m of html.matchAll(/<script\b[\s\S]*?<\/script\s*>/gi)) list.push(m[0]);
+  for (const m of html.matchAll(/<(?:iframe|object|embed)\b[^>]*>/gi)) list.push(m[0]);
+  for (const tag of html.matchAll(/<[a-z][^>]*>/gi))
+    for (const a of tag[0].matchAll(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi)) list.push(a[0].trim());
+  for (const m of html.matchAll(/javascript\s*:/gi)) list.push('javascript:');
+  return list;
+}
+
+function htmlIoStats(html) {
+  const n = re => (html.match(re) || []).length;
+  return [
+    ['Quiz intégrés (iframe)',       n(/<iframe\b/gi)],
+    ['Scripts',                       n(/<script\b/gi)],
+    ['Appels de note [^n]',           n(/\[\^\d+\]/g)],
+    ['Codes {{…}} / blocs {"type"}',  n(/\{\{[^}]+\}\}|\{"type":"[a-zA-Z]+"/g)],
+    ['Intertitres h2/h3',             n(/<h[23]\b/gi)],
+    ['Liens',                         n(/<a\b/gi)],
+    ['Blocs à classe (encarts…)',     n(/<[a-z0-9]+\b[^>]*\sclass="/gi)],
+    ['Mots',                          html.replace(/<script\b[\s\S]*?<\/script\s*>/gi, ' ').replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length],
+  ];
+}
+
+function openHtmlImport() {
+  document.getElementById('html-import-text').value = '';
+  document.getElementById('html-import-report').innerHTML = '';
+  document.getElementById('html-import-apply').disabled = true;
+  _htmlImportParsed = null;
+  document.getElementById('html-import-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('html-import-text').focus(), 50);
+}
+function closeHtmlImport() { document.getElementById('html-import-overlay').classList.remove('open'); }
+
+function loadHtmlImportFile(ev) {
+  const file = ev.target.files && ev.target.files[0];
+  ev.target.value = '';
+  if (!file) return;
+  const r = new FileReader();
+  r.onload = () => { document.getElementById('html-import-text').value = r.result; analyzeHtmlImport(); };
+  r.readAsText(file, 'utf-8');
+}
+
+function analyzeHtmlImport() {
+  const src = document.getElementById('html-import-text').value;
+  const report = document.getElementById('html-import-report');
+  const applyBtn = document.getElementById('html-import-apply');
+  _htmlImportParsed = null; applyBtn.disabled = true;
+  if (!src.trim()) { report.innerHTML = ''; return; }
+
+  const { fields: provided, errors } = parseHtmlImport(src);
+  const cur = readHtmlIoFields();
+  const block = [...errors];
+  // Seuls les champs réellement modifiés seront appliqués : un champ identique
+  // (aux espaces de bord près pour le texte brut) reste strictement intact.
+  const same = (k, v) => Array.isArray(v) ? JSON.stringify(v) === JSON.stringify(cur[k])
+    : (k === 'contenu' ? v === cur[k] : v === String(cur[k]).trim());
+  const fields = {};
+  for (const k of Object.keys(provided)) if (!same(k, provided[k])) fields[k] = provided[k];
+
+  // Sécurité : tout exécutable importé doit exister à l'identique avant
+  const htmlOf = f => [f['contenu'] || '', ...(f['points-cles'] || []), ...(f['notes'] || []),
+    f['titre'] || '', f['chapo'] || '', f['meta-description'] || ''].join('\n');
+  const merged = { ...cur, ...fields };
+  const before = htmlIoExecutables(htmlOf(cur));
+  const added = htmlIoExecutables(htmlOf(merged)).filter(x => {
+    const i = before.indexOf(x); if (i === -1) return true; before.splice(i, 1); return false;
+  });
+  if (added.length) block.push('élément exécutable ajouté ou modifié (refusé) : ' + added.map(x => x.slice(0, 80)).join(' · '));
+  if (fields['notes'] && fields['notes'].length !== cur['notes'].length)
+    block.push(`notes de bas de page : ${cur['notes'].length} avant, ${fields['notes'].length} après — la numérotation [^n] serait décalée`);
+
+  const esc = escapeAttr;
+  let h = '';
+  if (block.length) h += `<div style="background:#fee2e2;border:1px solid var(--danger);border-radius:var(--radius);padding:10px 14px;margin-bottom:12px;font-size:.85rem;color:#991b1b"><strong>Import refusé :</strong><ul style="margin:6px 0 0 18px">${block.map(b => `<li>${esc(b)}</li>`).join('')}</ul></div>`;
+
+  // Champs modifiés
+  const rows = [];
+  const notProvided = label => `<li>${label} : <em>non fourni, inchangé</em></li>`;
+  for (const f of HTML_IO_TEXT_FIELDS) {
+    if (!(f.key in provided)) { rows.push(notProvided(f.label)); continue; }
+    if (!(f.key in fields)) { rows.push(`<li>${f.label} : inchangé</li>`); continue; }
+    let extra = '';
+    if (f.key === 'meta-description') {
+      const L = fields[f.key].length;
+      extra = ` <span style="color:${L < 140 || L > 160 ? 'var(--warning)' : 'var(--success)'}">(${L} caractères)</span>`;
+    }
+    rows.push(`<li><strong>${f.label} modifié</strong>${extra}<br><span style="color:var(--gray-400);text-decoration:line-through">${esc(cur[f.key])}</span><br>${esc(fields[f.key])}</li>`);
+  }
+  for (const [k, label] of [['points-cles', 'Points clés'], ['notes', 'Notes de bas de page']]) {
+    if (!(k in provided)) { rows.push(notProvided(label)); continue; }
+    if (!(k in fields)) { rows.push(`<li>${label} : inchangé</li>`); continue; }
+    const changed = fields[k].filter((x, i) => x !== cur[k][i]).length;
+    const count = fields[k].length !== cur[k].length
+      ? ` <span style="color:#b45309;font-weight:700">⚠️ ${cur[k].length} avant, ${fields[k].length} après</span>` : '';
+    rows.push(`<li><strong>${label} : ${changed} élément(s) modifié(s)</strong>${count}</li>`);
+  }
+  if (!('contenu' in provided)) rows.push(notProvided('Contenu'));
+  else rows.push(`<li>Contenu : ${'contenu' in fields ? '<strong>modifié</strong>' : 'inchangé'}</li>`);
+  h += `<div style="font-size:.85rem;margin-bottom:12px"><strong>Champs</strong><ul style="margin:6px 0 0 18px;line-height:1.6">${rows.join('')}</ul></div>`;
+
+  // Avant / après sur le contenu : toute baisse est signalée
+  if (!block.length && Object.keys(provided).length && !Object.keys(fields).length)
+    h += '<div class="hint" style="margin-bottom:12px">Aucune modification par rapport à l’éditeur : rien à appliquer.</div>';
+  if ('contenu' in fields) {
+    const a = htmlIoStats(cur['contenu']), b = htmlIoStats(fields['contenu']);
+    const tr = a.map(([label, va], i) => {
+      const vb = b[i][1];
+      const words = label === 'Mots';
+      const warn = words ? (va && Math.abs(vb - va) / va > 0.15) : vb < va;
+      const style = warn ? 'color:#b45309;font-weight:700' : (vb !== va ? 'color:var(--gray-700)' : 'color:var(--gray-400)');
+      return `<tr style="${style}"><td style="padding:2px 12px 2px 0">${label}${warn ? ' ⚠️' : ''}</td><td style="text-align:right;padding:2px 12px">${va}</td><td style="text-align:right;padding:2px 0">${vb}</td></tr>`;
+    }).join('');
+    h += `<div style="font-size:.85rem"><strong>Contenu, avant → après</strong><table style="margin-top:6px;border-collapse:collapse"><tr style="color:var(--gray-400)"><td></td><td style="text-align:right;padding:0 12px">avant</td><td style="text-align:right">après</td></tr>${tr}</table><div class="hint">⚠️ = baisse (élément perdu) ou variation de plus de 15 % du nombre de mots : vérifiez avant d'appliquer.</div></div>`;
+  }
+  report.innerHTML = h;
+  if (!block.length && Object.keys(fields).length) { _htmlImportParsed = fields; applyBtn.disabled = false; }
+}
+
+function applyHtmlImport() {
+  const fields = _htmlImportParsed;
+  if (!fields) return;
+  const cur = readHtmlIoFields();
+  _htmlImportUndo = cur;
+  setHtmlIoFields({ ...cur, ...fields });
+  closeHtmlImport();
+  document.getElementById('undo-import-btn').style.display = '';
+  toast('Import appliqué à l’éditeur — rien n’est enregistré : relisez, faites un aperçu, puis Publier', 'success', 7000);
+}
+
+function undoHtmlImport() {
+  if (!_htmlImportUndo) return;
+  setHtmlIoFields(_htmlImportUndo);
+  _htmlImportUndo = null;
+  document.getElementById('undo-import-btn').style.display = 'none';
+  toast('Import annulé : champs remis comme avant', 'info');
+}
+
+function setHtmlIoFields(f) {
+  for (const x of HTML_IO_TEXT_FIELDS) document.getElementById(x.id).value = f[x.key];
+  setKeypoints(f['points-cles']);
+  document.getElementById('f-content').value = f['contenu'];
+  initWysEditor(f['contenu']);
+  syncEditorToTextarea();
+  document.getElementById('f-footnotes').value = f['notes'].join('\n');
+  updateSeoCounter();
+  updateFootnotesWarning();
 }
 
 /* ══════════════════════════════════════════════
