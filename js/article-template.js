@@ -328,6 +328,62 @@
     return result;
   }
 
+  // Notes de bas de page — champ j.footnotes (tableau de chaînes, HTML simple
+  // accepté, même confiance que content/keypoints). Dans le contenu, [^n]
+  // appelle footnotes[n-1]. Un appel sans note reste du texte brut.
+  // Sans notes, le contenu est renvoyé tel quel et aucun HTML n'est ajouté :
+  // les pages des articles existants restent identiques à l'octet près.
+  // Les liens passent par articles/<id>/#… à cause de <base href="../../">
+  // (un href="#fn-1" mènerait à l'accueil) ; js/main.js intercepte le clic
+  // pour défiler sans recharger quand l'URL porte un ?paramètre.
+  const FOOTNOTE_CALL_RE = /\[\^(\d+)\]/g;
+
+  function renderFootnotes(html, footnotes, id) {
+    const notes = Array.isArray(footnotes) ? footnotes : [];
+    if (!notes.length) return { html: html, notesHtml: '' };
+    const base = `articles/${escCard(id)}/`;
+    const seen = {};
+    const out = html.replace(FOOTNOTE_CALL_RE, function (match, num) {
+      const n = parseInt(num, 10);
+      if (n < 1 || n > notes.length) return match;
+      seen[n] = (seen[n] || 0) + 1;
+      const refId = seen[n] === 1 ? `fnref-${n}` : `fnref-${n}-${seen[n]}`;
+      return `<sup class="fn-ref" id="${refId}"><a href="${base}#fn-${n}" aria-label="Note ${n}">${n}</a></sup>`;
+    });
+    const items = notes.map(function (note, i) {
+      const n = i + 1;
+      const back = seen[n] ? ` <a class="fn-back" href="${base}#fnref-${n}" aria-label="Retour à l’appel de note ${n}">↩</a>` : '';
+      return `              <li id="fn-${n}">${note}${back}</li>`;
+    }).join('\n');
+    const notesHtml = `
+          <section class="article-footnotes" aria-label="Notes">
+            <p class="article-footnotes__title">Notes</p>
+            <ol class="article-footnotes__list">
+${items}
+            </ol>
+          </section>`;
+    return { html: out, notesHtml: notesHtml };
+  }
+
+  // Contrôle non bloquant pour poulet.html — mêmes règles que renderFootnotes.
+  // missing : appels [^n] sans note ; unused : notes jamais appelées ;
+  // broken : « [^ » suivi d'une balise (appel coupé par une mise en forme).
+  function footnoteIssues(html, footnotes) {
+    const notes = Array.isArray(footnotes) ? footnotes : [];
+    const called = {};
+    const missing = [];
+    String(html || '').replace(FOOTNOTE_CALL_RE, function (match, num) {
+      const n = parseInt(num, 10);
+      if (n >= 1 && n <= notes.length) called[n] = true;
+      else if (missing.indexOf(n) === -1) missing.push(n);
+      return match;
+    });
+    const unused = [];
+    notes.forEach(function (note, i) { if (!called[i + 1]) unused.push(i + 1); });
+    const broken = /\[\^\s*</.test(String(html || ''));
+    return { missing: missing, unused: unused, broken: broken };
+  }
+
   function buildArticleHTML(j, opts) {
     opts = opts || {};
     const ressources = opts.ressources || [];
@@ -414,6 +470,10 @@ ${srcItems}
     const relatedWidgetHtml = opts.relatedWidgetHtml || '<h2 class="widget__title">À lire aussi</h2>';
 
     const wordCount = (j.content || '').replace(/<[^>]+>/g,'').split(/\s+/).length;
+
+    const bodyFn = renderFootnotes(
+      wrapTables(resolveOutilTokens(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes), tools, toolsGenerated)),
+      j.footnotes, j.id);
 
     const authorLd = authorEntry ? authorRefLd(authorEntry) : { "@type": "Person", "name": displayAuthor };
     const publishedIso = parisMidnightIso(j.date);
@@ -648,7 +708,7 @@ ${navHtml}
 
 ${kpHtml}
         <div class="article-body">
-          ${wrapTables(resolveOutilTokens(resolveCarteTokens(resolveRessourceTokens(j.content, ressources), cartes), tools, toolsGenerated))}${continueBlockHtml}
+          ${bodyFn.html}${bodyFn.notesHtml}${continueBlockHtml}
         </div>
 ${authorBoxHtml}${sourcesHtml}
 
@@ -752,5 +812,5 @@ ${authorBoxHtml}${sourcesHtml}
 `;
   }
 
-  return { buildArticleHTML, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard, cloudinaryVariant, ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES };
+  return { buildArticleHTML, footnoteIssues, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard, cloudinaryVariant, ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES };
 });

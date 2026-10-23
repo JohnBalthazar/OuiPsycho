@@ -708,6 +708,25 @@ function buildTOC() {
   toc.innerHTML = html + '</ol>';
 }
 
+// Notes de bas de page (voir renderFootnotes, js/article-template.js) : les
+// liens sont écrits articles/<id>/#fn-n à cause de <base href="../../">, ce
+// qui recharge la page si l'URL porte un ?paramètre (fbclid, utm…). On ne
+// change que le fragment, sans toucher au reste de l'URL.
+function initFootnoteLinks() {
+  const body = document.querySelector('.article-body');
+  if (!body || !body.querySelector('.article-footnotes')) return;
+  body.addEventListener('click', e => {
+    const a = e.target.closest('.fn-ref a, .fn-back');
+    if (!a) return;
+    const id = (a.getAttribute('href') || '').split('#')[1];
+    const target = id && document.getElementById(id);
+    if (!target) return;
+    e.preventDefault();
+    if (window.location.hash === '#' + id) target.scrollIntoView();
+    else window.location.hash = id;
+  });
+}
+
 /* ============================================================
    ARTICLES LES PLUS LUS — Firebase Firestore
    ============================================================ */
@@ -1297,7 +1316,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initReadingProgress();
   injectNewsletterConsent(); // RGPD : injecte la case sur toutes les pages
   if (document.getElementById('articles-grid'))  initHome();
-  if (document.getElementById('article-content')) initArticle();
+  if (document.getElementById('article-content')) { initArticle(); initFootnoteLinks(); }
   if (document.getElementById('dossier-list-grid')) initDossierList();
   if (document.getElementById('dossier-content'))   initDossierPage();
   if (document.getElementById('heros-grid'))        initHerosRubrique();

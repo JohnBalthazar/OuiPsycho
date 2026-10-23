@@ -1128,6 +1128,17 @@
               <button class="btn btn-ghost" style="margin-top:8px;font-size:.85rem;" onclick="addKeypoint()">+ Ajouter un point</button>
             </div>
           </div>
+
+          <div class="card">
+            <div class="card-header"><h3>Notes de bas de page</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <textarea id="f-footnotes" rows="4" oninput="updateFootnotesWarning()" placeholder="Une note par ligne, dans l'ordre : la 1re ligne est appelée par [^1] dans le texte, la 2e par [^2]…"></textarea>
+                <div class="hint">Appel dans le texte : <code>[^1]</code>, <code>[^2]</code>… HTML simple accepté (<code>&lt;em&gt;</code>, <code>&lt;a href&gt;</code>). Les lignes vides sont ignorées.</div>
+                <div class="hint" id="footnotes-warning" style="color:var(--warning);font-weight:600"></div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- RIGHT: meta -->
@@ -2934,6 +2945,8 @@ function resetEditor() {
   tags = [];
   renderTags();
   resetKeypoints();
+  document.getElementById('f-footnotes').value = '';
+  document.getElementById('footnotes-warning').textContent = '';
   initRelatedPicker([]);
   updateSeoCounter();
   const _b = document.getElementById('custom-html-banner');
@@ -2989,6 +3002,8 @@ function editArticle(id) {
       tags = full.tags || [];
       renderTags();
       setKeypoints(full.keypoints || []);
+      document.getElementById('f-footnotes').value = Array.isArray(full.footnotes) ? full.footnotes.join('\n') : '';
+      updateFootnotesWarning();
       initRelatedPicker(full.articles_lies || []);
       updateSeoCounter();
       setArticleStatus(full.status || 'published');
@@ -3245,6 +3260,7 @@ async function saveArticle() {
   const imageLayout   = document.getElementById('f-imageLayout')?.value?.trim()   || 'top';
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints    = getKeypoints();
+  const footnotes    = getFootnotes();
   const clustersList = readClustersFromForm();
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
@@ -3275,7 +3291,10 @@ async function saveArticle() {
   const sources     = editingSources.length ? editingSources : undefined;
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
-  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(footnotes.length && { footnotes }), ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
+  // Notes de bas de page : avertissement seulement, l'enregistrement continue
+  const fnWarning = updateFootnotesWarning();
+  if (fnWarning) toast('⚠️ ' + fnWarning, 'warning', 8000);
   const adminFields = computeAdminIndexFields({ excerpt, metaDescription: metaDesc, image, status, date });
   const summaryData = { id, title, type, excerpt: adminFields.excerpt, date, date_modified, category, image, hasImage: adminFields.hasImage, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: adminFields.metaDescription, articles_lies: articlesLies, status };
 
@@ -4085,6 +4104,28 @@ function getKeypoints() {
   return [...document.querySelectorAll('.keypoint-row input')].map(i => i.value.trim()).filter(Boolean);
 }
 
+/* Notes de bas de page — une note par ligne ; [^n] dans le texte appelle la
+   n-ième. Rendu et contrôle : js/article-template.js (renderFootnotes /
+   footnoteIssues), mêmes règles que la page publique. */
+function getFootnotes() {
+  return (document.getElementById('f-footnotes')?.value || '').split('\n').map(s => s.trim()).filter(Boolean);
+}
+// Met à jour l'avertissement sous le champ et renvoie son texte ('' si rien).
+// Jamais bloquant : un appel sans note reste affiché tel quel dans la page.
+function updateFootnotesWarning() {
+  syncEditorToTextarea();
+  const el = document.getElementById('footnotes-warning');
+  if (typeof ArticleTemplate === 'undefined' || !ArticleTemplate.footnoteIssues) return '';
+  const r = ArticleTemplate.footnoteIssues(document.getElementById('f-content').value, getFootnotes());
+  const msgs = [];
+  if (r.missing.length) msgs.push('Appel sans note : ' + r.missing.map(n => '[^' + n + ']').join(', ') + ' (laissé tel quel dans le texte)');
+  if (r.unused.length)  msgs.push('Note jamais appelée : n° ' + r.unused.join(', '));
+  if (r.broken)         msgs.push('Un appel « [^ » est coupé par une mise en forme (gras, lien…) et ne sera pas reconnu');
+  const text = msgs.join(' · ');
+  if (el) el.textContent = text;
+  return text;
+}
+
 /* ══════════════════════════════════════════════
    SEO COUNTER
 ══════════════════════════════════════════════ */
@@ -4131,6 +4172,7 @@ async function togglePreview() {
     imageGravity: v('f-imageGravity') || 'none', imageLayout: v('f-imageLayout') || 'top',
     readTime: parseInt(v('f-readTime')) || 7, author: v('f-author') || 'John Balthazar', tags,
     metaDescription: v('f-metaDescription'), keypoints: getKeypoints(),
+    ...(getFootnotes().length && { footnotes: getFootnotes() }),
     ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }),
     articles_lies: getRelatedArticles(), status,
     ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard })
@@ -4138,6 +4180,8 @@ async function togglePreview() {
   let html;
   try { await refreshTemplates(); html = generateArticleHTML(articleData); }
   catch (e) { win.close(); toast('Aperçu impossible : ' + e.message, 'error'); return; }
+  const fnWarning = updateFootnotesWarning();
+  if (fnWarning) toast('⚠️ ' + fnWarning, 'warning', 8000);
   const siteRoot = new URL('./', location.href).href;
   html = html
     .replace('<base href="../../">', '<base href="' + siteRoot + '">\n  <script>window["ga-disable-G-NR52DCZ6ZJ"] = true;<\/script>')

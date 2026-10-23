@@ -1389,6 +1389,54 @@ p:last-child { margin-bottom: 0; }
   text-underline-offset: 3px;
 }
 .article-sources__list a:hover { text-decoration-style: solid; }
+/* Notes de bas de page — appels [^n] et liste (voir renderFootnotes,
+   js/article-template.js). Scopé .fn-ref : les <sup>e</sup> existants
+   dans les articles ne doivent pas changer. */
+.article-body .fn-ref {
+  font-size: .7em;
+  line-height: 0;
+  vertical-align: super;
+  scroll-margin-top: calc(var(--header-h) + var(--catbar-h) + var(--sp-6));
+}
+.article-body .fn-ref a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0 .1em;
+}
+.article-body .fn-ref a:hover { text-decoration: underline; }
+.article-footnotes {
+  margin-top: var(--sp-10);
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--color-border);
+}
+.article-body .article-footnotes__title {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--color-text-muted);
+  margin-bottom: var(--sp-2);
+  font-family: var(--font-body);
+}
+.article-body .article-footnotes__list {
+  padding-left: var(--sp-5);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.65;
+}
+.article-body .article-footnotes__list li {
+  margin-bottom: var(--sp-2);
+  scroll-margin-top: calc(var(--header-h) + var(--catbar-h) + var(--sp-6));
+}
+.article-body .article-footnotes__list li:target { color: var(--color-text); }
+.article-body .article-footnotes__list a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-color: rgba(31,78,107,.3);
+  text-underline-offset: 3px;
+}
+.article-body .article-footnotes__list .fn-back { text-decoration: none; }
 /* Bouton Amazon affilié */
 .btn-amazon {
   display: inline-flex;
