@@ -4216,9 +4216,9 @@ peu claire. Ne changez ni le sens, ni les faits, ni les chiffres, ni l'ordre
 des paragraphes.
 
 Règles impératives :
-1. Ne modifiez que le texte situé entre un marqueur <!-- OUIPSYCHO:DEBUT x -->
-   et son marqueur <!-- OUIPSYCHO:FIN x -->. Ne supprimez, ne renommez et ne
-   déplacez aucun marqueur.
+1. Ne modifiez que le texte situé entre un marqueur « OUIPSYCHO:DEBUT x » et
+   son marqueur « OUIPSYCHO:FIN x » (commentaires HTML plus bas). Ne
+   supprimez, ne renommez et ne déplacez aucun marqueur.
 2. Conservez à l'identique toutes les balises et tous leurs attributs (class,
    id, style, href, target, rel, title, data-…), ainsi que les <iframe>, les
    <script> et leur contenu, les boutons, les SVG et les tableaux.
@@ -4230,7 +4230,8 @@ Règles impératives :
 6. Titre, chapô et meta description sont du texte brut, sans balise. La meta
    description doit rester entre 140 et 160 caractères.
 7. Les sections « points-cles » et « notes » sont des listes : gardez un <li>
-   par élément, dans le même ordre, sans en ajouter ni en retirer.
+   par élément, dans le même ordre, sans en ajouter ni en retirer. Une liste
+   vide (aucun <li>) doit rester vide : n'y écrivez rien.
 8. Une section sans faute reste telle quelle.
 9. Renvoyez le fichier COMPLET, du premier au dernier marqueur, dans un seul
    bloc de code html, puis la liste de vos corrections sous ce bloc.
@@ -4303,7 +4304,10 @@ function parseHtmlImport(src) {
     if (key === 'contenu') {
       fields[key] = body.replace(/^\r?\n/, '').replace(/\r?\n$/, '');
     } else if (key === 'points-cles' || key === 'notes') {
-      fields[key] = [...body.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(m => m[1].trim()).filter(Boolean);
+      // Élément « vide » (espaces, &nbsp;, balises sans texte) ignoré : Claude
+      // remplit parfois une liste vide (article sans notes) d'un <li> vide.
+      fields[key] = [...body.matchAll(/<li\b[^>]*>([\s\S]*?)<\/li>/gi)].map(m => m[1].trim())
+        .filter(x => htmlIoDecode(x.replace(/<[^>]*>/g, '')).replace(/[\s ]+/g, '') !== '');
     } else {
       fields[key] = htmlIoDecode(body).trim();
     }
@@ -4312,14 +4316,42 @@ function parseHtmlImport(src) {
   return { fields, errors };
 }
 
-// Éléments exécutables, extraits tels quels pour comparaison exacte
+// Éléments exécutables, extraits pour comparaison exacte avant/après import.
+// Analyse faite par le parseur HTML du navigateur, dans un document inerte
+// (DOMParser : rien n'y est exécuté ni chargé) — jamais par expressions
+// régulières sur le texte, que le parseur réel lit autrement (incident du
+// 2026-10-23 : le contrôle par regex était contournable).
+// Liste blanche : sont « sensibles » toute balise de HTML_IO_RISKY_TAGS, tout
+// attribut on…, srcdoc, et toute URL dont le schéma n'est pas http(s),
+// mailto ou tel. Les éléments sensibles déjà présents à l'identique (quiz,
+// mini-tests) restent acceptés, voir analyzeHtmlImport.
+const HTML_IO_RISKY_TAGS = new Set(['script', 'iframe', 'frame', 'frameset', 'object', 'embed', 'applet',
+  'meta', 'base', 'link', 'style', 'form', 'portal']);
+const HTML_IO_URL_ATTRS = new Set(['href', 'src', 'srcset', 'action', 'formaction', 'xlink:href', 'data',
+  'poster', 'background', 'cite', 'ping', 'lowsrc', 'dynsrc', 'codebase', 'manifest', 'archive', 'longdesc', 'usemap', 'icon', 'profile']);
+function htmlIoUrlOk(value) {
+  // Le navigateur ignore espaces et caractères de contrôle dans un schéma
+  const v = String(value).replace(/[\u0000- \u007f-\u009f]/g, '');
+  const scheme = v.match(/^([a-z][a-z0-9+.\-]*):/i);
+  return !scheme || /^(https?|mailto|tel)$/i.test(scheme[1]);
+}
 function htmlIoExecutables(html) {
+  const doc = new DOMParser().parseFromString('<!DOCTYPE html><body>' + html, 'text/html');
   const list = [];
-  for (const m of html.matchAll(/<script\b[\s\S]*?<\/script\s*>/gi)) list.push(m[0]);
-  for (const m of html.matchAll(/<(?:iframe|object|embed)\b[^>]*>/gi)) list.push(m[0]);
-  for (const tag of html.matchAll(/<[a-z][^>]*>/gi))
-    for (const a of tag[0].matchAll(/\son[a-z]+\s*=\s*("[^"]*"|'[^']*'|[^\s>]+)/gi)) list.push(a[0].trim());
-  for (const m of html.matchAll(/javascript\s*:/gi)) list.push('javascript:');
+  const walk = root => root.querySelectorAll('*').forEach(el => {
+    const tag = el.localName.toLowerCase();
+    if (HTML_IO_RISKY_TAGS.has(tag)) list.push(el.outerHTML);
+    for (const a of el.attributes) {
+      const name = a.name.toLowerCase();
+      const unsafe = name.startsWith('on') || name === 'srcdoc'
+        || (HTML_IO_URL_ATTRS.has(name) && (name === 'srcset'
+              ? a.value.split(',').some(c => !htmlIoUrlOk(c.trim().split(/\s+/)[0] || ''))
+              : !htmlIoUrlOk(a.value)));
+      if (unsafe) list.push(`<${tag} ${name}="${a.value}">`);
+    }
+    if (tag === 'template') walk(el.content);
+  });
+  walk(doc);
   return list;
 }
 
@@ -4383,7 +4415,8 @@ function analyzeHtmlImport() {
   });
   if (added.length) block.push('élément exécutable ajouté ou modifié (refusé) : ' + added.map(x => x.slice(0, 80)).join(' · '));
   if (fields['notes'] && fields['notes'].length !== cur['notes'].length)
-    block.push(`notes de bas de page : ${cur['notes'].length} avant, ${fields['notes'].length} après — la numérotation [^n] serait décalée`);
+    block.push(`notes de bas de page : ${cur['notes'].length} avant, ${fields['notes'].length} après — la numérotation [^n] serait décalée. ` +
+      `Reçu : ${fields['notes'].map(x => '« ' + x.slice(0, 120) + ' »').join(' ; ') || '(aucune)'}`);
 
   const esc = escapeAttr;
   let h = '';
@@ -4407,7 +4440,8 @@ function analyzeHtmlImport() {
     if (!(k in fields)) { rows.push(`<li>${label} : inchangé</li>`); continue; }
     const changed = fields[k].filter((x, i) => x !== cur[k][i]).length;
     const count = fields[k].length !== cur[k].length
-      ? ` <span style="color:#b45309;font-weight:700">⚠️ ${cur[k].length} avant, ${fields[k].length} après</span>` : '';
+      ? ` <span style="color:#b45309;font-weight:700">⚠️ ${cur[k].length} avant, ${fields[k].length} après</span>` +
+        `<ol style="margin:4px 0 0 18px;color:var(--gray-600)">${fields[k].map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : '';
     rows.push(`<li><strong>${label} : ${changed} élément(s) modifié(s)</strong>${count}</li>`);
   }
   if (!('contenu' in provided)) rows.push(notProvided('Contenu'));
