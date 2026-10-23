@@ -1143,6 +1143,17 @@
               </div>
             </div>
           </div>
+
+          <div class="card">
+            <div class="card-header"><h3>Mention en fin d'article</h3></div>
+            <div class="panel-body">
+              <div class="form-group">
+                <textarea id="f-mention" rows="2" placeholder="Ex. : Les prénoms et certains détails ont été modifiés pour préserver l'anonymat des personnes."></textarea>
+                <div class="hint">Texte brut, affiché en petit sous les sources. Sans numéro ni appel dans le texte : indépendant des notes de bas de page.</div>
+                <button type="button" class="btn btn-ghost" style="margin-top:8px;font-size:.85rem;" onclick="insertAnonymityMention()">+ Insérer la mention d'anonymat</button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- RIGHT: meta -->
@@ -2974,6 +2985,7 @@ function resetEditor() {
   resetKeypoints();
   document.getElementById('f-footnotes').value = '';
   document.getElementById('footnotes-warning').textContent = '';
+  document.getElementById('f-mention').value = '';
   _htmlImportUndo = null; // sinon « Annuler l'import » remettrait un autre article
   document.getElementById('undo-import-btn').style.display = 'none';
   initRelatedPicker([]);
@@ -3032,6 +3044,7 @@ function editArticle(id) {
       renderTags();
       setKeypoints(full.keypoints || []);
       document.getElementById('f-footnotes').value = Array.isArray(full.footnotes) ? full.footnotes.join('\n') : '';
+      document.getElementById('f-mention').value = typeof full.mention === 'string' ? full.mention : '';
       updateFootnotesWarning();
       initRelatedPicker(full.articles_lies || []);
       updateSeoCounter();
@@ -3290,6 +3303,7 @@ async function saveArticle() {
   const metaDesc = document.getElementById('f-metaDescription').value.trim();
   const keypoints    = getKeypoints();
   const footnotes    = getFootnotes();
+  const mention      = document.getElementById('f-mention').value.trim();
   const clustersList = readClustersFromForm();
   const articlesLies = getRelatedArticles();
   const status       = document.getElementById('f-status').value || 'published';
@@ -3320,7 +3334,7 @@ async function saveArticle() {
   const sources     = editingSources.length ? editingSources : undefined;
   const isDossier   = document.getElementById('f-is-dossier')?.checked || false;
   const type        = isDossier ? 'dossier' : 'article';
-  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(footnotes.length && { footnotes }), ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
+  const articleData = { id, title, type, excerpt, content, date, date_modified, category, image, imagePosition, imageZoom, imageGravity, imageLayout, readTime, author, tags, metaDescription: metaDesc, keypoints, ...(footnotes.length && { footnotes }), ...(mention && { mention }), ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }), articles_lies: articlesLies, status, ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard }) };
   // Notes de bas de page : avertissement seulement, l'enregistrement continue
   const fnWarning = updateFootnotesWarning();
   if (fnWarning) toast('⚠️ ' + fnWarning, 'warning', 8000);
@@ -4136,6 +4150,12 @@ function getKeypoints() {
 /* Notes de bas de page — une note par ligne ; [^n] dans le texte appelle la
    n-ième. Rendu et contrôle : js/article-template.js (renderFootnotes /
    footnoteIssues), mêmes règles que la page publique. */
+const ANONYMITY_MENTION = 'Les prénoms et certains détails ont été modifiés pour préserver l’anonymat des personnes.';
+function insertAnonymityMention() {
+  const el = document.getElementById('f-mention');
+  if (el.value.trim() && !confirm('Remplacer la mention actuelle par la mention d’anonymat ?')) return;
+  el.value = ANONYMITY_MENTION;
+}
 function getFootnotes() {
   return (document.getElementById('f-footnotes')?.value || '').split('\n').map(s => s.trim()).filter(Boolean);
 }
@@ -4172,6 +4192,7 @@ const HTML_IO_TEXT_FIELDS = [ // texte brut : échappé à l'export, décodé à
   { key: 'titre',            label: 'Titre',            id: 'f-title' },
   { key: 'chapo',            label: 'Chapô',            id: 'f-excerpt' },
   { key: 'meta-description', label: 'Meta description', id: 'f-metaDescription' },
+  { key: 'mention',          label: 'Mention en fin d’article', id: 'f-mention' },
 ];
 let _htmlImportParsed = null;   // résultat de la dernière analyse valide
 var _htmlImportUndo   = null;   // état de l'éditeur avant le dernier import (var : lu par resetEditor, défini plus haut)
@@ -4201,6 +4222,7 @@ function readHtmlIoFields() {
     'points-cles':      getKeypoints(),
     'contenu':          document.getElementById('f-content').value,
     'notes':            getFootnotes(),
+    'mention':          document.getElementById('f-mention').value,
   };
 }
 
@@ -4227,12 +4249,15 @@ Règles impératives :
 4. N'ajoutez aucun lien, aucune balise, aucun script.
 5. N'écrivez pas d'entités HTML (&nbsp;, &eacute;…) : tapez les caractères
    directement. Laissez celles qui existent déjà.
-6. Titre, chapô et meta description sont du texte brut, sans balise. La meta
-   description doit rester entre 140 et 160 caractères.
+6. Titre, chapô, meta description et mention sont du texte brut, sans balise.
+   La meta description doit rester entre 140 et 160 caractères.
 7. Les sections « points-cles » et « notes » sont des listes : gardez un <li>
    par élément, dans le même ordre, sans en ajouter ni en retirer. Une liste
    vide (aucun <li>) doit rester vide : n'y écrivez rien.
-8. Une section sans faute reste telle quelle.
+8. Une section sans faute reste telle quelle. N'ajoutez aucune note de bas de
+   page. Si un cas de patient vous semble devoir être signalé comme anonymisé,
+   écrivez une phrase courte dans la section « mention » (texte brut), jamais
+   dans les notes.
 9. Renvoyez le fichier COMPLET, du premier au dernier marqueur, dans un seul
    bloc de code html, puis la liste de vos corrections sous ce bloc.
 -->`;
@@ -4261,6 +4286,9 @@ ${htmlIoSection('contenu', '\n' + f['contenu'] + '\n')}
 
 <h2>Notes de bas de page</h2>
 ${htmlIoSection('notes', htmlIoList(f['notes']))}
+
+<h2>Mention en fin d'article</h2>
+<p>${htmlIoSection('mention', htmlIoEscape(f['mention']))}</p>
 </body>
 </html>
 `;
@@ -4291,7 +4319,7 @@ function downloadArticleHtml() {
 // absent de l'import n'est pas dans fields (il restera inchangé).
 function parseHtmlImport(src) {
   const fields = {}, errors = [];
-  const keys = ['titre', 'chapo', 'meta-description', 'points-cles', 'contenu', 'notes'];
+  const keys = ['titre', 'chapo', 'meta-description', 'points-cles', 'contenu', 'notes', 'mention'];
   for (const key of keys) {
     const re = new RegExp(`<!--\\s*OUIPSYCHO:DEBUT ${key}\\s*-->([\\s\\S]*?)<!--\\s*OUIPSYCHO:FIN ${key}\\s*-->`, 'g');
     const found = [...src.matchAll(re)];
@@ -4407,7 +4435,7 @@ function analyzeHtmlImport() {
 
   // Sécurité : tout exécutable importé doit exister à l'identique avant
   const htmlOf = f => [f['contenu'] || '', ...(f['points-cles'] || []), ...(f['notes'] || []),
-    f['titre'] || '', f['chapo'] || '', f['meta-description'] || ''].join('\n');
+    f['titre'] || '', f['chapo'] || '', f['meta-description'] || '', f['mention'] || ''].join('\n');
   const merged = { ...cur, ...fields };
   const before = htmlIoExecutables(htmlOf(cur));
   const added = htmlIoExecutables(htmlOf(merged)).filter(x => {
@@ -4433,7 +4461,7 @@ function analyzeHtmlImport() {
       const L = fields[f.key].length;
       extra = ` <span style="color:${L < 140 || L > 160 ? 'var(--warning)' : 'var(--success)'}">(${L} caractères)</span>`;
     }
-    rows.push(`<li><strong>${f.label} modifié</strong>${extra}<br><span style="color:var(--gray-400);text-decoration:line-through">${esc(cur[f.key])}</span><br>${esc(fields[f.key])}</li>`);
+    rows.push(`<li><strong>${f.label} : modifié</strong>${extra}<br><span style="color:var(--gray-400);text-decoration:line-through">${esc(cur[f.key])}</span><br>${esc(fields[f.key])}</li>`);
   }
   for (const [k, label] of [['points-cles', 'Points clés'], ['notes', 'Notes de bas de page']]) {
     if (!(k in provided)) { rows.push(notProvided(label)); continue; }
@@ -4543,6 +4571,7 @@ async function togglePreview() {
     readTime: parseInt(v('f-readTime')) || 7, author: v('f-author') || 'John Balthazar', tags,
     metaDescription: v('f-metaDescription'), keypoints: getKeypoints(),
     ...(getFootnotes().length && { footnotes: getFootnotes() }),
+    ...(v('f-mention') && { mention: v('f-mention') }),
     ...(sources && { sources }), ...(clustersList.length && { clusters: clustersList }),
     articles_lies: getRelatedArticles(), status,
     ...(editingId && editingQuiz && { quiz: editingQuiz }), ...(editingId && editingQuizCard && { quizCard: editingQuizCard })

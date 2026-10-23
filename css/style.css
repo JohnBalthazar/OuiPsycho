@@ -1437,6 +1437,16 @@ p:last-child { margin-bottom: 0; }
   text-underline-offset: 3px;
 }
 .article-body .article-footnotes__list .fn-back { text-decoration: none; }
+/* Mention de fin d'article (ex. anonymisation), sous les sources — voir
+   mentionHtml, js/article-template.js */
+.article-mention {
+  margin: calc(-1 * var(--sp-2)) 0 var(--sp-6);
+  padding: 0 var(--sp-2);
+  font-size: var(--fs-xs);
+  font-style: italic;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
 /* Bouton Amazon affilié */
 .btn-amazon {
   display: inline-flex;

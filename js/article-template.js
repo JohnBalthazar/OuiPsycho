@@ -457,6 +457,14 @@ ${srcItems}
 `;
     }
 
+    // Mention de fin d'article (ex. anonymisation d'un cas) — champ j.mention,
+    // texte brut échappé, sans numéro ni appel dans le texte : indépendante
+    // des notes de bas de page. Absente = aucun octet ajouté.
+    const mentionText = typeof j.mention === 'string' ? j.mention.trim() : '';
+    const mentionHtml = mentionText
+      ? `        <p class="article-mention">${escCard(mentionText)}</p>\n`
+      : '';
+
     const tagsHtml = (j.tags || []).map(t => `<span class="tag">#${t}</span>`).join(' ');
 
     const navHtml = NAV_CATS.map(nc => {
@@ -710,7 +718,7 @@ ${kpHtml}
         <div class="article-body">
           ${bodyFn.html}${bodyFn.notesHtml}${continueBlockHtml}
         </div>
-${authorBoxHtml}${sourcesHtml}
+${authorBoxHtml}${sourcesHtml}${mentionHtml}
 
         <div class="article-tags" aria-label="Mots-clés">${tagsHtml}</div>
 
