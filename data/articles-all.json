@@ -3504,7 +3504,7 @@
     "id": "roue-des-emotions",
     "title": "La roue des émotions : nommer pour apaiser",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "« Je me sens mal » ne dit pas grand-chose. La roue des émotions, conçue en 1980 par le psychologue Robert Plutchik, offre un vocabulaire précis pour aller au-delà du flou — et nommer précisément change déjà la donne.",
     "date": "2026-10-26",
     "date_modified": "2026-10-26",
     "category": "Émotions & identité",
@@ -3522,13 +3522,13 @@
       "regulation-emotionnelle",
       "vocabulaire-emotionnel"
     ],
-    "metaDescription": "",
+    "metaDescription": "Roue des émotions de Plutchik : origine, fonctionnement, les 8 émotions primaires et leurs combinaisons, et comment l'utiliser au quotidien.",
     "articles_lies": [
       "comprendre-ses-emotions-guide",
       "alexithymie",
       "gerer-sa-colere"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "pourquoi-culpabiliser-quand-on-prend-du-temps-pour-soi",
