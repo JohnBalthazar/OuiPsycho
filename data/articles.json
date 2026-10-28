@@ -1,5 +1,34 @@
 [
   {
+    "id": "coherence-cardiaque-365",
+    "title": "Cohérence cardiaque : la méthode 365 expliquée simplement",
+    "type": "article",
+    "excerpt": "Trois fois par jour, six respirations par minute, cinq minutes : la méthode 365 popularisée par le Dr David O'Hare tient en une formule simple. Voici ce qu'elle fait vraiment au corps, et comment la pratiquer correctement.",
+    "date": "2026-10-28",
+    "date_modified": "2026-10-28",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/asetldd5a7hsv3vlsjzl",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "coherence-cardiaque",
+      "respiration",
+      "gestion-du-stress"
+    ],
+    "metaDescription": "Cohérence cardiaque, méthode 365 : origine, mécanisme physiologique et mode d'emploi pas à pas pour réduire durablement l'anxiété et le stress.",
+    "articles_lies": [
+      "symptomes-physiques-anxiete",
+      "anxiolytiques-effets-alternatives",
+      "anxiete-anticipatoire"
+    ],
+    "status": "published"
+  },
+  {
     "id": "roue-des-emotions",
     "title": "La roue des émotions : nommer pour apaiser",
     "type": "article",
