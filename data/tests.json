@@ -1,5 +1,19 @@
 [
   {
+    "id": "traumatismes-stress-post-traumatique-sequelles-solutions-quiz",
+    "title": "Traumatismes : Post Traumatique, Séquelle et Solutions",
+    "desc": "L'événement est passé, mais quelque chose en vous ne l'a pas quitté ? Le traumatisme psychique est une blessure de la mémoire — réelle,…",
+    "emoji": "🧠",
+    "color": "#6b4e9e",
+    "catLabel": "Troubles Psy",
+    "duration": "5 min",
+    "testUrl": "tests/traumatismes-stress-post-traumatique-sequelles-solutions-quiz.html",
+    "articleUrl": "articles/traumatismes-stress-post-traumatique-sequelles-solutions/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/ddgwnbv0trxatfstgslw",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "arsene-lupin-divan-quiz",
     "title": "Arsène Lupin sur le divan : psychologie d'un gentleman cambrioleur",
     "desc": "Charme, déguisements, vengeance élégante : qu'y a-t-il dans la tête d'Arsène Lupin ? Du dandy de Leblanc à l'Assane Diop d'Omar Sy, on…",
