@@ -164,7 +164,7 @@
     "testUrl": "tests/dr-house-sur-le-divan-quiz.html",
     "articleUrl": "articles/dr-house-sur-le-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kx49foxywhexdt7boea0",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
