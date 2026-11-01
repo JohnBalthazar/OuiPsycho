@@ -1,5 +1,34 @@
 [
   {
+    "id": "manager-toxique-signes",
+    "title": "Manager toxique : 7 signes qui ne trompent pas",
+    "type": "article",
+    "excerpt": "Un manager exigeant pousse son équipe à progresser. Un manager toxique l'épuise, la dévalorise et la fait douter d'elle-même — souvent sans jamais élever la voix. Voici comment faire la différence, et par où commencer pour se protéger.",
+    "date": "2026-11-01",
+    "date_modified": "2026-11-01",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/wpkj3qncw1dpzs1djtqt",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "manager-toxique",
+      "risques-psychosociaux",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "Manager toxique : 7 signes pour le reconnaître, la différence avec un management exigeant, et les démarches concrètes pour se protéger au travail.",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "harcelement-moral-travail",
+      "charge-mentale"
+    ],
+    "status": "published"
+  },
+  {
     "id": "signes-sante-mentale-en-declin",
     "title": "Les 7 signes que votre santé mentale est en déclin",
     "type": "article",
