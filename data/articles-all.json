@@ -3357,7 +3357,7 @@
     "id": "tdah-femme-adulte",
     "title": "TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Diagnostiqué presque exclusivement chez les garçons hyperactifs pendant des décennies, le TDAH féminin reste largement invisible. Ce que la science comprend aujourd'hui de ce retard diagnostique.",
     "date": "2026-11-02",
     "date_modified": "2026-11-02",
     "category": "Troubles Psy",
@@ -3376,13 +3376,13 @@
       "diagnostic-tardif",
       "neurodeveloppement"
     ],
-    "metaDescription": "",
+    "metaDescription": "TDAH chez la femme adulte : critères historiquement biaisés vers les garçons, présentation inattentive, rôle des hormones, pourquoi le diagnostic arrive si tard.",
     "articles_lies": [
       "tdah-trouble-deficit-attention-hyperactivite",
       "fonctions-executives",
       "test-tdah-adulte-asrs"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "manager-toxique-signes",

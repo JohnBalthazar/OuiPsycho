@@ -1,5 +1,35 @@
 [
   {
+    "id": "tdah-femme-adulte",
+    "title": "TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard",
+    "type": "article",
+    "excerpt": "Diagnostiqué presque exclusivement chez les garçons hyperactifs pendant des décennies, le TDAH féminin reste largement invisible. Ce que la science comprend aujourd'hui de ce retard diagnostique.",
+    "date": "2026-11-02",
+    "date_modified": "2026-11-02",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uzyikh6lmwk7bscogna6",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "tdah",
+      "tdah-adulte",
+      "tdah-femme",
+      "diagnostic-tardif",
+      "neurodeveloppement"
+    ],
+    "metaDescription": "TDAH chez la femme adulte : critères historiquement biaisés vers les garçons, présentation inattentive, rôle des hormones, pourquoi le diagnostic arrive si tard.",
+    "articles_lies": [
+      "tdah-trouble-deficit-attention-hyperactivite",
+      "fonctions-executives",
+      "test-tdah-adulte-asrs"
+    ],
+    "status": "published"
+  },
+  {
     "id": "manager-toxique-signes",
     "title": "Manager toxique : 7 signes qui ne trompent pas",
     "type": "article",
