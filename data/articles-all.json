@@ -3330,17 +3330,17 @@
     "title": "Rêves érotiques, orgasme, libido : ce que révèle la grande enquête de Perrine Ruby sur la sexualité des Français",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2026-11-04",
     "date_modified": "2026-11-04",
     "category": "Sexo",
-    "image": "",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uchjdv0vfzybfppe7fov",
+    "hasImage": true,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 8,
+    "author": "John Balthazar",
     "tags": [
       "reves-erotiques",
       "sexualite",
@@ -3349,26 +3349,9 @@
       "perrine-ruby",
       "enquete"
     ],
-    "sources": [
-      {
-        "authors": "Ruby P.",
-        "year": "2025",
-        "title": "Quel est le genre de votre sexualité ?",
-        "journal": "Prépublication, HAL (hal-05405442)",
-        "url": "https://hal.science/hal-05405442"
-      },
-      {
-        "authors": "Ruby P.",
-        "year": "2021",
-        "title": "Rêver pendant le confinement",
-        "journal": "EDP Sciences",
-        "url": "https://www.crnl.fr/fr/actualite/rever-confinement"
-      }
-    ],
-    "clusters": [],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "la-grande-faucheuse-sur-le-divan",
