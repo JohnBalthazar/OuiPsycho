@@ -2895,6 +2895,33 @@
     "status": "scheduled"
   },
   {
+    "id": "refaire-confiance-apres-pervers-narcissique",
+    "title": "Comment (se) refaire confiance après un pervers narcissique ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-28",
+    "date_modified": "2026-11-28",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kiskl4riophei5r5qbgh",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "pervers-narcissique",
+      "emprise",
+      "confiance-en-soi",
+      "psychotraumatisme",
+      "reconstruction"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "psy-rembourse-secu-mon-soutien-psy",
     "title": "Psy remboursé par la Sécu : comment fonctionne Mon soutien psy ?",
     "type": "article",
@@ -2949,33 +2976,6 @@
       "ecrans-lumiere-bleue-sommeil",
       "chronotype-matin-soir"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "refaire-confiance-apres-pervers-narcissique",
-    "title": "Comment (se) refaire confiance après un pervers narcissique ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-11-26",
-    "date_modified": "2026-11-26",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kiskl4riophei5r5qbgh",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "pervers-narcissique",
-      "emprise",
-      "confiance-en-soi",
-      "psychotraumatisme",
-      "reconstruction"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
