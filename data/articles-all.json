@@ -300,6 +300,75 @@
     "hasImage": false
   },
   {
+    "id": "trauma-de-guerre-quand-consulter",
+    "title": "Stress ou traumatisme de guerre ? Les repères pour savoir quand consulter",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2027-06-18",
+    "date_modified": "2027-06-18",
+    "category": "Troubles Psy",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "tags": [
+      "psychotraumatisme",
+      "tspt",
+      "stress-post-traumatique",
+      "guerre",
+      "consulter",
+      "soins"
+    ],
+    "sources": [
+      {
+        "authors": "Charlson F., van Ommeren M., Flaxman A., Cornett J., Whiteford H. & Saxena S.",
+        "year": "2019",
+        "title": "New WHO prevalence estimates of mental disorders in conflict settings: a systematic review and meta-analysis",
+        "journal": "The Lancet, 394(10194), 240-248",
+        "url": "https://doi.org/10.1016/S0140-6736(19)30934-1"
+      },
+      {
+        "authors": "Crocq L. (dir.)",
+        "year": "2014",
+        "title": "Traumatismes psychiques. Prise en charge psychologique des victimes (2e édition)",
+        "journal": "Elsevier Masson"
+      },
+      {
+        "authors": "Lebigot F.",
+        "year": "2016",
+        "title": "Traiter les traumatismes psychiques. Clinique et prise en charge (3e édition)",
+        "journal": "Dunod"
+      },
+      {
+        "authors": "Centre national de ressources et de résilience (CN2R)",
+        "year": "2022",
+        "title": "Repérer, accompagner et orienter les patients atteints de trouble de stress post-traumatique (TSPT). Recommandation médecins généralistes",
+        "journal": "CN2R"
+      },
+      {
+        "authors": "Leroy A., Warembourg F., Duhem S., Fovet T., Gaud N., Veerapa E., Porte A., D'Hondt F. & Vaiva G.",
+        "year": "2023",
+        "title": "Traitements pharmacologiques dans le trouble de stress post-traumatique : la nécessité d'une stratégie globale",
+        "journal": "Annales médico-psychologiques",
+        "url": "https://doi.org/10.1016/j.amp.2023.06.010"
+      },
+      {
+        "authors": "Service d'information du Gouvernement",
+        "year": "2026",
+        "title": "Mon soutien psy : 12 séances remboursées, conditions et accès",
+        "journal": "info.gouv.fr"
+      }
+    ],
+    "clusters": [],
+    "articles_lies": [],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "type": "article",
