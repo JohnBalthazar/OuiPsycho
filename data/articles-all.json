@@ -3178,6 +3178,37 @@
     "status": "scheduled"
   },
   {
+    "id": "se-debarrasser-anxiete-pour-toujours",
+    "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-08",
+    "date_modified": "2026-11-08",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n01u6yhddt99koqqmj1j",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "anxiete",
+      "troubles-anxieux",
+      "tcc",
+      "gestion-du-stress",
+      "sante-mentale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "anxiolytiques-effets-alternatives",
+      "trouble-anxieux-generalise",
+      "coherence-cardiaque-365"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "charge-mentale",
     "title": "Charge mentale : la définir, la mesurer, la répartir",
     "type": "article",
@@ -3261,37 +3292,6 @@
       "tdah-trouble-deficit-attention-hyperactivite",
       "tdah-femme-adulte",
       "tdah-adulte-commencer-sans-jamais-finir"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "se-debarrasser-anxiete-pour-toujours",
-    "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-11-05",
-    "date_modified": "2026-11-05",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/n01u6yhddt99koqqmj1j",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 9,
-    "author": "John Balthazar",
-    "tags": [
-      "anxiete",
-      "troubles-anxieux",
-      "tcc",
-      "gestion-du-stress",
-      "sante-mentale"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "anxiolytiques-effets-alternatives",
-      "trouble-anxieux-generalise",
-      "coherence-cardiaque-365"
     ],
     "status": "scheduled"
   },
