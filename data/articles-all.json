@@ -175,17 +175,17 @@
     "title": "Angoisse de guerre : suivre l'actualité sans s'y noyer",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2027-06-18",
     "date_modified": "2027-06-18",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "guerre",
       "anxiete",
@@ -194,64 +194,82 @@
       "ecrans",
       "stress"
     ],
-    "sources": [
-      {
-        "authors": "Ifop pour LCI",
-        "year": "2025",
-        "title": "Le regard des Français sur le conflit entre l'Ukraine et la Russie et ses conséquences en France",
-        "journal": "Ifop",
-        "url": "https://www.ifop.com/wp-content/uploads/2025/11/122090-resultats-debat-soiree.pdf"
-      },
-      {
-        "authors": "Elabe pour BFMTV",
-        "year": "2025",
-        "title": "Les Français, l'Europe et la guerre",
-        "journal": "Elabe",
-        "url": "https://elabe.fr/wp-content/uploads/2025/05/07052025_elabe_bfmtv_les-francais-leurope-et-la-guerre.pdf"
-      },
-      {
-        "authors": "Boulonne S., Gault G., Ginolin S. & Medioni D.",
-        "year": "2026",
-        "title": "Quatre pays face à la fatigue informationnelle",
-        "journal": "Fondation Jean-Jaurès, L'ObSoCo, Arte et Cafeyn",
-        "url": "https://www.jean-jaures.org/publication/quatre-pays-face-a-la-fatigue-informationnelle/"
-      },
-      {
-        "authors": "du Roscoät E., Robert M., Stene L.E., Motreff Y., Vandentorren S. & Pirard P.",
-        "year": "2018",
-        "title": "Les attentats de novembre 2015 à Paris : exposition aux images par les médias et symptômes de stress post-traumatique",
-        "journal": "Bulletin épidémiologique hebdomadaire, n° 38-39, 781-787",
-        "url": "https://www.santepubliquefrance.fr/regions-et-territoires/ile-de-france/article/les-attentats-de-novembre-2015-a-paris-exposition-aux-images-par-les-medias-et-symptomes-de-stress"
-      },
-      {
-        "authors": "Holman E.A., Garfin D.R. & Silver R.C.",
-        "year": "2014",
-        "title": "Media's role in broadcasting acute stress following the Boston Marathon bombings",
-        "journal": "Proceedings of the National Academy of Sciences, 111(1), 93-98",
-        "url": "https://doi.org/10.1073/pnas.1316265110"
-      }
-    ],
-    "clusters": [],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
+  },
+  {
+    "id": "exil-guerre-accueillir-refugies",
+    "title": "Exilés de guerre : ce qu'ils traversent, et comment bien les accueillir",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-06-18",
+    "date_modified": "2027-06-18",
+    "category": "Société",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "John Balthazar",
+    "tags": [
+      "guerre",
+      "exil",
+      "refugies",
+      "psychotraumatisme",
+      "accueil",
+      "langue-maternelle"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
+    "id": "guide-survie-psychique-guerre",
+    "title": "Guide de survie psychique en temps de guerre : le couteau suisse pour tenir le coup",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-06-18",
+    "date_modified": "2027-06-18",
+    "category": "Société",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "guerre",
+      "stress",
+      "resilience",
+      "anxiete",
+      "psychotraumatisme",
+      "sante-mentale"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
   },
   {
     "id": "parler-de-la-guerre-aux-enfants",
     "title": "Parler de la guerre aux enfants : que dire, comment, à quel âge",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2027-06-18",
     "date_modified": "2027-06-18",
     "category": "Relations",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 6,
+    "author": "John Balthazar",
     "tags": [
       "guerre",
       "enfants",
@@ -260,61 +278,54 @@
       "ecrans",
       "adolescents"
     ],
-    "sources": [
-      {
-        "authors": "Romano H.",
-        "year": "2022",
-        "title": "Les Enfants et la guerre",
-        "journal": "Odile Jacob"
-      },
-      {
-        "authors": "UNICEF Suisse et Liechtenstein",
-        "year": "s. d.",
-        "title": "Parler de la guerre. 9 conseils sur la manière de parler de la guerre et des conflits avec les enfants",
-        "journal": "UNICEF Suisse et Liechtenstein"
-      },
-      {
-        "authors": "Baubet T.",
-        "year": "2026",
-        "title": "Accueillir des enfants arrivant d'Ukraine ou d'autres zones de guerre (ressource vidéo)",
-        "journal": "Eduscol, ministère de l'Éducation nationale",
-        "url": "https://eduscol.education.gouv.fr/6279/accueillir-des-enfants-arrivant-d-ukraine-ou-d-autres-zones-de-guerre"
-      },
-      {
-        "authors": "Centre national de ressources et de résilience (CN2R)",
-        "year": "2026",
-        "title": "Guerres, traumatismes et résilience",
-        "journal": "Santé.fr",
-        "url": "https://www.sante.fr/node/5102415"
-      },
-      {
-        "authors": "Service d'information du Gouvernement",
-        "year": "2026",
-        "title": "Mon soutien psy : 12 séances remboursées, conditions et accès",
-        "journal": "info.gouv.fr"
-      }
-    ],
-    "clusters": [],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
+  },
+  {
+    "id": "trauma-de-guerre-quand-consulter",
+    "title": "Stress ou traumatisme de guerre ? Les repères pour savoir quand consulter",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-06-18",
+    "date_modified": "2027-06-18",
+    "category": "Troubles Psy",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "psychotraumatisme",
+      "tspt",
+      "stress-post-traumatique",
+      "guerre",
+      "consulter",
+      "soins"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
   },
   {
     "id": "vivre-sous-les-bombes-sante-mentale",
     "title": "Vivre sous les bombes : ce que racontent les civils, de Kyiv à Beyrouth",
     "type": "article",
     "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
     "date": "2027-06-18",
     "date_modified": "2027-06-18",
     "category": "Société",
     "image": "",
+    "hasImage": false,
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
     "readTime": 5,
+    "author": "John Balthazar",
     "tags": [
       "guerre",
       "ukraine",
@@ -323,54 +334,9 @@
       "stress",
       "temoignages"
     ],
-    "sources": [
-      {
-        "authors": "Xu W., Pavlova I., Chen X., Petrytsa P., Graf-Vlachy L. & Zhang S.X.",
-        "year": "2023",
-        "title": "Mental health symptoms and coping strategies among Ukrainians during the Russia-Ukraine war in March 2022",
-        "journal": "International Journal of Social Psychiatry, 69(4), 957-966",
-        "url": "https://doi.org/10.1177/00207640221143919"
-      },
-      {
-        "authors": "Lafond J.",
-        "year": "2026",
-        "title": "Les Libanais « épuisés de survivre » : l'autre coût de la guerre",
-        "journal": "La Libre Belgique",
-        "url": "https://www.lalibre.be/international/moyen-orient/2026/06/15/les-libanais-epuises-de-survivre-lautre-cout-de-la-guerre-RJBM6N2Q3BH5FFVVIPOPWXXIYY/"
-      },
-      {
-        "authors": "Ginot E.",
-        "year": "2025",
-        "title": "Privés de sommeil par les drones russes : le quotidien impossible des Ukrainiens",
-        "journal": "Slate.fr",
-        "url": "https://www.slate.fr/monde/prives-sommeil-drones-russes-quotidien-impossible-ukrainiens-kiev-civils-fatigue-bombardements-guerre-russie"
-      },
-      {
-        "authors": "ONU Info",
-        "year": "2025",
-        "title": "Nuits blanches, deuils et violences sexuelles : la santé mentale des Ukrainiens en péril",
-        "journal": "Nations Unies",
-        "url": "https://news.un.org/fr/story/2025/09/1157422"
-      },
-      {
-        "authors": "Le Temps",
-        "year": "2023",
-        "title": "Samah Jabr et Tuly Flint, la Palestinienne et l'Israélien au chevet des traumatisés",
-        "journal": "Le Temps (Genève)",
-        "url": "https://www.letemps.ch/articles/samah-jabr-et-tuly-flint-la-palestinienne-et-l-israelien-au-chevet-des-traumatises"
-      },
-      {
-        "authors": "Le Quotidien du médecin",
-        "year": "2023",
-        "title": "Dinah Ayna, psychologue clinicienne palestinienne : « La justice rendue est l'un des principaux facteurs de l'amélioration de la santé mentale d'une victime »",
-        "journal": "Le Quotidien du médecin",
-        "url": "https://www.lequotidiendumedecin.fr/sante-societe/letranger/dinah-ayna-psychologue-clinicienne-palestinienne-la-justice-rendue-est-lun-des-principaux-facteurs"
-      }
-    ],
-    "clusters": [],
+    "metaDescription": "",
     "articles_lies": [],
-    "status": "scheduled",
-    "hasImage": false
+    "status": "scheduled"
   },
   {
     "id": "lamour-est-il-une-arnaque",
@@ -3528,6 +3494,36 @@
     "status": "scheduled"
   },
   {
+    "id": "interview-perrine-ruby-reves-erotiques",
+    "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-04",
+    "date_modified": "2026-11-04",
+    "category": "Sexo",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "author": "John Balthazar",
+    "tags": [
+      "perrine-ruby",
+      "interview",
+      "reves-erotiques",
+      "sexualite",
+      "orgasme",
+      "reves-lucides"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "reves-erotiques-enquete-perrine-ruby"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "reves-erotiques-enquete-perrine-ruby",
     "title": "Rêves érotiques, orgasme, libido : ce que révèle la grande enquête de Perrine Ruby sur la sexualité des Français",
     "type": "article",
@@ -3554,53 +3550,6 @@
     "metaDescription": "",
     "articles_lies": [],
     "status": "scheduled"
-  },
-  {
-    "id": "interview-perrine-ruby-reves-erotiques",
-    "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
-    "type": "article",
-    "excerpt": "",
-    "metaDescription": "",
-    "author": "John Balthazar",
-    "date": "2026-11-04",
-    "date_modified": "2026-11-04",
-    "category": "Sexo",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "tags": [
-      "perrine-ruby",
-      "interview",
-      "reves-erotiques",
-      "sexualite",
-      "orgasme",
-      "reves-lucides"
-    ],
-    "sources": [
-      {
-        "authors": "Ruby P.",
-        "year": "2025",
-        "title": "Quel est le genre de votre sexualité ?",
-        "journal": "Prépublication, HAL (hal-05405442)",
-        "url": "https://hal.science/hal-05405442"
-      },
-      {
-        "authors": "Ruby P.",
-        "year": "2021",
-        "title": "Rêver pendant le confinement",
-        "journal": "EDP Sciences",
-        "url": "https://www.crnl.fr/fr/actualite/rever-confinement"
-      }
-    ],
-    "clusters": [],
-    "articles_lies": [
-      "reves-erotiques-enquete-perrine-ruby"
-    ],
-    "status": "scheduled",
-    "hasImage": false
   },
   {
     "id": "la-grande-faucheuse-sur-le-divan",
