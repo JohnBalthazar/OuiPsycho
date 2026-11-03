@@ -699,12 +699,26 @@ function buildTOC() {
   // <base href="../../"> présente dans les pages statiques d'articles :
   // sans préfixe, href="#s0" serait résolu en ../../#s0 (= page d'accueil).
   const pageBase = window.location.href.split('#')[0];
+  // Les H3 sont imbriqués dans un <ul> sous leur H2 : laissés au même niveau
+  // dans le <ol>, ils incrémentaient la numérotation (1, puis 8, 9…).
   let html = '<h3 class="widget__title">Table des matières</h3><ol>';
+  let liOpen = false, subOpen = false;
   headings.forEach((h, i) => {
     const id = `s${i}`;
     h.id = id;
-    html += `<li${h.tagName==='H3' ? ' class="sub"' : ''}><a href="${pageBase}#${id}">${h.textContent}</a></li>`;
+    const link = `<a href="${pageBase}#${id}">${h.textContent}</a>`;
+    if (h.tagName === 'H3' && liOpen) {
+      if (!subOpen) { html += '<ul>'; subOpen = true; }
+      html += `<li class="sub">${link}</li>`;
+      return;
+    }
+    if (subOpen) { html += '</ul>'; subOpen = false; }
+    if (liOpen) html += '</li>';
+    html += `<li>${link}`;
+    liOpen = true;
   });
+  if (subOpen) html += '</ul>';
+  if (liOpen) html += '</li>';
   toc.innerHTML = html + '</ol>';
 }
 
