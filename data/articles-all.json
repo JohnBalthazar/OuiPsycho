@@ -3121,6 +3121,36 @@
     "status": "scheduled"
   },
   {
+    "id": "styles-attachement",
+    "title": "Styles d'attachement : anxieux, évitant, sécure ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-11",
+    "date_modified": "2026-11-11",
+    "category": "Relations",
+    "image": "",
+    "hasImage": false,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "attachement",
+      "psychologie-du-couple",
+      "estime-de-soi"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "dependance-affective",
+      "pourquoi-tomber-amoureux-du-meme-type-de-personne",
+      "love-bombing"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "jesus-sur-le-divan",
     "title": "Jésus sur le divan : psychologie d'un messie",
     "type": "article",
@@ -3292,36 +3322,6 @@
       "tdah-trouble-deficit-attention-hyperactivite",
       "tdah-femme-adulte",
       "tdah-adulte-commencer-sans-jamais-finir"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "styles-attachement",
-    "title": "Styles d'attachement : anxieux, évitant, sécure ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-11-04",
-    "date_modified": "2026-11-04",
-    "category": "Relations",
-    "image": "",
-    "hasImage": false,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "relations",
-      "attachement",
-      "psychologie-du-couple",
-      "estime-de-soi"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "dependance-affective",
-      "pourquoi-tomber-amoureux-du-meme-type-de-personne",
-      "love-bombing"
     ],
     "status": "scheduled"
   },
