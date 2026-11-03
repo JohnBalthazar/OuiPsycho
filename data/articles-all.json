@@ -300,67 +300,71 @@
     "hasImage": false
   },
   {
-    "id": "trauma-de-guerre-quand-consulter",
-    "title": "Stress ou traumatisme de guerre ? Les repères pour savoir quand consulter",
+    "id": "vivre-sous-les-bombes-sante-mentale",
+    "title": "Vivre sous les bombes : ce que racontent les civils, de Kyiv à Beyrouth",
     "type": "article",
     "excerpt": "",
     "metaDescription": "",
     "author": "John Balthazar",
     "date": "2027-06-18",
     "date_modified": "2027-06-18",
-    "category": "Troubles Psy",
+    "category": "Société",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 4,
+    "readTime": 5,
     "tags": [
-      "psychotraumatisme",
-      "tspt",
-      "stress-post-traumatique",
       "guerre",
-      "consulter",
-      "soins"
+      "ukraine",
+      "liban",
+      "sommeil",
+      "stress",
+      "temoignages"
     ],
     "sources": [
       {
-        "authors": "Charlson F., van Ommeren M., Flaxman A., Cornett J., Whiteford H. & Saxena S.",
-        "year": "2019",
-        "title": "New WHO prevalence estimates of mental disorders in conflict settings: a systematic review and meta-analysis",
-        "journal": "The Lancet, 394(10194), 240-248",
-        "url": "https://doi.org/10.1016/S0140-6736(19)30934-1"
-      },
-      {
-        "authors": "Crocq L. (dir.)",
-        "year": "2014",
-        "title": "Traumatismes psychiques. Prise en charge psychologique des victimes (2e édition)",
-        "journal": "Elsevier Masson"
-      },
-      {
-        "authors": "Lebigot F.",
-        "year": "2016",
-        "title": "Traiter les traumatismes psychiques. Clinique et prise en charge (3e édition)",
-        "journal": "Dunod"
-      },
-      {
-        "authors": "Centre national de ressources et de résilience (CN2R)",
-        "year": "2022",
-        "title": "Repérer, accompagner et orienter les patients atteints de trouble de stress post-traumatique (TSPT). Recommandation médecins généralistes",
-        "journal": "CN2R"
-      },
-      {
-        "authors": "Leroy A., Warembourg F., Duhem S., Fovet T., Gaud N., Veerapa E., Porte A., D'Hondt F. & Vaiva G.",
+        "authors": "Xu W., Pavlova I., Chen X., Petrytsa P., Graf-Vlachy L. & Zhang S.X.",
         "year": "2023",
-        "title": "Traitements pharmacologiques dans le trouble de stress post-traumatique : la nécessité d'une stratégie globale",
-        "journal": "Annales médico-psychologiques",
-        "url": "https://doi.org/10.1016/j.amp.2023.06.010"
+        "title": "Mental health symptoms and coping strategies among Ukrainians during the Russia-Ukraine war in March 2022",
+        "journal": "International Journal of Social Psychiatry, 69(4), 957-966",
+        "url": "https://doi.org/10.1177/00207640221143919"
       },
       {
-        "authors": "Service d'information du Gouvernement",
+        "authors": "Lafond J.",
         "year": "2026",
-        "title": "Mon soutien psy : 12 séances remboursées, conditions et accès",
-        "journal": "info.gouv.fr"
+        "title": "Les Libanais « épuisés de survivre » : l'autre coût de la guerre",
+        "journal": "La Libre Belgique",
+        "url": "https://www.lalibre.be/international/moyen-orient/2026/06/15/les-libanais-epuises-de-survivre-lautre-cout-de-la-guerre-RJBM6N2Q3BH5FFVVIPOPWXXIYY/"
+      },
+      {
+        "authors": "Ginot E.",
+        "year": "2025",
+        "title": "Privés de sommeil par les drones russes : le quotidien impossible des Ukrainiens",
+        "journal": "Slate.fr",
+        "url": "https://www.slate.fr/monde/prives-sommeil-drones-russes-quotidien-impossible-ukrainiens-kiev-civils-fatigue-bombardements-guerre-russie"
+      },
+      {
+        "authors": "ONU Info",
+        "year": "2025",
+        "title": "Nuits blanches, deuils et violences sexuelles : la santé mentale des Ukrainiens en péril",
+        "journal": "Nations Unies",
+        "url": "https://news.un.org/fr/story/2025/09/1157422"
+      },
+      {
+        "authors": "Le Temps",
+        "year": "2023",
+        "title": "Samah Jabr et Tuly Flint, la Palestinienne et l'Israélien au chevet des traumatisés",
+        "journal": "Le Temps (Genève)",
+        "url": "https://www.letemps.ch/articles/samah-jabr-et-tuly-flint-la-palestinienne-et-l-israelien-au-chevet-des-traumatises"
+      },
+      {
+        "authors": "Le Quotidien du médecin",
+        "year": "2023",
+        "title": "Dinah Ayna, psychologue clinicienne palestinienne : « La justice rendue est l'un des principaux facteurs de l'amélioration de la santé mentale d'une victime »",
+        "journal": "Le Quotidien du médecin",
+        "url": "https://www.lequotidiendumedecin.fr/sante-societe/letranger/dinah-ayna-psychologue-clinicienne-palestinienne-la-justice-rendue-est-lun-des-principaux-facteurs"
       }
     ],
     "clusters": [],
