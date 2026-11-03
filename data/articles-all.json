@@ -237,43 +237,48 @@
     "hasImage": false
   },
   {
-    "id": "exil-guerre-accueillir-refugies",
-    "title": "Exilés de guerre : ce qu'ils traversent, et comment bien les accueillir",
+    "id": "parler-de-la-guerre-aux-enfants",
+    "title": "Parler de la guerre aux enfants : que dire, comment, à quel âge",
     "type": "article",
     "excerpt": "",
     "metaDescription": "",
     "author": "John Balthazar",
     "date": "2027-06-18",
     "date_modified": "2027-06-18",
-    "category": "Société",
+    "category": "Relations",
     "image": "",
     "imagePosition": "50% 50%",
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 5,
+    "readTime": 6,
     "tags": [
       "guerre",
-      "exil",
-      "refugies",
-      "psychotraumatisme",
-      "accueil",
-      "langue-maternelle"
+      "enfants",
+      "parentalite",
+      "anxiete",
+      "ecrans",
+      "adolescents"
     ],
     "sources": [
       {
-        "authors": "Papazian-Zohrabian G., Mamprin C., Lemire V. & Turpin-Samson A.",
-        "year": "2018",
-        "title": "Prendre en compte l'expérience pré-, péri- et post-migratoire des élèves réfugiés afin de favoriser leur accueil et leur expérience socioscolaire",
-        "journal": "Alterstice, 8(2), 101-116",
-        "url": "https://doi.org/10.7202/1066956ar"
+        "authors": "Romano H.",
+        "year": "2022",
+        "title": "Les Enfants et la guerre",
+        "journal": "Odile Jacob"
       },
       {
-        "authors": "Leleux I. & Chérel M.",
+        "authors": "UNICEF Suisse et Liechtenstein",
+        "year": "s. d.",
+        "title": "Parler de la guerre. 9 conseils sur la manière de parler de la guerre et des conflits avec les enfants",
+        "journal": "UNICEF Suisse et Liechtenstein"
+      },
+      {
+        "authors": "Baubet T.",
         "year": "2026",
-        "title": "Adolescence, guerre, trauma : enjeux cliniques de l'interprétariat et perspectives psychothérapeutiques. À propos d'une adolescente ukrainienne en exil",
-        "journal": "Neuropsychiatrie de l'enfance et de l'adolescence, 74(3), 134-141",
-        "url": "https://doi.org/10.1016/j.neurenf.2025.12.007"
+        "title": "Accueillir des enfants arrivant d'Ukraine ou d'autres zones de guerre (ressource vidéo)",
+        "journal": "Eduscol, ministère de l'Éducation nationale",
+        "url": "https://eduscol.education.gouv.fr/6279/accueillir-des-enfants-arrivant-d-ukraine-ou-d-autres-zones-de-guerre"
       },
       {
         "authors": "Centre national de ressources et de résilience (CN2R)",
@@ -283,18 +288,10 @@
         "url": "https://www.sante.fr/node/5102415"
       },
       {
-        "authors": "Organisation mondiale de la Santé, War Trauma Foundation & World Vision International",
-        "year": "2012",
-        "title": "Les premiers secours psychologiques : guide pour les travailleurs humanitaires sur le terrain",
-        "journal": "OMS",
-        "url": "https://www.who.int/europe/fr/publications/i/item/9789241548205"
-      },
-      {
-        "authors": "Baubet T.",
+        "authors": "Service d'information du Gouvernement",
         "year": "2026",
-        "title": "Accueillir des enfants arrivant d'Ukraine ou d'autres zones de guerre (ressource vidéo)",
-        "journal": "Eduscol, ministère de l'Éducation nationale",
-        "url": "https://eduscol.education.gouv.fr/6279/accueillir-des-enfants-arrivant-d-ukraine-ou-d-autres-zones-de-guerre"
+        "title": "Mon soutien psy : 12 séances remboursées, conditions et accès",
+        "journal": "info.gouv.fr"
       }
     ],
     "clusters": [],
