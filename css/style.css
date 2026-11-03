@@ -1344,6 +1344,20 @@ p:last-child { margin-bottom: 0; }
 .article-body .txt-font-titre { font-family: var(--font-heading); }
 .article-body .txt-font-serif { font-family: Georgia, 'Times New Roman', serif; }
 .article-body .txt-font-mono  { font-family: 'Courier New', Courier, monospace; }
+/* Polices supplémentaires : liste EDITOR_FONTS de js/article-template.js
+   (même pile de polices), chargées seulement sur l'article qui les utilise */
+.article-body .txt-font-lato         { font-family: 'Lato', sans-serif; }
+.article-body .txt-font-montserrat   { font-family: 'Montserrat', sans-serif; }
+.article-body .txt-font-raleway      { font-family: 'Raleway', sans-serif; }
+.article-body .txt-font-poppins      { font-family: 'Poppins', sans-serif; }
+.article-body .txt-font-opensans     { font-family: 'Open Sans', sans-serif; }
+.article-body .txt-font-merriweather { font-family: 'Merriweather', Georgia, serif; }
+.article-body .txt-font-lora         { font-family: 'Lora', Georgia, serif; }
+.article-body .txt-font-garamond     { font-family: 'EB Garamond', Georgia, serif; }
+.article-body .txt-font-cormorant    { font-family: 'Cormorant Garamond', Georgia, serif; }
+.article-body .txt-font-caveat       { font-family: 'Caveat', cursive; }
+.article-body .txt-font-dancing      { font-family: 'Dancing Script', cursive; }
+.article-body .txt-font-courierprime { font-family: 'Courier Prime', 'Courier New', monospace; }
 /* Encart « Vu sur le terrain » (anecdote) — posé depuis l'éditeur (poulet.html) */
 .article-body .terrain {
   margin: var(--sp-8) 0;

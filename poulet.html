@@ -1085,7 +1085,7 @@
                       <option value="lg">Grand</option>
                       <option value="xl">Très grand</option>
                     </select>
-                    <select onchange="wysTxtClass('font', this.value); this.selectedIndex = 0" title="Police du texte sélectionné">
+                    <select id="wys-font-select" onchange="wysTxtClass('font', this.value); this.selectedIndex = 0" title="Police du texte sélectionné">
                       <option value="" selected disabled hidden>Police</option>
                       <option value="normal">Par défaut</option>
                       <option value="sans">Nunito</option>
@@ -5335,7 +5335,24 @@ function wysLink() {
 
 /* Taille / police : <span class="txt-size-*"> ou <span class="txt-font-*"> sur la sélection.
    Les classes sont définies dans css/style.css (.article-body) et dans le <style> de cette page. */
-const WYS_TXT_VALUES = { size: ['sm', 'lg', 'xl'], font: ['sans', 'titre', 'serif', 'mono'] };
+const WYS_TXT_VALUES = { size: ['sm', 'lg', 'xl'], font: ['sans', 'titre', 'serif', 'mono', ...ArticleTemplate.EDITOR_FONTS.map(f => f.key)] };
+
+// Polices supplémentaires (EDITOR_FONTS, js/article-template.js) : options du
+// menu, styles de l'éditeur et chargement Google Fonts tirés de la même liste.
+// Ici toutes sont déclarées ; le navigateur ne télécharge que celles affichées.
+(function initEditorFonts() {
+  const fonts = ArticleTemplate.EDITOR_FONTS;
+  const sel = document.getElementById('wys-font-select');
+  for (const f of fonts) {
+    const o = document.createElement('option');
+    o.value = f.key; o.textContent = f.label; o.style.fontFamily = f.stack;
+    sel.appendChild(o);
+  }
+  const style = document.createElement('style');
+  style.textContent = fonts.map(f => `.txt-font-${f.key} { font-family: ${f.stack}; }`).join('\n');
+  document.head.appendChild(style);
+  document.head.insertAdjacentHTML('beforeend', ArticleTemplate.extraFontsLink(null, true));
+})();
 const WYS_MARK = '__wys_mark__';
 let _wysSavedRange = null;
 

@@ -45,6 +45,36 @@
   const ROBOTS_INDEXABLE = 'index, follow, max-image-preview:large';
   const ROBOTS_INDEXABLE_VALUES = Object.freeze(['index, follow', ROBOTS_INDEXABLE]);
 
+  // Polices supplémentaires du menu « Police » de l'éditeur (poulet.html) :
+  // classe txt-font-<clé> posée sur un <span>. Liste définie ici seulement —
+  // poulet en tire ses options, ses styles et son chargement. Les règles
+  // .article-body .txt-font-<clé> de css/style.css sont à garder alignées.
+  // Sur le site, une police n'est chargée que sur l'article qui l'utilise
+  // (extraFontsLink) : un article sans police spéciale ne pèse rien de plus.
+  const EDITOR_FONTS = Object.freeze([
+    { key: 'lato',         label: 'Lato',               stack: "'Lato', sans-serif",               gf: 'Lato:ital,wght@0,400;0,700;1,400' },
+    { key: 'montserrat',   label: 'Montserrat',         stack: "'Montserrat', sans-serif",         gf: 'Montserrat:ital,wght@0,400;0,700;1,400' },
+    { key: 'raleway',      label: 'Raleway',            stack: "'Raleway', sans-serif",            gf: 'Raleway:ital,wght@0,400;0,700;1,400' },
+    { key: 'poppins',      label: 'Poppins',            stack: "'Poppins', sans-serif",            gf: 'Poppins:ital,wght@0,400;0,700;1,400' },
+    { key: 'opensans',     label: 'Open Sans',          stack: "'Open Sans', sans-serif",          gf: 'Open+Sans:ital,wght@0,400;0,700;1,400' },
+    { key: 'merriweather', label: 'Merriweather',       stack: "'Merriweather', Georgia, serif",   gf: 'Merriweather:ital,wght@0,400;0,700;1,400' },
+    { key: 'lora',         label: 'Lora',               stack: "'Lora', Georgia, serif",           gf: 'Lora:ital,wght@0,400;0,700;1,400' },
+    { key: 'garamond',     label: 'EB Garamond',        stack: "'EB Garamond', Georgia, serif",    gf: 'EB+Garamond:ital,wght@0,400;0,700;1,400' },
+    { key: 'cormorant',    label: 'Cormorant Garamond', stack: "'Cormorant Garamond', Georgia, serif", gf: 'Cormorant+Garamond:ital,wght@0,400;0,700;1,400' },
+    { key: 'caveat',       label: 'Caveat',             stack: "'Caveat', cursive",                gf: 'Caveat:wght@400;700' },
+    { key: 'dancing',      label: 'Dancing Script',     stack: "'Dancing Script', cursive",        gf: 'Dancing+Script:wght@400;700' },
+    { key: 'courierprime', label: 'Courier Prime',      stack: "'Courier Prime', 'Courier New', monospace", gf: 'Courier+Prime:ital,wght@0,400;0,700;1,400' },
+  ]);
+
+  // <link> Google Fonts des seules polices EDITOR_FONTS présentes dans
+  // l'article (chaîne vide si aucune). `all` : toutes (usage poulet).
+  function extraFontsLink(j, all) {
+    const src = all ? '' : JSON.stringify(j || {});
+    const used = EDITOR_FONTS.filter(f => all || new RegExp('txt-font-' + f.key + '(?![a-z])').test(src));
+    if (!used.length) return '';
+    return `\n  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?${used.map(f => 'family=' + f.gf).join('&')}&display=swap">`;
+  }
+
   // Variante d'une image Cloudinary : remplace le segment de transformation
   // (ex. "f_auto,q_auto,w_1200") par `transform`. Toute URL non Cloudinary
   // (ou sans /upload/) est renvoyée telle quelle. Passer par ce helper pour
@@ -601,7 +631,7 @@ ${srcItems}
   <link rel="icon" type="image/png" href="img/logo-brain.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;600;700;800&display=swap">${extraFontsLink(j)}
   <link rel="stylesheet" href="css/style.css">
   <!-- Google Consent Mode v2 (RGPD/Europe) -->
   <script>
@@ -820,5 +850,5 @@ ${authorBoxHtml}${sourcesHtml}${mentionHtml}
 `;
   }
 
-  return { buildArticleHTML, footnoteIssues, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard, cloudinaryVariant, ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES };
+  return { buildArticleHTML, footnoteIssues, EDITOR_FONTS, extraFontsLink, resolveAuthor, authorPagePath, personLd, parisMidnightIso, fmtDate, escCard, cloudinaryVariant, ROBOTS_INDEXABLE, ROBOTS_INDEXABLE_VALUES };
 });
