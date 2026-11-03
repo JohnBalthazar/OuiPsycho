@@ -2070,6 +2070,33 @@
     "status": "scheduled"
   },
   {
+    "id": "depression-ce-nest-pas-une-fatalite",
+    "title": "Dépression : ce n'est pas une fatalité",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-01-02",
+    "date_modified": "2027-01-02",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/etrpv8ospcqjweg6vlbi",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 16,
+    "author": "John Balthazar",
+    "tags": [
+      "depression",
+      "tcc",
+      "psychanalyse",
+      "sante-mentale",
+      "therapies"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "chronotype-matin-soir",
     "title": "Chronotype : lève-tôt, couche-tard ou entre les deux ?",
     "type": "article",
@@ -2097,33 +2124,6 @@
       "sieste-duree-ideale",
       "dette-de-sommeil"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "depression-ce-nest-pas-une-fatalite",
-    "title": "Dépression : ce n'est pas une fatalité",
-    "type": "article",
-    "excerpt": "",
-    "date": "2027-01-01",
-    "date_modified": "2027-01-01",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/etrpv8ospcqjweg6vlbi",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 16,
-    "author": "John Balthazar",
-    "tags": [
-      "depression",
-      "tcc",
-      "psychanalyse",
-      "sante-mentale",
-      "therapies"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
