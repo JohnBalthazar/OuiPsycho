@@ -3371,6 +3371,53 @@
     "hasImage": false
   },
   {
+    "id": "interview-perrine-ruby-reves-erotiques",
+    "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-11-04",
+    "date_modified": "2026-11-04",
+    "category": "Sexo",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 6,
+    "tags": [
+      "perrine-ruby",
+      "interview",
+      "reves-erotiques",
+      "sexualite",
+      "orgasme",
+      "reves-lucides"
+    ],
+    "sources": [
+      {
+        "authors": "Ruby P.",
+        "year": "2025",
+        "title": "Quel est le genre de votre sexualité ?",
+        "journal": "Prépublication, HAL (hal-05405442)",
+        "url": "https://hal.science/hal-05405442"
+      },
+      {
+        "authors": "Ruby P.",
+        "year": "2021",
+        "title": "Rêver pendant le confinement",
+        "journal": "EDP Sciences",
+        "url": "https://www.crnl.fr/fr/actualite/rever-confinement"
+      }
+    ],
+    "clusters": [],
+    "articles_lies": [
+      "reves-erotiques-enquete-perrine-ruby"
+    ],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "la-grande-faucheuse-sur-le-divan",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
     "type": "article",
