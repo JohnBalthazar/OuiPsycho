@@ -1,34 +1,5 @@
 [
   {
-    "id": "interview-perrine-ruby-reves-erotiques",
-    "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
-    "type": "article",
-    "excerpt": "Rêves érotiques peuplés de partenaires, culpabilité nocturne, orgasme à deux et tabous tenaces : la neuroscientifique Perrine Ruby répond à nos questions sur sa grande enquête consacrée à la sexualité des Français.",
-    "date": "2026-11-03",
-    "date_modified": "2026-11-03",
-    "category": "Sexo",
-    "image": "",
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 6,
-    "author": "John Balthazar",
-    "tags": [
-      "perrine-ruby",
-      "interview",
-      "reves-erotiques",
-      "sexualite",
-      "orgasme",
-      "reves-lucides"
-    ],
-    "metaDescription": "Interview de Perrine Ruby, neuroscientifique (Inserm, CRNL) : rêves érotiques, infidélité en rêve, orgasme, rêves lucides et écrans. Ses réponses.",
-    "articles_lies": [
-      "reves-erotiques-enquete-perrine-ruby"
-    ],
-    "status": "published"
-  },
-  {
     "id": "la-grande-faucheuse-sur-le-divan",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
     "type": "article",
