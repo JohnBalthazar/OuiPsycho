@@ -1,5 +1,32 @@
 [
   {
+    "id": "la-grande-faucheuse-sur-le-divan",
+    "title": "La grande faucheuse sur le divan : psychologie de la mort",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-03",
+    "date_modified": "2026-11-03",
+    "category": "Les monstres sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jvawn9aupgegipsww8sp",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 5,
+    "author": "John Balthazar",
+    "tags": [
+      "mort",
+      "deuil",
+      "angoisse existentielle",
+      "gestion de la terreur",
+      "Kübler-Ross",
+      "Yalom"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "tdah-femme-adulte",
     "title": "TDAH chez la femme adulte : pourquoi le diagnostic arrive si tard",
     "type": "article",
@@ -2089,7 +2116,7 @@
   },
   {
     "id": "pourquoi-certaines-personnes-ne-repondent-plus-aux-messages",
-    "title": "Pourquoi on ne répond plus à vos messages ? Ce que cache le silence",
+    "title": "Il ne répond plus à mes messages : 6 raisons (et quoi faire)",
     "type": "article",
     "excerpt": "Message vu. Pas de réponse. Et votre cerveau, privé d'information, se met à en fabriquer — toutes catastrophiques. Voici ce qui se passe réellement de l'autre côté de l'écran, et c'est rarement ce que vous imaginez.",
     "date": "2026-08-19",
