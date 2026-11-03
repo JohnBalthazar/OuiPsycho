@@ -1,5 +1,19 @@
 [
   {
+    "id": "la-grande-faucheuse-sur-le-divan-quiz",
+    "title": "La grande faucheuse sur le divan : psychologie de la mort",
+    "desc": "Le seul monstre certain de venir nous chercher. Théorie de la gestion de la terreur, deuil, angoisse existentielle : ce que la psychologie…",
+    "emoji": "👹",
+    "color": "#7a3b3b",
+    "catLabel": "Les monstres sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/la-grande-faucheuse-sur-le-divan-quiz.html",
+    "articleUrl": "articles/la-grande-faucheuse-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/jvawn9aupgegipsww8sp",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "traumatismes-stress-post-traumatique-sequelles-solutions-quiz",
     "title": "Traumatismes : Post Traumatique, Séquelle et Solutions",
     "desc": "L'événement est passé, mais quelque chose en vous ne l'a pas quitté ? Le traumatisme psychique est une blessure de la mémoire — réelle,…",
