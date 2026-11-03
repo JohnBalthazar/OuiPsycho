@@ -2070,6 +2070,36 @@
     "status": "scheduled"
   },
   {
+    "id": "syndrome-imposteur",
+    "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-01-04",
+    "date_modified": "2027-01-04",
+    "category": "Travail",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kfdgaiug6zlapbdzxh2e",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "travail",
+      "syndrome-imposteur",
+      "confiance-en-soi",
+      "souffrance-au-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "souffrance-au-travail-guide",
+      "manager-toxique-signes",
+      "charge-mentale"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "test-tdah-adulte-asrs",
     "title": "Test TDAH adulte : ce que mesure l'ASRS (et ses limites)",
     "type": "article",
@@ -2154,36 +2184,6 @@
       "bien-dormir-guide-complet",
       "sieste-duree-ideale",
       "dette-de-sommeil"
-    ],
-    "status": "scheduled"
-  },
-  {
-    "id": "syndrome-imposteur",
-    "title": "Syndrome de l'imposteur : 8 signes et comment s'en sortir",
-    "type": "article",
-    "excerpt": "",
-    "date": "2027-01-01",
-    "date_modified": "2027-01-01",
-    "category": "Travail",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kfdgaiug6zlapbdzxh2e",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 8,
-    "author": "John Balthazar",
-    "tags": [
-      "travail",
-      "syndrome-imposteur",
-      "confiance-en-soi",
-      "souffrance-au-travail"
-    ],
-    "metaDescription": "",
-    "articles_lies": [
-      "souffrance-au-travail-guide",
-      "manager-toxique-signes",
-      "charge-mentale"
     ],
     "status": "scheduled"
   },
