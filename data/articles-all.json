@@ -171,8 +171,8 @@
     "status": "scheduled"
   },
   {
-    "id": "guide-survie-psychique-guerre",
-    "title": "Guide de survie psychique en temps de guerre : le couteau suisse pour tenir le coup",
+    "id": "angoisse-de-guerre-actualite",
+    "title": "Angoisse de guerre : suivre l'actualité sans s'y noyer",
     "type": "article",
     "excerpt": "",
     "metaDescription": "",
@@ -185,49 +185,36 @@
     "imageZoom": 1,
     "imageGravity": "none",
     "imageLayout": "top",
-    "readTime": 8,
+    "readTime": 5,
     "tags": [
       "guerre",
-      "stress",
-      "resilience",
       "anxiete",
-      "psychotraumatisme",
-      "sante-mentale"
+      "actualite",
+      "fatigue-informationnelle",
+      "ecrans",
+      "stress"
     ],
     "sources": [
       {
-        "authors": "Charlson F., van Ommeren M., Flaxman A., Cornett J., Whiteford H. & Saxena S.",
-        "year": "2019",
-        "title": "New WHO prevalence estimates of mental disorders in conflict settings: a systematic review and meta-analysis",
-        "journal": "The Lancet, 394(10194), 240-248",
-        "url": "https://doi.org/10.1016/S0140-6736(19)30934-1"
-      },
-      {
-        "authors": "Crocq L. (dir.)",
-        "year": "2014",
-        "title": "Traumatismes psychiques. Prise en charge psychologique des victimes (2e édition)",
-        "journal": "Elsevier Masson"
-      },
-      {
-        "authors": "Organisation mondiale de la Santé, War Trauma Foundation & World Vision International",
-        "year": "2012",
-        "title": "Les premiers secours psychologiques : guide pour les travailleurs humanitaires sur le terrain",
-        "journal": "OMS",
-        "url": "https://www.who.int/europe/fr/publications/i/item/9789241548205"
-      },
-      {
-        "authors": "Centre national de ressources et de résilience (CN2R)",
-        "year": "2026",
-        "title": "Guerres, traumatismes et résilience",
-        "journal": "Santé.fr",
-        "url": "https://www.sante.fr/node/5102415"
-      },
-      {
-        "authors": "Secrétariat général de la défense et de la sécurité nationale (SGDSN)",
+        "authors": "Ifop pour LCI",
         "year": "2025",
-        "title": "Tous responsables. Face aux risques, agissons",
-        "journal": "Ministère de la Transition écologique (présentation du guide)",
-        "url": "https://www.ecologie.gouv.fr/actualites/guide-tous-responsables-comment-se-preparer-aux-risques-majeurs"
+        "title": "Le regard des Français sur le conflit entre l'Ukraine et la Russie et ses conséquences en France",
+        "journal": "Ifop",
+        "url": "https://www.ifop.com/wp-content/uploads/2025/11/122090-resultats-debat-soiree.pdf"
+      },
+      {
+        "authors": "Elabe pour BFMTV",
+        "year": "2025",
+        "title": "Les Français, l'Europe et la guerre",
+        "journal": "Elabe",
+        "url": "https://elabe.fr/wp-content/uploads/2025/05/07052025_elabe_bfmtv_les-francais-leurope-et-la-guerre.pdf"
+      },
+      {
+        "authors": "Boulonne S., Gault G., Ginolin S. & Medioni D.",
+        "year": "2026",
+        "title": "Quatre pays face à la fatigue informationnelle",
+        "journal": "Fondation Jean-Jaurès, L'ObSoCo, Arte et Cafeyn",
+        "url": "https://www.jean-jaures.org/publication/quatre-pays-face-a-la-fatigue-informationnelle/"
       },
       {
         "authors": "du Roscoät E., Robert M., Stene L.E., Motreff Y., Vandentorren S. & Pirard P.",
@@ -235,6 +222,13 @@
         "title": "Les attentats de novembre 2015 à Paris : exposition aux images par les médias et symptômes de stress post-traumatique",
         "journal": "Bulletin épidémiologique hebdomadaire, n° 38-39, 781-787",
         "url": "https://www.santepubliquefrance.fr/regions-et-territoires/ile-de-france/article/les-attentats-de-novembre-2015-a-paris-exposition-aux-images-par-les-medias-et-symptomes-de-stress"
+      },
+      {
+        "authors": "Holman E.A., Garfin D.R. & Silver R.C.",
+        "year": "2014",
+        "title": "Media's role in broadcasting acute stress following the Boston Marathon bombings",
+        "journal": "Proceedings of the National Academy of Sciences, 111(1), 93-98",
+        "url": "https://doi.org/10.1073/pnas.1316265110"
       }
     ],
     "clusters": [],
