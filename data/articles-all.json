@@ -3497,7 +3497,7 @@
     "id": "interview-perrine-ruby-reves-erotiques",
     "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Rêves érotiques peuplés de partenaires, culpabilité nocturne, orgasme à deux et tabous tenaces : la neuroscientifique Perrine Ruby répond à nos questions sur sa grande enquête consacrée à la sexualité des Français.",
     "date": "2026-11-04",
     "date_modified": "2026-11-04",
     "category": "Sexo",
@@ -3517,17 +3517,17 @@
       "orgasme",
       "reves-lucides"
     ],
-    "metaDescription": "",
+    "metaDescription": "Interview de Perrine Ruby, neuroscientifique (Inserm, CRNL) : rêves érotiques, infidélité en rêve, orgasme, rêves lucides et écrans. Ses réponses.",
     "articles_lies": [
       "reves-erotiques-enquete-perrine-ruby"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "reves-erotiques-enquete-perrine-ruby",
     "title": "Rêves érotiques, orgasme, libido : ce que révèle la grande enquête de Perrine Ruby sur la sexualité des Français",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Les hommes rêvent deux fois plus de sexe que les femmes, qui jouissent pourtant aussi facilement qu'eux… en solo. La neuroscientifique Perrine Ruby a interrogé 1 000 Français sur leur sexualité et leurs rêves érotiques : un état des lieux chiffré, réjouissant et piquant.",
     "date": "2026-11-04",
     "date_modified": "2026-11-04",
     "category": "Sexo",
@@ -3547,9 +3547,9 @@
       "perrine-ruby",
       "enquete"
     ],
-    "metaDescription": "",
+    "metaDescription": "Rêves érotiques, orgasme, libido : les chiffres clés de l'enquête de Perrine Ruby (Inserm) sur la sexualité de 1 000 Français, et ce qu'ils révèlent.",
     "articles_lies": [],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "la-grande-faucheuse-sur-le-divan",
