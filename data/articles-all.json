@@ -339,6 +339,33 @@
     "status": "scheduled"
   },
   {
+    "id": "psychologie-positive-peut-elle-nous-sauver",
+    "title": "La psychologie positive peut-elle nous sauver ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2027-06-15",
+    "date_modified": "2027-06-15",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kq49fi0vsefmqclnfhz2",
+    "hasImage": true,
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "psychologie-positive",
+      "bien-etre",
+      "gratitude",
+      "resilience",
+      "developpement-personnel"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "lamour-est-il-une-arnaque",
     "title": "L'amour est-il une arnaque ?",
     "type": "article",
@@ -3434,33 +3461,6 @@
       "burnout-epuisement-professionnel",
       "syndrome-imposteur"
     ],
-    "status": "scheduled"
-  },
-  {
-    "id": "psychologie-positive-peut-elle-nous-sauver",
-    "title": "La psychologie positive peut-elle nous sauver ?",
-    "type": "article",
-    "excerpt": "",
-    "date": "2026-11-06",
-    "date_modified": "2026-11-06",
-    "category": "Troubles Psy",
-    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/kq49fi0vsefmqclnfhz2",
-    "hasImage": true,
-    "imagePosition": "50% 50%",
-    "imageZoom": 1,
-    "imageGravity": "none",
-    "imageLayout": "top",
-    "readTime": 9,
-    "author": "John Balthazar",
-    "tags": [
-      "psychologie-positive",
-      "bien-etre",
-      "gratitude",
-      "resilience",
-      "developpement-personnel"
-    ],
-    "metaDescription": "",
-    "articles_lies": [],
     "status": "scheduled"
   },
   {
