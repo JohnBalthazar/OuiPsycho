@@ -1,5 +1,34 @@
 [
   {
+    "id": "fonctions-executives",
+    "title": "Fonctions exécutives : le chef d'orchestre fatigué du cerveau",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-05",
+    "date_modified": "2026-11-05",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/k9qfgy2wvwbplglf0yg4",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "fonctions-executives",
+      "tdah",
+      "neuropsychologie",
+      "memoire-de-travail"
+    ],
+    "metaDescription": "",
+    "articles_lies": [
+      "tdah-trouble-deficit-attention-hyperactivite",
+      "tdah-femme-adulte",
+      "tdah-adulte-commencer-sans-jamais-finir"
+    ],
+    "status": "scheduled"
+  },
+  {
     "id": "interview-perrine-ruby-reves-erotiques",
     "title": "Perrine Ruby : « Le chemin vers l'extase, c'est la parole »",
     "type": "article",
