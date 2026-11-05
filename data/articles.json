@@ -3,7 +3,7 @@
     "id": "fonctions-executives",
     "title": "Fonctions exécutives : le chef d'orchestre fatigué du cerveau",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Mémoire de travail, inhibition, planification : les fonctions exécutives orchestrent nos actions au quotidien. Comprendre ce système éclaire pourquoi le TDAH n'est pas qu'un problème d'attention.",
     "date": "2026-11-05",
     "date_modified": "2026-11-05",
     "category": "Troubles Psy",
@@ -20,13 +20,13 @@
       "neuropsychologie",
       "memoire-de-travail"
     ],
-    "metaDescription": "",
+    "metaDescription": "Fonctions exécutives : définition, modèle de Barkley, mémoire de travail et inhibition, et pourquoi le TDAH est avant tout un trouble de l'autorégulation.",
     "articles_lies": [
       "tdah-trouble-deficit-attention-hyperactivite",
       "tdah-femme-adulte",
       "tdah-adulte-commencer-sans-jamais-finir"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "interview-perrine-ruby-reves-erotiques",
