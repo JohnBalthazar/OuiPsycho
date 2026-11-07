@@ -1,5 +1,19 @@
 [
   {
+    "id": "charge-mentale-quiz",
+    "title": "Charge mentale : la définir, la mesurer, la répartir",
+    "desc": "Ce n'est pas une tâche de plus sur la liste : c'est le fait de devoir penser à toutes les autres, en permanence, même sans les accomplir.…",
+    "emoji": "🧠",
+    "color": "#1F4E6B",
+    "catLabel": "Travail",
+    "duration": "5 min",
+    "testUrl": "tests/charge-mentale-quiz.html",
+    "articleUrl": "articles/charge-mentale/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cwm85pry11r4ff6upfz5",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "la-grande-faucheuse-sur-le-divan-quiz",
     "title": "La grande faucheuse sur le divan : psychologie de la mort",
     "desc": "Le seul monstre certain de venir nous chercher. Théorie de la gestion de la terreur, deuil, angoisse existentielle : ce que la psychologie…",
@@ -122,7 +136,7 @@
     "testUrl": "tests/ducobu-sur-le-divan-psychologie-cancre-quiz.html",
     "articleUrl": "articles/ducobu-sur-le-divan-psychologie-cancre/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/xilxv5rolndjmmny0tha",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

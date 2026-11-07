@@ -3437,7 +3437,7 @@
     "id": "charge-mentale",
     "title": "Charge mentale : la définir, la mesurer, la répartir",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Ce n'est pas une tâche de plus sur la liste : c'est le fait de devoir penser à toutes les autres, en permanence, même sans les accomplir. La charge mentale épuise sans qu'on puisse toujours la nommer — au travail comme à la maison.",
     "date": "2026-11-07",
     "date_modified": "2026-11-07",
     "category": "Travail",
@@ -3455,13 +3455,13 @@
       "souffrance-au-travail",
       "risques-psychosociaux"
     ],
-    "metaDescription": "",
+    "metaDescription": "Charge mentale : définition, origine du concept, signes d'alerte au travail et pistes concrètes pour la mesurer et la répartir plus équitablement.",
     "articles_lies": [
       "souffrance-au-travail-guide",
       "burnout-epuisement-professionnel",
       "syndrome-imposteur"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "fonctions-executives",
