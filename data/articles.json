@@ -1,5 +1,34 @@
 [
   {
+    "id": "punition-par-le-silence",
+    "title": "La punition par le silence : pourquoi elle fait si mal",
+    "type": "article",
+    "excerpt": "Un mur. Plus un mot, plus un regard, parfois pendant des jours. Le silence punitif n'est pas « juste » un conflit qui traîne : la recherche le classe parmi les comportements qui prédisent le mieux une rupture.",
+    "date": "2026-11-09",
+    "date_modified": "2026-11-09",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/y6mxg8glamktlladhabu",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "punition-par-le-silence",
+      "stonewalling",
+      "communication"
+    ],
+    "metaDescription": "Punition par le silence (stonewalling) : ce qu'en dit la recherche de John Gottman, pourquoi elle fait si mal, et comment y faire face en couple.",
+    "articles_lies": [
+      "gaslighting-manipulation",
+      "relation-toxique-signes",
+      "violences-psychologiques-couple"
+    ],
+    "status": "published"
+  },
+  {
     "id": "se-debarrasser-anxiete-pour-toujours",
     "title": "Peut-on se débarrasser pour toujours de l'anxiété ?",
     "type": "article",
