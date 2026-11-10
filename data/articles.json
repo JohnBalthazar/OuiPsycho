@@ -1,5 +1,31 @@
 [
   {
+    "id": "jesus-sur-le-divan",
+    "title": "Jésus sur le divan : psychologie d'un messie",
+    "type": "article",
+    "excerpt": "Charisme magnétique, empathie radicale, foules en délire : et si on allongeait Jésus sur le divan ? Sans toucher à la foi de personne, plongée dans la psychologie du leader le plus célèbre de l'Histoire — et dans nos propres besoins de croire.",
+    "date": "2026-11-10",
+    "date_modified": "2026-11-10",
+    "category": "Nos héros sur le divan",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/nuhwrrdkakvfywksibyz",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 9,
+    "author": "John Balthazar",
+    "tags": [
+      "charisme",
+      "messianisme",
+      "dissonance cognitive",
+      "psychologie sociale",
+      "religion et psychologie"
+    ],
+    "metaDescription": "Charisme, dissonance cognitive, sociologie du messianisme : et si on mettait Jésus sur le divan ? Une analyse psychologique sérieuse (et un brin taquine).",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "punition-par-le-silence",
     "title": "La punition par le silence : pourquoi elle fait si mal",
     "type": "article",
