@@ -1,5 +1,19 @@
 [
   {
+    "id": "styles-attachement-quiz",
+    "title": "Styles d'attachement : anxieux, évitant, sécure ?",
+    "desc": "Pourquoi certaines personnes ont besoin de réassurance constante, d'autres prennent leurs distances dès que ça devient sérieux, et d'autres…",
+    "emoji": "💬",
+    "color": "#b5546a",
+    "catLabel": "Relations",
+    "duration": "5 min",
+    "testUrl": "tests/styles-attachement-quiz.html",
+    "articleUrl": "articles/styles-attachement/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zfnstskn4pckicr0pwoi",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "jesus-sur-le-divan-quiz",
     "title": "Jésus sur le divan : psychologie d'un messie",
     "desc": "Charisme magnétique, empathie radicale, foules en délire : et si on allongeait Jésus sur le divan ? Sans toucher à la foi de personne,…",
@@ -136,7 +150,7 @@
     "testUrl": "tests/dependance-affective-quiz.html",
     "articleUrl": "articles/dependance-affective/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zgeaknazbckc6h70pnq0",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {

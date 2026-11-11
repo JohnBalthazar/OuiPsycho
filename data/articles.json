@@ -1,5 +1,34 @@
 [
   {
+    "id": "styles-attachement",
+    "title": "Styles d'attachement : anxieux, évitant, sécure ?",
+    "type": "article",
+    "excerpt": "Pourquoi certaines personnes ont besoin de réassurance constante, d'autres prennent leurs distances dès que ça devient sérieux, et d'autres encore semblent naturellement à l'aise dans l'intimité ? La théorie de l'attachement a une explication.",
+    "date": "2026-11-11",
+    "date_modified": "2026-11-11",
+    "category": "Relations",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/zfnstskn4pckicr0pwoi",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "relations",
+      "attachement",
+      "psychologie-du-couple",
+      "estime-de-soi"
+    ],
+    "metaDescription": "Styles d'attachement amoureux (sécure, anxieux, évitant) : origine de la théorie, comment ils se manifestent en couple, et peut-on en changer.",
+    "articles_lies": [
+      "dependance-affective",
+      "pourquoi-tomber-amoureux-du-meme-type-de-personne",
+      "love-bombing"
+    ],
+    "status": "published"
+  },
+  {
     "id": "jesus-sur-le-divan",
     "title": "Jésus sur le divan : psychologie d'un messie",
     "type": "article",
