@@ -3292,8 +3292,8 @@
     "id": "ia-generative-risques-cognitifs-dependance-rapport-experts",
     "title": "L'IA générative comporte notamment des risques d'ordre cognitif et de dépendance (rapport d'experts)",
     "type": "article",
-    "excerpt": "Deux psychiatres et une chercheuse en IA viennent de remettre à l'Élysée un rapport sur nos vulnérabilités face aux chatbots. « Dette cognitive », flatterie, attachement à sens unique : lecture commentée par un infirmier en psychiatrie.",
-    "metaDescription": "Dette cognitive, flatterie, attachement : ce que dit le rapport d'experts remis à l'Élysée sur les risques psychologiques de l'IA générative.",
+    "excerpt": "",
+    "metaDescription": "",
     "author": "John Balthazar",
     "date": "2026-11-13",
     "date_modified": "2026-11-13",
@@ -3398,7 +3398,7 @@
       }
     ],
     "articles_lies": [],
-    "status": "published",
+    "status": "scheduled",
     "hasImage": false
   },
   {
