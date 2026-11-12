@@ -3289,6 +3289,119 @@
     "status": "scheduled"
   },
   {
+    "id": "ia-generative-risques-cognitifs-dependance-rapport-experts",
+    "title": "L'IA générative comporte notamment des risques d'ordre cognitif et de dépendance (rapport d'experts)",
+    "type": "article",
+    "excerpt": "",
+    "metaDescription": "",
+    "author": "John Balthazar",
+    "date": "2026-11-13",
+    "date_modified": "2026-11-13",
+    "category": "Société",
+    "image": "",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 10,
+    "tags": [
+      "intelligence-artificielle",
+      "ia-generative",
+      "dependance",
+      "cognition",
+      "chatbots",
+      "adolescents",
+      "sante-mentale"
+    ],
+    "sources": [
+      {
+        "authors": "Commission « IA générative et vulnérabilités » (Benyamina A., Gaillard R. & Villata S., coprésidents)",
+        "year": "2026",
+        "title": "Protéger sans empêcher : nos vulnérabilités à l'ère de l'IA générative",
+        "publisher": "Conseil de l'intelligence artificielle et du numérique (CIANum)",
+        "url": "https://www.elysee.fr/admin/upload/default/0001/20/eaaf28c592b0cc1e10cdeaa5ba0c0e9f4d746543.pdf"
+      },
+      {
+        "authors": "Arcep, Arcom, CGE & ANCT",
+        "year": "2026",
+        "title": "Baromètre du numérique – édition 2026",
+        "publisher": "Arcep"
+      },
+      {
+        "authors": "Groupe VYV & CNIL",
+        "year": "2026",
+        "title": "L'impact des usages de l'IA sur la santé mentale des jeunes Européens",
+        "publisher": "Groupe VYV / CNIL"
+      },
+      {
+        "authors": "YouGov pour Interface",
+        "year": "2026",
+        "title": "Parents et adolescents face à l'IA générative",
+        "publisher": "Interface"
+      },
+      {
+        "authors": "Bonnot O., Mouhoud T., Shadili G. & Gollier-Briant F.",
+        "year": "2026",
+        "title": "Intelligence artificielle et psychiatrie de l'enfant et de l'adolescent : revue critique des usages, preuves et enjeux relationnels",
+        "journal": "L'Encéphale"
+      },
+      {
+        "authors": "Hefez S.",
+        "year": "2026",
+        "title": "Mon nounours — mon IA — et moi",
+        "publisher": "Le Grand Continent"
+      },
+      {
+        "authors": "Benyamina A. (entretien)",
+        "year": "2026",
+        "title": "Santé mentale : « l'IA peut devenir un sas d'enfermement »",
+        "publisher": "info.gouv.fr",
+        "url": "https://www.info.gouv.fr/actualite/sante-mentale-l-ia-peut-devenir-un-sas-d-enfermement"
+      },
+      {
+        "authors": "Kosmyna N., Hauptmann E., Yuan Y. T., Situ J., Liao X.-H., Beresnitzky A. V., Braunstein I. & Maes P.",
+        "year": "2025",
+        "title": "Your Brain on ChatGPT: Accumulation of Cognitive Debt when Using an AI Assistant for Essay Writing Task",
+        "journal": "MIT Media Lab (prépublication arXiv)",
+        "url": "https://arxiv.org/abs/2506.08872"
+      },
+      {
+        "authors": "Cheng M., Lee C., Khadpe P., Yu S., Han D. & Jurafsky D.",
+        "year": "2026",
+        "title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+        "journal": "Science"
+      },
+      {
+        "authors": "Ibrahim L., Hafner F. S. & Rocher L.",
+        "year": "2026",
+        "title": "Training Language Models to Be Warm Can Reduce Accuracy and Increase Sycophancy",
+        "journal": "Nature"
+      },
+      {
+        "authors": "Fang C. M., Liu A. R., Danry V., Lee E., Chan S. W. T., Pataranutaporn P., Maes P. et al.",
+        "year": "2025",
+        "title": "How AI and Human Behaviors Shape Psychosocial Effects of Extended Chatbot Use: A Longitudinal Controlled Study",
+        "journal": "MIT Media Lab"
+      },
+      {
+        "authors": "Sparrow B., Liu J. & Wegner D. M.",
+        "year": "2011",
+        "title": "Google Effects on Memory: Cognitive Consequences of Having Information at Our Fingertips",
+        "journal": "Science",
+        "url": "https://doi.org/10.1126/science.1207745"
+      },
+      {
+        "authors": "De Simone M. E., Tiberti F. H., Barron Rodriguez M. R., Manolio F. A., Mosuro W. & Dikoru E. J.",
+        "year": "2025",
+        "title": "From Chalkboards to Chatbots: Evaluating the Impact of Generative AI on Learning Outcomes in Nigeria",
+        "publisher": "Banque mondiale"
+      }
+    ],
+    "articles_lies": [],
+    "status": "scheduled",
+    "hasImage": false
+  },
+  {
     "id": "ia-peut-elle-pousser-au-suicide",
     "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
     "type": "article",
