@@ -1,5 +1,31 @@
 [
   {
+    "id": "ia-peut-elle-pousser-au-suicide",
+    "title": "Une IA peut-elle pousser quelqu'un au suicide ?",
+    "type": "article",
+    "excerpt": "",
+    "date": "2026-11-12",
+    "date_modified": "2026-11-12",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/am8xyp51zccbjxi5qozc",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 11,
+    "author": "John Balthazar",
+    "tags": [
+      "intelligence-artificielle",
+      "prevention-suicide",
+      "sante-mentale",
+      "adolescents",
+      "ecrans-et-numerique"
+    ],
+    "metaDescription": "",
+    "articles_lies": [],
+    "status": "scheduled"
+  },
+  {
     "id": "styles-attachement",
     "title": "Styles d'attachement : anxieux, évitant, sécure ?",
     "type": "article",
