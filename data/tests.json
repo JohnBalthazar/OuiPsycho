@@ -136,7 +136,7 @@
     "testUrl": "tests/bart-simpson-divan-tdah-quiz.html",
     "articleUrl": "articles/bart-simpson-divan-tdah/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uu076razwkpifdteak2o",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
