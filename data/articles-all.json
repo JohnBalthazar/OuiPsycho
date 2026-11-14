@@ -3261,7 +3261,7 @@
     "id": "autisme-adulte-diagnostic-tardif",
     "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "De plus en plus d'adultes, souvent des femmes, découvrent leur autisme après des décennies de vie sans réponse. Pourquoi ce diagnostic arrive si tard — et ce qu'il change une fois posé.",
     "date": "2026-11-14",
     "date_modified": "2026-11-14",
     "category": "Troubles Psy",
@@ -3280,13 +3280,13 @@
       "adulte-autiste",
       "camouflage"
     ],
-    "metaDescription": "",
+    "metaDescription": "Autisme diagnostiqué à l'âge adulte : pourquoi le repérage arrive si tard, le rôle du camouflage social, et ce qui change après le diagnostic.",
     "articles_lies": [
       "hpi-invisible-identification-tardive-adulte",
       "tdah-femme-adulte",
       "diagnostic-tdah-france"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "ia-generative-risques-cognitifs-dependance-rapport-experts",

@@ -1,5 +1,35 @@
 [
   {
+    "id": "autisme-adulte-diagnostic-tardif",
+    "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
+    "type": "article",
+    "excerpt": "De plus en plus d'adultes, souvent des femmes, découvrent leur autisme après des décennies de vie sans réponse. Pourquoi ce diagnostic arrive si tard — et ce qu'il change une fois posé.",
+    "date": "2026-11-14",
+    "date_modified": "2026-11-14",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/knw9tiefbveyy1z1r1nr",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 4,
+    "author": "John Balthazar",
+    "tags": [
+      "autisme",
+      "tsa",
+      "diagnostic-tardif",
+      "adulte-autiste",
+      "camouflage"
+    ],
+    "metaDescription": "Autisme diagnostiqué à l'âge adulte : pourquoi le repérage arrive si tard, le rôle du camouflage social, et ce qui change après le diagnostic.",
+    "articles_lies": [
+      "hpi-invisible-identification-tardive-adulte",
+      "tdah-femme-adulte",
+      "diagnostic-tdah-france"
+    ],
+    "status": "published"
+  },
+  {
     "id": "ia-generative-risques-cognitifs-dependance-rapport-experts",
     "title": "L'IA générative comporte notamment des risques d'ordre cognitif et de dépendance (rapport d'experts)",
     "type": "article",
