@@ -1,5 +1,19 @@
 [
   {
+    "id": "comment-survivre-a-une-rupture-quiz",
+    "title": "Comment survivre à une rupture ?",
+    "desc": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du…",
+    "emoji": "🧠",
+    "color": "#6b4e9e",
+    "catLabel": "Troubles Psy",
+    "duration": "5 min",
+    "testUrl": "tests/comment-survivre-a-une-rupture-quiz.html",
+    "articleUrl": "articles/comment-survivre-a-une-rupture/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bzakf1la4sc2lmdxxnah",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "styles-attachement-quiz",
     "title": "Styles d'attachement : anxieux, évitant, sécure ?",
     "desc": "Pourquoi certaines personnes ont besoin de réassurance constante, d'autres prennent leurs distances dès que ça devient sérieux, et d'autres…",

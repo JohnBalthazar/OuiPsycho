@@ -1,5 +1,31 @@
 [
   {
+    "id": "comment-survivre-a-une-rupture",
+    "title": "Comment survivre à une rupture ?",
+    "type": "article",
+    "excerpt": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du deuil amoureux et des façons concrètes de s'en relever.",
+    "date": "2026-11-15",
+    "date_modified": "2026-11-15",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/bzakf1la4sc2lmdxxnah",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 8,
+    "author": "John Balthazar",
+    "tags": [
+      "rupture",
+      "deuil-amoureux",
+      "chagrin-amour",
+      "resilience",
+      "neurosciences"
+    ],
+    "metaDescription": "Pourquoi une rupture fait-elle si mal ? Neurosciences du chagrin d'amour, étapes du deuil amoureux et conseils concrets pour retrouver son équilibre.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "autisme-adulte-diagnostic-tardif",
     "title": "Autisme diagnostiqué à l'âge adulte : le soulagement et l'après",
     "type": "article",
