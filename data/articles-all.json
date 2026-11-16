@@ -3204,7 +3204,7 @@
     "id": "tcc-insomnie-restriction-sommeil",
     "title": "TCC de l'insomnie : la restriction de sommeil expliquée",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Dormir moins pour dormir mieux : la restriction de sommeil est la technique la plus contre-intuitive de la TCC de l'insomnie — et l'une des plus efficaces. Voici comment elle fonctionne, étape par étape.",
     "date": "2026-11-16",
     "date_modified": "2026-11-16",
     "category": "Sommeil",
@@ -3222,13 +3222,13 @@
       "tcc-i",
       "restriction-de-sommeil"
     ],
-    "metaDescription": "",
+    "metaDescription": "Restriction de sommeil (TCC-I) : protocole de Spielman étape par étape, calcul de l'efficacité du sommeil, et comment l'appliquer sans se décourager.",
     "articles_lies": [
       "vaincre-insomnie",
       "bien-dormir-guide-complet",
       "se-reveiller-3h-du-matin"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "comment-survivre-a-une-rupture",
