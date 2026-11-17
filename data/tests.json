@@ -1,5 +1,19 @@
 [
   {
+    "id": "freud-sur-le-divan-quiz",
+    "title": "Freud sur le divan : psychologie d'un psychanalyste",
+    "desc": "Il a inventé la cure par la parole et disséqué l'âme des autres toute sa vie. Et si on rendait la politesse à Sigmund Freud en l'allongeant…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/freud-sur-le-divan-quiz.html",
+    "articleUrl": "articles/freud-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/mydgmwbp3dkqtxo77k26",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "comment-survivre-a-une-rupture-quiz",
     "title": "Comment survivre à une rupture ?",
     "desc": "Une rupture peut faire physiquement mal — et c'est neurologiquement vrai. Voici ce que la science dit du chagrin d'amour, des étapes du…",
@@ -122,7 +136,7 @@
     "testUrl": "tests/hpi-tdah-confusion-diagnostic-quiz.html",
     "articleUrl": "articles/hpi-tdah-confusion-diagnostic/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cvzf932ovnvdwvehujgo",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
