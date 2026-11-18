@@ -3148,7 +3148,7 @@
     "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
     "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Votre cerveau est une machine à parier sur la note suivante. Vos goûts se sont figés vers 17 ans. Et détester un genre en dit souvent plus long sur vous que l'aimer. Petite enquête sur le plus intime des snobismes.",
     "date": "2026-11-18",
     "date_modified": "2026-11-18",
     "category": "Relations",
@@ -3167,11 +3167,11 @@
       "identite",
       "psychologie-sociale"
     ],
-    "metaDescription": "",
+    "metaDescription": "Prédiction, dopamine, souvenirs d'adolescence et distinction sociale : ce que la science dit vraiment de nos goûts musicaux et de nos rejets.",
     "articles_lies": [
       "se-remettre-d-une-rupture-amoureuse"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "freud-sur-le-divan",
