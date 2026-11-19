@@ -1,5 +1,31 @@
 [
   {
+    "id": "experience-mort-imminente-science",
+    "title": "Expérience de mort imminente : que dit la science ?",
+    "type": "article",
+    "excerpt": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on vraiment ?",
+    "date": "2026-11-19",
+    "date_modified": "2026-11-19",
+    "category": "Troubles Psy",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/skfazrh3nfufrtaeckf9",
+    "imagePosition": "50% 50%",
+    "imageZoom": 1,
+    "imageGravity": "none",
+    "imageLayout": "top",
+    "readTime": 7,
+    "author": "John Balthazar",
+    "tags": [
+      "experience-mort-imminente",
+      "neurosciences",
+      "conscience",
+      "mort",
+      "psychologie"
+    ],
+    "metaDescription": "Expériences de mort imminente (EMI) : témoignages, hypothèses neuroscientifiques et débats. Ce que la science sait — et ignore encore — de ce phénomène fascinant.",
+    "articles_lies": [],
+    "status": "published"
+  },
+  {
     "id": "pourquoi-aime-t-on-telle-ou-telle-musique",
     "title": "Pourquoi aime-t-on telle ou telle musique (et déteste-t-on certaines musiques) ?",
     "type": "article",
