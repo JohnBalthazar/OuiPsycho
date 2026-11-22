@@ -3063,7 +3063,7 @@
     "id": "tdah-amenagements-travail-rqth",
     "title": "TDAH au travail : RQTH, aménagements de poste, ce qui existe vraiment",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Télétravail, casque antibruit, outils de gestion visuelle des tâches : le TDAH ouvre droit à de vrais aménagements professionnels, largement méconnus. Ce qu'il faut savoir pour les obtenir.",
     "date": "2026-11-22",
     "date_modified": "2026-11-22",
     "category": "Travail",
@@ -3082,13 +3082,13 @@
       "amenagement-de-poste",
       "mdph"
     ],
-    "metaDescription": "",
+    "metaDescription": "TDAH et travail : RQTH, démarche MDPH, aménagements de poste concrets et financement AGEFIPH — le guide pratique des droits existants.",
     "articles_lies": [
       "tdah-adulte-commencer-sans-jamais-finir",
       "meilleurs-livres-tdah-comparatif",
       "diagnostic-tdah-france"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "applications-gratuites-sante-mentale",
