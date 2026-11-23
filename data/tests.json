@@ -122,7 +122,7 @@
     "testUrl": "tests/arsene-lupin-divan-quiz.html",
     "articleUrl": "articles/arsene-lupin-divan/",
     "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/uxkggmewlia5antsrpzg",
-    "isNew": true,
+    "isNew": false,
     "status": "published"
   },
   {
