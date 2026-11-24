@@ -1,5 +1,19 @@
 [
   {
+    "id": "inspecteur-gadget-sur-le-divan-quiz",
+    "title": "Inspecteur Gadget sur le divan : psychologie d'un inspecteur en 2D",
+    "desc": "Il fonce, il gaffe, il triomphe — sans jamais rien comprendre. Mais qui résout vraiment les enquêtes de l'Inspecteur Gadget ? Derrière le…",
+    "emoji": "🦸",
+    "color": "#1F4E6B",
+    "catLabel": "Nos héros sur le divan",
+    "duration": "5 min",
+    "testUrl": "tests/inspecteur-gadget-sur-le-divan-quiz.html",
+    "articleUrl": "articles/inspecteur-gadget-sur-le-divan/",
+    "image": "https://res.cloudinary.com/druutw29p/image/upload/f_auto,q_auto,w_1200/ouipsycho/articles/cbke4d2rav4pkcbecvbc",
+    "isNew": true,
+    "status": "published"
+  },
+  {
     "id": "experience-mort-imminente-science-quiz",
     "title": "Expérience de mort imminente : que dit la science ?",
     "desc": "Tunnel de lumière, décorporation, paix absolue… Les expériences de mort imminente intriguent. Entre neurosciences et mystère, que sait-on…",
