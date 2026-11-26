@@ -2979,7 +2979,7 @@
     "id": "hygiene-de-sommeil",
     "title": "Hygiène de sommeil : les 10 règles qui changent tout",
     "type": "article",
-    "excerpt": "",
+    "excerpt": "Avant les techniques sophistiquées, il y a les fondamentaux. Recommandées par les médecins du sommeil, ces règles simples ont un effet démontré sur la qualité des nuits — et coûtent beaucoup moins cher qu'un somnifère.",
     "date": "2026-11-26",
     "date_modified": "2026-11-26",
     "category": "Sommeil",
@@ -2997,13 +2997,13 @@
       "insomnie",
       "rythme-circadien"
     ],
-    "metaDescription": "",
+    "metaDescription": "Hygiène de sommeil : les règles essentielles recommandées par les médecins du sommeil pour améliorer durablement la qualité de vos nuits.",
     "articles_lies": [
       "bien-dormir-guide-complet",
       "ecrans-lumiere-bleue-sommeil",
       "chronotype-matin-soir"
     ],
-    "status": "scheduled"
+    "status": "published"
   },
   {
     "id": "difference-de-libido-quand-le-couple-craque",
